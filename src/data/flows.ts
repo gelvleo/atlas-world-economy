@@ -3,6 +3,56 @@ import type { MoneyFlow, EraKey } from '../types';
 // Потоки денег — ориентировочные оценки масштабов, не платёжный баланс.
 
 export const FLOWS: MoneyFlow[] = [
+  {
+    id: 'f-software-agents',
+    from: 'software_engineering',
+    to: 'agent_platforms',
+    value: 'проектные бюджеты и интеграции',
+    valueNum: 140,
+    label: 'инженерия агентских систем',
+    description: 'Компании платят за проектирование, интеграцию и эксплуатацию агентских систем. Основная маржа постепенно уходит от часов к результату и надёжности.',
+    era: 'e2026'
+  },
+  {
+    id: 'f-health-data',
+    from: 'healthtech',
+    to: 'data',
+    value: 'цифровые клинические данные',
+    valueNum: 90,
+    label: 'данные здоровья',
+    description: 'Healthtech создаёт и структурирует данные, которые становятся входом для диагностики, исследований и персонального сопровождения.',
+    era: 'e2026'
+  },
+  {
+    id: 'f-femtech-health',
+    from: 'femtech',
+    to: 'healthtech',
+    value: 'вертикальные продукты и care',
+    valueNum: 35,
+    label: 'женское здоровье в digital health',
+    description: 'Femtech превращает недообслуженные потребности женского здоровья в отдельные продукты, сервисы и потоки данных.',
+    era: 'e2026'
+  },
+  {
+    id: 'f-longevity-care',
+    from: 'longevity',
+    to: 'healthcare',
+    value: 'превентивное сопровождение',
+    valueNum: 55,
+    label: 'управляемое долголетие',
+    description: 'Рынок движется от лечения эпизода к регулярному измерению рисков, профилактике и сопровождению поведения.',
+    era: 'e2026'
+  },
+  {
+    id: 'f-mental-health',
+    from: 'mental_health',
+    to: 'healthcare',
+    value: 'цифровая поддержка и терапия',
+    valueNum: 70,
+    label: 'mental health care delivery',
+    description: 'Цифровые сервисы расширяют доступ к навигации, поддержке и терапии, но требуют клинических границ и безопасности.',
+    era: 'e2026'
+  },
   // Торговля товарами
   {
     id: 'f-chip-usa',
