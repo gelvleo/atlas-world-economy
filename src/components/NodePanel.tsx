@@ -38,16 +38,11 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   return (
     <div className="panel-overlay" onClick={onClose}>
       <aside className="panel" onClick={(e) => e.stopPropagation()}>
-        <button className="panel-close" onClick={onClose} aria-label="Закрыть">
-          ✕
-        </button>
+        <button className="panel-close" onClick={onClose} aria-label="Закрыть">✕</button>
         <div className="panel-head">
           <span className="panel-emoji">{node.emoji}</span>
           <div>
-            <span
-              className="kind-badge"
-              style={{ background: KIND_COLOR[node.kind] + '22', color: KIND_COLOR[node.kind] }}
-            >
+            <span className="kind-badge" style={{ background: KIND_COLOR[node.kind] + '22', color: KIND_COLOR[node.kind] }}>
               {KIND_LABEL[node.kind]}
             </span>
             <h2>{node.name}</h2>
@@ -66,23 +61,38 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
           </ul>
         </div>
 
+        {node.evidence && node.evidence.length > 0 && (
+          <div className="panel-block evidence-block">
+            <h3>Источники и периметр</h3>
+            <div className="evidence-list">
+              {node.evidence.map((source) => (
+                <div className="evidence-card" key={source.id}>
+                  <div className="evidence-head">
+                    <a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
+                    <span className={`evidence-kind ${source.kind}`}>{source.kind}</span>
+                  </div>
+                  <div className="evidence-date">{source.date}</div>
+                  {source.metric && <div className="evidence-metric">{source.metric}</div>}
+                  {source.scope && <div className="evidence-scope">Периметр: {source.scope}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {(flowsIn.length > 0 || flowsOut.length > 0) && (
           <div className="panel-block">
             <h3>Потоки денег</h3>
             {flowsOut.map((f) => (
               <button key={f.id} className="link-row" onClick={() => goTo('flows')}>
                 <span className="arrow out">→</span>
-                <span>
-                  <strong>{f.label}</strong> в {NODE_MAP[f.to]?.name ?? f.to} · {f.value}
-                </span>
+                <span><strong>{f.label}</strong> в {NODE_MAP[f.to]?.name ?? f.to} · {f.value}</span>
               </button>
             ))}
             {flowsIn.map((f) => (
               <button key={f.id} className="link-row" onClick={() => goTo('flows')}>
                 <span className="arrow in">←</span>
-                <span>
-                  <strong>{f.label}</strong> из {NODE_MAP[f.from]?.name ?? f.from} · {f.value}
-                </span>
+                <span><strong>{f.label}</strong> из {NODE_MAP[f.from]?.name ?? f.from} · {f.value}</span>
               </button>
             ))}
           </div>
@@ -118,9 +128,7 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
                 </div>
               ))}
             </div>
-            <button className="ghost-btn" onClick={() => goTo('timeline')}>
-              Открыть динамику услуг →
-            </button>
+            <button className="ghost-btn" onClick={() => goTo('timeline')}>Открыть динамику услуг →</button>
           </div>
         )}
 
@@ -129,12 +137,8 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
             <h3>Влияние ИИ</h3>
             {aiHere.map((a) => (
               <button key={a.id} className="link-row" onClick={() => goTo('ai')}>
-                <span className="arrow">
-                  {a.direction === 'up' ? '📈' : a.direction === 'down' ? '📉' : '🔄'}
-                </span>
-                <span>
-                  <strong>{a.title}</strong> · влияние {a.magnitude}
-                </span>
+                <span className="arrow">{a.direction === 'up' ? '📈' : a.direction === 'down' ? '📉' : '🔄'}</span>
+                <span><strong>{a.title}</strong> · влияние {a.magnitude}</span>
               </button>
             ))}
           </div>
