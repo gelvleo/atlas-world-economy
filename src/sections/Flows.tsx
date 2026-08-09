@@ -1,6 +1,33 @@
-import { useMemo, useState } from 'react';
-import type { SectionId } from '../types';
-import { NODE_MAP } from '../data/nodes';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from 'react';
+import {
+  Background,
+  BackgroundVariant,
+  Controls,
+  Handle,
+  MarkerType,
+  MiniMap,
+  Panel,
+  Position,
+  ReactFlow,
+  ReactFlowProvider,
+  useEdgesState,
+  useNodesState,
+  useReactFlow,
+  type Edge,
+  type Node,
+  type NodeProps,
+} from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+import type { NodeKind, SectionId } from '../types';
+import { KIND_COLOR, KIND_LABEL, NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS, FLOW_ERA_FILTER } from '../data/flows';
 
 interface Props {
@@ -8,190 +35,716 @@ interface Props {
   goTo: (s: SectionId) => void;
 }
 
-export default function Flows({ openNode, goTo }: Props) {
-  const [era, setEra] = useState<string>('all');
-  const [activeFlow, setActiveFlow] = useState<string | null>(null);
-  const [hoverNode, setHoverNode] = useState<string | null>(null);
+/* ─────────────────────────── константы раскладки ─────────────────────────── */
 
-  const flows = useMemo(
+const KIND_ORDER: NodeKind[] = ['country', 'sector', 'product', 'service', 'tech'];
+
+const GROUP_LABEL: Record<NodeKind, string> = {
+  country: 'Страны',
+  sector: 'Сектора',
+  product: 'Продукты',
+  service: 'Услуги',
+  tech: 'Технологии',
+};
+
+const GROUP_EMOJI: Record<NodeKind, string> = {
+  country: '🌍',
+  sector: '🏭',
+  product: '📦',
+  service: '🤝',
+  tech: '⚡',
+};
+
+const GROUP_X = 400; // колонка групп
+const LEAF_X = 740; // колонка узлов
+const LEAF_STEP = 84; // вертикальный шаг между узлами
+const GROUP_GAP = 56; // зазор между группами
+
+/* ─────────────────────────── данные внутри node.data ─────────────────────────── */
+
+interface MindData {
+  nid?: string;
+  label: string;
+  emoji?: string;
+  color: string;
+  kind?: NodeKind;
+  value?: string;
+  description?: string;
+  count?: number;
+  collapsed?: boolean;
+  subtitle?: string;
+  tipBelow?: boolean;
+}
+
+const asData = (d: unknown): MindData => (d ?? {}) as MindData;
+
+/* Контекст подсветки (hover/поиск): узлы читают его без пересборки массива
+   nodes, поэтому перетаскивание узлов не сбрасывается при наведении. */
+interface MindCtxValue {
+  hover: string | null;
+  hoverKind?: NodeKind;
+  matches: Set<string> | null;
+  matchKinds: Set<NodeKind>;
+  neighbors: Map<string, Set<string>>;
+}
+
+const MindCtx = createContext<MindCtxValue>({
+  hover: null,
+  matches: null,
+  matchKinds: new Set(),
+  neighbors: new Map(),
+});
+
+/* ─────────────────────────── кастомные узлы ─────────────────────────── */
+
+function LeafNode({ data, selected }: NodeProps) {
+  const d = asData(data);
+  const { hover, matches, neighbors } = useContext(MindCtx);
+  const nid = d.nid ?? '';
+
+  let cls = 'mm-leaf';
+  if (selected) cls += ' is-selected';
+  if (matches) {
+    cls += matches.has(nid) ? ' is-match' : ' is-dim';
+  } else if (hover) {
+    if (hover === nid) cls += ' is-focus';
+    else if (!neighbors.get(hover)?.has(nid)) cls += ' is-dim';
+  }
+
+  return (
+    <div className={cls} style={{ borderColor: d.color }}>
+      <Handle type="target" position={Position.Left} className="mm-handle" />
+      <span className="mm-emoji">{d.emoji}</span>
+      <span className="mm-body">
+        <span className="mm-name">{d.label}</span>
+        {d.value && <span className="mm-val">{d.value}</span>}
+      </span>
+      <Handle type="source" position={Position.Right} className="mm-handle" />
+      {hover === nid && (
+        <div className={'mm-tip' + (d.tipBelow ? ' mm-tip-below' : '')}>
+          <b>
+            {d.emoji} {d.label}
+          </b>
+          {d.value && <em>{d.value}</em>}
+          <p>{d.description}</p>
+          <span className="mm-tip-foot">
+            {d.kind ? KIND_LABEL[d.kind] : 'узел'} · клик откроет карточку
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function GroupNode({ data, selected }: NodeProps) {
+  const d = asData(data);
+  const { hover, hoverKind, matches, matchKinds } = useContext(MindCtx);
+
+  let cls = 'mm-group' + (selected ? ' is-selected' : '') + (d.collapsed ? ' is-collapsed' : '');
+  if (matches) {
+    if (!d.kind || !matchKinds.has(d.kind)) cls += ' is-dim';
+  } else if (hover && d.kind && hoverKind !== d.kind) {
+    cls += ' is-dim';
+  }
+
+  return (
+    <div className={cls} style={{ borderColor: d.color }}>
+      <Handle type="target" position={Position.Left} className="mm-handle" />
+      <span className="mm-emoji">{d.emoji}</span>
+      <span className="mm-body">
+        <span className="mm-name">{d.label}</span>
+        <span className="mm-val">{d.collapsed ? 'клик — раскрыть' : 'клик — свернуть'}</span>
+      </span>
+      <span className="mm-count">{d.count}</span>
+      <span className="mm-caret">{d.collapsed ? '▸' : '▾'}</span>
+      <Handle type="source" position={Position.Right} className="mm-handle" />
+    </div>
+  );
+}
+
+function RootNode({ data }: NodeProps) {
+  const d = asData(data);
+  return (
+    <div className="mm-root">
+      <Handle type="source" position={Position.Right} className="mm-handle mm-handle-root" />
+      <b>
+        {d.emoji} {d.label}
+      </b>
+      <span>{d.subtitle}</span>
+    </div>
+  );
+}
+
+const nodeTypes = {
+  root: RootNode,
+  group: GroupNode,
+  eco: LeafNode,
+};
+
+/* ─────────────────────────── основная логика ─────────────────────────── */
+
+function FlowsMindmap({ openNode, goTo }: Props) {
+  const rf = useReactFlow();
+
+  const [kindFilter, setKindFilter] = useState<NodeKind | 'all'>('all');
+  const [era, setEra] = useState<string>('all');
+  const [onlyFlows, setOnlyFlows] = useState(false);
+  const [showRelated, setShowRelated] = useState(true);
+  const [search, setSearch] = useState('');
+  const [collapsed, setCollapsed] = useState<Set<NodeKind>>(new Set());
+  const [hoverNode, setHoverNode] = useState<string | null>(null);
+  const [selectedFlow, setSelectedFlow] = useState<string | null>(null);
+
+  /* Потоки с учётом фильтра по эпохе */
+  const eraFlows = useMemo(
     () => FLOWS.filter((f) => era === 'all' || (f.era ?? 'e2026') === era),
     [era]
   );
 
-  // Уникальные узлы-участники отфильтрованных потоков
-  const nodeIds = useMemo(() => {
-    const ids = new Set<string>();
-    flows.forEach((f) => {
-      ids.add(f.from);
-      ids.add(f.to);
+  /* Узлы, проходящие фильтры (тип / только участники потоков) */
+  const visibleNodes = useMemo(() => {
+    const participants = new Set<string>();
+    eraFlows.forEach((f) => {
+      participants.add(f.from);
+      participants.add(f.to);
     });
-    return [...ids];
-  }, [flows]);
+    return NODES.filter((n) => {
+      if (kindFilter !== 'all' && n.kind !== kindFilter) return false;
+      if (onlyFlows && !participants.has(n.id)) return false;
+      return true;
+    });
+  }, [kindFilter, onlyFlows, eraFlows]);
 
-  const isRelated = (nodeId: string) => {
-    if (activeFlow) {
-      const f = FLOWS.find((x) => x.id === activeFlow);
-      return f ? f.from === nodeId || f.to === nodeId : false;
+  /* Поиск: совпадения по имени и тегам (подсвечиваем, остальное гасим) */
+  const matches = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return null;
+    return new Set(
+      visibleNodes
+        .filter(
+          (n) =>
+            n.name.toLowerCase().includes(q) ||
+            (n.tags ?? []).some((t) => t.toLowerCase().includes(q))
+        )
+        .map((n) => n.id)
+    );
+  }, [search, visibleNodes]);
+
+  const matchKinds = useMemo(() => {
+    const s = new Set<NodeKind>();
+    if (matches) {
+      matches.forEach((id) => {
+        const k = NODE_MAP[id]?.kind;
+        if (k) s.add(k);
+      });
     }
-    if (hoverNode) {
-      return flows.some((f) => (f.from === hoverNode || f.to === hoverNode) && (f.from === nodeId || f.to === nodeId));
+    return s;
+  }, [matches]);
+
+  /* Поиск автоматически раскрывает группы, в которых есть совпадения */
+  useEffect(() => {
+    if (!matches || matches.size === 0) return;
+    setCollapsed((prev) => {
+      let changed = false;
+      const next = new Set(
+        [...prev].filter((k) => {
+          if (matchKinds.has(k)) {
+            changed = true;
+            return false;
+          }
+          return true;
+        })
+      );
+      return changed ? next : prev;
+    });
+  }, [matches, matchKinds]);
+
+  /* Группы по kind с отсортированными по valueNum листьями */
+  const groups = useMemo(() => {
+    const byKind = new Map<NodeKind, typeof NODES>();
+    KIND_ORDER.forEach((k) => byKind.set(k, []));
+    visibleNodes.forEach((n) => byKind.get(n.kind)!.push(n));
+    KIND_ORDER.forEach((k) =>
+      byKind.get(k)!.sort((a, b) => (b.valueNum ?? 0) - (a.valueNum ?? 0))
+    );
+    return KIND_ORDER.map((kind) => ({ kind, leaves: byKind.get(kind)! })).filter(
+      (g) => g.leaves.length > 0
+    );
+  }, [visibleNodes]);
+
+  /* Идентификаторы узлов, которые реально видны (группа раскрыта) */
+  const openLeafIds = useMemo(() => {
+    const s = new Set<string>();
+    groups.forEach((g) => {
+      if (!collapsed.has(g.kind)) g.leaves.forEach((n) => s.add(n.id));
+    });
+    return s;
+  }, [groups, collapsed]);
+
+  /* ── УЗЛЫ: корень → группы → листья (ручная mindmap-раскладка) ── */
+  const layoutNodes = useMemo(() => {
+    const nodes: Node[] = [];
+
+    let cursorY = 0;
+    const blocks = groups.map((g) => {
+      const open = !collapsed.has(g.kind);
+      const height = open ? Math.max(1, g.leaves.length) * LEAF_STEP - 22 : 66;
+      const block = { ...g, open, top: cursorY, height };
+      cursorY += height + GROUP_GAP;
+      return block;
+    });
+    const totalH = Math.max(0, cursorY - GROUP_GAP);
+    const rootY = totalH / 2 - 42;
+
+    nodes.push({
+      id: 'root',
+      type: 'root',
+      position: { x: 0, y: rootY },
+      draggable: false,
+      selectable: false,
+      data: {
+        label: 'Мировая экономика',
+        emoji: '🌐',
+        color: '#6c5ce7',
+        subtitle: `${visibleNodes.length} узлов · ${eraFlows.length} потоков`,
+      },
+    });
+
+    blocks.forEach((g) => {
+      const gid = `group-${g.kind}`;
+      const color = KIND_COLOR[g.kind];
+      nodes.push({
+        id: gid,
+        type: 'group',
+        position: { x: GROUP_X, y: g.top + g.height / 2 - 31 },
+        draggable: false,
+        data: {
+          label: GROUP_LABEL[g.kind],
+          emoji: GROUP_EMOJI[g.kind],
+          color,
+          kind: g.kind,
+          count: g.leaves.length,
+          collapsed: !g.open,
+        },
+      });
+
+      if (g.open) {
+        g.leaves.forEach((n, i) => {
+          const y = g.top + i * LEAF_STEP;
+          nodes.push({
+            id: n.id,
+            type: 'eco',
+            position: { x: LEAF_X, y },
+            data: {
+              nid: n.id,
+              label: n.name,
+              emoji: n.emoji,
+              color: n.color ?? color,
+              kind: n.kind,
+              value: n.value,
+              description: n.description,
+              tipBelow: y < 130,
+            },
+          });
+        });
+      }
+    });
+
+    return nodes;
+  }, [groups, collapsed, visibleNodes.length, eraFlows.length]);
+
+  /* ── СВЯЗИ: иерархия + потоки денег + related ── */
+  const edgesData = useMemo(() => {
+    const edges: Edge[] = [];
+    const neighbors = new Map<string, Set<string>>();
+    const link = (a: string, b: string) => {
+      if (!neighbors.has(a)) neighbors.set(a, new Set());
+      if (!neighbors.has(b)) neighbors.set(b, new Set());
+      neighbors.get(a)!.add(b);
+      neighbors.get(b)!.add(a);
+    };
+
+    // Иерархия: корень → группа → узел
+    groups.forEach((g) => {
+      const gid = `group-${g.kind}`;
+      const color = KIND_COLOR[g.kind];
+      edges.push({
+        id: `root-${g.kind}`,
+        source: 'root',
+        target: gid,
+        style: { stroke: color, strokeWidth: 2.5, opacity: 0.85 },
+      });
+      if (!collapsed.has(g.kind)) {
+        g.leaves.forEach((n) => {
+          edges.push({
+            id: `grp-${g.kind}-${n.id}`,
+            source: gid,
+            target: n.id,
+            style: { stroke: color, strokeWidth: 1.5, opacity: 0.55 },
+          });
+        });
+      }
+    });
+
+    // Потоки денег: from → to, подпись = label + объём, толщина по valueNum
+    eraFlows.forEach((f, i) => {
+      if (!openLeafIds.has(f.from) || !openLeafIds.has(f.to)) return;
+      const isOld = (f.era ?? 'e2026') === 'e2010';
+      const base = isOld ? '#d9a03d' : '#6c5ce7';
+      const w = 1.5 + Math.min(6, Math.sqrt(f.valueNum ?? 30) / 3.2);
+      const touched = hoverNode !== null && (f.from === hoverNode || f.to === hoverNode);
+      const opacity = hoverNode
+        ? touched
+          ? 1
+          : 0.1
+        : matches
+          ? matches.has(f.from) || matches.has(f.to)
+            ? 0.95
+            : 0.12
+          : 0.82;
+      edges.push({
+        id: `flow-${f.id}`,
+        source: f.from,
+        target: f.to,
+        label: `${f.label}${f.valueNum ? ` · $${f.valueNum} млрд` : ''}`,
+        labelStyle: { fill: '#43396b', fontSize: 10.5, fontWeight: 700 },
+        labelBgStyle: { fill: '#ffffff', fillOpacity: 0.92 },
+        labelBgPadding: [7, 4] as [number, number],
+        labelBgBorderRadius: 9,
+        markerEnd: { type: MarkerType.ArrowClosed, color: base, width: 15, height: 15 },
+        style: { stroke: base, strokeWidth: touched ? w + 1 : w, opacity },
+        data: { flowId: f.id },
+      });
+      link(f.from, f.to);
+    });
+
+    // Related-связи между узлами (дедупликация пар, тонкий пунктир)
+    if (showRelated) {
+      const seen = new Set<string>();
+      openLeafIds.forEach((id) => {
+        const n = NODE_MAP[id];
+        if (!n) return;
+        n.related.forEach((r) => {
+          if (!openLeafIds.has(r)) return;
+          const key = [id, r].sort().join('|');
+          if (seen.has(key)) return;
+          seen.add(key);
+          const touched = hoverNode !== null && (id === hoverNode || r === hoverNode);
+          const opacity = hoverNode
+            ? touched
+              ? 0.9
+              : 0.08
+            : matches
+              ? matches.has(id) || matches.has(r)
+                ? 0.5
+                : 0.08
+              : 0.3;
+          edges.push({
+            id: `rel-${key}`,
+            source: id,
+            target: r,
+            style: {
+              stroke: '#7c89ad',
+              strokeWidth: touched ? 1.8 : 1,
+              strokeDasharray: '5 4',
+              opacity,
+            },
+          });
+          link(id, r);
+        });
+      });
     }
-    return true;
-  };
 
-  const W = 900;
-  const H = Math.max(520, nodeIds.length * 56);
-  const leftIds = nodeIds.filter((_, i) => i % 2 === 0);
-  const rightIds = nodeIds.filter((_, i) => i % 2 === 1);
+    // Приглушаем иерархию, не относящуюся к hover/поиску
+    const hoverKind = hoverNode ? NODE_MAP[hoverNode]?.kind : undefined;
+    const finalEdges = edges.map((e) => {
+      const isHier = e.id.startsWith('root-') || e.id.startsWith('grp-');
+      if (!isHier) return e;
+      let keep = true;
+      if (hoverNode) {
+        const nb = neighbors.get(hoverNode);
+        keep =
+          e.source === hoverNode ||
+          e.target === hoverNode ||
+          e.source === `group-${hoverKind}` ||
+          e.target === `group-${hoverKind}` ||
+          (nb ? nb.has(e.source) || nb.has(e.target) : false);
+      } else if (matches) {
+        keep =
+          matches.has(e.target) ||
+          (e.id.startsWith('root-') && matchKinds.has(e.target.replace('group-', '') as NodeKind)) ||
+          (e.id.startsWith('grp-') && matchKinds.has(e.source.replace('group-', '') as NodeKind));
+      }
+      if (keep) return e;
+      return { ...e, style: { ...(e.style ?? {}), opacity: 0.1 } };
+    });
 
-  const pos = (id: string): { x: number; y: number } => {
-    const li = leftIds.indexOf(id);
-    if (li >= 0) return { x: 130, y: 70 + (li * (H - 140)) / Math.max(1, leftIds.length - 1) };
-    const ri = rightIds.indexOf(id);
-    return { x: W - 130, y: 70 + (ri * (H - 140)) / Math.max(1, rightIds.length - 1) };
-  };
+    return { edges: finalEdges, neighbors };
+  }, [groups, collapsed, openLeafIds, eraFlows, hoverNode, matches, matchKinds, showRelated]);
 
-  const flowOpacity = (id: string) => {
-    if (activeFlow) return activeFlow === id ? 0.95 : 0.12;
-    if (hoverNode) {
-      const f = FLOWS.find((x) => x.id === id);
-      return f && (f.from === hoverNode || f.to === hoverNode) ? 0.95 : 0.15;
-    }
-    return 0.55;
-  };
+  /* Синхронизация производного графа с состоянием React Flow */
+  const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
+  useEffect(() => {
+    setNodes(layoutNodes);
+  }, [layoutNodes, setNodes]);
+
+  useEffect(() => {
+    setEdges(edgesData.edges);
+  }, [edgesData.edges, setEdges]);
+
+  /* Fit view при изменении структуры графа (фильтры/коллапс) */
+  const layoutKey = useMemo(
+    () =>
+      [
+        kindFilter,
+        era,
+        onlyFlows,
+        showRelated,
+        [...collapsed].sort().join('+'),
+        [...openLeafIds].sort().join(','),
+      ].join('|'),
+    [kindFilter, era, onlyFlows, showRelated, collapsed, openLeafIds]
+  );
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      void rf.fitView({ padding: 0.15, duration: 350 });
+    }, 60);
+    return () => clearTimeout(t);
+  }, [layoutKey, rf]);
+
+  /* При поиске приближаем найденные узлы */
+  useEffect(() => {
+    if (!matches || matches.size === 0) return;
+    const t = setTimeout(() => {
+      void rf.fitView({
+        nodes: [...matches].map((id) => ({ id })),
+        padding: 0.35,
+        duration: 350,
+      });
+    }, 130);
+    return () => clearTimeout(t);
+  }, [matches, rf]);
+
+  /* ── обработчики ── */
+  const onNodeClick = useCallback(
+    (_: ReactMouseEvent, node: Node) => {
+      if (node.type === 'eco') {
+        openNode(node.id);
+      } else if (node.type === 'group') {
+        const k = asData(node.data).kind;
+        if (k) {
+          setCollapsed((prev) => {
+            const next = new Set(prev);
+            if (next.has(k)) next.delete(k);
+            else next.add(k);
+            return next;
+          });
+        }
+      } else if (node.type === 'root') {
+        setCollapsed(new Set());
+      }
+    },
+    [openNode]
+  );
+
+  const onNodeMouseEnter = useCallback((_: ReactMouseEvent, node: Node) => {
+    if (node.type === 'eco') setHoverNode(node.id);
+  }, []);
+
+  const onNodeMouseLeave = useCallback(() => setHoverNode(null), []);
+
+  const onEdgeClick = useCallback((_: ReactMouseEvent, edge: Edge) => {
+    const fid = (edge.data as { flowId?: string } | undefined)?.flowId;
+    if (fid) setSelectedFlow((cur) => (cur === fid ? null : fid));
+  }, []);
+
+  const resetFilters = useCallback(() => {
+    setKindFilter('all');
+    setEra('all');
+    setOnlyFlows(false);
+    setShowRelated(true);
+    setSearch('');
+    setCollapsed(new Set());
+    setSelectedFlow(null);
+  }, []);
+
+  const ctx = useMemo<MindCtxValue>(
+    () => ({
+      hover: hoverNode,
+      hoverKind: hoverNode ? NODE_MAP[hoverNode]?.kind : undefined,
+      matches,
+      matchKinds,
+      neighbors: edgesData.neighbors,
+    }),
+    [hoverNode, matches, matchKinds, edgesData.neighbors]
+  );
+
+  const selFlow = selectedFlow ? FLOWS.find((f) => f.id === selectedFlow) ?? null : null;
+  const selFrom = selFlow ? NODE_MAP[selFlow.from] : null;
+  const selTo = selFlow ? NODE_MAP[selFlow.to] : null;
+
+  return (
+    <MindCtx.Provider value={ctx}>
+      <div className="mm-toolbar">
+        <div className="filter-row">
+          <button
+            className={kindFilter === 'all' ? 'filter-btn active' : 'filter-btn'}
+            onClick={() => setKindFilter('all')}
+          >
+            Все типы
+          </button>
+          {KIND_ORDER.map((k) => (
+            <button
+              key={k}
+              className={kindFilter === k ? 'filter-btn active' : 'filter-btn'}
+              onClick={() => setKindFilter(k)}
+            >
+              {GROUP_EMOJI[k]} {GROUP_LABEL[k]}
+            </button>
+          ))}
+        </div>
+        <div className="filter-row">
+          {FLOW_ERA_FILTER.map((f) => (
+            <button
+              key={f.key}
+              className={era === f.key ? 'filter-btn active' : 'filter-btn'}
+              onClick={() => {
+                setEra(f.key);
+                setSelectedFlow(null);
+              }}
+            >
+              {f.label}
+            </button>
+          ))}
+          <span className="mm-sep" />
+          <button
+            className={onlyFlows ? 'filter-btn active' : 'filter-btn'}
+            onClick={() => setOnlyFlows((v) => !v)}
+          >
+            💸 Только с потоками
+          </button>
+          <button
+            className={showRelated ? 'filter-btn active' : 'filter-btn'}
+            onClick={() => setShowRelated((v) => !v)}
+          >
+            🔗 Related-связи
+          </button>
+          <span className="mm-sep" />
+          <input
+            className="mm-search"
+            placeholder="Поиск узла…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="filter-btn" onClick={resetFilters}>
+            Сбросить фильтры
+          </button>
+          <button
+            className="filter-btn"
+            onClick={() => void rf.fitView({ padding: 0.15, duration: 350 })}
+          >
+            🎯 Fit view
+          </button>
+        </div>
+      </div>
+
+      <div className="mm-canvas">
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onNodeClick={onNodeClick}
+          onNodeMouseEnter={onNodeMouseEnter}
+          onNodeMouseLeave={onNodeMouseLeave}
+          onEdgeClick={onEdgeClick}
+          nodeTypes={nodeTypes}
+          fitView
+          fitViewOptions={{ padding: 0.15 }}
+          minZoom={0.15}
+          maxZoom={2.2}
+          deleteKeyCode={null}
+        >
+          <Background
+            variant={BackgroundVariant.Dots}
+            gap={26}
+            size={1.5}
+            color="rgba(108, 92, 231, 0.16)"
+          />
+          <Controls showInteractive={false} />
+          <MiniMap
+            pannable
+            zoomable
+            nodeColor={(n) => asData(n.data).color || '#c7cdea'}
+            maskColor="rgba(238, 241, 251, 0.72)"
+          />
+
+          <Panel position="bottom-right" className="mm-legend">
+            <div>
+              <i className="mm-lg mm-lg-flow" /> поток денег (2026)
+            </div>
+            <div>
+              <i className="mm-lg mm-lg-old" /> поток 2010-х
+            </div>
+            <div>
+              <i className="mm-lg mm-lg-rel" /> related-связь
+            </div>
+            <div className="mm-legend-hint">клик по группе — свернуть/раскрыть · клик по стрелке — история потока</div>
+          </Panel>
+
+          {selFlow && (
+            <Panel position="bottom-left" className="mm-flowcard">
+              <div className="mm-flowcard-head">
+                <b>💸 {selFlow.label}</b>
+                <button onClick={() => setSelectedFlow(null)} aria-label="Закрыть">
+                  ✕
+                </button>
+              </div>
+              <div className="mm-flowcard-route">
+                <em onClick={() => openNode(selFlow.from)}>
+                  {selFrom?.emoji} {selFrom?.name}
+                </em>
+                <span> ⟶ </span>
+                <em onClick={() => openNode(selFlow.to)}>
+                  {selTo?.emoji} {selTo?.name}
+                </em>
+              </div>
+              <div className="mm-flowcard-value">{selFlow.value}</div>
+              <p>{selFlow.description}</p>
+            </Panel>
+          )}
+        </ReactFlow>
+      </div>
+
+      <div className="crossnav">
+        <button className="ghost-btn" onClick={() => goTo('chains')}>
+          Смотреть цепочки зависимостей →
+        </button>
+      </div>
+    </MindCtx.Provider>
+  );
+}
+
+/* ─────────────────────────── экспорт ─────────────────────────── */
+
+export default function Flows({ openNode, goTo }: Props) {
   return (
     <div className="section">
       <div className="section-head">
         <h1>💸 Потоки денег</h1>
         <p>
-          Кто кому платит и за что. Ширина линии — порядок объёма (оценка). Кликни по потоку, чтобы
-          прочитать его историю; клик по узлу откроет карточку со всеми его связями.
+          Интерактивная карта мировой экономики: корень → группы (страны, сектора, продукты,
+          услуги, технологии) → узлы. Цветные стрелки — потоки денег с подписью объёма, пунктир —
+          related-связи. Клик по узлу откроет его карточку, клик по группе свернёт или раскроет её,
+          клик по стрелке покажет историю потока. Наведение подсвечивает все связи узла.
         </p>
       </div>
-
-      <div className="filter-row">
-        {FLOW_ERA_FILTER.map((f) => (
-          <button
-            key={f.key}
-            className={era === f.key ? 'filter-btn active' : 'filter-btn'}
-            onClick={() => {
-              setEra(f.key);
-              setActiveFlow(null);
-            }}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
-
-      <div className="flow-wrap">
-        <div className="flow-svg-wrap">
-          <svg viewBox={`0 0 ${W} ${H}`} className="flow-svg">
-            {flows.map((f) => {
-              const a = pos(f.from);
-              const b = pos(f.to);
-              const mx = W / 2;
-              const w = Math.max(2, Math.min(14, (f.valueNum ?? 20) / 40));
-              const active = activeFlow === f.id;
-              return (
-                <g key={f.id}>
-                  <path
-                    d={`M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`}
-                    fill="none"
-                    stroke={active ? '#69f0ae' : '#5b7fb8'}
-                    strokeWidth={w}
-                    strokeOpacity={flowOpacity(f.id)}
-                    className="flow-path"
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => setActiveFlow(active ? null : f.id)}
-                  />
-                  <circle
-                    cx={b.x}
-                    cy={b.y}
-                    r={4}
-                    fill="#69f0ae"
-                    fillOpacity={flowOpacity(f.id)}
-                  />
-                </g>
-              );
-            })}
-            {nodeIds.map((id) => {
-              const n = NODE_MAP[id];
-              if (!n) return null;
-              const p = pos(id);
-              const dim = !isRelated(id);
-              const onLeft = leftIds.includes(id);
-              return (
-                <g
-                  key={id}
-                  className="flow-node"
-                  style={{ cursor: 'pointer', opacity: dim ? 0.35 : 1 }}
-                  onClick={() => openNode(id)}
-                  onMouseEnter={() => setHoverNode(id)}
-                  onMouseLeave={() => setHoverNode(null)}
-                >
-                  <rect
-                    x={onLeft ? p.x - 120 : p.x - 40}
-                    y={p.y - 26}
-                    width={160}
-                    height={52}
-                    rx={12}
-                    fill="#131c2e"
-                    stroke={n.color}
-                    strokeWidth={1.5}
-                  />
-                  <text
-                    x={onLeft ? p.x - 40 : p.x + 40}
-                    y={p.y - 4}
-                    textAnchor="middle"
-                    className="flow-node-emoji"
-                  >
-                    {n.emoji}
-                  </text>
-                  <text
-                    x={onLeft ? p.x - 40 : p.x + 40}
-                    y={p.y + 16}
-                    textAnchor="middle"
-                    className="flow-node-name"
-                  >
-                    {n.name.length > 20 ? n.name.slice(0, 19) + '…' : n.name}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
-        </div>
-
-        <div className="flow-list">
-          <h3>{activeFlow ? 'Выбранный поток' : 'Все потоки'}</h3>
-          {(activeFlow ? flows.filter((f) => f.id === activeFlow) : flows).map((f) => {
-            const from = NODE_MAP[f.from];
-            const to = NODE_MAP[f.to];
-            return (
-              <button
-                key={f.id}
-                className={activeFlow === f.id ? 'flow-card active' : 'flow-card'}
-                onClick={() => setActiveFlow(activeFlow === f.id ? null : f.id)}
-              >
-                <div className="flow-card-head">
-                  <span className="flow-route">
-                    <em onClick={(e) => { e.stopPropagation(); openNode(f.from); }}>{from?.emoji} {from?.name}</em>
-                    <span className="flow-arrow">⟶</span>
-                    <em onClick={(e) => { e.stopPropagation(); openNode(f.to); }}>{to?.emoji} {to?.name}</em>
-                  </span>
-                  <span className="flow-value">{f.value}</span>
-                </div>
-                <div className="flow-label">{f.label}</div>
-                {activeFlow === f.id && <p className="flow-desc">{f.description}</p>}
-              </button>
-            );
-          })}
-          <button className="ghost-btn" onClick={() => goTo('chains')}>
-            Смотреть цепочки зависимостей →
-          </button>
-        </div>
-      </div>
+      <ReactFlowProvider>
+        <FlowsMindmap openNode={openNode} goTo={goTo} />
+      </ReactFlowProvider>
     </div>
   );
 }
