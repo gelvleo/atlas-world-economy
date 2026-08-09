@@ -1,0 +1,124 @@
+/* ─── Flows: mindmap на React Flow ─── */
+.mm-toolbar { display: flex; flex-direction: column; gap: 2px; }
+.mm-sep { width: 1px; height: 22px; background: var(--glass-border); margin: 0 4px; align-self: center; }
+.mm-search {
+  padding: 9px 16px; border-radius: 999px; border: 1px solid var(--glass-border);
+  background: var(--glass); color: var(--text); font-size: 13px; outline: none;
+  box-shadow: var(--inset-shadow); width: 190px; transition: border-color .15s;
+}
+.mm-search::placeholder { color: var(--muted); }
+.mm-search:focus { border-color: var(--accent); }
+
+.mm-canvas {
+  margin-top: 14px; height: clamp(540px, 74vh, 860px); border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.38); backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+.mm-canvas .react-flow { background: transparent; }
+.mm-handle { width: 7px; height: 7px; background: #fff; border: 2px solid var(--accent); min-width: 0; min-height: 0; }
+.mm-handle-root { border-color: #6c5ce7; }
+
+.mm-leaf, .mm-group {
+  display: flex; align-items: center; gap: 8px; width: 214px; padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.86); border: 2px solid #cfd6ee; border-radius: 14px;
+  box-shadow: var(--shadow-sm); cursor: pointer; color: var(--text);
+  transition: box-shadow .15s, opacity .15s, background .15s;
+}
+.mm-leaf:hover { box-shadow: var(--shadow); background: rgba(255, 255, 255, 0.96); }
+.mm-leaf.is-selected, .mm-group.is-selected {
+  outline: 3px solid rgba(108, 92, 231, 0.35); outline-offset: 2px;
+}
+.mm-leaf.is-focus { background: #fff; box-shadow: 0 12px 28px rgba(108, 92, 231, 0.28); }
+.mm-leaf.is-dim, .mm-group.is-dim { opacity: 0.32; }
+.mm-leaf.is-match { outline: 3px solid rgba(108, 92, 231, 0.45); outline-offset: 2px; background: #fff; }
+
+.mm-group { width: 200px; background: rgba(255, 255, 255, 0.94); }
+.mm-group:hover { box-shadow: var(--shadow); }
+.mm-group.is-collapsed { border-style: dashed; }
+.mm-count {
+  margin-left: auto; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--grad); color: #fff; font-size: 12px; font-weight: 800;
+}
+.mm-caret { font-size: 11px; color: var(--muted); width: 10px; }
+
+.mm-root {
+  display: flex; flex-direction: column; gap: 3px; padding: 16px 20px;
+  background: var(--grad); border-radius: 18px; color: #fff;
+  box-shadow: 0 14px 34px rgba(108, 92, 231, 0.4); cursor: pointer; min-width: 190px;
+}
+.mm-root b { font-size: 16px; letter-spacing: .02em; }
+.mm-root span { font-size: 11.5px; opacity: .85; }
+
+.mm-emoji { font-size: 19px; flex: none; }
+.mm-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.mm-name {
+  font-size: 12.5px; font-weight: 700; line-height: 1.25; color: var(--text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 148px;
+}
+.mm-val {
+  font-size: 10.5px; color: var(--muted); line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 152px;
+}
+
+/* тултип с описанием узла */
+.mm-tip {
+  position: absolute; left: calc(100% + 12px); bottom: 0; z-index: 30; width: 264px;
+  padding: 12px 14px; border-radius: 14px; text-align: left; cursor: default;
+  background: rgba(255, 255, 255, 0.97); border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow); color: var(--text); pointer-events: none;
+}
+.mm-tip-below { bottom: auto; top: calc(100% + 10px); }
+.mm-tip b { display: block; font-size: 13px; margin-bottom: 2px; }
+.mm-tip em { display: block; font-size: 11.5px; color: var(--accent); font-style: normal; font-weight: 600; margin-bottom: 5px; }
+.mm-tip p { font-size: 12px; line-height: 1.5; color: var(--muted); margin-bottom: 6px; }
+.mm-tip-foot { font-size: 10.5px; color: var(--accent); font-weight: 600; }
+
+/* легенда */
+.mm-legend {
+  background: rgba(255, 255, 255, 0.85); border: 1px solid var(--glass-border);
+  border-radius: 14px; padding: 10px 14px; font-size: 11.5px; color: var(--text);
+  box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 4px;
+  max-width: 260px;
+}
+.mm-legend div { display: flex; align-items: center; gap: 8px; }
+.mm-lg { display: inline-block; width: 26px; height: 0; flex: none; }
+.mm-lg-flow { border-top: 3px solid #6c5ce7; }
+.mm-lg-old { border-top: 3px solid #d9a03d; }
+.mm-lg-rel { border-top: 2px dashed #7c89ad; }
+.mm-legend-hint { color: var(--muted); font-size: 10.5px; line-height: 1.45; margin-top: 3px; }
+
+/* карточка выбранного потока */
+.mm-flowcard {
+  width: min(380px, 88%); background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--glass-border); border-radius: 16px; padding: 14px 16px;
+  box-shadow: var(--shadow); color: var(--text); font-size: 13px;
+}
+.mm-flowcard-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.mm-flowcard-head b { font-size: 14px; }
+.mm-flowcard-head button {
+  border: none; background: none; cursor: pointer; color: var(--muted); font-size: 14px; padding: 2px 6px;
+}
+.mm-flowcard-head button:hover { color: var(--accent); }
+.mm-flowcard-route { margin-top: 6px; font-size: 12.5px; color: var(--text); line-height: 1.5; }
+.mm-flowcard-route em { font-style: normal; font-weight: 700; cursor: pointer; color: var(--accent); }
+.mm-flowcard-route em:hover { text-decoration: underline; }
+.mm-flowcard-value { margin-top: 4px; font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+.mm-flowcard p { margin-top: 8px; font-size: 12.5px; line-height: 1.55; color: var(--text); }
+
+/* реак-флоу: тёмные стандартные стили → светлая тема */
+.mm-canvas .react-flow__controls { box-shadow: var(--shadow-sm); border-radius: 12px; overflow: hidden; }
+.mm-canvas .react-flow__controls-button {
+  background: rgba(255, 255, 255, 0.92); border-bottom: 1px solid var(--glass-border);
+  color: var(--text); width: 28px; height: 28px;
+}
+.mm-canvas .react-flow__controls-button:hover { background: #fff; color: var(--accent); }
+.mm-canvas .react-flow__controls-button svg { fill: currentColor; }
+.mm-canvas .react-flow__attribution { background: rgba(255,255,255,.6); color: var(--muted); }
+.mm-canvas .react-flow__minimap { border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); }
+
+@media (max-width: 900px) {
+  .mm-canvas { height: 480px; }
+  .mm-search { width: 140px; }
+}
