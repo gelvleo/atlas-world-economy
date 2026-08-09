@@ -26,6 +26,7 @@ import {
   type NodeProps,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import './mindmap.css';
 import type { NodeKind, SectionId } from '../types';
 import { KIND_COLOR, KIND_LABEL, NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS, FLOW_ERA_FILTER } from '../data/flows';
@@ -34,8 +35,6 @@ interface Props {
   openNode: (id: string) => void;
   goTo: (s: SectionId) => void;
 }
-
-/* ─────────────────────────── константы раскладки ─────────────────────────── */
 
 const KIND_ORDER: NodeKind[] = ['country', 'sector', 'product', 'service', 'tech'];
 
@@ -55,12 +54,10 @@ const GROUP_EMOJI: Record<NodeKind, string> = {
   tech: '⚡',
 };
 
-const GROUP_X = 400; // колонка групп
-const LEAF_X = 740; // колонка узлов
-const LEAF_STEP = 84; // вертикальный шаг между узлами
-const GROUP_GAP = 56; // зазор между группами
-
-/* ─────────────────────────── данные внутри node.data ─────────────────────────── */
+const GROUP_X = 400;
+const LEAF_X = 740;
+const LEAF_STEP = 84;
+const GROUP_GAP = 56;
 
 interface MindData {
   nid?: string;
@@ -78,8 +75,6 @@ interface MindData {
 
 const asData = (d: unknown): MindData => (d ?? {}) as MindData;
 
-/* Контекст подсветки (hover/поиск): узлы читают его без пересборки массива
-   nodes, поэтому перетаскивание узлов не сбрасывается при наведении. */
 interface MindCtxValue {
   hover: string | null;
   hoverKind?: NodeKind;
@@ -94,8 +89,6 @@ const MindCtx = createContext<MindCtxValue>({
   matchKinds: new Set(),
   neighbors: new Map(),
 });
-
-/* ─────────────────────────── кастомные узлы ─────────────────────────── */
 
 function LeafNode({ data, selected }: NodeProps) {
   const d = asData(data);
@@ -181,8 +174,6 @@ const nodeTypes = {
   eco: LeafNode,
 };
 
-/* ─────────────────────────── основная логика ─────────────────────────── */
-
 function FlowsMindmap({ openNode, goTo }: Props) {
   const rf = useReactFlow();
 
@@ -195,13 +186,11 @@ function FlowsMindmap({ openNode, goTo }: Props) {
   const [hoverNode, setHoverNode] = useState<string | null>(null);
   const [selectedFlow, setSelectedFlow] = useState<string | null>(null);
 
-  /* Потоки с учётом фильтра по эпохе */
   const eraFlows = useMemo(
     () => FLOWS.filter((f) => era === 'all' || (f.era ?? 'e2026') === era),
     [era]
   );
 
-  /* Узлы, проходящие фильтры (тип / только участники потоков) */
   const visibleNodes = useMemo(() => {
     const participants = new Set<string>();
     eraFlows.forEach((f) => {
@@ -215,7 +204,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     });
   }, [kindFilter, onlyFlows, eraFlows]);
 
-  /* Поиск: совпадения по имени и тегам (подсвечиваем, остальное гасим) */
   const matches = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return null;
@@ -241,7 +229,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return s;
   }, [matches]);
 
-  /* Поиск автоматически раскрывает группы, в которых есть совпадения */
   useEffect(() => {
     if (!matches || matches.size === 0) return;
     setCollapsed((prev) => {
@@ -259,7 +246,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     });
   }, [matches, matchKinds]);
 
-  /* Группы по kind с отсортированными по valueNum листьями */
   const groups = useMemo(() => {
     const byKind = new Map<NodeKind, typeof NODES>();
     KIND_ORDER.forEach((k) => byKind.set(k, []));
@@ -272,7 +258,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     );
   }, [visibleNodes]);
 
-  /* Идентификаторы узлов, которые реально видны (группа раскрыта) */
   const openLeafIds = useMemo(() => {
     const s = new Set<string>();
     groups.forEach((g) => {
@@ -281,7 +266,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return s;
   }, [groups, collapsed]);
 
-  /* ── УЗЛЫ: корень → группы → листья (ручная mindmap-раскладка) ── */
   const layoutNodes = useMemo(() => {
     const nodes: Node[] = [];
 
@@ -353,7 +337,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return nodes;
   }, [groups, collapsed, visibleNodes.length, eraFlows.length]);
 
-  /* ── СВЯЗИ: иерархия + потоки денег + related ── */
   const edgesData = useMemo(() => {
     const edges: Edge[] = [];
     const neighbors = new Map<string, Set<string>>();
@@ -364,7 +347,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       neighbors.get(b)!.add(a);
     };
 
-    // Иерархия: корень → группа → узел
     groups.forEach((g) => {
       const gid = `group-${g.kind}`;
       const color = KIND_COLOR[g.kind];
@@ -386,8 +368,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       }
     });
 
-    // Потоки денег: from → to, подпись = label + объём, толщина по valueNum
-    eraFlows.forEach((f, i) => {
+    eraFlows.forEach((f) => {
       if (!openLeafIds.has(f.from) || !openLeafIds.has(f.to)) return;
       const isOld = (f.era ?? 'e2026') === 'e2010';
       const base = isOld ? '#d9a03d' : '#6c5ce7';
@@ -418,7 +399,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       link(f.from, f.to);
     });
 
-    // Related-связи между узлами (дедупликация пар, тонкий пунктир)
     if (showRelated) {
       const seen = new Set<string>();
       openLeafIds.forEach((id) => {
@@ -455,7 +435,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       });
     }
 
-    // Приглушаем иерархию, не относящуюся к hover/поиску
     const hoverKind = hoverNode ? NODE_MAP[hoverNode]?.kind : undefined;
     const finalEdges = edges.map((e) => {
       const isHier = e.id.startsWith('root-') || e.id.startsWith('grp-');
@@ -482,7 +461,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return { edges: finalEdges, neighbors };
   }, [groups, collapsed, openLeafIds, eraFlows, hoverNode, matches, matchKinds, showRelated]);
 
-  /* Синхронизация производного графа с состоянием React Flow */
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
@@ -494,7 +472,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     setEdges(edgesData.edges);
   }, [edgesData.edges, setEdges]);
 
-  /* Fit view при изменении структуры графа (фильтры/коллапс) */
   const layoutKey = useMemo(
     () =>
       [
@@ -515,7 +492,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return () => clearTimeout(t);
   }, [layoutKey, rf]);
 
-  /* При поиске приближаем найденные узлы */
   useEffect(() => {
     if (!matches || matches.size === 0) return;
     const t = setTimeout(() => {
@@ -528,7 +504,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     return () => clearTimeout(t);
   }, [matches, rf]);
 
-  /* ── обработчики ── */
   const onNodeClick = useCallback(
     (_: ReactMouseEvent, node: Node) => {
       if (node.type === 'eco') {
@@ -727,8 +702,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     </MindCtx.Provider>
   );
 }
-
-/* ─────────────────────────── экспорт ─────────────────────────── */
 
 export default function Flows({ openNode, goTo }: Props) {
   return (
