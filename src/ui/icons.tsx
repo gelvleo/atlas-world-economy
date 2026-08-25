@@ -22,15 +22,14 @@ import {
   TrendDown,
   ArrowsClockwise
 } from '@phosphor-icons/react';
-import type { ComponentType, CSSProperties } from 'react';
+import type { Icon } from '@phosphor-icons/react';
+import type { CSSProperties } from 'react';
 import type { NodeKind, EcoNode } from '../types';
 import { KIND_TONE, nodeCode } from './glyphs';
 
 export type IconSize = 18 | 20;
 
-type PhosphorIcon = ComponentType<{ size?: number; weight?: 'regular'; color?: string; 'aria-hidden'?: boolean }>;
-
-function wrap(Base: PhosphorIcon) {
+function wrap(Base: Icon) {
   return function Icon({ size = 18 }: { size?: IconSize }) {
     return <Base size={size} weight="regular" color="currentColor" aria-hidden />;
   };
@@ -52,7 +51,7 @@ export const IconUp = wrap(TrendUp);
 export const IconDown = wrap(TrendDown);
 export const IconTransform = wrap(ArrowsClockwise);
 
-const KIND_ICON: Record<NodeKind, PhosphorIcon> = {
+const KIND_ICON: Record<NodeKind, Icon> = {
   country: Globe,
   sector: Factory,
   product: Package,
