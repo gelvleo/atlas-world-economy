@@ -178,7 +178,7 @@ img, svg { max-width: 100%; }
 /* числовой блок: без рамки и тени, слева полоса 2px */
 .stat {
   padding-left: var(--s3);
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--k, var(--accent));
 }
 
 .stat-num {
@@ -287,13 +287,14 @@ button.list-row:hover, a.list-row:hover { background: var(--accent-soft); text-d
 button.list-row:active { transform: scale(0.98); }
 button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
 
-.list-row-main { flex: 1; min-width: 0; }
-.list-row-num {
+.list-main { flex: 1; min-width: 0; }
+.list-side {
   font: var(--t-num-s);
   font-variant-numeric: tabular-nums;
   color: var(--ink);
   margin-left: auto;
   white-space: nowrap;
+  flex: none;
 }
 
 .tag {
@@ -313,13 +314,14 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
 .tag--up { color: var(--up); border-color: currentColor; }
 .tag--down { color: var(--down); border-color: currentColor; }
 .tag--warn { color: var(--warn); border-color: currentColor; }
+.tag--muted { color: var(--ink-3); border-color: var(--hair); }
 
 .dot {
   display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--ink-3);
+  background: var(--k, var(--ink-3));
   flex: none;
 }
 
@@ -351,6 +353,65 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   border-radius: var(--radius-sm);
   padding: 1px 4px;
   flex: none;
+}
+
+
+/* обозначение узла: иконка вида плюс точка цвета вида */
+.glyph { display: inline-flex; align-items: center; gap: var(--s1); color: var(--ink-3); flex: none; }
+
+/* сдержанная оговорка: волосяная рамка, без тени */
+.note {
+  border: 1px solid var(--hair);
+  border-radius: var(--radius);
+  padding: var(--s4);
+  background: var(--surface);
+}
+.note > * + * { margin-top: var(--s2); }
+.note--warn { border-left: 2px solid var(--warn); }
+
+/* ряд фильтров и переключателей */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+}
+
+/* сегментированный переключатель */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  max-width: 100%;
+}
+.seg-btn {
+  min-height: var(--tap);
+  padding: 0 var(--s3);
+  background: none;
+  border: 0;
+  border-left: 1px solid var(--hair-strong);
+  color: var(--ink-2);
+  font: var(--t-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.seg-btn:first-child { border-left: 0; }
+.seg-btn:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.seg-btn[aria-pressed='true'], .seg-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* нижний переход по разделам */
+.crossnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--hair);
 }
 
 /* ── 5. Действия и состояния ─────────────────────────────────────── */
