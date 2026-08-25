@@ -28,6 +28,12 @@ function splitUnit(v: string): [string, string] {
   return i < 0 ? [v, ''] : [v.slice(0, i), v.slice(i + 1)];
 }
 
+// Значение узла в данных бывает не числом, а фразой в несколько слов
+// («$10.9 млрд agents · $64 млрд AI platform…»). В правую числовую колонку идёт
+// только короткое значение, длинное уходит подписью под именем: иначе строка
+// с nowrap распирает страницу на узком экране.
+const SHORT_VALUE = 22;
+
 const NEXT_SECTIONS: { id: SectionId; title: string; note: string }[] = [
   { id: 'flows', title: 'Потоки денег', note: `${FLOWS.length} потоков: кто кому платит и за что` },
   { id: 'chains', title: 'Цепочки зависимостей', note: 'Чипы, дата-центры, энергия — где ломается всё' },
@@ -121,6 +127,7 @@ export default function Overview({ openNode, goTo }: Props) {
             <div className="list">
               {nodes.map((n) => {
                 const code = nodeCode(n.id);
+                const shortValue = n.value && n.value.length <= SHORT_VALUE;
                 return (
                   <button key={n.id} className="list-row" onClick={() => openNode(n.id)}>
                     <span className="list-main">
@@ -140,8 +147,11 @@ export default function Overview({ openNode, goTo }: Props) {
                         <span>{n.name}</span>
                         <span className="tag">{KIND_LABEL[n.kind]}</span>
                       </span>
+                      {n.value && !shortValue && (
+                        <span className="stat-note num">{n.value}</span>
+                      )}
                     </span>
-                    {n.value && <span className="list-side num">{n.value}</span>}
+                    {shortValue && <span className="list-side num">{n.value}</span>}
                   </button>
                 );
               })}

@@ -153,9 +153,10 @@ export default function Timeline({ openNode, goTo }: Props) {
                   </td>
                 ))}
                 <td>
-                  <span className="bar">
-                    <span className="bar-fill" style={{ width: `${cur!.demand}%` }} />
-                  </span>
+                  {/* .bar — блочный элемент: инлайновому span высота 6px не применяется */}
+                  <div className="bar">
+                    <div className="bar-fill" style={{ width: `${cur!.demand}%` }} />
+                  </div>
                 </td>
                 <td className="num">
                   {delta === null ? '—' : delta > 0 ? `+${delta}` : delta}

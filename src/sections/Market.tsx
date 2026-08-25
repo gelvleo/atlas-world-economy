@@ -27,6 +27,12 @@ const fmtMonths = (m: number) => m.toFixed(1).replace('.', ',');
 const fmtRub = (v: number) => Math.round(v).toLocaleString('ru-RU');
 
 // Верхние числа раздела: число и единица разводятся по разным тонам.
+// Значение узла в данных бывает не числом, а фразой в несколько слов
+// («$10.9 млрд agents · $64 млрд AI platform…»). В правую числовую колонку идёт
+// только короткое значение, длинное уходит подписью под именем: иначе строка
+// с nowrap распирает страницу на узком экране.
+const SHORT_VALUE = 22;
+
 const TOP_STATS = [
   {
     num: '442',
@@ -406,33 +412,33 @@ export default function Market({ openNode, goTo }: Props) {
           Выбери цепочку и кликай по звеньям — каждое раскрывается в карточку узла.
         </p>
       </div>
-      <div className="toolbar">
-        <div className="seg" role="group" aria-label="Цепочка домена">
-          {EDTECH_CHAINS.map((c) => (
-            <button
-              key={c.id}
-              className="seg-btn"
-              aria-pressed={activeChain === c.id}
-              onClick={() => setActiveChain(c.id)}
-            >
-              {c.title}
-            </button>
-          ))}
-        </div>
+      <div className="toolbar" role="group" aria-label="Цепочка домена">
+        {EDTECH_CHAINS.map((c) => (
+          <button
+            key={c.id}
+            className={activeChain === c.id ? 'btn btn--ghost active' : 'btn btn--ghost'}
+            aria-pressed={activeChain === c.id}
+            onClick={() => setActiveChain(c.id)}
+          >
+            {c.title}
+          </button>
+        ))}
       </div>
       <div className="grid grid--73">
         <div className="list">
           {chain.nodes.map((id, i) => {
             const n = NODE_MAP[id];
             if (!n) return null;
+            const shortValue = n.value && n.value.length <= SHORT_VALUE;
             return (
               <button key={id} className="list-row" onClick={() => openNode(id)}>
                 <span className="list-main">
                   <span className="num">{i + 1}</span>
                   <span>{n.name}</span>
                   {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
+                  {n.value && !shortValue && <span className="stat-note num">{n.value}</span>}
                 </span>
-                {n.value && <span className="list-side num">{n.value}</span>}
+                {shortValue && <span className="list-side num">{n.value}</span>}
               </button>
             );
           })}
@@ -446,7 +452,7 @@ export default function Market({ openNode, goTo }: Props) {
       <div className="hair" />
 
       <div className="section-head">
-        <h2 className="section-title">Динамика рынка 2023 → 2026</h2>
+        <h2 className="section-title">Динамика рынка 2023–2026</h2>
         <p className="section-lead">
           Млрд рублей по сегментам. Выборки пересекаются, поэтому строки не складываются: строка
           «Совокупный GMV» — оценка автора отчёта, а не сумма остальных.
@@ -484,12 +490,13 @@ export default function Market({ openNode, goTo }: Props) {
                   ))}
                   <td className="num">{row.cagr}</td>
                   <td>
-                    <span className="bar">
-                      <span
+                    {/* .bar — блочный элемент: инлайновому span высота 6px не применяется */}
+                    <div className="bar">
+                      <div
                         className="bar-fill"
                         style={{ width: `${(row.y2026 / trendMax) * 100}%` }}
                       />
-                    </span>
+                    </div>
                   </td>
                 </tr>
               );
