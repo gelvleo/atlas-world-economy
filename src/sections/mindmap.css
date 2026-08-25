@@ -82,6 +82,8 @@
   transition: background var(--dur) var(--ease);
 }
 .dep-node:hover { background: var(--accent-soft); color: var(--accent-ink); }
+/* длинное имя переносится — кнопка не должна центрировать вторую строку */
+.dep-node { text-align: left; }
 .dep-label { font-weight: 500; color: var(--ink); }
 
 /* ─── Влияние ИИ ─────────────────────────────────────────────────── */
