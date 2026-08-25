@@ -19,19 +19,34 @@ interface Props {
   goTo: (s: SectionId) => void;
 }
 
-const PRIORITY_COLOR: Record<string, string> = {
-  P0: '#69f0ae',
-  P1: '#ffb454',
-  P2: '#b39ddb',
-  P3: '#90a4ae'
-};
-
 const TREND_YEARS = ['2023', '2024', '2025', '2026'] as const;
 
 // Округление вилки окупаемости до одного знака — числа считаются из статей
 // экономии в data/edtech.ts, здесь только подача.
 const fmtMonths = (m: number) => m.toFixed(1).replace('.', ',');
 const fmtRub = (v: number) => Math.round(v).toLocaleString('ru-RU');
+
+// Верхние числа раздела: число и единица разводятся по разным тонам.
+const TOP_STATS = [
+  {
+    num: '442',
+    unit: 'млрд ₽',
+    label: 'GMV рынка, прогноз 2026',
+    note: 'CAGR 2023–2026 — +5,4%; свыше 86% оборота уже белые'
+  },
+  {
+    num: '2 300 – 2 700',
+    unit: 'школ',
+    label: 'в целевой полосе 15–80 млн ₽',
+    note: 'без штатных разработчиков, свыше 75% трафика — смартфон'
+  },
+  {
+    num: '1,1 – 1,9',
+    unit: 'млн ₽ в год',
+    label: 'стоимость владения чужим стеком',
+    note: 'лицензия LMS, видео, боты, техспец — без трафика и эквайринга'
+  }
+];
 
 export default function Market({ openNode, goTo }: Props) {
   const [activeChain, setActiveChain] = useState(EDTECH_CHAINS[0].id);
@@ -49,386 +64,482 @@ export default function Market({ openNode, goTo }: Props) {
   return (
     <div className="section">
       <div className="section-head">
-        <h1>🏫 Рынок: русскоязычный EdTech и инфобизнес</h1>
-        <p>
+        <div className="kicker">Рынок EdTech</div>
+        <h1 className="section-title">Русскоязычный EdTech и инфобизнес</h1>
+        <p className="section-lead">
           Домен, в котором продаётся наш продукт: онлайн-школы, эксперты и платные Telegram-клубы
           РФ и СНГ. Здесь видно, из чего складываются издержки школы, кто ещё претендует на её
           бюджет и за сколько месяцев своё приложение возвращает вложенные деньги.
         </p>
       </div>
 
-      <div className="block takeaway">
-        <h2>⚠️ Отдельный периметр</h2>
-        <ul>
-          <li>
-            Все суммы этого раздела — <strong>рубли РФ и СНГ</strong>. Они не складываются с
-            долларовыми агрегатами мировой экономики на «Обзоре» и в «Потоках денег».
-          </li>
-          <li>
-            Оборот школ на GetCourse, рейтинг топ-100 и независимый белый сегмент —{' '}
-            <strong>три разные выборки</strong>, они пересекаются и не суммируются между собой.
-          </li>
-          <li>
-            Вкладка отчёта с макро-картиной рынка идёт <strong>без сносок</strong>: её числа
-            помечены как <code>proxy</code> и в панелях узлов подписаны как оценка автора отчёта.
-          </li>
-        </ul>
-      </div>
-
-      <div className="hero-stats">
-        <div className="stat-card static">
-          <div className="stat-value">442 млрд ₽</div>
-          <div className="stat-label">GMV рынка, прогноз 2026</div>
-          <div className="stat-hint">CAGR 2023–2026 — +5,4%; свыше 86% оборота уже белые</div>
-        </div>
-        <div className="stat-card static">
-          <div className="stat-value">2 300 – 2 700</div>
-          <div className="stat-label">школ в целевой полосе 15–80 млн ₽</div>
-          <div className="stat-hint">без штатных разработчиков, свыше 75% трафика — смартфон</div>
-        </div>
-        <div className="stat-card static">
-          <div className="stat-value">1,1 – 1,9 млн ₽</div>
-          <div className="stat-label">годовая стоимость владения чужим стеком</div>
-          <div className="stat-hint">лицензия LMS, видео, боты, техспец — без трафика и эквайринга</div>
-        </div>
-        <div className="stat-card static">
-          <div className="stat-value">{fmtMonths(base.months)} мес</div>
-          <div className="stat-label">окупаемость внедрения за 150 тыс. ₽</div>
-          <div className="stat-hint">экономия {fmtRub(base.saveMonth)} ₽ в месяц на постоянных расходах</div>
+      <div className="note">
+        <div className="kicker">Отдельный периметр</div>
+        <div className="list">
+          <div className="list-row">
+            <span className="list-main">
+              Все суммы раздела — рубли РФ и СНГ. Они не складываются с долларовыми агрегатами
+              мировой экономики на «Обзоре» и в «Потоках денег».
+            </span>
+          </div>
+          <div className="list-row">
+            <span className="list-main">
+              Оборот школ на GetCourse, рейтинг топ-100 и независимый белый сегмент — три разные
+              выборки: они пересекаются и не суммируются между собой.
+            </span>
+          </div>
+          <div className="list-row">
+            <span className="list-main">
+              Вкладка отчёта с макро-картиной рынка идёт без сносок: её числа помечены как proxy и
+              в панелях узлов подписаны как оценка автора отчёта.
+            </span>
+          </div>
         </div>
       </div>
 
-      <div className="block">
-        <h2>Куда уходят деньги школы 15–80 млн ₽</h2>
-        <p className="muted">
-          Модельная школа с оборотом 35 млн ₽ в год. Клик по карточке открывает узел с фактами и
-          источниками.
-        </p>
-        <div className="dep-grid">
-          {EDTECH_SCHOOL_COSTS.map((c) => {
-            const n = NODE_MAP[c.nodeId];
-            return (
-              <div key={c.id} className="dep-card">
-                <div className="dep-route">
-                  <button className="dep-node" onClick={() => openNode(c.nodeId)}>
-                    {n?.emoji} {c.label}
-                  </button>
-                </div>
-                <div className="dep-meta">
-                  <span className="dep-strength">{c.year} в год</span>
-                  <span className="dep-label">{c.month}</span>
-                </div>
-              </div>
-            );
-          })}
+      <div className="stats">
+        {TOP_STATS.map((s) => (
+          <div key={s.label} className="stat">
+            <span className="stat-num">
+              {s.num}
+              <span className="stat-unit">{s.unit}</span>
+            </span>
+            <span className="stat-label">{s.label}</span>
+            <span className="stat-note">{s.note}</span>
+          </div>
+        ))}
+        <div className="stat">
+          <span className="stat-num">
+            {fmtMonths(base.months)}
+            <span className="stat-unit">мес</span>
+          </span>
+          <span className="stat-label">окупаемость внедрения за 150 тыс. ₽</span>
+          <span className="stat-note">
+            экономия {fmtRub(base.saveMonth)} ₽ в месяц на постоянных расходах
+          </span>
         </div>
       </div>
 
-      <div className="block">
-        <h2>💰 Главный вывод: за сколько возвращаются 150 тысяч</h2>
-        <p className="muted">
-          Срок считается из статей экономии, а не берётся готовым числом: меняются исходные
-          расходы — меняется вилка.
-        </p>
-        <div className="chain-insight">
-          {EDTECH_PAYBACK.map((p) => (
-            <div key={p.id} className={p.id === 'p-club' ? 'insight-card ai' : 'insight-card'}>
-              <h3>{p.title}</h3>
-              <p>
-                <strong>
-                  {fmtMonths(p.months)} мес · около {Math.round(p.days)} дней
-                </strong>
-                <br />
-                Экономия {fmtRub(p.saveMonth)} ₽ в месяц. {p.basis}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="hair" />
 
-      <div className="block">
-        <div className="block-head">
-          <h2>Сегменты ICP: кому продаём первыми</h2>
+      <div className="grid grid--73">
+        <div className="stack">
+          <div className="section-head">
+            <h2 className="section-title">Куда уходят деньги школы 15–80 млн ₽</h2>
+            <p className="section-lead">
+              Модельная школа с оборотом 35 млн ₽ в год. Клик по статье открывает узел с фактами и
+              источниками.
+            </p>
+          </div>
+          <div className="table-wrap">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">Статья расхода</th>
+                  <th scope="col" className="num">
+                    Вилка в год
+                  </th>
+                  <th scope="col" className="num">
+                    Вилка в месяц
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {EDTECH_SCHOOL_COSTS.map((c) => (
+                  <tr key={c.id}>
+                    <td>
+                      <button className="link" onClick={() => openNode(c.nodeId)}>
+                        {c.label}
+                      </button>
+                    </td>
+                    <td className="num">{c.year}</td>
+                    <td className="num">{c.month}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <p className="muted">
-          Приоритет P0 — прямой цикл продаж, P1 — после первых внедрений, P2 — только через
-          партнёров, P3 — подряд на R&D.
-        </p>
-        <div className="dep-grid">
-          {EDTECH_SEGMENTS.map((s) => {
-            const n = NODE_MAP[s.nodeId];
-            return (
-              <div key={s.id} className="dep-card">
-                <div className="dep-route">
-                  <button className="dep-node" onClick={() => openNode(s.nodeId)}>
-                    {n?.emoji} {s.niche}
-                  </button>
-                  <span
-                    className="kind-badge"
-                    style={{
-                      background: PRIORITY_COLOR[s.priority] + '22',
-                      color: PRIORITY_COLOR[s.priority]
-                    }}
-                  >
-                    {s.priority}
+
+        <div className="stack">
+          <div className="section-head">
+            <h2 className="section-title">За сколько возвращаются 150 тысяч</h2>
+            <p className="section-lead">
+              Срок считается из статей экономии, а не берётся готовым числом: меняются исходные
+              расходы — меняется вилка.
+            </p>
+          </div>
+          <div className="list">
+            {EDTECH_PAYBACK.map((p) => (
+              <div key={p.id} className="list-row">
+                <span className="list-main">
+                  <span>{p.title}</span>
+                  <span className="stat-note">
+                    Экономия {fmtRub(p.saveMonth)} ₽ в месяц. {p.basis}
                   </span>
-                </div>
-                <div className="dep-meta">
-                  <span className="dep-strength">{s.band}</span>
-                  <span className="dep-label">{s.players} проектов</span>
-                </div>
-                <p className="dep-desc">
-                  Чек {s.avgCheck} · запусков: {s.launches} · сейчас на «{s.platform}» · техспец:{' '}
-                  {s.techStaff}. Расход на технику {s.techCostYear} в год, окупаемость {s.payback}.
-                </p>
+                </span>
+                <span className="list-side num">
+                  {fmtMonths(p.months)}
+                  <span className="stat-unit">мес</span>
+                </span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="block">
-        <h2>Лестница цен: чем закрывают ту же задачу сейчас</h2>
-        <p className="muted">
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Сегменты: кому продаём первыми</h2>
+        <p className="section-lead">
+          P0 — прямой цикл продаж, P1 — после первых внедрений, P2 — только через партнёров,
+          P3 — подряд на R&amp;D.
+        </p>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Ниша</th>
+              <th scope="col">Приоритет</th>
+              <th scope="col" className="num">
+                Оборот
+              </th>
+              <th scope="col" className="num">
+                Проектов
+              </th>
+              <th scope="col" className="num">
+                Средний чек
+              </th>
+              <th scope="col" className="num">
+                Запусков в год
+              </th>
+              <th scope="col">Платформа сейчас</th>
+              <th scope="col">Техспец</th>
+              <th scope="col" className="num">
+                Техника в год
+              </th>
+              <th scope="col" className="num">
+                Окупаемость
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {EDTECH_SEGMENTS.map((s) => (
+              <tr key={s.id}>
+                <td>
+                  <button className="link" onClick={() => openNode(s.nodeId)}>
+                    {s.niche}
+                  </button>
+                </td>
+                <td>
+                  <span className="tag">{s.priority}</span>
+                </td>
+                <td className="num">{s.band}</td>
+                <td className="num">{s.players}</td>
+                <td className="num">{s.avgCheck}</td>
+                <td className="num">{s.launches}</td>
+                <td>{s.platform}</td>
+                <td>{s.techStaff}</td>
+                <td className="num">{s.techCostYear}</td>
+                <td className="num">{s.payback}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Лестница цен на ту же задачу</h2>
+        <p className="section-lead">
           Между тарифом LMS и заказной студией разрыв в два порядка. Наш чек стоит ровно в этом
           разрыве.
         </p>
-        <div className="dep-grid">
-          {EDTECH_COMPETITORS.map((c) => (
-            <div
-              key={c.id}
-              className="dep-card"
-              style={c.ours ? { borderColor: '#ffd54f' } : undefined}
-            >
-              <div className="dep-route">
-                {c.nodeId ? (
-                  <button className="dep-node" onClick={() => openNode(c.nodeId!)}>
-                    {c.ours ? '🏭' : '•'} {c.name}
-                  </button>
-                ) : (
-                  <span className="dep-node">{c.name}</span>
-                )}
-              </div>
-              <div className="dep-meta">
-                <span className="dep-strength">{c.entry}</span>
-                <span className="dep-label">{c.monthly} · {c.time}</span>
-              </div>
-              <p className="dep-desc">
-                {c.type}. {c.scope}. Продают: {c.buyer}.
-                <br />
-                <strong>{c.ours ? 'Почему мы: ' : 'Аргумент против: '}</strong>
-                {c.argument}
-              </p>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Решение</th>
+              <th scope="col">Тип</th>
+              <th scope="col" className="num">
+                Вход
+              </th>
+              <th scope="col" className="num">
+                В месяц
+              </th>
+              <th scope="col" className="num">
+                Срок
+              </th>
+              <th scope="col">Что входит и кому продают</th>
+              <th scope="col">Аргумент</th>
+            </tr>
+          </thead>
+          <tbody>
+            {EDTECH_COMPETITORS.map((c) => (
+              <tr key={c.id}>
+                <td>
+                  {c.nodeId ? (
+                    <button className="link" onClick={() => openNode(c.nodeId!)}>
+                      {c.name}
+                    </button>
+                  ) : (
+                    <span>{c.name}</span>
+                  )}
+                  {c.ours && <span className="tag">это мы</span>}
+                </td>
+                <td>{c.type}</td>
+                <td className="num">{c.entry}</td>
+                <td className="num">{c.monthly}</td>
+                <td className="num">{c.time}</td>
+                <td>
+                  {c.scope}
+                  <span className="stat-note">Продают: {c.buyer}</span>
+                </td>
+                <td>{c.argument}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div className="block">
-        <h2>Платёжный контур: что обязано быть в продукте</h2>
-        <p className="muted">
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Платёжный контур: что обязано быть в продукте</h2>
+        <p className="section-lead">
           Без рассрочки высокий чек не продаётся: на 60–250 тыс. ₽ приходится 65–82% заёмных
           оплат. Комиссия шлюза — не главный расход, главный — банковский дисконт.
         </p>
-        <div className="dep-grid">
-          {EDTECH_GATEWAYS.map((g) => (
-            <div key={g.id} className="dep-card">
-              <div className="dep-route">
-                <button className="dep-node" onClick={() => openNode(g.nodeId)}>
-                  💳 {g.name}
-                </button>
-              </div>
-              <div className="dep-meta">
-                <span className="dep-strength">{g.fee}</span>
-                <span className="dep-label">у {g.share} школ · {g.geo}</span>
-              </div>
-              <p className="dep-desc">
-                Рекуррент: {g.recurrent}. Рассрочка: {g.installment}.
-                <br />
-                <strong>Требование к системе: </strong>
-                {g.requirement}
-              </p>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Шлюз</th>
+              <th scope="col" className="num">
+                Комиссия
+              </th>
+              <th scope="col" className="num">
+                Доля школ
+              </th>
+              <th scope="col">Рекуррент</th>
+              <th scope="col">Рассрочка</th>
+              <th scope="col">География</th>
+              <th scope="col">Требование к системе</th>
+            </tr>
+          </thead>
+          <tbody>
+            {EDTECH_GATEWAYS.map((g) => (
+              <tr key={g.id}>
+                <td>
+                  <button className="link" onClick={() => openNode(g.nodeId)}>
+                    {g.name}
+                  </button>
+                </td>
+                <td className="num">{g.fee}</td>
+                <td className="num">{g.share}</td>
+                <td>{g.recurrent}</td>
+                <td>{g.installment}</td>
+                <td>{g.geo}</td>
+                <td>{g.requirement}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div className="block">
-        <h2>Триггеры спроса: почему покупают именно сейчас</h2>
-        <div className="dep-grid">
-          {EDTECH_TRIGGERS.map((t) => (
-            <div key={t.id} className="dep-card">
-              <div className="dep-route">
-                <button className="dep-node" onClick={() => openNode(t.nodeId)}>
-                  {NODE_MAP[t.nodeId]?.emoji} {t.event}
-                </button>
-                <span className="dep-arrow">→</span>
-              </div>
-              <div className="dep-meta">
-                <span className="dep-strength">{t.date}</span>
-                <span className="dep-label">{t.whom}</span>
-              </div>
-              <p className="dep-desc">
-                <strong>Боль: </strong>
-                {t.pain}
-                <br />
-                <strong>Ответ продукта: </strong>
-                {t.answer}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="hair" />
 
-      <div className="block">
-        <h2>Каналы: через кого доходим до ЛПР</h2>
-        <div className="dep-grid">
-          {EDTECH_CHANNELS.map((ch) => (
-            <div key={ch.id} className="dep-card">
-              <div className="dep-route">
-                <button className="dep-node" onClick={() => openNode(ch.nodeId)}>
-                  {NODE_MAP[ch.nodeId]?.emoji} {ch.name}
-                </button>
-                <span
-                  className="kind-badge"
-                  style={{
-                    background: PRIORITY_COLOR[ch.priority] + '22',
-                    color: PRIORITY_COLOR[ch.priority]
-                  }}
-                >
-                  {ch.priority}
+      <div className="grid grid--55">
+        <div className="stack">
+          <div className="section-head">
+            <h2 className="section-title">Триггеры спроса</h2>
+            <p className="section-lead">Почему покупают именно сейчас.</p>
+          </div>
+          <div className="list">
+            {EDTECH_TRIGGERS.map((t) => (
+              <button key={t.id} className="list-row" onClick={() => openNode(t.nodeId)}>
+                <span className="list-main">
+                  <span>{t.event}</span>
+                  <span className="stat-note">
+                    Кого касается: {t.whom}. Боль: {t.pain} Ответ продукта: {t.answer}
+                  </span>
                 </span>
-              </div>
-              <div className="dep-meta">
-                <span className="dep-strength">{ch.type}</span>
-                <span className="dep-label">{ch.reach}</span>
-              </div>
-              <p className="dep-desc">
-                {ch.approach}. <strong>Вознаграждение: </strong>
-                {ch.reward}
-              </p>
-            </div>
-          ))}
+                <span className="list-side num">{t.date}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="stack">
+          <div className="section-head">
+            <h2 className="section-title">Каналы до ЛПР</h2>
+            <p className="section-lead">Через кого доходим до тех, кто платит.</p>
+          </div>
+          <div className="list">
+            {EDTECH_CHANNELS.map((ch) => (
+              <button key={ch.id} className="list-row" onClick={() => openNode(ch.nodeId)}>
+                <span className="list-main">
+                  <span>{ch.name}</span>
+                  <span className="stat-note">
+                    {ch.type} · охват {ch.reach}. {ch.approach}. Вознаграждение: {ch.reward}
+                  </span>
+                </span>
+                <span className="list-side">
+                  <span className="tag">{ch.priority}</span>
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="block">
-        <h2>Цепочки домена</h2>
-        <p className="muted">
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Цепочки домена</h2>
+        <p className="section-lead">
           Выбери цепочку и кликай по звеньям — каждое раскрывается в карточку узла.
         </p>
-        <div className="chain-tabs">
+      </div>
+      <div className="toolbar">
+        <div className="seg" role="group" aria-label="Цепочка домена">
           {EDTECH_CHAINS.map((c) => (
             <button
               key={c.id}
-              className={activeChain === c.id ? 'chain-tab active' : 'chain-tab'}
+              className="seg-btn"
+              aria-pressed={activeChain === c.id}
               onClick={() => setActiveChain(c.id)}
             >
               {c.title}
             </button>
           ))}
         </div>
-        <div className="chain-visual">
+      </div>
+      <div className="grid grid--73">
+        <div className="list">
           {chain.nodes.map((id, i) => {
             const n = NODE_MAP[id];
             if (!n) return null;
             return (
-              <div key={id} className="chain-step">
-                <button
-                  className="chain-node"
-                  style={{ borderColor: n.color }}
-                  onClick={() => openNode(id)}
-                >
-                  <span className="chain-node-emoji">{n.emoji}</span>
-                  <span className="chain-node-name">{n.name}</span>
-                  {n.value && <span className="chain-node-value">{n.value}</span>}
-                </button>
-                {i < chain.nodes.length - 1 && <div className="chain-link">⬇︎ тянет за собой</div>}
-              </div>
+              <button key={id} className="list-row" onClick={() => openNode(id)}>
+                <span className="list-main">
+                  <span className="num">{i + 1}</span>
+                  <span>{n.name}</span>
+                  {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
+                </span>
+                {n.value && <span className="list-side num">{n.value}</span>}
+              </button>
             );
           })}
         </div>
-        <div className="chain-insight">
-          <div className="insight-card">
-            <h3>💡 Суть цепочки</h3>
-            <p>{chain.insight}</p>
-          </div>
+        <div className="note">
+          <div className="kicker">Суть цепочки</div>
+          <p className="section-lead">{chain.insight}</p>
         </div>
       </div>
 
-      <div className="block">
-        <h2>Динамика рынка 2023 → 2026</h2>
-        <p className="muted">
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Динамика рынка 2023 → 2026</h2>
+        <p className="section-lead">
           Млрд рублей по сегментам. Выборки пересекаются, поэтому строки не складываются: строка
-          «Совокупный GMV» — это оценка автора отчёта, а не сумма остальных.
+          «Совокупный GMV» — оценка автора отчёта, а не сумма остальных.
         </p>
-        <div className="shift-grid">
-          {EDTECH_TREND.map((row) => (
-            <div key={row.segment} className="shift-card">
-              <div className="tl-head">
-                <span className="tl-name">{row.segment}</span>
-                <span className={row.cagr.startsWith('−') ? 'tl-delta down' : 'tl-delta up'}>
-                  {row.cagr}
-                </span>
-              </div>
-              <div className="mini-chart">
-                {TREND_YEARS.map((year, i) => {
-                  const v = [row.y2023, row.y2024, row.y2025, row.y2026][i];
-                  return (
-                    <div key={year} className="mini-bar-row">
-                      <span className="mini-era">{year}</span>
-                      <span className="mini-bar-track">
-                        <span
-                          className="mini-bar-fill"
-                          style={{ width: `${(v / trendMax) * 100}%` }}
-                        />
-                      </span>
-                      <span className="mini-num">{v}</span>
-                    </div>
-                  );
-                })}
-              </div>
-              <p className="tl-note">{row.note}</p>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Сегмент</th>
+              {TREND_YEARS.map((y) => (
+                <th key={y} scope="col" className="num">
+                  {y}
+                </th>
+              ))}
+              <th scope="col" className="num">
+                CAGR
+              </th>
+              <th scope="col">Профиль 2026</th>
+            </tr>
+          </thead>
+          <tbody>
+            {EDTECH_TREND.map((row) => {
+              const values = [row.y2023, row.y2024, row.y2025, row.y2026];
+              return (
+                <tr key={row.segment}>
+                  <td>
+                    {row.segment}
+                    <span className="stat-note">{row.note}</span>
+                  </td>
+                  {values.map((v, i) => (
+                    <td key={TREND_YEARS[i]} className="num">
+                      {v}
+                    </td>
+                  ))}
+                  <td className="num">{row.cagr}</td>
+                  <td>
+                    <span className="bar">
+                      <span
+                        className="bar-fill"
+                        style={{ width: `${(row.y2026 / trendMax) * 100}%` }}
+                      />
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
 
-      <div className="block">
-        <h2>Источники и периметр домена</h2>
-        <p className="muted">
-          Тип источника проставлен честно: <code>official</code> — законы и госреестры,{' '}
-          <code>company</code> — данные компании о себе, <code>analyst</code> — отраслевой обзор,{' '}
-          <code>forecast</code> — прогноз, <code>proxy</code> — косвенная оценка или источник,
-          который в отчёте не назван. Где ссылки нет — поле пустое, источник назван словами.
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Источники и периметр домена</h2>
+        <p className="section-lead">
+          Тип источника проставлен честно: official — законы и госреестры, company — данные
+          компании о себе, analyst — отраслевой обзор, forecast — прогноз, proxy — косвенная
+          оценка или источник, который в отчёте не назван. Где ссылки нет — источник назван
+          словами.
         </p>
-        <div className="evidence-list">
-          {evidence.map((s) => (
-            <div className="evidence-card" key={s.id}>
-              <div className="evidence-head">
-                {s.url ? (
-                  <a href={s.url} target="_blank" rel="noreferrer">
-                    {s.label} ↗
-                  </a>
-                ) : (
-                  <span>{s.label}</span>
-                )}
-                <span className={`evidence-kind ${s.kind}`}>{s.kind}</span>
-              </div>
-              <div className="evidence-date">{s.date}</div>
-              {s.metric && <div className="evidence-metric">{s.metric}</div>}
-              {s.scope && <div className="evidence-scope">Периметр: {s.scope}</div>}
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="list">
+        {evidence.map((s) => (
+          <div className="list-row" key={s.id}>
+            <span className="list-main">
+              {s.url ? (
+                <a href={s.url} target="_blank" rel="noreferrer">
+                  {s.label}
+                </a>
+              ) : (
+                <span>{s.label}</span>
+              )}
+              <span className="tag">{s.kind}</span>
+              {(s.metric || s.scope) && (
+                <span className="stat-note">
+                  {s.metric}
+                  {s.metric && s.scope ? ' · ' : ''}
+                  {s.scope ? `периметр: ${s.scope}` : ''}
+                </span>
+              )}
+            </span>
+            <span className="list-side num">{s.date}</span>
+          </div>
+        ))}
       </div>
 
       <div className="crossnav">
-        <button className="ghost-btn" onClick={() => goTo('chains')}>
-          ← Цепочки зависимостей
+        <button className="btn btn--ghost" onClick={() => goTo('chains')}>
+          Цепочки зависимостей
         </button>
-        <button className="ghost-btn" onClick={() => goTo('overview')}>
-          Обзор мировой экономики →
+        <button className="btn btn--ghost" onClick={() => goTo('overview')}>
+          Обзор мировой экономики
         </button>
       </div>
     </div>
