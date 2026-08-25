@@ -1,11 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { SectionId } from './types';
-import { NODE_MAP, NODES } from './data/nodes';
+import { ALL_NODES, NODE_MAP } from './data/nodes';
 import Overview from './sections/Overview';
 import Flows from './sections/Flows';
 import Chains from './sections/Chains';
 import Timeline from './sections/Timeline';
 import AiImpact from './sections/AiImpact';
+import Market from './sections/Market';
 import NodePanel from './components/NodePanel';
 
 const SECTIONS: { id: SectionId; label: string; icon: string }[] = [
@@ -13,7 +14,9 @@ const SECTIONS: { id: SectionId; label: string; icon: string }[] = [
   { id: 'flows', label: 'Потоки денег', icon: '💸' },
   { id: 'chains', label: 'Цепочки зависимостей', icon: '🔗' },
   { id: 'timeline', label: 'Динамика услуг', icon: '📈' },
-  { id: 'ai', label: 'Влияние ИИ', icon: '🤖' }
+  { id: 'ai', label: 'Влияние ИИ', icon: '🤖' },
+  // Рублёвый домен ru-edtech: отдельный периметр, в мировые агрегаты не входит.
+  { id: 'market', label: 'Рынок EdTech', icon: '🏫' }
 ];
 
 export default function App() {
@@ -33,7 +36,7 @@ export default function App() {
   const searchResults = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (q.length < 2) return [];
-    return NODES.filter(
+    return ALL_NODES.filter(
       (n) =>
         n.name.toLowerCase().includes(q) ||
         n.description.toLowerCase().includes(q) ||
@@ -100,6 +103,7 @@ export default function App() {
         {section === 'chains' && <Chains openNode={openNode} goTo={goTo} />}
         {section === 'timeline' && <Timeline openNode={openNode} goTo={goTo} />}
         {section === 'ai' && <AiImpact openNode={openNode} goTo={goTo} />}
+        {section === 'market' && <Market openNode={openNode} goTo={goTo} />}
       </main>
 
       <footer className="footer">

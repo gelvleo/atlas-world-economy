@@ -403,7 +403,11 @@ function FlowsMindmap({ openNode, goTo }: Props) {
         id: `flow-${f.id}`,
         source: f.from,
         target: f.to,
-        label: `${f.label}${f.valueNum ? ` · $${f.valueNum} млрд` : ''}`,
+        // valueNum — это ТОЛЩИНА линии, а не деньги: у 15 из 22 потоков в данных
+        // стоит оценка на глаз («данные для clinical AI», valueNum 45). Раньше сюда
+        // приклеивалось ` · $45 млрд`, и читатель видел выдуманную сумму как факт.
+        // Показываем `value` как он записан — деньги там, где они действительно деньги.
+        label: `${f.label} · ${f.value}`,
         labelStyle: { fill: 'var(--text-2)', fontSize: 10.5, fontWeight: 700 },
         labelBgStyle: { fill: 'var(--surface)', fillOpacity: 0.95 },
         labelBgPadding: [7, 4] as [number, number],

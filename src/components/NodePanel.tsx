@@ -3,6 +3,7 @@ import type { SectionId } from '../types';
 import { NODE_MAP, KIND_LABEL, KIND_COLOR } from '../data/nodes';
 import { FLOWS } from '../data/flows';
 import { CHAINS } from '../data/chains';
+import { EDTECH_FLOWS, EDTECH_CHAINS } from '../data/edtech';
 import { SERVICE_ERAS } from '../data/timeline';
 import { AI_IMPACTS } from '../data/ai';
 
@@ -17,11 +18,16 @@ interface Props {
 export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   const node = NODE_MAP[nodeId];
 
-  const flowsIn = useMemo(() => FLOWS.filter((f) => f.to === nodeId), [nodeId]);
-  const flowsOut = useMemo(() => FLOWS.filter((f) => f.from === nodeId), [nodeId]);
+  // Периметры не смешиваем: рублёвый домен ru-edtech живёт своими потоками и
+  // цепочками. Мировая диаграмма по-прежнему читает только FLOWS — рубли туда
+  // не попадают, а панель узла показывает то, что относится к самому узлу.
+  const allFlows = useMemo(() => [...FLOWS, ...EDTECH_FLOWS], []);
+  const allChains = useMemo(() => [...CHAINS, ...EDTECH_CHAINS], []);
+  const flowsIn = useMemo(() => allFlows.filter((f) => f.to === nodeId), [allFlows, nodeId]);
+  const flowsOut = useMemo(() => allFlows.filter((f) => f.from === nodeId), [allFlows, nodeId]);
   const chainsHere = useMemo(
-    () => CHAINS.filter((c) => c.nodes.includes(nodeId)),
-    [nodeId]
+    () => allChains.filter((c) => c.nodes.includes(nodeId)),
+    [allChains, nodeId]
   );
   const timelineHere = useMemo(
     () => SERVICE_ERAS.filter((s) => s.serviceId === nodeId),
