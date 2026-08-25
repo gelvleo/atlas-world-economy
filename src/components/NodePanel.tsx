@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, type CSSProperties } from 'react';
 import type { SectionId } from '../types';
 import { NODE_MAP, KIND_LABEL, KIND_COLOR } from '../data/nodes';
 import { FLOWS } from '../data/flows';
@@ -42,7 +42,10 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
         <div className="panel-head">
           <span className="panel-emoji">{node.emoji}</span>
           <div>
-            <span className="kind-badge" style={{ background: KIND_COLOR[node.kind] + '22', color: KIND_COLOR[node.kind] }}>
+            <span
+              className="kind-badge"
+              style={{ '--k': node.color ?? KIND_COLOR[node.kind] } as CSSProperties}
+            >
               {KIND_LABEL[node.kind]}
             </span>
             <h2>{node.name}</h2>
@@ -152,7 +155,7 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
                 <button
                   key={r.id}
                   className="chip"
-                  style={{ borderColor: r.color }}
+                  style={{ '--k': r.color ?? KIND_COLOR[r.kind] } as CSSProperties}
                   onClick={() => openNode(r.id)}
                 >
                   {r.emoji} {r.name}

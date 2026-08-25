@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type CSSProperties } from 'react';
 import type { SectionId } from '../types';
 import { NODES, KIND_COLOR, KIND_LABEL } from '../data/nodes';
 import { FLOWS } from '../data/flows';
@@ -90,17 +90,12 @@ export default function Overview({ openNode, goTo }: Props) {
             <button
               key={n.id}
               className="node-card"
-              style={{ borderColor: n.color }}
+              style={{ '--k': n.color ?? KIND_COLOR[n.kind] } as CSSProperties}
               onClick={() => openNode(n.id)}
             >
               <div className="node-top">
-                <span className="node-emoji">{n.emoji}</span>
-                <span
-                  className="kind-badge"
-                  style={{ background: KIND_COLOR[n.kind] + '22', color: KIND_COLOR[n.kind] }}
-                >
-                  {KIND_LABEL[n.kind]}
-                </span>
+                <span className="node-emoji" aria-hidden="true">{n.emoji}</span>
+                <span className="kind-badge">{KIND_LABEL[n.kind]}</span>
               </div>
               <div className="node-name">{n.name}</div>
               {n.value && <div className="node-value">{n.value}</div>}

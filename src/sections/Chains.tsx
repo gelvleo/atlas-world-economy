@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import type { SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
 import { CHAINS, DEPENDENCY_LINKS } from '../data/chains';
@@ -47,10 +47,16 @@ export default function Chains({ openNode, goTo }: Props) {
           if (!n) return null;
           return (
             <div key={id} className="chain-step">
-              <button className="chain-node" style={{ borderColor: n.color }} onClick={() => openNode(id)}>
-                <span className="chain-node-emoji">{n.emoji}</span>
-                <span className="chain-node-name">{n.name}</span>
-                {n.value && <span className="chain-node-value">{n.value}</span>}
+              <button
+                className="chain-node"
+                style={{ '--k': n.color } as CSSProperties}
+                onClick={() => openNode(id)}
+              >
+                <span className="chain-node-emoji" aria-hidden="true">{n.emoji}</span>
+                <span>
+                  <span className="chain-node-name">{n.name}</span>
+                  {n.value && <span className="chain-node-value">{n.value}</span>}
+                </span>
               </button>
               {i < chain.nodes.length - 1 && <div className="chain-link">⬇︎ тянет за собой</div>}
             </div>

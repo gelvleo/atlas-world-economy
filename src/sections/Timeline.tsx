@@ -57,7 +57,7 @@ export default function Timeline({ openNode, goTo }: Props) {
         ))}
       </div>
 
-      <div className="era-summary" style={{ borderColor: ERA_COLORS[era] }}>
+      <div className="era-summary" style={{ borderLeftColor: ERA_COLORS[era] }}>
         <h2>{eraInfo.title}</h2>
         <p>{eraInfo.summary}</p>
       </div>
@@ -76,7 +76,7 @@ export default function Timeline({ openNode, goTo }: Props) {
                 >
                   {delta > 0 ? `▲ +${delta}` : delta < 0 ? `▼ ${delta}` : '■ 0'}
                 </span>
-                <span className="tl-demand" style={{ color: ERA_COLORS[era] }}>{cur.demand}</span>
+                <span className="tl-demand">{cur.demand}</span>
               </button>
 
               <div className="tl-spark">
