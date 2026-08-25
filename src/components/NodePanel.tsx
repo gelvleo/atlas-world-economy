@@ -246,8 +246,14 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
   const openerRef = useRef<HTMLElement | null>(null);
+  const asideRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     openerRef.current = document.activeElement as HTMLElement | null;
+    // Фокус уводим в саму панель. Без этого он оставался в поле поиска: с
+    // клавиатуры панель открывалась, но Tab продолжал ходить по странице ПОД
+    // ней, а читалка не объявляла диалог. Ставим на контейнер с tabIndex={-1},
+    // а не на первую кнопку внутри, — иначе чтение начиналось бы с середины.
+    asideRef.current?.focus?.();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeRef.current();
     };
@@ -267,6 +273,8 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   return (
     <div className="np-overlay" onClick={onClose}>
       <aside
+        ref={asideRef}
+        tabIndex={-1}
         className="np panel"
         role="dialog"
         aria-modal="true"
