@@ -1,5 +1,6 @@
 import type { EcoNode } from '../types';
 import { EVIDENCE } from './sources';
+import { EDTECH_NODES } from './edtech';
 // Все цифры — ориентировочные оценки на 2026 год.
 export const NODES: EcoNode[] = [
   { id: 'usa', name: 'США', kind: 'country', emoji: '🇺🇸', value: '$32.38 трлн ВВП', valueNum: 32380, color: '#6ea8fe', description: 'Крупнейшая экономика мира, ~25.6% мирового ВВП.', facts: ['ВВП ~$32.38 трлн (оценка 2026)', 'Гиперскейлеры задают мировой спрос на ИИ-инфраструктуру'], related: ['china', 'semiconductors', 'ai_infra', 'cloud', 'finance'], tags: ['ввп', 'сша'] },
@@ -42,6 +43,11 @@ export const NODES: EcoNode[] = [
   { id: 'diagnostics', name: 'Диагностика и скрининг', kind: 'service', emoji: '🔬', value: 'clinical workflow', valueNum: 80, color: '#ef9a9a', description: 'Где AI должен улучшать клинический исход.', facts: ['Регуляторный статус ≠ превосходство в практике'], related: ['medical_ai', 'health_data', 'healthcare', 'care_delivery'], tags: ['diagnostics'], evidence: [EVIDENCE.fdaAiDevices] },
   { id: 'care_delivery', name: 'Care delivery', kind: 'service', emoji: '🧑‍⚕️', value: 'доступ и навигация', valueNum: 120, color: '#f48fb1', description: 'Как пациент получает помощь.', facts: ['Care delivery — операционный слой, не software revenue'], related: ['healthtech', 'healthcare', 'mental_health', 'diagnostics', 'medical_ai'], tags: ['care delivery'], evidence: [EVIDENCE.cmsNationalHealth, EVIDENCE.oecdDigital] }
 ];
-export const NODE_MAP: Record<string, EcoNode> = Object.fromEntries(NODES.map((n) => [n.id, n]));
+// NODES — только мировой периметр: этот массив рисует грид «Обзора» и питает поиск.
+// ALL_NODES добавляет к нему отдельный рублёвый домен ru-edtech, чтобы карточка узла
+// открывалась из любого раздела. Периметры при этом не смешиваются: агрегаты
+// считаются по NODES, а разрешение id по ALL_NODES.
+export const ALL_NODES: EcoNode[] = [...NODES, ...EDTECH_NODES];
+export const NODE_MAP: Record<string, EcoNode> = Object.fromEntries(ALL_NODES.map((n) => [n.id, n]));
 export const KIND_LABEL: Record<string, string> = { country: 'страна', sector: 'сектор', product: 'продукт', service: 'услуга', tech: 'технология' };
 export const KIND_COLOR: Record<string, string> = { country: '#6ea8fe', sector: '#64e0b4', product: '#ffb454', service: '#b39ddb', tech: '#69f0ae' };

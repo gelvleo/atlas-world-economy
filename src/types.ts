@@ -2,6 +2,11 @@
 
 export type NodeKind = 'country' | 'sector' | 'product' | 'service' | 'tech';
 
+// Периметр данных. Домены не складываются между собой: 'world' — мировая экономика
+// в долларах, 'ru-edtech' — русскоязычный рынок онлайн-образования в рублях.
+// Отсутствие поля означает 'world'.
+export type DomainKey = 'world' | 'ru-edtech';
+
 export type EvidenceKind = 'official' | 'company' | 'analyst' | 'forecast' | 'proxy';
 
 export interface EvidenceRef {
@@ -27,6 +32,7 @@ export interface EcoNode {
   related: string[];
   tags?: string[];
   evidence?: EvidenceRef[];
+  domain?: DomainKey;
 }
 
 export interface MoneyFlow {
@@ -38,6 +44,7 @@ export interface MoneyFlow {
   label: string;
   description: string;
   era?: EraKey;
+  domain?: DomainKey;
 }
 
 export interface DependencyLink {
@@ -84,4 +91,4 @@ export interface Era {
   summary: string;
 }
 
-export type SectionId = 'overview' | 'flows' | 'chains' | 'timeline' | 'ai';
+export type SectionId = 'overview' | 'flows' | 'chains' | 'timeline' | 'ai' | 'market';
