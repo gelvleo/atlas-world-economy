@@ -28,6 +28,12 @@ interface Props {
 /** Значение строкой: число моно, единица вторым тоном. */
 export default function Val({ value, unit, className }: Props) {
   const raw = String(value);
+  // Значение у части узлов и потоков — не число, а фраза («инфраструктура
+  // доказательств»). Моноширинному в ней делать нечего: отдаём обычным текстом,
+  // а .val--text снимает моно с обёртки вроде .list-side.
+  if (!/\d/.test(raw)) {
+    return <span className={className ? `${className} val--text` : 'val--text'}>{raw}</span>;
+  }
   const [pre, num, post] = splitValue(raw);
   const tail = unit ?? (post || null);
   return (

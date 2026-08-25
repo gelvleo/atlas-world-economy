@@ -121,6 +121,17 @@ img, svg { max-width: 100%; }
 }
 .unit--pre { margin-left: 0; margin-right: var(--s1); }
 
+/* Значение без единой цифры — фраза, а не число. Моноширинное и выравнивание
+   по разряду с неё снимаются, даже если обёртка (.list-side и подобные) их
+   задаёт. Селектор с тегом — чтобы бить обёртку независимо от порядка файлов. */
+span.val--text {
+  font: var(--t-body);
+  font-variant-numeric: normal;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  white-space: normal;
+}
+
 /* ── 3. Структура ────────────────────────────────────────────────── */
 .section { margin: 0 0 var(--s7); }
 .section > * + * { margin-top: var(--s4); }
