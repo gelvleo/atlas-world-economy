@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
-import type { ComponentType } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { ComponentType, KeyboardEvent } from 'react';
 import type { SectionId } from './types';
 import { ALL_NODES, NODE_MAP } from './data/nodes';
 import Overview from './sections/Overview';
@@ -35,6 +35,10 @@ export default function App() {
   const [section, setSection] = useState<SectionId>('overview');
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [search, setSearch] = useState('');
+  // выдача закрыта по Escape, пока пользователь не наберёт что-то ещё
+  const [closed, setClosed] = useState(false);
+  const [active, setActive] = useState(0);
+  const listRef = useRef<HTMLDivElement>(null);
 
   const openNode = useCallback((id: string) => {
     if (NODE_MAP[id]) setSelectedNodeId(id);
@@ -59,7 +63,45 @@ export default function App() {
 
   // выпадающий список показываем, как только в поле что-то есть:
   // при коротком запросе объясняем, при пустой выдаче — говорим прямо
-  const showResults = query.length > 0;
+  const showResults = query.length > 0 && !closed;
+
+  // подсвеченный результат держим в границах выдачи и в поле зрения
+  useEffect(() => { setActive(0); }, [query]);
+  useEffect(() => {
+    if (!showResults) return;
+    listRef.current?.querySelector('[aria-selected="true"]')?.scrollIntoView({ block: 'nearest' });
+  }, [active, showResults]);
+
+  const pickResult = useCallback(
+    (id: string) => {
+      openNode(id);
+      setSearch('');
+      setClosed(false);
+    },
+    [openNode]
+  );
+
+  // Стрелки ходят по результатам, Enter открывает узел, Escape закрывает выдачу.
+  const onSearchKey = useCallback(
+    (e: KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Escape') {
+        if (showResults) { e.preventDefault(); setClosed(true); }
+        return;
+      }
+      if (!showResults || searchResults.length === 0) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActive((i) => (i + 1) % searchResults.length);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActive((i) => (i - 1 + searchResults.length) % searchResults.length);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        pickResult(searchResults[active].id);
+      }
+    },
+    [showResults, searchResults, active, pickResult]
+  );
 
   return (
     <div className="app">
@@ -74,20 +116,36 @@ export default function App() {
             <span className="brand-sub">мировая экономика · оценки 2026</span>
           </button>
 
-          <div className="search-wrap">
+          <div
+            className="search-wrap"
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setClosed(true);
+            }}
+          >
             <span className="search-icon">
               <IconSearch size={18} />
             </span>
             <input
               className="field"
               type="search"
+              role="combobox"
               aria-label="Поиск по узлам"
+              aria-expanded={showResults}
+              aria-controls="search-listbox"
+              aria-autocomplete="list"
+              aria-activedescendant={
+                showResults && searchResults.length > 0 ? `search-hit-${searchResults[active]?.id}` : undefined
+              }
               placeholder="Чипы, энергия, услуги…"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setClosed(false);
+              }}
+              onKeyDown={onSearchKey}
             />
             {showResults && (
-              <div className="search-results panel" role="listbox">
+              <div className="search-results panel" role="listbox" id="search-listbox" ref={listRef}>
                 {query.length < 2 && <div className="empty meta">Введите два символа или больше.</div>}
                 {query.length >= 2 && searchResults.length === 0 && (
                   <div className="empty">
@@ -98,16 +156,16 @@ export default function App() {
                     </button>
                   </div>
                 )}
-                {searchResults.map((n) => (
+                {searchResults.map((n, i) => (
                   <button
                     key={n.id}
-                    className="search-hit"
+                    id={`search-hit-${n.id}`}
+                    className={i === active ? 'search-hit active' : 'search-hit'}
                     role="option"
-                    aria-selected={false}
-                    onClick={() => {
-                      openNode(n.id);
-                      setSearch('');
-                    }}
+                    aria-selected={i === active}
+                    tabIndex={-1}
+                    onMouseEnter={() => setActive(i)}
+                    onClick={() => pickResult(n.id)}
                   >
                     <NodeGlyph node={n} />
                     <span className="search-hit-name">{n.name}</span>

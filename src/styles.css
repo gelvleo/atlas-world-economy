@@ -110,9 +110,20 @@ img, svg { max-width: 100%; }
   font-feature-settings: 'tnum' 1;
 }
 
+/* единица измерения — отдельным тоном и размером, вне моноширинного блока.
+   .stat-unit — тот же элемент внутри числового блока. */
+.unit, .stat-unit {
+  font: var(--t-meta);
+  font-variant-numeric: normal;
+  letter-spacing: 0;
+  color: var(--ink-3);
+  margin-left: var(--s1);
+}
+.unit--pre { margin-left: 0; margin-right: var(--s1); }
+
 /* ── 3. Структура ────────────────────────────────────────────────── */
 .section { margin: 0 0 var(--s7); }
-.section > * + * { margin-top: var(--s5); }
+.section > * + * { margin-top: var(--s4); }
 .section:last-child { margin-bottom: 0; }
 
 .section-head > * + * { margin-top: var(--s2); }
@@ -218,12 +229,6 @@ button.stat:active { transform: scale(0.98); }
 .stat-num--m { font: var(--t-num-m); letter-spacing: var(--tr-h2); }
 .stat-num--s { font: var(--t-num-s); letter-spacing: 0; }
 
-.stat-unit {
-  font: var(--t-meta);
-  color: var(--ink-3);
-  margin-left: var(--s1);
-}
-
 .stat-label {
   display: block;
   font: var(--t-micro);
@@ -265,7 +270,7 @@ button.stat:active { transform: scale(0.98); }
 }
 
 .table td {
-  padding: var(--s3);
+  padding: var(--s2) var(--s3);
   border-bottom: 1px solid var(--hair);
   vertical-align: top;
   color: var(--ink);
@@ -288,7 +293,7 @@ button.stat:active { transform: scale(0.98); }
   display: flex;
   align-items: baseline;
   gap: var(--s3);
-  padding: var(--s3) 0;
+  padding: var(--s2) 0;
   border-bottom: 1px solid var(--hair);
   text-align: left;
   width: 100%;
@@ -311,6 +316,9 @@ button.list-row, a.list-row {
   margin-right: calc(var(--s2) * -1);
   width: calc(100% + var(--s2) * 2);
   transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+@media (pointer: fine) {
+  button.list-row, a.list-row { min-height: 34px; padding-top: var(--s1); padding-bottom: var(--s1); }
 }
 button.list-row:hover, a.list-row:hover { background: var(--accent-soft); text-decoration: none; }
 button.list-row:active { transform: scale(0.98); }
@@ -388,6 +396,10 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   flex: none;
 }
 
+
+/* Двухбуквенный код уже называет вид узла — метка «СТРАНА» рядом с ним
+   дублирует его. Метка вида остаётся там, где кода нет. */
+.code ~ .tag { display: none; }
 
 /* обозначение узла: иконка вида плюс точка цвета вида */
 .glyph { display: inline-flex; align-items: center; gap: var(--s1); color: var(--ink-3); flex: none; }
@@ -633,7 +645,8 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   color: var(--ink);
   transition: background var(--dur) var(--ease);
 }
-.search-hit:hover { background: var(--accent-soft); }
+.search-hit:hover, .search-hit.active { background: var(--accent-soft); }
+.search-hit.active { box-shadow: inset 2px 0 0 var(--accent); }
 .search-hit-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .search-hit-kind { font: var(--t-meta); color: var(--ink-3); flex: none; }
 
@@ -677,7 +690,7 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   width: 100%;
   max-width: var(--page-max);
   margin: 0 auto;
-  padding: var(--s6) var(--pad) var(--s8);
+  padding: var(--s5) var(--pad) var(--s7);
 }
 
 .footer { border-top: 1px solid var(--hair); background: var(--page); }
@@ -693,6 +706,23 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
 }
 .footer-inner p { max-width: 68ch; }
 
+/* обводка внутри боковых скроллеров: наружный overflow срезал бы её,
+   поэтому у ленты разделов, сегментов и таблиц отступ уходит внутрь */
+.nav-btn:focus-visible,
+.seg-btn:focus-visible,
+.table-wrap :focus-visible {
+  outline-offset: -2px;
+}
+
+/* строка списка и ячейка таблицы фокусируются наравне с кнопками */
+.list-row:focus-visible,
+.table td:focus-visible,
+.table th:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
 /* ── 7. Движение ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -701,4 +731,39 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ── 8. Печать ───────────────────────────────────────────────────── */
+@media print {
+  :root { --page: #fff; --surface: #fff; --surface-sunk: #fff; --pad: 0; }
+
+  html, body { background: #fff; }
+  body { overflow: visible; }
+
+  /* интерактив на бумаге бесполезен */
+  .header, .nav, .toolbar, .crossnav, .search-wrap, .seg, .btn, .link { display: none !important; }
+
+  /* тени и подъёмы гасятся, поверхности становятся обычной бумагой */
+  .panel, .note { box-shadow: none !important; border: 1px solid var(--hair-strong); }
+  * { box-shadow: none !important; transition: none !important; }
+
+  .app { display: block; min-height: 0; }
+  .main { max-width: none; padding: 0; }
+  .section { margin-bottom: var(--s6); }
+
+  /* таблица не режется по строкам, шапка повторяется на каждой странице */
+  .table-wrap { overflow: visible; }
+  .table { break-inside: auto; }
+  .table thead { display: table-header-group; }
+  .table tr, .list-row, .stat, .note { break-inside: avoid; }
+  .section-head, .h2 { break-after: avoid; }
+
+  /* полосы и точки печатаются цветом, а не пустотой */
+  .bar, .bar-fill, .dot, .stat { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bar { border: 1px solid var(--hair-strong); }
+
+  /* ссылка на бумаге раскрывается адресом */
+  a[href^='http']::after { content: ' (' attr(href) ')'; font: var(--t-meta); color: var(--ink-3); word-break: break-all; }
+
+  @page { margin: 14mm; }
 }
