@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import type { ComponentType } from 'react';
 import type { SectionId } from './types';
 import { ALL_NODES, NODE_MAP } from './data/nodes';
 import Overview from './sections/Overview';
@@ -8,15 +9,26 @@ import Timeline from './sections/Timeline';
 import AiImpact from './sections/AiImpact';
 import Market from './sections/Market';
 import NodePanel from './components/NodePanel';
+import {
+  IconOverview,
+  IconFlows,
+  IconChains,
+  IconTimeline,
+  IconAi,
+  IconMarket,
+  IconSearch,
+  NodeGlyph
+} from './ui/icons';
+import { KIND_LABEL } from './ui/glyphs';
 
-const SECTIONS: { id: SectionId; label: string; icon: string }[] = [
-  { id: 'overview', label: 'Обзор', icon: '🌍' },
-  { id: 'flows', label: 'Потоки денег', icon: '💸' },
-  { id: 'chains', label: 'Цепочки зависимостей', icon: '🔗' },
-  { id: 'timeline', label: 'Динамика услуг', icon: '📈' },
-  { id: 'ai', label: 'Влияние ИИ', icon: '🤖' },
+const SECTIONS: { id: SectionId; label: string; Icon: ComponentType<{ size?: 18 | 20 }> }[] = [
+  { id: 'overview', label: 'Обзор', Icon: IconOverview },
+  { id: 'flows', label: 'Потоки денег', Icon: IconFlows },
+  { id: 'chains', label: 'Цепочки зависимостей', Icon: IconChains },
+  { id: 'timeline', label: 'Динамика услуг', Icon: IconTimeline },
+  { id: 'ai', label: 'Влияние ИИ', Icon: IconAi },
   // Рублёвый домен ru-edtech: отдельный периметр, в мировые агрегаты не входит.
-  { id: 'market', label: 'Рынок EdTech', icon: '🏫' }
+  { id: 'market', label: 'Рынок EdTech', Icon: IconMarket }
 ];
 
 export default function App() {
@@ -33,68 +45,93 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const query = search.trim().toLowerCase();
+
   const searchResults = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    if (q.length < 2) return [];
+    if (query.length < 2) return [];
     return ALL_NODES.filter(
       (n) =>
-        n.name.toLowerCase().includes(q) ||
-        n.description.toLowerCase().includes(q) ||
-        (n.tags ?? []).some((t) => t.includes(q))
+        n.name.toLowerCase().includes(query) ||
+        n.description.toLowerCase().includes(query) ||
+        (n.tags ?? []).some((t) => t.includes(query))
     ).slice(0, 8);
-  }, [search]);
+  }, [query]);
+
+  // выпадающий список показываем, как только в поле что-то есть:
+  // при коротком запросе объясняем, при пустой выдаче — говорим прямо
+  const showResults = query.length > 0;
 
   return (
     <div className="app">
       {/* шапка и лента разделов — один липкий блок */}
       <div className="header">
-      <header className="topbar">
-        <button className="brand" onClick={() => goTo('overview')}>
-          <span className="brand-globe">🌐</span>
-          <span className="brand-text">
-            ATLAS
-            <small>понимание мировой экономики · оценки 2026</small>
-          </span>
-        </button>
-        <div className="search-wrap">
-          <input
-            className="search"
-            placeholder="Поиск: чипы, энергия, услуги…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          {searchResults.length > 0 && (
-            <div className="search-results">
-              {searchResults.map((n) => (
-                <button
-                  key={n.id}
-                  onClick={() => {
-                    openNode(n.id);
-                    setSearch('');
-                  }}
-                >
-                  <span>{n.emoji}</span> {n.name}
-                  <em>{n.kind === 'country' ? 'страна' : n.kind === 'sector' ? 'сектор' : n.kind === 'product' ? 'продукт' : n.kind === 'service' ? 'услуга' : 'технология'}</em>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </header>
-
-      <nav className="nav" aria-label="Разделы">
-        {SECTIONS.map((s) => (
-          <button
-            key={s.id}
-            className={section === s.id ? 'nav-btn active' : 'nav-btn'}
-            aria-current={section === s.id ? 'page' : undefined}
-            onClick={() => goTo(s.id)}
-          >
-            <span className="nav-icon" aria-hidden="true">{s.icon}</span>
-            <span className="nav-label">{s.label}</span>
+        <header className="topbar">
+          <button className="brand" onClick={() => goTo('overview')}>
+            <span className="brand-mark">
+              <IconOverview size={20} />
+            </span>
+            <span className="brand-name">Atlas</span>
+            <span className="brand-sub">мировая экономика · оценки 2026</span>
           </button>
-        ))}
-      </nav>
+
+          <div className="search-wrap">
+            <span className="search-icon">
+              <IconSearch size={18} />
+            </span>
+            <input
+              className="field"
+              type="search"
+              aria-label="Поиск по узлам"
+              placeholder="Чипы, энергия, услуги…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            {showResults && (
+              <div className="search-results panel" role="listbox">
+                {query.length < 2 && <div className="empty meta">Введите два символа или больше.</div>}
+                {query.length >= 2 && searchResults.length === 0 && (
+                  <div className="empty">
+                    <span className="empty-title">Ничего не найдено</span>
+                    <span className="meta">Проверьте написание или попробуйте общее слово: «чипы», «облака», «энергия».</span>
+                    <button className="btn btn--ghost" onClick={() => setSearch('')}>
+                      Очистить запрос
+                    </button>
+                  </div>
+                )}
+                {searchResults.map((n) => (
+                  <button
+                    key={n.id}
+                    className="search-hit"
+                    role="option"
+                    aria-selected={false}
+                    onClick={() => {
+                      openNode(n.id);
+                      setSearch('');
+                    }}
+                  >
+                    <NodeGlyph node={n} />
+                    <span className="search-hit-name">{n.name}</span>
+                    <span className="search-hit-kind">{KIND_LABEL[n.kind]}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </header>
+
+        <nav className="nav" aria-label="Разделы">
+          {SECTIONS.map((s) => (
+            <button
+              key={s.id}
+              className={section === s.id ? 'nav-btn active' : 'nav-btn'}
+              aria-current={section === s.id ? 'page' : undefined}
+              onClick={() => goTo(s.id)}
+            >
+              <s.Icon size={18} />
+              <span>{s.label}</span>
+            </button>
+          ))}
+        </nav>
       </div>
 
       <main className="main">
@@ -107,16 +144,15 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <p>
-          <strong>ATLAS</strong> — карта для понимания, а не статистический справочник. Все цифры —
-          ориентировочные оценки на 2026 год по открытым источникам: порядок величин и связи важнее
-          точных значений. Прогнозы помечены отдельно.
-        </p>
-        <p className="footer-note">
-          Источники ориентиров: МВФ и Всемирный банк (ВВП), отраслевые оценки полупроводникового
-          рынка, отчёты гиперскейлеров о capex, открытые обзоры по ИИ. Данные не обновляются
-          автоматически.
-        </p>
+        <div className="footer-inner">
+          <p>
+            Карта для понимания, а не статистический справочник: цифры — ориентировочные оценки
+            на 2026 год по открытым источникам, важен порядок величины и связь. Прогнозы помечены.
+          </p>
+          <p>
+            Мировой периметр считается в долларах, рынок EdTech — в рублях. Домены не складываются.
+          </p>
+        </div>
       </footer>
 
       {selectedNodeId && (

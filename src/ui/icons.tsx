@@ -17,7 +17,10 @@ import {
   ArrowRight,
   ArrowLeft,
   CaretDown,
-  Info
+  Info,
+  TrendUp,
+  TrendDown,
+  ArrowsClockwise
 } from '@phosphor-icons/react';
 import type { ComponentType, CSSProperties } from 'react';
 import type { NodeKind, EcoNode } from '../types';
@@ -45,6 +48,9 @@ export const IconNext = wrap(ArrowRight);
 export const IconPrev = wrap(ArrowLeft);
 export const IconCaret = wrap(CaretDown);
 export const IconInfo = wrap(Info);
+export const IconUp = wrap(TrendUp);
+export const IconDown = wrap(TrendDown);
+export const IconTransform = wrap(ArrowsClockwise);
 
 const KIND_ICON: Record<NodeKind, PhosphorIcon> = {
   country: Globe,
