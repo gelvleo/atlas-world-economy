@@ -40,7 +40,6 @@
 .route-node { max-width: 230px; }
 .route-node-name { font: var(--t-body); font-weight: 500; color: var(--ink); }
 .route-node-value { font: var(--t-num-s); color: var(--ink-3); white-space: normal; }
-.route-node-value--text { font: var(--t-meta); color: var(--ink-3); }
 
 /* стрелка: линия с уголком, без символов и эмодзи */
 .route-arrow {
@@ -161,9 +160,8 @@
 }
 .np-head-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s2); }
 .np-value { font: var(--t-num-m); letter-spacing: var(--tr-h2); color: var(--ink); }
-/* «значение» узла бывает фразой, а не числом — тогда моноширинный вредит */
-.np-value--text { font: var(--t-body); font-weight: 500; color: var(--ink-2); }
-.np-flow-note { font: var(--t-meta); color: var(--ink-3); margin-left: auto; flex: none; max-width: 40%; text-align: right; }
+/* сумма потока прижата вправо; фраза вместо суммы уходит в val--text */
+.np-flow-side { margin-left: auto; flex: none; max-width: 45%; text-align: right; }
 .np-body { display: flex; flex-direction: column; gap: var(--s5); padding-top: var(--s4); }
 .np-body > p { color: var(--ink-2); max-width: 68ch; }
 
@@ -425,7 +423,6 @@
 }
 .mm-flowcard-node:hover { background: var(--accent-soft); color: var(--accent-ink); }
 .mm-flowcard-value { font: var(--t-num-s); color: var(--ink); }
-.mm-flowcard-value--text { font: var(--t-body); font-weight: 500; color: var(--ink-2); }
 .mm-flowcard-weight { display: flex; flex-direction: column; gap: var(--s1); }
 .mm-flowcard-weight > span { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1); }
 .mm-flowcard p { max-width: 68ch; }

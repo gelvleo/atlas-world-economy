@@ -815,12 +815,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
                   </button>
                 )}
               </div>
-              {/* value бывает фразой («данные для clinical AI») — моно только числу */}
-              {/\d/.test(selFlow.value) ? (
-                <Val className="mm-flowcard-value" value={selFlow.value} />
-              ) : (
-                <div className="mm-flowcard-value mm-flowcard-value--text">{selFlow.value}</div>
-              )}
+              <Val className="mm-flowcard-value" value={selFlow.value} />
               {/* вес обоих концов потока: числа посчитаны из данных, не вписаны */}
               <div className="mm-flowcard-weight meta">
                 {selFrom && (

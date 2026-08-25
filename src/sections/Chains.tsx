@@ -73,13 +73,7 @@ export default function Chains({ openNode, goTo }: Props) {
                       <NodeGlyph node={n} />
                       <span className="route-node-name">{n.name}</span>
                     </span>
-                    {n.value &&
-                      (/\d/.test(n.value) ? (
-                        <Val className="route-node-value" value={n.value} />
-                      ) : (
-                        // значение бывает фразой — моноширинный ей вредит
-                        <span className="route-node-value route-node-value--text">{n.value}</span>
-                      ))}
+                    {n.value && <Val className="route-node-value" value={n.value} />}
                   </button>
                   {i < chain.nodes.length - 1 && (
                     <span className="route-arrow" aria-hidden="true" />

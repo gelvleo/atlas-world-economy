@@ -37,10 +37,6 @@ const EVIDENCE_TAG: Record<EvidenceKind, string> = {
   proxy: 'tag tag--warn'
 };
 
-// Поле `value` в данных — то число, то фраза («инфраструктура доказательств»).
-// Моноширинным показываем только то, где действительно есть цифра.
-const isNumeric = (v: string) => /\d/.test(v);
-
 const ERA_LABEL: Record<string, string> = {
   e2010: '2010-е',
   e2020: '2020-23',
@@ -154,7 +150,6 @@ const cmpNum = (n: number) => <span className="num np-cmp-num">{n}</span>;
 
 function cmpValue(node: EcoNode) {
   if (!node.value) return <span className="np-cmp-none">не записано</span>;
-  if (!isNumeric(node.value)) return <span>{node.value}</span>;
   return <Val className="np-cmp-num" value={node.value} />;
 }
 
@@ -288,12 +283,7 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
               )}
             </div>
             <h2 className="h2">{node.name}</h2>
-            {node.value &&
-              (isNumeric(node.value) ? (
-                <Val className="np-value" value={node.value} />
-              ) : (
-                <div className="np-value np-value--text">{node.value}</div>
-              ))}
+            {node.value && <Val className="np-value" value={node.value} />}
             {/* вес узла: числа посчитаны из потоков, цепочек, зависимостей и эффектов ИИ */}
             <WeightLine id={nodeId} />
           </div>
@@ -418,11 +408,7 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
                       <b>уходит в {NODE_MAP[f.to]?.name ?? f.to}</b>
                       <span className="meta">{f.description}</span>
                     </span>
-                    {isNumeric(f.value) ? (
-                      <Val className="list-side" value={f.value} />
-                    ) : (
-                      <span className="np-flow-note">{f.value}</span>
-                    )}
+                    <Val className="list-side np-flow-side" value={f.value} />
                   </button>
                 ))}
                 {flowsIn.map((f) => (
@@ -432,11 +418,7 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
                       <b>приходит из {NODE_MAP[f.from]?.name ?? f.from}</b>
                       <span className="meta">{f.description}</span>
                     </span>
-                    {isNumeric(f.value) ? (
-                      <Val className="list-side" value={f.value} />
-                    ) : (
-                      <span className="np-flow-note">{f.value}</span>
-                    )}
+                    <Val className="list-side np-flow-side" value={f.value} />
                   </button>
                 ))}
               </div>
