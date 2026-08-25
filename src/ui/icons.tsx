@@ -20,7 +20,11 @@ import {
   Info,
   TrendUp,
   TrendDown,
-  ArrowsClockwise
+  ArrowsClockwise,
+  MagnifyingGlassPlus,
+  MagnifyingGlassMinus,
+  CornersOut,
+  Hand
 } from '@phosphor-icons/react';
 import type { Icon } from '@phosphor-icons/react';
 import type { CSSProperties } from 'react';
@@ -50,6 +54,10 @@ export const IconInfo = wrap(Info);
 export const IconUp = wrap(TrendUp);
 export const IconDown = wrap(TrendDown);
 export const IconTransform = wrap(ArrowsClockwise);
+export const IconZoomIn = wrap(MagnifyingGlassPlus);
+export const IconZoomOut = wrap(MagnifyingGlassMinus);
+export const IconFit = wrap(CornersOut);
+export const IconHand = wrap(Hand);
 
 const KIND_ICON: Record<NodeKind, Icon> = {
   country: Globe,

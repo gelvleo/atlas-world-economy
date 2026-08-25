@@ -394,9 +394,12 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   display: inline-flex;
   border: 1px solid var(--hair-strong);
   border-radius: var(--radius-sm);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   max-width: 100%;
 }
+.seg::-webkit-scrollbar { display: none; }
 .seg-btn {
   min-height: var(--tap);
   padding: 0 var(--s3);
