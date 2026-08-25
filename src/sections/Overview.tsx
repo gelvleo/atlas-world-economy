@@ -47,6 +47,18 @@ export function EvidenceTag({ kind }: { kind: EvidenceKind | null }) {
   );
 }
 
+// Значение узла бывает не числом, а фразой: «новая нефть», «правила игры».
+// Моноширинный блок по контракту — только для чисел, фразу отдаём тоном единицы.
+export function NodeValue({ value, className }: { value: string; className?: string }) {
+  return /\d/.test(value) ? (
+    <Val className={className} value={value} />
+  ) : (
+    <span className={className}>
+      <span className="unit">{value}</span>
+    </span>
+  );
+}
+
 // Метка по идентификатору узла — для таблиц «Рынка», где в строке лежит nodeId.
 export function NodeEvidenceTag({ id }: { id?: string }) {
   return <EvidenceTag kind={evidenceKind(id ? NODE_MAP[id] : undefined)} />;
@@ -238,10 +250,10 @@ export default function Overview({ openNode, goTo }: Props) {
                         <EvidenceTag kind={evidenceKind(n)} />
                       </span>
                       {n.value && !shortValue && (
-                        <Val className="stat-note" value={n.value} />
+                        <NodeValue className="stat-note" value={n.value} />
                       )}
                     </span>
-                    {shortValue && <Val className="list-side" value={n.value!} />}
+                    {shortValue && <NodeValue className="list-side" value={n.value!} />}
                   </button>
                 );
               })}
