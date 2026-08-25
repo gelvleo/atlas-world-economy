@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
-import type { SectionId } from '../types';
+import type { EvidenceKind, SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
+import { EvidenceTag, NodeEvidenceTag, evidenceKind } from './Overview';
 import {
   EDTECH_CHAINS,
   EDTECH_CHANNELS,
@@ -33,24 +34,37 @@ const fmtRub = (v: number) => Math.round(v).toLocaleString('ru-RU');
 // с nowrap распирает страницу на узком экране.
 const SHORT_VALUE = 22;
 
-const TOP_STATS = [
+// Числа вкладки 2 отчёта идут без сносок и в data/edtech.ts прямо помечены как
+// proxy — отсюда «оценка». GMV 2026 в самой подписи назван прогнозом.
+const TREND_KIND: EvidenceKind = 'proxy';
+
+const TOP_STATS: {
+  num: string;
+  unit: string;
+  label: string;
+  note: string;
+  kind: EvidenceKind;
+}[] = [
   {
     num: '442',
     unit: 'млрд ₽',
     label: 'GMV рынка, прогноз 2026',
-    note: 'CAGR 2023–2026 — +5,4%; свыше 86% оборота уже белые'
+    note: 'CAGR 2023–2026 — +5,4%; свыше 86% оборота уже белые',
+    kind: 'forecast'
   },
   {
     num: '2 300 – 2 700',
     unit: 'школ',
     label: 'в целевой полосе 15–80 млн ₽',
-    note: 'без штатных разработчиков, свыше 75% трафика — смартфон'
+    note: 'без штатных разработчиков, свыше 75% трафика — смартфон',
+    kind: 'proxy'
   },
   {
     num: '1,1 – 1,9',
     unit: 'млн ₽ в год',
     label: 'стоимость владения чужим стеком',
-    note: 'лицензия LMS, видео, боты, техспец — без трафика и эквайринга'
+    note: 'лицензия LMS, видео, боты, техспец — без трафика и эквайринга',
+    kind: 'proxy'
   }
 ];
 
@@ -111,7 +125,9 @@ export default function Market({ openNode, goTo }: Props) {
               <span className="stat-unit">{s.unit}</span>
             </span>
             <span className="stat-label">{s.label}</span>
-            <span className="stat-note">{s.note}</span>
+            <span className="stat-note">
+              <EvidenceTag kind={s.kind} /> {s.note}
+            </span>
           </div>
         ))}
         <div className="stat">
@@ -121,7 +137,9 @@ export default function Market({ openNode, goTo }: Props) {
           </span>
           <span className="stat-label">окупаемость внедрения за 150 тыс. ₽</span>
           <span className="stat-note">
-            экономия {fmtRub(base.saveMonth)} ₽ в месяц на постоянных расходах
+            {/* Срок считается из вилок расходов, а вилки — оценки: измерением он не станет. */}
+            <EvidenceTag kind="proxy" /> экономия {fmtRub(base.saveMonth)} ₽ в месяц на
+            постоянных расходах
           </span>
         </div>
       </div>
@@ -154,9 +172,12 @@ export default function Market({ openNode, goTo }: Props) {
                 {EDTECH_SCHOOL_COSTS.map((c) => (
                   <tr key={c.id}>
                     <td>
-                      <button className="link" onClick={() => openNode(c.nodeId)}>
-                        {c.label}
-                      </button>
+                      <span className="row row--wrap">
+                        <button className="link" onClick={() => openNode(c.nodeId)}>
+                          {c.label}
+                        </button>
+                        <NodeEvidenceTag id={c.nodeId} />
+                      </span>
                     </td>
                     <td className="num">{c.year}</td>
                     <td className="num">{c.month}</td>
@@ -235,9 +256,12 @@ export default function Market({ openNode, goTo }: Props) {
             {EDTECH_SEGMENTS.map((s) => (
               <tr key={s.id}>
                 <td>
-                  <button className="link" onClick={() => openNode(s.nodeId)}>
-                    {s.niche}
-                  </button>
+                  <span className="row row--wrap">
+                    <button className="link" onClick={() => openNode(s.nodeId)}>
+                      {s.niche}
+                    </button>
+                    <NodeEvidenceTag id={s.nodeId} />
+                  </span>
                 </td>
                 <td>
                   <span className="tag">{s.priority}</span>
@@ -288,14 +312,17 @@ export default function Market({ openNode, goTo }: Props) {
             {EDTECH_COMPETITORS.map((c) => (
               <tr key={c.id}>
                 <td>
-                  {c.nodeId ? (
-                    <button className="link" onClick={() => openNode(c.nodeId!)}>
-                      {c.name}
-                    </button>
-                  ) : (
-                    <span>{c.name}</span>
-                  )}
-                  {c.ours && <span className="tag">это мы</span>}
+                  <span className="row row--wrap">
+                    {c.nodeId ? (
+                      <button className="link" onClick={() => openNode(c.nodeId!)}>
+                        {c.name}
+                      </button>
+                    ) : (
+                      <span>{c.name}</span>
+                    )}
+                    {c.ours && <span className="tag">это мы</span>}
+                    <NodeEvidenceTag id={c.nodeId} />
+                  </span>
                 </td>
                 <td>{c.type}</td>
                 <td className="num">{c.entry}</td>
@@ -342,9 +369,12 @@ export default function Market({ openNode, goTo }: Props) {
             {EDTECH_GATEWAYS.map((g) => (
               <tr key={g.id}>
                 <td>
-                  <button className="link" onClick={() => openNode(g.nodeId)}>
-                    {g.name}
-                  </button>
+                  <span className="row row--wrap">
+                    <button className="link" onClick={() => openNode(g.nodeId)}>
+                      {g.name}
+                    </button>
+                    <NodeEvidenceTag id={g.nodeId} />
+                  </span>
                 </td>
                 <td className="num">{g.fee}</td>
                 <td className="num">{g.share}</td>
@@ -435,6 +465,7 @@ export default function Market({ openNode, goTo }: Props) {
                 <span className="list-main">
                   <span className="num">{i + 1}</span>
                   <span>{n.name}</span>
+                  <EvidenceTag kind={evidenceKind(n)} />
                   {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
                   {n.value && !shortValue && <span className="stat-note num">{n.value}</span>}
                 </span>
@@ -480,7 +511,10 @@ export default function Market({ openNode, goTo }: Props) {
               return (
                 <tr key={row.segment}>
                   <td>
-                    {row.segment}
+                    <span className="row row--wrap">
+                      <span>{row.segment}</span>
+                      <EvidenceTag kind={TREND_KIND} />
+                    </span>
                     <span className="stat-note">{row.note}</span>
                   </td>
                   {values.map((v, i) => (
@@ -510,10 +544,10 @@ export default function Market({ openNode, goTo }: Props) {
       <div className="section-head">
         <h2 className="section-title">Источники и периметр домена</h2>
         <p className="section-lead">
-          Тип источника проставлен честно: official — законы и госреестры, company — данные
-          компании о себе, analyst — отраслевой обзор, forecast — прогноз, proxy — косвенная
-          оценка или источник, который в отчёте не назван. Где ссылки нет — источник назван
-          словами.
+          Тип источника проставлен честно и теми же метками, что стоят в строках выше: «факт» —
+          законы и госреестры, «компания» — данные компании о себе, «аналитика» — отраслевой
+          обзор, «прогноз» — прогноз, «оценка» — косвенная величина или источник, который в
+          отчёте не назван. Где ссылки нет — источник назван словами.
         </p>
       </div>
       <div className="list">
@@ -527,7 +561,7 @@ export default function Market({ openNode, goTo }: Props) {
               ) : (
                 <span>{s.label}</span>
               )}
-              <span className="tag">{s.kind}</span>
+              <EvidenceTag kind={s.kind} />
               {(s.metric || s.scope) && (
                 <span className="stat-note">
                   {s.metric}

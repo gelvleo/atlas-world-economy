@@ -79,7 +79,12 @@ export default function Timeline({ openNode, goTo }: Props) {
     <div className="section">
       <div className="section-head">
         <div className="kicker">Динамика услуг</div>
-        <h1 className="section-title">Куда переехал спрос</h1>
+        {/* Спрос 0–100 — экспертная шкала автора: ни у одной строки раздела нет
+            EvidenceRef, поэтому метка стоит на заголовке всего раздела. */}
+        <div className="row row--wrap">
+          <h1 className="section-title">Куда переехал спрос</h1>
+          <span className="tag tag--warn">оценка</span>
+        </div>
         <p className="section-lead">
           В 2010-х мир покупал «дешёвые руки», в 2020-х — цифровые рельсы, сейчас — результат
           работы ИИ. Переключай эпоху: строки пересортируются по спросу этой эпохи.

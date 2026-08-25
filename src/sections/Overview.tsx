@@ -1,6 +1,6 @@
 import { useMemo, useState, useTransition, type CSSProperties } from 'react';
-import type { SectionId } from '../types';
-import { NODES } from '../data/nodes';
+import type { EcoNode, EvidenceKind, SectionId } from '../types';
+import { ALL_NODES, NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS } from '../data/flows';
 import { AI_STATS } from '../data/ai';
 import { ERAS } from '../data/timeline';
@@ -11,6 +11,62 @@ interface Props {
   openNode: (id: string) => void;
   goTo: (s: SectionId) => void;
 }
+
+// ─── Достоверность числа ─────────────────────────────────────────────────────
+// Метка берётся из EvidenceRef.kind узла и ниоткуда больше. Ничего не
+// достраиваем: нет ссылки в данных — так и пишем «без источника».
+export const EVIDENCE_LABEL: Record<EvidenceKind, string> = {
+  official: 'факт',
+  analyst: 'аналитика',
+  company: 'компания',
+  forecast: 'прогноз',
+  proxy: 'оценка'
+};
+
+// Сильный источник перебивает слабый: у узла с законом и косвенной оценкой
+// в подписи стоит «факт».
+const EVIDENCE_RANK: EvidenceKind[] = ['official', 'analyst', 'company', 'forecast', 'proxy'];
+
+// Оценка и прогноз — единственные два вида, которые контракт красит в --warn.
+const SOFT_KINDS: EvidenceKind[] = ['forecast', 'proxy'];
+
+export function evidenceKind(n?: EcoNode): EvidenceKind | null {
+  const kinds = n?.evidence?.map((e) => e.kind) ?? [];
+  return EVIDENCE_RANK.find((k) => kinds.includes(k)) ?? null;
+}
+
+export function EvidenceTag({ kind }: { kind: EvidenceKind | null }) {
+  const soft = kind !== null && SOFT_KINDS.includes(kind);
+  return (
+    <span className={soft ? 'tag tag--warn' : 'tag tag--muted'}>
+      {kind ? EVIDENCE_LABEL[kind] : 'без источника'}
+    </span>
+  );
+}
+
+// Метка по идентификатору узла — для таблиц «Рынка», где в строке лежит nodeId.
+export function NodeEvidenceTag({ id }: { id?: string }) {
+  return <EvidenceTag kind={evidenceKind(id ? NODE_MAP[id] : undefined)} />;
+}
+
+// Сводка считается из данных при отрисовке, а не вписывается руками:
+// поменяется evidence у узла — поменяется и цифра.
+const HONESTY = (() => {
+  const kinds = ALL_NODES.filter((n) => n.value).map((n) => evidenceKind(n));
+  return {
+    total: kinds.length,
+    confirmed: kinds.filter((k) => k !== null && !SOFT_KINDS.includes(k)).length,
+    soft: kinds.filter((k) => k !== null && SOFT_KINDS.includes(k)).length,
+    none: kinds.filter((k) => k === null).length
+  };
+})();
+
+// Счётчик шапки карты — только мировой периметр, тот же массив, что рисует список.
+const WORLD_SOURCED = NODES.filter((n) => evidenceKind(n) !== null).length;
+
+// Верхние числа раздела своих EvidenceRef не имеют: в data/ai.ts у них только
+// подпись, и она сама называет их оценкой. Метку ставим по этой подписи.
+const statKind = (hint: string): EvidenceKind | null => (/оценк/i.test(hint) ? 'proxy' : null);
 
 const KIND_FILTERS = [
   { key: 'all', label: 'Всё' },
@@ -44,11 +100,17 @@ const NEXT_SECTIONS: { id: SectionId; title: string; note: string }[] = [
 
 export default function Overview({ openNode, goTo }: Props) {
   const [filter, setFilter] = useState('all');
+  const [onlySourced, setOnlySourced] = useState(false);
   const [pending, startTransition] = useTransition();
 
   const nodes = useMemo(
-    () => (filter === 'all' ? NODES : NODES.filter((n) => n.kind === filter)),
-    [filter]
+    () =>
+      NODES.filter(
+        (n) =>
+          (filter === 'all' || n.kind === filter) &&
+          (!onlySourced || evidenceKind(n) !== null)
+      ),
+    [filter, onlySourced]
   );
 
   return (
@@ -72,7 +134,10 @@ export default function Overview({ openNode, goTo }: Props) {
                 {unit && <span className="stat-unit">{unit}</span>}
               </span>
               <span className="stat-label">{s.label}</span>
-              <span className="stat-note">{s.hint}</span>
+              <span className="stat-note">
+                {/* Метка уже говорит «оценка» — второй раз то же слово не пишем. */}
+                <EvidenceTag kind={statKind(s.hint)} /> {s.hint === 'оценка' ? '' : s.hint}
+              </span>
             </button>
           );
         })}
@@ -85,22 +150,33 @@ export default function Overview({ openNode, goTo }: Props) {
           <div className="section-head">
             <h2 className="section-title">Карта узлов экономики</h2>
             <p className="section-lead">
-              {nodes.length} из {NODES.length} узлов мирового периметра. Страна обозначена
-              двухбуквенным кодом, остальные виды — знаком вида и точкой цвета.
+              {nodes.length} из {NODES.length} узлов мирового периметра. Источник указан
+              у {WORLD_SOURCED} из {NODES.length}: у остальных число стоит в подписи, но
+              сослаться не на что. Страна обозначена двухбуквенным кодом, остальные виды —
+              знаком вида и точкой цвета.
             </p>
           </div>
 
-          <div className="toolbar" role="group" aria-label="Фильтр по виду узла">
-            {KIND_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                className="btn btn--ghost"
-                aria-pressed={filter === f.key}
-                onClick={() => startTransition(() => setFilter(f.key))}
-              >
-                {f.label}
-              </button>
-            ))}
+          <div className="toolbar">
+            <div className="row row--wrap" role="group" aria-label="Фильтр по виду узла">
+              {KIND_FILTERS.map((f) => (
+                <button
+                  key={f.key}
+                  className="btn btn--ghost"
+                  aria-pressed={filter === f.key}
+                  onClick={() => startTransition(() => setFilter(f.key))}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+            <button
+              className="btn btn--ghost"
+              aria-pressed={onlySourced}
+              onClick={() => startTransition(() => setOnlySourced((v) => !v))}
+            >
+              Только с источником
+            </button>
           </div>
 
           {pending ? (
@@ -119,7 +195,13 @@ export default function Overview({ openNode, goTo }: Props) {
           ) : nodes.length === 0 ? (
             <div className="empty">
               <p>Под этот фильтр не попал ни один узел.</p>
-              <button className="btn btn--ghost" onClick={() => setFilter('all')}>
+              <button
+                className="btn btn--ghost"
+                onClick={() => {
+                  setFilter('all');
+                  setOnlySourced(false);
+                }}
+              >
                 Показать все узлы
               </button>
             </div>
@@ -145,7 +227,12 @@ export default function Overview({ openNode, goTo }: Props) {
                           </span>
                         )}
                         <span>{n.name}</span>
-                        <span className="tag">{KIND_LABEL[n.kind]}</span>
+                        {/* Код страны уже назвал вид — метка вида была бы вторым
+                            именем того же. Убрана в разметке, чтобы правило
+                            `.code ~ .tag` в styles.css не пряталo заодно и
+                            метку достоверности. */}
+                        {!code && <span className="tag">{KIND_LABEL[n.kind]}</span>}
+                        <EvidenceTag kind={evidenceKind(n)} />
                       </span>
                       {n.value && !shortValue && (
                         <span className="stat-note num">{n.value}</span>
@@ -160,6 +247,57 @@ export default function Overview({ openNode, goTo }: Props) {
         </div>
 
         <div className="stack">
+          <div className="section-head">
+            <h2 className="section-title">Сводка честности</h2>
+            <p className="section-lead">
+              Все {HONESTY.total} узла дашборда, оба периметра. Цифры считаются из данных при
+              отрисовке: метка строки — это вид источника узла, а не ручная пометка.
+            </p>
+          </div>
+          <div className="list">
+            <div className="list-row">
+              <span className="list-main">
+                <span className="row row--wrap">
+                  <span>Подтверждено источником</span>
+                  <EvidenceTag kind="official" />
+                </span>
+                <span className="stat-note">
+                  Госреестр или закон, отраслевой обзор, данные компании о себе — есть на что
+                  сослаться.
+                </span>
+              </span>
+              <span className="list-side num">{HONESTY.confirmed}</span>
+            </div>
+            <div className="list-row">
+              <span className="list-main">
+                <span className="row row--wrap">
+                  <span>Оценка или прогноз</span>
+                  <EvidenceTag kind="proxy" />
+                </span>
+                <span className="stat-note">
+                  Источник назван, но число в нём косвенное или относится к будущему. Для
+                  сравнения годится, для подстановки в расчёт — нет.
+                </span>
+              </span>
+              <span className="list-side num">{HONESTY.soft}</span>
+            </div>
+            <div className="list-row">
+              <span className="list-main">
+                <span className="row row--wrap">
+                  <span>Без источника</span>
+                  <EvidenceTag kind={null} />
+                </span>
+                <span className="stat-note">
+                  Число стоит в подписи узла, ссылки в данных нет. Считать такое измерением
+                  нельзя.
+                </span>
+              </span>
+              <span className="list-side num">{HONESTY.none}</span>
+            </div>
+          </div>
+
+          <div className="hair" />
+
           <div className="section-head">
             <h2 className="section-title">Четыре эпохи спроса</h2>
           </div>
