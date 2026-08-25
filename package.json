@@ -6,8 +6,9 @@
   "description": "ATLAS — интерактивный дашборд понимания мировой экономики: потоки денег, цепочки зависимостей, динамика услуг, влияние ИИ.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsx scripts/validate-links.ts && tsc && vite build",
+    "preview": "vite preview",
+    "check": "tsx scripts/validate-links.ts"
   },
   "dependencies": {
     "@xyflow/react": "^12.11.2",
@@ -19,6 +20,7 @@
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "typescript": "^5.6.3",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "tsx": "^4.19.2"
   }
 }
