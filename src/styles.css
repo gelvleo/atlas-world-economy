@@ -291,11 +291,15 @@ button.stat:active { transform: scale(0.98); }
 .table tbody tr:hover td { background: var(--accent-soft); }
 .table td[data-active], .table th[data-active] { background: var(--accent-soft); }
 
+/* Вправо выравниваются обе, но моноширинное — только у ячейки с числом.
+   Шапка остаётся --t-micro по разделу 4: «Оборот» и «Средний чек» — слова. */
 .table th.num, .table td.num {
   text-align: right;
+  white-space: nowrap;
+}
+.table td.num {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 .list { display: flex; flex-direction: column; }
