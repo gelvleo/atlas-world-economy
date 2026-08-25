@@ -19,6 +19,7 @@ import {
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
+  useNodesInitialized,
   useNodesState,
   useReactFlow,
   type Edge,
@@ -105,9 +106,9 @@ function LeafNode({ data, selected }: NodeProps) {
   }
 
   return (
-    <div className={cls} style={{ borderColor: d.color }}>
+    <div className={cls} style={{ borderLeftColor: d.color }}>
       <Handle type="target" position={Position.Left} className="mm-handle" />
-      <span className="mm-emoji">{d.emoji}</span>
+      <span className="mm-emoji" aria-hidden="true">{d.emoji}</span>
       <span className="mm-body">
         <span className="mm-name">{d.label}</span>
         {d.value && <span className="mm-val">{d.value}</span>}
@@ -141,9 +142,9 @@ function GroupNode({ data, selected }: NodeProps) {
   }
 
   return (
-    <div className={cls} style={{ borderColor: d.color }}>
+    <div className={cls} style={{ borderLeftColor: d.color }}>
       <Handle type="target" position={Position.Left} className="mm-handle" />
-      <span className="mm-emoji">{d.emoji}</span>
+      <span className="mm-emoji" aria-hidden="true">{d.emoji}</span>
       <span className="mm-body">
         <span className="mm-name">{d.label}</span>
         <span className="mm-val">{d.collapsed ? 'клик — раскрыть' : 'клик — свернуть'}</span>
@@ -174,15 +175,30 @@ const nodeTypes = {
   eco: LeafNode,
 };
 
+/* Тач-устройство: одним пальцем React Flow панорамирует холст и забирает
+   прокрутку страницы. Поэтому жесты карты по умолчанию выключены и
+   включаются кнопкой — тапы по узлам работают в обоих режимах. */
+const isCoarsePointer = () =>
+  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
 function FlowsMindmap({ openNode, goTo }: Props) {
   const rf = useReactFlow();
+  // fitView считает границы по измеренным узлам: до измерения он обрезает крайние
+  const nodesReady = useNodesInitialized();
+  const [isTouch] = useState(isCoarsePointer);
+  // на узком холсте нужен запас: узлы измеряются после рендера, и fitView
+  // без запаса обрезает крайние карточки
+  const fitPad = isTouch ? 0.25 : 0.15;
+  const [gestures, setGestures] = useState(() => !isCoarsePointer());
 
   const [kindFilter, setKindFilter] = useState<NodeKind | 'all'>('all');
   const [era, setEra] = useState<string>('all');
   const [onlyFlows, setOnlyFlows] = useState(false);
   const [showRelated, setShowRelated] = useState(true);
   const [search, setSearch] = useState('');
-  const [collapsed, setCollapsed] = useState<Set<NodeKind>>(new Set());
+  const [collapsed, setCollapsed] = useState<Set<NodeKind>>(() =>
+    isCoarsePointer() ? new Set(KIND_ORDER) : new Set()
+  );
   const [hoverNode, setHoverNode] = useState<string | null>(null);
   const [selectedFlow, setSelectedFlow] = useState<string | null>(null);
 
@@ -289,7 +305,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       data: {
         label: 'Мировая экономика',
         emoji: '🌐',
-        color: '#6c5ce7',
+        color: 'var(--accent)',
         subtitle: `${visibleNodes.length} узлов · ${eraFlows.length} потоков`,
       },
     });
@@ -354,7 +370,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
         id: `root-${g.kind}`,
         source: 'root',
         target: gid,
-        style: { stroke: color, strokeWidth: 2.5, opacity: 0.85 },
+        style: { stroke: 'var(--border-strong)', strokeWidth: 2, opacity: 0.9 },
       });
       if (!collapsed.has(g.kind)) {
         g.leaves.forEach((n) => {
@@ -362,7 +378,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
             id: `grp-${g.kind}-${n.id}`,
             source: gid,
             target: n.id,
-            style: { stroke: color, strokeWidth: 1.5, opacity: 0.55 },
+            style: { stroke: 'var(--border-strong)', strokeWidth: 1.5, opacity: 0.6 },
           });
         });
       }
@@ -371,7 +387,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     eraFlows.forEach((f) => {
       if (!openLeafIds.has(f.from) || !openLeafIds.has(f.to)) return;
       const isOld = (f.era ?? 'e2026') === 'e2010';
-      const base = isOld ? '#d9a03d' : '#6c5ce7';
+      const base = isOld ? 'var(--warn)' : 'var(--accent)';
       const w = 1.5 + Math.min(6, Math.sqrt(f.valueNum ?? 30) / 3.2);
       const touched = hoverNode !== null && (f.from === hoverNode || f.to === hoverNode);
       const opacity = hoverNode
@@ -388,8 +404,8 @@ function FlowsMindmap({ openNode, goTo }: Props) {
         source: f.from,
         target: f.to,
         label: `${f.label}${f.valueNum ? ` · $${f.valueNum} млрд` : ''}`,
-        labelStyle: { fill: '#43396b', fontSize: 10.5, fontWeight: 700 },
-        labelBgStyle: { fill: '#ffffff', fillOpacity: 0.92 },
+        labelStyle: { fill: 'var(--text-2)', fontSize: 10.5, fontWeight: 700 },
+        labelBgStyle: { fill: 'var(--surface)', fillOpacity: 0.95 },
         labelBgPadding: [7, 4] as [number, number],
         labelBgBorderRadius: 9,
         markerEnd: { type: MarkerType.ArrowClosed, color: base, width: 15, height: 15 },
@@ -424,7 +440,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
             source: id,
             target: r,
             style: {
-              stroke: '#7c89ad',
+              stroke: 'var(--muted)',
               strokeWidth: touched ? 1.8 : 1,
               strokeDasharray: '5 4',
               opacity,
@@ -487,10 +503,10 @@ function FlowsMindmap({ openNode, goTo }: Props) {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      void rf.fitView({ padding: 0.15, duration: 350 });
-    }, 60);
+      void rf.fitView({ padding: fitPad, duration: 350 });
+    }, 140);
     return () => clearTimeout(t);
-  }, [layoutKey, rf]);
+  }, [layoutKey, rf, fitPad, nodesReady]);
 
   useEffect(() => {
     if (!matches || matches.size === 0) return;
@@ -619,14 +635,22 @@ function FlowsMindmap({ openNode, goTo }: Props) {
           </button>
           <button
             className="filter-btn"
-            onClick={() => void rf.fitView({ padding: 0.15, duration: 350 })}
+            onClick={() => void rf.fitView({ padding: fitPad, duration: 350 })}
           >
-            🎯 Fit view
+            🎯 Вписать
           </button>
+          {isTouch && (
+            <button
+              className={gestures ? 'filter-btn active' : 'filter-btn'}
+              onClick={() => setGestures((v) => !v)}
+            >
+              {gestures ? '🖐 Жесты карты: вкл' : '🖐 Жесты карты: выкл'}
+            </button>
+          )}
         </div>
       </div>
 
-      <div className="mm-canvas">
+      <div className={gestures ? 'mm-canvas' : 'mm-canvas is-locked'}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -638,23 +662,29 @@ function FlowsMindmap({ openNode, goTo }: Props) {
           onEdgeClick={onEdgeClick}
           nodeTypes={nodeTypes}
           fitView
-          fitViewOptions={{ padding: 0.15 }}
+          fitViewOptions={{ padding: fitPad }}
           minZoom={0.15}
           maxZoom={2.2}
           deleteKeyCode={null}
+          panOnDrag={gestures}
+          zoomOnPinch={gestures}
+          zoomOnScroll={!isTouch}
+          zoomOnDoubleClick={gestures}
+          nodesDraggable={gestures && !isTouch}
+          preventScrolling={!isTouch}
         >
           <Background
             variant={BackgroundVariant.Dots}
             gap={26}
             size={1.5}
-            color="rgba(108, 92, 231, 0.16)"
+            color="var(--border-strong)"
           />
           <Controls showInteractive={false} />
           <MiniMap
             pannable
             zoomable
-            nodeColor={(n) => asData(n.data).color || '#c7cdea'}
-            maskColor="rgba(238, 241, 251, 0.72)"
+            nodeColor={(n) => asData(n.data).color || '#8892b0'}
+            maskColor="rgba(125, 135, 165, 0.35)"
           />
 
           <Panel position="bottom-right" className="mm-legend">
@@ -694,6 +724,14 @@ function FlowsMindmap({ openNode, goTo }: Props) {
         </ReactFlow>
       </div>
 
+      <p className="mm-hint">
+        {isTouch
+          ? gestures
+            ? 'Жесты карты включены: один палец двигает карту, два — масштаб. Выключи их кнопкой, чтобы вернуть прокрутку страницы.'
+            : 'Тап по узлу открывает карточку, тап по группе сворачивает её. Включи «Жесты карты», чтобы двигать и масштабировать холст.'
+          : 'Колесо — масштаб, перетаскивание — панорама. Клик по узлу открывает карточку, клик по стрелке — историю потока.'}
+      </p>
+
       <div className="crossnav">
         <button className="ghost-btn" onClick={() => goTo('chains')}>
           Смотреть цепочки зависимостей →
@@ -709,10 +747,8 @@ export default function Flows({ openNode, goTo }: Props) {
       <div className="section-head">
         <h1>💸 Потоки денег</h1>
         <p>
-          Интерактивная карта мировой экономики: корень → группы (страны, сектора, продукты,
-          услуги, технологии) → узлы. Цветные стрелки — потоки денег с подписью объёма, пунктир —
-          related-связи. Клик по узлу откроет его карточку, клик по группе свернёт или раскроет её,
-          клик по стрелке покажет историю потока. Наведение подсвечивает все связи узла.
+          Карта экономики: корень → группы (страны, сектора, продукты, услуги, технологии) → узлы.
+          Сплошные стрелки — потоки денег с объёмом, пунктир — related-связи.
         </p>
       </div>
       <ReactFlowProvider>
