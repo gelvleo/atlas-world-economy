@@ -6,6 +6,7 @@ import { AI_STATS } from '../data/ai';
 import { ERAS } from '../data/timeline';
 import { nodeCode, KIND_TONE, KIND_LABEL } from '../ui/glyphs';
 import { KindIcon } from '../ui/icons';
+import Val from '../ui/num';
 
 interface Props {
   openNode: (id: string) => void;
@@ -235,10 +236,10 @@ export default function Overview({ openNode, goTo }: Props) {
                         <EvidenceTag kind={evidenceKind(n)} />
                       </span>
                       {n.value && !shortValue && (
-                        <span className="stat-note num">{n.value}</span>
+                        <Val className="stat-note" value={n.value} />
                       )}
                     </span>
-                    {shortValue && <span className="list-side num">{n.value}</span>}
+                    {shortValue && <Val className="list-side" value={n.value!} />}
                   </button>
                 );
               })}
