@@ -747,11 +747,26 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
   .main { max-width: none; padding: 0; }
   .section { margin-bottom: var(--s6); }
 
-  /* таблица не режется по строкам, шапка повторяется на каждой странице */
+  /* таблица не режется по строкам, шапка повторяется на каждой странице.
+     Лист не скроллится вбок: широкая таблица ужимается кеглем и переносами,
+     иначе правые столбцы уходят за край страницы. */
   .table-wrap { overflow: visible; }
-  .table { break-inside: auto; }
+  /* Самая широкая таблица раздела — десять колонок, 791px против 688px полосы
+     набора A4. Бокового скролла на бумаге нет, поэтому обёртка ужимается
+     единым множителем: 791 × 0.85 = 672. Кегль остаётся читаемым. */
+  .table-wrap { zoom: 0.85; }
+  .table { break-inside: auto; font-size: 10.5px; line-height: 14px; }
+  .table th, .table td { padding: var(--s1) var(--s2); }
+  /* шапка переносится: «ПЛАТФОРМА СЕЙЧАС» в одну строку распирает колонку */
+  .table th { white-space: normal; }
+  /* на бумаге бокового скролла нет: широкая таблица переносит и числа,
+     иначе правые колонки уходят за обрез листа */
+  .table th.num, .table td.num { white-space: normal; }
   .table thead { display: table-header-group; }
   .table tr, .list-row, .stat, .note { break-inside: avoid; }
+  /* кликабельная строка растянута на ±8px под подсветку наведения;
+     на бумаге поля страницы нулевые, и этот вынос вылезал за полосу набора */
+  button.list-row, a.list-row { margin-left: 0; margin-right: 0; width: 100%; }
   .section-head, .h2 { break-after: avoid; }
 
   /* полосы и точки печатаются цветом, а не пустотой */
