@@ -33,6 +33,7 @@ import { NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS, FLOW_ERA_FILTER } from '../data/flows';
 import { KIND_LABEL, KIND_TONE } from '../ui/glyphs';
 import { WeightLine } from '../components/NodePanel';
+import Val from '../ui/num';
 import {
   IconClose,
   IconFit,
@@ -814,7 +815,12 @@ function FlowsMindmap({ openNode, goTo }: Props) {
                   </button>
                 )}
               </div>
-              <div className="mm-flowcard-value num">{selFlow.value}</div>
+              {/* value бывает фразой («данные для clinical AI») — моно только числу */}
+              {/\d/.test(selFlow.value) ? (
+                <Val className="mm-flowcard-value" value={selFlow.value} />
+              ) : (
+                <div className="mm-flowcard-value mm-flowcard-value--text">{selFlow.value}</div>
+              )}
               {/* вес обоих концов потока: числа посчитаны из данных, не вписаны */}
               <div className="mm-flowcard-weight meta">
                 {selFrom && (

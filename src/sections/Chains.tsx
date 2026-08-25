@@ -4,6 +4,7 @@ import { NODE_MAP } from '../data/nodes';
 import { CHAINS, DEPENDENCY_LINKS } from '../data/chains';
 import { IconNext, IconPrev, NodeGlyph } from '../ui/icons';
 import { KIND_LABEL } from '../ui/glyphs';
+import Val from '../ui/num';
 import { ORPHAN_NODES } from '../components/NodePanel';
 import './mindmap.css';
 
@@ -72,7 +73,13 @@ export default function Chains({ openNode, goTo }: Props) {
                       <NodeGlyph node={n} />
                       <span className="route-node-name">{n.name}</span>
                     </span>
-                    {n.value && <span className="route-node-value num">{n.value}</span>}
+                    {n.value &&
+                      (/\d/.test(n.value) ? (
+                        <Val className="route-node-value" value={n.value} />
+                      ) : (
+                        // значение бывает фразой — моноширинный ей вредит
+                        <span className="route-node-value route-node-value--text">{n.value}</span>
+                      ))}
                   </button>
                   {i < chain.nodes.length - 1 && (
                     <span className="route-arrow" aria-hidden="true" />

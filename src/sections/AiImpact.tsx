@@ -10,6 +10,7 @@ import {
   IconUp,
   NodeGlyph
 } from '../ui/icons';
+import Val from '../ui/num';
 import './mindmap.css';
 
 interface Props {
@@ -86,7 +87,7 @@ export default function AiImpact({ openNode, goTo }: Props) {
               <span className="list-main">
                 {s.label} <span className="meta">· {s.hint}</span>
               </span>
-              <span className="list-side">{s.value}</span>
+              <Val className="list-side" value={s.value} />
             </div>
           ))}
         </div>
