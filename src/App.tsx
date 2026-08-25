@@ -43,6 +43,8 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* шапка и лента разделов — один липкий блок */}
+      <div className="header">
       <header className="topbar">
         <button className="brand" onClick={() => goTo('overview')}>
           <span className="brand-globe">🌐</span>
@@ -77,18 +79,20 @@ export default function App() {
         </div>
       </header>
 
-      <nav className="nav">
+      <nav className="nav" aria-label="Разделы">
         {SECTIONS.map((s) => (
           <button
             key={s.id}
             className={section === s.id ? 'nav-btn active' : 'nav-btn'}
+            aria-current={section === s.id ? 'page' : undefined}
             onClick={() => goTo(s.id)}
           >
-            <span className="nav-icon">{s.icon}</span>
+            <span className="nav-icon" aria-hidden="true">{s.icon}</span>
             <span className="nav-label">{s.label}</span>
           </button>
         ))}
       </nav>
+      </div>
 
       <main className="main">
         {section === 'overview' && <Overview openNode={openNode} goTo={goTo} />}
