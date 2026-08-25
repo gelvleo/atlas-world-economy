@@ -24,9 +24,11 @@ export const EVIDENCE_LABEL: Record<EvidenceKind, string> = {
   proxy: 'оценка'
 };
 
-// Сильный источник перебивает слабый: у узла с законом и косвенной оценкой
-// в подписи стоит «факт».
-const EVIDENCE_RANK: EvidenceKind[] = ['official', 'analyst', 'company', 'forecast', 'proxy'];
+// Слабый источник перебивает сильный, а не наоборот. У узла несколько ссылок,
+// и какая именно держит число в подписи — из данных не видно. Healthtech с
+// набором «official + analyst + proxy» подписался бы «фактом», хотя его
+// $420 млрд взяты из аналитического обзора. Занижаем, чтобы не переоценить.
+const EVIDENCE_RANK: EvidenceKind[] = ['proxy', 'forecast', 'company', 'analyst', 'official'];
 
 // Оценка и прогноз — единственные два вида, которые контракт красит в --warn.
 const SOFT_KINDS: EvidenceKind[] = ['forecast', 'proxy'];
