@@ -1,11 +1,14 @@
-import { useMemo, type CSSProperties } from 'react';
-import type { SectionId } from '../types';
-import { NODE_MAP, KIND_LABEL, KIND_COLOR } from '../data/nodes';
+import { useEffect, useMemo, useRef } from 'react';
+import type { EvidenceKind, SectionId } from '../types';
+import { NODE_MAP } from '../data/nodes';
 import { FLOWS } from '../data/flows';
 import { CHAINS } from '../data/chains';
 import { EDTECH_FLOWS, EDTECH_CHAINS } from '../data/edtech';
 import { SERVICE_ERAS } from '../data/timeline';
 import { AI_IMPACTS } from '../data/ai';
+import { KIND_LABEL } from '../ui/glyphs';
+import { IconClose, IconDown, IconNext, IconTransform, IconUp, NodeGlyph } from '../ui/icons';
+import '../sections/mindmap.css';
 
 interface Props {
   nodeId: string;
@@ -15,12 +18,35 @@ interface Props {
   currentSection: SectionId;
 }
 
+const EVIDENCE_LABEL: Record<EvidenceKind, string> = {
+  official: 'официальный',
+  company: 'компания',
+  analyst: 'аналитика',
+  forecast: 'прогноз',
+  proxy: 'прокси'
+};
+
+// Прогноз и прокси — не факт: помечаем меткой предупреждения.
+const EVIDENCE_TAG: Record<EvidenceKind, string> = {
+  official: 'tag tag--accent',
+  company: 'tag',
+  analyst: 'tag',
+  forecast: 'tag tag--warn',
+  proxy: 'tag tag--warn'
+};
+
+const ERA_LABEL: Record<string, string> = {
+  e2010: '2010-е',
+  e2020: '2020-23',
+  e2026: 'сейчас',
+  e2030: '2030'
+};
+
 export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   const node = NODE_MAP[nodeId];
 
   // Периметры не смешиваем: рублёвый домен ru-edtech живёт своими потоками и
-  // цепочками. Мировая диаграмма по-прежнему читает только FLOWS — рубли туда
-  // не попадают, а панель узла показывает то, что относится к самому узлу.
+  // цепочками. Мировая диаграмма по-прежнему читает только FLOWS.
   const allFlows = useMemo(() => [...FLOWS, ...EDTECH_FLOWS], []);
   const allChains = useMemo(() => [...CHAINS, ...EDTECH_CHAINS], []);
   const flowsIn = useMemo(() => allFlows.filter((f) => f.to === nodeId), [allFlows, nodeId]);
@@ -29,147 +55,208 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
     () => allChains.filter((c) => c.nodes.includes(nodeId)),
     [allChains, nodeId]
   );
-  const timelineHere = useMemo(
-    () => SERVICE_ERAS.filter((s) => s.serviceId === nodeId),
-    [nodeId]
-  );
+  const timelineHere = useMemo(() => SERVICE_ERAS.filter((s) => s.serviceId === nodeId), [nodeId]);
   const aiHere = useMemo(() => AI_IMPACTS.filter((a) => a.targetId === nodeId), [nodeId]);
+
+  // Escape закрывает панель, фокус возвращается на элемент, который её открыл.
+  // onClose приходит новой ссылкой на каждый рендер — держим его в ref, иначе
+  // эффект перезапустится и запомнит вместо кнопки-открывателя саму панель.
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  const openerRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    openerRef.current = document.activeElement as HTMLElement | null;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeRef.current();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      openerRef.current?.focus?.();
+    };
+  }, []);
 
   if (!node) return null;
 
-  const related = node.related
-    .map((id) => NODE_MAP[id])
-    .filter(Boolean);
+  const related = node.related.map((id) => NODE_MAP[id]).filter(Boolean);
 
   return (
-    <div className="panel-overlay" onClick={onClose}>
-      <aside className="panel" onClick={(e) => e.stopPropagation()}>
-        <button className="panel-close" onClick={onClose} aria-label="Закрыть">✕</button>
-        <div className="panel-head">
-          <span className="panel-emoji">{node.emoji}</span>
-          <div>
-            <span
-              className="kind-badge"
-              style={{ '--k': node.color ?? KIND_COLOR[node.kind] } as CSSProperties}
-            >
-              {KIND_LABEL[node.kind]}
-            </span>
-            <h2>{node.name}</h2>
-            {node.value && <div className="panel-value">{node.value}</div>}
+    <div className="np-overlay" onClick={onClose}>
+      <aside
+        className="np panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label={node.name}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <header className="np-head">
+          <div className="np-head-main">
+            <div className="row">
+              <NodeGlyph node={node} />
+              <span className="tag">{KIND_LABEL[node.kind]}</span>
+            </div>
+            <h2 className="h2">{node.name}</h2>
+            {node.value && <div className="np-value">{node.value}</div>}
           </div>
-        </div>
+          <button className="btn--icon" onClick={onClose} aria-label="Закрыть карточку узла">
+            <IconClose />
+          </button>
+        </header>
 
-        <p className="panel-desc">{node.description}</p>
+        <div className="np-body">
+          <p>{node.description}</p>
 
-        <div className="panel-block">
-          <h3>Факты и ориентиры</h3>
-          <ul>
-            {node.facts.map((f, i) => (
-              <li key={i}>{f}</li>
-            ))}
-          </ul>
-        </div>
-
-        {node.evidence && node.evidence.length > 0 && (
-          <div className="panel-block evidence-block">
-            <h3>Источники и периметр</h3>
-            <div className="evidence-list">
-              {node.evidence.map((source) => (
-                <div className="evidence-card" key={source.id}>
-                  <div className="evidence-head">
-                    <a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a>
-                    <span className={`evidence-kind ${source.kind}`}>{source.kind}</span>
-                  </div>
-                  <div className="evidence-date">{source.date}</div>
-                  {source.metric && <div className="evidence-metric">{source.metric}</div>}
-                  {source.scope && <div className="evidence-scope">Периметр: {source.scope}</div>}
+          <div className="stack stack--tight">
+            <p className="kicker">Факты и ориентиры</p>
+            <div className="list">
+              {node.facts.map((f, i) => (
+                <div className="list-row" key={i}>
+                  <span className="list-main">{f}</span>
                 </div>
               ))}
             </div>
           </div>
-        )}
 
-        {(flowsIn.length > 0 || flowsOut.length > 0) && (
-          <div className="panel-block">
-            <h3>Потоки денег</h3>
-            {flowsOut.map((f) => (
-              <button key={f.id} className="link-row" onClick={() => goTo('flows')}>
-                <span className="arrow out">→</span>
-                <span><strong>{f.label}</strong> в {NODE_MAP[f.to]?.name ?? f.to} · {f.value}</span>
-              </button>
-            ))}
-            {flowsIn.map((f) => (
-              <button key={f.id} className="link-row" onClick={() => goTo('flows')}>
-                <span className="arrow in">←</span>
-                <span><strong>{f.label}</strong> из {NODE_MAP[f.from]?.name ?? f.from} · {f.value}</span>
-              </button>
-            ))}
-          </div>
-        )}
-
-        {chainsHere.length > 0 && (
-          <div className="panel-block">
-            <h3>Входит в цепочки</h3>
-            {chainsHere.map((c) => (
-              <button key={c.id} className="link-row" onClick={() => goTo('chains')}>
-                <span className="arrow">🔗</span>
-                <span>
-                  <strong>{c.title}</strong>
-                  <br />
-                  <small>{c.summary}</small>
-                </span>
-              </button>
-            ))}
-          </div>
-        )}
-
-        {timelineHere.length > 0 && (
-          <div className="panel-block">
-            <h3>Динамика спроса</h3>
-            <div className="mini-chart">
-              {timelineHere.map((s) => (
-                <div key={s.era} className="mini-bar-row">
-                  <span className="mini-era">{s.era === 'e2010' ? '2010-е' : s.era === 'e2020' ? '2020-23' : s.era === 'e2026' ? 'сейчас' : '2030'}</span>
-                  <div className="mini-bar-track">
-                    <div className="mini-bar-fill" style={{ width: `${s.demand}%` }} />
+          {node.evidence && node.evidence.length > 0 && (
+            <div className="stack stack--tight">
+              <p className="kicker">Источники и периметр</p>
+              <div className="list">
+                {node.evidence.map((source) => (
+                  <div className="list-row np-source" key={source.id}>
+                    <div className="list-main stack stack--tight">
+                      <div className="row row--wrap">
+                        {source.url ? (
+                          <a href={source.url} target="_blank" rel="noreferrer">
+                            {source.label}
+                          </a>
+                        ) : (
+                          <span className="np-source-noref">{source.label}</span>
+                        )}
+                        <span className={EVIDENCE_TAG[source.kind]}>
+                          {EVIDENCE_LABEL[source.kind]}
+                        </span>
+                        {!source.url && <span className="tag tag--muted">названо словами</span>}
+                      </div>
+                      {source.metric && <span className="meta">{source.metric}</span>}
+                      {source.scope && <span className="meta">Периметр: {source.scope}</span>}
+                    </div>
+                    <span className="list-side np-date">{source.date}</span>
                   </div>
-                  <span className="mini-num">{s.demand}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            <button className="ghost-btn" onClick={() => goTo('timeline')}>Открыть динамику услуг →</button>
-          </div>
-        )}
+          )}
 
-        {aiHere.length > 0 && (
-          <div className="panel-block">
-            <h3>Влияние ИИ</h3>
-            {aiHere.map((a) => (
-              <button key={a.id} className="link-row" onClick={() => goTo('ai')}>
-                <span className="arrow">{a.direction === 'up' ? '📈' : a.direction === 'down' ? '📉' : '🔄'}</span>
-                <span><strong>{a.title}</strong> · влияние {a.magnitude}</span>
-              </button>
-            ))}
-          </div>
-        )}
+          {(flowsIn.length > 0 || flowsOut.length > 0) && (
+            <div className="stack stack--tight">
+              <p className="kicker">Потоки денег</p>
+              <div className="list">
+                {flowsOut.map((f) => (
+                  <button key={f.id} className="list-row" onClick={() => goTo('flows')}>
+                    <span className="np-dir" aria-hidden="true">
+                      →
+                    </span>
+                    <span className="list-main">
+                      <b>{f.label}</b>{' '}
+                      <span className="meta">в {NODE_MAP[f.to]?.name ?? f.to}</span>
+                    </span>
+                    <span className="list-side">{f.value}</span>
+                  </button>
+                ))}
+                {flowsIn.map((f) => (
+                  <button key={f.id} className="list-row" onClick={() => goTo('flows')}>
+                    <span className="np-dir" aria-hidden="true">
+                      ←
+                    </span>
+                    <span className="list-main">
+                      <b>{f.label}</b>{' '}
+                      <span className="meta">из {NODE_MAP[f.from]?.name ?? f.from}</span>
+                    </span>
+                    <span className="list-side">{f.value}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
-        {related.length > 0 && (
-          <div className="panel-block">
-            <h3>Связанные узлы</h3>
-            <div className="chip-row">
-              {related.map((r) => (
-                <button
-                  key={r.id}
-                  className="chip"
-                  style={{ '--k': r.color ?? KIND_COLOR[r.kind] } as CSSProperties}
-                  onClick={() => openNode(r.id)}
-                >
-                  {r.emoji} {r.name}
+          {chainsHere.length > 0 && (
+            <div className="stack stack--tight">
+              <p className="kicker">Входит в цепочки</p>
+              <div className="list">
+                {chainsHere.map((c) => (
+                  <button key={c.id} className="list-row" onClick={() => goTo('chains')}>
+                    <span className="list-main stack stack--tight">
+                      <b>{c.title}</b>
+                      <span className="meta">{c.summary}</span>
+                    </span>
+                    <IconNext />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {timelineHere.length > 0 && (
+            <div className="stack stack--tight">
+              <p className="kicker">Динамика спроса</p>
+              <div className="list">
+                {timelineHere.map((s) => (
+                  <div className="list-row np-era" key={s.era}>
+                    <span className="np-era-label meta">{ERA_LABEL[s.era] ?? s.era}</span>
+                    <span className="bar np-era-bar">
+                      <span className="bar-fill" style={{ width: `${s.demand}%` }} />
+                    </span>
+                    <span className="list-side">{s.demand}</span>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <button className="btn btn--ghost" onClick={() => goTo('timeline')}>
+                  Открыть динамику услуг <IconNext />
                 </button>
-              ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+
+          {aiHere.length > 0 && (
+            <div className="stack stack--tight">
+              <p className="kicker">Влияние ИИ</p>
+              <div className="list">
+                {aiHere.map((a) => (
+                  <button key={a.id} className="list-row" onClick={() => goTo('ai')}>
+                    <span className="np-dir" aria-hidden="true">
+                      {a.direction === 'up' ? (
+                        <IconUp />
+                      ) : a.direction === 'down' ? (
+                        <IconDown />
+                      ) : (
+                        <IconTransform />
+                      )}
+                    </span>
+                    <span className="list-main">
+                      <b>{a.title}</b>
+                    </span>
+                    <span className="tag">{a.magnitude}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {related.length > 0 && (
+            <div className="stack stack--tight">
+              <p className="kicker">Связанные узлы</p>
+              <div className="np-related">
+                {related.map((r) => (
+                  <button key={r.id} className="np-chip" onClick={() => openNode(r.id)}>
+                    <NodeGlyph node={r} />
+                    <span>{r.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </aside>
     </div>
   );

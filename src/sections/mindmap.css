@@ -1,26 +1,208 @@
-/* ─── Flows: майндмапа на React Flow ─────────────────────── */
-.mm-toolbar { display: flex; flex-direction: column; gap: var(--s1); }
-.mm-sep { width: 1px; height: 20px; background: var(--border); margin: 0 var(--s1); align-self: center; flex: none; }
-.mm-search {
-  flex: none; min-height: var(--tap); width: 170px; padding: 0 var(--s3);
-  border-radius: var(--radius-pill); border: 1px solid var(--border);
-  background: var(--surface); color: var(--text); font-size: var(--fs-sm); outline: none;
-  transition: border-color .15s, box-shadow .15s;
-}
-.mm-search::placeholder { color: var(--muted); }
-.mm-search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+/* Стили разделов «Потоки денег», «Цепочки», «Влияние ИИ» и панели узла.
+   Общие классы живут в styles.css — здесь только то, что специфично этим
+   разделам. Своих цветов и отступов нет: всё на токенах дизайн-контракта. */
 
-/* подпись под холстом: что делают жесты */
-.mm-hint {
-  margin-top: var(--s2); font-size: var(--fs-xs); color: var(--muted); line-height: 1.5;
+/* ─── Маршрут цепочки ────────────────────────────────────────────── */
+.route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
 }
+.route-step {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+.route-node {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  min-height: var(--tap);
+  justify-content: center;
+  padding: var(--s2) var(--s3);
+  background: none;
+  border: 0;
+  border-left: 2px solid var(--k, var(--hair-strong));
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.route-node:hover { background: var(--accent-soft); }
+.route-node:active { transform: scale(0.98); }
+.route-node-head { display: flex; align-items: center; gap: var(--s2); }
+.route-node-name { font: var(--t-body); font-weight: 500; color: var(--ink); }
+.route-node-value { font: var(--t-num-s); color: var(--ink-3); }
+
+/* стрелка: линия с уголком, без символов и эмодзи */
+.route-arrow {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 1px;
+  background: var(--hair-strong);
+}
+.route-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid var(--hair-strong);
+  border-right: 1px solid var(--hair-strong);
+  transform: translate(1px, -50%) rotate(45deg);
+}
+.route-arrow--inline { width: 16px; align-self: center; }
+
+/* ─── Парные зависимости ─────────────────────────────────────────── */
+.dep-row { align-items: flex-start; }
+.dep-route { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+.dep-node {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 32px;
+  padding: 0 var(--s2);
+  margin-left: calc(var(--s2) * -1);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.dep-node:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.dep-label { font-weight: 500; color: var(--ink); }
+
+/* ─── Влияние ИИ ─────────────────────────────────────────────────── */
+.impact-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  flex-wrap: wrap;
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--hair);
+}
+.impact-group-head .meta { max-width: 68ch; }
+.impact-row { align-items: flex-start; }
+.impact-target {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 32px;
+  padding: 0 var(--s2);
+  margin-left: calc(var(--s2) * -1);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font: var(--t-body);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.impact-target:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.impact-when {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s5);
+  padding-top: var(--s2);
+}
+.impact-when .kicker { display: flex; align-items: center; gap: var(--s2); }
+
+/* ─── Панель узла ────────────────────────────────────────────────── */
+.np-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(24, 24, 27, 0.32);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.np {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  max-height: 88dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: var(--s4) var(--pad) var(--s6);
+  animation: np-in var(--dur) var(--ease);
+}
+@keyframes np-in {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.np-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  position: sticky;
+  top: calc(var(--s4) * -1);
+  z-index: 1;
+  padding: var(--s4) 0 var(--s3);
+  margin-top: calc(var(--s4) * -1);
+  background: var(--surface);
+  border-bottom: 1px solid var(--hair);
+}
+.np-head-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s2); }
+.np-value { font: var(--t-num-m); letter-spacing: var(--tr-h2); color: var(--ink); }
+.np-body { display: flex; flex-direction: column; gap: var(--s5); padding-top: var(--s4); }
+.np-body > p { color: var(--ink-2); max-width: 68ch; }
+
+.np-source { align-items: flex-start; }
+.np-source-noref { color: var(--ink); font-weight: 500; }
+.np-date { font: var(--t-meta); color: var(--ink-3); }
+
+.np-dir {
+  flex: none;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  font-family: var(--font-mono);
+}
+.np-era { align-items: center; gap: var(--s3); }
+.np-era-label { flex: none; width: 62px; }
+.np-era-bar { flex: 1; min-width: 0; }
+
+.np-related { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.np-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 36px;
+  padding: 0 var(--s3);
+  background: var(--surface-sunk);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: var(--t-meta);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.np-chip:hover { background: var(--accent-soft); border-color: var(--accent); }
+.np-chip:active { transform: scale(0.98); }
+
+/* ─── Майндмапа на React Flow ────────────────────────────────────── */
+.mm-search { flex: none; width: min(200px, 100%); }
+
+.mm-hint { margin-top: var(--s2); max-width: 68ch; }
 
 .mm-canvas {
   position: relative;
   margin: var(--s3) calc(-1 * var(--pad)) 0;
   height: clamp(360px, 62vh, 560px);
   overflow: hidden;
-  border-block: 1px solid var(--border);
+  border-block: 1px solid var(--hair);
   background: var(--surface);
 }
 .mm-canvas .react-flow { background: transparent; }
@@ -28,130 +210,194 @@
    съедало прокрутку страницы над холстом. Возвращаем вертикальный свайп. */
 .mm-canvas.is-locked .react-flow__pane,
 .mm-canvas.is-locked .react-flow__node { touch-action: pan-y pinch-zoom; }
-.mm-handle { width: 6px; height: 6px; background: var(--surface); border: 2px solid var(--accent); min-width: 0; min-height: 0; }
 
-.mm-leaf, .mm-group {
-  display: flex; align-items: center; gap: var(--s2); width: 210px; padding: var(--s2) var(--s3);
-  background: var(--surface); border: 1px solid var(--border);
-  border-left: 3px solid var(--border-strong); border-radius: var(--radius);
-  box-shadow: var(--shadow-sm); cursor: pointer; color: var(--text);
-  transition: box-shadow .15s, opacity .15s, background .15s;
+.mm-handle {
+  width: 5px;
+  height: 5px;
+  min-width: 0;
+  min-height: 0;
+  background: var(--surface);
+  border: 1px solid var(--hair-strong);
 }
-.mm-leaf:hover { box-shadow: var(--shadow); background: var(--surface-2); }
-.mm-leaf.is-selected, .mm-group.is-selected { outline: 2px solid var(--accent); outline-offset: 2px; }
-.mm-leaf.is-focus { background: var(--surface-2); box-shadow: var(--shadow); }
-.mm-leaf.is-dim, .mm-group.is-dim { opacity: 0.28; }
-.mm-leaf.is-match { outline: 2px solid var(--accent); outline-offset: 2px; background: var(--surface-2); }
 
-.mm-group { width: 196px; background: var(--surface-2); }
-.mm-group:hover { box-shadow: var(--shadow); }
+/* узел карты: поверхность, волосяная граница, цвет вида — только полосой 2px */
+.mm-node {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  width: 210px;
+  padding: var(--s2) var(--s3);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-left: 2px solid var(--k, var(--hair-strong));
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+.mm-node:hover { background: var(--accent-soft); }
+.mm-node.is-selected { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mm-node.is-focus { background: var(--accent-soft); }
+.mm-node.is-dim { opacity: 0.25; }
+.mm-node.is-match { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.mm-group { width: 200px; background: var(--surface-sunk); }
 .mm-group.is-collapsed { border-style: dashed; border-left-style: solid; }
 .mm-count {
-  margin-left: auto; min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--radius-pill);
-  display: inline-flex; align-items: center; justify-content: center;
-  background: var(--accent); color: #fff; font-size: var(--fs-micro); font-weight: 800;
+  margin-left: auto;
+  font: var(--t-num-s);
+  color: var(--ink-3);
+  flex: none;
 }
-.mm-caret { font-size: 10px; color: var(--muted); width: 10px; }
 
-.mm-root {
-  display: flex; flex-direction: column; gap: 2px; padding: var(--s3) var(--s4);
-  background: var(--accent); border-radius: var(--radius); color: #fff;
-  box-shadow: var(--shadow); cursor: pointer; min-width: 180px;
-}
-.mm-root b { font-size: var(--fs-base); letter-spacing: .02em; }
-.mm-root span { font-size: var(--fs-micro); opacity: .85; }
+.mm-root { width: 200px; border-left-color: var(--accent); }
+.mm-root .mm-name { font: var(--t-h2); letter-spacing: var(--tr-h2); }
 
-.mm-emoji { font-size: 17px; line-height: 1; flex: none; }
 .mm-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .mm-name {
-  font-size: var(--fs-xs); font-weight: 700; line-height: 1.25; color: var(--text);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 142px;
+  font: var(--t-meta);
+  font-weight: 500;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 146px;
 }
 .mm-val {
-  font-size: var(--fs-micro); color: var(--muted); line-height: 1.25;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 146px;
+  font: var(--t-micro);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
 }
 
-/* тултип с описанием узла */
+/* всплывающая подсказка узла — поверхность с тенью поверх холста */
 .mm-tip {
-  position: absolute; left: calc(100% + 10px); bottom: 0; z-index: 30; width: 250px;
-  padding: var(--s3); border-radius: var(--radius); text-align: left; cursor: default;
-  background: var(--surface); border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg); color: var(--text); pointer-events: none;
+  position: absolute;
+  left: calc(100% + 10px);
+  bottom: 0;
+  z-index: 30;
+  width: 250px;
+  padding: var(--s3);
+  text-align: left;
+  cursor: default;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
 }
 .mm-tip-below { bottom: auto; top: calc(100% + 8px); }
-.mm-tip b { display: block; font-size: var(--fs-sm); margin-bottom: 2px; }
-.mm-tip em { display: block; font-size: var(--fs-micro); color: var(--muted); font-style: normal; font-weight: 600; margin-bottom: var(--s1); }
-.mm-tip p { font-size: var(--fs-xs); line-height: 1.5; color: var(--text-2); margin-bottom: var(--s1); }
-.mm-tip-foot { font-size: var(--fs-micro); color: var(--accent); font-weight: 600; }
+.mm-tip b { font: var(--t-h2); letter-spacing: var(--tr-h2); }
+.mm-tip-val { font: var(--t-num-s); color: var(--ink-2); }
+.mm-tip p { font: var(--t-meta); color: var(--ink-2); }
+.mm-tip-foot { font: var(--t-micro); letter-spacing: var(--tr-micro); text-transform: uppercase; color: var(--ink-3); }
 
-/* легенда */
-.mm-legend {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: var(--s2) var(--s3);
-  font-size: var(--fs-micro); color: var(--text-2);
-  box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 3px;
-  max-width: 250px;
+/* управление картой: кнопки с целью тапа 44px */
+.mm-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  padding: var(--s1);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius-sm);
 }
-.mm-legend div { display: flex; align-items: center; gap: var(--s2); }
+.mm-controls .btn--icon.is-on { color: var(--accent); background: var(--accent-soft); }
+
+.mm-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  max-width: 250px;
+  padding: var(--s2) var(--s3);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius-sm);
+  font: var(--t-meta);
+  color: var(--ink-2);
+}
+.mm-legend span { display: flex; align-items: center; gap: var(--s2); }
 .mm-lg { display: inline-block; width: 22px; height: 0; flex: none; }
 .mm-lg-flow { border-top: 3px solid var(--accent); }
 .mm-lg-old { border-top: 3px solid var(--warn); }
-.mm-lg-rel { border-top: 2px dashed var(--muted); }
-.mm-legend-hint { color: var(--muted); line-height: 1.45; margin-top: 2px; }
+.mm-lg-rel { border-top: 1px dashed var(--hair-strong); }
+.mm-legend-hint { color: var(--ink-3); }
 
 /* карточка выбранного потока */
 .mm-flowcard {
-  width: min(360px, calc(100vw - 2 * var(--s4)));
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: var(--s3); box-shadow: var(--shadow-lg); color: var(--text); font-size: var(--fs-sm);
+  width: min(360px, calc(100vw - 2 * var(--s5)));
+  padding: var(--s3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
 }
 .mm-flowcard-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
-.mm-flowcard-head b { font-size: var(--fs-base); }
-.mm-flowcard-head button {
-  width: 32px; height: 32px; flex: none; color: var(--muted); font-size: var(--fs-base);
-  display: inline-flex; align-items: center; justify-content: center;
+.mm-flowcard-head b { font: var(--t-h2); letter-spacing: var(--tr-h2); }
+.mm-flowcard-route { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
+.mm-flowcard-node {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 32px;
+  padding: 0 var(--s2);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font: var(--t-meta);
+  cursor: pointer;
 }
-.mm-flowcard-head button:hover { color: var(--text); }
-.mm-flowcard-route { margin-top: var(--s1); font-size: var(--fs-xs); color: var(--text-2); line-height: 1.5; }
-.mm-flowcard-route em { font-style: normal; font-weight: 700; cursor: pointer; color: var(--accent); }
-.mm-flowcard-route em:hover { text-decoration: underline; }
-.mm-flowcard-value {
-  margin-top: var(--s1); font-size: var(--fs-micro); font-weight: 700; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .5px;
-}
-.mm-flowcard p { margin-top: var(--s2); font-size: var(--fs-xs); line-height: 1.55; color: var(--text-2); }
+.mm-flowcard-node:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.mm-flowcard-value { font: var(--t-num-s); color: var(--ink); }
+.mm-flowcard p { max-width: 68ch; }
 
-/* стандартные контролы React Flow под тему дашборда */
-.mm-canvas .react-flow__controls { box-shadow: var(--shadow-sm); border-radius: var(--radius-sm); overflow: hidden; }
-.mm-canvas .react-flow__controls-button {
-  background: var(--surface); border-bottom: 1px solid var(--border);
-  color: var(--text); width: 32px; height: 32px;
-}
-.mm-canvas .react-flow__controls-button:hover { background: var(--surface-2); color: var(--accent); }
-.mm-canvas .react-flow__controls-button svg { fill: currentColor; }
-.mm-canvas .react-flow__attribution { background: var(--surface-2); color: var(--muted); }
-.mm-canvas .react-flow__attribution a { color: var(--muted); }
-.mm-canvas .react-flow__minimap {
-  border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border);
-  background: var(--surface);
-}
 .mm-canvas .react-flow__edge-textbg { fill: var(--surface); }
-.mm-canvas .react-flow__edge-text { fill: var(--text-2); }
+.mm-canvas .react-flow__edge-text { fill: var(--ink); }
 
-/* на телефоне мини-карта и легенда съедают холст */
-@media (max-width: 679px) {
-  .mm-canvas .react-flow__minimap { display: none; }
+/* ─── Телефон ────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* маршрут читается сверху вниз, стрелка разворачивается */
+  .route { flex-direction: column; align-items: stretch; }
+  .route-step { flex-direction: column; align-items: flex-start; gap: var(--s1); }
+  .route-node { width: 100%; }
+  .route-arrow { margin-left: var(--s4); transform: rotate(90deg); }
+
+  .impact-when { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+
   .mm-legend { display: none; }
-  .mm-canvas .react-flow__controls-button { width: 40px; height: 40px; }
-  .mm-flowcard { font-size: var(--fs-xs); }
+  .mm-flowcard { width: calc(100vw - 2 * var(--s4)); }
 }
 
-@media (min-width: 680px) {
+@media (min-width: 768px) {
   .mm-canvas {
-    margin: var(--s3) 0 0; border-radius: var(--radius);
-    border: 1px solid var(--border);
+    margin: var(--s3) 0 0;
+    border: 1px solid var(--hair);
+    border-radius: var(--radius);
     height: clamp(480px, 70vh, 800px);
   }
-  .mm-search { min-height: 36px; width: 190px; }
+
+  /* панель на десктопе — колонка справа */
+  .np-overlay { align-items: stretch; justify-content: flex-end; }
+  .np {
+    width: min(460px, 92vw);
+    max-height: none;
+    height: 100dvh;
+    border-radius: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: var(--s4) var(--s5) var(--s7);
+    animation: np-in-side var(--dur) var(--ease);
+  }
+  @keyframes np-in-side {
+    from { transform: translateX(24px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np, .route-node, .mm-node, .np-chip { animation: none; transition: none; }
 }
