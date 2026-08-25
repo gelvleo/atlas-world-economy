@@ -39,6 +39,7 @@ export default function App() {
   const [closed, setClosed] = useState(false);
   const [active, setActive] = useState(0);
   const listRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const openNode = useCallback((id: string) => {
     if (NODE_MAP[id]) setSelectedNodeId(id);
@@ -74,6 +75,10 @@ export default function App() {
 
   const pickResult = useCallback(
     (id: string) => {
+      // Фокус возвращаем в поле ДО открытия узла. Иначе открывателем окажется
+      // кнопка результата, а её тут же уносит setSearch(''): панель запомнит
+      // отсоединённый узел, и после Escape фокус упадёт на body.
+      inputRef.current?.focus();
       openNode(id);
       setSearch('');
       setClosed(false);
@@ -126,6 +131,7 @@ export default function App() {
               <IconSearch size={18} />
             </span>
             <input
+              ref={inputRef}
               className="field"
               type="search"
               role="combobox"
