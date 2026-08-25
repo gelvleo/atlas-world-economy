@@ -182,14 +182,16 @@ export default function Timeline({ openNode, goTo }: Props) {
           <div className="list">
             {SHIFTS.map((s) => (
               <div key={s.id} className="list-row">
+                {/* Ссылка на узел ушла из .list-side: тот слот моноширинный,
+                    он для чисел, а тут имя узла. */}
                 <span className="list-main">
-                  <span>{s.title}</span>
+                  <span className="row row--wrap">
+                    <span>{s.title}</span>
+                    <button className="link" onClick={() => openNode(s.id)}>
+                      {s.link}
+                    </button>
+                  </span>
                   <span className="stat-note">{s.text}</span>
-                </span>
-                <span className="list-side">
-                  <button className="link" onClick={() => openNode(s.id)}>
-                    {s.link}
-                  </button>
                 </span>
               </div>
             ))}

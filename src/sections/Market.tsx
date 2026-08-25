@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import type { EvidenceKind, SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
-import { EvidenceTag, NodeEvidenceTag, NodeValue, evidenceKind } from './Overview';
+import { EvidenceTag, NodeEvidenceTag, evidenceKind } from './Overview';
+import Val from '../ui/num';
 import {
   EDTECH_CHAINS,
   EDTECH_CHANNELS,
@@ -179,8 +180,8 @@ export default function Market({ openNode, goTo }: Props) {
                         <NodeEvidenceTag id={c.nodeId} />
                       </span>
                     </td>
-                    <td className="num"><NodeValue value={c.year} /></td>
-                    <td className="num"><NodeValue value={c.month} /></td>
+                    <td className="num"><Val value={c.year} /></td>
+                    <td className="num"><Val value={c.month} /></td>
                   </tr>
                 ))}
               </tbody>
@@ -266,14 +267,14 @@ export default function Market({ openNode, goTo }: Props) {
                 <td>
                   <span className="tag">{s.priority}</span>
                 </td>
-                <td className="num"><NodeValue value={s.band} /></td>
-                <td className="num"><NodeValue value={s.players} /></td>
-                <td className="num"><NodeValue value={s.avgCheck} /></td>
-                <td className="num"><NodeValue value={s.launches} /></td>
+                <td className="num"><Val value={s.band} /></td>
+                <td className="num"><Val value={s.players} /></td>
+                <td className="num"><Val value={s.avgCheck} /></td>
+                <td className="num"><Val value={s.launches} /></td>
                 <td>{s.platform}</td>
                 <td>{s.techStaff}</td>
-                <td className="num"><NodeValue value={s.techCostYear} /></td>
-                <td className="num"><NodeValue value={s.payback} /></td>
+                <td className="num"><Val value={s.techCostYear} /></td>
+                <td className="num"><Val value={s.payback} /></td>
               </tr>
             ))}
           </tbody>
@@ -325,9 +326,9 @@ export default function Market({ openNode, goTo }: Props) {
                   </span>
                 </td>
                 <td>{c.type}</td>
-                <td className="num"><NodeValue value={c.entry} /></td>
-                <td className="num"><NodeValue value={c.monthly} /></td>
-                <td className="num"><NodeValue value={c.time} /></td>
+                <td className="num"><Val value={c.entry} /></td>
+                <td className="num"><Val value={c.monthly} /></td>
+                <td className="num"><Val value={c.time} /></td>
                 <td>
                   {c.scope}
                   <span className="stat-note">Продают: {c.buyer}</span>
@@ -376,8 +377,8 @@ export default function Market({ openNode, goTo }: Props) {
                     <NodeEvidenceTag id={g.nodeId} />
                   </span>
                 </td>
-                <td className="num"><NodeValue value={g.fee} /></td>
-                <td className="num"><NodeValue value={g.share} /></td>
+                <td className="num"><Val value={g.fee} /></td>
+                <td className="num"><Val value={g.share} /></td>
                 <td>{g.recurrent}</td>
                 <td>{g.installment}</td>
                 <td>{g.geo}</td>
@@ -467,9 +468,9 @@ export default function Market({ openNode, goTo }: Props) {
                   <span>{n.name}</span>
                   <EvidenceTag kind={evidenceKind(n)} />
                   {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
-                  {n.value && !shortValue && <NodeValue className="stat-note" value={n.value} />}
+                  {n.value && !shortValue && <Val className="stat-note" value={n.value} />}
                 </span>
-                {shortValue && <NodeValue className="list-side" value={n.value!} />}
+                {shortValue && <Val className="list-side" value={n.value!} />}
               </button>
             );
           })}
