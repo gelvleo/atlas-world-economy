@@ -192,6 +192,56 @@
 .np-era-label { flex: none; width: 62px; }
 .np-era-bar { flex: 1; min-width: 0; }
 
+/* вес узла: сколько потоков, цепочек и зависимостей его касается */
+.np-weight { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1); }
+.np-w-part { display: inline-flex; align-items: baseline; gap: var(--s1); }
+.np-w-part + .np-w-part::before { content: '·'; color: var(--ink-3); margin-right: var(--s1); }
+.np-w-num { font: var(--t-num-s); color: var(--ink); }
+.np-head-side { display: flex; align-items: center; gap: var(--s2); flex: none; }
+
+/* история переходов: до пяти шагов назад */
+.np-trail { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.np-trail-step {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 var(--s2);
+  background: var(--surface-sunk);
+  border: 1px solid var(--hair);
+  border-radius: var(--radius-sm);
+  color: var(--ink-2);
+  font: var(--t-meta);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.np-trail-step:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
+.np-trail-now { font: var(--t-meta); font-weight: 500; color: var(--ink); }
+
+/* сравнение двух узлов: метрика слева, узлы двумя колонками */
+.np-cmp {
+  display: grid;
+  grid-template-columns: minmax(64px, auto) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 var(--s3);
+  align-items: baseline;
+}
+.np-cmp-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+  padding-bottom: var(--s2);
+  font: var(--t-meta);
+  font-weight: 500;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.np-cmp-key { font: var(--t-micro); letter-spacing: var(--tr-micro); text-transform: uppercase; color: var(--ink-3); }
+.np-cmp-val { font: var(--t-meta); color: var(--ink-2); display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.np-cmp-num { font: var(--t-num-s); color: var(--ink); }
+.np-cmp-note { font: var(--t-meta); color: var(--ink-3); }
+.np-cmp-none { color: var(--ink-3); }
+.np-cmp-line { border-top: 1px solid var(--hair); padding: var(--s2) 0; }
+
 .np-related { display: flex; flex-wrap: wrap; gap: var(--s2); }
 .np-chip {
   display: inline-flex;
@@ -370,6 +420,8 @@
 }
 .mm-flowcard-node:hover { background: var(--accent-soft); color: var(--accent-ink); }
 .mm-flowcard-value { font: var(--t-num-s); color: var(--ink); }
+.mm-flowcard-weight { display: flex; flex-direction: column; gap: var(--s1); }
+.mm-flowcard-weight > span { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1); }
 .mm-flowcard p { max-width: 68ch; }
 
 .mm-canvas .react-flow__edge-textbg { fill: var(--surface); }

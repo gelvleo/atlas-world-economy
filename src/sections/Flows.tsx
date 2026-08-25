@@ -32,6 +32,7 @@ import type { NodeKind, SectionId } from '../types';
 import { NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS, FLOW_ERA_FILTER } from '../data/flows';
 import { KIND_LABEL, KIND_TONE } from '../ui/glyphs';
+import { WeightLine } from '../components/NodePanel';
 import {
   IconClose,
   IconFit,
@@ -814,6 +815,19 @@ function FlowsMindmap({ openNode, goTo }: Props) {
                 )}
               </div>
               <div className="mm-flowcard-value num">{selFlow.value}</div>
+              {/* вес обоих концов потока: числа посчитаны из данных, не вписаны */}
+              <div className="mm-flowcard-weight meta">
+                {selFrom && (
+                  <span>
+                    {selFrom.name}: <WeightLine id={selFrom.id} />
+                  </span>
+                )}
+                {selTo && (
+                  <span>
+                    {selTo.name}: <WeightLine id={selTo.id} />
+                  </span>
+                )}
+              </div>
               <p className="meta">{selFlow.description}</p>
             </Panel>
           )}

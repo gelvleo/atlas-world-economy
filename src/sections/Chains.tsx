@@ -3,6 +3,8 @@ import type { SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
 import { CHAINS, DEPENDENCY_LINKS } from '../data/chains';
 import { IconNext, IconPrev, NodeGlyph } from '../ui/icons';
+import { KIND_LABEL } from '../ui/glyphs';
+import { ORPHAN_NODES } from '../components/NodePanel';
 import './mindmap.css';
 
 interface Props {
@@ -149,6 +151,42 @@ export default function Chains({ openNode, goTo }: Props) {
           );
         })}
       </div>
+
+      {/* Узлы, которых нет ни в одном потоке, цепочке, зависимости и эффекте ИИ.
+          Список считается из данных: пусто — блока нет. */}
+      {ORPHAN_NODES.length > 0 && (
+        <>
+          <hr className="hair" />
+
+          <div className="section-head">
+            <p className="kicker">Дыры в данных</p>
+            <h2 className="h2">Узлы без потоков и цепочек</h2>
+            <p className="section-lead">
+              Таких узлов <span className="num">{ORPHAN_NODES.length}</span>: они не участвуют ни
+              в одном денежном потоке, ни в цепочке, ни в парной зависимости, ни в эффекте ИИ.
+              Держатся только на смежных связях — число справа показывает, сколько их записано.
+            </p>
+          </div>
+
+          <div className="list">
+            {ORPHAN_NODES.map((n) => (
+              <div className="list-row" key={n.id}>
+                <span className="list-main row row--wrap">
+                  <button className="dep-node" onClick={() => openNode(n.id)}>
+                    <NodeGlyph node={n} />
+                    <span>{n.name}</span>
+                  </button>
+                  <span className="tag">{KIND_LABEL[n.kind]}</span>
+                  {n.domain === 'ru-edtech' && <span className="tag tag--muted">рынок EdTech</span>}
+                </span>
+                <span className="list-side">
+                  <span className="num">{n.related.length}</span> смежных
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       <div className="crossnav">
         <button className="btn btn--ghost" onClick={() => goTo('flows')}>
