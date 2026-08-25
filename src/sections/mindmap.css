@@ -195,7 +195,9 @@
 /* вес узла: сколько потоков, цепочек и зависимостей его касается */
 .np-weight { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1); }
 .np-w-part { display: inline-flex; align-items: baseline; gap: var(--s1); }
-.np-w-part + .np-w-part::before { content: '·'; color: var(--ink-3); margin-right: var(--s1); }
+/* разделитель висит на предыдущей части: при переносе строка начинается
+   с числа, а не с осиротевшей точки */
+.np-w-part:not(:last-child)::after { content: '·'; color: var(--ink-3); margin-left: var(--s1); }
 .np-w-num { font: var(--t-num-s); color: var(--ink); }
 .np-head-side { display: flex; align-items: center; gap: var(--s2); flex: none; }
 
@@ -435,6 +437,8 @@
   .route-step { flex-direction: column; align-items: flex-start; gap: var(--s1); }
   .route-node { width: 100%; }
   .route-arrow { margin-left: var(--s4); transform: rotate(90deg); }
+  /* крошки истории остаются строкой — стрелка между ними не разворачивается */
+  .np-trail .route-arrow { margin-left: 0; transform: none; }
 
   .impact-when { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
 
