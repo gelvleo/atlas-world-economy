@@ -260,7 +260,13 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
     document.addEventListener('keydown', onKey);
     return () => {
       document.removeEventListener('keydown', onKey);
-      openerRef.current?.focus?.();
+      const opener = openerRef.current;
+      // Открыватель может исчезнуть, пока панель открыта: список поиска
+      // размонтируется вместе с запросом. focus() по отсоединённому узлу молча
+      // роняет фокус на body, и с клавиатуры дальше некуда идти — тогда
+      // возвращаемся в поле поиска, откуда узел и открывали.
+      if (opener?.isConnected) opener.focus?.();
+      else document.querySelector<HTMLElement>('.search-wrap input')?.focus();
     };
   }, []);
 
