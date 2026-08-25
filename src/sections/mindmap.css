@@ -162,8 +162,10 @@
 .np-value { font: var(--t-num-m); letter-spacing: var(--tr-h2); color: var(--ink); }
 /* Слот значения рассчитан на число: 20px/600. Фраза («новая нефть») в этом
    кегле громче имени узла (17px) — иерархия переворачивается. Кегль фразе
-   назначает слот, как и договорились: val--text снимает только моно. */
-.np-value.val--text { font: var(--t-body); font-weight: 500; color: var(--ink-2); }
+   назначает слот, как и договорились: val--text снимает только моно.
+   Вес не поднимаем: 400 у фразы — общее правило, 500 в числовых слотах
+   компенсирует светлый моноширинный рендер и вместе с моно уходит. */
+.np-value.val--text { font: var(--t-body); color: var(--ink-2); }
 /* сумма потока прижата вправо; фраза вместо суммы уходит в val--text */
 .np-flow-side { margin-left: auto; flex: none; max-width: 45%; text-align: right; }
 .np-body { display: flex; flex-direction: column; gap: var(--s5); padding-top: var(--s4); }
