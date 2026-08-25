@@ -35,6 +35,10 @@ const EVIDENCE_TAG: Record<EvidenceKind, string> = {
   proxy: 'tag tag--warn'
 };
 
+// Поле `value` в данных — то число, то фраза («инфраструктура доказательств»).
+// Моноширинным показываем только то, где действительно есть цифра.
+const isNumeric = (v: string) => /\d/.test(v);
+
 const ERA_LABEL: Record<string, string> = {
   e2010: '2010-е',
   e2020: '2020-23',
@@ -96,7 +100,11 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
               <span className="tag">{KIND_LABEL[node.kind]}</span>
             </div>
             <h2 className="h2">{node.name}</h2>
-            {node.value && <div className="np-value">{node.value}</div>}
+            {node.value && (
+              <div className={isNumeric(node.value) ? 'np-value num' : 'np-value np-value--text'}>
+                {node.value}
+              </div>
+            )}
           </div>
           <button className="btn--icon" onClick={onClose} aria-label="Закрыть карточку узла">
             <IconClose />
@@ -153,26 +161,26 @@ export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
               <div className="list">
                 {flowsOut.map((f) => (
                   <button key={f.id} className="list-row" onClick={() => goTo('flows')}>
-                    <span className="np-dir" aria-hidden="true">
-                      →
+                    <span className="np-dir np-dir--out" aria-hidden="true" />
+                    <span className="list-main stack stack--tight">
+                      <b>уходит в {NODE_MAP[f.to]?.name ?? f.to}</b>
+                      <span className="meta">{f.description}</span>
                     </span>
-                    <span className="list-main">
-                      <b>{f.label}</b>{' '}
-                      <span className="meta">в {NODE_MAP[f.to]?.name ?? f.to}</span>
+                    <span className={isNumeric(f.value) ? 'list-side' : 'np-flow-note'}>
+                      {f.value}
                     </span>
-                    <span className="list-side">{f.value}</span>
                   </button>
                 ))}
                 {flowsIn.map((f) => (
                   <button key={f.id} className="list-row" onClick={() => goTo('flows')}>
-                    <span className="np-dir" aria-hidden="true">
-                      ←
+                    <span className="np-dir np-dir--in" aria-hidden="true" />
+                    <span className="list-main stack stack--tight">
+                      <b>приходит из {NODE_MAP[f.from]?.name ?? f.from}</b>
+                      <span className="meta">{f.description}</span>
                     </span>
-                    <span className="list-main">
-                      <b>{f.label}</b>{' '}
-                      <span className="meta">из {NODE_MAP[f.from]?.name ?? f.from}</span>
+                    <span className={isNumeric(f.value) ? 'list-side' : 'np-flow-note'}>
+                      {f.value}
                     </span>
-                    <span className="list-side">{f.value}</span>
                   </button>
                 ))}
               </div>

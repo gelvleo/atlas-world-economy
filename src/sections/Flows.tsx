@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
@@ -57,10 +58,14 @@ const GROUP_LABEL: Record<NodeKind, string> = {
   tech: 'Технологии',
 };
 
-const GROUP_X = 400;
-const LEAF_X = 740;
+const GROUP_X = 290;
+const LEAF_X = 560;
 const LEAF_STEP = 84;
 const GROUP_GAP = 56;
+// Длинная группа встаёт в несколько колонок: 16 услуг в один столбец делают
+// холст в три экрана высотой, и карта открывается нечитаемой.
+const LEAF_COL_MAX = 8;
+const LEAF_COL_W = 250;
 
 interface MindData {
   nid?: string;
@@ -174,7 +179,9 @@ function RootNode({ data }: NodeProps) {
 
 const nodeTypes = {
   root: RootNode,
-  group: GroupNode,
+  // Не 'group': это встроенный тип React Flow со своей рамкой и padding —
+  // вокруг узла появлялась вторая коробка.
+  cluster: GroupNode,
   eco: LeafNode,
 };
 
@@ -199,9 +206,10 @@ function FlowsMindmap({ openNode, goTo }: Props) {
   const [onlyFlows, setOnlyFlows] = useState(false);
   const [showRelated, setShowRelated] = useState(true);
   const [search, setSearch] = useState('');
-  const [collapsed, setCollapsed] = useState<Set<NodeKind>>(() =>
-    isCoarsePointer() ? new Set(KIND_ORDER) : new Set()
-  );
+  // Карта открывается свёрнутой: корень и пять групп читаются, а 39 узлов
+  // сразу — нет. Раскрытая группа получает свой fitView и остаётся читаемой.
+  const [collapsed, setCollapsed] = useState<Set<NodeKind>>(() => new Set(KIND_ORDER));
+  const focusRef = useRef<string[] | null>(null);
   const [hoverNode, setHoverNode] = useState<string | null>(null);
   const [hoverEdge, setHoverEdge] = useState<string | null>(null);
   const [selectedFlow, setSelectedFlow] = useState<string | null>(null);
@@ -292,8 +300,10 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     let cursorY = 0;
     const blocks = groups.map((g) => {
       const open = !collapsed.has(g.kind);
-      const height = open ? Math.max(1, g.leaves.length) * LEAF_STEP - 22 : 66;
-      const block = { ...g, open, top: cursorY, height };
+      const cols = Math.max(1, Math.ceil(g.leaves.length / LEAF_COL_MAX));
+      const perCol = Math.ceil(Math.max(1, g.leaves.length) / cols);
+      const height = open ? perCol * LEAF_STEP - 22 : 66;
+      const block = { ...g, open, perCol, top: cursorY, height };
       cursorY += height + GROUP_GAP;
       return block;
     });
@@ -316,7 +326,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       const gid = `group-${g.kind}`;
       nodes.push({
         id: gid,
-        type: 'group',
+        type: 'cluster',
         position: { x: GROUP_X, y: g.top + g.height / 2 - 31 },
         draggable: false,
         data: {
@@ -329,11 +339,11 @@ function FlowsMindmap({ openNode, goTo }: Props) {
 
       if (g.open) {
         g.leaves.forEach((n, i) => {
-          const y = g.top + i * LEAF_STEP;
+          const y = g.top + (i % g.perCol) * LEAF_STEP;
           nodes.push({
             id: n.id,
             type: 'eco',
-            position: { x: LEAF_X, y },
+            position: { x: LEAF_X + Math.floor(i / g.perCol) * LEAF_COL_W, y },
             data: {
               nid: n.id,
               label: n.name,
@@ -380,6 +390,44 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       }
     });
 
+    // Смежные связи рисуем первыми: в SVG выше тот, кто нарисован позже, и
+    // пунктир перехватывал наведение и клик у денежных стрелок.
+    if (showRelated) {
+      const seen = new Set<string>();
+      openLeafIds.forEach((id) => {
+        const n = NODE_MAP[id];
+        if (!n) return;
+        n.related.forEach((r) => {
+          if (!openLeafIds.has(r)) return;
+          const key = [id, r].sort().join('|');
+          if (seen.has(key)) return;
+          seen.add(key);
+          const touched = hoverNode !== null && (id === hoverNode || r === hoverNode);
+          const opacity = hoverNode
+            ? touched
+              ? 0.85
+              : 0.06
+            : matches
+              ? matches.has(id) || matches.has(r)
+                ? 0.45
+                : 0.06
+              : 0.35;
+          edges.push({
+            id: `rel-${key}`,
+            source: id,
+            target: r,
+            style: {
+              stroke: 'var(--hair-strong)',
+              strokeWidth: touched ? 1.5 : 1,
+              strokeDasharray: '4 4',
+              opacity,
+            },
+          });
+          link(id, r);
+        });
+      });
+    }
+
     eraFlows.forEach((f) => {
       if (!openLeafIds.has(f.from) || !openLeafIds.has(f.to)) return;
       const isOld = (f.era ?? 'e2026') === 'e2010';
@@ -422,42 +470,6 @@ function FlowsMindmap({ openNode, goTo }: Props) {
       });
       link(f.from, f.to);
     });
-
-    if (showRelated) {
-      const seen = new Set<string>();
-      openLeafIds.forEach((id) => {
-        const n = NODE_MAP[id];
-        if (!n) return;
-        n.related.forEach((r) => {
-          if (!openLeafIds.has(r)) return;
-          const key = [id, r].sort().join('|');
-          if (seen.has(key)) return;
-          seen.add(key);
-          const touched = hoverNode !== null && (id === hoverNode || r === hoverNode);
-          const opacity = hoverNode
-            ? touched
-              ? 0.85
-              : 0.06
-            : matches
-              ? matches.has(id) || matches.has(r)
-                ? 0.45
-                : 0.06
-              : 0.35;
-          edges.push({
-            id: `rel-${key}`,
-            source: id,
-            target: r,
-            style: {
-              stroke: 'var(--hair-strong)',
-              strokeWidth: touched ? 1.5 : 1,
-              strokeDasharray: '4 4',
-              opacity,
-            },
-          });
-          link(id, r);
-        });
-      });
-    }
 
     const hoverKind = hoverNode ? NODE_MAP[hoverNode]?.kind : undefined;
     const finalEdges = edges.map((e) => {
@@ -522,7 +534,12 @@ function FlowsMindmap({ openNode, goTo }: Props) {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      void rf.fitView({ padding: fitPad, duration: 350 });
+      const focus = focusRef.current;
+      if (focus && focus.length > 0) {
+        void rf.fitView({ nodes: focus.map((id) => ({ id })), padding: 0.2, duration: 350 });
+      } else {
+        void rf.fitView({ padding: fitPad, duration: 350 });
+      }
     }, 140);
     return () => clearTimeout(t);
   }, [layoutKey, rf, fitPad, nodesReady]);
@@ -543,21 +560,30 @@ function FlowsMindmap({ openNode, goTo }: Props) {
     (_: ReactMouseEvent, node: Node) => {
       if (node.type === 'eco') {
         openNode(node.id);
-      } else if (node.type === 'group') {
+      } else if (node.type === 'cluster') {
         const k = asData(node.data).kind;
         if (k) {
           setCollapsed((prev) => {
             const next = new Set(prev);
-            if (next.has(k)) next.delete(k);
-            else next.add(k);
+            if (next.has(k)) {
+              next.delete(k);
+              // раскрыли — вписываем в экран именно эту группу, иначе она
+              // теряется среди соседей и текст становится нечитаемым
+              const g = groups.find((x) => x.kind === k);
+              focusRef.current = g ? [`group-${k}`, ...g.leaves.map((n) => n.id)] : null;
+            } else {
+              next.add(k);
+              focusRef.current = null;
+            }
             return next;
           });
         }
       } else if (node.type === 'root') {
+        focusRef.current = null;
         setCollapsed(new Set());
       }
     },
-    [openNode]
+    [openNode, groups]
   );
 
   const onNodeMouseEnter = useCallback((_: ReactMouseEvent, node: Node) => {
@@ -580,6 +606,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
   const allCollapsed = collapsed.size >= groups.length && groups.length > 0;
 
   const resetFilters = useCallback(() => {
+    focusRef.current = null;
     setKindFilter('all');
     setEra('all');
     setOnlyFlows(false);
@@ -619,7 +646,10 @@ function FlowsMindmap({ openNode, goTo }: Props) {
             key={k}
             className={kindFilter === k ? 'btn btn--ghost active' : 'btn btn--ghost'}
             aria-pressed={kindFilter === k}
-            onClick={() => setKindFilter(k)}
+            onClick={() => {
+              focusRef.current = null;
+              setKindFilter(k);
+            }}
           >
             {GROUP_LABEL[k]}
           </button>
@@ -633,6 +663,7 @@ function FlowsMindmap({ openNode, goTo }: Props) {
             className={era === f.key ? 'btn btn--ghost active' : 'btn btn--ghost'}
             aria-pressed={era === f.key}
             onClick={() => {
+              focusRef.current = null;
               setEra(f.key);
               setSelectedFlow(null);
             }}
@@ -659,9 +690,10 @@ function FlowsMindmap({ openNode, goTo }: Props) {
         </button>
         <button
           className="btn btn--ghost"
-          onClick={() =>
-            setCollapsed(allCollapsed ? new Set() : new Set(groups.map((g) => g.kind)))
-          }
+          onClick={() => {
+            focusRef.current = null;
+            setCollapsed(allCollapsed ? new Set() : new Set(groups.map((g) => g.kind)));
+          }}
         >
           {allCollapsed ? 'Раскрыть группы' : 'Свернуть группы'}
         </button>

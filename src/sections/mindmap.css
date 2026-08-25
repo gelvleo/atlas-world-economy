@@ -5,9 +5,12 @@
 /* ─── Маршрут цепочки ────────────────────────────────────────────── */
 .route {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: var(--s2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--s2);
 }
 .route-step {
   display: flex;
@@ -34,8 +37,9 @@
 .route-node:hover { background: var(--accent-soft); }
 .route-node:active { transform: scale(0.98); }
 .route-node-head { display: flex; align-items: center; gap: var(--s2); }
+.route-node { max-width: 230px; }
 .route-node-name { font: var(--t-body); font-weight: 500; color: var(--ink); }
-.route-node-value { font: var(--t-num-s); color: var(--ink-3); }
+.route-node-value { font: var(--t-num-s); color: var(--ink-3); white-space: normal; }
 
 /* стрелка: линия с уголком, без символов и эмодзи */
 .route-arrow {
@@ -154,6 +158,9 @@
 }
 .np-head-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s2); }
 .np-value { font: var(--t-num-m); letter-spacing: var(--tr-h2); color: var(--ink); }
+/* «значение» узла бывает фразой, а не числом — тогда моноширинный вредит */
+.np-value--text { font: var(--t-body); font-weight: 500; color: var(--ink-2); }
+.np-flow-note { font: var(--t-meta); color: var(--ink-3); margin-left: auto; flex: none; max-width: 40%; text-align: right; }
 .np-body { display: flex; flex-direction: column; gap: var(--s5); padding-top: var(--s4); }
 .np-body > p { color: var(--ink-2); max-width: 68ch; }
 
@@ -161,15 +168,26 @@
 .np-source-noref { color: var(--ink); font-weight: 500; }
 .np-date { font: var(--t-meta); color: var(--ink-3); }
 
+ /* направление потока — стрелка линией, без символов */
 .np-dir {
+  position: relative;
   flex: none;
+  align-self: center;
   width: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-3);
-  font-family: var(--font-mono);
+  height: 1px;
+  background: var(--hair-strong);
 }
+.np-dir::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid var(--hair-strong);
+  border-right: 1px solid var(--hair-strong);
+}
+.np-dir--out::after { right: 0; transform: translate(1px, -50%) rotate(45deg); }
+.np-dir--in::after { left: 0; transform: translate(-1px, -50%) rotate(225deg); }
 .np-era { align-items: center; gap: var(--s3); }
 .np-era-label { flex: none; width: 62px; }
 .np-era-bar { flex: 1; min-width: 0; }
@@ -193,7 +211,7 @@
 .np-chip:active { transform: scale(0.98); }
 
 /* ─── Майндмапа на React Flow ────────────────────────────────────── */
-.mm-search { flex: none; width: min(200px, 100%); }
+.field.mm-search { flex: 1 1 180px; min-width: 0; max-width: 100%; }
 
 .mm-hint { margin-top: var(--s2); max-width: 68ch; }
 
@@ -250,10 +268,10 @@
   flex: none;
 }
 
-.mm-root { width: 200px; border-left-color: var(--accent); }
-.mm-root .mm-name { font: var(--t-h2); letter-spacing: var(--tr-h2); }
+.mm-root { width: 232px; border-left-color: var(--accent); }
+.mm-root .mm-name { font: var(--t-body); font-weight: 600; white-space: normal; }
 
-.mm-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.mm-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
 .mm-name {
   font: var(--t-meta);
   font-weight: 500;
@@ -261,7 +279,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 146px;
+  max-width: 100%;
 }
 .mm-val {
   font: var(--t-micro);
@@ -271,7 +289,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: 100%;
 }
 
 /* всплывающая подсказка узла — поверхность с тенью поверх холста */
@@ -360,7 +378,8 @@
 /* ─── Телефон ────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
   /* маршрут читается сверху вниз, стрелка разворачивается */
-  .route { flex-direction: column; align-items: stretch; }
+  .route { flex-direction: column; align-items: stretch; overflow-x: visible; }
+  .route-node { max-width: none; }
   .route-step { flex-direction: column; align-items: flex-start; gap: var(--s1); }
   .route-node { width: 100%; }
   .route-arrow { margin-left: var(--s4); transform: rotate(90deg); }
@@ -368,6 +387,13 @@
   .impact-when { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
 
   .mm-legend { display: none; }
+  /* легенда скрыта — управление уезжает в свободный нижний угол */
+  .mm-canvas .react-flow__panel.mm-controls {
+    top: auto;
+    bottom: var(--s2);
+    right: var(--s2);
+    flex-direction: row;
+  }
   .mm-flowcard { width: calc(100vw - 2 * var(--s4)); }
 }
 
