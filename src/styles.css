@@ -397,10 +397,6 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
 }
 
 
-/* Двухбуквенный код уже называет вид узла — метка «СТРАНА» рядом с ним
-   дублирует его. Метка вида остаётся там, где кода нет. */
-.code ~ .tag { display: none; }
-
 /* обозначение узла: иконка вида плюс точка цвета вида */
 .glyph { display: inline-flex; align-items: center; gap: var(--s1); color: var(--ink-3); flex: none; }
 
