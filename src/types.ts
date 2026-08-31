@@ -3,9 +3,10 @@
 export type NodeKind = 'country' | 'sector' | 'product' | 'service' | 'tech';
 
 // Периметр данных. Домены не складываются между собой: 'world' — мировая экономика
-// в долларах, 'ru-edtech' — русскоязычный рынок онлайн-образования в рублях.
+// в долларах, 'ru-edtech': русскоязычный рынок онлайн-образования в рублях,
+// 'ai-native': рынок внедрений ИИ, деньги в рублях, западные вилки справочные.
 // Отсутствие поля означает 'world'.
-export type DomainKey = 'world' | 'ru-edtech';
+export type DomainKey = 'world' | 'ru-edtech' | 'ai-native';
 
 export type EvidenceKind = 'official' | 'company' | 'analyst' | 'forecast' | 'proxy';
 
@@ -91,4 +92,4 @@ export interface Era {
   summary: string;
 }
 
-export type SectionId = 'overview' | 'flows' | 'chains' | 'timeline' | 'ai' | 'market';
+export type SectionId = 'overview' | 'flows' | 'chains' | 'timeline' | 'ai' | 'market' | 'market-ai';

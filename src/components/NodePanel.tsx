@@ -5,6 +5,7 @@ import { ALL_NODES, NODE_MAP } from '../data/nodes';
 import { FLOWS } from '../data/flows';
 import { CHAINS, DEPENDENCY_LINKS } from '../data/chains';
 import { EDTECH_FLOWS, EDTECH_CHAINS, EDTECH_LINKS } from '../data/edtech';
+import { AI_NATIVE_FLOWS, AI_NATIVE_CHAINS, AI_NATIVE_LINKS } from '../data/ai-native';
 import { SERVICE_ERAS } from '../data/timeline';
 import { AI_IMPACTS } from '../data/ai';
 import { KIND_LABEL } from '../ui/glyphs';
@@ -60,9 +61,9 @@ export interface NodeWeight {
   total: number;
 }
 
-const ALL_FLOWS = [...FLOWS, ...EDTECH_FLOWS];
-const ALL_CHAINS = [...CHAINS, ...EDTECH_CHAINS];
-const ALL_LINKS = [...DEPENDENCY_LINKS, ...EDTECH_LINKS];
+const ALL_FLOWS = [...FLOWS, ...EDTECH_FLOWS, ...AI_NATIVE_FLOWS];
+const ALL_CHAINS = [...CHAINS, ...EDTECH_CHAINS, ...AI_NATIVE_CHAINS];
+const ALL_LINKS = [...DEPENDENCY_LINKS, ...EDTECH_LINKS, ...AI_NATIVE_LINKS];
 
 const EMPTY_WEIGHT: NodeWeight = { inflow: 0, outflow: 0, chains: 0, deps: 0, ai: 0, total: 0 };
 
@@ -207,16 +208,12 @@ function CompareGrid({ a, b }: { a: EcoNode; b: EcoNode }) {
 export default function NodePanel({ nodeId, onClose, openNode, goTo }: Props) {
   const node = NODE_MAP[nodeId];
 
-  // Периметры не смешиваем: рублёвый домен ru-edtech живёт своими потоками и
-  // цепочками. Мировая диаграмма по-прежнему читает только FLOWS.
-  const allFlows = useMemo(() => [...FLOWS, ...EDTECH_FLOWS], []);
-  const allChains = useMemo(() => [...CHAINS, ...EDTECH_CHAINS], []);
-  const flowsIn = useMemo(() => allFlows.filter((f) => f.to === nodeId), [allFlows, nodeId]);
-  const flowsOut = useMemo(() => allFlows.filter((f) => f.from === nodeId), [allFlows, nodeId]);
-  const chainsHere = useMemo(
-    () => allChains.filter((c) => c.nodes.includes(nodeId)),
-    [allChains, nodeId]
-  );
+  // Периметры не смешиваем: домены ru-edtech и ai-native живут своими потоками и
+  // цепочками. Мировая диаграмма по-прежнему читает только FLOWS. Здесь берём
+  // те же сводные списки, по которым считается вес узла.
+  const flowsIn = useMemo(() => ALL_FLOWS.filter((f) => f.to === nodeId), [nodeId]);
+  const flowsOut = useMemo(() => ALL_FLOWS.filter((f) => f.from === nodeId), [nodeId]);
+  const chainsHere = useMemo(() => ALL_CHAINS.filter((c) => c.nodes.includes(nodeId)), [nodeId]);
   const timelineHere = useMemo(() => SERVICE_ERAS.filter((s) => s.serviceId === nodeId), [nodeId]);
   const aiHere = useMemo(() => AI_IMPACTS.filter((a) => a.targetId === nodeId), [nodeId]);
 
