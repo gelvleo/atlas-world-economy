@@ -8,6 +8,7 @@ import Chains from './sections/Chains';
 import Timeline from './sections/Timeline';
 import AiImpact from './sections/AiImpact';
 import Market from './sections/Market';
+import MarketAi from './sections/MarketAi';
 import NodePanel from './components/NodePanel';
 import {
   IconOverview,
@@ -16,6 +17,7 @@ import {
   IconTimeline,
   IconAi,
   IconMarket,
+  IconMarketAi,
   IconSearch,
   NodeGlyph
 } from './ui/icons';
@@ -28,7 +30,10 @@ const SECTIONS: { id: SectionId; label: string; Icon: ComponentType<{ size?: 18 
   { id: 'timeline', label: 'Динамика услуг', Icon: IconTimeline },
   { id: 'ai', label: 'Влияние ИИ', Icon: IconAi },
   // Рублёвый домен ru-edtech: отдельный периметр, в мировые агрегаты не входит.
-  { id: 'market', label: 'Рынок EdTech', Icon: IconMarket }
+  { id: 'market', label: 'Рынок EdTech', Icon: IconMarket },
+  // Домен ai-native: второй отдельный периметр, деньги тоже в рублях, западные
+  // вилки лежат справочными полями узлов. С EdTech не складывается.
+  { id: 'market-ai', label: 'Рынок AI-внедрений', Icon: IconMarketAi }
 ];
 
 export default function App() {
@@ -205,6 +210,7 @@ export default function App() {
         {section === 'timeline' && <Timeline openNode={openNode} goTo={goTo} />}
         {section === 'ai' && <AiImpact openNode={openNode} goTo={goTo} />}
         {section === 'market' && <Market openNode={openNode} goTo={goTo} />}
+        {section === 'market-ai' && <MarketAi openNode={openNode} goTo={goTo} />}
       </main>
 
       <footer className="footer">

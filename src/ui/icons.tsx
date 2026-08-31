@@ -8,6 +8,7 @@ import {
   ChartLineUp,
   Sparkle,
   Buildings,
+  Brain,
   Factory,
   Package,
   Handshake,
@@ -45,6 +46,7 @@ export const IconChains = wrap(LinkSimple);
 export const IconTimeline = wrap(ChartLineUp);
 export const IconAi = wrap(Sparkle);
 export const IconMarket = wrap(Buildings);
+export const IconMarketAi = wrap(Brain);
 export const IconSearch = wrap(MagnifyingGlass);
 export const IconClose = wrap(X);
 export const IconNext = wrap(ArrowRight);
