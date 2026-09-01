@@ -147,73 +147,69 @@ export default function Market({ openNode, goTo }: Props) {
 
       <div className="hair" />
 
-      <div className="grid grid--73">
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">Куда уходят деньги школы 15–80 млн ₽</h2>
-            <p className="section-lead">
-              Модельная школа с оборотом 35 млн ₽ в год. Клик по статье открывает узел с фактами и
-              источниками.
-            </p>
-          </div>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">Статья расхода</th>
-                  <th scope="col" className="num">
-                    Вилка в год
-                  </th>
-                  <th scope="col" className="num">
-                    Вилка в месяц
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {EDTECH_SCHOOL_COSTS.map((c) => (
-                  <tr key={c.id}>
-                    <td>
-                      <span className="row row--wrap">
-                        <button className="link" onClick={() => openNode(c.nodeId)}>
-                          {c.label}
-                        </button>
-                        <NodeEvidenceTag id={c.nodeId} />
-                      </span>
-                    </td>
-                    <td className="num"><Val value={c.year} /></td>
-                    <td className="num"><Val value={c.month} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">За сколько возвращаются 150 тысяч</h2>
-            <p className="section-lead">
-              Срок считается из статей экономии, а не берётся готовым числом: меняются исходные
-              расходы — меняется вилка.
-            </p>
-          </div>
-          <div className="list">
-            {EDTECH_PAYBACK.map((p) => (
-              <div key={p.id} className="list-row">
-                <span className="list-main">
-                  <span>{p.title}</span>
-                  <span className="stat-note">
-                    Экономия {fmtRub(p.saveMonth)} ₽ в месяц. {p.basis}
+      <div className="section-head">
+        <h2 className="section-title">Куда уходят деньги школы 15–80 млн ₽</h2>
+        <p className="section-lead">
+          Модельная школа с оборотом 35 млн ₽ в год. Клик по статье открывает узел с фактами и
+          источниками.
+        </p>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Статья расхода</th>
+              <th scope="col" className="num">
+                Вилка в год
+              </th>
+              <th scope="col" className="num">
+                Вилка в месяц
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {EDTECH_SCHOOL_COSTS.map((c) => (
+              <tr key={c.id}>
+                <td>
+                  <span className="row row--wrap">
+                    <button className="link" onClick={() => openNode(c.nodeId)}>
+                      {c.label}
+                    </button>
+                    <NodeEvidenceTag id={c.nodeId} />
                   </span>
-                </span>
-                <span className="list-side num">
-                  {fmtMonths(p.months)}
-                  <span className="stat-unit">мес</span>
-                </span>
-              </div>
+                </td>
+                <td className="num"><Val value={c.year} /></td>
+                <td className="num"><Val value={c.month} /></td>
+              </tr>
             ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">За сколько возвращаются 150 тысяч</h2>
+        <p className="section-lead">
+          Срок считается из статей экономии, а не берётся готовым числом: меняются исходные
+          расходы — меняется вилка.
+        </p>
+      </div>
+      <div className="list">
+        {EDTECH_PAYBACK.map((p) => (
+          <div key={p.id} className="list-row">
+            <span className="list-main">
+              <span>{p.title}</span>
+              <span className="stat-note">
+                Экономия {fmtRub(p.saveMonth)} ₽ в месяц. {p.basis}
+              </span>
+            </span>
+            <span className="list-side num">
+              {fmtMonths(p.months)}
+              <span className="stat-unit">мес</span>
+            </span>
           </div>
-        </div>
+        ))}
       </div>
 
       <div className="hair" />
