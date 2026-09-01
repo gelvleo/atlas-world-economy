@@ -73,9 +73,19 @@ const TOP_STATS: {
   }
 ];
 
+// Лестница цен: РФ и запад стоят не двумя колонками, а по переключателю.
+// Рядом они не читаются: западная вилка «$2 000 – 8 000 для SMB, пакет
+// $4 500 – 6 000» длиннее рублёвой и в паре с ней резала таблицу по ширине.
+const PRICE_SIDES = [
+  { key: 'ru' as const, label: 'Цены РФ', column: 'РФ, рубли' },
+  { key: 'en' as const, label: 'Цены запада', column: 'Запад, доллары' }
+];
+
 export default function MarketAi({ openNode, goTo }: Props) {
   const [activeChain, setActiveChain] = useState(AI_NATIVE_CHAINS[0].id);
+  const [priceSide, setPriceSide] = useState<'ru' | 'en'>('ru');
   const chain = AI_NATIVE_CHAINS.find((c) => c.id === activeChain)!;
+  const side = PRICE_SIDES.find((s) => s.key === priceSide)!;
 
   const evidence = useMemo(() => Object.values(AI_NATIVE_EVIDENCE), []);
 
@@ -91,8 +101,10 @@ export default function MarketAi({ openNode, goTo }: Props) {
         </p>
       </div>
 
-      <div className="note">
-        <div className="kicker">Отдельный периметр</div>
+      {/* Оговорки периметра нужны раз в жизни раздела: держим их свёрнутыми,
+          чтобы первым читалось не примечание, а числа. */}
+      <details className="note">
+        <summary className="kicker">Отдельный периметр, пересчёт курса и метод</summary>
         <div className="list">
           <div className="list-row">
             <span className="list-main">
@@ -113,7 +125,7 @@ export default function MarketAi({ openNode, goTo }: Props) {
             </span>
           </div>
         </div>
-      </div>
+      </details>
 
       <div className="stats">
         {TOP_STATS.map((s) => (
@@ -132,87 +144,91 @@ export default function MarketAi({ openNode, goTo }: Props) {
 
       <div className="hair" />
 
-      <div className="grid grid--73">
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">Лестница цен: РФ и запад рядом</h2>
-            <p className="section-lead">
-              Колонки не пересчитываются одна в другую: это два разных рынка и две разные валюты.
-              Рядом они стоят ради одного вывода про наш чек.
-            </p>
-          </div>
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">Работа</th>
-                  <th scope="col" className="num">
-                    РФ, рубли
-                  </th>
-                  <th scope="col" className="num">
-                    Запад, доллары
-                  </th>
-                  <th scope="col">Что это значит для нас</th>
-                </tr>
-              </thead>
-              <tbody>
-                {AI_NATIVE_PRICES.map((p) => (
-                  <tr key={p.id}>
-                    <td>{p.work}</td>
-                    <td className="num">
-                      <Val value={p.ru} />
-                    </td>
-                    <td className="num">
-                      <Val value={p.en} />
-                    </td>
-                    <td>{p.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <div className="section-head">
+        <h2 className="section-title">Лестница цен на одну и ту же работу</h2>
+        <p className="section-lead">
+          РФ и запад показываются по очереди, а не двумя колонками: это два разных рынка и две
+          разные валюты, одна в другую они не пересчитываются.
+        </p>
+      </div>
+      <div className="toolbar">
+        <div className="seg" role="group" aria-label="Рынок в лестнице цен">
+          {PRICE_SIDES.map((s) => (
+            <button
+              key={s.key}
+              className="seg-btn"
+              aria-pressed={priceSide === s.key}
+              onClick={() => setPriceSide(s.key)}
+            >
+              {s.label}
+            </button>
+          ))}
         </div>
-
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">Сколько стоит провал</h2>
-            <p className="section-lead">
-              Числа считаются из вилок разведки, а не берутся готовыми: поменяются цены рынка,
-              поменяется и вывод.
-            </p>
-          </div>
-          <div className="list">
-            {AI_NATIVE_REVISION_CASE.map((r) => (
-              <div key={r.id} className="list-row">
-                <span className="list-main">
-                  <span>{r.title}</span>
-                  <span className="stat-note">{r.basis}</span>
-                </span>
-                <span className="list-side num">
-                  {fmtRub(r.value)}
-                  <span className="stat-unit">₽</span>
-                </span>
-              </div>
+      </div>
+      <div className="table-wrap">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Работа</th>
+              <th scope="col">{side.column}</th>
+              <th scope="col">Что это значит для нас</th>
+            </tr>
+          </thead>
+          <tbody>
+            {AI_NATIVE_PRICES.map((p) => (
+              <tr key={p.id}>
+                <td>{p.work}</td>
+                {/* Без класса .num: он ставит nowrap, а вилка запада длиной
+                    в строку от него уезжала за край таблицы. */}
+                <td>
+                  <Val value={priceSide === 'ru' ? p.ru : p.en} />
+                </td>
+                <td>{p.note}</td>
+              </tr>
             ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Сколько стоит провал</h2>
+        <p className="section-lead">
+          Числа считаются из вилок разведки, а не берутся готовыми: поменяются цены рынка,
+          поменяется и вывод.
+        </p>
+      </div>
+      <div className="list">
+        {AI_NATIVE_REVISION_CASE.map((r) => (
+          <div key={r.id} className="list-row">
+            <span className="list-main">
+              <span>{r.title}</span>
+              <span className="stat-note">{r.basis}</span>
+            </span>
+            <span className="list-side num">
+              {fmtRub(r.value)}
+              <span className="stat-unit">₽</span>
+            </span>
           </div>
-          <div className="note">
-            <div className="kicker">Главный вывод домена</div>
-            <p className="section-lead">
-              Ревизия за {fmtRub(AI_NATIVE_REVISION_MIN)} – {fmtRub(AI_NATIVE_REVISION_MAX)} ₽
-              дешевле одного неудачного внедрения в {fmtRatio(AI_NATIVE_REVISION_RATIO)} раза. Она
-              продаётся не обещанием результата, а критериями остановки: три вопроса, на которые
-              заказчик отвечает сам.
-            </p>
-            <div className="list">
-              {AI_NATIVE_STOP_QUESTIONS.map((q, i) => (
-                <div className="list-row" key={q}>
-                  <span className="list-main">
-                    <span className="num">{i + 1}</span> {q}
-                  </span>
-                </div>
-              ))}
+        ))}
+      </div>
+      <div className="note">
+        <div className="kicker">Главный вывод домена</div>
+        <p className="section-lead">
+          Ревизия за {fmtRub(AI_NATIVE_REVISION_MIN)} – {fmtRub(AI_NATIVE_REVISION_MAX)} ₽ дешевле
+          одного неудачного внедрения в {fmtRatio(AI_NATIVE_REVISION_RATIO)} раза. Она продаётся не
+          обещанием результата, а критериями остановки: три вопроса, на которые заказчик отвечает
+          сам.
+        </p>
+        <div className="list">
+          {AI_NATIVE_STOP_QUESTIONS.map((q, i) => (
+            <div className="list-row" key={q}>
+              <span className="list-main">
+                <span className="num">{i + 1}</span> {q}
+              </span>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -327,51 +343,47 @@ export default function MarketAi({ openNode, goTo }: Props) {
 
       <div className="hair" />
 
-      <div className="grid grid--55">
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">Боли: материал для первого звонка</h2>
-            <p className="section-lead">Каждая строка это готовый аргумент со своим числом.</p>
-          </div>
-          <div className="list">
-            {AI_NATIVE_PAINS.map((p) => (
-              <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
-                <span className="list-main">
-                  <span>{p.fact}</span>
-                  <span className="stat-note">
-                    Кого касается: {p.whom}. Боль: {p.pain}. Ответ продукта: {p.answer}
-                  </span>
-                </span>
-                <span className="list-side">{p.source}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="section-head">
+        <h2 className="section-title">Боли: материал для первого звонка</h2>
+        <p className="section-lead">Каждая строка это готовый аргумент со своим числом.</p>
+      </div>
+      <div className="list">
+        {AI_NATIVE_PAINS.map((p) => (
+          <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
+            <span className="list-main">
+              <span>{p.fact}</span>
+              <span className="stat-note">
+                Кого касается: {p.whom}. Боль: {p.pain}. Ответ продукта: {p.answer}
+              </span>
+            </span>
+            <span className="list-side">{p.source}</span>
+          </button>
+        ))}
+      </div>
 
-        <div className="stack">
-          <div className="section-head">
-            <h2 className="section-title">Каналы до ЛПР</h2>
-            <p className="section-lead">
-              Referral идёт первым по единодушию источников, воронки на этом рынке проигрывают
-              личным касаниям.
-            </p>
-          </div>
-          <div className="list">
-            {AI_NATIVE_CHANNELS.map((ch) => (
-              <button key={ch.id} className="list-row" onClick={() => openNode(ch.nodeId)}>
-                <span className="list-main">
-                  <span>{ch.name}</span>
-                  <span className="stat-note">
-                    {ch.type} · охват {ch.reach}. {ch.approach}. Что даёт: {ch.reward}
-                  </span>
-                </span>
-                <span className="list-side">
-                  <span className="tag">{ch.priority}</span>
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="hair" />
+
+      <div className="section-head">
+        <h2 className="section-title">Каналы до ЛПР</h2>
+        <p className="section-lead">
+          Referral идёт первым по единодушию источников, воронки на этом рынке проигрывают личным
+          касаниям.
+        </p>
+      </div>
+      <div className="list">
+        {AI_NATIVE_CHANNELS.map((ch) => (
+          <button key={ch.id} className="list-row" onClick={() => openNode(ch.nodeId)}>
+            <span className="list-main">
+              <span>{ch.name}</span>
+              <span className="stat-note">
+                {ch.type} · охват {ch.reach}. {ch.approach}. Что даёт: {ch.reward}
+              </span>
+            </span>
+            <span className="list-side">
+              <span className="tag">{ch.priority}</span>
+            </span>
+          </button>
+        ))}
       </div>
 
       <div className="hair" />
@@ -382,36 +394,34 @@ export default function MarketAi({ openNode, goTo }: Props) {
           Пять мест, которые на этом рынке ещё никем не заняты, и пять, куда лезть не стоит.
         </p>
       </div>
-      <div className="grid grid--73">
-        <div className="list">
-          {AI_NATIVE_POSITIONS.map((p, i) => (
-            <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
-              <span className="list-main">
-                <span>
-                  <span className="num">{i + 1}</span> {p.title}
-                </span>
-                <span className="stat-note">
-                  {p.claim} {p.basis}
-                </span>
+      <div className="list">
+        {AI_NATIVE_POSITIONS.map((p, i) => (
+          <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
+            <span className="list-main">
+              <span>
+                <span className="num">{i + 1}</span> {p.title}
               </span>
-              <NodeEvidenceTag id={p.nodeId} />
+              <span className="stat-note">
+                {p.claim} {p.basis}
+              </span>
+            </span>
+            <NodeEvidenceTag id={p.nodeId} />
+          </button>
+        ))}
+      </div>
+      <details className="note">
+        <summary className="kicker">Занято, не лезем: пять мест</summary>
+        <div className="list">
+          {AI_NATIVE_TAKEN.map((t) => (
+            <button key={t.id} className="list-row" onClick={() => openNode(t.nodeId)}>
+              <span className="list-main">
+                <span>{t.title}</span>
+                <span className="stat-note">{t.who}</span>
+              </span>
             </button>
           ))}
         </div>
-        <div className="note">
-          <div className="kicker">Занято, не лезем</div>
-          <div className="list">
-            {AI_NATIVE_TAKEN.map((t) => (
-              <button key={t.id} className="list-row" onClick={() => openNode(t.nodeId)}>
-                <span className="list-main">
-                  <span>{t.title}</span>
-                  <span className="stat-note">{t.who}</span>
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
+      </details>
 
       <div className="hair" />
 
@@ -434,30 +444,28 @@ export default function MarketAi({ openNode, goTo }: Props) {
           </button>
         ))}
       </div>
-      <div className="grid grid--73">
-        <div className="list">
-          {chain.nodes.map((id, i) => {
-            const n = NODE_MAP[id];
-            if (!n) return null;
-            const shortValue = n.value && n.value.length <= SHORT_VALUE;
-            return (
-              <button key={id} className="list-row" onClick={() => openNode(id)}>
-                <span className="list-main">
-                  <span className="num">{i + 1}</span>
-                  <span>{n.name}</span>
-                  <EvidenceTag kind={evidenceKind(n)} />
-                  {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
-                  {n.value && !shortValue && <Val className="stat-note" value={n.value} />}
-                </span>
-                {shortValue && <Val className="list-side" value={n.value!} />}
-              </button>
-            );
-          })}
-        </div>
-        <div className="note">
-          <div className="kicker">Суть цепочки</div>
-          <p className="section-lead">{chain.insight}</p>
-        </div>
+      <div className="note">
+        <div className="kicker">Суть цепочки</div>
+        <p className="section-lead">{chain.insight}</p>
+      </div>
+      <div className="list">
+        {chain.nodes.map((id, i) => {
+          const n = NODE_MAP[id];
+          if (!n) return null;
+          const shortValue = n.value && n.value.length <= SHORT_VALUE;
+          return (
+            <button key={id} className="list-row" onClick={() => openNode(id)}>
+              <span className="list-main">
+                <span className="num">{i + 1}</span>
+                <span>{n.name}</span>
+                <EvidenceTag kind={evidenceKind(n)} />
+                {i < chain.nodes.length - 1 && <span className="tag">тянет следующее</span>}
+                {n.value && !shortValue && <Val className="stat-note" value={n.value} />}
+              </span>
+              {shortValue && <Val className="list-side" value={n.value!} />}
+            </button>
+          );
+        })}
       </div>
 
       <div className="hair" />
@@ -494,30 +502,36 @@ export default function MarketAi({ openNode, goTo }: Props) {
           источник назван словами.
         </p>
       </div>
-      <div className="list">
-        {evidence.map((s) => (
-          <div className="list-row" key={s.id}>
-            <span className="list-main">
-              {s.url ? (
-                <a href={s.url} target="_blank" rel="noreferrer">
-                  {s.label}
-                </a>
-              ) : (
-                <span>{s.label}</span>
-              )}
-              <EvidenceTag kind={s.kind} />
-              {(s.metric || s.scope) && (
-                <span className="stat-note">
-                  {s.metric}
-                  {s.metric && s.scope ? ' · ' : ''}
-                  {s.scope ? `периметр: ${s.scope}` : ''}
-                </span>
-              )}
-            </span>
-            <span className="list-side num">{s.date}</span>
-          </div>
-        ))}
-      </div>
+      {/* Список источников нужен на проверке, а не на первом чтении: свёрнут. */}
+      <details className="note">
+        <summary className="kicker">
+          Показать все источники · <span className="num">{evidence.length}</span>
+        </summary>
+        <div className="list">
+          {evidence.map((s) => (
+            <div className="list-row" key={s.id}>
+              <span className="list-main">
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noreferrer">
+                    {s.label}
+                  </a>
+                ) : (
+                  <span>{s.label}</span>
+                )}
+                <EvidenceTag kind={s.kind} />
+                {(s.metric || s.scope) && (
+                  <span className="stat-note">
+                    {s.metric}
+                    {s.metric && s.scope ? ' · ' : ''}
+                    {s.scope ? `периметр: ${s.scope}` : ''}
+                  </span>
+                )}
+              </span>
+              <span className="list-side num">{s.date}</span>
+            </div>
+          ))}
+        </div>
+      </details>
 
       <div className="crossnav">
         <button className="btn btn--ghost" onClick={() => goTo('market')}>
