@@ -25,7 +25,8 @@ import {
   MagnifyingGlassPlus,
   MagnifyingGlassMinus,
   CornersOut,
-  Hand
+  Hand,
+  MapTrifold
 } from '@phosphor-icons/react';
 import type { Icon } from '@phosphor-icons/react';
 import type { CSSProperties } from 'react';
@@ -47,6 +48,7 @@ export const IconTimeline = wrap(ChartLineUp);
 export const IconAi = wrap(Sparkle);
 export const IconMarket = wrap(Buildings);
 export const IconMarketAi = wrap(Brain);
+export const IconVietnam = wrap(MapTrifold);
 export const IconSearch = wrap(MagnifyingGlass);
 export const IconClose = wrap(X);
 export const IconNext = wrap(ArrowRight);

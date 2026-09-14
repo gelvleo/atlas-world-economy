@@ -9,6 +9,7 @@ import Timeline from './sections/Timeline';
 import AiImpact from './sections/AiImpact';
 import Market from './sections/Market';
 import MarketAi from './sections/MarketAi';
+import Vietnam from './sections/Vietnam';
 import NodePanel from './components/NodePanel';
 import {
   IconOverview,
@@ -18,6 +19,7 @@ import {
   IconAi,
   IconMarket,
   IconMarketAi,
+  IconVietnam,
   IconSearch,
   NodeGlyph
 } from './ui/icons';
@@ -33,7 +35,10 @@ const SECTIONS: { id: SectionId; label: string; Icon: ComponentType<{ size?: 18 
   { id: 'market', label: 'Рынок EdTech', Icon: IconMarket },
   // Домен ai-native: второй отдельный периметр, деньги тоже в рублях, западные
   // вилки лежат справочными полями узлов. С EdTech не складывается.
-  { id: 'market-ai', label: 'Рынок AI-внедрений', Icon: IconMarketAi }
+  { id: 'market-ai', label: 'Рынок AI-внедрений', Icon: IconMarketAi },
+  // Домен vietnam: третий периметр, деньги в долларах, два уровня внутри —
+  // страна и провинция Lâm Đồng. С рублёвыми доменами не складывается.
+  { id: 'vietnam', label: 'Вьетнам и Lâm Đồng', Icon: IconVietnam }
 ];
 
 export default function App() {
@@ -211,6 +216,7 @@ export default function App() {
         {section === 'ai' && <AiImpact openNode={openNode} goTo={goTo} />}
         {section === 'market' && <Market openNode={openNode} goTo={goTo} />}
         {section === 'market-ai' && <MarketAi openNode={openNode} goTo={goTo} />}
+        {section === 'vietnam' && <Vietnam openNode={openNode} goTo={goTo} />}
       </main>
 
       <footer className="footer">
@@ -220,7 +226,8 @@ export default function App() {
             на 2026 год по открытым источникам, важен порядок величины и связь. Прогнозы помечены.
           </p>
           <p>
-            Мировой периметр считается в долларах, рынок EdTech — в рублях. Домены не складываются.
+            Мировой периметр и Вьетнам считаются в долларах, рынки EdTech и AI-внедрений — в рублях.
+            Домены не складываются между собой.
           </p>
         </div>
       </footer>

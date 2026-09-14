@@ -19,6 +19,7 @@ import { SERVICE_ERAS } from '../src/data/timeline';
 import { AI_IMPACTS } from '../src/data/ai';
 import { EDTECH_FLOWS, EDTECH_CHAINS, EDTECH_LINKS } from '../src/data/edtech';
 import { AI_NATIVE_FLOWS, AI_NATIVE_CHAINS, AI_NATIVE_LINKS } from '../src/data/ai-native';
+import { VIETNAM_FLOWS, VIETNAM_CHAINS, VIETNAM_LINKS } from '../src/data/vietnam';
 import type { EcoNode } from '../src/types';
 
 const ids = new Set(ALL_NODES.map((n) => n.id));
@@ -29,15 +30,15 @@ const check = (tag: string, ref: string | undefined, where: string) => {
   if (!ids.has(ref)) problems.push(`${tag} · ${where} → нет узла «${ref}»`);
 };
 
-for (const f of [...FLOWS, ...EDTECH_FLOWS, ...AI_NATIVE_FLOWS]) {
+for (const f of [...FLOWS, ...EDTECH_FLOWS, ...AI_NATIVE_FLOWS, ...VIETNAM_FLOWS]) {
   check('поток', f.from, f.id);
   check('поток', f.to, f.id);
 }
-for (const l of [...DEPENDENCY_LINKS, ...EDTECH_LINKS, ...AI_NATIVE_LINKS]) {
+for (const l of [...DEPENDENCY_LINKS, ...EDTECH_LINKS, ...AI_NATIVE_LINKS, ...VIETNAM_LINKS]) {
   check('связь', l.from, l.id);
   check('связь', l.to, l.id);
 }
-for (const c of [...CHAINS, ...EDTECH_CHAINS, ...AI_NATIVE_CHAINS]) {
+for (const c of [...CHAINS, ...EDTECH_CHAINS, ...AI_NATIVE_CHAINS, ...VIETNAM_CHAINS]) {
   c.nodes.forEach((n) => check('цепочка', n, c.id));
 }
 for (const s of SERVICE_ERAS) check('динамика', s.serviceId, `${s.serviceId}/${s.era}`);
@@ -58,7 +59,7 @@ const unsourced = numeric.filter((n) => !n.evidence?.length);
 const emptyUrl = ALL_NODES.flatMap((n) => n.evidence ?? []).filter((e) => !e.url).length;
 
 console.log(`узлов: ${ALL_NODES.length} · с числом в подписи: ${numeric.length} · из них без источника: ${unsourced.length}`);
-console.log(`потоков: ${FLOWS.length + EDTECH_FLOWS.length + AI_NATIVE_FLOWS.length} · цепочек: ${CHAINS.length + EDTECH_CHAINS.length + AI_NATIVE_CHAINS.length} · связей: ${DEPENDENCY_LINKS.length + EDTECH_LINKS.length + AI_NATIVE_LINKS.length}`);
+console.log(`потоков: ${FLOWS.length + EDTECH_FLOWS.length + AI_NATIVE_FLOWS.length + VIETNAM_FLOWS.length} · цепочек: ${CHAINS.length + EDTECH_CHAINS.length + AI_NATIVE_CHAINS.length + VIETNAM_CHAINS.length} · связей: ${DEPENDENCY_LINKS.length + EDTECH_LINKS.length + AI_NATIVE_LINKS.length + VIETNAM_LINKS.length}`);
 console.log(`источников без ссылки (названы словами): ${emptyUrl}`);
 
 if (problems.length) {
