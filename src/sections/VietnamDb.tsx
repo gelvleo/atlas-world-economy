@@ -307,6 +307,12 @@ const SEARCH_INDEX: Hit[] = [
   }))
 ];
 
+/** Сколько рынков получили оценку возможности. Остальным в базе стоит null, и
+ *  это «не считали», а не ноль: у зоны неизвестно население. */
+const SCORED = GEN_MARKETS.filter(
+  (m) => m.opportunity_score !== null && m.opportunity_score !== undefined
+).length;
+
 /** Якоря блоков раздела. Тот же список назван агенту region-brief и в README. */
 const SECTION_IDS = [
   'search', 'calendar', 'regions', 'employment', 'markets', 'opportunity', 'entities', 'sweeps'
@@ -713,9 +719,44 @@ export default function VietnamDb() {
       <div id="vn-markets" className="section-head">
         <h2 className="section-title">Рынки по зонам</h2>
         <p className="section-lead">
-          Массаж, спа, отели, кофейни и прочее, что считается поимённо. Число игроков это перепись
-          точек на карте, а не реестр юрлиц: метка у строки говорит, чем подкреплён размер рынка.
+          Массаж, спа, отели, кофейни и прочее, что считается поимённо. Считаются точки на карте
+          OpenStreetMap, а не реестр юрлиц.
         </p>
+        <div className="note note--warn">
+          <div className="kicker">Как читать эти числа</div>
+          <div className="list">
+            <div className="list-row">
+              <span className="list-main">
+                <span>Зоны складывать нельзя.</span>
+                <span className="stat-note">
+                  Зона это круг вокруг точки радиусом до 12 км, круги соседних зон пересекаются:
+                  круг Đà Lạt накрывает Lạc Dương целиком, и их 1 598 и 1 575 точек это во многом
+                  одни и те же заведения. Строка отвечает на вопрос «сколько точек в получасе езды
+                  отсюда», а не «сколько точек в этом районе».
+                </span>
+              </span>
+            </div>
+            <div className="list-row">
+              <span className="list-main">
+                <span>Счёт точек это нижняя граница.</span>
+                <span className="stat-note">
+                  Карту рисуют волонтёры. Пять массажных на весь Đà Lạt при 20,7 млн визитов это
+                  пять размеченных точек, а не рынок из пяти игроков. Число годится, чтобы
+                  сравнивать зоны между собой, и не годится как размер рынка.
+                </span>
+              </span>
+            </div>
+            <div className="list-row">
+              <span className="list-main">
+                <span>Прочерк в оценке значит «не считали».</span>
+                <span className="stat-note">
+                  Оценка возможности есть у {SCORED} строк из {GEN_MARKETS.length}. Зоны без
+                  известного населения оценки не получают: ноль там не стоит, стоит прочерк.
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       {marketsByRegion.length === 0 ? (
         <Gap
@@ -734,9 +775,10 @@ export default function VietnamDb() {
                 <thead>
                   <tr>
                     <th scope="col">Рынок</th>
-                    <th scope="col" className="num">Игроков</th>
+                    <th scope="col" className="num">Точек на карте</th>
                     <th scope="col" className="num">Средний чек</th>
                     <th scope="col" className="num">Размер в год</th>
+                    <th scope="col" className="num">Возможность</th>
                     <th scope="col">Чем подкреплено</th>
                   </tr>
                 </thead>
@@ -765,6 +807,11 @@ export default function VietnamDb() {
                           {m.size_vnd_year ? (
                             <Val value={statText({ value: m.size_vnd_year, unit: 'VND' } as GenStat) ?? ''} />
                           ) : '—'}
+                        </td>
+                        <td className="num">
+                          {m.opportunity_score === null || m.opportunity_score === undefined
+                            ? '—'
+                            : fmt1(Number(m.opportunity_score))}
                         </td>
                         <td>
                           {/* Размер рынка и перепись точек это разные вещи:
@@ -799,7 +846,11 @@ export default function VietnamDb() {
         <h2 className="section-title">Возможности по зонам</h2>
         <p className="section-lead">
           Оценка возможности считается обходом рынков и живёт в базе строкой. Это не прогноз выручки,
-          а порядок «где меньше всего занято при том же спросе».
+          а порядок «где меньше всего занято при том же спросе»: население зоны делится на число
+          размеченных точек и сравнивается с медианой по региону. Посчитана у {SCORED} строк из{' '}
+          {GEN_MARKETS.length}; {GEN_MARKETS.length - SCORED} остались без оценки, потому что
+          населения их зоны база не знает. Пояснение под каждой строкой - это числа, из которых
+          оценка собрана, вместе с поправкой на редко размеченную карту.
         </p>
       </div>
       {opportunities.length === 0 ? (
