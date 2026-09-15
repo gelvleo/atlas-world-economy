@@ -18,6 +18,7 @@ import {
   GEN_HEARTBEATS,
   GEN_INSIGHTS,
   GEN_MARKETS,
+  GEN_NAMED_MARKETS,
   GEN_REGIONS,
   GEN_STATS,
   GEN_TOPICS,
@@ -377,7 +378,8 @@ const SCORED = GEN_MARKETS.filter(
 
 /** Якоря блоков раздела. Тот же список назван агенту region-brief и в README. */
 const SECTION_IDS = [
-  'search', 'calendar', 'regions', 'employment', 'markets', 'opportunity', 'entities', 'sweeps'
+  'search', 'calendar', 'regions', 'employment', 'markets', 'national', 'opportunity',
+  'entities', 'sweeps'
 ];
 
 const HIT_LABEL: Record<Hit['kind'], string> = {
@@ -905,7 +907,16 @@ export default function VietnamDb() {
                             </span>
                           )}
                         </td>
-                        <td className="num">{m.players_count ?? '—'}</td>
+                        <td className="num">
+                          {m.players_count ?? '—'}
+                          {m.players_rolled !== null &&
+                            m.players_rolled !== undefined &&
+                            m.players_rolled !== m.players_count && (
+                              <span className="stat-note">
+                                во всём районе {fmtInt(m.players_rolled)}
+                              </span>
+                            )}
+                        </td>
                         <td className="num">
                           {m.avg_price_vnd ? <Val value={fmtInt(m.avg_price_vnd)} unit="VND" /> : '—'}
                         </td>
@@ -967,6 +978,35 @@ export default function VietnamDb() {
       )}
 
       <div className="hair" />
+
+      {/* ── Национальные и отраслевые рынки ───────────────────────────────── */}
+      {GEN_NAMED_MARKETS.length > 0 && (
+        <>
+          <div id="vn-national" className="section-head">
+            <h2 className="section-title">Рынки, где игроки названы поимённо</h2>
+            <p className="section-lead">
+              Национальные и отраслевые рынки живут только в графе: игроков там не считает карта,
+              их перечисляют связи с компаниями. Счёт здесь качественнее, чем по зонам, потому что
+              это компании с именами, а не точки OpenStreetMap. Складывать с зонами нельзя: это
+              другой периметр и другая единица.
+            </p>
+          </div>
+          <div className="list">
+            {GEN_NAMED_MARKETS.map((m) => (
+              <div className="list-row" key={m.slug}>
+                <span className="list-main">
+                  <span>{m.name_ru}</span>
+                  {m.region_slug && <span className="meta"> · {regionName(m.region_slug)}</span>}
+                  <span className="stat-note">{m.players.map((p) => p.name).join(' · ')}</span>
+                </span>
+                <Val className="list-side" value={String(m.players.length)} unit="игроков" />
+              </div>
+            ))}
+          </div>
+
+          <div className="hair" />
+        </>
+      )}
 
       {/* ── Возможности ───────────────────────────────────────────────────── */}
       <div id="vn-opportunity" className="section-head">

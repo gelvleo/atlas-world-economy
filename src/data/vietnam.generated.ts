@@ -7,13 +7,15 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T13:01:38.877Z
-// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
+// Снято: 2026-09-15T13:05:57.914Z
+// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · named_markets 13 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
 export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; gap_status: string | null; gap_score: number | null; players_rolled: number | null; osm_density_per_10k: number | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenNamedPlayer { name: string; note: string | null; source_type: string | null; evidence_url: string | null }
+export interface GenNamedMarket { slug: string; name_ru: string; region_slug: string | null; players: GenNamedPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
@@ -24,7 +26,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T13:01:38.877Z";
+export const generatedAt = "2026-09-15T13:05:57.914Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -34,6 +36,7 @@ export const generatedCounts = {
   "market_players_shown": 1576,
   "market_players_counted": 7032,
   "events": 12,
+  "named_markets": 13,
   "job_heartbeats": 10,
   "media_topics": 6,
   "insights": 20,
@@ -31147,6 +31150,382 @@ export const GEN_MARKETS: GenMarket[] = [
   }
 ];
 
+export const GEN_NAMED_MARKETS: GenNamedMarket[] = [
+  {
+    "slug": "market:vn-dairy",
+    "name_ru": "Молочный рынок Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Ай-Ди-Пи",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://www.vietdata.vn/post/how-major-milk-brands-sustain-market-share-in-vietnam-s-shifting-landscape"
+      },
+      {
+        "name": "Винамилк",
+        "note": "около 50 процентов на конец 2024",
+        "source_type": "analyst",
+        "evidence_url": "https://www.vietdata.vn/post/how-major-milk-brands-sustain-market-share-in-vietnam-s-shifting-landscape"
+      },
+      {
+        "name": "Группа ТиЭйч",
+        "note": "около 7 процентов",
+        "source_type": "analyst",
+        "evidence_url": "https://www.vietdata.vn/post/how-major-milk-brands-sustain-market-share-in-vietnam-s-shifting-landscape"
+      },
+      {
+        "name": "Далат Милк",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://dunghangviet.vn/dalatmilk-hanh-trinh-cua-thuong-hieu-sua-cao-nguyen-va-cu-chuyen-minh-duoi-bong-dai-thu-th-group/"
+      },
+      {
+        "name": "Мокчау Милк",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://www.fas.usda.gov/data/gain-report/2026/06/Vietnam%20Dairy%20Market_Ho%20Chi%20Minh%20City_Vietnam_VM2026-0021.pdf"
+      },
+      {
+        "name": "Нестле Вьетнам",
+        "note": "около 7 процентов",
+        "source_type": "analyst",
+        "evidence_url": "https://www.vietdata.vn/post/how-major-milk-brands-sustain-market-share-in-vietnam-s-shifting-landscape"
+      },
+      {
+        "name": "Нутифуд",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://www.fas.usda.gov/data/gain-report/2026/06/Vietnam%20Dairy%20Market_Ho%20Chi%20Minh%20City_Vietnam_VM2026-0021.pdf"
+      },
+      {
+        "name": "ФрисландКампина Вьетнам",
+        "note": "около 25 процентов",
+        "source_type": "analyst",
+        "evidence_url": "https://www.vietdata.vn/post/how-major-milk-brands-sustain-market-share-in-vietnam-s-shifting-landscape"
+      },
+      {
+        "name": "Эбботт Вьетнам",
+        "note": "импорт смесей",
+        "source_type": "official",
+        "evidence_url": "https://www.fas.usda.gov/data/gain-report/2026/06/Vietnam%20Dairy%20Market_Ho%20Chi%20Minh%20City_Vietnam_VM2026-0021.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-grocery-retail",
+    "name_ru": "Современная продуктовая розница Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Аэон Вьетнам",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://en.thevietmedia.net/vietnam-retail-five-giants-2026/"
+      },
+      {
+        "name": "Бак Хоа Сань",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://doanhnhan.baophapluat.vn/the-gioi-di-dong-mwg-lai-rong-2025-vuot-7-000-ty-dong-don-luc-mo-1-000-cua-hang-bach-hoa-xanh.html"
+      },
+      {
+        "name": "ВинКоммерс",
+        "note": "крупнейшая по числу точек",
+        "source_type": "analyst",
+        "evidence_url": "https://en.thevietmedia.net/vietnam-retail-five-giants-2026/"
+      },
+      {
+        "name": "Лотте Март Вьетнам",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://en.thevietmedia.net/vietnam-retail-five-giants-2026/"
+      },
+      {
+        "name": "Сайгон Кооп",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://en.thevietmedia.net/vietnam-retail-five-giants-2026/"
+      },
+      {
+        "name": "Централ Ритейл Вьетнам",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://en.thevietmedia.net/vietnam-retail-five-giants-2026/"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-coffee-export",
+    "name_ru": "Экспорт кофе из Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Винь Хьеп",
+        "note": "первое место по выручке 2025",
+        "source_type": "analyst",
+        "evidence_url": "https://vietnam.incorp.asia/vietnam-coffee-market-in-2026/"
+      },
+      {
+        "name": "Интимекс",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://vietnam.incorp.asia/vietnam-coffee-market-in-2026/"
+      },
+      {
+        "name": "Интимекс Баолок",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://vietnam.incorp.asia/vietnam-coffee-market-in-2026/"
+      },
+      {
+        "name": "Луи Дрейфус Вьетнам",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://vietnam.incorp.asia/vietnam-coffee-market-in-2026/"
+      },
+      {
+        "name": "Симекско Даклак",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://vietnam.incorp.asia/vietnam-coffee-market-in-2026/"
+      }
+    ]
+  },
+  {
+    "slug": "market:lamdong-tourism",
+    "name_ru": "Туристический рынок Lâm Đồng",
+    "region_slug": "vn-lamdong",
+    "players": [
+      {
+        "name": "Ана Мандара Виллас Далат",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+      },
+      {
+        "name": "Далат Палас",
+        "note": null,
+        "source_type": "company",
+        "evidence_url": "https://www.dalatpalacehotel.com/en/history/"
+      },
+      {
+        "name": "САМ Туйенлам",
+        "note": null,
+        "source_type": "company",
+        "evidence_url": "https://www.samland.com.vn/vn/sam-tuyen-lam-golf-amp-resort.html"
+      },
+      {
+        "name": "Терракота Далат",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+      },
+      {
+        "name": "Чайная компания Cầu Đất",
+        "note": "более миллиона посетителей в год",
+        "source_type": "analyst",
+        "evidence_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-beer",
+    "name_ru": "Пивной рынок Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Карлсберг Вьетнам",
+        "note": "8 процентов",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/battle-for-vietnam-beer-market-share-shows-no-signs-of-cooling-as-firms-ramp-up-advertising-spending-d19044.html"
+      },
+      {
+        "name": "Сабеко",
+        "note": "34 процента в 2024",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/battle-for-vietnam-beer-market-share-shows-no-signs-of-cooling-as-firms-ramp-up-advertising-spending-d19044.html"
+      },
+      {
+        "name": "Хабеко",
+        "note": "11 процентов",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/battle-for-vietnam-beer-market-share-shows-no-signs-of-cooling-as-firms-ramp-up-advertising-spending-d19044.html"
+      },
+      {
+        "name": "Хайнекен Вьетнам",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/battle-for-vietnam-beer-market-share-shows-no-signs-of-cooling-as-firms-ramp-up-advertising-spending-d19044.html"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-mobile",
+    "name_ru": "Рынок мобильной связи Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Виеттел",
+        "note": "около 56 процентов абонентов",
+        "source_type": "analyst",
+        "evidence_url": "https://www.mordorintelligence.com/industry-reports/vietnam-telecom-market"
+      },
+      {
+        "name": "ВинаФон",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://www.mordorintelligence.com/industry-reports/vietnam-telecom-market"
+      },
+      {
+        "name": "Вьетнамобайл",
+        "note": "менее 6 процентов вместе с Gmobile",
+        "source_type": "analyst",
+        "evidence_url": "https://www.mordorintelligence.com/industry-reports/vietnam-telecom-market"
+      },
+      {
+        "name": "МобиФон",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://www.mordorintelligence.com/industry-reports/vietnam-telecom-market"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-coffee-chains",
+    "name_ru": "Сетевые кофейни Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Зе Кофе Хаус",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
+      },
+      {
+        "name": "Фук Лонг",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
+      },
+      {
+        "name": "Хайлендс Кофе",
+        "note": "928 точек",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
+      },
+      {
+        "name": "Чунг Нгуен",
+        "note": null,
+        "source_type": "company",
+        "evidence_url": "https://www.vietnam.vn/en/trung-nguyen-legend-hanh-trinh-30-nam-phat-trien-lien-tuc-sang-tao-va-phung-su-cong-dong"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-aviation",
+    "name_ru": "Рынок авиаперевозок Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Бамбу Эйрвейс",
+        "note": "остался один летающий A321",
+        "source_type": "analyst",
+        "evidence_url": "https://liveandletsfly.com/bamboo-airways-died-in-a-booming-vietnam/"
+      },
+      {
+        "name": "Вьетджет",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://ir.vietjetair.com/File_Upload/financial-information/annual-reports-root/annual-reports/20260417_VJC_AR2025_EN_Final.pdf"
+      },
+      {
+        "name": "Вьетнамские авиалинии",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://en.vietnamplus.vn/vietnam-airlines-reports-highest-ever-annual-revenue-in-2025-post337033.vnp"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-property",
+    "name_ru": "Жилая недвижимость Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Винхоумс",
+        "note": "205,3 трлн донгов законтрактованных продаж",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
+      },
+      {
+        "name": "Новаленд",
+        "note": null,
+        "source_type": "analyst",
+        "evidence_url": "https://the-shiv.com/shopping-in-vietnam/"
+      }
+    ]
+  },
+  {
+    "slug": "market:lamdong-silk",
+    "name_ru": "Шёлковый рынок Bảo Lộc",
+    "region_slug": "vn-lamdong",
+    "players": [
+      {
+        "name": "Азия Силк",
+        "note": null,
+        "source_type": "company",
+        "evidence_url": "https://www.asiasilk.vn/ourstoryeng"
+      },
+      {
+        "name": "Баолок Силк",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://vietnamnews.vn/sunday/features/1723319/bao-loc-silk-weaving-a-path-from-heritage-to-global-investment.html"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-ride-hailing",
+    "name_ru": "Заказ поездок во Вьетнаме",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Джи-Эс-Эм",
+        "note": "51,5 процента по обороту в четвёртом квартале 2025",
+        "source_type": "analyst",
+        "evidence_url": "https://theinvestor.vn/vingroup-chair-backed-xanh-sm-lifts-capital-base-above-1-bln-as-ev-ride-hailing-lead-widens-d18461.html"
+      }
+    ]
+  },
+  {
+    "slug": "market:vn-steel",
+    "name_ru": "Рынок стали Вьетнама",
+    "region_slug": "vn",
+    "players": [
+      {
+        "name": "Хоа Фат",
+        "note": null,
+        "source_type": "official",
+        "evidence_url": "https://file.hoaphat.com.vn/hoaphat-com-vn/2026/04/annual-report-2025-hpg.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "market:lamdong-flowers",
+    "name_ru": "Рынок срезанных цветов Lâm Đồng",
+    "region_slug": "vn-lamdong",
+    "players": [
+      {
+        "name": "Далат Хасфарм",
+        "note": "крупнейший производитель АТР",
+        "source_type": "company",
+        "evidence_url": "https://info.dalathasfarm.com/en/news-events/it-is-remarkable-to-see-how-innovation-and-perseverance-resulted-in-a-thriving-sustainable-enterprise"
+      }
+    ]
+  }
+];
+
 export const GEN_EVENTS: GenEvent[] = [
   {
     "title": "Festival Hoa Đà Lạt lần thứ XI",
@@ -31296,8 +31675,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:forecast",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-14T23:02:24.360936+00:00",
-    "last_ok_at": "2026-09-14T23:02:24.360936+00:00"
+    "last_run_at": "2026-09-15T13:02:39.056797+00:00",
+    "last_ok_at": "2026-09-15T13:02:39.056797+00:00"
   },
   {
     "job": "region:graph_insights",
