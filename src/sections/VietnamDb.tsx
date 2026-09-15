@@ -12,7 +12,6 @@ import Val from '../ui/num';
 import { useHashRoute } from '../ui/hashRoute';
 import { VND_PER_USD } from '../data/vietnam';
 import {
-  GEN_EDGES,
   GEN_ENTITIES,
   GEN_ENTITY_METRICS,
   GEN_EVENTS,
@@ -184,7 +183,7 @@ const regionName = (slug: string) => REGION_BY_SLUG.get(slug)?.name_ru ?? slug;
 const str = (v: unknown) => (typeof v === 'string' && v ? v : null);
 const entityName = (e: GenEntity) =>
   str(e.name_ru) ?? str(e.name) ?? str(e.name_vi) ?? e.slug;
-const entitySummary = (e: GenEntity) => str(e.summary_ru) ?? str(e.summary) ?? null;
+const entitySummary = (e: GenEntity) => str(e.summary_ru) ?? null;
 
 /** Показатели региона: ключ «слаг|метрика», внутри последний по периоду. */
 const STATS_BY_KEY = new Map<string, GenStat[]>();
@@ -307,7 +306,10 @@ const SEARCH_INDEX: Hit[] = [
     level: REGION_BY_SLUG.get(m.region_slug)?.level ?? null,
     href: `#/vietnam/market/${m.region_slug}/${m.slug}`
   })),
-  ...GEN_ENTITIES.map((e) => ({
+  // Граф зеркалит регионы и рынки отдельными сущностями: в индексе они дали бы
+  // два попадания на один и тот же объект. Индексируем только то, чего в других
+  // таблицах выгрузки нет.
+  ...GEN_ENTITIES.filter((e) => e.kind !== 'market' && e.kind !== 'region').map((e) => ({
     kind: 'entity' as const,
     label: entityName(e),
     sub: `сущность${e.kind ? ` · ${e.kind}` : ''}${e.region_slug ? ` · ${regionName(e.region_slug)}` : ''}`,
@@ -477,7 +479,11 @@ export default function VietnamDb() {
       list.push(m);
       byRegion.set(m.region_slug, list);
     }
-    return [...byRegion.entries()].sort((a, b) => regionName(a[0]).localeCompare(regionName(b[0])));
+    // Зоны по числу посчитанных точек: сверху та, где рынок живой, а не та,
+    // чьё имя раньше по алфавиту. Внутри зоны так же.
+    const players = (list: GenMarket[]) => list.reduce((n, m) => n + (m.players_count ?? 0), 0);
+    for (const [, list] of byRegion) list.sort((a, b) => (b.players_count ?? 0) - (a.players_count ?? 0));
+    return [...byRegion.entries()].sort((a, b) => players(b[1]) - players(a[1]));
   }, []);
 
   const opportunities = useMemo(
@@ -845,7 +851,8 @@ export default function VietnamDb() {
                           </button>
                           {open && m.players.length > 0 && (
                             <span className="stat-note">
-                              {m.players.slice(0, 12).map((p) => p.name).join(' · ')}
+                              {m.players.map((p) => p.name).filter(Boolean).slice(0, 12).join(' · ') ||
+                                `${m.players.length} точек на карте, ни одна не подписана именем`}
                             </span>
                           )}
                         </td>
@@ -859,8 +866,20 @@ export default function VietnamDb() {
                           ) : '—'}
                         </td>
                         <td>
-                          <EvidenceTag kind={asKind(m.size_source_type)} />{' '}
-                          {m.players_source ?? ''}
+                          {/* Размер рынка и перепись точек это разные вещи:
+                              метку размера ставим, только когда размер есть. */}
+                          {m.size_vnd_year !== null && m.size_vnd_year !== undefined && (
+                            <>
+                              <EvidenceTag kind={asKind(m.size_source_type)} />{' '}
+                            </>
+                          )}
+                          {m.players_source ? (
+                            <>
+                              <EvidenceTag kind="proxy" /> перепись точек · {m.players_source}
+                            </>
+                          ) : (
+                            'размера нет, только счёт точек'
+                          )}
                         </td>
                       </tr>
                     );
@@ -914,7 +933,8 @@ export default function VietnamDb() {
       <div id="vn-entities" className="section-head">
         <h2 className="section-title">Сущности региона</h2>
         <p className="section-lead">
-          Граф из таблиц entities, edges и entity_metrics: люди, компании, места и связи между ними.
+          Граф из таблиц entities, edges и entity_metrics. Зеркала регионов и рынков здесь не
+          показываются: они уже есть блоками выше. Связей в графе {generatedCounts.edges}.
         </p>
       </div>
       {GEN_ENTITIES.length === 0 ? (
@@ -924,7 +944,9 @@ export default function VietnamDb() {
         />
       ) : (
         <div className="list">
-          {GEN_ENTITIES.slice(0, 40).map((e) => (
+          {GEN_ENTITIES.filter((e) => e.kind !== 'market' && e.kind !== 'region')
+            .slice(0, 40)
+            .map((e) => (
             <div className="list-row" key={e.slug}>
               <span className="list-main">
                 <span>{entityName(e)}</span>
@@ -987,9 +1009,9 @@ export default function VietnamDb() {
           {GEN_INSIGHTS.map((i, n) => (
             <div className="list-row" key={`ins-${n}`}>
               <span className="list-main">
-                <span>{i.title ?? 'без заголовка'}</span>
-                <span className="tag">вывод</span>
-                {i.summary && <span className="stat-note">{i.summary}</span>}
+                <span>{i.title_ru ?? 'без заголовка'}</span>
+                <span className="tag">{i.kind ?? 'вывод'}</span>
+                {i.body_ru && <span className="stat-note">{i.body_ru}</span>}
               </span>
               <span className="list-side num">{i.score ?? ''}</span>
             </div>
@@ -1030,9 +1052,9 @@ export default function VietnamDb() {
           <div className="list-row">
             <span className="list-main">
               <span className="code">edges</span>
-              <span className="stat-note">связи графа сущностей</span>
+              <span className="stat-note">связи графа: в выгрузку не кладутся, только счёт</span>
             </span>
-            <Val className="list-side" value={String(GEN_EDGES.length)} unit="строк" />
+            <Val className="list-side" value={String(generatedCounts.edges)} unit="строк" />
           </div>
         </div>
       </div>
