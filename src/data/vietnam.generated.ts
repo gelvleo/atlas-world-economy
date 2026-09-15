@@ -7,8 +7,8 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T13:30:00.254Z
-// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · named_markets 13 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
+// Снято: 2026-09-15T13:45:12.107Z
+// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 4361 · market_players_counted 49758 · events 12 · named_markets 13 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
@@ -26,15 +26,15 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T13:30:00.254Z";
+export const generatedAt = "2026-09-15T13:45:12.107Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
   "regions": 238,
   "region_stats": 497,
   "markets": 641,
-  "market_players_shown": 1576,
-  "market_players_counted": 7032,
+  "market_players_shown": 4361,
+  "market_players_counted": 49758,
   "events": 12,
   "named_markets": 13,
   "job_heartbeats": 10,
@@ -8620,9 +8620,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b978c2c5-cdfe-4747-b965-44ea776e5640",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 30,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8634,15 +8634,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "MẬT Bakehouse",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh kem ruby",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh Ông Túc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nguyên Liệu - Đồ Dùng Làm Bánh NHẤT TÂM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kebab Doner 248 Nguyễn Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì phá lấu Sáu cây số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhật Minh Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh su kem Singapore Mr Mai Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ăn vặt hottrend- Phan Thiết.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý kem Diễm Đông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lò bánh mì Bà Sâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bakery Hương Phú 27 Nguyễn Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "15eefe99-bed3-448e-ab5a-6c9aa4fef76f",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 27,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 282,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8733,9 +8806,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c70a5dee-7c6e-4601-83b1-a5fabf8e9898",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8747,15 +8820,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "UyenTrang Cake and Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Honey Cakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Di Linh - Lâm Đồng 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KEM Ý HARI",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Mì Thịt Nướng Xuân Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Kem WinZy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mon Cake - Tiệm Bánh Kem Huyện Di Linh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Tại Thị Trấn Di Linh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh kem Tina",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiện Trung Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Kem Việt - SHOP bánh kem tại Di Linh, Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vy Vân Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "bb9653e3-0392-4a5b-8067-fbf23c92e153",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8767,15 +8913,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm bánh kem - hoa tươi sinh nhật Đơn Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lò Bánh Mì Toàn Trang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Yến Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh Trúc Lan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bội Bội milk tea and Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hai Nhân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Đà Lạt 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "T&T Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BERRY gelato - Tiệm kem trong rừng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BERRY 1940s",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh thuẫn Bà Bé Tới",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Lối Về",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "cc043dd0-110b-43a5-bdc4-cbf06a7afbd0",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 33,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8787,7 +9006,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Hoàng Gia Bakery, Coffee and Tea House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh kem thị trấn Liên Nghĩa - Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Kem Hà Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chè Chương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì thịt nướng Thảo Hiền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Lâm Đồng 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh bao tạo hình Trần Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Aice Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh nhà Nhím Sóc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Nhí",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì Bình Định - 118 Trần Phú, Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ghiền Bánh Mì",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1e488625-fa25-4b31-a76a-2510260c707f",
@@ -8813,9 +9105,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d3e18c4e-b102-4eed-af23-c82b8ae02561",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8827,15 +9119,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm bánh Đoàn tàu ký ức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "91831abf-8abb-4caf-bc99-83fd64fc2f37",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8847,15 +9146,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.31,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Kem XÔI DỪA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Bảo Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ái Liên Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "16d8a395-49d2-4b8c-aa18-790020ffd14f",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 30,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8867,15 +9185,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Chè Chương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì thịt nướng Thảo Hiền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Lâm Đồng 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh bao tạo hình Trần Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Aice Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh nhà Nhím Sóc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì Bình Định - 118 Trần Phú, Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ghiền Bánh Mì",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Dừa Đất Côn Đảo Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh SunShine",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem tươi 779",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Hộp - Kem Trái Cây Tươi Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0631e91d-00b8-464e-8cac-fd803f93a29b",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 29,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8887,15 +9278,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm Bánh Kem Tại Huyện Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hưng Phát Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Eskimo - Ice Cream",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Đức Trọng - Lâm Đồng  0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sữa chua trân châu CÔ THỎ- Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhất Nướng 29 Buffet Nướng Hải Sản Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xăng Bakery and Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi & Bánh Kem ở Huyện Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem 19",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chè thái Solis đức trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem TT Liên Nghĩa-Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Thu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c964785d-ebfe-4cf9-b018-f0b5f07c095b",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8907,15 +9371,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.2,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Bánh kem Đăk R'Lấp - Đăk Nông 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Mai Khôi - Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì cay Vàng Khè",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh 6789",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Hoan Hỷ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Liên Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HAAN Cake",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sữa chua Trân châu Cô Thỏ - Cơ sở 64",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Tại Thị Trấn Đinh Văn Huyện Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Bánh Kem Tại Tp. Đà Lạt Tỉnh Lâm Đồng Giao Bánh Tận Nhà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Lâm Hà- Lâm Đồng  0965732754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh Lan Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "753ddc98-a868-4766-bc5f-de62890b4a89",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8927,7 +9464,74 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm Bánh Mai Khôi - Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì cay Vàng Khè",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh 6789",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Hoan Hỷ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Liên Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HAAN Cake",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sữa chua Trân châu Cô Thỏ - Cơ sở 64",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Tại Thị Trấn Đinh Văn Huyện Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Bánh Kem Tại Tp. Đà Lạt Tỉnh Lâm Đồng Giao Bánh Tận Nhà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Lâm Hà- Lâm Đồng  0965732754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh Lan Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "bd385811-6961-4fa3-9515-ea8f0705e4ff",
@@ -8947,15 +9551,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Bánh Nhà An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngần Tô Tượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Loan A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6eb987b8-baf2-46fa-8a73-993bcdf0737d",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 90,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8967,15 +9590,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Bếp của Nhi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "QUỲNH Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuận Hưng Phát Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quang Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "36baba’s cake",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem thu mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "bếp bánh hômnay.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pizza Carrot",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Cẩm Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh Anh Thanh Niên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Anna - Bánh Kem Tại Thành Phố Bảo Lộc - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Ngon Tại Tp.Bảo Lộc Lâm Đồng Giao Bánh Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1c30d040-4de2-4864-b126-775fa085950a",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8987,15 +9683,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.12,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Bánh kem phương lý - ngã ba hồ Đăk Lô",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Banh Kem Van Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Cát Tiên - Lâm Đồng 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lò Bánh Mì Diệu Liên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Hào Nho - dịch Vụ Mâm Quả Cưới Hỏi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "07efc1b0-76f4-4361-a6eb-fefdf7bdc6ca",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9007,15 +9734,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Kem XÔI DỪA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Kem Bảo Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ái Liên Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ca3b3854-0260-475d-9037-29703becfe27",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 260,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9106,9 +9852,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "15b27d6e-854e-476c-abd2-35c65ac55d7a",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 273,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9199,9 +9945,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a0ae01eb-4c62-4211-9f70-ff8378394287",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9219,6 +9965,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Bánh kem Đam Rông - Lâm Đồng  0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TIỆM BÁNH Nguyệt Điền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -9226,9 +9984,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2660e520-2df0-430c-b745-730d51a62f81",
     "slug": "bakery",
     "name_ru": "Пекарни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9240,7 +9998,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Bánh Nhà An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngần Tô Tượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Bánh Loan A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b13b60e5-29d1-40b3-acbe-d1e527ec745a",
@@ -9353,15 +10130,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Chè Chương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì thịt nướng Thảo Hiền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh kem Lâm Đồng 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh bao tạo hình Trần Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Aice Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh nhà Nhím Sóc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì Bình Định - 118 Trần Phú, Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ghiền Bánh Mì",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Dừa Đất Côn Đảo Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm bánh SunShine",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem tươi 779",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Hộp - Kem Trái Cây Tươi Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3a8cad7a-4851-4f84-bcd9-1d52c9173691",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9373,7 +10223,56 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 5,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Đinh Lạc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Á Châu Chi Nhánh Huyện Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Huyện Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "VietinBank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngan Hang Chinh Sach Xa Hoi Huyen Di Linh - VBSP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THPT Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ef4ad993-c791-4725-b96a-a1e705805213",
@@ -9399,9 +10298,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2fa83837-ff26-40c2-948d-c9c0e544cbe4",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 70,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9512,9 +10411,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "303a27e9-09f3-4b0f-bdbc-a34dec284f7c",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9526,15 +10425,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 5,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Ngân Hàng Thương Mại Cổ Phần Vietcombank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp và Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "387a4f2e-09b4-4df0-8e47-401ea1181d05",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 14,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9552,6 +10464,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Quỹ tín dụng nhân dân Tân Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KienlongBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Thương Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HDBank - PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietcombank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -9559,9 +10537,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "02a50b46-0b98-4985-8820-d236bfb6d3bb",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9573,15 +10551,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.06,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Đức Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp và Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "074344d9-7196-4695-a776-f06b9e80fc9e",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 19,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9593,15 +10584,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Quỹ Tín Dụng Lộc Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Lộc Tiến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quy Tin Dung Blao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Lộc Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LPBank Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ tư vấn giải pháp tài chính",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietcombank Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "One Bank B'Lao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp và Phát Triển Nông Thôn Việt Nam - PGD Số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6240d8bd-27ae-4d1e-98c9-44cb1ae75de2",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9613,7 +10677,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.18,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Ngan Hang Chinh Sach Xa Hoi Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngan Hang Nong Nghiep va Phat Trien Nong Thon Viet Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f4a97798-e6c0-4b46-bc71-19c208bee41b",
@@ -9639,9 +10722,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3152353e-9b9e-4a52-a384-d26d6e62af1f",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9732,9 +10815,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5d2931ea-2ede-4953-a85d-a6ba7f6bf667",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9825,9 +10908,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b667d4a6-7ae1-4803-88af-12599f46cf1d",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9839,7 +10922,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.43,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0f7630a2-d319-45e1-bd56-523f94f414cb",
@@ -9865,9 +10955,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0fd1f3cd-7df8-4512-9de5-cd4d05941cf5",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9885,6 +10975,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "KienlongBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Thương Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HDBank - PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietcombank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Bản Việt BVBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -9892,9 +11048,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "886ba12c-f906-4920-a23c-36723489ea49",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9912,6 +11068,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "KienlongBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Thương Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HDBank - PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietcombank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Bản Việt BVBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -9919,9 +11141,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "701db46e-d21d-4e6c-a993-c136204e6813",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9933,15 +11155,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.26,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Ngân Hàng Thương Mại Cổ Phần Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp & Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NGH AgriBank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp & Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "77dae66f-a174-4de8-8745-7558e4172865",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9953,15 +11206,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Ngân Hàng Thương Mại Cổ Phần Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp & Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c84eb428-d6f3-4696-a51c-1fca45d9d9fa",
     "slug": "bank",
     "name_ru": "Банки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9973,7 +11245,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.91,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "NGH AgriBank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp & Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9c0a2cbc-2b0f-49a6-a2dd-0b8011dd616d",
@@ -10092,6 +11377,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "KienlongBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Thương Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HDBank - PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SACOMBANK-PGD Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Ngoại Thương Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietcombank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân hàng Agribank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MB Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỹ Tín Dụng Nhân Dân Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng TMCP Sài Gòn Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Bản Việt BVBank Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -10113,15 +11464,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.91,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "NGH AgriBank",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngân Hàng Nông Nghiệp & Phát Triển Nông Thôn Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2e34f4cc-a3be-499f-9a6d-208c0fe814e1",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 183,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10212,9 +11576,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b5ed66d6-3adb-48bf-be49-69dd1fc8ed71",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10226,15 +11590,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "The Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6f1e4228-8e63-4396-86ec-048c587c8ca9",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10246,15 +11617,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Karaoke Rin",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "On The Rocks Cocktail Bar Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đặc khu Cà & Beer",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thủy Mộc An - Food Drink Farmstay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dê Quay Phước Bình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e1603729-58cb-4541-a195-ac1de4bfbe80",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10266,7 +11674,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Yuu's Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "For Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm nướng Cư Xá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ô Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Beer Đức Hoa Mai Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Volcano Cafe & Bar",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "D Lounge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Trà H&N",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ku Em Quán - -  Nhậu Tẹc Ga ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bia Lạnh 15A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝐋𝐄𝐆𝐎 𝟖 - 𝐏𝐢𝐜𝐤𝐥𝐞𝐛𝐚𝐥𝐥 & 𝐂𝐨𝐟𝐟𝐞𝐞 𝐆𝐲𝐦",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d33c83cc-a3fa-4393-835c-034e03cc6895",
@@ -10319,9 +11800,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "098fb3b5-59f5-4dcd-988d-912c5d323517",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 2,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10339,6 +11820,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "PUB Blue",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -10346,9 +11833,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "655f4e08-cac0-49dd-b917-94ac0e88def0",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10360,15 +11847,70 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.23,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Cây Thị Chợ Tôn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "06 Quan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bình Minh Quán - Vựa Hải Sản Tươi Sống Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NHẬU ĐÊM Bia Tươi 89",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝐁𝐢̀𝐧𝐡 𝐌𝐢𝐧𝐡 𝐐𝐮𝐚́𝐧 -𝐇𝐚̉𝐢 𝐒𝐚̉𝐧 𝐏𝐡𝐚𝐧 𝐓𝐡𝐢𝐞̂́𝐭",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cá Nướng A Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nước mía Trúc Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anh Em Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cây Nhãn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a09f2b54-658b-4e9c-8d81-3d040a398fd6",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 28,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10398,6 +11940,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "KV Coffee & Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Treesbar",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lutin Gallery Rooftop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "4h19 Food&Drink-Bảo Lộc City",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BL Chill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NM Bia Sài Gòn bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bia hơi Hà Nội 31 CN Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SKY CLUB",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Beer on Bus",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -10425,9 +12021,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c48cc5e3-c847-47df-9108-e26cc8a06bac",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10439,15 +12035,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Bãi Đáp Nướng & Lẩu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "aaddada8-6006-4145-86cd-4571706bc762",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 186,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10538,9 +12141,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "902d412c-d96e-4228-b017-e7edb5e2a194",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 30,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 180,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10651,9 +12254,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "90f01efc-cc01-4580-b22f-1263d9597a2d",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10665,15 +12268,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Bãi Đáp Nướng & Lẩu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Jungle Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f39ae9cc-afff-4390-b87f-6392ac0bd785",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10685,15 +12301,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.87,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Yuu's Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "For Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm nướng Cư Xá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ô Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Beer Đức Hoa Mai Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Volcano Cafe & Bar",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "D Lounge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Trà H&N",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ku Em Quán - -  Nhậu Tẹc Ga ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bia Lạnh 15A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝐋𝐄𝐆𝐎 𝟖 - 𝐏𝐢𝐜𝐤𝐥𝐞𝐛𝐚𝐥𝐥 & 𝐂𝐨𝐟𝐟𝐞𝐞 𝐆𝐲𝐦",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "782ad836-074c-4c92-bdfb-987c8035409f",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10705,15 +12394,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.87,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Yuu's Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "For Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm nướng Cư Xá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ô Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Beer Đức Hoa Mai Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Volcano Cafe & Bar",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "D Lounge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Trà H&N",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ku Em Quán - -  Nhậu Tẹc Ga ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bia Lạnh 15A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝐋𝐄𝐆𝐎 𝟖 - 𝐏𝐢𝐜𝐤𝐥𝐞𝐛𝐚𝐥𝐥 & 𝐂𝐨𝐟𝐟𝐞𝐞 𝐆𝐲𝐦",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a105173e-84ef-4fb7-a368-60eab5478ad2",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10731,6 +12493,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Karaoke Nguyên Lê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "PUB Blue",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -10738,9 +12512,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4983017c-f833-4b63-ba76-f683f53a28ea",
     "slug": "bar",
     "name_ru": "Бары",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10752,7 +12526,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Karaoke Nguyên Lê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "48e91380-e663-4398-84c3-14ea151c3943",
@@ -10865,7 +12646,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.87,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Yuu's Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "For Pub",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm nướng Cư Xá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ô Bakery",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Beer Đức Hoa Mai Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Volcano Cafe & Bar",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "D Lounge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Trà H&N",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ku Em Quán - -  Nhậu Tẹc Ga ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bia Lạnh 15A",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝐋𝐄𝐆𝐎 𝟖 - 𝐏𝐢𝐜𝐤𝐥𝐞𝐛𝐚𝐥𝐥 & 𝐂𝐨𝐟𝐟𝐞𝐞 𝐆𝐲𝐦",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4560b17d-2108-4746-8a8c-164b9626c1e1",
@@ -10885,15 +12739,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.08,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "PUB Blue",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ff2264fe-8843-49ba-b1b2-f10be31b4632",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 11,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 554,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10971,6 +12832,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Jinhee Korea Spa & Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -10978,9 +12845,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "13c6929a-f443-4adc-88bc-71e8b65d1c5e",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10992,15 +12859,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "GB's Skinhub - Spa Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiệp Cưới Tú Nail",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chuyên Tóc Nam Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b274b76c-f080-4c9b-8a78-0e23bb75984b",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 264,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11024,6 +12910,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Young Barber and Tattoo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khoa BarberShop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝚂𝚝 𝙷𝚊𝚒𝚛𝚍𝚛𝚎𝚜𝚜𝚎𝚛𝚜",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Tóc Thanh Trúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Săn Deal Thông Minh- Mua Rẻ Cho Vui",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Nguyên Dũng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Emy Tien",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Arrebol Perfume",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Arrebol Perfume",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Phạm Hiếu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11031,9 +12977,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a182e5a8-cb23-40a5-ad92-2f7c455983b6",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 47,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11045,7 +12991,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "JunJun Beauty Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Selina Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mai Anh Spa & Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ét Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HOMIES BarberShop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Trần Beauty Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tô An - Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TP Perfume",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1998 Barber Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Na Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bẩu Hồ Hair",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vani Beauty & Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "012b7815-bd6c-41fd-b324-e04baa8e17ee",
@@ -11071,9 +13090,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "9da4fc7f-f680-4541-927c-60dba6691392",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 34,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11085,15 +13104,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm Tóc Eva",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Linh Sơn Tụ Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bean Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sena Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tế bào gốc đặc trị  Da Hư tổn spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shiny39 Shop - Chuyên Hàng Nhật Nội Địa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Thùy Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hiếu Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mèo Nail",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mỹ Phẩm Út Nguyên Thạnh Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An LeBarbier",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f20465fa-e379-43c9-8d81-47b9dee3cb48",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 112,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11111,6 +13203,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ruby Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Bar Phong CÁCh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon ken Seoul .  Ninh gia . Đức trọng  lâm đồng 0971700708",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kelly Eyelashes & Nail",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Toptrend",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Lê Gia - Ninh Gia Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Trâm Anna",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BeautyHiệpThảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nguyen Cham Make Up",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Studio Nghĩa tokyo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HAIR Studio 4:30PM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11118,9 +13276,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8dc71279-093a-49b6-a85f-8f99f7140b0d",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 104,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11134,10 +13292,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "Salon tóc đẹp Hoài An",
+        "name": "Tuấn Long Hair",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Tấn Thiện Barbershop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Ngọc Hân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Nail Nguyệt Ánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tóc giả Út Tây",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gạo Makeup & Nail",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Như Huệ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LION 86 Barber Shop ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truc Tran Beauty & Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hớt Tóc Hoàng Hảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Mỹ Ngân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "T&K Barber Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11145,9 +13369,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "70b28dc0-3b17-4666-b865-85cdcebb4e63",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11159,15 +13383,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.12,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "HYN Beauty Spa Nail and Makeup",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "hair salon KIM LÝ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5d853a2c-f8e9-42ec-9e5c-1b57e0ca8784",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11179,15 +13416,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Hairsalon Trường Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Bình Đạ teh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phúc Italy - Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Nguyễn Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MT October",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhat Yen Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hairsalon Phúc Italy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Trường Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HYN Beauty Spa Nail and Makeup",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "hair salon KIM LÝ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "26af7d4a-36c7-4645-9fd9-709ed03d140c",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 11,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 563,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11265,6 +13563,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "JOLIE SÀI GÒN ( Gội Đầu Dưỡng Sinh)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11272,9 +13576,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0520a5ab-7c2c-41de-b784-31e9f1793937",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 11,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 543,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11352,6 +13656,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Uon Toc Viet My",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11359,9 +13669,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "47b74172-c87e-47f3-9c54-803b2d3b393d",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11379,6 +13689,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Hair Bảo Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "For Men Barber Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11386,9 +13708,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5af32717-cdf0-40ea-9d65-3e9775783b8b",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11400,15 +13722,82 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.31,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Hairsalon Trường Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Bình Đạ teh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phúc Italy - Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Nguyễn Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MT October",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhat Yen Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hairsalon Phúc Italy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Trường Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HYN Beauty Spa Nail and Makeup",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "hair salon KIM LÝ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thân BarBer Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "291a7c5f-33c9-404b-b7f2-9a7e3fc68646",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 100,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11420,15 +13809,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Hair Salon Phạm Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vivi Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SaLon DUNG ANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THÁI SANG hairsalon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sức Khoẻ Là Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ Công Nghệ Cao Rowena Academy Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Hoàng Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bin Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair salon Anh Hàng Xóm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đào Tạo Học Viên NAILS Chuyên Nghiệp - HƯƠNG NAILS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Mỹ Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AQN Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "006bfc27-aeb2-43ff-875e-39db2d66f0c9",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 98,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11440,15 +13902,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "SaLon DUNG ANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THÁI SANG hairsalon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sức Khoẻ Là Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ Công Nghệ Cao Rowena Academy Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Hoàng Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bin Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair salon Anh Hàng Xóm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đào Tạo Học Viên NAILS Chuyên Nghiệp - HƯƠNG NAILS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Mỹ Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AQN Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Miin Hair Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Moon Nails",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "bec14b69-8d94-4ca4-a030-6df13cb51119",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 42,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11466,6 +14001,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Dâu Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nguyen Cham Make Up",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xưởng sỉ Đồ Lam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ Diva",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Trường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThÙY Dung Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thi Hair Salon 79 Quảng Đức, Đinh Văn, Lâm Hà, Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Jing hair room lâm hà ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "N hair design",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Suri Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mori hair",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11473,9 +14074,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5ab46a1a-1ba1-489c-994e-1901da1cab0f",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11487,15 +14088,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Nguyen Cham Make Up",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xưởng sỉ Đồ Lam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ Diva",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Trường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThÙY Dung Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thi Hair Salon 79 Quảng Đức, Đinh Văn, Lâm Hà, Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Jing hair room lâm hà ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "N hair design",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Suri Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mori hair",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Delis Beauty Salon & Skinlab",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Linh Dan Nails and Make Up",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5cd44c6a-efd9-458f-9c05-661c96b2a6a4",
     "slug": "beauty_salon",
     "name_ru": "Салоны красоты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 16,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11513,6 +14187,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Beauty Salon Nam Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sky Barbershop - Tiệm Tóc Nam Thị Trấn Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ TT Queen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Tóc Thúy Hằng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SKin BarBer SHOP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon HoÀNg Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dâu Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Trần Beauty & Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cool barber shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Mua Sắm Bách Hóa Tổng Hợp Gia Đình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thẩm mỹ viện Ntwo Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11600,6 +14340,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cám Nail Design",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11621,7 +14367,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Nail Na",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SaLon DUNG ANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THÁI SANG hairsalon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sức Khoẻ Là Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ Công Nghệ Cao Rowena Academy Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Hoàng Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bin Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair salon Anh Hàng Xóm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đào Tạo Học Viên NAILS Chuyên Nghiệp - HƯƠNG NAILS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Mỹ Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AQN Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Miin Hair Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9c553a3b-fe38-46f1-ad46-c2fb87762f05",
@@ -11647,6 +14466,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Sky Barbershop - Tiệm Tóc Nam Thị Trấn Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Thẩm Mỹ TT Queen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Tóc Thúy Hằng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SKin BarBer SHOP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon HoÀNg Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dâu Cosmetics",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Trần Beauty & Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cool barber shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Mua Sắm Bách Hóa Tổng Hợp Gia Đình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thẩm mỹ viện Ntwo Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bảo Khuyên Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11654,9 +14539,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "413f253d-61e0-4a6d-a5fd-4cfb33e99565",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 33,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11674,6 +14559,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cho thuê Xe du lịch 16. Chỗ tại Đà Lạt 0374 049 049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DUY - Cho thuê ô tô tự lái tại Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tìm Khách Hàng thuê xe KHÔNG HỢP TÁC XỬ LÝ PHẠT NGUỘI",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thue Xe Cho Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho thuê xe du lịch ở Đà Lạt- Tell 0374.049.049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mô Tô 49 - Cho Thuê Xe Máy Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ xe Du Lịch Đà Lạt - Nhà xe phong vân 02633.97.9999",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Đi Chill Vi Vu Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DaLat PNP Tourist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11701,9 +14652,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2b6dd60d-d591-40af-92c2-6d676830ab8b",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11715,7 +14666,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.94,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Cho Thue O to Cafe Thanh Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8b5f4616-d972-45ac-8708-3eb2e500f1ba",
@@ -11741,9 +14699,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "821e2a48-c5b2-445e-9c2f-481d9511f786",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11755,15 +14713,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Cho Thuê Xe Du Lịch Di Linh Đà Lạt Lâm Đồng-Hotline 0868.660.660",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Du Lịch Nhật Phong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DVDL Vũ toàn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d96e78d5-3c14-451d-b553-05267d34f9d3",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11775,15 +14752,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Cho thuê xe tự lái đơn dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3d7c30f8-bbce-48ca-98ed-85438224b52d",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11795,7 +14779,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Thuê Xe Tự Lái Đức Trọng Đà Lạt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ thuê xe tự lái có lái 4,7 chỗ Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "357a69ee-9973-434b-8300-627ca80a9e4e",
@@ -11821,9 +14818,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a11423ba-89c2-4bde-a279-c48c455081ed",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11835,15 +14832,70 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.63,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Cho Thuê Xe Ô Tô Tự Lái Phương Huỳnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "My Tam Travel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty TNHH Ô tô Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Xe Yên Đan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe VF3 Tự Lái Phan Thiết - BFC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho ThuÊ Xe TỰ LÁI Phan ThiẾT Cty Tnhh DỊCh VỤ VẬN TẢI Duy PhƯƠNg Tour",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mũi Né Đi Sài Gòn Taxi Chỉ 999k- 0902859777",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tâm Thuê Xe",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ du lịch THANH TÂM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1d1d0a89-0857-4595-a10d-04a6bb52d9a5",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11861,6 +14913,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Dịch Vụ Xe Hoa Mui Trần Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Bảo Lộc - Sài Gòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Bảo Lộc Tourist Car",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Chăm Sóc Xe",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê xe tự lái Sun Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà xe Phước Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bảo Tuấn KIA Sedona - 0901 806 225",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Thanh Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Cho Thuê Xe Du Lịch",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11888,9 +14994,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c5a279e4-8d05-4ae2-92e9-c357416047b8",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11902,15 +15008,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Cho Thue O to Cafe Thanh Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "cc5f5812-48ca-435d-a837-4bf0d73ae2a7",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 33,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11928,6 +15041,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cho thuê Xe du lịch 16. Chỗ tại Đà Lạt 0374 049 049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DUY - Cho thuê ô tô tự lái tại Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tìm Khách Hàng thuê xe KHÔNG HỢP TÁC XỬ LÝ PHẠT NGUỘI",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thue Xe Cho Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho thuê xe du lịch ở Đà Lạt- Tell 0374.049.049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mô Tô 49 - Cho Thuê Xe Máy Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ xe Du Lịch Đà Lạt - Nhà xe phong vân 02633.97.9999",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Đi Chill Vi Vu Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DaLat PNP Tourist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11935,9 +15114,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "606c8396-6553-49f7-ad7a-10927ccf76ce",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 31,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11955,6 +15134,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "DUY - Cho thuê ô tô tự lái tại Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tìm Khách Hàng thuê xe KHÔNG HỢP TÁC XỬ LÝ PHẠT NGUỘI",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thue Xe Cho Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho thuê xe du lịch ở Đà Lạt- Tell 0374.049.049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mô Tô 49 - Cho Thuê Xe Máy Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ xe Du Lịch Đà Lạt - Nhà xe phong vân 02633.97.9999",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Đi Chill Vi Vu Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DaLat PNP Tourist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Tự Lái Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -11982,9 +15227,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "868984f3-4469-4fd8-a91e-6190295aea6f",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11996,15 +15241,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Hoàng Thiện Car",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ thuê xe tự lái có lái 4,7 chỗ Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vinh Travel Cho Thue Xe Tu Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Minh Tuấn Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2d678aac-878f-45d2-b761-b1fcc8994f2d",
     "slug": "car_rental",
     "name_ru": "Аренда машин",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12016,7 +15286,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Hoàng Thiện Car",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Tự Lái Đức Trọng Đà Lạt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ thuê xe tự lái có lái 4,7 chỗ Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c8567c62-a36d-4bf9-8e3d-50543fe4bc12",
@@ -12082,6 +15371,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cho thuê Xe du lịch 16. Chỗ tại Đà Lạt 0374 049 049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DUY - Cho thuê ô tô tự lái tại Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thue Xe Cho Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho thuê xe du lịch ở Đà Lạt- Tell 0374.049.049",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mô Tô 49 - Cho Thuê Xe Máy Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Du Lịch Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ xe Du Lịch Đà Lạt - Nhà xe phong vân 02633.97.9999",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Đi Chill Vi Vu Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DaLat PNP Tourist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Tự Lái Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12103,7 +15458,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Hoàng Thiện Car",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ thuê xe tự lái có lái 4,7 chỗ Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "84c1ce3f-f154-45e6-ae50-c8657939ca41",
@@ -12129,9 +15497,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3a48f36f-07cc-483b-9844-18fb4908de6e",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12149,6 +15517,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trung Tâm Chăm Sóc Xe Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12156,9 +15530,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b43633ba-267f-4f72-a22c-c59050189852",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12170,15 +15544,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.37,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Trung Tâm Xe Máy Ngọc Tư",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "82385fc6-5eb6-4ba3-930e-3bfd410f8f67",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12196,6 +15577,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "TH CAR CARE - Thẩm mỹ viện Ô tô",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TechZone Automotive - Car Retrofit & Accessories",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DOTi Motorcycle",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rửa Xe Nguyên Bảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Anh AUTO - Chăm sóc xe oto chuyên nghiệp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sửa Xe Tùng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Cơ Hải Anh Makita",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yamaha3s Bảo Trân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Ô Tô Hoàng Phi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nguyên Auto",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cứu Hộ Thuận Phát Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12203,9 +15650,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b3e9cd7d-a172-4055-ba10-ce698a03f8b7",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12217,15 +15664,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Sửa Xe Máy Tuấn Tú",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phú Cường Premium Car Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4abac982-cdad-47be-8fc8-9d55d4e41cc1",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12243,6 +15703,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Xe điện cũ mới Xuân Trường 0984498386",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phụ tùng xe ba gác Minh Huy chi nhánh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Autocare Quốc Pháp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TG Auto ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12250,9 +15734,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2ba33a80-fef4-4832-8544-b3563d5db502",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 48,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12276,6 +15760,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Lốp Xe Tuấn Bảo Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Két Nước Ô Tô Minh Thành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoang Quan Auto",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HOÀNG MINH AUTO Service & Maintenance",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vỏ xe Hùng Hải",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Trần Sỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DP Decal Detailing Lâm Hà - Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thắng Hưng AUTO",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Vé Máy Bay Ngân Hiếu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bo Car care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12283,9 +15827,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "698e8cc3-05c0-4a8c-8e35-7630cec8ed17",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 20,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 170,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12376,9 +15920,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "07be76f5-95b5-4dfc-8116-f729bb76e167",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 19,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 164,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12469,9 +16013,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6411e38f-677d-4e25-8767-0723d74a45b9",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12485,10 +16029,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": null,
+        "name": "Rửa Xe AV Wash",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Đồ Chơi Xe Máy Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gara Thanh hoà 113 mậu thân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "2D Car Wash",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DCardetailing phan thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ĐỨC TÀI Auto",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chăm Sóc & Phụ Kiện ÔTô ART CAR",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "46 Từ Văn Tư . Sỉ & Lẻ Dầu Nhớt Nhập Khẩu - Chăm Sóc Xe - Đồ Chơi Xe",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Sửa Xe Ân Phúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tay Ga Hoà ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Huệ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12496,9 +16106,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "168e9ee7-a68e-45cb-ae90-ec000de5c8eb",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 86,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12510,15 +16120,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Co Khi Nghia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "rửa xe Đình Vượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Euro Auto Saigon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Ô tô Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ODOZ Performance",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TRẦN TIẾN AUTO SPA & DETAILING | Dịch Vụ Rửa & Chăm Sóc Xe",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Monday Workshop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yamaha Town Tuấn Lộc Thắng 5",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc xe Huỳnh Quốc Detailing",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc - nâng cấp xe Bảo Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Phân Phối Đồ Chơi Ô Tô Hoàng Duy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HT Auto Detailing",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8465f9ec-61c7-4d0a-a665-37d5dd36e33d",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12530,15 +16213,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.12,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Xe Điện Quốc Việt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "35d1e9b3-e115-40cf-a35d-5f6806abbf3b",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12550,15 +16240,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Yamaha 2S Tùng Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sửa Xe Tay Ga Hiếu Còi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Car Care Thanh ToÀN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Sửa Chữa Ô Tô Tôn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "788330d3-bf90-46ec-8d75-f614f9c923bc",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 20,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 189,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12649,9 +16364,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5c422402-e14c-4d1c-82ee-9b4a4b8ec7c7",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12663,15 +16378,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.31,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Yamaha 2S Tùng Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sửa Xe Tay Ga Hiếu Còi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Car Care Thanh ToÀN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Sửa Chữa Ô Tô Tôn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7031a5b4-e91f-432a-93bc-bad30aa3b680",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 34,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12683,15 +16423,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Sửa chữa thay thế kính ô tô lâm đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ô Tô Hưng Vượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cong Ty TNHH Thang Long Auto Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rửa Xe 19",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty Tnhh Bảo's, Đức Trọng, Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "R.O.P Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý Suzuki Liên Thái",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÙNG SPORT sửa chữa ,mua bán xe và phụ tùng XIPO Đức Trọng,Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gara Quang Chung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1999 Service Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ chăm sóc xe 3 Anh Em",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Long Detailing",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a626e511-b7f3-44f2-a0c2-ce7e4abe4c7d",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 32,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12709,6 +16522,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cong Ty TNHH Thang Long Auto Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rửa Xe 19",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty Tnhh Bảo's, Đức Trọng, Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "R.O.P Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý Suzuki Liên Thái",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÙNG SPORT sửa chữa ,mua bán xe và phụ tùng XIPO Đức Trọng,Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gara Quang Chung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Tuyen Phat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage TMT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1999 Service Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ chăm sóc xe 3 Anh Em",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12716,9 +16595,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d7270b4a-b4dd-44cc-aca8-5d84ec5e912b",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12736,6 +16615,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Garage Trần Sỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DP Decal Detailing Lâm Hà - Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thắng Hưng AUTO",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Hùng Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Head Thang Loi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Tran Sy 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Rửa Xe 194",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Vé Máy Bay Ngân Hiếu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bo Car care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Sửa Xe Thanh Spacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HT AUTO - Nơi tiếp tục một chuyến đi an toàn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12743,9 +16688,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b9cafdf9-0a43-4cf5-aa86-7361d48b933e",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12757,15 +16702,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Garage Trần Sỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DP Decal Detailing Lâm Hà - Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thắng Hưng AUTO",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Hùng Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Head Thang Loi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage Tran Sy 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Rửa Xe 194",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Vé Máy Bay Ngân Hiếu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bo Car care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Sửa Xe Thanh Spacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HT AUTO - Nơi tiếp tục một chuyến đi an toàn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm sơn Bình Bò",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a541cb1c-07bf-45c1-9e37-ed211729e3e2",
     "slug": "car_repair",
     "name_ru": "Автосервисы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12777,7 +16795,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Quốc Nguyễn Auto",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chăm Sóc Xe Mobile Car Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hành xe máy honda Ngọc anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7d15a717-8d2c-4a46-8dfd-f2acaacdf1e1",
@@ -12890,7 +16927,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Ô Tô Hưng Vượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cong Ty TNHH Thang Long Auto Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rửa Xe 19",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty Tnhh Bảo's, Đức Trọng, Lâm Đồng.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "R.O.P Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý Suzuki Liên Thái",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÙNG SPORT sửa chữa ,mua bán xe và phụ tùng XIPO Đức Trọng,Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gara Quang Chung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garage TMT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1999 Service Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ chăm sóc xe 3 Anh Em",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Long Detailing",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "be9350ef-587f-4d64-91eb-4a3e6eb1717c",
@@ -12910,15 +17020,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Quốc Nguyễn Auto",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chăm Sóc Xe Mobile Car Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hành xe máy honda Ngọc anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0a18e708-4c68-4cdf-abec-bd45fd2bff63",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 104,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12948,6 +17077,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Viên Mãn - Yoga & Trị Liệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiền viện Trúc Lâm - Sư Thầy Thích Pháp Hòa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc sức khỏe tinh thần MHC Đà Lạt (Tâm lý MHC Đà Lạt)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Chẩn Trị YHCT Vạn Phúc Đường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Điều Dưỡng Cao Cấp Bệnh Viện Hoàn Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Hoàn Mỹ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện huyện Lạc Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Châm cứu - Thuốc bắc (acupuncture - herbs)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám BS Thế Cường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -12955,9 +17138,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "21bb128d-9da3-4df6-900e-b254e6e05a91",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12969,15 +17152,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Vietnam Midori Coffee Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vật lý trị liệu Hoàng Loan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "abd7ab30-d0e7-43dc-8a24-e3e658ff90cb",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12995,6 +17191,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Xã Đinh Lạc Trung Tam Y Te Xa Dinh Lac",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Đa Khoa Tâm Phúc Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Nhi Bác Sĩ Ka Hor",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chăm Sóc Sắc Đẹp Phụ Nữ CHI TRẦN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện thoại di động Đại Dương smartphone",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện đa khoa tỉnh Quảng Trị",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13002,9 +17246,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "12f6bb13-1601-4506-8ffe-ff04fae3f170",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13016,15 +17260,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 3,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Trạm Y Tế Xã Ka Đơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Chẩn Trị Y Học Cổ Truyền Phú Tuấn - Thạnh Mỹ Đơn Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Benh Vien Thanh My",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm Y tế huyện Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Huyện Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pizza Tươi and More",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ITAO 24h -204 Đường 2/4- Chi Nhánh Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trạm Y tế xã Trạm Hành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1785861c-07ae-4dd5-8a7e-c25053d13ff5",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 18,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13036,7 +17329,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 3,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Trạm Y Tế Xã Ninh Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Duyên Shop Chuyên Sỉ Lẻ thời trang Quảng Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Y Tế Huyện Lâm Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Tâm Bao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung TÂM Y TẾ HuyỆN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tổng Hợp Á Đông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TT Y Tế H.Đức Trọng TT Y Te H.Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Bệnh Viện 115",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị liệu cơ xương khớp Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua bán ô tô - xe máy cũ Hưng Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Y Học Cổ Truyền Kim Hoàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "105e1cee-2a83-4caf-b5f7-472de6919834",
@@ -13062,9 +17428,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "fbcb5b29-dabc-4653-8b1b-95a73591a99b",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 44,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13078,10 +17444,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "Khu Vực A",
+        "name": "Phòng Khám Phúc Khang",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Trạm Y tế xã Phong Nẫm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Oxy Y Tế Hồng Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Sản Phụ Khoa Phan Thiết - BS.CKI Phan Thị Tuyết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đường Lê Hồng Phong _ Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện đa khoa tỉnh Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cắt bao quy đầu Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Tâm An Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chấm Dứt Đau Nhức Xương Khớp Chỉ 289k - Số 1 Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám và Điều trị chuyên khoa ngoại Phạm Tiến Khởi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Phòng Chống Dịch Bệnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Kiểm Soát Bệnh Tật Tỉnh Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13089,9 +17521,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f1dfcc7c-2a98-4316-9bac-29be47dafbb8",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13103,15 +17535,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.15,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Trung Tam Y Te Khu Vuc Loc Chau",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đạo Y Quán Đằng Y Đường - Chi Nhánh Bảo Lộc.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Mạch Bác Sĩ Lê Văn Hùng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám Nhi BS. Lệ Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám nhi - Bs. Đức Bảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khoa Hồi Sức Cấp Cứu Bệnh Viện 2 Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám Phụ Sản AN PHÚC BẢO LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện II Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pet 1997 - Trung Tâm Thú Y",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty Vĩnh Lợi TNHH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Sản Phụ Khoa Và Siêu Âm. BS Vũ Đạo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Thú Y Đình Quân - Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "44afe0e2-abb3-4fdb-88e4-c818b1b152d2",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13129,6 +17634,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà thờ Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Đạ Huoai - Khu vực Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13136,9 +17659,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "7e038230-fb91-42d1-bbfe-f671f5c8d9bd",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13150,15 +17673,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Thờ Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Nội Trị Bs Đặng Đình Quảng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b855a1a9-cb90-476e-a30d-2cb07229a7b8",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 100,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13188,6 +17742,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Viên Mãn - Yoga & Trị Liệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiền viện Trúc Lâm - Sư Thầy Thích Pháp Hòa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc sức khỏe tinh thần MHC Đà Lạt (Tâm lý MHC Đà Lạt)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Chẩn Trị YHCT Vạn Phúc Đường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Điều Dưỡng Cao Cấp Bệnh Viện Hoàn Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Hoàn Mỹ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Châm cứu - Thuốc bắc (acupuncture - herbs)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám BS Thế Cường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thờ Thánh Mẫu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13195,9 +17803,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "86ac5279-6364-4801-b4ff-856b75ae8b60",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 98,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13221,6 +17829,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Viên Mãn - Yoga & Trị Liệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc sức khỏe tinh thần MHC Đà Lạt (Tâm lý MHC Đà Lạt)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Chẩn Trị YHCT Vạn Phúc Đường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Điều Dưỡng Cao Cấp Bệnh Viện Hoàn Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Hoàn Mỹ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Châm cứu - Thuốc bắc (acupuncture - herbs)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám BS Thế Cường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thờ Thánh Mẫu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tai Mũi Họng - BS Trần Thị Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Thú Y Saigon Pet Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13228,9 +17896,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "951827e7-bb70-4814-950e-a8c7f5025028",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13242,15 +17910,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.18,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Bệnh Xá Đoàn Kinh Tế Quốc Phòng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5894414a-edcc-4acd-a968-0abf80c48aa6",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13262,15 +17937,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.13,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Thờ Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Nội Trị Bs Đặng Đình Quảng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trạm Y tế xã Nam Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Y Tế Huyện Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6c728022-c88c-430c-927f-c0fa485ee8ba",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13282,15 +17994,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.46,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Tâm Bao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung TÂM Y TẾ HuyỆN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tổng Hợp Á Đông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TT Y Tế H.Đức Trọng TT Y Te H.Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Bệnh Viện 115",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị liệu cơ xương khớp Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua bán ô tô - xe máy cũ Hưng Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Y Học Cổ Truyền Kim Hoàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Hạnh Phúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Kham Da Khoa Bac Si Tiep",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm Y tế Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ca83b152-6912-4abe-97ec-23e66da18d94",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 15,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13302,15 +18087,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.46,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Tâm Bao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung TÂM Y TẾ HuyỆN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tổng Hợp Á Đông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TT Y Tế H.Đức Trọng TT Y Te H.Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Bệnh Viện 115",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị liệu cơ xương khớp Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua bán ô tô - xe máy cũ Hưng Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Y Học Cổ Truyền Kim Hoàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Hạnh Phúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Kham Da Khoa Bac Si Tiep",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm Y tế Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f3ea5836-149f-40f0-99ee-636047150e49",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13322,15 +18180,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.02,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Duyên Shop Chuyên Sỉ Lẻ thời trang Quảng Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Y Tế Huyện Lâm Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trạm Y tế xã Đạ Đờn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vietnam Midori Coffee Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vật lý trị liệu Hoàng Loan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b0f1b6ca-f6d4-4cca-a30d-7c3760f1ec82",
     "slug": "clinic",
     "name_ru": "Клиники и врачи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13342,7 +18231,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Trung Tam Y Tế Huyện Lâm Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trạm Y tế xã Đạ Đờn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "16dfeeb6-57a8-4cc3-b985-ab387f28a687",
@@ -13394,6 +18296,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Viên Mãn - Yoga & Trị Liệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiền viện Trúc Lâm - Sư Thầy Thích Pháp Hòa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm chăm sóc sức khỏe tinh thần MHC Đà Lạt (Tâm lý MHC Đà Lạt)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Chẩn Trị YHCT Vạn Phúc Đường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Điều Dưỡng Cao Cấp Bệnh Viện Hoàn Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh viện Hoàn Mỹ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Châm cứu - Thuốc bắc (acupuncture - herbs)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám BS Thế Cường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thờ Thánh Mẫu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tai Mũi Họng - BS Trần Thị Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13415,7 +18377,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.46,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Bệnh Viện Đa Khoa Huyện Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bệnh Viện Tâm Bao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung TÂM Y TẾ HuyỆN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Tổng Hợp Á Đông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TT Y Tế H.Đức Trọng TT Y Te H.Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Bệnh Viện 115",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị liệu cơ xương khớp Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua bán ô tô - xe máy cũ Hưng Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Y Học Cổ Truyền Kim Hoàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Hạnh Phúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Kham Da Khoa Bac Si Tiep",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm Y tế Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ad647166-6fb1-4c81-9992-2b8ad3f6fadd",
@@ -13441,9 +18476,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d934bd30-0a10-4ca3-b90e-21c7006b952a",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 157,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13457,76 +18492,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "265 trần phú",
+        "name": "Trà sữa Pigin Tea Cofee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "KT Coffee & Tea",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Cf cô Bình",
+        "name": "Tiệm trà O Sen",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "cửa hàng 67",
+        "name": "Khu Vui Chơi Nước Phan Thiết - 79 Trường Chinh",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "khanh khanh",
+        "name": "Cafe_thế Giới Ăn Vặt_40 Đặng Văn Lãnh",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "cà phê cây phượng",
+        "name": "47 Matcha & Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "cà phê nhớ mãi",
+        "name": "ROSE TEA",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "cà phê kin",
+        "name": "Hama Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "trạm dừng chân tuấn phượng",
+        "name": "Bida cafe",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "sông quê",
+        "name": "Xoăn Coffee & Tea",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "ngọc linh",
+        "name": "Gầy Tea",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "bin bin",
+        "name": "Cafe Hải Vân",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -13534,9 +18569,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "512c9742-cd4a-4212-9d1d-4d99ba81d87d",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 316,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2181,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13627,9 +18662,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "9a01f782-cc6a-421f-bd6b-3ae2ad9686e1",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 10,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 170,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13701,6 +18736,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Bún Milktea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "05 Coffee & Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13708,9 +18755,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8b6db5d3-6084-438b-915e-560dbf090028",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 164,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13776,6 +18823,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "De'Mahi River Mountain Retreat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "K'Hông Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà phê Vân anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13783,9 +18848,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "eab62da2-975f-4e61-8792-7b326cfd3765",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 30,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13803,6 +18868,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cà phê Võng KiM NgỌc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Cô Liên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ban Mai Coffee and Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà Sữa Ngân Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chất Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xanh Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Min's Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Coffee Minh Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sữa chua trân châu Houjicga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Plus Coffee | Mâ?kar Da Te",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Sông Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13810,9 +18941,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a444cb56-5fb7-425f-85e7-db1257f90e8e",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 8,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 281,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13872,6 +19003,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tahine Lakeside",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mo Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mãng Cầu Na",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm trà & cà phê Sunshine",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -13879,9 +19034,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d632eb23-bb2d-47b0-bdab-b3d82d42a161",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13893,15 +19048,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Quán Cafe Violet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Coffee House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mèo Coffee and Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà Sữa, Ăn Vặt, Mỳ Cay Susie",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gold Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9f1881b4-cc1f-432e-a746-8ffaf4c25252",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 46,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13967,6 +19153,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "ĐỈNH NAM food & Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồng Hồ Chính Hãng Thegioididong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuận Nguyên café",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14099,6 +19303,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "D1 Coffee&Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Café Gold Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nuu House's Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lavender Coffee Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sala Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The SaAn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Milano Bồng Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Activecoffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm cà phê nhà UP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14174,6 +19432,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cafe Sao Đêm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Hoàng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tám Trình Coffee - KDL Cà Phê Thác Voi - Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14181,9 +19457,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5130b5a5-6062-438e-8472-2676bf77d192",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 23,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 678,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14197,76 +19473,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 6.37,
     "players": [
       {
-        "name": "M2 Coffee Shop",
+        "name": "PINK Wedding & Bridal",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Yesterday Coffee Shop",
+        "name": "Milano coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "The Coffee House",
+        "name": "Monnica cafe",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "cafe phượt",
+        "name": "Bánh Việt B'lao 224 Hà Giang",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Nước mía",
+        "name": "Diễm Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Cà Phê Gợi",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Cafe Thanh Bình Xanh",
+        "name": "BaoLoc Fresh Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Thây Hôís",
+        "name": "Lamvina Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Catina Bảo Lộc",
+        "name": "Kefi Rooftop Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Trung Nguyên E-Coffee (05 Mê Linh)",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "1992 Coffee",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trà đá KHOA PHÁT",
+        "name": "LeCii Cafeteria",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -14274,9 +19550,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "989c2478-e737-48c7-aab4-2cc2458d5af7",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 332,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2268,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14367,9 +19643,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "bb8056b6-e26b-43cb-b7ec-fc12a9d96c9e",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 15,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14382,6 +19658,12 @@ export const GEN_MARKETS: GenMarket[] = [
     "players_rolled": 3,
     "osm_density_per_10k": 2.87,
     "players": [
+      {
+        "name": "Farm Lam Cao Nguyen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
       {
         "name": "cà phê overnight",
         "rating": null,
@@ -14399,6 +19681,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cafe Đồng Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Coffee _ Hồ Câu Sinh Thái Lâm Cao Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tèo Em Coffee & Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tobee Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Coffee Shop Sky Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Roca coffee shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gold Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà sữa & ăn vặt Linh Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14406,9 +19736,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6e79380e-8b3f-49e6-bfd2-fc3a0604fbb5",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 292,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2049,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14499,9 +19829,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3a7a50f0-7d68-4ad1-b112-1d7bb8f32809",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14549,6 +19879,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "TC Legend Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Internet Mai Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe Phước Hạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Organic Coffee & Tea Đam Rông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe orchid Giáng Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà Chanh Hẻm Chill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14556,9 +19922,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0bcfe593-29e3-4223-83ae-11b58b66efbe",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 39,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14606,6 +19972,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cà phê Võng KiM NgỌc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Cô Liên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ban Mai Coffee and Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà Sữa Ngân Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chất Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xanh Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14613,9 +20015,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "27042057-1858-4c8b-a794-7148d8796bb1",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 211,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14651,6 +20053,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tiệm cà phê nhà UP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe OOZE",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Quỳnh Ngân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe Sen Đá 36",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "cafe Thôi Mà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn lan Trí Tuấn Thành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ant Bee Tea and Coffee Company Limited",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe Xóm Tiệm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14658,9 +20108,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f5043ca6-89ad-44a3-a462-71744c1d336f",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 202,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14696,6 +20146,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nasa Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Café Gold Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nuu House's Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lavender Coffee Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sala Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The SaAn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Milano Bồng Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Activecoffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14703,9 +20201,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d61cb1e4-17fd-4618-a43c-619fe67706e1",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 22,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 174,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14796,9 +20294,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "efe9602a-f050-4e2d-abba-63f63fd0b8c3",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 50,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14810,15 +20308,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Cà Phê Muối",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CÔNg Ty Tnhh NgỌC ThẠCh Robusta LÂM HÀ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LEᎾ Trà sữa & Ăn vặt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Duy Duyên Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HOME Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Garden Cafe Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Mình Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe Ngọc Khuê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chu Beer Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Lis",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thánh sim vietnamobile - Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Kim Phụng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "71c17a33-e314-4f06-9034-2781100a3179",
     "slug": "coffee_shop",
     "name_ru": "Кофейни",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 64,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14884,6 +20455,51 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tiệm Chè Cô My",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cafe Sao Đêm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cà Phê Hoàng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
+  },
+  {
+    "id": "ed6142ba-c534-4c3f-be27-7c62c9bd3840",
+    "slug": "convenience",
+    "name_ru": "Магазины у дома",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
+    "size_vnd_year": null,
+    "size_source_type": null,
+    "size_source_url": null,
+    "avg_price_vnd": null,
+    "opportunity_score": null,
+    "opportunity_note": null,
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
+    "players": [
+      {
+        "name": "Cà phê lăngcuđơ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -14891,9 +20507,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f1732a5d-3a1b-4e03-9809-74682f20823d",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14911,36 +20527,82 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trà Sữa 192",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp Kem Ú",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Crep Sầu Riêng Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Konnichiwa Lâm Hà - cửa hàng nội địa Nhật",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dilifood",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nomad Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cassa Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "PHONG THỦY THÁI LAN - Wat Traimit",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hưng Minh Phụng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Lan Minimart",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bách Hoá XUÂN NHI",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
-  },
-  {
-    "id": "ed6142ba-c534-4c3f-be27-7c62c9bd3840",
-    "slug": "convenience",
-    "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
-    "size_vnd_year": null,
-    "size_source_type": null,
-    "size_source_url": null,
-    "avg_price_vnd": null,
-    "opportunity_score": null,
-    "opportunity_note": null,
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "gap_status": "gap",
-    "gap_score": null,
-    "players_rolled": 0,
-    "osm_density_per_10k": null,
-    "players": []
   },
   {
     "id": "f7525958-23f7-44d3-9410-6040923473f8",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 66,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 296,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15031,9 +20693,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "30ccb0a8-314b-4e1b-96f3-9de6473cc242",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15045,15 +20707,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Cửa Hàng Tổng Hợp Huệ Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8284f7ff-1254-4fed-892e-ae63d3536f69",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15065,15 +20734,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tạp Hoá Huy Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sua Tot D&D",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NewChoice Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Thạch Mỹ Cho Thach My",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Con Cưng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nga Tin Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hồng treo gió Quốc Trung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Farm 1994",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phan Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hồng treo Trường Gia Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty Tnhh Thực Phẩm Asuzac Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalahouse.com - Farm & Food",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "48aca057-cdb9-4324-905b-6c3ba88513cf",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15097,6 +20839,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Chợ Bình Thạnh Cho Binh Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "L’eté",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang luxy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng tiện lợi izi mart",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cây Cảnh Ánh Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15104,9 +20876,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "66df187b-ad7e-4a43-8583-186b1e798a3b",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 33,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15118,7 +20890,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Chợ Ninh Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Tiện Lợi T. Bảo Oanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Berryland Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Tân Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Sữa 88",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Siêu Thị V Mart - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Review by Nhà Đậu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Bình Thạnh Cho Binh Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Lâm Đồng - Kho khẩu trang giá sỉ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hóa Cô Trang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hoá Gia Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Nước Nhân Tâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "355d2343-5a89-4fd5-8bef-4246809069a2",
@@ -15217,9 +21062,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6bcda3f2-8298-43be-a042-c270f4a13fd2",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 96,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 143,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15310,9 +21155,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c72b2256-10f5-4d0d-a2f9-67d0c6082c87",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 7,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 88,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15366,6 +21211,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Đặc sản cao nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Uyên Food",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vật Liệu Xây Dựng Thành Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hạt Đậu Nhỏ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Đại Lào",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15373,9 +21248,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "de40565f-c48f-4abf-b544-542b5d57807f",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 66,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 303,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15466,9 +21341,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0b16ebad-9b61-459d-aee6-2fd66100f3f4",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 63,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 286,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15559,9 +21434,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "dc65cfdd-1f60-4a8f-8bad-95427d91b8be",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 11,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15639,6 +21514,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tạp hóa Liêm Bài",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15646,9 +21527,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "828c99d3-24d2-47a5-aee7-4454f9c15669",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 10,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 14,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15720,6 +21601,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tap Hoa Tu Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bạt lót hồ HDPE - Giá Rẻ - Uy Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15727,9 +21620,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "bc270d1a-c0d0-4cd6-8e7e-5c0b96457873",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 27,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15741,15 +21634,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "WinMart+",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Yến Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Lâm Đồng - Kho khẩu trang giá sỉ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hoá Gia Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sầu Riêng Gia Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "EmMaibakeshop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xoai's Store",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "WinMart",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ĐẶC SẢN Ý An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng phân phối sỉ-lẻ GẠO THIÊN LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThÁI HÀ Food",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pure Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "960c2405-1ef7-4ccb-be71-b963fc45790b",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 24,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15761,15 +21727,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Lâm Lâm Đồng - Kho khẩu trang giá sỉ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hoá Gia Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Nước Nhân Tâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sầu Riêng Gia Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "EmMaibakeshop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xoai's Store",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "WinMart",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ĐẶC SẢN Ý An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng phân phối sỉ-lẻ GẠO THIÊN LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThÁI HÀ Food",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pure Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đặc Sản Đà Lạt -100% An Toàn,Ngon mà Rẻ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d1782e65-22d9-476d-81fc-2dc9f0f65da2",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15860,9 +21899,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "842f2e77-a3a2-4a00-bfbe-2f125486a724",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15892,6 +21931,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cửa Hàng Vinh Hoa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15913,7 +21958,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Lâm Lâm Đồng - Kho khẩu trang giá sỉ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hoá Gia Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sầu Riêng Gia Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "EmMaibakeshop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xoai's Store",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "WinMart",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ĐẶC SẢN Ý An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng phân phối sỉ-lẻ GẠO THIÊN LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThÁI HÀ Food",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pure Milk Tea",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đặc Sản Đà Lạt -100% An Toàn,Ngon mà Rẻ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Liên Long Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f9aeae80-8bb3-4b41-87e6-8f525a511049",
@@ -15939,6 +22057,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cửa Hàng Vinh Hoa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -15946,9 +22070,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a0816d7f-9bcb-4696-bdac-8c56e9a49c41",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15960,15 +22084,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Sieu Thi Bach Hoa XANH 210 Pham Van Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp Của Xuân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8dcf6ac4-be1d-4828-9e54-66866c4fada8",
     "slug": "convenience",
     "name_ru": "Магазины у дома",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15980,15 +22117,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Tap Hoa Tu Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bạt lót hồ HDPE - Giá Rẻ - Uy Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ly Ly'S Baby",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Đạ Tẻh Cho Da Teh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "872240d5-cfc4-40fd-8f95-af386e12cb93",
     "slug": "coworking",
     "name_ru": "Коворкинги",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16000,7 +22162,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tư vấn dịch vụ số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "82a17e9e-b880-4d02-8dee-3143069512c0",
@@ -16186,9 +22355,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6871f665-c872-4766-b05c-650b22be62e9",
     "slug": "coworking",
     "name_ru": "Коворкинги",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16200,15 +22369,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.11,
     "players_rolled": 0,
     "osm_density_per_10k": 62.01,
-    "players": []
+    "players": [
+      {
+        "name": "Tư vấn dịch vụ số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2a873747-523c-4da1-9892-c156ada8d228",
     "slug": "coworking",
     "name_ru": "Коворкинги",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16220,7 +22396,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.43,
     "players_rolled": 0,
     "osm_density_per_10k": 147.22,
-    "players": []
+    "players": [
+      {
+        "name": "Tư vấn dịch vụ số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "32c7d7f2-4aa1-41bd-826f-f178560d83b0",
@@ -16340,7 +22523,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": 68.69,
-    "players": []
+    "players": [
+      {
+        "name": "Tư vấn dịch vụ số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "caa189fc-1aee-456b-9b6d-4497d3bd181d",
@@ -16426,9 +22616,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "590ca259-7722-4388-a942-f8508104f263",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 48,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16446,6 +22636,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha Khoa Nhân Tâm DenTal",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nụ Cười Duyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đinh Gia Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế Daisy - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Minh Triều - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Dr. Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thẩm Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Smile HT - ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa chuyên nhổ răng khôn Lâm Đồng - Nha khoa Đinh Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tổng Quát Ruby Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -16473,9 +22729,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f0191624-c69d-4715-a49e-b2c6d1c165f6",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16493,6 +22749,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha Khoa Gia Hiệp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đăng Khôi - Chi Nhánh Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Việt Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thiên Phúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Tâm Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đăng Khôi - Thành Phố Buôn Mê Thuột",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -16500,9 +22792,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6d9f2692-3ab8-41d1-bfa0-59b94dc881e6",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16514,15 +22806,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Nha khoa NK",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Nha Khoa Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa- Sai Gon- Lâm ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "538a48bb-5984-4692-abed-9aeb51f8477e",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16534,15 +22845,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Quốc Tế KimLux Sài Gòn - CN Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Pháp Việt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Thạnh Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa PS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Happy Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Hùng Uyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa QuỐC TẾ NhÂN ĐỨC - LÂM ĐỒNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nhan Duc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d014d88b-dabe-4d6d-89fa-90d75fd03d39",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16554,7 +22914,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Tham My Golden Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa NK",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa TÂM ĐỨC - Chuyên Niềng Răng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bác Sỹ Quang Đức Khoa Răng Hàm Mặt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế AE Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Bao Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Duy TÂN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế K Dentist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Sài Gòn Smile Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồng Hồ Chính Hãng Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hệ Thống Nha Khoa Đinh Gia - CN Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chỉnh Nha - BaoAnh Dental",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f9fbd81b-6a1c-4475-bd68-5ac8f5dc0616",
@@ -16580,9 +23013,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "15941351-e54c-49e9-84a3-83cca38c8f8a",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16594,15 +23027,70 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.63,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Sai Gon 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn An Phước",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Lê Duẩn - Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tham My A Au",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa  Long Lagi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn 5 Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa quốc tế Sài Gòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn Kim Cương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn Quốc Tế",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6e45ac7a-3f13-470f-9941-4b34356288a0",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 22,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16614,15 +23102,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.96,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Thánh Tâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Smile HD - CN Lộc Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đức Thành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa ThẨM MỸ ViỆT Ý 2 - BẢO LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Đức Thành - Bảo Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thu Trang - bác sĩ Lê Thị Thu Trang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tâm Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thẩm Mỹ Smile HT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế DAISY - Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn - Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nu Cuoi Ngoc Minh Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng răng BS.Bảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "bbce71fc-cd95-4d82-81e2-170c5f81ceeb",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16634,15 +23195,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.75,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Bảo Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b87236c9-42de-4763-b322-36139e125bf5",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16654,15 +23222,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Diamond",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ba3275d6-d492-4d45-974f-c196ad64f2b6",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 48,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16680,6 +23255,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha Khoa Nhân Tâm DenTal",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nụ Cười Duyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đinh Gia Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế Daisy - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Minh Triều - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Dr. Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thẩm Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Smile HT - ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa chuyên nhổ răng khôn Lâm Đồng - Nha khoa Đinh Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tổng Quát Ruby Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -16687,9 +23328,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d7fbc457-4f59-402e-9b11-2b2c3319ee4e",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 47,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16707,6 +23348,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha Khoa Nhân Tâm DenTal",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nụ Cười Duyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Đinh Gia Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế Daisy - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Minh Triều - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Dr. Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thẩm Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Smile HT - ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa chuyên nhổ răng khôn Lâm Đồng - Nha khoa Đinh Gia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Sài Gòn Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tổng Quát Ruby Smile",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -16714,9 +23421,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ff5d732c-1958-4699-a34f-541e727bb78c",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16728,15 +23435,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Thẫm Mỹ Đại Tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "21d77177-0902-48e6-b0fb-71ecea96064f",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16748,15 +23462,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.94,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Diamond",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e111a278-3e88-4640-9d4b-5f4b310248e4",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16768,15 +23489,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa TÂM ĐỨC - Chuyên Niềng Răng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bác Sỹ Quang Đức Khoa Răng Hàm Mặt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế AE Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Bao Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Duy TÂN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế K Dentist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Sài Gòn Smile Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồng Hồ Chính Hãng Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hệ Thống Nha Khoa Đinh Gia - CN Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chỉnh Nha - BaoAnh Dental",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "aaa16eee-c1f6-4cd8-801c-9e0e05505d6d",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16788,15 +23570,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa TÂM ĐỨC - Chuyên Niềng Răng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bác Sỹ Quang Đức Khoa Răng Hàm Mặt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế AE Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Bao Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Duy TÂN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế K Dentist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Sài Gòn Smile Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồng Hồ Chính Hãng Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hệ Thống Nha Khoa Đinh Gia - CN Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chỉnh Nha - BaoAnh Dental",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6b3cd868-3ded-49e3-b331-bcaf980ebfda",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16808,15 +23651,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.83,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Nha khoa NK",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Nha Khoa Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa- Sai Gon- Lâm ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tâm An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3b7c7608-00b1-49ad-b38c-15a5a7fb76f1",
     "slug": "dental",
     "name_ru": "Стоматологии",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16828,7 +23696,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.48,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Tâm An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e9eeee19-aab3-424c-bdad-e544e25e584c",
@@ -16848,7 +23723,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.48,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa Tâm An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "df552b5f-9fa6-4aac-918f-8f16d9f42624",
@@ -16874,6 +23756,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha Khoa Song Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Tâm Sài Gòn 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Meta Dental",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Vindental Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Nhân Sinh Phú Yên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Uy Tin O Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Smile HT - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Tâm Thế Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tâm Đức Smile Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Tâm Thế - Nha Khoa Uy Tín Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa HOA MỸ - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -16895,15 +23843,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Nha Khoa TÂM ĐỨC - Chuyên Niềng Răng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bác Sỹ Quang Đức Khoa Răng Hàm Mặt Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế AE Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Bao Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Duy TÂN ĐỨC TrỌNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Quốc Tế K Dentist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha khoa Sài Gòn Smile Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồng Hồ Chính Hãng Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hệ Thống Nha Khoa Đinh Gia - CN Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chỉnh Nha - BaoAnh Dental",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "422aefff-a979-4870-8cce-7d55044d9351",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 52,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 527,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16994,9 +24003,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "894fb527-09cf-4c6a-8f37-415c23d3c022",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17008,15 +24017,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Quán cây xoài",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mi Cay Ga Ran Yoyo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bò Lê Lết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chè Ngon nhà Nương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì Cay- Trà sữa- Ăn vặt the Fox Định An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vường Hồng Nhà Tôm Nem Chả NaNa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dora Milk Tea - Trường An Cầu Đất",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CƠM TẤM Thắm Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lẩu bò Phan Rang - Trạm Hành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "La Cà Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong lan rừng Hưng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KATTY MilkTea & FastFood",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2e2cd7ad-3700-422e-bba4-3f927017e444",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17028,15 +24110,70 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "CƠM GÀ Anh Nhi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hong Kong H&T",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "YÊN Coffee ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bà Ba Bánh Bèo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cô Ba Sài Thành - Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tím...Lavender Cafe",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Chè Na Na - Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Mì Cay Cà Na",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mickey - Thiên đường bánh tráng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1b8c86fe-d4e4-496f-a98a-fb63f97b2de4",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 38,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17072,6 +24209,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Tiệm chay trọng đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÔN ThéP ĐẠI ĐỨC ĐỊNh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Ăn Phương Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Canh Cá Lóc Gin Gin",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm tấm Thiên Ân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thôn 5 Con Tách Đăng Đinh Văn Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dê Quay Hương Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp HẺM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17079,9 +24264,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "aeb0f3fa-a2f4-473e-914c-42bb5831356e",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 114,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17129,6 +24314,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Lẩu dê Thành Đạt - Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán trà Thong Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Nướng Nhà Gỗ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Việt Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán cơm tấm Tú Mập Sài Gòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Tấm Vy Vy - Vua ba Chỉ Heo Nướng Lu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17136,9 +24357,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8b216791-ef88-42fc-bf04-0956bc258ee2",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 52,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 551,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17249,9 +24470,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "900503b2-ac1a-4a96-9d8d-3b80097fbedf",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17263,15 +24484,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Bins’ shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn Macca Cổng Trời",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ăn vặt WINNY",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "380684cf-b2e6-489c-af29-bcfcd97decff",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 38,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17285,16 +24525,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "Chi huong",
+        "name": "Cơm Niêu Hương Việt Phan Thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Cherry Cherry",
+        "name": "BÚN BÒ 678 ",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Cháo dinh dưỡng Cá Mập Con",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lê Nguyễn B&N",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anh Tai Quan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Minh Minh Quán - Chuẩn Vị Hà Thành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Áo dài nhà may Hiền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HẺM Biaa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lò Quay Duy Anh ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Mì Sốt Bơ Béo Thịt Xiên Nướng Campuchia, Bún Thịt Nướng Góc Nhỏ Cô 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chanh 2 - Quán Bia Hơi Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phan Thiết New quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17302,9 +24602,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5dee5d36-f3e8-4d11-a882-b348f0e9336b",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17316,15 +24616,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.02,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Đại lý sỉ lẻ Đồ khô bình định chính chủ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tô Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c68f6ddd-3ff8-4d35-9e2c-f547e23a0506",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17336,15 +24649,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Quan ba ba",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Chưng Xanh Lương Huế-Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý sỉ lẻ Đồ khô bình định chính chủ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7dbf080a-f33b-446d-b705-c7963232df46",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 49,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 507,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17435,9 +24767,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3bf7da3e-9a03-4e76-bc4a-4098eebe7e4d",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17461,6 +24793,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Đam Rông Massia",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phở Hà Nội Tại Đam Rông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17468,9 +24812,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "09f560bc-e10b-4065-9af6-9e1021b79d7c",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17494,6 +24838,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Quan ba ba",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh Chưng Xanh Lương Huế-Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại lý sỉ lẻ Đồ khô bình định chính chủ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17501,9 +24863,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "838bd8be-bba6-4aa0-8a96-bd90a86c659b",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 33,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17533,6 +24895,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Dê Quay Hương Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Bình Duyên 1 - chi nhánh Phi Nôm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp HẺM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Prudential Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Ăn Gia Đình - Lẩu - Nướng Su Mo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lang Liêu Lợn Mẹt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Mẹ Nấu - Bếp Nhà La 1988",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cậu Bờm Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bắp Nướng Mỡ Hành ĐỨC TRỌNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17540,9 +24956,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "dda1adf0-c3c5-4728-ae07-755fbdc16a28",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 31,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17572,6 +24988,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Dê Quay Hương Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp HẺM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Prudential Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Ăn Gia Đình - Lẩu - Nướng Su Mo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lang Liêu Lợn Mẹt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Mẹ Nấu - Bếp Nhà La 1988",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cậu Bờm Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bắp Nướng Mỡ Hành ĐỨC TRỌNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Home's Farm - Nông Sản Đặc Sản Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17579,9 +25049,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1612ba21-c285-40da-a914-ca20406b2b26",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 15,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17593,15 +25063,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Cơm tấm Sài Gòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Sàn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Full House VN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm tấm Thiên Ân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thôn 5 Con Tách Đăng Đinh Văn Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán ăn QUANG MÓM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giang tea Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ Lân Hà Chi Nhánh 17",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thành Công Smile Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Night",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ 49",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bins’ shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "243aa66d-327d-4287-aacb-acee8c3f278c",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17613,15 +25156,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Cơm tấm Sài Gòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Sàn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Full House VN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm tấm Thiên Ân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thôn 5 Con Tách Đăng Đinh Văn Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9444c19f-c7bb-4121-ab5e-bbe5998acb58",
     "slug": "fast_food",
     "name_ru": "Уличная еда",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17633,7 +25207,56 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.75,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Quán ăn QUANG MÓM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giang tea Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ Lân Hà Chi Nhánh 17",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thành Công Smile Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Night",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ 49",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bins’ shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yến Linh - Bánh canh chả cá phan rang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9241a8cc-d127-47e2-a4e6-b3bd3f43f466",
@@ -17764,6 +25387,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Dê Quay Hương Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Bình Duyên 1 - chi nhánh Phi Nôm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bếp HẺM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Prudential Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Ăn Gia Đình - Lẩu - Nướng Su Mo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lang Liêu Lợn Mẹt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Mẹ Nấu - Bếp Nhà La 1988",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cậu Bờm Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bắp Nướng Mỡ Hành ĐỨC TRỌNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17785,7 +25462,143 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.75,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Quán ăn QUANG MÓM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giang tea Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ Lân Hà Chi Nhánh 17",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Khoa Thành Công Smile Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Night",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Gà Xối Mỡ 49",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yến Linh - Bánh canh chả cá phan rang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
+  },
+  {
+    "id": "19f1b11c-6838-4a9d-835a-549f7cc12c9d",
+    "slug": "florist",
+    "name_ru": "Цветочные",
+    "players_count": 35,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
+    "size_vnd_year": null,
+    "size_source_type": null,
+    "size_source_url": null,
+    "avg_price_vnd": null,
+    "opportunity_score": 8.72,
+    "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 94 106.",
+    "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
+    "players": [
+      {
+        "name": "Cửa Hàng Hoa Tươi Bắc Bình Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa tươi Ninh Sơn - Ninh Thuận 0.965.732.754",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Thành Phố Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Hải Đường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa sáp Shin",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi ở Bình Thuận ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Hoa Tươi Thành Phố Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Bunny",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đặt Hoa Tươi Tại Tp Phan Thiết - Tỉnh Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi - Giỏ Trái Cây Thành Phố Phan Thiết .Giao Hoa 24/7",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa Tươi Tại Phan Thiết Bình Thuận-Giao Hoa Nhanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi TP. Phan Thiết Bình Thuận - 𝑮𝒊𝒂𝒐 𝑯𝒂̀𝒏𝒈 𝑻𝒂̣̂𝒏 𝑵𝒐̛𝒊",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d7db94db-7131-4442-b2b7-d23e266800bd",
@@ -17811,9 +25624,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "40cabd22-98e9-4889-8ee0-bb7f4cd7bbc4",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 287,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17855,6 +25668,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Mylien Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The PLANT HOUSE - Plant & Decor",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Cẩm Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa ly Huấn Quỳnh Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Hoa Tươi Tp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Thành Phố Đà Lạt - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Lion68F",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17882,9 +25737,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e4c50798-2e3a-4663-a11c-96aaf634ad90",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17896,15 +25751,58 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.31,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Shop hoa tươi Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm hoa - trái cây Thuý Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Đạ Tẻh Lâm Đồng giao hoa tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa tươi Đạ Tẻh Lâm Đồng ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Liti",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm hoa của Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Đạ Tẻh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "94b1b3e2-c7e6-4e71-a6b8-8cb20294c792",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17916,15 +25814,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Vườn dâu tằm Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DÂU TÂY ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Lan Đức Lợi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Lan Huy Vũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi TT. Liên Nghĩa - Đức Trọng ,Lâm Đồng .Giao Hoa 24/7",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn hoa Ngọc Hạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1998 Flowers",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SHOP HOA ĐỨC TRỌNG - M.Flower & Fruits",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Liên Nghĩa - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "EM FLORIST",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng hoa tươi huyện Đức Trọng - Lâm Đồng. Hoa Tươi Luxury",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "57f9924d-28be-49c4-aa86-b4ba1e0a4249",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17942,6 +25913,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "DÂU TÂY ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Lan Đức Lợi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phong Lan Huy Vũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi TT. Liên Nghĩa - Đức Trọng ,Lâm Đồng .Giao Hoa 24/7",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn hoa Ngọc Hạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "1998 Flowers",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SHOP HOA ĐỨC TRỌNG - M.Flower & Fruits",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Liên Nghĩa - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "EM FLORIST",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -17949,9 +25986,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a3c72b1a-38c0-41cc-804b-b0e77d92cdcf",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 24,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17963,15 +26000,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.2,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Shop hoa tươi Lâm Hà, Lâm Đồng - Kim Ngân Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại Lâm Hà Lâm Đồng- Giao Hàng Miễn Phí",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi - Mâm Cúng Trọn Gói Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại H. Lâm Hà Lâm Đồng - Shop Dung Nhi 0763165425",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi  Lâm Hà Lâm Đồng - Thanh Thu shop 0799100193",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thị trấn Đinh Văn huyện Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Thu Nguyệt 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thị Trấn Đinh Văn - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Lâm Hà,Lâm Đồng-Điện Hoa Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Hoa Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa tươi Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi/Giỏ Trái Cây Huyện Lâm Hà Lâm Đồng-Giao Hoa Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e082e14f-9ac8-4a73-89a9-4a61d18f7409",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 20,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17983,15 +26093,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Shop hoa tươi Lâm Hà, Lâm Đồng - Kim Ngân Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại Lâm Hà Lâm Đồng- Giao Hàng Miễn Phí",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi - Mâm Cúng Trọn Gói Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại H. Lâm Hà Lâm Đồng - Shop Dung Nhi 0763165425",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi  Lâm Hà Lâm Đồng - Thanh Thu shop 0799100193",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thị trấn Đinh Văn huyện Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Thu Nguyệt 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thị Trấn Đinh Văn - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Lâm Hà,Lâm Đồng-Điện Hoa Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Hoa Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa tươi Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi/Giỏ Trái Cây Huyện Lâm Hà Lâm Đồng-Giao Hoa Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "018e1ef4-ad01-4e1e-a264-21506bc97650",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18003,15 +26186,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Shop Hoa Tươi,Huyện Lâm Hà,Tỉnh Lâm Đồng -Shop Hoa Giá Rẻ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Khanh Trúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tuoi Van Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0a5cbfe5-6982-4399-b933-cb5ca43695e1",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 26,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18023,7 +26225,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Hungs blomsterhus",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn Lan Hồ Điệp - Minh Nguyệt Orchid Flower Farm Da Lat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Điện Hoa Tươi Huyện Đơn Dương, Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại TT Thạnh Mỹ Đơn Dương Lâm Đồng-Hoàng Linh 037.335.6661",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa tươi Đơn Dương Lâm Đồng 0345.977.964",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Hoa Tươi Đơn Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Huyện Đơn Dương - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa tươi Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trúc Hỷ Florist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đơn Dương - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Giao Tận Nơi Huyện Đơn Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "42cf1ef3-de94-4aa9-bee0-33aab5cc3eef",
@@ -18073,6 +26348,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Mylien Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The PLANT HOUSE - Plant & Decor",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Cẩm Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa ly Huấn Quỳnh Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Thành Phố Đà Lạt - Lâm Đồng ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Hoa Tươi Tp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Thành Phố Đà Lạt - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -18094,7 +26411,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.64,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Shop hoa Đức Trọng Lâm Đồng-Hoàng Ngọc Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi  Liên Nghĩa Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "hoa tươi ngọc uyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Viếng Đám Tang Huyện Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Huyện Đức Trọng Giá Rẻ Free Ship",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Huyện Đức Trọng Lâm Đồng-Giao Hoa Nhanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa tươi ĐỨC TRỌNG LÂM ĐỒNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Đức Trọng, Lâm Đồng - Sua Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa tươi Xã Đức Trọng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tigon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Tại H. Đức Trọng Lâm Đồng - Shop Dung Nhi 0763165425",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bear Sheep Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c983b6cc-83f6-420a-a3ca-33ecb08d8318",
@@ -18114,15 +26504,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.85,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Shop Hoa Tươi Khanh Trúc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tuoi Van Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Huyện Đạ Tẻh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5ac7d709-2919-4ad3-826e-ec2bf22e43b2",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 49,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18140,6 +26549,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Lam Dong Orchids",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quà Tết 2024 Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "VƯỜN Lan HỒ ĐIỆP LƯU PhÚC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Âm Thanh Số Luongchitam.audio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn Hoa Thanh Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thị Trấn Đinh Văn - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Lâm Hà,Lâm Đồng-Điện Hoa Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi-Hoa Viếng Tang Lễ Tại Lâm Hà Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Huyện Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mon Ami Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Đinh Văn Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -18147,9 +26622,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3601173b-9bae-4776-bd38-5d4b09d13f79",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 40,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18161,7 +26636,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Cửa Hàng Hoa Tươi Di Linh, Lâm Đồng - Giao Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỳnh - Wedding & Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gau Bong Bich Thuy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Lan Tâm Liên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Lan Ngọc Diệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Lạc Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Thú Nhồi Bông Quà Lưu Niệm Tú Oanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Di Linh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gift shop Ly Soc Nau",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa Thị Trấn Di Linh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đậu Gift Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng hoa tươi huyện Di Linh - Lâm Đồng. Hoa Tươi Luxury",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a168ea40-46a4-495a-aa2c-78cc701e9d90",
@@ -18187,9 +26735,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c4109ce3-c2a8-4607-afd1-f0e706ada216",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 7,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18201,35 +26749,58 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
-  },
-  {
-    "id": "19f1b11c-6838-4a9d-835a-549f7cc12c9d",
-    "slug": "florist",
-    "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
-    "size_vnd_year": null,
-    "size_source_type": null,
-    "size_source_url": null,
-    "avg_price_vnd": null,
-    "opportunity_score": 8.72,
-    "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 94 106.",
-    "region_slug": "vn-lamdong-baolam",
-    "gap_status": "gap",
-    "gap_score": 2,
-    "players_rolled": 0,
-    "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Shop hoa tươi Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm hoa - trái cây Thuý Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Đạ Tẻh Lâm Đồng giao hoa tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa tươi Đạ Tẻh Lâm Đồng ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Liti",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm hoa của Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Đạ Tẻh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4ba15f87-4a63-444c-b701-d111e175e77a",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 137,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18247,6 +26818,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cay Canh Ca Canh Dung Loc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tranh thêu tay Minh Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop hoa tươi Thành phố Bảo Lộc - Kim Ngân Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Cưới Đẹp Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Trâm Anh Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Tươi Thành Phố Bảo Lộc Lâm Đồng-Giao Hoa Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "shop hoa tuoi Ngoc Bich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Thiên Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Huyện Lâm Hà Lâm Đồng - Diệp Anh Flowers",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hiên Nhà Có Cây",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -18254,9 +26891,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3bf23c24-0ed1-4d52-82cd-827ff9acde8c",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 289,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18298,6 +26935,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "AVO'S Garden & Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Huyện Đạ Tẻh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Hoa Huyện Huoai - Lâm Đồng ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Lan Thanh Quang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mylien Shop",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The PLANT HOUSE - Plant & Decor",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Cẩm Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -18305,9 +26984,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "abca44ab-7112-47b7-9a1a-ad04626ce6e6",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 264,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18349,6 +27028,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Hoa Viếng Đám Tang Tp Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rin Bon home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Thành Phố Đà Lạt - KiWi Flowers",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Tươi Tp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lan Hồ Điệp Thi flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Hoa Tươi Thành Phố Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -18356,9 +27077,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "49387763-2529-4a5c-998a-695e4d674fb0",
     "slug": "florist",
     "name_ru": "Цветочные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18370,15 +27091,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.37,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Shop Hoa Tươi Bằng Lăng - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9e8868eb-1b84-4b5d-a101-839ca5858c4c",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18390,15 +27118,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Đoan Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Yoga and Ayurveda Full For Life - Chi Nhanh 68",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "180 YOGA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bhati- Yoga & Ayurveda",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Câu Lạc Bộ Võ Thuật T&C",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Seven Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3bf5727b-8431-4c50-b004-d7eb8fd0bbc1",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 14,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 83,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18509,9 +27274,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0e5872a9-33f8-4f20-8f6f-b1f044e1af83",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18523,15 +27288,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Lê Hoàng Fitness Private Gym",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Gym Fitness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quỳnh Như Yoga Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Diamond Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "GYM Quốc Cường ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Gym 2/9",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gym loft km16",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Clb Gym ThiÊN VŨ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c442e9ca-1fe0-44e0-b8bc-addddea4fdca",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18543,15 +27357,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "MIA Yoga & Wellness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "New Waves Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4954e216-9efd-4be0-859a-03d99b519443",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18563,15 +27390,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Gym Club Internet Anh Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thở Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vạn Tín Gym",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mon Fitness & Kid Dance",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Duyfitness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "613835ee-8a23-4bdf-8a79-647b95b80e2d",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18583,7 +27447,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Persional trainer Lê Na Phòng tập Gym Khỏe Đẹp Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ninh Gia sports",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gym Idalats",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "MIA Yoga & Wellness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yên Yoga Evolution Cư Xá - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga Cali Center Duc Trong Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÂM An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Fitness and Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phương Duyên Treatment Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm tập luyện NINJA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Đạt Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quinee Yoga Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d7daaeb5-d7bf-4e4d-ae60-3521a3887966",
@@ -18609,9 +27546,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4b628cdf-eb9e-4319-b999-e42916ad67ec",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18623,7 +27560,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.23,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Trình Gym Fitness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Minh Huy Gym",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sunrise yoga Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Angel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thái Gym.Tóc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gold Gym Fitness and Yoga Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chang Pilates - P.B'lao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kai Club Boxing and Fitness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga By Master Do",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Phước Gym center Bế Văn Đàn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lawn Pilates Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a39e3f28-4978-4b5f-bd97-61e79c96bd6d",
@@ -18649,9 +27659,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "15d45488-55cd-446e-af00-3b3acaa2af62",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18663,15 +27673,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Healing Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga DÁNg ViỆT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "23a6ac95-6803-4a5b-9a7d-094200a8d35d",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 14,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 87,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18762,9 +27785,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "26093d8a-ec49-40b6-a7f5-48ccb166f1f4",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 14,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 82,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18875,9 +27898,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4a5dd907-be76-45af-b3f4-38a2ac5728ca",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18889,15 +27912,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.21,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Healing Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga DÁNg ViỆT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c65c85d5-cf80-49db-8fd6-5ef970a2bb70",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18909,15 +27945,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Yên Yoga Evolution Cư Xá - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga Cali Center Duc Trong Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÂM An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Fitness and Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phương Duyên Treatment Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm tập luyện NINJA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Đạt Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quinee Yoga Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Gym Phương Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Van Hoa Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu lien hop the thao huyen Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TOP Hải Phước Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c6a4bcb7-f6c7-479a-a455-ea6811deac10",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18929,15 +28038,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Yên Yoga Evolution Cư Xá - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga Cali Center Duc Trong Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÂM An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Fitness and Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phương Duyên Treatment Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm tập luyện NINJA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Đạt Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quinee Yoga Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Gym Phương Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Van Hoa Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu lien hop the thao huyen Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TOP Hải Phước Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b6eb3b92-312a-471a-bc5b-f09015a2b2f8",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18949,15 +28131,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.1,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "MIA Yoga & Wellness",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "New Waves Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Thể Hình Kim Ngân 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thế giới ghế massage OHARi Nam Ban Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lê Thuý Fitness & Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ade36310-da20-4bc7-9f19-4ee24a8c840a",
     "slug": "gym",
     "name_ru": "Спортзалы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18969,7 +28182,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.75,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "CLB Thể Hình Kim Ngân 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thế giới ghế massage OHARi Nam Ban Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lê Thuý Fitness & Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6b7c9057-116a-4c1d-8c99-85353228e019",
@@ -19082,7 +28314,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Yên Yoga Evolution Cư Xá - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Yoga Cali Center Duc Trong Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÂM An Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AZ Fitness and Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phương Duyên Treatment Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm tập luyện NINJA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Đạt Gym Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quinee Yoga Studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CLB Gym Phương Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Van Hoa Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu lien hop the thao huyen Duc Trong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TOP Hải Phước Gym Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "27a659f8-9bf4-4e30-90f7-584397772338",
@@ -19102,15 +28407,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.75,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "CLB Thể Hình Kim Ngân 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thế giới ghế massage OHARi Nam Ban Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lê Thuý Fitness & Yoga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "85661636-ff37-4297-9cd0-21586cbe450e",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19124,6 +28448,66 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
+        "name": "Dream Homestay Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hiên Nhà Xanh Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ecohouse Villa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Quỳnh Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pun House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Ngọc Yến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Moc’s Homestay - Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Láng Đá - View Sông Lagi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Invita Garden Villa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Via Dola House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
         "name": "Chon's Dock Homestay & House Lease",
         "rating": null,
         "reviews": null,
@@ -19135,9 +28519,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "bd198f7d-9a85-4555-9960-f2d34be57ef3",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 180,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 608,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19228,9 +28612,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d7cf1da4-a1e9-4bfa-bf93-ea42b0d46344",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 183,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 536,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19321,9 +28705,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c86dc4ac-86c0-45e7-bc7c-9f3e6c500f5e",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19335,15 +28719,58 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tổ ấm Miền Cao Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Jenny's House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lười Lười Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pine Village Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Nhà Ven Rừng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hwi Store - Hồng treo gió đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thi Công Nhà Sàn Đà Lạt - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f7b4d203-ef48-4884-bd4a-97be9722b28f",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19367,6 +28794,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Le Dinh's House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Su Lil Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Melody Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Tuấn Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Ngọc Nga ( Di Linh. Lâm Đồng)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19374,9 +28831,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "af8b2082-bba9-4508-a317-e2952fccfd60",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19394,6 +28851,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "156/11 HoÀNg VĂN ThỤ( NhÀ TrỌ 156)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19401,9 +28864,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d0419729-787e-4b26-894e-e44522274fa1",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19415,7 +28878,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Nghỉ Quỳnh Như",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e5964d69-299b-4d73-ba0a-75a428dbf523",
@@ -19441,9 +28911,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a0523bf7-a990-4d4e-9ef4-34a0769bf996",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19455,15 +28925,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "TK Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pink House - Gan Thi, Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8d7c0386-5d2b-47e4-a973-29fa85ac2f67",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19487,6 +28970,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Su & Gấu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hè Maison Retreat & T-Nung Rabbit Hole",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19587,9 +29082,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3ec94db2-0b42-4046-83d8-491807fa7b6c",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 178,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 581,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19680,9 +29175,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d7dd572a-989b-489d-ae16-66518c266e75",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 41,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19724,6 +29219,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Làng Săn Mây Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Couple Houses",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bảo Lộc Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Alex Bui Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Long Vũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "roc.rach homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Chân Quê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19731,9 +29268,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "04551ae1-81b7-40cf-9f24-337603f91812",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19745,15 +29282,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Nghỉ Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4d1e0f2c-5a19-4a01-84e3-b27d413152b9",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19771,6 +29315,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Nghỉ Quốc Sang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19778,9 +29328,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "7fe296eb-b4e6-4f27-bbd4-48be062d1fdc",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 9,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19822,6 +29372,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Nghỉ Quỳnh Như",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Cát Tiên Island - Lodge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cat Tien Backpackers Hostel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Cat Tien Green Hope Lodge",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19829,9 +29403,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c9953264-0a02-47ba-a3e3-d3e8c911690e",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19843,15 +29417,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.06,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "156/11 HoÀNg VĂN ThỤ( NhÀ TrỌ 156)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Đăng Khoa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "bfd1bab2-c979-4fae-b3af-8310d033b925",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19863,15 +29450,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.06,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "156/11 HoÀNg VĂN ThỤ( NhÀ TrỌ 156)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d38e92e1-d5b9-44a7-88e9-d52647004217",
     "slug": "homestay",
     "name_ru": "Гостевые дома и хоумстеи",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19895,6 +29489,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Mầm Farm Stay & Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Su & Gấu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TK Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pink House - Gan Thi, Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hè Maison Retreat & T-Nung Rabbit Hole",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -19936,7 +29560,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.06,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "156/11 HoÀNg VĂN ThỤ( NhÀ TrỌ 156)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "06b67440-2b00-47f1-84ca-fbed31b4c15c",
@@ -19956,15 +29587,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "TK Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "47254187-0e0f-41a4-8e55-dd2884d4691c",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 282,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3578,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20055,9 +29693,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ce10b646-c874-4e56-8bc9-aa51fb620180",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20081,6 +29719,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Nghỉ Miền Trung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Bắc Ninh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha nghi Song Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Lâm - Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gỗ Bungalow & Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Green Valley, Azecostay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Vinci",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Ven Đồi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng trọ Cô Lan, chợ Thăng Long, Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Khuê Farmhouse",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20088,9 +29786,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "9b69a5d5-2816-44bf-bbb4-e63643a0b413",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 38,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20126,6 +29824,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Karaoke Thùy Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Minh Phượng Motel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Karaoke Hoàng Diễm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Sang Nhã",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoai Phuong Hotel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Rừng Thông Núi Voi - Villa & Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Nhà Hí",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đồi Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20133,9 +29879,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "879504b9-4c7f-4c99-ad4f-70902dbfb60d",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20159,6 +29905,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Làng Tân Sơn Garden Khu Bungalow Nghỉ Dưỡng Checkin tại Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hilltop Valley Bungalow",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Liliang Warterfall Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thác Cầu 4 - KDL Thác Liliang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KDL Thác Liliang - Liliang Waterfall Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ivory Falls Villa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Juliet's Villa Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kalem Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Long Uyen Hotel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Golden Hill Di Linh - Khu Nghỉ Dưỡng Đồi Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20166,9 +29972,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "24b9936a-38db-4dfc-b32f-afbe87092d2a",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 40,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20198,6 +30004,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "AFarm Tahine",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Làng tôi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nông Trại Organic Ẩm Thực Trần",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Mộc Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Hoàng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách sạn Khánh Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ven Hồ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tahine Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Edensee Ke Ga Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20205,9 +30065,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "88f6a329-95e7-4ffb-bcc4-097aedd8eb9c",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20219,15 +30079,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 3,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "HGT Villas - Liên Hà,lâm Hà,lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hồ Gia Trang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a5b72c93-cf0f-4d67-a9ab-346f70311299",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 30,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20263,6 +30136,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Chí Thiện Bất Động Sản Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cloudy Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Quốc Motel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ivy Coffee Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha nghi MINH TAM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Anh Sang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách sạn River",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ngọc Lan 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20290,9 +30211,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e3b92412-4bf5-4f01-90ed-a1e574733fb3",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20304,15 +30225,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "An Khuê Farmhouse",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Black Rock Garden Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Trại Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoi Nui Coc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Coffee and Homestay Tia To",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Camping Nhà Bà Ánh Đalat ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "View Triệu Mây Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Hoạt Thúy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "𝑻𝒉𝒆 𝑯𝒊𝒍𝒍 𝑯𝒐𝒎𝒆&𝑪𝒐𝒇𝒇𝒆𝒆",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "DaLat TaNung Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu du lịch sinh thái Hoa Sơn Điền Trang Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Sơn - Resort Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "17be5832-5bc6-468f-b3b2-745f84caae22",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 42,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20326,22 +30320,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "NHÀ NGHỈ NGỌC YẾN",
+        "name": "Nhà nghỉ Hoàng Vy",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Nhà nghỉ NGỌC YẾN",
+        "name": "Bảo Trân Home Stay - Phan Thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Homestay Tommie - Phan Thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Yến Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Oriana Phan Thiết Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Cát Phượng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AQUA MỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Nghi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gỗ Homestay & Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bill Best Villa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sonata Resort & Spa Phan Thiet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tống Boutique Hotel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20349,9 +30397,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4b2873a5-9d3b-4342-89e0-5b84d95fe410",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 181,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20442,9 +30490,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1842fb7f-bdac-48b1-8c70-3ea2f8dbdb96",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20462,6 +30510,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Lam Dong Tropical Villas - Biệt thự nghỉ dưỡng độc bản giữa thiên nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Thu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Sao Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trại Dúi Pika Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20469,9 +30541,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "524df8a0-3a37-416d-966d-2a5df71505e7",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20483,15 +30555,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Danhar Glamping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bên kia suối Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Hải Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lam Dong Tropical Villas - Biệt thự nghỉ dưỡng độc bản giữa thiên nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "918b5ea7-5211-48f3-a357-0e5592cb2ef8",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 287,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3627,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20582,9 +30679,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3918f791-4cd8-4f93-983b-db3d61e0d9e7",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 280,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3502,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20675,9 +30772,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "94f40bcc-8be3-4b77-8aae-ac58ffedef2a",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20689,7 +30786,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà nghỉ Phương Lan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "55d9afe9-adb2-45e7-b78e-430542b51ea1",
@@ -20727,6 +30831,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Gia Quốc Motel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ivy Coffee Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha nghi MINH TAM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Anh Sang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách sạn River",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chí Thiện Bất Động Sản Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cloudy Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ngọc Lan 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ngọc Lan 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20760,6 +30918,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha nghi Song Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Lâm - Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gỗ Bungalow & Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Green Valley, Azecostay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Vinci",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Ven Đồi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20767,9 +30961,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "33b925b3-e5ca-41ee-9cdd-5833f1e7d8e1",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 25,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20805,6 +30999,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Forest Side Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tổ Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bên kia suối Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà nghỉ Hải Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lam Dong Tropical Villas - Biệt thự nghỉ dưỡng độc bản giữa thiên nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gilan Boutique Hotel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cat Tien Bridge Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Orchard Home Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20812,9 +31054,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f9a9fbe4-5ef6-427f-ade0-65b9e67fb0a4",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 27,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20844,6 +31086,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Chí Thiện Bất Động Sản Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cloudy Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Quốc Motel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ivy Coffee Farm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha nghi MINH TAM",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Anh Sang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách sạn River",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ngọc Lan 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Ngọc Lan 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20851,9 +31147,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2255eee2-7fb5-452c-9277-6d558ad241b7",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20865,15 +31161,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Nghỉ Miền Trung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Bắc Ninh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bạch Cao Gia Trang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2ce0504c-b4c4-434e-b373-be41c2973d28",
     "slug": "hotel",
     "name_ru": "Отели",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 11,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20897,6 +31212,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nha nghi Song Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Lâm - Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gỗ Bungalow & Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Green Valley, Azecostay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khách Sạn Vinci",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Ven Đồi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng trọ Cô Lan, chợ Thăng Long, Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phiêu Homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Cường Thịnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -20997,9 +31366,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a357af94-1f6d-4637-b834-3d3b9582dcf6",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21017,6 +31386,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Mầm non Ka Đơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục Chú Ong Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Tâm An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mẫu Giáo Vành Khuyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mẫu giáo Măng Non",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21024,9 +31423,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "cc5dba9f-070b-4178-8908-26db4377e26d",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21038,15 +31437,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Truong Tieu Hoc Tran Quoc Toan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Sao Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Tuổi Ngọc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "b3c932e7-1632-41f3-bdd0-2e256644e13a",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21064,6 +31482,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường mầm non Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21071,9 +31501,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ce69b1ff-1e1f-4f58-b673-80918a03c4e9",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21085,15 +31515,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Trường mẫu giáo Tân Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "17a6f2ff-8d9b-441c-bfe6-c4228f61c05b",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 18,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21111,6 +31548,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Mẫu Giáo K'Nai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà trẻ An Nhiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường MNTT Thanh Hiền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mau Giao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục Thông Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non Hoa Huong Duong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục Âu Lạc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mam Non Vuon Co Tich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HỆ ThỐNg TrƯỜNg MẦM Non ÁNh DƯƠNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Cây Nhỏ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21118,9 +31621,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "780adcf2-2357-4e92-bdd8-a829773e3866",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 16,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 54,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21231,9 +31734,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e785da4f-70c1-4c8a-a156-1d2e793d4ee9",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21245,15 +31748,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.57,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Trường Mầm Non Hoa Sen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Hoa Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Nam Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f8a4822a-1dd4-48ac-977e-0aaca68d2de9",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21265,15 +31793,82 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Trường Mầm Non Tư Thục Âu Lạc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mam Non Vuon Co Tich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HỆ ThỐNg TrƯỜNg MẦM Non ÁNh DƯƠNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Ong Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bsmart Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Hien 4 Montessori Kindergarten",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhóm Trẻ Tư Thục An Lành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Bảo An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Sơn Ca",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm non Bí Đỏ, tổ 11 thôn BL",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f2480618-188f-4bc0-becc-d89a65c55d0a",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21285,15 +31880,82 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.26,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Mầm Non Baby's House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Ánh Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Xuân Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Bé Tinh Anh - E'TOP",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Ngôi Nhà Nhỏ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Sao Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Gấu Panda",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Mây Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Nhà Của Mẹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Đức Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Non Preschool",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8c0ebcc5-3d66-4d70-862c-9af6eb45388c",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21305,15 +31967,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Nhóm trẻ tương lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Đạ nghịch",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục MiMi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nga Sơn Lôc Nga Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TGDĐ - ĐMX Lộc An-Ql20",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mẫu giáo Lộc Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhóm Trẻ Thực Ánh Sáng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KYM - Sữa hạt, nước ép & sinh tố tươi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trái cây Sạch",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mẫu Giáo Kim Đồng 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Bán Công Hoa Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mẫu Giáo Tư Thục Sao Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a884d74a-a6b4-470d-a78d-8e94fe964a72",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21331,6 +32066,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Gia Viễn - Trường Mầm Non Gia Viễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Hoa Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Phù Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21338,9 +32091,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "16a4b683-4918-415e-a4ee-2315ec4b76be",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21352,15 +32105,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Trường Mầm Non Hoa Sen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Hoa Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9326f76e-bb1e-45cc-9851-d288b282b616",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 16,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21451,9 +32223,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "43d1b885-68a5-42df-9fac-61c5e2b331a8",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 50,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21544,9 +32316,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c1d258de-eff4-4ca8-b436-736fd0aee779",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21558,15 +32330,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Trường Mầm Non Tư Thục Âu Lạc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mam Non Vuon Co Tich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HỆ ThỐNg TrƯỜNg MẦM Non ÁNh DƯƠNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Ong Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bsmart Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Hien 4 Montessori Kindergarten",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhóm Trẻ Tư Thục An Lành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Bảo An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Sơn Ca",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "88e569b9-f20a-4a8a-aa9a-d438d9f35d1a",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 7,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21620,6 +32453,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục Thông Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non Hoa Huong Duong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Hoa Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21627,9 +32490,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ac3d7d3d-76af-49e1-95c2-225e320e4df1",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21647,6 +32510,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Mầm Non Tư Thục Thông Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non Hoa Huong Duong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21654,9 +32529,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e45e9a0e-1b3a-4256-b7a3-7f545f8acdea",
     "slug": "kindergarten",
     "name_ru": "Детские сады",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21680,6 +32555,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường mầm non Hoa Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21794,7 +32675,68 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Trường Mầm Non Tư Thục Âu Lạc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mam Non Vuon Co Tich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HỆ ThỐNg TrƯỜNg MẦM Non ÁNh DƯƠNg",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mầm Non Ong Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bsmart Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Hien 4 Montessori Kindergarten",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhóm Trẻ Tư Thục An Lành",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mầm non Bảo An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Sơn Ca",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "780c21c1-fa2f-4e7c-89a6-3369497cd47c",
@@ -21826,6 +32768,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường mầm non Hoa Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21833,9 +32781,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "49246a6a-4e64-4cea-a506-88abc9de56d0",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21847,7 +32795,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "TTNN Hello English Ka Đô",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "05aac275-bea0-4b71-a32f-9cb526bc7a41",
@@ -21873,9 +32828,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ea654238-0185-426e-bd83-ef7342955e30",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21887,7 +32842,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Popodoo Smart English Di Linh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "caf94ce5-fffc-4176-869b-31b545f7460e",
@@ -21913,9 +32875,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e15fdf46-81bc-4472-aaeb-d079b2e1ebf9",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21933,6 +32895,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Up English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Trung - Du Học Đức Trọng MyChinese",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Maridan English Center - MEC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -21940,9 +32920,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4d644ace-bdfb-4432-9244-3fb4e7fae238",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21972,6 +32952,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Anh Ngữ Ms Nhi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Happy English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Song Ngữ THT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt HOME Nice View",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Du Học Khải Hoàn Edu Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngoại Ngữ ĐN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học tiếng Trung - 我们一起学习中文",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bright English Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Busy Bees Language Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -22039,9 +33073,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c90f040b-d50b-4ca3-ae0a-215f627de5a4",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22071,6 +33105,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Happy English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Song Ngữ THT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt HOME Nice View",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Du Học Khải Hoàn Edu Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngoại Ngữ ĐN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học tiếng Trung - 我们一起学习中文",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bright English Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Busy Bees Language Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Anh Galaxy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -22078,9 +33166,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "fbe069a6-1ca5-4dc5-b048-bd482e221212",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22110,6 +33198,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Happy English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Song Ngữ THT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt HOME Nice View",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Du Học Khải Hoàn Edu Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngoại Ngữ ĐN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học tiếng Trung - 我们一起学习中文",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bright English Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Busy Bees Language Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Anh Galaxy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -22157,9 +33299,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "19d47a38-3fad-4eb4-8333-1a2e31dac642",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22171,15 +33313,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Up English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Trung - Du Học Đức Trọng MyChinese",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Maridan English Center - MEC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7be41ab0-a2c0-4d80-a490-8f5cd0e16940",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22191,7 +33352,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Up English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Trung - Du Học Đức Trọng MyChinese",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Maridan English Center - MEC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "324760e2-78ff-44c6-bcdb-802cd7e3cc10",
@@ -22251,7 +33431,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.54,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Up English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Trung - Du Học Đức Trọng MyChinese",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Maridan English Center - MEC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "901d4441-882b-4668-bcfc-1e83d3f8da53",
@@ -22277,9 +33476,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ad5e70b0-8e4d-44ab-a6fc-cfdeaaf410e1",
     "slug": "language_school",
     "name_ru": "Языковые школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 15,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22291,7 +33490,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.23,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Trung Tâm Anh Ngữ Flyer",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LILA Global",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Nhật Kome Chan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Ngoai Ngu Queen Mary",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Tiếng Anh Dynamic Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Danica Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anh Ngữ Hải Đăng Đỏ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tâm Ngoại ngữ Fluency",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Ngoại Ngữ TOPNOTCH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Go First Trung Tâm Tiếng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Ngoại Ngữ Quốc Tế Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Trung Hoài Ngô - Cơ sở Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5e152d6a-9162-4181-be70-a3f98026673c",
@@ -22349,6 +33621,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Happy English Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Mầm Non Song Ngữ THT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt HOME Nice View",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Du Học Khải Hoàn Edu Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngoại Ngữ ĐN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học tiếng Trung - 我们一起学习中文",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bright English Club",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Busy Bees Language Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiếng Anh Galaxy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -22416,9 +33742,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "46d3c844-92a0-407a-a24f-a4ce34be4af6",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 65,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22549,9 +33875,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ecb0001b-9597-4559-8c72-e294f5bb2dc4",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22563,15 +33889,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm giặt ủi - Sơn Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2b50d11e-9310-4e40-af9c-26fe6a975cdf",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22583,15 +33916,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Giặt Sấy Nhà Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy & Vệ Sinh Giày NBA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy Tân Tiến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "639cc4be-e074-4b31-8c2c-e2f3f906a35a",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22603,15 +33955,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Giặt Nệm, Giặt Ghế Sofa Tại Nhà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Ủi 3S",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy Phan Thiết Quỳnh Anh 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt ủi Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "75991c0d-5860-4465-81ce-2db850fc7a44",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22623,15 +34000,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.23,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Giat Say Lan Thang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bee Clean",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy PaPa Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy Nhanh Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy 24h Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt ủi Thịnh Phát Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy Nhà Mon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Sấy 27 Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giặt Ủi AZ - Giặt Ủi Bảo Lộc - Giao Nhận Tận Nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3cfe5979-954a-4181-a4af-ac34680f5d37",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 65,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22722,9 +34160,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b6770691-99f5-4365-88ad-e581c6fbc3c0",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 64,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22895,9 +34333,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "dd8a02ce-eb1e-42f7-830a-0156dbe05bc9",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22909,15 +34347,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.1,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm giặt ủi - Sơn Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "giặt ủi Vũ Huyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4abc2ef6-6575-4391-b383-367ea605db15",
     "slug": "laundry",
     "name_ru": "Прачечные",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22929,7 +34380,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm giặt ủi - Sơn Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "giặt ủi Vũ Huyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "039bb4e1-6953-49e4-b1e0-13b50b91e660",
@@ -23108,9 +34572,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1cdc5baf-b24c-44f4-8ac9-a94771d04b36",
     "slug": "massage",
     "name_ru": "Массаж",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23152,6 +34616,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "CHỐN MER",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gội đầu dưỡng sinh - Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Therapy House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage royal 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Royal 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Luxury Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiên Di Chăm Sóc Phụ Nữ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -23219,9 +34725,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "86a86456-62c2-457e-9c28-ef97950f272c",
     "slug": "massage",
     "name_ru": "Массаж",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23233,7 +34739,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Thiên Long Cơ Xương Khớp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "84c03658-bdee-43cb-a242-13116ffa37a8",
@@ -23279,9 +34792,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c83733d8-1486-4853-acbd-3afd0ec4511a",
     "slug": "massage",
     "name_ru": "Массаж",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23323,6 +34836,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "CHỐN MER",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gội đầu dưỡng sinh - Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Therapy House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage royal 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Royal 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Luxury Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiên Di Chăm Sóc Phụ Nữ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -23350,9 +34905,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "52170169-e4b4-47f1-8236-9092a5a697d9",
     "slug": "massage",
     "name_ru": "Массаж",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 17,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23394,6 +34949,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "CHỐN MER",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gội đầu dưỡng sinh - Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Therapy House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage royal 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Royal 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Luxury Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiên Di Chăm Sóc Phụ Nữ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -23445,6 +35042,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Gội đầu dưỡng sinh - Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Therapy House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage royal 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Royal 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Luxury Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thiên Di Chăm Sóc Phụ Nữ Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "L’may massage",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -23652,9 +35291,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "0ec983bd-74cb-4be4-bd25-41608e470fb1",
     "slug": "motorbike_rental",
     "name_ru": "Аренда мотобайков",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 26,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23696,6 +35335,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Thuê xe máy Đà Lạt - giao xe tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Giá Rẻ Pi Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Thuê Xe Châm Châm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Đà Lạt T&T",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Nam Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ cho thuê xe máy giá rẻ HÒA QUỐC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Vi Vu - Cho Thuê Xe Máy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -23803,9 +35484,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "d0ba0169-de2f-40f8-afd9-d021fff7005e",
     "slug": "motorbike_rental",
     "name_ru": "Аренда мотобайков",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23817,15 +35498,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.9,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Thuê xe máy Phan Thiết 86",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho thuê xe máy tay ga Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5abdfe0c-4df3-480d-9514-a55c1d6c026c",
     "slug": "motorbike_rental",
     "name_ru": "Аренда мотобайков",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23837,7 +35531,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.23,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Cho ThuÊ Xe MÁY BẢO LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e55065fb-f174-4da7-961e-ce9e6f230822",
@@ -23863,9 +35564,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8558bea6-be55-4e2a-bc13-4f31a058e5fd",
     "slug": "motorbike_rental",
     "name_ru": "Аренда мотобайков",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 26,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23907,6 +35608,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Thuê xe máy Đà Lạt - giao xe tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Giá Rẻ Pi Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Thuê Xe Châm Châm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Đà Lạt T&T",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Nam Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ cho thuê xe máy giá rẻ HÒA QUỐC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Vi Vu - Cho Thuê Xe Máy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24098,6 +35841,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Thuê xe máy Đà Lạt - giao xe tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Giá Rẻ Pi Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Thuê Xe Châm Châm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Đà Lạt T&T",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Nam Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ cho thuê xe máy giá rẻ HÒA QUỐC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Vi Vu - Cho Thuê Xe Máy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24165,9 +35950,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3cf7d67d-7496-4bd1-8d77-57a8296b8cca",
     "slug": "motorbike_rental",
     "name_ru": "Аренда мотобайков",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 31,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24209,6 +35994,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Thuê xe máy Đà Lạt - giao xe tận nơi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Giá Rẻ Pi Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Thuê Xe Châm Châm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cho Thuê Xe Máy Đà Lạt T&T",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Xe Nam Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch vụ cho thuê xe máy giá rẻ HÒA QUỐC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Vi Vu - Cho Thuê Xe Máy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24216,9 +36043,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f3558397-9190-40fd-a0a3-5b1a5326f794",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 41,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 58,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24232,76 +36059,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "08",
+        "name": "Nhà thuốc thu hoà",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Minh Kha(Kim Trí)",
+        "name": "Nhà Thuốc Toàn Phát",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Mỹ Hiền",
+        "name": "Nhà Thuốc Xuân Thanh",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "177",
+        "name": "Quầy Thuốc Xuân Hằng",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Bình Minh",
+        "name": "Nhà Thuốc Trường Giang 2",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Giang",
+        "name": "Nhà Thuốc FPT Long Châu",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Toàn Lộc",
+        "name": "DCYT Minh Hoàng",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Bình Dân",
+        "name": "DHG Pharma — CN Bình Thuận",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Hải Thượng",
+        "name": "Nhà Thuốc Trường An",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Rạng Đông",
+        "name": "Khánh Giang Pharmacy",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Hoàng Châu",
+        "name": "Công Ty TNHH Dược Phẩm Song Én",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Minh Quân 2",
+        "name": "Nhà thuốc Như Ý",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -24309,9 +36136,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "15a730c2-da02-477f-8ef9-9b3e77480e5c",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 23,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 73,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24422,9 +36249,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8d8883c9-9a30-40a9-b9d3-22657859b87d",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24448,6 +36275,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Quầy Thuốc Khánh Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc Đông Y gia truyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc FPT Long Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc An Khang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quầy Thuốc Minh Trí",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nông Dược Thái Bình Đà Lạt ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24455,9 +36318,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f08f0158-bf80-4f71-81cc-c13af0232e92",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24469,15 +36332,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà thuốc số 1 Ka Đơn Tiến Tuyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuốc Tây 68",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gcoop Đalat Dược phẩm Hàn quốc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TRỌNG NHÂN Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y NiNi Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Thùy Vân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quầy Thuốc Số 162",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc bắc LỢI HƯNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f78aedab-224b-4772-9f95-b68569aa6607",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24507,6 +36419,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Phúc Can Thảo - trị tận gốc các bệnh về men gan cao, viêm gan b,c, xơ gan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Thảo Nguyên Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Khánh An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Ngọc Thy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc Hoàng Văn Thụ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Nghĩa - Nhà Thuốc Tây Trọng Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đức Nghĩa Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Đa Khoa Hiếu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Hoàng Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24534,9 +36500,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "3f659d62-83e1-47b2-8bf1-11bc59fc6d42",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 22,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24627,9 +36593,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "110f0228-f0ae-4253-8dfe-4beb68c99452",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 20,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24653,6 +36619,66 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "nhà thuốc Ngọc Diệp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc FPT Long Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Zin Phụ Khoa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Thiện Nhân Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải An Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xanh Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HỘI MẸ BỈM 4.0",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Hoài Thiện",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc FPT Long Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Ngọc Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24687,9 +36713,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "de2d762a-05b5-4e96-a1a4-18cc6eefeb5c",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24701,15 +36727,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Thuốc Thanh Mộc Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc nhân văn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "10657e36-7e44-488a-9467-202617799e91",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 23,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 92,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24800,9 +36839,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "08b45634-bbc7-41b2-8252-38210fa9d766",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24814,15 +36853,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Quầy thuốc tây số 40",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "971110fc-b3ca-4a8b-a482-fd74466017e3",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24846,6 +36892,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Thuốc Thanh Mộc Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc nhân văn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24853,9 +36911,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1cf62a1b-ead2-4a41-a55f-d81cb3db6060",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24879,6 +36937,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Thuốc Thảo Nguyên Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc Hoàng Văn Thụ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Nghĩa - Nhà Thuốc Tây Trọng Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đức Nghĩa Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Đa Khoa Hiếu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Hoàng Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ruvet Vietnam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Nguyệt Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24886,9 +36992,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a4def3b0-1003-416d-ad24-168815c43620",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24918,6 +37024,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Thuốc Thảo Nguyên Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Ngọc Thy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc Hoàng Văn Thụ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Nghĩa - Nhà Thuốc Tây Trọng Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đức Nghĩa Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Đa Khoa Hiếu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Hoàng Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -24925,9 +37073,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "95db38ed-efe6-4c53-9f75-667d0158363b",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24939,7 +37087,32 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Dược sĩ KIM BÍCH - sdt: 0385277271",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuốc Tây Tuyết Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Nguyên Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quay Thuoc Tay So 60",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e368f4c0-2575-44fa-922e-1ebb1fc7fdab",
@@ -24997,6 +37170,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Thuốc Thảo Nguyên Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà thuốc Hoàng Văn Thụ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trọng Nghĩa - Nhà Thuốc Tây Trọng Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đức Nghĩa Pharmacy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Đa Khoa Hiếu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Hoàng Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -25018,15 +37227,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.48,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Dược sĩ KIM BÍCH - sdt: 0385277271",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuốc Tây Tuyết Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Nguyên Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quay Thuoc Tay So 60",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "8c3006b8-e073-4a22-807b-452386c3403c",
     "slug": "pharmacy",
     "name_ru": "Аптеки",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25038,7 +37272,32 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.48,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Dược sĩ KIM BÍCH - sdt: 0385277271",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuốc Tây Tuyết Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Thuốc Nguyên Đạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quay Thuoc Tay So 60",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f91b7b55-5569-4eb2-84c6-743e8c682a2c",
@@ -25137,9 +37396,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b15e8ee2-6bd8-4b17-8cd4-939682b29c47",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 246,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25151,15 +37410,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.55,
     "players_rolled": 0,
     "osm_density_per_10k": 147.22,
-    "players": []
+    "players": [
+      {
+        "name": "Bất động sản Đà Lạt AZ - Nhà Đất chính chủ, Căn hộ cho thuê.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chung 1 NhÀ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Tụi Mình Fruit & Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Biệt Thự An Sơn Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AMY Garden - Biệt thự nghỉ dưỡng nhà vườn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Nhà Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nội thất Phong Phú_ Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiên Tiên House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xưởng May Màn Rèm YẾN NHI - 0905016789",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt cây kiểng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Nhà Đất Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5d951d42-3d6b-4b15-afab-a0794c414af5",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25171,15 +37503,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Happy Valley Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất động sản Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Đất Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tà Nung Tp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Lệ - BĐS ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty TNHH BĐS Yến Ngọc - Chuyên BĐS Vùng Ven - Tp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tôm Cành Xanh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "9626da1d-34e5-467d-9d90-9c066f4ef2ed",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25191,15 +37572,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "High Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà vườn nghỉ dưỡng View sông hồ Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Di Linh View",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cao Nguyên Di Linh - Tinh hoa hội tụ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NhÀ ĐẤT Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Nhà Đất Huyện Di Linh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất động sản đà lạt-nhà đất đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Công Nghệ Trắc Địa Bản Đồ 24H",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Di Linh - Thiên đường nghỉ dưỡng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BDS Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tân Sơn Garden - Đất Thánh Di Linh - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ADM Music - Guitar Ân Điển",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c48f54dc-040c-4fff-bc02-5a5f9d102fd7",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25211,15 +37665,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Phúc Thọ Tea Village",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vivu LamDong - Quang Huy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a47913a6-a1f1-422b-84eb-56a8a7c099a1",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 42,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25231,15 +37698,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Xây Dựng Trạm Hành ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Bất Động Sản Lâm Thịnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Đức Trọng-Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Quảng Lập- Đơn Dương- Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vy bds Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Green Pearl Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chốn Bồng Lai Tại Samten Hills Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Samland Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Nhà Đất Đà Lạt Chính Chủ Giá Rẻ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Và Căn Hộ Cho Thuê Tại Bình Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Đơn Dương Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "771f28a1-8ff6-4b16-8bb1-39e0e500ebf2",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 56,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25251,15 +37791,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất đức trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mạc Huy Hào-BĐS Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cầm Đồ Kim Dịu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BĐS Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đá Tự Nhiên Quân Hạo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Full House Tâm Việt - Chi Nhánh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dự Án Nam Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bán biệt thự khu đô thị Nam Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dự án Khu Đô Thị Nam Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu đô thị Nam Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d87c4ad0-cc34-4a31-a51b-141e10bd4f8f",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 261,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25271,7 +37884,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Bất động sản Đà Lạt AZ - Nhà Đất chính chủ, Căn hộ cho thuê.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chung 1 NhÀ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Tụi Mình Fruit & Flower",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Biệt Thự An Sơn Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "AMY Garden - Biệt thự nghỉ dưỡng nhà vườn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Nhà Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nội thất Phong Phú_ Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiên Tiên House Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xưởng May Màn Rèm YẾN NHI - 0905016789",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đà Lạt cây kiểng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Nhà Đất Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "222ca9a0-42b3-46b6-a805-d06f86d4e9cf",
@@ -25291,15 +37977,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất đức trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mạc Huy Hào-BĐS Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cầm Đồ Kim Dịu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BĐS Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÍN ĐỨC Group",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất ven Đà Lạt - Hoàng Huy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Gia 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất nền Sân bay Liên Khương - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f8bf3799-fccf-4432-b1de-85ece56a8c43",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25311,15 +38070,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.75,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Thung Lũng Tình Yêu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "600c06e0-9723-4cef-9420-804edeb1d776",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25331,15 +38097,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Lala Land Office",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thung Lũng Tình Yêu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Nhà Đất Thành Phố",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bảo Lộc GreenWich",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ee5cb9d7-e5cc-4d3e-bdff-3612d3afb414",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 271,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25351,15 +38142,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.24,
     "players_rolled": 0,
     "osm_density_per_10k": 62.01,
-    "players": []
+    "players": [
+      {
+        "name": "Khu Đô Thị LangBiang Town",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Kiến Đại Việt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Villa Town Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anphareal Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Presents Quà Tặng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Imperial Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Đà Lạt _ Lâm Đồng _ Thai Long Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CÔNg Ty Tnhh An CƯỜNg Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "VieFood",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dk brothers homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Đẹp Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Nhà Của Rốt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c922f6d6-3ede-498f-871d-454871c61b9a",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25371,15 +38235,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Dịch Vụ Nhà Đất-Bất Động Sản Đam Rông/HỮU LỘC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Van Phong Bat Dong San Nam Doan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trắc Địa Tây Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Đam Rông - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cư Dân Đà Lạt - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "514f9a32-bd5c-4cd9-8e9a-16e337aa9378",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25391,15 +38286,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.94,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Lala Land Office",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thung Lũng Tình Yêu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Nhà Đất Thành Phố",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c30861fb-ecff-4b9f-8970-e82ba6db6aa0",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 37,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25411,15 +38325,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Hồng Hạnh BĐS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm lẩu nướng Bên Suối",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất đức trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mạc Huy Hào-BĐS Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cầm Đồ Kim Dịu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BĐS Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất ven Đà Lạt - Hoàng Huy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Gia 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất nền Sân bay Liên Khương - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e128764a-5278-4ac8-aa97-39b7204f75a7",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 35,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25431,15 +38418,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.27,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà đất đức trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mạc Huy Hào-BĐS Đức Trọng Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cầm Đồ Kim Dịu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BĐS Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Light House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Đức Trọng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TÍN ĐỨC Group",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất ven Đà Lạt - Hoàng Huy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Gia 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất nền Sân bay Liên Khương - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6c957ba0-9154-4ceb-b65f-5335afd3d4b5",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25451,15 +38511,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.83,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Thôn Sình Công - Xã Liên Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TK Zen Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Đất Huyện Lâm Hà- Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Dream Life Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Dưỡng Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SkyGroup.vn - Nhà phát triển BĐS uy tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất  Huyện Lâm Hà Tỉnh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Vườn Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Địa Ốc Lâm Hà - Mua bán nhà đất huyện Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chu Ngọc Đất View Đẹp Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Camly View Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty Bđs Thiên Phúc Ân Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a6f5749c-cb1a-4e8c-9f1a-62f7f186b880",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25471,15 +38604,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Thôn Sình Công - Xã Liên Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mua Bán Đất Huyện Lâm Hà- Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Dream Life Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Nghỉ Dưỡng Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SkyGroup.vn - Nhà phát triển BĐS uy tín",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất  Huyện Lâm Hà Tỉnh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "44b373cf-06c8-429b-ae4a-eadb5e6504f2",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 20,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25491,7 +38661,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.48,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Vườn Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chu Ngọc Đất View Đẹp Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Camly View Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty Bđs Thiên Phúc Ân Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tran Ngoc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Golden Village - Khu nghỉ dưỡng ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Anh Hằng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Ban Empire Village",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hill House Retreat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khang ThỊNh Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Địa Ốc Và Xây Dựng Vũ Lê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6a48f966-daed-4c09-b9f3-c2206472b034",
@@ -25511,7 +38754,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.13,
     "players_rolled": 0,
     "osm_density_per_10k": 68.69,
-    "players": []
+    "players": [
+      {
+        "name": "Bungalow Đà Lạt - Lâm Phượng Các Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HAUS Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hồng Dung Bất Động Sản h.Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Smartland Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Villa Đà Lạt Memorable",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HILLY LAND - Nhà đất & Dịch vụ du lịch",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chateau de Reves, Dalat - Vietnam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại Diệp/ Villa - Homestay Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuê Nhà Hà Nội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất động sản Đà Lạt AZ - Nhà Đất chính chủ, Căn hộ cho thuê.",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a635a17f-f917-420f-aa43-e65c27a4cd4a",
@@ -25531,15 +38847,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.48,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Tran Ngoc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Golden Village - Khu nghỉ dưỡng ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Anh Hằng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Đất Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Ban Empire Village",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hill House Retreat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khang ThỊNh Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Địa Ốc Và Xây Dựng Vũ Lê",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mảnh đất Ven Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Happy Valley Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gia Huy Bds",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Ban Paradise",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "57a90962-6566-4e44-a2bd-6279966088d3",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 75,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25551,15 +38940,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.63,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Ham Kiem I Industrial Park",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đô Thị Xanh Nam Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đô Thị Nam Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang trí tiệc cưới Hoàng Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KCN Hàm Kiệm 1, Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Đô Thị Mới Nam Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu Công Nghiệp Hàm Kiệm I",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Nền Giá Rẻ - An Phước Riverside Bình Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Phân Phối Thạch Cao Dũng Nguyễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty Bất Động Sản Trường Phát Land",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Đăng - Bđs Biển Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Apple House - Vườn Dâu Tây Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "db3d5d0e-b14b-4947-a754-98e71fb4b60c",
     "slug": "real_estate_agency",
     "name_ru": "Агентства недвижимости",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 247,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25589,6 +39051,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Country Dream - Làng Sinh Thái Nghỉ Dưỡng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bất Động Sản Nghỉ Dưỡng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đất Nền Nghỉ Dưỡng Medi Villa Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Tùng BĐS",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BaolocLand",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Homestay Đồi Hoa Đỏ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bảo Lộc EcoChill - Thành Phố Sương Mù Và Lạnh Giá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lake Hill Village - Lộc An Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đầu tư Đất nền Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -25596,9 +39112,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "38a843fa-6f16-4f94-9993-e0aba127b6cb",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 8,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 138,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25612,52 +39128,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 15.7,
     "players": [
       {
-        "name": "Vien Chau",
+        "name": "Pho Bo 52",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Nam Phương hà",
+        "name": "Câu Cá Giải Trí Cường Máy",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Khanh Khanh",
+        "name": "Tiệc cưới Bảy Xị",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trạm dừng Tuấn Phượng",
+        "name": "Tiên Tiên Bánh Tráng",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Tuấn Phượng",
+        "name": "Cơm bắc Minh Thuỷ",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "trà sữa",
+        "name": "Bach Ma Quan",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Cantin Ga Phan Thiet",
+        "name": "Bánh hỏi lòng heo Bà Bảy",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Cơm Gà Xối Mỡ 132",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "TOCOCHI Phan Thiết – Mì Cay & Trà Trái Cây",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đại Lí Vé Số Gia Hân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Linh Chill Garden - 305 Nguyễn Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lẩu Mì Hiếu Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -25665,9 +39205,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "507391f7-bddc-4f39-a69d-772a970e6aa4",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 491,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25681,76 +39221,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "osm_density_per_10k": 6.37,
     "players": [
       {
-        "name": null,
+        "name": "Bông Bông Garden- Đồi Mây Lộc Thành ",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Tạp Hoá Thanh Khuê",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Congty TNHH Xang Dau Suoi Da",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "lẩu một người",
+        "name": "MIX Coffee & BBQ",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Do Phi. Kis",
+        "name": "CƠM NiÊU 49",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Tiệm Ăn Thuận Kiều",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Pizza Dona",
+        "name": "Cơm niêu Thuận Kiều",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Com chay Thien Y",
+        "name": "Cơm Chay Phương Bối - Cà phê Ngày Về",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Cơm Chay Phương Bối",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Cơm tấm 1986",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "ABi quán",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Bo Bit Tet",
+        "name": "Dịch vụ nấu ăn Mai Uyên",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -25758,9 +39298,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5ea2f4aa-8168-4a92-b635-0a0dda763105",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 394,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2356,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25851,9 +39391,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c59f7732-0c5f-4b54-9c86-ebc0c84a2ee9",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25871,6 +39411,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "PHỞ 68 Cầu Đất",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm Nhà Trúc Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ẩm Thực Vua Bò",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Liên Việt Đơn Đương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bún đậu Mít",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ốc Bợm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Tiệc Cưới Tuấn Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chè hiện đại Bội Bội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trà Sữa Cozy ĐàLạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sơn Lâm Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng HÙNG TRỌNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -25878,9 +39484,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "dc81b95c-8c5c-4664-9708-dffd91debc78",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 99,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25922,6 +39528,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ốc Mập Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Tươi Sống Số 1 Tân Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Trại Gà Thả Vườn Tân Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sakura Chill Hill",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ẩm Thực Hương Biển",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm gà Hải Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TIGER BBQ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -25929,9 +39577,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "efa9c6b6-41de-4dc6-a1b1-473803359546",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 205,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25973,6 +39621,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Phở Hoàng Anh 3",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Thủy Tạ Quốc Khánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sự kiện tiệc cưới THÀNH OANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HUY HOANG F&B - Hồ Quán Cũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pho Ngoc Hanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Bánh Bèo Cây Đa Bồng Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Bình Duyên 3 - chi nhánh Vòng Xoay Liên Khương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26000,9 +39690,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "07764d49-e10e-4610-877a-75814dc4449f",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26014,15 +39704,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Trung Tâm Hội Nghị Tiệc Cưới - Nhà Hàng - Khách Sạn AN BÌNH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tam Tiec Cuoi Hoi Nghi Manh Huong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà hàng Mạnh Hường",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4116d5f4-462f-4b48-beb1-7aa8c6d765a9",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 12,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26052,6 +39761,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Hàng Đỉnh Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Làng K'ho CIL",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mộc BBQ & Hotpot",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lẩu gà lá é tà nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán cơm bình dân Hồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cơm gà và cà phê Cây Xoài Cổ Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Trại Dế Anh Tuấn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nông Trại Xanh Đồng Tiến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Giữa Rừng Lâm Hoa Viên - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26059,9 +39822,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e099f710-a473-467e-a3d7-b09947e5eb18",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26079,6 +39842,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Hàng Tiệc Cưới Minh Thiệu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Mai Loan",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán ăn Ba Cô",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mk Quán- Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Cơm Ngọc Huyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Bảo Hân Nha Hang Bao Han",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bún Mắm Hưng Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Ăn Mỹ Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Phở Luyến Mai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Hang Hoa Mua Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Nhậu Hương Kha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26086,9 +39915,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2e212f7c-0160-4460-8f94-69c0dc879483",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 16,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26100,15 +39929,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Buffet Kami",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ẩm Thực Tuấn Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Hương DV nấu ăn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "nhà hàng sân vườn Phước Tiến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Hải Sản Tuấn Thủy, Đạ Kho, Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bún Đậu Cố Hương-CN/",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "CƠM GÀ Tam KỲ At",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Nướng 79",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hai San 1997",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ốc Cây Me",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Thanh Huyền",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ốc Phố",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2849e621-fad0-4b26-aff8-4b7edfadb368",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 393,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2361,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26199,9 +40101,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "7c32a969-acc1-4a41-8a6f-8f212dbca8d3",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 8,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 28,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26261,6 +40163,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Hoàng Hương DV nấu ăn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "nhà hàng sân vườn Phước Tiến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Hải Sản Tuấn Thủy, Đạ Kho, Đạ Tẻh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bún Đậu Cố Hương-CN/",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26268,9 +40194,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8510a9d4-a85b-41fe-a6e2-5da540637386",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 376,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2257,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26361,9 +40287,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "41ede817-bd46-4cf9-9926-001b3a0979cf",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26393,6 +40319,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cu Tôm Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Restaurant Ngọt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26400,9 +40338,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "08af62af-7645-470e-b740-0f7f5a4a673c",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 195,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26438,6 +40376,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ăn vặt Oisshi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh cuốn nóng Vinh Mập",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nam Giang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ánh Ngọc Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bánh mì K&M",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phở Phương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Hạnh Quán Cơm Ngọc Hạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Cơm Phở Kim Ngân",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26445,9 +40431,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6d30a118-b083-4561-a664-96ad8f5ba1ed",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 186,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26483,6 +40469,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Quán Thương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà hàng hải sản Quốc Khánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Thủy Tạ Quốc Khánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sự kiện tiệc cưới THÀNH OANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HUY HOANG F&B - Hồ Quán Cũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pho Ngoc Hanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Bánh Bèo Cây Đa Bồng Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Bình Duyên 3 - chi nhánh Vòng Xoay Liên Khương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26490,9 +40524,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e14a51e2-e973-4d1b-b98c-395119c89f6b",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 10,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 79,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26564,6 +40598,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Phân Gà Nở Nhật Bản Như Tùng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Cưới Hỏi Lâm Hà - NHÀ HÀNG THANH DŨNG",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26571,9 +40617,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4bda42ae-11f3-45dd-ae1e-eadd2337af12",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26585,15 +40631,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Dê Cầu Đòn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tây Bắc Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Tiệc Cưới Minh Định Palace",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pizza Anh Em Tân Hội",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà hàng hanamaru",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Cơm Căn Nhà Gỗ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì Cay SEOUL Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hoá Thuỳ Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bi Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tao Ngộ - Lẩu Gà Lá É",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bò Tơ Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha hang Vy Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "33822a6c-84a2-402a-80a8-aa65fcca28e1",
     "slug": "restaurant",
     "name_ru": "Рестораны",
-    "players_count": 5,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 29,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26635,6 +40754,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "ĐÀ LẠT XƯA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Làng nướng Tài Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Vấn Ban - Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Trần",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Simple Sunday's Food and Drinks",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Tổ chức Sự kiện Hưng An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì Cay Hachi - Nam Ban Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26773,6 +40934,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Hồ Quán Nhật Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà hàng hải sản Quốc Khánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Thủy Tạ Quốc Khánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sự kiện tiệc cưới THÀNH OANH",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "HUY HOANG F&B - Hồ Quán Cũ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Pho Ngoc Hanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quán Bánh Bèo Cây Đa Bồng Lai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hải Sản Bình Duyên 3 - chi nhánh Vòng Xoay Liên Khương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26824,6 +41033,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Làng nướng Tài Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Hàng Vấn Ban - Nam Ban",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kem Trần",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Simple Sunday's Food and Drinks",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Tổ chức Sự kiện Hưng An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mì Cay Hachi - Nam Ban Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TrÀ SỮA - MỲ Cay Thousand Sunny",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26831,9 +41082,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "230f4a49-a00e-41d9-aac5-47715e9a2a8a",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26863,6 +41114,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Phi Liêng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Srônh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THCS Phi Liêng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THCS & THPT Võ Nguyên Giáp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Dân Tộc Nội Trú Đam Rông",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -26870,9 +41151,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e0911248-3764-49c8-b52b-4537c4fc8810",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 17,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26963,9 +41244,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "9df1a5d7-5ef2-4a5f-8b4d-d838f5c6d125",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26977,15 +41258,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 3,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Trường THPT - THCS Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học và Trung Học Cơ Sở Mê Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "fadba2c6-df17-4c0c-b5b0-45e869b2e0e4",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 16,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 36,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27076,9 +41370,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5e247924-0770-4e22-aea6-55fede8f410c",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27102,6 +41396,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Tân Thanh 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THCS Tân Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THPT Huỳnh Thúc Kháng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngã ba Trần Quốc Toản",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27109,9 +41427,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "68101dca-fa06-49f9-841f-a3faa5e490b9",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 40,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27177,6 +41495,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường mẫu giáo Phú An",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Tieu Hoc Ninh Gia- Đuc Trong- Lam Đong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Của Mị",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27184,9 +41520,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "dede81a1-876a-41e2-9601-252961e01027",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 27,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 124,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27277,9 +41613,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5e918df6-3e25-49a2-8959-421b5a71bd89",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 13,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 46,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27305,64 +41641,64 @@ export const GEN_MARKETS: GenMarket[] = [
         "source": "osm-overpass"
       },
       {
-        "name": null,
+        "name": "Trường TH Thuận Nam 1",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Trường Mầm Non Phong Nẫm",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Trung Cấp Nghề Bình Thuận",
+        "name": "Trường Tiểu Học Xuân An, Phan Thiết, Bình Thuận",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Le loi",
+        "name": "Cong đoan Tieu hoc Phu Trinh 3",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "căn tin",
+        "name": "Dầu gội phủ bạc - Số 1 Nhật Bản",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Cao Đẳng Y Tế Bình Thuận",
+        "name": "Hướng Nghiệp Á Âu",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Cao đẳng Bình Thuận (cơ sở 4)",
+        "name": "Trung tâm luyên thi SAO KHUÊ - Phan Thiết - Bình Thuận",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Cao đẳng y tế Bình Thuận",
+        "name": "Truong THCS Nguyen Du",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Tiểu Học Văn Thánh",
+        "name": "Liên đội trường TH Phú Trinh 2",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Trường Cao đẳng Bình Thuận",
+        "name": "Trường Tiểu Học Phú Trinh 2",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -27370,9 +41706,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "13c70def-6c05-4632-b87c-7c546cb85887",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 16,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 67,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27463,9 +41799,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "760db651-621c-40a7-a7d8-66f3f25f198f",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 11,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27501,6 +41837,48 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Gia Viễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THCS Gia Viễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THPT Gia Viễn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THPT Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Phù Mỹ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xã Quảng Ngãi, Huyện Cát Tiên, Tỉnh Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Quang Ngai - Truong Thcs Quang Ngai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27508,9 +41886,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "26eb41a7-61d6-4279-9937-0f616e617143",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 9,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27546,6 +41924,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Trung Học Phổ Thông Lê Quý Đôn Truong Trung Hoc Pho Thong Le Quy Don",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Mỹ Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non Hoa Hong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Kim Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Tieu Hoc Nguyen Trai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27553,9 +41961,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2bd1c55a-3006-424f-8cbf-601a34a5ddd5",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 28,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 142,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27646,9 +42054,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "ba7293db-1d86-4d64-af84-7b54166a5fd5",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 26,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 116,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27739,9 +42147,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "f9ade59e-e1d1-47d9-9de1-3c680a8884fb",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 13,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27789,6 +42197,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Trung Học Phổ Thông Lê Quý Đôn Truong Trung Hoc Pho Thong Le Quy Don",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Mỹ Đức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non Hoa Hong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Kim Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THPT Đắc Lua, Tân Phú, Đồng Nai",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường tiểu học Nam Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27796,9 +42240,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "79f336a4-8f7b-4e4e-a662-817fc6616641",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 27,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27846,6 +42290,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Nghĩa Hiệp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Phúc Thạnh Truong Tieu Hoc Phuc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THPT Chu Văn An - Hiệp Thạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Lý Tự Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Gan Reo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tam dao tao va sat hach lai xe Lac Hong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27853,9 +42333,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "8221ce71-d7ec-48dd-84fc-fbcfd62896d6",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 6,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 25,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27903,6 +42383,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Phúc Thạnh Truong Tieu Hoc Phuc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THPT Chu Văn An - Hiệp Thạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Lý Tự Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Nghĩa Hiệp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung tam dao tao va sat hach lai xe Lac Hong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hannah_Daddy Bee School",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27910,9 +42426,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e87511de-6a91-4248-b148-7aa86dc956ce",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 23,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27978,6 +42494,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Phú Sơn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường THCS Võ Thị Sáu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Lán Tranh - Xã Liên Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -27985,9 +42519,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a57a98a2-a247-4d42-bcd1-8b0ab7d584c2",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28017,6 +42551,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Lán Tranh - Xã Liên Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THPT Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THCS Tân Văn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Tân Văn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu học Đa Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28024,9 +42588,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "da9fd80e-c0a3-4fd5-931f-fc3014298b6f",
     "slug": "school",
     "name_ru": "Школы",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 6,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28050,6 +42614,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Thăng Long-Lâm Hà Truong Thang Long-Lam Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Thăng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học và Trung Học Cơ Sở Đông Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28206,6 +42794,36 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Tiểu Học Phúc Thạnh Truong Tieu Hoc Phuc Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THPT Chu Văn An - Hiệp Thạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Lý Tự Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học Gan Reo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viet Anh Kindergarten",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28245,6 +42863,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trường Thăng Long-Lâm Hà Truong Thang Long-Lam Ha",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Truong Mam Non 2",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường mẫu giáo Thăng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trường Tiểu Học và Trung Học Cơ Sở Đông Thanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28252,9 +42894,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "9690afdb-a451-45dc-a8f8-ac158ca76448",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 341,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28284,6 +42926,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Wendy Hang Canada",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ăn spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Gội Đầu Nhà MUN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nàng Tấm Spa - Triệu Việt Vương Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Tâm Đường Spa - Foot & Body Massage Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NANA SPA - Gội Đầu Dưỡng Sinh & Massage Body Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phun Xăm Bảo Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gội Đầu Đà Lạt - Nhà Lavie",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bee Beauty Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28291,9 +42987,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "a0a52cff-153f-4909-8715-7a83cbbdebff",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 19,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28305,15 +43001,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Glow Skinlab Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phun thêu thẩm mỹ & chăm sóc da Anh Hoài",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Thyme",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chăm sóc mẹ và bé sau sinh Thái Thảo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nguyên spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sen Spa Bình Dương Annabeautyspa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mộc Thuỷ Brows",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THẨM MỸ AURA Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ÚT SPA Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thu Huyen Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trợ Lý Bs. Ngọc Mai - Làm Đẹp & Thẩm Mỹ Chuẩn Y Khoa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mai Helen Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "82edbfd0-4659-47d3-8665-b0f7ea47633a",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28325,15 +43094,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Hằng Nguyễn Beauty & Spa - Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "THẢO NHI BABY CARE-Tắm bé Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhat Vy Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vien Tham My Rosabella",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Diệu Lệ Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoài Thương Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vi Spa Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Chăm Sóc & Đồ Chơi Xe Hơi 9999",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "1e0fa135-c92c-477f-8c74-6f7f81582084",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 50,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28345,15 +43163,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Lá Healthcare",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sữa Ong Chúa - Mật Ong Nguyệt Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mia Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Minh Tú Artist",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Viện Chăm Sóc Sắc Đẹp Bông Tây Spa Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KIM spa- Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hưng Vũ Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Home Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Body Trị Liệu - THU TRANG SPA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công ty TNHH An Phúc Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thẩm Mỹ Ngọc Dung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a05f07a6-5c2f-4a31-9e9c-88aafe6416e0",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 42,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28365,15 +43256,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Hưng Vũ Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Home Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Body Trị Liệu - THU TRANG SPA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công ty TNHH An Phúc Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SueBrows - Hera Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Leo Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Thị Diễm Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dưỡng Tâm MV Beauty Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TẠP HÓA Jo Jo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học Viện Thẩm Mỹ Thanh Thủy  Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mộc Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e659856c-e2a9-44da-b178-91d8422bcbe6",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 15,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28385,15 +43349,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Sữa Ong Chúa Tươi Nguyên Chất 100%Ngoc Tuyết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Miss Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chic Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vật Lý Trị Liệu - Phục Hồi Chức Năng Diệu Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sun Beauty and Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Láng Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Rồng Net",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThẨM MỸ Linh Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KIM spa- Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm tóc nam Công Barber",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giang Hân spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cat Beauty Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0c7dfde8-f2b7-4761-88d4-ecd4273e1fb9",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28405,15 +43442,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Tân Thanh, Lâm Hà, Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ddec0e9a-16ba-4cfd-ab1e-047d55f13d33",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28425,15 +43469,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Spa Kim Chi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Hoa Beauty - Chăm sóc da và làm đẹp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh tam nail 0909257372",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Nu House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mều beauty spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cao Cúc Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "5bd22ea1-d3c4-4412-b4cc-180fe2335135",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 152,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28445,15 +43526,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Tiệm Của Dâu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh Tâm Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mật Ong Vihoney",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Hạnh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "INNII Beauty & Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuỳ Uyên Nguyễn Makeup",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mesotox Brightening",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khoa Phẫu Thuật Thẩm Mỹ - Bệnh Viện 175 Sài Gòn - Cơ Sở Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thu Huê Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thuận Thiên - Shop Hai Chị Em",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mến Beauty Nail & Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mỹ Phẩm THIÊN VÂN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7a33e45b-31eb-4308-ac6e-c0ee4bdb74ed",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28465,15 +43619,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.25,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Spa Kim Huệ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ab315ca2-43ca-4ff5-820e-63987f3e9ebe",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 342,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28503,6 +43664,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Gội đầu Ruuu Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Nails June",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hanna Nails",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hair Salon Bảo Quyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Liela wedding Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Linh Võ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "XỆ Nail- Nailbox Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ăn spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Gội Đầu Nhà MUN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28510,9 +43725,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "277b757d-d67c-41aa-85bf-ad0e958d5dd4",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 336,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28542,6 +43757,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ăn spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Gội Đầu Nhà MUN",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nàng Tấm Spa - Triệu Việt Vương Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Tâm Đường Spa - Foot & Body Massage Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "NANA SPA - Gội Đầu Dưỡng Sinh & Massage Body Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phun Xăm Bảo Vy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Gội Đầu Đà Lạt - Nhà Lavie",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bee Beauty Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nail Mi Trân Meuw",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28549,9 +43818,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "84c3deca-ef87-4165-820b-825c59f09c07",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28563,15 +43832,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.5,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Chong Chóng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Huyền Trang Beauty Spa & Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3863f02c-f2c4-4740-b6dc-66f5995af7b8",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 44,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28583,7 +43865,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.13,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Xuka Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LADY SPA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Skinsci by Thao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Linh My Dang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ÁI NhƯ Beauty Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nail ÚT RUBY",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tâm An Spa ",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Smile hair studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xinh Beauty & Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mây Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhật Tiên Facial Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hawon Skinlab - Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "38aca151-c56e-419a-8ba5-4e1009612a22",
@@ -28621,6 +43976,60 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Halony Spa Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "LUMI Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tiệm Gội Đầu 94",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mộc Mây - Gội Đầu Dưỡng Sinh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Daon Hotel & Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Conico Beauté - Comfort Zone Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nối Mi Ngọc Vy Beauty",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lean nail studio",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Hiền Neen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28628,9 +44037,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c0bdc2a4-4022-4ed9-af6f-98bc7fbfddf5",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28642,15 +44051,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Thái Thuý Spa - Chăm sóc sắc đẹp tại Tà Nung, Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ad445a12-a5e3-4dec-b973-2869cd04fa94",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28662,15 +44078,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.44,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Spa Kim Chi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Hoa Beauty - Chăm sóc da và làm đẹp",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thanh tam nail 0909257372",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Spa Nu House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mều beauty spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cao Cúc Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a45f2e8a-fd00-488b-92f8-e7a4b023df7b",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 45,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28682,15 +44135,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Mơ Sen",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hưng Vũ Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Home Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Body Trị Liệu - THU TRANG SPA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công ty TNHH An Phúc Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SueBrows - Hera Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Leo Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Thị Diễm Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dưỡng Tâm MV Beauty Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TẠP HÓA Jo Jo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học Viện Thẩm Mỹ Thanh Thủy  Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d79fef36-7786-43fe-bdfe-8ed3775f76b6",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28702,15 +44228,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Miss Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chic Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vật Lý Trị Liệu - Phục Hồi Chức Năng Diệu Anh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Sun Beauty and Academy",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Láng Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ngọc Rồng Net",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "ThẨM MỸ Linh Nga",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KIM spa- Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "75f6228b-856d-4a27-83a3-44015303b834",
     "slug": "spa",
     "name_ru": "Спа",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28722,7 +44297,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.98,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "Như Bình Beauty Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Huyền Trang Spa Beauty Spa & Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a29adea6-571f-460c-9a33-e3595f7c18a0",
@@ -28742,7 +44330,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Hưng Vũ Hair Salon",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Home Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Massage Body Trị Liệu - THU TRANG SPA",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Kim Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công ty TNHH An Phúc Care",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "SueBrows - Hera Center",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trang Leo Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vũ Thị Diễm Hương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dưỡng Tâm MV Beauty Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TẠP HÓA Jo Jo",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Học Viện Thẩm Mỹ Thanh Thủy  Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mộc Spa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "d02ffef4-be80-4717-ad3b-63a2575509fe",
@@ -28762,15 +44423,97 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.98,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "Như Bình Beauty Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Huyền Trang Spa Beauty Spa & Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
+  },
+  {
+    "id": "ec46c3db-4f85-483b-b1ce-cb302fb25276",
+    "slug": "supermarket",
+    "name_ru": "Супермаркеты",
+    "players_count": 8,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
+    "size_vnd_year": null,
+    "size_source_type": null,
+    "size_source_url": null,
+    "avg_price_vnd": null,
+    "opportunity_score": 3.27,
+    "opportunity_note": "спрос зоны 48 702 чел.; игроков 4; на игрока 12 176 против медианы 19 657; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "gap",
+    "gap_score": 0.15,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.05,
+    "players": [
+      {
+        "name": "Hương Trường",
+        "rating": null,
+        "reviews": null,
+        "source": "osm-overpass"
+      },
+      {
+        "name": "Bach Hoa Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "osm-overpass"
+      },
+      {
+        "name": "Bach Hoa Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "osm-overpass"
+      },
+      {
+        "name": "Bach Hoa Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "osm-overpass"
+      },
+      {
+        "name": "Chợ Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Oreni Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ghế Massage, Máy Chạy Bộ KingSport Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Điện Máy Minh Sang",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7c51f51d-4e4f-4c22-a1ab-21c853b449b4",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28788,6 +44531,42 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Cửa Hàng Tạp Hóa Thu Hoài",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KLC - Thương Hiệu Ghế Massage Hàng Đầu Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "FPTShop Di Linh - 815 Hùng Vương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cty Bếp Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đá Phong Thuỷ Hoà Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chuyên sỉ cây nội thất Quốc Việt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28795,9 +44574,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "5dffb694-936f-4d17-92e6-d340e441e585",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 2,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28821,6 +44600,12 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Nhà Đất Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -28828,9 +44613,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "09fbcd75-020d-44e2-854d-2ae5b02c388b",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28842,15 +44627,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Chợ Tà Nung - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Tà Nung",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "405fb8dc-8cd4-4d73-91cd-4ac17cd035a5",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 74,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28941,9 +44739,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2ffe194f-a701-4923-a20b-180923a082e9",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 9,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 16,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29009,6 +44807,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Hệ Thống Siêu Thị Nông Nghiệp VIỆT NÔNG NC",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Camera Đơn Dương Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Konni39 Sakura - Đơn Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29016,9 +44832,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "c9372732-b127-4b03-9d1e-86225beb8004",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 10,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 34,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29090,6 +44906,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Đặc sản DalatGreenfood",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa hàng Hoàng Can",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29097,9 +44925,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "75032dd5-7e17-4434-900e-2d69d175af34",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29111,15 +44939,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Trại Gà Quang Hậu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Nina",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "687bdc04-f5cc-4ff5-8a7f-02a122633d58",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 25,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 39,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29151,58 +44992,58 @@ export const GEN_MARKETS: GenMarket[] = [
         "source": "osm-overpass"
       },
       {
-        "name": "Chợ Văn Thánh",
+        "name": "Minh Long Aqua",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Van tan",
+        "name": "Nội thất tủ nhựa Phan thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "TH Đình Quang",
+        "name": "Hoàng Phong SoLar- Đại Lí Máy Nước Nóng Năng Lượng Mặt Trời tại Phan Thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "CH Hiếu Nhân",
+        "name": "VNB Sports Phan Thiết",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Quầy Hàng Trinh Trinh",
+        "name": "Vé số cào Tài Lộc",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Cửa hàng 67",
+        "name": "Led Phổ Quang",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "thuốc lá 67",
+        "name": "Đại Lý Phân Bón Mỹ Châu ( Tám Dị )",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": null,
+        "name": "Đồ Gổ Thanh Hiếu",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "th hồng hiệp",
+        "name": "hải sản phẩm danh 2",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       }
     ]
   },
@@ -29210,9 +45051,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "cdba6fa8-cf70-42bb-b941-599ee301fca3",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 50,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29330,9 +45171,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "51f61f27-68b8-4371-9a12-506fc34f65db",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 76,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29423,9 +45264,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "e1fdc9ce-f3c5-4fc8-a119-7076da01ab52",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 15,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 69,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29549,9 +45390,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "b54cbf8e-9e0a-48ec-9dca-a6440923056e",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29569,6 +45410,18 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Trại Gà Quang Hậu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Shop Nina",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29576,9 +45429,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "2b3cf878-a4c5-4d47-911f-fe806ead638a",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 22,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29614,6 +45467,54 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ô Tô Shineray Hưng Vượng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn lan Khìn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thực Phẩm An Toàn DJF",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hóa Ngọc Muộn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Đồng Pos",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Khoai Lang Thơm Minh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị Liệu Tự Nhiên- Nhà Mình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa rau Hằng Bá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29621,9 +45522,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1e86da9b-5b5e-43ab-8462-010c4cd11a92",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 8,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 19,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29683,51 +45584,30 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
-      }
-    ]
-  },
-  {
-    "id": "ec46c3db-4f85-483b-b1ce-cb302fb25276",
-    "slug": "supermarket",
-    "name_ru": "Супермаркеты",
-    "players_count": 4,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
-    "size_vnd_year": null,
-    "size_source_type": null,
-    "size_source_url": null,
-    "avg_price_vnd": null,
-    "opportunity_score": 3.27,
-    "opportunity_note": "спрос зоны 48 702 чел.; игроков 4; на игрока 12 176 против медианы 19 657; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "gap_status": "gap",
-    "gap_score": 0.15,
-    "players_rolled": 4,
-    "osm_density_per_10k": 2.05,
-    "players": [
-      {
-        "name": "Hương Trường",
-        "rating": null,
-        "reviews": null,
-        "source": "osm-overpass"
       },
       {
-        "name": "Bach Hoa Xanh",
+        "name": "Yamaha Thiên Phước",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Bach Hoa Xanh",
+        "name": "KLC Madagui - Ghế Massage Cao Cấp Cho Mọi Nhà",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
       },
       {
-        "name": "Bach Hoa Xanh",
+        "name": "Chợ Lâm Hà",
         "rating": null,
         "reviews": null,
-        "source": "osm-overpass"
+        "source": "overture"
+      },
+      {
+        "name": "Oreni Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29735,9 +45615,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "575a46af-13f0-4257-9759-828c3856dcd1",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 3,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 6,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29767,6 +45647,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Chợ Gia Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Thăng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Dat Sim So Dong Chi Loc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29887,6 +45785,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ô Tô Shineray Hưng Vượng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn lan Khìn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hóa Ngọc Muộn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Đồng Pos",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Khoai Lang Thơm Minh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị Liệu Tự Nhiên- Nhà Mình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa rau Hằng Bá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TTC Plaza Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Tôm Hoàng Viết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ lầu Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bách Hóa Huy Yến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29926,6 +45890,24 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Chợ Gia Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ Thăng Long",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nha Dat Sim So Dong Chi Loc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29933,9 +45915,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "362c82fa-9eee-4f66-b270-a0e8b65dbfbe",
     "slug": "supermarket",
     "name_ru": "Супермаркеты",
-    "players_count": 1,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 18,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29953,6 +45935,72 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
+      },
+      {
+        "name": "Ô Tô Shineray Hưng Vượng Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn lan Khìn Quán",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Tạp Hóa Ngọc Muộn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Đồng Pos",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Khoai Lang Thơm Minh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trị Liệu Tự Nhiên- Nhà Mình",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa rau Hằng Bá",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "TTC Plaza Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vựa Tôm Hoàng Viết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Chợ lầu Liên Nghĩa",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bách Hóa Huy Yến",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
       }
     ]
   },
@@ -29960,9 +46008,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1d38b2f1-a7d8-42a8-acf1-f7492b83dce9",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29974,15 +46022,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.25,
     "players_rolled": 0,
     "osm_density_per_10k": 2.87,
-    "players": []
+    "players": [
+      {
+        "name": "Dốc 5 Cây,Thống Nhất, Bù Đăng, Bình Phước",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2c15f944-6beb-4daf-9e86-66b3b73abd8d",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 10,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -29994,15 +46049,76 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Mê Linh Eco Village",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thông Reo Homestay & Farmstay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anh Mặt Râu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mongo Land - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Tà Nung - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vi vu cùng KDL Thúy Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Sơn Điền Viên homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dâu Tây Ngọc Trâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Florest",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat view cloud",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "408fb15a-8e86-4dd1-ab18-4ce111a44574",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 7,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30014,15 +46130,58 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Bến xe Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Liliang Waterfall Camping & Resort",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Taxi Xanh Di Linh - Taxi Điện, Grap, Xanh SM Di Linh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du lịch phương nam - phuong travel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Sinh Thái",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu DL Thác Bobla Khu DL Thac Bobla",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Huyền Thương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "f851d58f-22ca-41ca-8d7d-b7008a894524",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30034,15 +46193,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Nhà Xe Ngọc Hồng - Xe Limousine Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0ba33924-d5fa-42ce-81ed-f0287b229770",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 20,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30054,7 +46220,80 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "The Dàlat at 1200 Country Club & Private Estate",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dịch Vụ Du Lịch Ngọc Thương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lâm Đồng News",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Khu du lịch Thác Prenn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "KDL Thác Prenn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Biệt thự đà lạt giá rẻ cho thuê +84.2871060258",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồi Sương Trắng Homestay Cầu Đất",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Lý lịch tư pháp số 1",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Săn Mây Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "xóm đài",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Đồi Chè Cầu Đất",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cau Dat Cloudy Hills",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "dd3d4c54-0cda-43fd-bffe-4daa4562c692",
@@ -30074,15 +46313,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.98,
     "players_rolled": 0,
     "osm_density_per_10k": 7.95,
-    "players": []
+    "players": [
+      {
+        "name": "VPGD TK Real Estate & Tourist Nam Ban - Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du lịch Sinh Thái Hoa Sơn Điền Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "23129e09-8b4f-46aa-9b29-65bb3641dde3",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 8,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30094,15 +46346,64 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Quốc Hùng - Teraco Hưng Vượng- 0978 451 911",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Lâm Hà Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Nha Khoa Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "The Sam Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ben Xe Duc Trong - Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Xe An Anh - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Đưa Đón Sân Bay Cam Ranh - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vinaphone VNPT Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "2e234703-9c2d-475a-ae36-fe1964094ec9",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 22,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 467,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30213,9 +46514,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "91c90ae8-cbfb-4dce-aea3-0ee94a18bfd2",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 22,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30227,15 +46528,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.13,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "Thuê Xe Phan Thiet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Team Building & Gala Dinner Mũi Né",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bình thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoàng Yến - Đại Lý Vé Máy Bay & Du Lịch",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Saomaitour",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "My Tam Travel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mui Ne Private Car",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "My Tam Travel Thuê Xe Du Lịch Hợp Đồng Bắc - Trung - Nam",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "An Tín Travel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Giò Quay Việt Hải",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Heo Sữa Quay Minh Phát",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Công Ty TNHH Thương Mại Dịch Vụ Du Lịch Vietsun",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "ada2e75a-d633-45eb-a7bf-52e0cd804741",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 49,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30247,15 +46621,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Hành Hương Ngân Triều",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Farm & Glamping - Giăng's House",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Làng Mây Blao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ditrek Adventure",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "RUBY Garden Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Salon Ô Tô Bình Dương",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "GẠO HẠT DẺ Homestay - Trip and Decor",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "BẢO LỘC Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mây B'lao",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "du lịch nghĩa ánh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thành Phố Bảo Lộc - Thành Phố Hoa Phượng Vàng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trên Tầng Mây Homestay & Coffee",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "248324e5-0796-43c2-8572-f1c380803347",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30267,15 +46714,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
+    "players": [
+      {
+        "name": "Bưởi Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "37d1f8a5-35b8-4c68-a18f-d58f1a66a06d",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 22,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 491,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30288,6 +46742,24 @@ export const GEN_MARKETS: GenMarket[] = [
     "players_rolled": 22,
     "osm_density_per_10k": 62.01,
     "players": [
+      {
+        "name": "The Angel Villa, Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Dalat Misty Travel",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Thơm Cỏ Dại - Camp & Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
       {
         "name": null,
         "rating": null,
@@ -30341,24 +46813,6 @@ export const GEN_MARKETS: GenMarket[] = [
         "rating": null,
         "reviews": null,
         "source": "osm-overpass"
-      },
-      {
-        "name": null,
-        "rating": null,
-        "reviews": null,
-        "source": "osm-overpass"
-      },
-      {
-        "name": "Thanh Đao;Scimitar Easyrider Tours",
-        "rating": null,
-        "reviews": null,
-        "source": "osm-overpass"
-      },
-      {
-        "name": "Dalat Open Tours",
-        "rating": null,
-        "reviews": null,
-        "source": "osm-overpass"
       }
     ]
   },
@@ -30366,9 +46820,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "bedcb03d-0d47-4e0e-9fc7-bc7cc0b324f1",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30380,15 +46834,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.5,
     "players_rolled": 0,
     "osm_density_per_10k": 4.89,
-    "players": []
+    "players": [
+      {
+        "name": "Phi liêng Adventures \"bản tình ca giữa đại ngàn\"",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "73ea3414-ed65-4a6e-bbec-234b87142d34",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30400,15 +46861,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.44,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Cát Tiên National Park Adventures - Thiên nhiên vẫy gọi -Khám Phá Rừng Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cattien wild tour (Vietnature Tour)",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vườn quốc gia Cát Tiên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bưởi Garden",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "316e580b-2445-49e5-95e9-5f6eb71d3070",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30420,15 +46906,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Xe Sân Bay ONCAR ĐÀ LẠT",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ben Xe Duc Trong - Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Xe An Anh - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Đưa Đón Sân Bay Cam Ranh - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vinaphone VNPT Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Bình Điền Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "c58aa5f7-a85b-4748-9873-62c34b184351",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 5,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30440,15 +46963,46 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "The Sam Camping",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Ben Xe Duc Trong - Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Xe An Anh - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Đưa Đón Sân Bay Cam Ranh - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vinaphone VNPT Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "4d94260d-2f6a-4d5f-820c-c2e85f9b8088",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 14,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30460,15 +47014,88 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2.29,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Du Lịch Lâm Hà Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Nha Khoa Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xã Phi Tô - Lâm Hà - Lâm Đồng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "VPGD TK Real Estate & Tourist Nam Ban - Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du lịch Sinh Thái Hoa Sơn Điền Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mê Linh Eco Village",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thông Reo Homestay & Farmstay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Anh Mặt Râu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Mongo Land - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du Lịch Tà Nung - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vi vu cùng KDL Thúy Thuận",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Hoa Sơn Điền Viên homestay",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "99aa81f8-5753-4cf7-85e6-18bba9b1cace",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30480,15 +47107,28 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Du Lịch Lâm Hà Xanh",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Trung Tâm Nha Khoa Lâm Hà",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "49a7bba7-87f3-46a0-97eb-0c4ec83c93aa",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
+    "players_count": 2,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30500,7 +47140,20 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.98,
     "players_rolled": 0,
     "osm_density_per_10k": 8.56,
-    "players": []
+    "players": [
+      {
+        "name": "VPGD TK Real Estate & Tourist Nam Ban - Dalat",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Du lịch Sinh Thái Hoa Sơn Điền Viên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "67f5a980-d233-403d-a92a-88fbf4c41912",
@@ -30613,15 +47266,40 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.77,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Ben Xe Duc Trong - Lam Dong",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Nhà Xe An Anh - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Xe Đưa Đón Sân Bay Cam Ranh - Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Vinaphone VNPT Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "a2447c0e-ad76-4c42-b763-b5202a0587e0",
     "slug": "travel_agency",
     "name_ru": "Турагентства",
-    "players_count": 22,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 444,
+    "players_source": "overture+osm-overpass",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30709,6 +47387,63 @@ export const GEN_MARKETS: GenMarket[] = [
     ]
   },
   {
+    "id": "266ea378-9477-41cb-9517-c86cb48e07df",
+    "slug": "veterinary",
+    "name_ru": "Ветклиники",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
+    "size_vnd_year": null,
+    "size_source_type": null,
+    "size_source_url": null,
+    "avg_price_vnd": null,
+    "opportunity_score": 9.22,
+    "opportunity_note": "спрос зоны 274 816 чел.; игроков 0; на игрока 549 631 против медианы 170 540.",
+    "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 2.11,
+    "players_rolled": 0,
+    "osm_density_per_10k": 62.01,
+    "players": [
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thu Y Anh Khả - Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Dalovet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Doctor Hi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú y Selena Pet Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
+  },
+  {
     "id": "18ef4afb-20eb-4509-8b2b-0567a0339330",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
@@ -30726,7 +47461,44 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 2,
     "players_rolled": 0,
     "osm_density_per_10k": 68.69,
-    "players": []
+    "players": [
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thu Y Anh Khả - Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Dalovet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Doctor Hi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú y Selena Pet Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "7b47f6dd-372f-4bae-a805-d426c557cb0d",
@@ -30746,7 +47518,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.15,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Thú Y Liên Nghĩa - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Pet Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Animal Hospital Nguyễn Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "84d2205a-783e-4d00-9654-d43345d5657d",
@@ -30792,9 +47583,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "6148b273-5cfb-4db5-af0d-c3502810e207",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30806,7 +47597,44 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thu Y Anh Khả - Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Dalovet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Doctor Hi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú y Selena Pet Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "fd924c26-7381-4e8c-afa4-b852a81fbbf7",
@@ -30852,9 +47680,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "cb36ae58-1117-4a56-b26d-e1d78c5598bf",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30866,15 +47694,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.51,
     "players_rolled": 0,
     "osm_density_per_10k": 15.7,
-    "players": []
+    "players": [
+      {
+        "name": "ThÚ Y Kit Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Hoàng Phi Phan Thiết",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám thú y Tâm Thức",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "6b01aaa4-2962-4a0f-9b99-6edd66977763",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 4,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30886,7 +47733,32 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.84,
     "players_rolled": 0,
     "osm_density_per_10k": 6.37,
-    "players": []
+    "players": [
+      {
+        "name": "Thú Y BluePaw",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng khám Thú Y Khôi Nguyên",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Bảo Lộc",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Cửa Hàng Thuốc Thú Y Bảo Châu",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "3b6279d2-8748-4741-a2c3-47555e2ac14f",
@@ -30912,9 +47784,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "cb96e219-56ec-46b5-8a08-a404424ca7a6",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30926,7 +47798,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1,
     "players_rolled": 0,
     "osm_density_per_10k": null,
-    "players": []
+    "players": [
+      {
+        "name": "Thú Y Liên Nghĩa - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Pet Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Animal Hospital Nguyễn Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "10b95d45-1a90-4b50-97d4-1f66c6152fc7",
@@ -30952,9 +47843,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "4fc5222c-e2de-4a4e-8120-c959a12c8b29",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 6,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30966,15 +47857,52 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.43,
     "players_rolled": 0,
     "osm_density_per_10k": 147.22,
-    "players": []
+    "players": [
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thu Y Anh Khả - Đà lạt",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Dalovet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Phòng Khám Thú Y Đà Lạt Pet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Doctor Hi",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú y Selena Pet Clinic",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e736d831-9c9e-496b-ade7-c05f5f69d289",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -30986,7 +47914,26 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.15,
     "players_rolled": 0,
     "osm_density_per_10k": 2.94,
-    "players": []
+    "players": [
+      {
+        "name": "Thú Y Liên Nghĩa - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Pet Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Animal Hospital Nguyễn Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e30c2219-97d1-4373-b39a-07f9866f490d",
@@ -31012,9 +47959,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "340e0719-5016-4ae0-a8ff-0605f199a54d",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -31026,27 +47973,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 1.12,
-    "players": []
-  },
-  {
-    "id": "266ea378-9477-41cb-9517-c86cb48e07df",
-    "slug": "veterinary",
-    "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
-    "size_vnd_year": null,
-    "size_source_type": null,
-    "size_source_url": null,
-    "avg_price_vnd": null,
-    "opportunity_score": 9.22,
-    "opportunity_note": "спрос зоны 274 816 чел.; игроков 0; на игрока 549 631 против медианы 170 540.",
-    "region_slug": "vn-lamdong-dalat",
-    "gap_status": "gap",
-    "gap_score": 2.11,
-    "players_rolled": 0,
-    "osm_density_per_10k": 62.01,
-    "players": []
+    "players": [
+      {
+        "name": "Đại Lý Cám - Thuốc Thú Y Thanh Nhạn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "e4f9552d-cd39-4695-8c6f-4cb46fe1155c",
@@ -31072,9 +48006,9 @@ export const GEN_MARKETS: GenMarket[] = [
     "id": "1218916e-d436-45da-a4e4-8bcf3c5bc31d",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -31086,15 +48020,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 0.82,
     "players_rolled": 0,
     "osm_density_per_10k": 7.72,
-    "players": []
+    "players": [
+      {
+        "name": "Đại Lý Cám - Thuốc Thú Y Thanh Nhạn",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "fa971dbc-cfe5-4643-ae14-1eaed124f34e",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 3,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -31106,15 +48047,34 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.15,
     "players_rolled": 0,
     "osm_density_per_10k": 3.52,
-    "players": []
+    "players": [
+      {
+        "name": "Thú Y Liên Nghĩa - Đức Trọng",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Thú Y Pet Home",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      },
+      {
+        "name": "Animal Hospital Nguyễn Lâm",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "0c3ccce0-cc4a-4631-8174-8d406a2bf0b5",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -31126,15 +48086,22 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": 1.71,
     "players_rolled": 0,
     "osm_density_per_10k": 4.65,
-    "players": []
+    "players": [
+      {
+        "name": "Đại Lý Thuốc Thú Y Hali Vet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   },
   {
     "id": "641dd011-389a-4912-9321-f55206e3d836",
     "slug": "veterinary",
     "name_ru": "Ветклиники",
-    "players_count": 0,
-    "players_source": "osm-overpass",
-    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
+    "players_count": 1,
+    "players_source": "overture",
+    "players_counted_at": "2026-09-15T13:43:53.876038+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -31146,7 +48113,14 @@ export const GEN_MARKETS: GenMarket[] = [
     "gap_score": null,
     "players_rolled": 0,
     "osm_density_per_10k": 2.05,
-    "players": []
+    "players": [
+      {
+        "name": "Đại Lý Thuốc Thú Y Hali Vet",
+        "rating": null,
+        "reviews": null,
+        "source": "overture"
+      }
+    ]
   }
 ];
 
@@ -31717,8 +48691,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:weather",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T13:00:26.281001+00:00",
-    "last_ok_at": "2026-09-15T13:00:26.281001+00:00"
+    "last_run_at": "2026-09-15T13:30:29.335801+00:00",
+    "last_ok_at": "2026-09-15T13:30:29.335801+00:00"
   }
 ];
 

@@ -58,9 +58,22 @@ const dbSource = readFileSync(
   resolve(dirname(fileURLToPath(import.meta.url)), '../src/sections/VietnamDb.tsx'),
   'utf8'
 );
-const declared = (/const SECTION_IDS = \[([\s\S]*?)\]/.exec(dbSource)?.[1] ?? '')
-  .match(/'([a-z]+)'/g)
-  ?.map((q) => q.replace(/'/g, '')) ?? [];
+// Главный способ такой проверки соврать - не покраснеть зря, а ПОЗЕЛЕНЕТЬ,
+// перестав что-то видеть: якорь с цифрой (`vn-top10`) или в одинарных кавычках
+// под строгий шаблон не попадает и молча выпадает из сверки с обеих сторон.
+// Проверено: так гейт оставался зелёным, сверяя восемь якорей вместо девяти.
+// Поэтому каждый шаблон сперва обязан увидеть ВСЕ вхождения, и только потом
+// сличаются множества.
+const countAll = (re: RegExp) => (dbSource.match(re) ?? []).length;
+
+const sectionBody = /const SECTION_IDS = \[([\s\S]*?)\]/.exec(dbSource)?.[1] ?? '';
+const declaredAll = (sectionBody.match(/'[^']*'/g) ?? []).length;
+const declared = (sectionBody.match(/'([a-z]+)'/g) ?? []).map((q) => q.replace(/'/g, ''));
+if (declared.length !== declaredAll) {
+  problems.push(
+    `якорь · шаблон разобрал ${declared.length} строк SECTION_IDS из ${declaredAll}: якорь не из одних строчных букв выпадает из сверки молча`
+  );
+}
 // Сверка двусторонняя, и это безопасно только при одном правиле, которое здесь и
 // записано: **статичный якорь `id="vn-<слово>"` в разделе означает блок, на
 // который можно сослаться маршрутом**. Другого назначения у такого имени нет.
@@ -70,7 +83,13 @@ const declared = (/const SECTION_IDS = \[([\s\S]*?)\]/.exec(dbSource)?.[1] ?? ''
 // проверку быстро начинают глушить, и она становится хуже отсутствующей.
 // Якоря строк региона и рынка собираются шаблоном (`vn-region-…`, `vn-market-…`)
 // и под регулярку не попадают: это строки данных, а не блоки.
+const renderedAll = countAll(/id=['"]vn-[^'"]*['"]/g);
 const rendered = [...dbSource.matchAll(/id="vn-([a-z]+)"/g)].map((m) => m[1]);
+if (rendered.length !== renderedAll) {
+  problems.push(
+    `якорь · шаблон поймал ${rendered.length} якорей разметки из ${renderedAll}: остальные выпадают из сверки молча`
+  );
+}
 for (const id of rendered) {
   if (!declared.includes(id)) problems.push(`якорь · блок «${id}» есть в разметке, но не в SECTION_IDS`);
 }
@@ -94,7 +113,7 @@ const emptyUrl = ALL_NODES.flatMap((n) => n.evidence ?? []).filter((e) => !e.url
 console.log(`узлов: ${ALL_NODES.length} · с числом в подписи: ${numeric.length} · из них без источника: ${unsourced.length}`);
 console.log(`потоков: ${FLOWS.length + EDTECH_FLOWS.length + AI_NATIVE_FLOWS.length + VIETNAM_FLOWS.length} · цепочек: ${CHAINS.length + EDTECH_CHAINS.length + AI_NATIVE_CHAINS.length + VIETNAM_CHAINS.length} · связей: ${DEPENDENCY_LINKS.length + EDTECH_LINKS.length + AI_NATIVE_LINKS.length + VIETNAM_LINKS.length}`);
 console.log(`источников без ссылки (названы словами): ${emptyUrl}`);
-console.log(`якорей раздела «Вьетнам»: ${declared.length}, разметка и SECTION_IDS сверены`);
+console.log(`якорей раздела «Вьетнам»: ${declared.length} из ${renderedAll} в разметке, сверены с SECTION_IDS`);
 
 if (problems.length) {
   problems.forEach((p) => console.log(`  ✗ ${p}`));
