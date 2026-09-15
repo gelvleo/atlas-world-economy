@@ -911,10 +911,10 @@ export default function VietnamDb() {
                           <button className="link" onClick={() => setOpenMarket(open ? null : key)}>
                             {m.name_ru ?? m.slug}
                           </button>
-                          {open && m.players.length > 0 && (
+                          {open && (
                             <span className="stat-note">
-                              {m.players.map((p) => p.name).filter(Boolean).slice(0, 12).join(' · ') ||
-                                `${m.players.length} точек на карте, ни одна не подписана именем`}
+                              {m.players.join(' · ') ||
+                                `${fmtInt(m.players_count ?? 0)} точек на карте, ни одна не подписана именем`}
                             </span>
                           )}
                         </td>

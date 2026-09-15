@@ -187,12 +187,15 @@ async function pull() {
     gap_score: num(attrs.gap_score),
     players_rolled: num(attrs.players_rolled),
     osm_density_per_10k: num(attrs.osm_density_per_10k),
-    // Игроков в файл целиком не кладём: раздел показывает имена первых, а счёт
-    // берёт из players_count. Координаты не рисуются вовсе.
+    // Игроков в файл целиком не кладём: раздел показывает только имена первых,
+    // а счёт берёт из players_count. Оценки и отзывы нужны лишь для сортировки
+    // здесь же, координаты не рисуются вовсе. Объекты с четырьмя полями весили
+    // 700 КБ на 4 361 точку, голые имена весят впятеро меньше.
     players: (playersByMarket.get(rest.id) ?? [])
       .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
       .slice(0, 12)
-      .map(({ name, rating, reviews, source }) => ({ name, rating, reviews, source }))
+      .map((p) => p.name)
+      .filter((name): name is string => !!name)
     };
   });
 
@@ -247,8 +250,7 @@ function render(d: Awaited<ReturnType<typeof pull>>) {
 ${missing.length ? `// Таблиц ещё нет в базе: ${missing.join(', ')}\n` : ''}
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
-export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
-export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; gap_status: string | null; gap_score: number | null; players_rolled: number | null; osm_density_per_10k: number | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; gap_status: string | null; gap_score: number | null; players_rolled: number | null; osm_density_per_10k: number | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: string[] }
 export interface GenNamedPlayer { name: string; note: string | null; source_type: string | null; evidence_url: string | null }
 export interface GenNamedMarket { slug: string; name_ru: string; region_slug: string | null; players: GenNamedPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
