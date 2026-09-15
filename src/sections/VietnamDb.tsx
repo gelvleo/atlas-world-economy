@@ -317,11 +317,11 @@ const SEARCH_INDEX: Hit[] = [
   }))
 ];
 
-/** Сущности графа по регионам. Не берём три вида: зеркала регионов и рынков это
- *  те же объекты, что в своих таблицах, а `source` это заголовки новостных лент
- *  (397 штук), которым на карточке провинции делать нечего - свежие темы живут
- *  в блоке результатов обходов. */
-const GRAPH_NOISE = ['market', 'region', 'source'];
+/** Сущности графа по регионам: только настоящая экономика. */
+// На карточке региона не показываем четыре вида узлов: market и region это
+// зеркала своих таблиц, source это заголовки новостных лент (397 штук), event
+// это зеркало календаря, который стоит отдельным блоком выше.
+const GRAPH_NOISE = ['market', 'region', 'source', 'event'];
 const ENTITIES_BY_REGION = new Map<string, GenEntity[]>();
 for (const e of GEN_ENTITIES) {
   if (!e.region_slug || GRAPH_NOISE.includes(e.kind ?? '')) continue;
@@ -359,6 +359,12 @@ function entityKindSummary(list: GenEntity[]): string {
     .map(entityName);
   return names.length ? `${counts}. Например: ${names.join(', ')}` : counts;
 }
+
+/** Ноль игроков при плотности разметки 1,1 и ноль при 62 это разные нули.
+ *  Вердикт графа отделяет дыру от неразмеченной карты, и без него 52 строки со
+ *  оценкой около пяти читались бы как найденная возможность. */
+const isBlindSpot = (m: GenMarket) => (m.gap_status ?? '').startsWith('no_data');
+const BLIND_SPOTS = GEN_MARKETS.filter(isBlindSpot).length;
 
 /** Строки рынков, которые обход ни разу не пересчитал. */
 const NEVER_COUNTED = GEN_MARKETS.filter((m) => !m.players_counted_at).length;
@@ -530,7 +536,9 @@ export default function VietnamDb() {
 
   const opportunities = useMemo(
     () =>
-      GEN_MARKETS.filter((m) => m.opportunity_score !== null && m.opportunity_score !== undefined)
+      GEN_MARKETS.filter(
+        (m) => m.opportunity_score !== null && m.opportunity_score !== undefined && !isBlindSpot(m)
+      )
         .sort((a, b) => Number(b.opportunity_score) - Number(a.opportunity_score))
         .slice(0, 12),
     []
@@ -907,9 +915,13 @@ export default function VietnamDb() {
                           ) : '—'}
                         </td>
                         <td className="num">
-                          {m.opportunity_score === null || m.opportunity_score === undefined
-                            ? '—'
-                            : fmt1(Number(m.opportunity_score))}
+                          {isBlindSpot(m) ? (
+                            <span className="tag tag--warn">карта редкая</span>
+                          ) : m.opportunity_score === null || m.opportunity_score === undefined ? (
+                            '—'
+                          ) : (
+                            fmt1(Number(m.opportunity_score))
+                          )}
                         </td>
                         <td className="num">
                           {/* Свежесть по строке, а не одной подписью на блок:
@@ -967,6 +979,16 @@ export default function VietnamDb() {
           населения их зоны база не знает. Пояснение под каждой строкой - это числа, из которых
           оценка собрана, вместе с поправкой на редко размеченную карту.
         </p>
+        <div className="note note--warn">
+          <div className="kicker">Чего в этом списке нет</div>
+          <p className="section-lead">
+            {BLIND_SPOTS} строк сюда не попали, хотя оценка у них около пяти: граф пометил их как{' '}
+            <span className="code">no_data:osm_sparse</span>. Ноль заведений при плотности разметки
+            1,1 точки на 10 тысяч жителей и ноль при 62 это разные нули: в первом случае найдена не
+            дыра на рынке, а неразмеченный кусок карты. В таблице выше такие строки помечены
+            «карта редкая».
+          </p>
+        </div>
       </div>
       {opportunities.length === 0 ? (
         <Gap

@@ -7,13 +7,13 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T12:58:23.813Z
+// Снято: 2026-09-15T13:01:38.877Z
 // Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
-export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; gap_status: string | null; gap_score: number | null; players_rolled: number | null; osm_density_per_10k: number | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
@@ -24,7 +24,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T12:58:23.813Z";
+export const generatedAt = "2026-09-15T13:01:38.877Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -8627,6 +8627,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.72,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 94 106.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -8643,6 +8647,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 27,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Bonbon Bakery",
@@ -8732,6 +8740,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -8748,6 +8760,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -8764,6 +8780,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -8780,6 +8800,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -8796,6 +8820,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -8812,6 +8840,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.71,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 94 106.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.31,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -8828,6 +8860,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.15,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -8844,6 +8880,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -8860,6 +8900,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.59,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -8876,6 +8920,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -8892,6 +8940,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -8908,6 +8960,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 94 106.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -8924,6 +8980,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 94 106.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.12,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -8940,6 +9000,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.81,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -8956,6 +9020,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 26; на игрока 10 570 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Tam Doan",
@@ -9045,6 +9113,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 26; на игрока 4 598 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Tam Doan",
@@ -9134,6 +9206,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.46,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 1; на игрока 61 374 против медианы 94 106.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.4,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Bom Bakery",
@@ -9157,6 +9233,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -9173,6 +9253,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 26; на игрока 9 226 против медианы 94 106.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Tam Doan",
@@ -9262,6 +9346,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -9278,6 +9366,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 5,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -9294,6 +9386,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 4,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -9310,6 +9406,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.13,
+    "players_rolled": 30,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -9399,6 +9499,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 5,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -9415,6 +9519,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 5,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -9431,6 +9539,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 1.67,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -9454,6 +9566,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.99,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 87 270.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.06,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -9470,6 +9586,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 87 270.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -9486,6 +9606,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.14,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 87 270.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.18,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -9502,6 +9626,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 87 270; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -9518,6 +9646,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 30; на игрока 9 161 против медианы 87 270.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 30,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -9607,6 +9739,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 30; на игрока 3 985 против медианы 87 270.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 30,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -9696,6 +9832,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.23,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 87 270.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.43,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -9712,6 +9852,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.98,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 87 270.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.37,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -9728,6 +9872,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.92,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 1; на игрока 85 306 против медианы 87 270.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.56,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": null,
@@ -9751,6 +9899,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.92,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 1; на игрока 85 270 против медианы 87 270.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.56,
+    "players_rolled": 1,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": null,
@@ -9774,6 +9926,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.86,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 87 270.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.26,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -9790,6 +9946,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 87 270; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -9806,6 +9966,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.97,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 87 270.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.91,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -9822,6 +9986,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 30; на игрока 7 996 против медианы 87 270.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 30,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -9911,6 +10079,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.92,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 1; на игрока 85 270 против медианы 87 270.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.56,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": null,
@@ -9934,6 +10106,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.97,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 87 270.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.91,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -9950,6 +10126,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.03,
+    "players_rolled": 30,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "early bar",
@@ -10039,6 +10219,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10055,6 +10239,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10071,6 +10259,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10087,6 +10279,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10103,6 +10299,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 0.5,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Coffe views",
@@ -10126,6 +10326,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.2,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 1; на игрока 32 793 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.25,
+    "players_rolled": 1,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": "Coffe views",
@@ -10149,6 +10353,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.72,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.23,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -10165,6 +10373,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.7,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 3; на игрока 65 601 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.27,
+    "players_rolled": 3,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "beer",
@@ -10200,6 +10412,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.35,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -10216,6 +10432,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -10232,6 +10452,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 30; на игрока 9 161 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 31,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Envy",
@@ -10321,6 +10545,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 30; на игрока 3 985 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 30,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Envy",
@@ -10410,6 +10638,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.96,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.6,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -10426,6 +10658,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -10442,6 +10678,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.15,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.87,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -10458,6 +10698,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.87,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -10474,6 +10718,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.09,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 1; на игрока 167 948 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.93,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": "Coffe views",
@@ -10497,6 +10745,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -10513,6 +10765,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 30; на игрока 7 996 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 30,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Envy",
@@ -10602,6 +10858,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.87,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -10618,6 +10878,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 1.08,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -10634,6 +10898,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.08,
+    "players_rolled": 11,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "gội đầu Ma Maison",
@@ -10717,6 +10985,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10733,6 +11005,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.16,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 2; на игрока 98 401 против медианы 94 106.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.39,
+    "players_rolled": 2,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Tuongvi Beauty",
@@ -10762,6 +11038,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10778,6 +11058,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10794,6 +11078,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -10810,6 +11098,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 0.5,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Nho Cosmetic & Beauty",
@@ -10833,6 +11125,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.22,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 1; на игрока 131 972 против медианы 94 106.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.71,
+    "players_rolled": 1,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Salon tóc đẹp Hoài An",
@@ -10856,6 +11152,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 94 106.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.12,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -10872,6 +11172,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.81,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -10888,6 +11192,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.22,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 11; на игрока 24 983 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0,
+    "players_rolled": 11,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -10971,6 +11279,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 11; на игрока 10 868 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 11,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "gội đầu Ma Maison",
@@ -11054,6 +11366,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.46,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 1; на игрока 61 374 против медианы 94 106.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.4,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Elena",
@@ -11077,6 +11393,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.71,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 94 106.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.31,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -11093,6 +11413,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.15,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -11109,6 +11433,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -11125,6 +11453,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.09,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 1; на игрока 167 948 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.81,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -11148,6 +11480,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -11164,6 +11500,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.2,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 1; на игрока 32 793 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 1,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": null,
@@ -11187,6 +11527,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 11; на игрока 21 807 против медианы 94 106.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 11,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "gội đầu Ma Maison",
@@ -11270,6 +11614,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -11286,6 +11634,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.2,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 1; на игрока 32 793 против медианы 94 106.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 1,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": null,
@@ -11309,6 +11661,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -11332,6 +11688,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11348,6 +11708,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.11,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 146 644.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.94,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -11364,6 +11728,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.52,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -11380,6 +11748,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11396,6 +11768,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11412,6 +11788,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11428,6 +11808,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11444,6 +11828,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.12,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 146 644.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.63,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -11460,6 +11848,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.06,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 1; на игрока 196 803 против медианы 146 644.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.69,
+    "players_rolled": 1,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Vu thong",
@@ -11483,6 +11875,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 146 644.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -11499,6 +11895,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.21,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -11515,6 +11915,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.27,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 1; на игрока 274 816 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.83,
+    "players_rolled": 1,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -11538,6 +11942,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.26,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 1; на игрока 119 551 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.49,
+    "players_rolled": 1,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -11561,6 +11969,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.36,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 146 644.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -11577,6 +11989,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.55,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -11593,6 +12009,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -11609,6 +12029,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.99,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 1.83,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -11625,6 +12049,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -11641,6 +12069,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.77,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 1; на игрока 239 874 против медианы 146 644.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.78,
+    "players_rolled": 1,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -11664,6 +12096,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -11680,6 +12116,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -11696,6 +12136,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -11719,6 +12163,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.96,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 94 106.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.37,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -11735,6 +12183,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Mechanic",
@@ -11758,6 +12210,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -11774,6 +12230,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Sua Xe",
@@ -11797,6 +12257,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Dl Sang Lợi",
@@ -11826,6 +12290,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 20,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Công Hoàng",
@@ -11915,6 +12383,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 19; на игрока 6 292 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 19,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -12004,6 +12476,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.22,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 1; на игрока 131 972 против медианы 94 106.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.71,
+    "players_rolled": 1,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": null,
@@ -12027,6 +12503,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 94 106.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -12043,6 +12523,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 94 106.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.12,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -12059,6 +12543,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.81,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -12075,6 +12563,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 20; на игрока 13 741 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 20,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -12164,6 +12656,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.71,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 94 106.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.31,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -12180,6 +12676,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.15,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -12196,6 +12696,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.64,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 1; на игрока 85 270 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.53,
+    "players_rolled": 1,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Dl Sang Lợi",
@@ -12219,6 +12723,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.09,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 1; на игрока 167 948 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.81,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -12242,6 +12750,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -12258,6 +12770,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -12274,6 +12790,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 19; на игрока 12 625 против медианы 94 106.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 19,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -12363,6 +12883,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -12379,6 +12903,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -12395,6 +12923,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.25,
+    "players_rolled": 3,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -12430,6 +12962,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -12446,6 +12982,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 1.5,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Thuốc Nam",
@@ -12469,6 +13009,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 3,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -12485,6 +13029,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 3,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -12501,6 +13049,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 3,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -12517,6 +13069,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.43,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 1; на игрока 131 972 против медианы 117 283.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.62,
+    "players_rolled": 1,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Khu Vực A",
@@ -12540,6 +13096,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.37,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 117 283.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -12556,6 +13116,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.58,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 117 283.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.18,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "khám bệnh",
@@ -12579,6 +13143,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.01,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 117 283; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -12595,6 +13163,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.11,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 3; на игрока 91 605 против медианы 117 283.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.24,
+    "players_rolled": 3,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Phòng khám Đa khoa khu vực Trại Mát",
@@ -12630,6 +13202,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.57,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 2; на игрока 59 775 против медианы 117 283.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.2,
+    "players_rolled": 2,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -12659,6 +13235,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.16,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 117 283.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.18,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -12675,6 +13255,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.92,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 117 283.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.13,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -12691,6 +13275,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.35,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 117 283.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.46,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -12707,6 +13295,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.35,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 117 283.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.46,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -12723,6 +13315,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.8,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 117 283.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -12739,6 +13335,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.33,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 117 283; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -12755,6 +13355,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.9,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 117 283.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.67,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -12771,6 +13375,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.08,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 2; на игрока 119 937 против медианы 117 283.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.39,
+    "players_rolled": 2,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -12800,6 +13408,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.35,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 117 283.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.46,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -12816,6 +13428,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.9,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 117 283.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.67,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -12832,6 +13448,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.85,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 15; на игрока 8 798 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.08,
+    "players_rolled": 15,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "265 trần phú",
@@ -12921,6 +13541,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0,
+    "players_rolled": 316,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Cà phê nguyên chất TRANG - Capuchino Đà Lạt",
@@ -13010,6 +13634,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 0.09,
+    "players_rolled": 10,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -13087,6 +13715,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 9,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -13158,6 +13790,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 1; на игрока 44 617 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "gap",
+    "gap_score": 0.57,
+    "players_rolled": 1,
+    "osm_density_per_10k": 1.12,
     "players": [
       {
         "name": "Ngãn Hà",
@@ -13181,6 +13817,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 0.11,
+    "players_rolled": 8,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -13246,6 +13886,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -13262,6 +13906,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 9,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Weasel Coffee Shop - Kopi Lewak",
@@ -13333,6 +13981,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 300; на игрока 800 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 300,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Gia Nguyễn",
@@ -13422,6 +14074,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.57,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Cafe Làng",
@@ -13457,6 +14113,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.67,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 9; на игрока 3 644 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.06,
+    "players_rolled": 9,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": null,
@@ -13528,6 +14188,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.75,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 23; на игрока 8 557 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.06,
+    "players_rolled": 23,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "M2 Coffee Shop",
@@ -13617,6 +14281,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 332; на игрока 828 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 332,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -13706,6 +14374,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.81,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 3; на игрока 15 135 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.45,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "cà phê overnight",
@@ -13741,6 +14413,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 292; на игрока 409 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 292,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "MC House",
@@ -13830,6 +14506,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.39,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 6; на игрока 10 229 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.21,
+    "players_rolled": 6,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Mountain Cafe",
@@ -13883,6 +14563,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.15,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 6; на игрока 9 552 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.2,
+    "players_rolled": 6,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": null,
@@ -13936,6 +14620,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.04,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 4; на игрока 21 326 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.42,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Cafe Làng",
@@ -13977,6 +14665,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.04,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 4; на игрока 21 318 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.42,
+    "players_rolled": 4,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": null,
@@ -14018,6 +14710,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.34,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 22; на игрока 7 634 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.05,
+    "players_rolled": 22,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -14107,6 +14803,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -14123,6 +14823,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.67,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 9; на игрока 3 644 против медианы 9 175; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.06,
+    "players_rolled": 9,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": "Kem Tran",
@@ -14194,6 +14898,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -14217,6 +14925,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -14233,6 +14945,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 66,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -14322,6 +15038,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -14338,6 +15058,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -14354,6 +15078,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 2; на игрока 24 351 против медианы 17 774; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "gap",
+    "gap_score": 0.38,
+    "players_rolled": 2,
+    "osm_density_per_10k": 2.05,
     "players": [
       {
         "name": "nhã uyên",
@@ -14383,6 +15111,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -14399,6 +15131,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 64; на игрока 3 748 против медианы 17 774.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 64,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -14488,6 +15224,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 96; на игрока 1 375 против медианы 17 774.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 96,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Phúc an",
@@ -14577,6 +15317,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.65,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 7; на игрока 28 115 против медианы 17 774.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 7,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": null,
@@ -14636,6 +15380,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 66; на игрока 4 164 против медианы 17 774.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 66,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -14725,6 +15473,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 63; на игрока 1 898 против медианы 17 774.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 63,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -14814,6 +15566,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.82,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 11; на игрока 5 579 против медианы 17 774.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.02,
+    "players_rolled": 11,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Quan Võng Dùng Chân ",
@@ -14897,6 +15653,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.92,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 10; на игрока 5 731 против медианы 17 774.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.02,
+    "players_rolled": 10,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": null,
@@ -14974,6 +15734,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 17 774.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -14990,6 +15754,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 17 774.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -15006,6 +15774,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.33,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 15; на игрока 11 197 против медианы 17 774.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.05,
+    "players_rolled": 15,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -15095,6 +15867,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.25,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 3; на игрока 10 931 против медианы 17 774.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 3,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": null,
@@ -15130,6 +15906,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 17 774.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -15146,6 +15926,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.21,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 1; на игрока 32 793 против медианы 17 774.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.83,
+    "players_rolled": 1,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": null,
@@ -15169,6 +15953,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 17 774.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -15185,6 +15973,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 17 774; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -15201,6 +15993,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15217,6 +16013,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15233,6 +16033,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15249,6 +16053,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15265,6 +16073,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15281,6 +16093,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15297,6 +16113,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.58,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 170 540.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.51,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -15313,6 +16133,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.02,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 170 540.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 1.84,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -15329,6 +16153,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.73,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 170 540.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.63,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -15345,6 +16173,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.66,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 170 540; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -15361,6 +16193,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.22,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 0; на игрока 549 631 против медианы 170 540.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 2.11,
+    "players_rolled": 0,
+    "osm_density_per_10k": 62.01,
     "players": []
   },
   {
@@ -15377,6 +16213,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.22,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 0; на игрока 239 101 против медианы 170 540.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 1.43,
+    "players_rolled": 0,
+    "osm_density_per_10k": 147.22,
     "players": []
   },
   {
@@ -15393,6 +16233,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.81,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 170 540.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.87,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -15409,6 +16253,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 170 540.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -15425,6 +16273,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.44,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 170 540.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 1.71,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -15441,6 +16293,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.98,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 170 540; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -15457,6 +16313,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.55,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 170 540.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.36,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -15473,6 +16333,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.73,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 0; на игрока 479 749 против медианы 170 540.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 68.69,
     "players": []
   },
   {
@@ -15489,6 +16353,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 170 540.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -15505,6 +16373,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.55,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 170 540.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.36,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -15521,6 +16393,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.57,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 170 540.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.82,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -15537,6 +16413,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 170 540.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -15553,6 +16433,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Nha Khoa Đinh Gia",
@@ -15576,6 +16460,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15592,6 +16480,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 0.5,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -15615,6 +16507,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.52,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -15631,6 +16527,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15647,6 +16547,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15663,6 +16567,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -15679,6 +16587,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.12,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 146 644.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.63,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -15695,6 +16607,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.56,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 146 644.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 1.96,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -15711,6 +16627,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 146 644.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -15727,6 +16647,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.21,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -15743,6 +16667,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.27,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 1; на игрока 274 816 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.83,
+    "players_rolled": 1,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Nha Khoa Đinh Gia",
@@ -15766,6 +16694,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.26,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 1; на игрока 119 551 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.49,
+    "players_rolled": 1,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Nha Khoa Đinh Gia",
@@ -15789,6 +16721,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.36,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 146 644.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -15805,6 +16741,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.11,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 146 644.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.94,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -15821,6 +16761,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.55,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -15837,6 +16781,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -15853,6 +16801,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.99,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 1.83,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -15869,6 +16821,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -15885,6 +16841,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -15901,6 +16861,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.77,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 1; на игрока 239 874 против медианы 146 644.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.78,
+    "players_rolled": 1,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Nha Khoa Đinh Gia",
@@ -15924,6 +16888,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -15940,6 +16908,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 52,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Bếp Nhà Sữa",
@@ -16029,6 +17001,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16045,6 +17021,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16061,6 +17041,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 6,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Confetti",
@@ -16102,6 +17086,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.12,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 6; на игрока 32 800 против медианы 31 744.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.17,
+    "players_rolled": 6,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Lotteria",
@@ -16155,6 +17143,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 52; на игрока 5 285 против медианы 31 744.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 52,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -16244,6 +17236,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16260,6 +17256,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16276,6 +17276,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.64,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 2; на игрока 65 986 против медианы 31 744.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.58,
+    "players_rolled": 2,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Chi huong",
@@ -16305,6 +17309,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.79,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 31 744.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 2.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -16321,6 +17329,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 31 744; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -16337,6 +17349,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 49; на игрока 2 440 против медианы 31 744.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 49,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "KFC",
@@ -16426,6 +17442,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.88,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 2; на игрока 30 687 против медианы 31 744.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.37,
+    "players_rolled": 2,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": null,
@@ -16455,6 +17475,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.63,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 2; на игрока 28 657 против медианы 31 744.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.35,
+    "players_rolled": 2,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": null,
@@ -16484,6 +17508,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.6,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 3; на игрока 28 435 против медианы 31 744.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.26,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Confetti",
@@ -16519,6 +17547,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.6,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 31 744.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.26,
+    "players_rolled": 3,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Confetti",
@@ -16554,6 +17586,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 31 744.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -16570,6 +17606,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 31 744; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -16586,6 +17626,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.62,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 31 744.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 1.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -16602,6 +17646,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 49; на игрока 4 895 против медианы 31 744.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 49,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Lotteria",
@@ -16691,6 +17739,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.6,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 31 744.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.26,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Confetti",
@@ -16726,6 +17778,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.62,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 31 744.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 1.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -16742,6 +17798,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16758,6 +17818,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Dalat Hasfarm",
@@ -16805,6 +17869,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16821,6 +17889,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.71,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 94 106.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.31,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -16837,6 +17909,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.15,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -16853,6 +17929,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.64,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 1; на игрока 85 270 против медианы 94 106.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.53,
+    "players_rolled": 1,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": null,
@@ -16876,6 +17956,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.59,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -16892,6 +17976,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -16908,6 +17996,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -16924,6 +18016,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -16940,6 +18036,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.57,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 5; на игрока 47 975 против медианы 94 106.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 5,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Dalat Hasfarm",
@@ -16987,6 +18087,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.14,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 94 106.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.64,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -17003,6 +18107,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.7,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 94 106.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.85,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -17019,6 +18127,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -17042,6 +18154,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17058,6 +18174,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 94 106.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.12,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -17074,6 +18194,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.81,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 94 106; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -17090,6 +18214,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.72,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 94 106.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -17106,6 +18234,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.66,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 1; на игрока 196 803 против медианы 94 106.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.88,
+    "players_rolled": 1,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Vuon Uom NGOc Huong",
@@ -17129,6 +18261,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.06,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 5; на игрока 54 963 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.12,
+    "players_rolled": 5,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Dalat Hasfarm",
@@ -17176,6 +18312,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.06,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 5; на игрока 23 910 против медианы 94 106.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0,
+    "players_rolled": 5,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Dalat Hasfarm",
@@ -17223,6 +18363,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.96,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 94 106.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.37,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -17239,6 +18383,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -17255,6 +18403,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 14,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Dalat Sivananda Yoga Vedanta Center",
@@ -17344,6 +18496,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17360,6 +18516,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17376,6 +18536,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.69,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -17392,6 +18556,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17408,6 +18576,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17424,6 +18596,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -17440,6 +18616,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.73,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.23,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -17456,6 +18636,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -17472,6 +18656,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.38,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -17488,6 +18676,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 14; на игрока 19 630 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 14,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Đặng Nguyễn Gym",
@@ -17577,6 +18769,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 14; на игрока 8 539 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 14,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Dalat Sivananda Yoga Vedanta Center",
@@ -17666,6 +18862,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -17682,6 +18882,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.21,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -17698,6 +18902,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -17714,6 +18922,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -17730,6 +18942,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.16,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -17746,6 +18962,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -17762,6 +18982,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 14; на игрока 17 134 против медианы 106 017.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 14,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Dalat Sivananda Yoga Vedanta Center",
@@ -17851,6 +19075,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -17867,6 +19095,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -17883,6 +19115,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.05,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 1; на игрока 131 972 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.92,
+    "players_rolled": 1,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Chon's Dock Homestay & House Lease",
@@ -17906,6 +19142,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 180,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Authentic Family Homestay",
@@ -17995,6 +19235,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 183; на игрока 1 502 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 183,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "CC Xanh Xanh",
@@ -18084,6 +19328,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -18100,6 +19348,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Mai Khanh",
@@ -18129,6 +19381,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -18152,6 +19408,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -18168,6 +19428,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -18184,6 +19448,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -18200,6 +19468,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -18229,6 +19501,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 180; на игрока 1 333 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 180,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Authentic Family Homestay",
@@ -18318,6 +19594,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 178; на игрока 672 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 178,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Hoa Liên Homestay",
@@ -18407,6 +19687,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.69,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 5; на игрока 39 361 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 5,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Hotel Bảo Châu",
@@ -18454,6 +19738,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.7,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -18470,6 +19758,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.29,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 1; на игрока 61 374 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.61,
+    "players_rolled": 1,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": null,
@@ -18493,6 +19785,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 5; на игрока 11 463 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": "Khu Nhà Nghỉ Dưỡng Hi Vọng Xanh",
@@ -18540,6 +19836,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.97,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 2.06,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -18556,6 +19856,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.97,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 2.06,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -18572,6 +19876,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.42,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 2; на игрока 83 974 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.49,
+    "players_rolled": 2,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -18601,6 +19909,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -18617,6 +19929,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.97,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 2.06,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -18633,6 +19949,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 74 780; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -18649,6 +19969,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.01,
+    "players_rolled": 282,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "California Hotel",
@@ -18738,6 +20062,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 2; на игрока 83 974 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.76,
+    "players_rolled": 2,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": "Nhà Nghỉ, Khách Sạn, Motel PHƯỚC SƠN",
@@ -18767,6 +20095,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 0.6,
+    "players_rolled": 4,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trung Dung",
@@ -18808,6 +20140,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Hotel Do Linh",
@@ -18837,6 +20173,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 0.38,
+    "players_rolled": 7,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Hotel Van Toan",
@@ -18872,6 +20212,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 3,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -18888,6 +20232,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.44,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 4; на игрока 21 326 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.25,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Hotel Van Toan",
@@ -18929,6 +20277,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 607,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -18945,6 +20297,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -18961,6 +20317,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.06,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 3; на игрока 43 991 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.46,
+    "players_rolled": 3,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "NHÀ NGHỈ NGỌC YẾN",
@@ -18996,6 +20356,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.69,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 15; на игрока 13 120 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.05,
+    "players_rolled": 15,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Saovang Hotel",
@@ -19085,6 +20449,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.17,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.94,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "nhà nghỉ 123",
@@ -19108,6 +20476,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -19124,6 +20496,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 287; на игрока 958 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 287,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -19213,6 +20589,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 280; на игрока 427 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 280,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Sammy",
@@ -19302,6 +20682,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -19318,6 +20702,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.48,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.37,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Hotel Van Toan",
@@ -19353,6 +20741,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.5,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 2; на игрока 16 397 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.34,
+    "players_rolled": 2,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": "Nhà Nghỉ, Khách Sạn, Motel PHƯỚC SƠN",
@@ -19382,6 +20774,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.01,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 4; на игрока 14 329 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.18,
+    "players_rolled": 4,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": "Motel",
@@ -19423,6 +20819,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.48,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.37,
+    "players_rolled": 3,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Hotel Van Toan",
@@ -19458,6 +20858,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -19474,6 +20878,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.5,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 2; на игрока 16 397 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.34,
+    "players_rolled": 2,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": "Nhà Nghỉ, Khách Sạn, Motel PHƯỚC SƠN",
@@ -19503,6 +20911,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 279; на игрока 860 против медианы 24 875; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 279,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Binh Yen",
@@ -19592,6 +21004,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trường Mẫu Giáo Vành Khuyên",
@@ -19615,6 +21031,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -19631,6 +21051,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -19654,6 +21078,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -19670,6 +21098,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -19693,6 +21125,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 16,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trường mầm non Phường 11",
@@ -19782,6 +21218,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.08,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 68 968.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.62,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -19798,6 +21238,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.83,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 68 968.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.57,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -19814,6 +21258,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.27,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 68 968.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -19830,6 +21278,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.84,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 68 968.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.26,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -19846,6 +21298,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 68 968.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -19862,6 +21318,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.49,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 68 968.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.4,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "phước cát 1",
@@ -19885,6 +21345,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 68 968; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -19901,6 +21365,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 16; на игрока 17 176 против медианы 68 968.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 16,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Trường mầm non Phường 11",
@@ -19990,6 +21458,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 15; на игрока 7 970 против медианы 68 968.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 15,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -20079,6 +21551,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.27,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 68 968.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -20095,6 +21571,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.19,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 7; на игрока 23 993 против медианы 68 968.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.03,
+    "players_rolled": 7,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -20154,6 +21634,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.75,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 1; на игрока 48 702 против медианы 68 968; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "gap",
+    "gap_score": 0.43,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.05,
     "players": [
       {
         "name": null,
@@ -20177,6 +21661,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 2; на игрока 16 397 против медианы 68 968.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": null,
@@ -20206,6 +21694,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 15; на игрока 15 992 против медианы 68 968.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 15,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -20295,6 +21787,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.27,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 68 968.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -20311,6 +21807,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 2; на игрока 16 397 против медианы 68 968.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": null,
@@ -20340,6 +21840,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20356,6 +21860,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20372,6 +21880,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20388,6 +21900,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20404,6 +21920,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Wakeup English",
@@ -20427,6 +21947,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 3,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "English",
@@ -20462,6 +21986,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -20478,6 +22006,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -20494,6 +22026,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.38,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -20510,6 +22046,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.47,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 3; на игрока 91 605 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.26,
+    "players_rolled": 3,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "English",
@@ -20545,6 +22085,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.47,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 3; на игрока 39 850 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.08,
+    "players_rolled": 3,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "English",
@@ -20580,6 +22124,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -20596,6 +22144,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.21,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -20612,6 +22164,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -20628,6 +22184,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -20644,6 +22204,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.16,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -20660,6 +22224,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.69,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -20676,6 +22244,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -20692,6 +22264,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -20708,6 +22284,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.73,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.23,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -20724,6 +22304,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -20740,6 +22324,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.98,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 3; на игрока 79 958 против медианы 106 017.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.23,
+    "players_rolled": 3,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "English",
@@ -20775,6 +22363,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -20791,6 +22383,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.38,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -20807,6 +22403,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20823,6 +22423,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -20912,6 +22516,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20928,6 +22536,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20944,6 +22556,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20960,6 +22576,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -20976,6 +22596,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -20992,6 +22616,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.73,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.23,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -21008,6 +22636,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 26; на игрока 10 570 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Blue Wash",
@@ -21097,6 +22729,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 26; на игрока 4 598 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Blue Wash",
@@ -21186,6 +22822,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -21202,6 +22842,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.21,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -21218,6 +22862,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -21234,6 +22882,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -21250,6 +22902,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.16,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -21266,6 +22922,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.69,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -21282,6 +22942,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -21298,6 +22962,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 26; на игрока 9 226 против медианы 106 017.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 26,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Blue Wash",
@@ -21387,6 +23055,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -21403,6 +23075,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -21419,6 +23095,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -21435,6 +23115,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Ot Care",
@@ -21482,6 +23166,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21498,6 +23186,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21514,6 +23206,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21530,6 +23226,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -21546,6 +23246,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.25,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -21562,6 +23266,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -21578,6 +23286,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.63,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 5; на игрока 54 963 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 5,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Ot Care",
@@ -21625,6 +23337,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21641,6 +23357,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.63,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 5; на игрока 23 910 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.02,
+    "players_rolled": 5,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Ot Care",
@@ -21688,6 +23408,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.14,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 5; на игрока 47 975 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.12,
+    "players_rolled": 5,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Ot Care",
@@ -21735,6 +23459,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.5,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -21751,6 +23479,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.44,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -21767,6 +23499,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -21783,6 +23519,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -21799,6 +23539,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.13,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -21815,6 +23559,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21831,6 +23579,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -21847,6 +23599,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -21863,6 +23619,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -21879,6 +23639,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -21895,6 +23659,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -21942,6 +23710,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21958,6 +23730,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21974,6 +23750,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -21990,6 +23770,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -22006,6 +23790,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -22022,6 +23810,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.9,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -22038,6 +23830,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.73,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.23,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -22054,6 +23850,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.02,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -22070,6 +23870,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 5; на игрока 23 910 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -22117,6 +23921,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -22133,6 +23941,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.21,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -22149,6 +23961,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -22165,6 +23981,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -22181,6 +24001,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.16,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -22197,6 +24021,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.69,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -22213,6 +24041,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -22229,6 +24061,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.14,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 5; на игрока 47 975 против медианы 106 017.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.08,
+    "players_rolled": 5,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -22276,6 +24112,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.54,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -22292,6 +24132,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -22308,6 +24152,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.38,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -22324,6 +24172,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.63,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 5; на игрока 54 963 против медианы 106 017.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 5,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -22371,6 +24223,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 41; на игрока 3 219 против медианы 44 028.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 41,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "08",
@@ -22460,6 +24316,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 23,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Thiện Nhân",
@@ -22549,6 +24409,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -22565,6 +24429,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -22594,6 +24462,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -22610,6 +24482,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -22645,6 +24521,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -22661,6 +24541,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 22; на игрока 5 434 против медианы 44 028.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -22750,6 +24634,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.9,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 2; на игрока 98 401 против медианы 44 028.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.6,
+    "players_rolled": 2,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Nhà Thuốc Long Châu",
@@ -22779,6 +24667,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.11,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 44 028.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.59,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "hiệu thuốc tây",
@@ -22802,6 +24694,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 44 028; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -22818,6 +24714,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.3,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 23; на игрока 11 949 против медианы 44 028.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0,
+    "players_rolled": 23,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -22907,6 +24807,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.7,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 44 028.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -22923,6 +24827,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.45,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 2; на игрока 28 657 против медианы 44 028.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.26,
+    "players_rolled": 2,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": null,
@@ -22952,6 +24860,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.89,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 2; на игрока 42 653 против медианы 44 028.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.37,
+    "players_rolled": 2,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": null,
@@ -22981,6 +24893,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.42,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 44 028.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 3,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": null,
@@ -23016,6 +24932,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 44 028.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -23032,6 +24952,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 44 028; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -23048,6 +24972,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.42,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 3; на игрока 28 423 против медианы 44 028.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": null,
@@ -23083,6 +25011,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.44,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 44 028.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 1.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -23099,6 +25031,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.44,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 44 028.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 1.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -23115,6 +25051,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 22; на игрока 10 903 против медианы 44 028.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Thiện Nhân",
@@ -23204,6 +25144,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.76,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 0; на игрока 239 101 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 1.55,
+    "players_rolled": 0,
+    "osm_density_per_10k": 147.22,
     "players": []
   },
   {
@@ -23220,6 +25164,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23236,6 +25184,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23252,6 +25204,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23268,6 +25224,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23284,6 +25244,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23300,6 +25264,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23316,6 +25284,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -23332,6 +25304,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 146 644.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.75,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -23348,6 +25324,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.21,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -23364,6 +25344,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.77,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 0; на игрока 549 631 против медианы 146 644.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 2.24,
+    "players_rolled": 0,
+    "osm_density_per_10k": 62.01,
     "players": []
   },
   {
@@ -23380,6 +25364,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.36,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 146 644.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -23396,6 +25384,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.11,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 146 644.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.94,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -23412,6 +25404,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.55,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -23428,6 +25424,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.54,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 146 644.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.27,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -23444,6 +25444,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.99,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 1.83,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -23460,6 +25464,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.52,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 146 644; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -23476,6 +25484,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -23492,6 +25504,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.27,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 0; на игрока 479 749 против медианы 146 644.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 2.13,
+    "players_rolled": 0,
+    "osm_density_per_10k": 68.69,
     "players": []
   },
   {
@@ -23508,6 +25524,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 146 644.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.48,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -23524,6 +25544,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.12,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 146 644.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.63,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -23540,6 +25564,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.1,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 3; на игрока 65 601 против медианы 146 644.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.12,
+    "players_rolled": 3,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "lô 1488 đồi tiền phong",
@@ -23575,6 +25603,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.97,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 8; на игрока 16 496 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.15,
+    "players_rolled": 8,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Vien Chau",
@@ -23640,6 +25672,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.16,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 26; на игрока 7 569 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.03,
+    "players_rolled": 26,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": null,
@@ -23729,6 +25765,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 394,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Thiet 168 Restaurant",
@@ -23818,6 +25858,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "ShaShaBBQ",
@@ -23841,6 +25885,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 5,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Grill Buffet Lẩu Nướng",
@@ -23888,6 +25936,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 8,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Nasa Coffee",
@@ -23935,6 +25987,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong",
+    "gap_status": "gap",
+    "gap_score": 2.94,
+    "players_rolled": 857,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23951,6 +26007,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -23967,6 +26027,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 3,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -24002,6 +26066,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.62,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.1,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "bánh xèo Hoàng Dung",
@@ -24025,6 +26093,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -24041,6 +26113,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 393; на игрока 699 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 393,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -24130,6 +26206,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.96,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 8; на игрока 7 164 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.08,
+    "players_rolled": 8,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": "Bamboo",
@@ -24195,6 +26275,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 376; на игрока 318 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 376,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Chè Như Ý",
@@ -24284,6 +26368,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.74,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 3; на игрока 20 458 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.39,
+    "players_rolled": 3,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Cu Tôm Quán",
@@ -24319,6 +26407,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.89,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 4; на игрока 21 326 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.32,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Nasa Coffee",
@@ -24360,6 +26452,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.89,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 4; на игрока 21 318 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.32,
+    "players_rolled": 4,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Nasa Coffee",
@@ -24401,6 +26497,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.03,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 10; на игрока 16 795 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.13,
+    "players_rolled": 10,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": "Quan 123",
@@ -24478,6 +26578,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -24494,6 +26598,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.64,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 5; на игрока 6 559 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 5,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": null,
@@ -24541,6 +26649,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 383; на игрока 626 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 383,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -24630,6 +26742,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.89,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 4; на игрока 21 318 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.32,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Nasa Coffee",
@@ -24671,6 +26787,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.64,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 5; на игрока 6 559 против медианы 16 646; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.1,
+    "players_rolled": 5,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": null,
@@ -24718,6 +26838,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 3; на игрока 20 458 против медианы 11 766.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.4,
+    "players_rolled": 3,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": null,
@@ -24753,6 +26877,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 0.22,
+    "players_rolled": 17,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trường Tiểu học Trần Quốc Toản",
@@ -24842,6 +26970,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": 3,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -24858,6 +26990,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 0.24,
+    "players_rolled": 16,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -24947,6 +27083,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 1.33,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -24976,6 +27116,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 0.31,
+    "players_rolled": 12,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trường Trung học phổ thông Hoàng Hoa Thám",
@@ -25047,6 +27191,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": 0.11,
+    "players_rolled": 27,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Trường Tiểu học Trần Phú",
@@ -25136,6 +27284,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.47,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 13; на игрока 10 152 против медианы 11 766.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0.07,
+    "players_rolled": 13,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": "Trường Tiểu học Xuân An",
@@ -25225,6 +27377,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.16,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 16; на игрока 12 300 против медианы 11 766.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.07,
+    "players_rolled": 16,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Trường Tiểu học Nguyễn Trãi",
@@ -25314,6 +27470,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.87,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 4; на игрока 11 351 против медианы 11 766.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.22,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "cấp 2,3 đăng hà",
@@ -25355,6 +27515,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.81,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 4; на игрока 11 154 против медианы 11 766; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "gap",
+    "gap_score": 0.22,
+    "players_rolled": 4,
+    "osm_density_per_10k": 1.12,
     "players": [
       {
         "name": "Trường Tiểu học Triệu Hải",
@@ -25396,6 +27560,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.35,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 28; на игрока 9 815 против медианы 11 766.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.03,
+    "players_rolled": 28,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "Trường Cao đẳng Du lịch Đà Lạt",
@@ -25485,6 +27653,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.61,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 26; на игрока 4 598 против медианы 11 766.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.01,
+    "players_rolled": 26,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "Trường Tiểu học Thái Phiên",
@@ -25574,6 +27746,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.25,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 6; на игрока 9 552 против медианы 11 766.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 6,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": "Trường Trung học cơ sở Đạ Oai",
@@ -25627,6 +27803,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.68,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 6; на игрока 14 218 против медианы 11 766.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 6,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Trường Tiểu Học An Hiệp",
@@ -25680,6 +27860,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.68,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 6; на игрока 14 212 против медианы 11 766.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.19,
+    "players_rolled": 6,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Trường Tiểu Học An Hiệp",
@@ -25733,6 +27917,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.66,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 9; на игрока 18 661 против медианы 11 766.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.15,
+    "players_rolled": 9,
+    "osm_density_per_10k": 4.65,
     "players": [
       {
         "name": null,
@@ -25804,6 +27992,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 3; на игрока 16 234 против медианы 11 766; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "gap",
+    "gap_score": 0.29,
+    "players_rolled": 3,
+    "osm_density_per_10k": 2.05,
     "players": [
       {
         "name": null,
@@ -25839,6 +28031,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.2,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 2; на игрока 16 397 против медианы 11 766.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.47,
+    "players_rolled": 2,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": "Trường Trung học cơ sở Nam Ban",
@@ -25868,6 +28064,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.26,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 25; на игрока 9 595 против медианы 11 766.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.04,
+    "players_rolled": 25,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "Đại học Yersin",
@@ -25957,6 +28157,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.13,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 7; на игрока 12 181 против медианы 11 766.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 0.15,
+    "players_rolled": 7,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Trường Trung học phổ thông Hoàng Hoa Thám",
@@ -26016,6 +28220,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.73,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 3; на игрока 10 931 против медианы 11 766.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.27,
+    "players_rolled": 3,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": "Buôn chuối",
@@ -26051,6 +28259,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 3,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -26086,6 +28298,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26102,6 +28318,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26118,6 +28338,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26134,6 +28358,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -26150,6 +28378,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -26166,6 +28398,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26182,6 +28418,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -26198,6 +28438,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -26214,6 +28458,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.25,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -26230,6 +28478,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.47,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 3; на игрока 91 605 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.31,
+    "players_rolled": 3,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -26265,6 +28517,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.47,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 3; на игрока 39 850 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.14,
+    "players_rolled": 3,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -26300,6 +28556,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.5,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -26316,6 +28576,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.13,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -26332,6 +28596,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.98,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 3; на игрока 79 958 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.29,
+    "players_rolled": 3,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -26367,6 +28635,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26383,6 +28655,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.44,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -26399,6 +28675,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -26415,6 +28695,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -26431,6 +28715,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -26447,6 +28735,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -26463,6 +28755,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -26479,6 +28775,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 1,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Ngọc Lê",
@@ -26502,6 +28802,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 2,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "A Hà Lâm Giang",
@@ -26531,6 +28835,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -26547,6 +28855,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 15,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "WinMart",
@@ -26636,6 +28948,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 9,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Cô Dũng Hạnh",
@@ -26707,6 +29023,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 10,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Cô Thuấn Kiếu",
@@ -26784,6 +29104,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 19 657; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -26800,6 +29124,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0.26,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 25; на игрока 5 279 против медианы 19 657.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 0,
+    "players_rolled": 25,
+    "osm_density_per_10k": 15.7,
     "players": [
       {
         "name": null,
@@ -26889,6 +29217,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.54,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 15; на игрока 13 120 против медианы 19 657.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 0.05,
+    "players_rolled": 15,
+    "osm_density_per_10k": 6.37,
     "players": [
       {
         "name": "Ngọc Quý",
@@ -26978,6 +29310,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.02,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 1; на игрока 45 404 против медианы 19 657.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.92,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.87,
     "players": [
       {
         "name": "cửa hàng tạp hóa",
@@ -27001,6 +29337,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.75,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 15; на игрока 18 321 против медианы 19 657.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 0.07,
+    "players_rolled": 15,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": "GO! Da Lat",
@@ -27090,6 +29430,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.74,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 15; на игрока 7 970 против медианы 19 657.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 0.03,
+    "players_rolled": 15,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": "GO! Da Lat",
@@ -27179,6 +29523,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.61,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 2; на игрока 30 687 против медианы 19 657.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.5,
+    "players_rolled": 2,
+    "osm_density_per_10k": 4.89,
     "players": [
       {
         "name": "Bach hoa XANH",
@@ -27208,6 +29556,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.86,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 1; на игрока 57 315 против медианы 19 657.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.02,
+    "players_rolled": 1,
+    "osm_density_per_10k": 7.72,
     "players": [
       {
         "name": null,
@@ -27231,6 +29583,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.29,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 4; на игрока 21 318 против медианы 19 657.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 0.24,
+    "players_rolled": 4,
+    "osm_density_per_10k": 3.52,
     "players": [
       {
         "name": "Cô Thuấn Kiếu",
@@ -27272,6 +29628,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.24,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 8; на игрока 20 993 против медианы 19 657.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 0.12,
+    "players_rolled": 9,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": "Chú Hóa Nụ",
@@ -27337,6 +29697,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.27,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 4; на игрока 12 176 против медианы 19 657; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "gap",
+    "gap_score": 0.15,
+    "players_rolled": 4,
+    "osm_density_per_10k": 2.05,
     "players": [
       {
         "name": "Hương Trường",
@@ -27378,6 +29742,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.88,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 3; на игрока 10 931 против медианы 19 657.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.17,
+    "players_rolled": 3,
+    "osm_density_per_10k": 8.56,
     "players": [
       {
         "name": "Chú Hóa Nụ",
@@ -27413,6 +29781,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.26,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 15; на игрока 15 992 против медианы 19 657.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 0.06,
+    "players_rolled": 15,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": "GO! Da Lat",
@@ -27502,6 +29874,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 1; на игрока 85 270 против медианы 19 657.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Winmart+ TTC Plaza Đức Trọng",
@@ -27525,6 +29901,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.88,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 3; на игрока 10 931 против медианы 19 657.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.17,
+    "players_rolled": 3,
+    "osm_density_per_10k": 7.95,
     "players": [
       {
         "name": "Chú Hóa Nụ",
@@ -27560,6 +29940,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 1; на игрока 85 306 против медианы 19 657.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 1,
+    "osm_density_per_10k": 2.94,
     "players": [
       {
         "name": "Winmart+ TTC Plaza Đức Trọng",
@@ -27583,6 +29967,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5.44,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 1.25,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -27599,6 +29987,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27615,6 +30007,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27631,6 +30027,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27647,6 +30047,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27663,6 +30067,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -27679,6 +30087,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27695,6 +30107,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": null,
     "players": [
       {
         "name": null,
@@ -27784,6 +30200,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong",
+    "gap_status": "gap",
+    "gap_score": 0.8,
+    "players_rolled": 44,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -27800,6 +30220,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.29,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 2.13,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -27816,6 +30240,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -27832,6 +30260,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -27848,6 +30280,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 22; на игрока 12 492 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": 62.01,
     "players": [
       {
         "name": null,
@@ -27937,6 +30373,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.53,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 1.5,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -27953,6 +30393,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.28,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 1.44,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -27969,6 +30413,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.72,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -27985,6 +30433,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -28001,6 +30453,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 10,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 2.29,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -28017,6 +30473,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   },
   {
@@ -28033,6 +30493,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 4.27,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.98,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -28049,6 +30513,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 22; на игрока 10 903 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": 68.69,
     "players": [
       {
         "name": null,
@@ -28138,6 +30606,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.71,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.77,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -28154,6 +30626,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 0,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 22; на игрока 5 434 против медианы 106 017; приезжие учтены по 36 чел. на объект размещения; поправка на рост туризма +1.00.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 22,
+    "osm_density_per_10k": 147.22,
     "players": [
       {
         "name": null,
@@ -28243,6 +30719,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.73,
     "opportunity_note": "спрос зоны 239 874 чел.; игроков 0; на игрока 479 749 против медианы 170 540.",
     "region_slug": "zone:dalat-center",
+    "gap_status": "gap",
+    "gap_score": 2,
+    "players_rolled": 0,
+    "osm_density_per_10k": 68.69,
     "players": []
   },
   {
@@ -28259,6 +30739,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 170 540.",
     "region_slug": "zone:lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -28275,6 +30759,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.55,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 170 540.",
     "region_slug": "zone:namban-home",
+    "gap_status": "gap",
+    "gap_score": 0.36,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.95,
     "players": []
   },
   {
@@ -28291,6 +30779,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dalat-tanung",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28307,6 +30799,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lacduong",
+    "gap_status": "gap",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28323,6 +30819,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28339,6 +30839,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-donduong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28355,6 +30859,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.58,
     "opportunity_note": "спрос зоны 131 972 чел.; игроков 0; на игрока 263 944 против медианы 170 540.",
     "region_slug": "vn-lamdong-baolam",
+    "gap_status": "gap",
+    "gap_score": 1.51,
+    "players_rolled": 0,
+    "osm_density_per_10k": 15.7,
     "players": []
   },
   {
@@ -28371,6 +30879,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 8.02,
     "opportunity_note": "спрос зоны 196 803 чел.; игроков 0; на игрока 393 606 против медианы 170 540.",
     "region_slug": "vn-lamdong-baoloc",
+    "gap_status": "gap",
+    "gap_score": 1.84,
+    "players_rolled": 0,
+    "osm_density_per_10k": 6.37,
     "players": []
   },
   {
@@ -28387,6 +30899,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.73,
     "opportunity_note": "спрос зоны 45 404 чел.; игроков 0; на игрока 90 807 против медианы 170 540.",
     "region_slug": "vn-lamdong-cattien",
+    "gap_status": "gap",
+    "gap_score": 0.63,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.87,
     "players": []
   },
   {
@@ -28403,6 +30919,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-ductrong",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28419,6 +30939,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": null,
     "opportunity_note": null,
     "region_slug": "vn-lamdong-dilinh",
+    "gap_status": "gap",
+    "gap_score": 1,
+    "players_rolled": 0,
+    "osm_density_per_10k": null,
     "players": []
   },
   {
@@ -28435,6 +30959,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 6.22,
     "opportunity_note": "спрос зоны 119 551 чел.; игроков 0; на игрока 239 101 против медианы 170 540.",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "gap_status": "gap",
+    "gap_score": 1.43,
+    "players_rolled": 0,
+    "osm_density_per_10k": 147.22,
     "players": []
   },
   {
@@ -28451,6 +30979,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 306 чел.; игроков 0; на игрока 170 612 против медианы 170 540.",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.94,
     "players": []
   },
   {
@@ -28467,6 +30999,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 1.55,
     "opportunity_note": "спрос зоны 32 793 чел.; игроков 0; на игрока 65 587 против медианы 170 540.",
     "region_slug": "vn-lamdong-lamha-namban",
+    "gap_status": "gap",
+    "gap_score": 0.36,
+    "players_rolled": 0,
+    "osm_density_per_10k": 8.56,
     "players": []
   },
   {
@@ -28483,6 +31019,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.66,
     "opportunity_note": "спрос зоны 44 617 чел.; игроков 0; на игрока 89 234 против медианы 170 540; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-dahuoai",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 1.12,
     "players": []
   },
   {
@@ -28499,6 +31039,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 9.22,
     "opportunity_note": "спрос зоны 274 816 чел.; игроков 0; на игрока 549 631 против медианы 170 540.",
     "region_slug": "vn-lamdong-dalat",
+    "gap_status": "gap",
+    "gap_score": 2.11,
+    "players_rolled": 0,
+    "osm_density_per_10k": 62.01,
     "players": []
   },
   {
@@ -28515,6 +31059,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.81,
     "opportunity_note": "спрос зоны 61 374 чел.; игроков 0; на игрока 122 747 против медианы 170 540.",
     "region_slug": "vn-lamdong-damrong",
+    "gap_status": "gap",
+    "gap_score": 0.87,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.89,
     "players": []
   },
   {
@@ -28531,6 +31079,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 3.57,
     "opportunity_note": "спрос зоны 57 315 чел.; игроков 0; на игрока 114 629 против медианы 170 540.",
     "region_slug": "vn-lamdong-dateh",
+    "gap_status": "gap",
+    "gap_score": 0.82,
+    "players_rolled": 0,
+    "osm_density_per_10k": 7.72,
     "players": []
   },
   {
@@ -28547,6 +31099,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 5,
     "opportunity_note": "спрос зоны 85 270 чел.; игроков 0; на игрока 170 540 против медианы 170 540.",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "gap_status": "gap",
+    "gap_score": 1.15,
+    "players_rolled": 0,
+    "osm_density_per_10k": 3.52,
     "players": []
   },
   {
@@ -28563,6 +31119,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 7.44,
     "opportunity_note": "спрос зоны 167 948 чел.; игроков 0; на игрока 335 896 против медианы 170 540.",
     "region_slug": "vn-lamdong-lamha",
+    "gap_status": "gap",
+    "gap_score": 1.71,
+    "players_rolled": 0,
+    "osm_density_per_10k": 4.65,
     "players": []
   },
   {
@@ -28579,6 +31139,10 @@ export const GEN_MARKETS: GenMarket[] = [
     "opportunity_score": 2.98,
     "opportunity_note": "спрос зоны 48 702 чел.; игроков 0; на игрока 97 404 против медианы 170 540; зона размечена в OSM заметно реже прочих, оценка ограничена пятью.",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "gap_status": "no_data:osm_sparse",
+    "gap_score": null,
+    "players_rolled": 0,
+    "osm_density_per_10k": 2.05,
     "players": []
   }
 ];
@@ -28774,8 +31338,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:weather",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T12:30:11.996239+00:00",
-    "last_ok_at": "2026-09-15T12:30:11.996239+00:00"
+    "last_run_at": "2026-09-15T13:00:26.281001+00:00",
+    "last_ok_at": "2026-09-15T13:00:26.281001+00:00"
   }
 ];
 

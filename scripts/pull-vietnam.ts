@@ -83,6 +83,7 @@ interface Topic { region_slug: string | null; title_ru: string | null; title_vi:
 interface Insight { kind: string | null; title_ru: string | null; body_ru: string | null; score: number | null; confidence: string | null; status: string | null; created_at: string | null }
 interface Entity { id: string; slug: string; kind: string | null; name: string | null; name_vi: string | null; name_ru: string | null; region_slug: string | null; summary_ru: string | null }
 interface Edge { src: string; dst: string; relation: string | null; weight: number | null; weight_unit: string | null; source_type: string | null; note: string | null }
+interface MarketNode { slug: string; attrs: Record<string, unknown> | null }
 interface EntityMetric { entity_id: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 const iso = (d: Date) => d.toISOString();
@@ -110,6 +111,13 @@ async function pull() {
     table<EntityMetric>('entity_metrics', 'select=entity_id,metric,period,value,unit,source_type,source_url')
   ]);
 
+  // Узлы рынков графа несут то, чего нет в реестре markets: свёрнутые по дереву
+  // игроки, плотность разметки OSM и вердикт gap_status. Ноль игроков при
+  // плотности 1,1 и ноль при 62 это разные нули, и без вердикта первый читается
+  // как возможность. Берём только эти узлы и только колонку attrs.
+  const marketNodes = await table<MarketNode>('entities', 'select=slug,attrs&kind=eq.market');
+  const nodeBySlug = new Map(marketNodes.map((n) => [n.slug, n.attrs ?? {}]));
+
   // Календарь берём только экономический: государственные праздники и
   // фестивали двигают спрос на рынках. Учебные периоды и расписание школ это
   // личный контекст владельца, он живёт в консоли региона, а не в атласе.
@@ -131,16 +139,26 @@ async function pull() {
     list.push(p);
     playersByMarket.set(p.market_id, list);
   }
-  const marketRows = markets.map(({ region_id, ...rest }) => ({
+  const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
+  const str = (v: unknown) => (typeof v === 'string' ? v : null);
+  const marketRows = markets.map(({ region_id, ...rest }) => {
+    const region_slug = slugById.get(region_id) ?? region_id;
+    const attrs = nodeBySlug.get(`market:${region_slug}:${rest.slug}`) ?? {};
+    return {
     ...rest,
-    region_slug: slugById.get(region_id) ?? region_id,
+    region_slug,
+    gap_status: str(attrs.gap_status),
+    gap_score: num(attrs.gap_score),
+    players_rolled: num(attrs.players_rolled),
+    osm_density_per_10k: num(attrs.osm_density_per_10k),
     // Игроков в файл целиком не кладём: раздел показывает имена первых, а счёт
     // берёт из players_count. Координаты не рисуются вовсе.
     players: (playersByMarket.get(rest.id) ?? [])
       .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
       .slice(0, 12)
       .map(({ name, rating, reviews, source }) => ({ name, rating, reviews, source }))
-  }));
+    };
+  });
 
   const entitySlug = new Map(entities.map((e) => [e.id, e.slug]));
   const entityRows = entities.map(({ id, ...rest }) => rest);
@@ -150,7 +168,6 @@ async function pull() {
     ...rest,
     weight: rest.weight === null || rest.weight === undefined ? null : Number(rest.weight)
   }));
-  const num = (v: unknown) => (v === null || v === undefined ? null : Number(v));
   const entityMetricRows = entityMetrics.map(({ entity_id, ...rest }) => ({
     entity_slug: entitySlug.get(entity_id) ?? entity_id,
     ...rest,
@@ -194,7 +211,7 @@ ${missing.length ? `// Таблиц ещё нет в базе: ${missing.join(',
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
-export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; gap_status: string | null; gap_score: number | null; players_rolled: number | null; osm_density_per_10k: number | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
