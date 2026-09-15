@@ -7,13 +7,13 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T12:41:44.089Z
+// Снято: 2026-09-15T12:47:33.009Z
 // Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1500 · edges 5582 · entity_metrics 723
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
-export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
@@ -24,7 +24,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T12:41:44.089Z";
+export const generatedAt = "2026-09-15T12:47:33.009Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -8619,6 +8619,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8634,6 +8635,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 27,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8722,6 +8724,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8737,6 +8740,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8752,6 +8756,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8767,6 +8772,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8782,6 +8788,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8797,6 +8804,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8812,6 +8820,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8827,6 +8836,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8842,6 +8852,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8857,6 +8868,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8872,6 +8884,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8887,6 +8900,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8902,6 +8916,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8917,6 +8932,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -8932,6 +8948,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9020,6 +9037,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9108,6 +9126,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9130,6 +9149,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9145,6 +9165,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9233,6 +9254,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Пекарни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9248,6 +9270,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9263,6 +9286,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9278,6 +9302,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9366,6 +9391,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9381,6 +9407,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9396,6 +9423,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9418,6 +9446,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9433,6 +9462,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9448,6 +9478,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9463,6 +9494,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9478,6 +9510,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9566,6 +9599,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9654,6 +9688,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9669,6 +9704,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9684,6 +9720,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9706,6 +9743,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9728,6 +9766,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9743,6 +9782,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9758,6 +9798,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9773,6 +9814,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9861,6 +9903,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9883,6 +9926,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Банки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9898,6 +9942,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -9986,6 +10031,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10001,6 +10047,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10016,6 +10063,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10031,6 +10079,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10046,6 +10095,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10068,6 +10118,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10090,6 +10141,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10105,6 +10157,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10139,6 +10192,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10154,6 +10208,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10169,6 +10224,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10257,6 +10313,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10345,6 +10402,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10360,6 +10418,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10375,6 +10434,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10390,6 +10450,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10405,6 +10466,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10427,6 +10489,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10442,6 +10505,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 30,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10530,6 +10594,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10545,6 +10610,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Бары",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10560,6 +10626,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 11,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10642,6 +10709,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10657,6 +10725,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10685,6 +10754,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10700,6 +10770,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10715,6 +10786,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10730,6 +10802,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10752,6 +10825,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10774,6 +10848,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10789,6 +10864,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10804,6 +10880,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 11,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10886,6 +10963,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 11,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10968,6 +11046,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -10990,6 +11069,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11005,6 +11085,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11020,6 +11101,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11035,6 +11117,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11057,6 +11140,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11072,6 +11156,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11094,6 +11179,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 11,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11176,6 +11262,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11191,6 +11278,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Салоны красоты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11213,6 +11301,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11235,6 +11324,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11250,6 +11340,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11265,6 +11356,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11280,6 +11372,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11295,6 +11388,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11310,6 +11404,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11325,6 +11420,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11340,6 +11436,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11355,6 +11452,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11377,6 +11475,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11392,6 +11491,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11407,6 +11507,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11429,6 +11530,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11451,6 +11553,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11466,6 +11569,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11481,6 +11585,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11496,6 +11601,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11511,6 +11617,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11526,6 +11633,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11548,6 +11656,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11563,6 +11672,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда машин",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11578,6 +11688,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11600,6 +11711,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11615,6 +11727,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11637,6 +11750,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11652,6 +11766,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11674,6 +11789,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11702,6 +11818,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 20,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11790,6 +11907,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 19,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11878,6 +11996,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11900,6 +12019,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11915,6 +12035,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11930,6 +12051,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -11945,6 +12067,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 20,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12033,6 +12156,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12048,6 +12172,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12063,6 +12188,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12085,6 +12211,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12107,6 +12234,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12122,6 +12250,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12137,6 +12266,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 19,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12225,6 +12355,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12240,6 +12371,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Автосервисы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12255,6 +12387,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12289,6 +12422,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12304,6 +12438,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12326,6 +12461,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12341,6 +12477,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12356,6 +12493,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12371,6 +12509,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12393,6 +12532,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12408,6 +12548,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12430,6 +12571,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12445,6 +12587,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12479,6 +12622,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12507,6 +12651,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12522,6 +12667,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12537,6 +12683,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12552,6 +12699,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12567,6 +12715,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12582,6 +12731,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12597,6 +12747,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12612,6 +12763,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12640,6 +12792,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12655,6 +12808,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Клиники и врачи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12670,6 +12824,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12758,6 +12913,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 316,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12846,6 +13002,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 10,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12922,6 +13079,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -12992,6 +13150,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13014,6 +13173,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 8,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13078,6 +13238,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13093,6 +13254,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13163,6 +13325,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 300,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13251,6 +13414,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13285,6 +13449,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13355,6 +13520,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 23,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13443,6 +13609,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 332,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13531,6 +13698,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13565,6 +13733,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 292,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13653,6 +13822,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13705,6 +13875,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13757,6 +13928,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13797,6 +13969,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13837,6 +14010,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13925,6 +14099,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -13940,6 +14115,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Кофейни",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14010,6 +14186,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14032,6 +14209,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14047,6 +14225,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 66,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14135,6 +14314,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14150,6 +14330,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14165,6 +14346,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14193,6 +14375,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14208,6 +14391,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 64,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14296,6 +14480,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 96,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14384,6 +14569,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 7,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14442,6 +14628,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 66,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14530,6 +14717,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 63,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14618,6 +14806,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 11,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14700,6 +14889,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 10,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14776,6 +14966,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14791,6 +14982,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14806,6 +14998,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14894,6 +15087,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14928,6 +15122,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14943,6 +15138,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14965,6 +15161,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14980,6 +15177,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Магазины у дома",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -14995,6 +15193,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15010,6 +15209,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15025,6 +15225,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15040,6 +15241,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15055,6 +15257,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15070,6 +15273,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15085,6 +15289,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15100,6 +15305,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15115,6 +15321,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15130,6 +15337,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15145,6 +15353,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15160,6 +15369,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15175,6 +15385,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15190,6 +15401,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15205,6 +15417,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15220,6 +15433,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15235,6 +15449,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15250,6 +15465,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15265,6 +15481,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15280,6 +15497,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15295,6 +15513,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15310,6 +15529,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Коворкинги",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15325,6 +15545,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15347,6 +15568,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15362,6 +15584,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15384,6 +15607,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15399,6 +15623,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15414,6 +15639,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15429,6 +15655,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15444,6 +15671,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15459,6 +15687,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15474,6 +15703,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15489,6 +15719,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15504,6 +15735,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15526,6 +15758,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15548,6 +15781,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15563,6 +15797,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15578,6 +15813,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15593,6 +15829,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15608,6 +15845,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15623,6 +15861,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15638,6 +15877,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15653,6 +15893,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15675,6 +15916,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Стоматологии",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15690,6 +15932,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 52,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15778,6 +16021,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15793,6 +16037,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15808,6 +16053,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15848,6 +16094,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15900,6 +16147,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 52,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -15988,6 +16236,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16003,6 +16252,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16018,6 +16268,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16046,6 +16297,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16061,6 +16313,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16076,6 +16329,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 49,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16164,6 +16418,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16192,6 +16447,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16220,6 +16476,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16254,6 +16511,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16288,6 +16546,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16303,6 +16562,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16318,6 +16578,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16333,6 +16594,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 49,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16421,6 +16683,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16455,6 +16718,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Уличная еда",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16470,6 +16734,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16485,6 +16750,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16531,6 +16797,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16546,6 +16813,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16561,6 +16829,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16576,6 +16845,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16598,6 +16868,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16613,6 +16884,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16628,6 +16900,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16643,6 +16916,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16658,6 +16932,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16704,6 +16979,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16719,6 +16995,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16734,6 +17011,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16756,6 +17034,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16771,6 +17050,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16786,6 +17066,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16801,6 +17082,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16816,6 +17098,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16838,6 +17121,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16884,6 +17168,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16930,6 +17215,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Цветочные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16945,6 +17231,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -16960,6 +17247,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 14,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17048,6 +17336,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17063,6 +17352,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17078,6 +17368,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17093,6 +17384,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17108,6 +17400,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17123,6 +17416,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17138,6 +17432,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17153,6 +17448,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17168,6 +17464,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17183,6 +17480,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 14,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17271,6 +17569,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 14,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17359,6 +17658,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17374,6 +17674,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17389,6 +17690,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17404,6 +17706,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17419,6 +17722,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17434,6 +17738,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17449,6 +17754,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 14,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17537,6 +17843,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17552,6 +17859,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спортзалы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17567,6 +17875,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17589,6 +17898,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 180,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17677,6 +17987,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 183,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17765,6 +18076,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17780,6 +18092,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17808,6 +18121,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17830,6 +18144,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17845,6 +18160,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17860,6 +18176,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17875,6 +18192,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17903,6 +18221,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 180,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -17991,6 +18310,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 178,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18079,6 +18399,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18125,6 +18446,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18140,6 +18462,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18162,6 +18485,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18208,6 +18532,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18223,6 +18548,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18238,6 +18564,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18266,6 +18593,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18281,6 +18609,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18296,6 +18625,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Гостевые дома и хоумстеи",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18311,6 +18641,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 282,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18399,6 +18730,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18427,6 +18759,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18467,6 +18800,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18495,6 +18829,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18529,6 +18864,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18544,6 +18880,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18584,6 +18921,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": null,
     "players_source": null,
+    "players_counted_at": null,
     "size_vnd_year": 11007300000000,
     "size_source_type": "official",
     "size_source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html",
@@ -18599,6 +18937,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18614,6 +18953,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18648,6 +18988,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18736,6 +19077,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18758,6 +19100,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18773,6 +19116,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 287,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18861,6 +19205,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 280,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18949,6 +19294,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18964,6 +19310,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -18998,6 +19345,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19026,6 +19374,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19066,6 +19415,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19100,6 +19450,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19115,6 +19466,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19143,6 +19495,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Отели",
     "players_count": 279,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19231,6 +19584,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19253,6 +19607,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19268,6 +19623,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19290,6 +19646,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19305,6 +19662,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19327,6 +19685,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 16,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19415,6 +19774,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19430,6 +19790,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19445,6 +19806,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19460,6 +19822,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19475,6 +19838,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19490,6 +19854,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19512,6 +19877,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19527,6 +19893,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 16,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19615,6 +19982,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19703,6 +20071,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19718,6 +20087,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 7,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19776,6 +20146,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19798,6 +20169,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19826,6 +20198,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19914,6 +20287,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19929,6 +20303,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Детские сады",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19957,6 +20332,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19972,6 +20348,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -19987,6 +20364,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20002,6 +20380,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20017,6 +20396,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20039,6 +20419,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20073,6 +20454,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20088,6 +20470,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20103,6 +20486,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20118,6 +20502,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20152,6 +20537,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20186,6 +20572,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20201,6 +20588,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20216,6 +20604,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20231,6 +20620,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20246,6 +20636,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20261,6 +20652,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20276,6 +20668,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20291,6 +20684,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20306,6 +20700,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20321,6 +20716,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20336,6 +20732,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Языковые школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20370,6 +20767,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20385,6 +20783,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20400,6 +20799,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20415,6 +20815,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20503,6 +20904,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20518,6 +20920,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20533,6 +20936,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20548,6 +20952,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20563,6 +20968,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20578,6 +20984,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20593,6 +21000,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20681,6 +21089,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20769,6 +21178,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20784,6 +21194,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20799,6 +21210,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20814,6 +21226,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20829,6 +21242,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20844,6 +21258,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20859,6 +21274,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20874,6 +21290,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20962,6 +21379,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20977,6 +21395,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Прачечные",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -20992,6 +21411,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21007,6 +21427,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21053,6 +21474,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21068,6 +21490,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21083,6 +21506,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21098,6 +21522,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21113,6 +21538,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21128,6 +21554,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21143,6 +21570,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21189,6 +21617,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21204,6 +21633,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21250,6 +21680,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21296,6 +21727,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21311,6 +21743,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21326,6 +21759,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21341,6 +21775,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21356,6 +21791,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21371,6 +21807,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21386,6 +21823,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21401,6 +21839,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21416,6 +21855,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21431,6 +21871,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Массаж",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21446,6 +21887,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21492,6 +21934,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21507,6 +21950,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21522,6 +21966,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21537,6 +21982,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21552,6 +21998,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21567,6 +22014,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21582,6 +22030,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21597,6 +22046,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21612,6 +22062,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21658,6 +22109,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21673,6 +22125,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21688,6 +22141,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21703,6 +22157,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21718,6 +22173,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21733,6 +22189,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21748,6 +22205,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21763,6 +22221,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21809,6 +22268,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21824,6 +22284,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21839,6 +22300,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21854,6 +22316,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аренда мотобайков",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21900,6 +22363,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 41,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -21988,6 +22452,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 23,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22076,6 +22541,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22091,6 +22557,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22119,6 +22586,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22134,6 +22602,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22168,6 +22637,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22183,6 +22653,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22271,6 +22742,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22299,6 +22771,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22321,6 +22794,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22336,6 +22810,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 23,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22424,6 +22899,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22439,6 +22915,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22467,6 +22944,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22495,6 +22973,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22529,6 +23008,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22544,6 +23024,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22559,6 +23040,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22593,6 +23075,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22608,6 +23091,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22623,6 +23107,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Аптеки",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22711,6 +23196,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22726,6 +23212,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22741,6 +23228,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22756,6 +23244,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22771,6 +23260,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22786,6 +23276,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22801,6 +23292,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22816,6 +23308,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22831,6 +23324,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22846,6 +23340,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22861,6 +23356,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22876,6 +23372,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22891,6 +23388,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22906,6 +23404,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22921,6 +23420,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22936,6 +23436,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22951,6 +23452,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22966,6 +23468,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22981,6 +23484,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -22996,6 +23500,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23011,6 +23516,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23026,6 +23532,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Агентства недвижимости",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23060,6 +23567,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 8,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23124,6 +23632,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23212,6 +23721,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 394,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23300,6 +23810,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23322,6 +23833,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23368,6 +23880,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23414,6 +23927,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": null,
     "players_source": null,
+    "players_counted_at": null,
     "size_vnd_year": 45599000000000,
     "size_source_type": "official",
     "size_source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html",
@@ -23429,6 +23943,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23444,6 +23959,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23478,6 +23994,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23500,6 +24017,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23515,6 +24033,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 393,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23603,6 +24122,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 8,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23667,6 +24187,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 376,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23755,6 +24276,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23789,6 +24311,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23829,6 +24352,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23869,6 +24393,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 10,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23945,6 +24470,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -23960,6 +24486,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24006,6 +24533,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 383,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24094,6 +24622,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24134,6 +24663,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Рестораны",
     "players_count": 5,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24180,6 +24710,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24214,6 +24745,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 17,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24302,6 +24834,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24317,6 +24850,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 16,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24405,6 +24939,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24433,6 +24968,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24503,6 +25039,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 27,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24591,6 +25128,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 13,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24679,6 +25217,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 16,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24767,6 +25306,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24807,6 +25347,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24847,6 +25388,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 28,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -24935,6 +25477,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 26,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25023,6 +25566,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25075,6 +25619,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25127,6 +25672,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 6,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25179,6 +25725,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25249,6 +25796,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25283,6 +25831,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25311,6 +25860,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 25,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25399,6 +25949,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 7,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25457,6 +26008,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Школы",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25491,6 +26043,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25525,6 +26078,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25540,6 +26094,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25555,6 +26110,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25570,6 +26126,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25585,6 +26142,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25600,6 +26158,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25615,6 +26174,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25630,6 +26190,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25645,6 +26206,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25660,6 +26222,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25694,6 +26257,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25728,6 +26292,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25743,6 +26308,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25758,6 +26324,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25792,6 +26359,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25807,6 +26375,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25822,6 +26391,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25837,6 +26407,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25852,6 +26423,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25867,6 +26439,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25882,6 +26455,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Спа",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25897,6 +26471,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25919,6 +26494,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25947,6 +26523,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -25962,6 +26539,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26050,6 +26628,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 9,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26120,6 +26699,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 10,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26196,6 +26776,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26211,6 +26792,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 25,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26299,6 +26881,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26387,6 +26970,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26409,6 +26993,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26497,6 +27082,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26585,6 +27171,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 2,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26613,6 +27200,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26635,6 +27223,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26675,6 +27264,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 8,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26739,6 +27329,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 4,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26779,6 +27370,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26813,6 +27405,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 15,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26901,6 +27494,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26923,6 +27517,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 3,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26957,6 +27552,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Супермаркеты",
     "players_count": 1,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26979,6 +27575,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -26994,6 +27591,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27009,6 +27607,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27024,6 +27623,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27039,6 +27639,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27054,6 +27655,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27069,6 +27671,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27084,6 +27687,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27172,6 +27776,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": null,
     "players_source": null,
+    "players_counted_at": null,
     "size_vnd_year": 648300000000,
     "size_source_type": "official",
     "size_source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html",
@@ -27187,6 +27792,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27202,6 +27808,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27217,6 +27824,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27232,6 +27840,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27320,6 +27929,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27335,6 +27945,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27350,6 +27961,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27365,6 +27977,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27380,6 +27993,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27395,6 +28009,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27410,6 +28025,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27425,6 +28041,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27513,6 +28130,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27528,6 +28146,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Турагентства",
     "players_count": 22,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27616,6 +28235,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27631,6 +28251,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27646,6 +28267,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27661,6 +28283,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27676,6 +28299,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27691,6 +28315,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27706,6 +28331,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27721,6 +28347,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27736,6 +28363,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27751,6 +28379,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27766,6 +28395,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27781,6 +28411,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27796,6 +28427,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27811,6 +28443,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27826,6 +28459,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:15:51.897364+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27841,6 +28475,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:17:03.867381+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27856,6 +28491,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27871,6 +28507,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27886,6 +28523,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27901,6 +28539,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27916,6 +28555,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -27931,6 +28571,7 @@ export const GEN_MARKETS: GenMarket[] = [
     "name_ru": "Ветклиники",
     "players_count": 0,
     "players_source": "osm-overpass",
+    "players_counted_at": "2026-09-15T12:28:33.799388+00:00",
     "size_vnd_year": null,
     "size_source_type": null,
     "size_source_url": null,
@@ -28098,15 +28739,15 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:graph_insights",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T12:35:42.31432+00:00",
-    "last_ok_at": "2026-09-15T12:35:42.31432+00:00"
+    "last_run_at": "2026-09-15T12:43:13.739386+00:00",
+    "last_ok_at": "2026-09-15T12:43:13.739386+00:00"
   },
   {
     "job": "region:graph_mentions",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T12:31:59.657416+00:00",
-    "last_ok_at": "2026-09-15T12:31:59.657416+00:00"
+    "last_run_at": "2026-09-15T12:42:00.46129+00:00",
+    "last_ok_at": "2026-09-15T12:42:00.46129+00:00"
   },
   {
     "job": "region:markets",
@@ -28210,8 +28851,8 @@ export const GEN_TOPICS: GenTopic[] = [
 export const GEN_INSIGHTS: GenInsight[] = [
   {
     "kind": "trend",
-    "title_ru": "GRDP Лам Донга ускорился с 4.02% до 6.42% (+59.7%) на фоне сжатия населения - производительность на душу растёт нелинейно",
-    "body_ru": "Темп роста GRDP провинции вырос с 4.02% (2024) до 6.42% (2025), то есть ускорение составило 59.7% - нетипично высокий показатель для устоявшегося региона. При этом население трёх крупнейших городских центров (Далат -13.9%, Бао Лок -7.2%, Лам Ха -6.7%) сокращается административно. Неочевидно: если физический объём экономики растёт быстрее, а население реестра сокращается, GRDP на душу населения показывает двойной эффект роста, что привлечёт внимание инвесторов в ближайший квартал. Если тренд сохранится ещё 2 квартала, провинция войдёт в топ-5 по GRDP per capita среди горных регионов Вьетнама и получит повышенное федеральное финансирование инфраструктуры.",
+    "title_ru": "GRDP Лам Донг +59,7% ускорение (4,02% -> 6,42%) при росте туристов всего +20,6% - структурный сдвиг вне туризма",
+    "body_ru": "GRDP Лам Донга ускорился с 4,02% до 6,42% (+59,7% к темпу роста), тогда как туристический поток вырос лишь на 20,6% (20,7 млн -> 25 млн цель 2026). Если бы рост был чисто туристическим, оба показателя должны были двигаться синхронно. Расхождение указывает на вклад несельскохозяйственных секторов - возможно, логистики вокруг зоны Льенхыонга (degree 39, weighted 138) или агропереработки (Vinamilk+Ductrong кластер). Проверяемое следствие: если к середине 2027 года в реестре появятся новые промышленные или логистические игроки в Дык Чонге, это подтвердит гипотезу о несельскохозяйственном драйвере GRDP.",
     "score": 0.72,
     "confidence": "medium",
     "status": "new",
@@ -28245,10 +28886,10 @@ export const GEN_INSIGHTS: GenInsight[] = [
     "created_at": "2026-09-15T12:24:50.529385+00:00"
   },
   {
-    "kind": "gap",
-    "title_ru": "Бао Лок теряет 7,2% населения при нулевом покрытии банками и детсадами - инфраструктурная ловушка",
-    "body_ru": "vn-lamdong-baoloc потерял 15 304 жителя (-7,2%) за 2025-2026 год, а market_gaps фиксирует 0 игроков в сегментах bank и kindergarten с demand_score=10. Одновременно Бао Лок является bridge-узлом для 3 кластеров - то есть он экономически активен, но инфраструктурно не обеспечен. Отток населения при наличии спроса на базовые услуги - нетривиальная комбинация, указывающая на административный или регуляторный барьер входа. Следствие: если банк (например, company:bac-a-bank из кластера с TH Group) откроет отделение в Бао Локе в течение 3 месяцев, отток населения должен замедлиться в следующем квартале.",
-    "score": 0.71,
+    "kind": "cluster",
+    "title_ru": "Бао Лок: 7 рыночных дыр одновременно при population -7,2% - город системно недообслужен",
+    "body_ru": "В Бао Локе зафиксировано 0 игроков сразу в 7 нишах: турагентства, массаж, спа, автосервисы, детские сады, пекарни, банки - все с gap_score 2,13. Это концентрация пробелов в одном административном центре с населением 196 тыс. человек нетипична: обычно хотя бы базовые услуги присутствуют. Возможная причина - реорганизация 2025 года ещё не обновила реестр игроков, либо бизнес реально ушёл вслед за административным переделом. Проверяемое следствие: первый игрок, открывшийся в любой из 7 ниш в Бао Локе до конца Q1 2027, получит монопольный gap_score без конкуренции минимум на 3-6 месяцев.",
+    "score": 0.82,
     "confidence": "medium",
     "status": "dismissed",
     "created_at": "2026-09-15T12:18:33.684506+00:00"
@@ -28263,10 +28904,19 @@ export const GEN_INSIGHTS: GenInsight[] = [
     "created_at": "2026-09-15T12:18:33.684506+00:00"
   },
   {
-    "kind": "hypothesis",
-    "title_ru": "Vinamilk (доля 50%, мост 6 кластеров) контролирует цепочку от фермы Дык Чонг до полки - риск вертикальной блокировки",
-    "body_ru": "Vinamilk наращивает долю рынка молочной продукции с 43.7% (2021) до 50% (2024) и одновременно является мостом между 6 кластерами (edges_out=7), включая кластер с Moc Chau Milk, GTNFoods и SCIC в районе Дык Чонг (degree 46). HHI молочного сектора Вьетнама - 4508.7, что соответствует высококонцентрированному рынку. Неочевидно: объединение производственной базы в Дык Чонге с розничной сетью через WinCommerce (Masan, тоже мост) создаёт два конкурирующих вертикально интегрированных стека. Если Vinamilk закроет прямые поставки в независимые кафе Лам Донга (сейчас 0 зарегистрированных кофеен в Динь Ване, gap_score 2.13), через 2 месяца цена молока для мелких операторов вырастет на 10-15%.",
-    "score": 0.74,
+    "kind": "gap",
+    "title_ru": "Рестораны Лам Донг: спрос 45,6 трлн донг делится на 857 игроков - самый высокий gap_score 2,94",
+    "body_ru": "При годовом спросе 45,6 трлн VND и 857 зарегистрированных игроках выручка на одного участника составляет ~53 млн VND - это самый высокий gap_score (2,94) среди всех рынков провинции. Неочевидно то, что при видимой насыщенности (857 заведений) индикатор разрыва всё равно максимален, что указывает на концентрацию предложения в Далате при дефиците в периферийных районах. Если открыть форматные сети в Бао Локе и Лам Ха, где параллельно зафиксированы нулевые игроки в fast_food (gap_score 2,13), через 2-3 месяца после открытия выручка должна превысить среднепровинциальный ориентир 53 млн VND/игрок.",
+    "score": 0.88,
+    "confidence": "high",
+    "status": "dismissed",
+    "created_at": "2026-09-15T12:17:23.521447+00:00"
+  },
+  {
+    "kind": "trend",
+    "title_ru": "Vinamilk рыночная доля +14,4% (43,7% -> 50%) совпадает с кластером Дык Чонг - локальное производство усиливает позицию",
+    "body_ru": "Доля Vinamilk выросла с 43,7% (2021) до 50% (2024), достигнув абсолютного большинства рынка молочной продукции Вьетнама. При этом Vinamilk входит в ownership-кластер с активами в Дык Чонге (vn-lamdong-x-ductrong) и является мостом между 6 кластерами - максимум среди компаний. Неочевидно, что локальное производство в Лам Донге становится конкурентным преимуществом на национальном уровне: близость к сырью снижает себестоимость. Если Vinamilk расширит мощности в Дык Чонге в 2026-2027, её доля может превысить 55% через 18 месяцев, вытесняя импортные бренды из vn-dairy (HHI уже 3849).",
+    "score": 0.77,
     "confidence": "medium",
     "status": "new",
     "created_at": "2026-09-15T12:17:23.521447+00:00"
@@ -28281,29 +28931,20 @@ export const GEN_INSIGHTS: GenInsight[] = [
     "created_at": "2026-09-15T12:17:23.521447+00:00"
   },
   {
-    "kind": "trend",
-    "title_ru": "Technocom вырос на 76% по выручке - Vingroup создаёт параллельную экономику в регионе",
-    "body_ru": "Выручка company:technocom (Vingroup) за 2024-2025 выросла с 189 трлн до 332,77 трлн VND (+76,1%), при этом Vingroup владеет кластером из 10 компаний (vinhomes, vinfast, vincom-retail, vinpearl и др.). Degree vn-lamdong-dalat=144 коррелирует с присутствием Vinpearl в регионе. Неочевидно, что такой рост выручки при наличии замкнутой экосистемы (отели-ретейл-авто-телеком) сокращает долю независимых местных операторов. Следствие: через 12 месяцев доля Vingroup-аффилированных объектов в туристической выручке Лам Донга превысит 30%, что будет видно в данных по налоговым поступлениям от юрлиц провинции.",
-    "score": 0.74,
+    "kind": "hypothesis",
+    "title_ru": "Зона Льенхыонг: 0 магазинов у дома при weighted 138 - аэропортовый ритейл полностью отсутствует",
+    "body_ru": "Узел zone:lienkhuong имеет degree 39 и weighted 138 - третий по весу нерегиональный узел после vn-lamdong и Народного комитета. Однако market:zone:lienkhuong:convenience показывает 0 игроков (gap_score 2,13). Аэропортовая зона с таким количеством связей без единого convenience-магазина в реестре - явная аномалия, объяснимая либо доминированием неформальной торговли, либо пробелом реестра. После закрытия аэропорта на реконструкцию строительная активность в зоне создаст спрос на convenience ещё до открытия нового терминала - первый игрок, зашедший до конца 2026 года, захватит рынок на этапе стройки.",
+    "score": 0.75,
     "confidence": "medium",
     "status": "new",
     "created_at": "2026-09-15T12:17:23.521447+00:00"
   },
   {
-    "kind": "gap",
-    "title_ru": "Рестораны Лам Донга: выручка 37 млрд VND на игрока при gap_score 2.98 - самый острый дефицит предложения",
-    "body_ru": "При 1230 зарегистрированных игроках рынок ресторанов провинции генерирует спрос 45.6 трлн VND в год, что даёт 37 млрд VND на одно заведение - это в 3 раза выше аналогичного показателя для отелей (12.4 млрд). Gap_score 2.98 - наивысший в выборке. Неочевидно: при формально большом числе игроков рынок всё равно остаётся недонасыщенным, что указывает на качественный, а не количественный дефицит - отсутствие форматов среднего и выше среднего чека. Если в течение 1-2 месяцев войдут сетевые операторы из Ханоя или Хошимина с форматом casual dining, средний чек в провинции вырастет и вытеснит нижний сегмент.",
-    "score": 0.88,
-    "confidence": "high",
-    "status": "dismissed",
-    "created_at": "2026-09-15T12:17:23.521447+00:00"
-  },
-  {
-    "kind": "anomaly",
-    "title_ru": "Lien Khuong: weighted degree в 3,6 раза выше degree - аэропорт важнее, чем кажется",
-    "body_ru": "zone:lienkhuong имеет degree=39, но weighted=138, соотношение 3,54 - самое высокое среди всех узлов в top_degree (у vn-lamdong: 537/265=2,0; у Далата: 176/144=1,2). Это означает, что каждое упоминание аэропорта несёт многократно больше контекстных связей, чем среднее. При этом event:lien-khuong-closure-2026 входит в топ мостов с 3 кластерами. Следствие: если реконструкция аэропорта Льен Кхыонг задержится сверх анонсированных сроков, это заблокирует цепочку минимум 3 отдельных кластеров активности (туризм, логистика, авиация) одновременно - эффект будет виден в снижении турпотока уже через 1-2 месяца после закрытия.",
-    "score": 0.85,
-    "confidence": "high",
+    "kind": "trend",
+    "title_ru": "Technocom вырос на 76% по выручке - Vingroup создаёт параллельную экономику в регионе",
+    "body_ru": "Выручка company:technocom (Vingroup) за 2024-2025 выросла с 189 трлн до 332,77 трлн VND (+76,1%), при этом Vingroup владеет кластером из 10 компаний (vinhomes, vinfast, vincom-retail, vinpearl и др.). Degree vn-lamdong-dalat=144 коррелирует с присутствием Vinpearl в регионе. Неочевидно, что такой рост выручки при наличии замкнутой экосистемы (отели-ретейл-авто-телеком) сокращает долю независимых местных операторов. Следствие: через 12 месяцев доля Vingroup-аффилированных объектов в туристической выручке Лам Донга превысит 30%, что будет видно в данных по налоговым поступлениям от юрлиц провинции.",
+    "score": 0.74,
+    "confidence": "medium",
     "status": "new",
     "created_at": "2026-09-15T12:17:23.521447+00:00"
   },
@@ -28317,21 +28958,21 @@ export const GEN_INSIGHTS: GenInsight[] = [
     "created_at": "2026-09-15T12:17:23.521447+00:00"
   },
   {
-    "kind": "trend",
-    "title_ru": "Аэропорт Льен Кхыонг планирует рост пассажиропотока на 66.7% - опережающий сигнал для логистики",
-    "body_ru": "Метрика airport_passengers для vn-lamdong-ductrong-lienkhuong показывает рост с 3 млн до 5 млн пассажиров к 2030 году (+66.7%). При этом degree узла Duc Trong уже 42 - третий по связности район провинции после Да Лат и Бао Лам. Неочевидно, что аэропортовый рост опережает развитие отельной и транспортной инфраструктуры: рынок отелей в Da Huoai и Dam Rong (смежные районы) имеет players=0. Если к 2027 году новые маршруты в Лиен Кхыонг не сопроводятся открытием отелей в радиусе 40 км, сдержанный рост числа ночёвок при росте прилётов станет измеримым индикатором инфраструктурного разрыва.",
-    "score": 0.8,
+    "kind": "anomaly",
+    "title_ru": "Падение населения Далата на -13,9% и Бао Лока на -7,2% - административная реорганизация сжимает базу розницы",
+    "body_ru": "Population Далата упала с 299 670 до 258 014 (-13,9%), Бао Лока - с 211 392 до 196 088 (-7,2%), Лам Ха - с 179 918 до 167 805 (-6,7%) за один год. Это не демографический отток, а следствие административного разукрупнения районов в 2025 году (vn-lamdong-pre2025 degree 244). Неочевидное следствие: формальное сокращение населения на бумаге снижает расчётные нормативы обеспеченности торговыми точками и банками, из-за чего федеральные сети (WinCommerce, Bach Hoa Xanh) могут отложить открытия в Бао Локе - где уже зафиксирован 0 игроков в банках и магазинах у дома. Если сети используют старые данные переписи, решение об открытии будет пересмотрено в течение 1-2 кварталов.",
+    "score": 0.78,
     "confidence": "medium",
     "status": "new",
     "created_at": "2026-09-15T07:04:28.368397+00:00"
   },
   {
     "kind": "anomaly",
-    "title_ru": "Bao Lam имеет degree 59, но рынок баров пустой - несоответствие связности и коммерческой насыщенности",
-    "body_ru": "Узел vn-lamdong-baolam занимает второе место по degree среди субрайонов провинции (59, weighted 101), что означает высокую частоту совместных упоминаний с другими экономическими сущностями. Тем не менее рынок баров в Bao Lam имеет players=0 и gap_score 2.0. Это аномалия: высокая связность обычно коррелирует с присутствием игроков сферы услуг. Возможная причина - Bao Lam упоминается преимущественно в сельскохозяйственном и промышленном контексте, а не туристическом. Проверяемое следствие: если открыть заведение в Bao Lam в ближайшие 2 месяца, оно получит трафик от промышленных и торговых визитёров, а не только туристов - средний чек будет выше среднего по провинции.",
-    "score": 0.72,
-    "confidence": "medium",
-    "status": "dismissed",
+    "title_ru": "Закрытие Льенхыонга (degree 40, weighted 138) противоречит плану роста пассажиропотока до 5 млн к 2030",
+    "body_ru": "Аэропорт Льенхыонг имеет degree 40 и weighted 138 - непропорционально высокий вес для небольшого объекта, а событие event:lien-khuong-closure-2026 входит в топ-20 узлов-мостов (3 кластера, 4 ребра). При этом метрика airport_passengers прогнозирует рост с 3 млн (2025) до 5 млн (2030, +66,7%). Одновременное закрытие аэропорта и планирование роста трафика означает, что вся нагрузка должна перейти на новый или реконструированный объект - задержка ввода на 6+ месяцев напрямую срежет прогноз туристов (цель 25 млн в 2026 vs факт 20,7 млн в 2025). Если к концу 2026 замещающая инфраструктура не будет введена, турпоток Лам Донга не достигнет цели +20,6%.",
+    "score": 0.85,
+    "confidence": "high",
+    "status": "new",
     "created_at": "2026-09-15T07:04:28.368397+00:00"
   },
   {
@@ -28345,28 +28986,19 @@ export const GEN_INSIGHTS: GenInsight[] = [
   },
   {
     "kind": "anomaly",
-    "title_ru": "Население Далата упало на 13.9% (299 тыс. -> 258 тыс.) - потребительская база главного туристического центра сжалась",
-    "body_ru": "Официальная численность населения Далата сократилась с 299 670 до 258 014 человек (-13.9%) между 2025 и 2026 годами - резкое изменение, вероятно связанное с административным переделом, а не с реальным оттоком. Неочевидное следствие: налоговая база и плановые показатели для местного бизнеса рассчитывались на старую численность. Если фискальные нагрузки на существующие 884 отеля и 1230 ресторанов не пересчитаны, в течение 2-3 месяцев возможна волна обжалований нормативов или сокращение регистраций новых точек. Одновременно маркетинговые бюджеты туроператоров, привязанные к числу местных жителей, окажутся завышенными.",
-    "score": 0.78,
+    "title_ru": "Bao Lam имеет degree 59, но рынок баров пустой - несоответствие связности и коммерческой насыщенности",
+    "body_ru": "Узел vn-lamdong-baolam занимает второе место по degree среди субрайонов провинции (59, weighted 101), что означает высокую частоту совместных упоминаний с другими экономическими сущностями. Тем не менее рынок баров в Bao Lam имеет players=0 и gap_score 2.0. Это аномалия: высокая связность обычно коррелирует с присутствием игроков сферы услуг. Возможная причина - Bao Lam упоминается преимущественно в сельскохозяйственном и промышленном контексте, а не туристическом. Проверяемое следствие: если открыть заведение в Bao Lam в ближайшие 2 месяца, оно получит трафик от промышленных и торговых визитёров, а не только туристов - средний чек будет выше среднего по провинции.",
+    "score": 0.72,
     "confidence": "medium",
-    "status": "new",
+    "status": "dismissed",
     "created_at": "2026-09-15T07:04:28.368397+00:00"
   },
   {
-    "kind": "gap",
-    "title_ru": "Бары и отели в горных районах не представлены",
-    "body_ru": "Рынки bar в Baolam, Dateh, Cattien, Damrong, Dahuoai, Dilinh, Donduong имеют players=0 и demand=2.0, а отели в Dahuoai и Damrong - аналогично. При этом vn-lamdong-dalat имеет degree=74 и weighted=98.0, то есть туристический трафик концентрируется в Далате, а периферия недообслужена. Если инвестор зайдёт в Damrong с отелем и баром в 2026, через 12 месяцев demand_source mentions вырастет с 2.0 до 4.0+ за счёт перераспределения туристов из Далата.",
-    "score": 0.75,
-    "confidence": "medium",
-    "status": "dismissed",
-    "created_at": "2026-09-15T07:02:38.433233+00:00"
-  },
-  {
     "kind": "hypothesis",
-    "title_ru": "Рост GRDP 8.1% не конвертируется в бизнес-плотность",
-    "body_ru": "grdp_usd для vn растёт с 476324572783 в 2024 до 514697215165 в 2025, то есть +8.1%, но business_density падает с 2.018 до 1.999, то есть -0.9%. При этом employed:services_pct растёт всего на 0.8% до 40.13%. Если тренд сохранится, через 12 месяцев разрыв между GRDP и числом бизнесов в Ламдонге приведёт к тому, что gap_score клиник и баров останется на уровне 2.0-3.0 даже при росте туристов на 20.6%.",
-    "score": 0.65,
-    "confidence": "medium",
+    "title_ru": "Дык Чонг - скрытый экономический центр: weighted 8 000 051 при degree 45 указывает на единичную мегасделку",
+    "body_ru": "vn-lamdong-ductrong имеет degree=45, но weighted=8 000 051 - примерно 177 777 на связь, что в 36 раз выше среднего по сопоставимым районам. Ownership cluster содержит компанию platinum-victory и fn-dairy-investments именно в этом районе. Скорее всего одна инвестиционная сделка (земля под молочное производство Vinamilk или смежный актив) тянет весь вес. Следствие: если это земельная сделка, то через 1-3 месяца должна появиться запись в реестре недвижимости Дык Чонга или разрешение на строительство крупного агропромышленного объекта.",
+    "score": 0.74,
+    "confidence": "low",
     "status": "new",
     "created_at": "2026-09-15T07:02:38.433233+00:00"
   },
@@ -28385,6 +29017,15 @@ export const GEN_INSIGHTS: GenInsight[] = [
     "body_ru": "В графе 11 рынков clinic с players=0 и demand=3.0 - это Baoloc, Damrong, Dateh, Dahuoai, Donduong, Ductrong, Lien Nghia, Lamha, Dinh Van, Dong Thanh и zone Namban. При weighted degree vn-lamdong=320.0 и 493 market-узлах нулевое покрытие клиник выглядит как системный пробел, а не локальный. Если открыть 3-5 клиник в Ductrong и Lamha до конца 2026, через 6 месяцев gap_score упадёт до 0, а упоминания в co_mentioned_with (1579 рёбер) перетекут в новые market-узлы.",
     "score": 0.85,
     "confidence": "high",
+    "status": "dismissed",
+    "created_at": "2026-09-15T07:02:38.433233+00:00"
+  },
+  {
+    "kind": "gap",
+    "title_ru": "Бары и отели в горных районах не представлены",
+    "body_ru": "Рынки bar в Baolam, Dateh, Cattien, Damrong, Dahuoai, Dilinh, Donduong имеют players=0 и demand=2.0, а отели в Dahuoai и Damrong - аналогично. При этом vn-lamdong-dalat имеет degree=74 и weighted=98.0, то есть туристический трафик концентрируется в Далате, а периферия недообслужена. Если инвестор зайдёт в Damrong с отелем и баром в 2026, через 12 месяцев demand_source mentions вырастет с 2.0 до 4.0+ за счёт перераспределения туристов из Далата.",
+    "score": 0.75,
+    "confidence": "medium",
     "status": "dismissed",
     "created_at": "2026-09-15T07:02:38.433233+00:00"
   }
@@ -28410,6 +29051,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Материал о чистой сельхозпродукции Đà Lạt и развитии устойчивого земледелия в регионе."
   },
   {
+    "slug": "vn-camau",
+    "kind": "region",
+    "name": "Камау",
+    "name_vi": "Cà Mau",
+    "name_ru": "Камау",
+    "region_slug": "vn-camau",
+    "summary_ru": null
+  },
+  {
     "slug": "person:nguyen-dang-quang",
     "kind": "person",
     "name": "Nguyen Dang Quang",
@@ -28417,6 +29067,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Нгуен Данг Куанг",
     "region_slug": "vn-hcmc",
     "summary_ru": "Родился в 1963 году в Quảng Trị, MBA Плехановского института в Москве и докторская в Минске. В 1990-х торговал лапшой для вьетнамской диаспоры в России, затем вернулся и в 2002 году запустил соевый соус Chin-su. В 1993 году вложился в Techcombank, в 2004 вместе с Хо Хунг Анем оформил Masan Group. Сегодня Masan это соусы, лапша, розница WinMart и кофейни Phúc Long."
+  },
+  {
+    "slug": "vn-cantho",
+    "kind": "region",
+    "name": "Кантхо",
+    "name_vi": "Cần Thơ",
+    "name_ru": "Кантхо",
+    "region_slug": "vn-cantho",
+    "summary_ru": null
   },
   {
     "slug": "person:mai-kieu-lien",
@@ -28527,24 +29186,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Родился в 1966 году, в 2001 году с двумя партнёрами основал Phương Trang. Начинали с пяти-десяти автобусов, зарегистрировав головной офис в Đà Lạt на улице Tô Hiến Thành. Сегодня FUTA Bus Lines возит более 20 млн пассажиров в год и держит свыше 250 касс и станций."
   },
   {
-    "slug": "vn-baclieu-pre2025",
-    "kind": "region",
-    "name": "Баклиеу",
-    "name_vi": "Bạc Liêu",
-    "name_ru": "Баклиеу",
-    "region_slug": "vn-baclieu-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-backan-pre2025",
-    "kind": "region",
-    "name": "Баккан",
-    "name_vi": "Bắc Kạn",
-    "name_ru": "Баккан",
-    "region_slug": "vn-backan-pre2025",
-    "summary_ru": null
-  },
-  {
     "slug": "person:nguyen-cao-tri",
     "kind": "person",
     "name": "Nguyen Cao Tri",
@@ -28552,24 +29193,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Нгуен Као Чи",
     "region_slug": "vn-lamdong",
     "summary_ru": "Бывший гендиректор Sài Gòn Đại Ninh. В январе 2025 Ханойский суд дал ему 3 года за взятки чиновникам ради отмены решения об изъятии земли под проект Đại Ninh в Lâm Đồng, совокупно с прежним приговором 9 лет."
-  },
-  {
-    "slug": "event:seed:holiday-2026-01-01",
-    "kind": "event",
-    "name": "Tết Dương lịch",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "source:08c53a8f-d536-4f50-aea8-f2753751ab54",
-    "kind": "source",
-    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
   },
   {
     "slug": "person:thomas-hooft",
@@ -28590,24 +29213,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Основатель Hoàng Anh Gia Lai, в 2000-х строил на древесине, недвижимости и каучуке, в 2010-х ушёл в плантации Лаоса и Камбоджи. Долговой кризис вынудил передать агроактивы под управление THACO."
   },
   {
-    "slug": "institution:scic",
-    "kind": "institution",
-    "name": "State Capital Investment Corporation",
-    "name_vi": "Tổng công ty Đầu tư và Kinh doanh vốn Nhà nước",
-    "name_ru": "Госхолдинг SCIC",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Госхолдинг, держащий доли государства в акционерных компаниях. Крупнейший акционер Vinamilk с долей около 36 процентов и Sabeco после сделки с ThaiBev."
-  },
-  {
-    "slug": "institution:state-bank-vn",
-    "kind": "institution",
-    "name": "State Bank of Vietnam",
-    "name_vi": "Ngân hàng Nhà nước Việt Nam",
-    "name_ru": "Госбанк Вьетнама",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Центральный банк, регулятор кредита и владелец контрольных пакетов Vietcombank, BIDV, VietinBank, Agribank."
-  },
-  {
     "slug": "vn-hanoi",
     "kind": "region",
     "name": "Ханой",
@@ -28626,12 +29231,66 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "institution:scic",
+    "kind": "institution",
+    "name": "State Capital Investment Corporation",
+    "name_vi": "Tổng công ty Đầu tư và Kinh doanh vốn Nhà nước",
+    "name_ru": "Госхолдинг SCIC",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Госхолдинг, держащий доли государства в акционерных компаниях. Крупнейший акционер Vinamilk с долей около 36 процентов и Sabeco после сделки с ThaiBev."
+  },
+  {
+    "slug": "institution:state-bank-vn",
+    "kind": "institution",
+    "name": "State Bank of Vietnam",
+    "name_vi": "Ngân hàng Nhà nước Việt Nam",
+    "name_ru": "Госбанк Вьетнама",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Центральный банк, регулятор кредита и владелец контрольных пакетов Vietcombank, BIDV, VietinBank, Agribank."
+  },
+  {
     "slug": "vn-angiang",
     "kind": "region",
     "name": "Анзянг",
     "name_vi": "An Giang",
     "name_ru": "Анзянг",
     "region_slug": "vn-angiang",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2026-01-01",
+    "kind": "event",
+    "name": "Tết Dương lịch",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "source:08c53a8f-d536-4f50-aea8-f2753751ab54",
+    "kind": "source",
+    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:technocom",
+    "kind": "company",
+    "name": "Technocom",
+    "name_vi": "Technocom",
+    "name_ru": "Технокам",
+    "region_slug": "region:ua-kharkiv",
+    "summary_ru": "Компания Фам Нят Выонга в Харькове, выпускала лапшу быстрого приготовления и сухие приправы под маркой Mivina. К концу 2000-х годовая выручка превысила 100 млн долларов, компания стала лидером Украины в сухих кулинарных продуктах. В 2010 году продана Nestlé за 150 млн долларов. Эти деньги и стали стартовым капиталом Vingroup."
+  },
+  {
+    "slug": "vn-thainguyen-pre2025",
+    "kind": "region",
+    "name": "Тхайнгуен",
+    "name_vi": "Thái Nguyên",
+    "name_ru": "Тхайнгуен",
+    "region_slug": "vn-thainguyen-pre2025",
     "summary_ru": null
   },
   {
@@ -28642,15 +29301,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Университет Đà Lạt",
     "region_slug": "vn-lamdong-dalat",
     "summary_ru": "Открыт 8 августа 1957 года как частный Институт Đà Lạt по инициативе архиепископа Нго Динь Тхука и Совета католических епископов. После 1975 года стал государственным Đại học Đà Lạt. Главный поставщик кадров для агро- и туристических компаний провинции."
-  },
-  {
-    "slug": "company:technocom",
-    "kind": "company",
-    "name": "Technocom",
-    "name_vi": "Technocom",
-    "name_ru": "Технокам",
-    "region_slug": "ua-kharkiv",
-    "summary_ru": "Компания Фам Нят Выонга в Харькове, выпускала лапшу быстрого приготовления и сухие приправы под маркой Mivina. К концу 2000-х годовая выручка превысила 100 млн долларов, компания стала лидером Украины в сухих кулинарных продуктах. В 2010 году продана Nestlé за 150 млн долларов. Эти деньги и стали стартовым капиталом Vingroup."
   },
   {
     "slug": "company:vingroup",
@@ -28669,6 +29319,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Винхоумс",
     "region_slug": "vn-hanoi",
     "summary_ru": "Девелоперское ядро Vingroup и крупнейший застройщик страны. В 2025 году законтрактовал продажи на 205,3 трлн донгов, вдвое больше 2024. Именно недвижимость финансирует убытки VinFast."
+  },
+  {
+    "slug": "vn-gialai",
+    "kind": "region",
+    "name": "Зялай",
+    "name_vi": "Gia Lai",
+    "name_ru": "Зялай",
+    "region_slug": "vn-gialai",
+    "summary_ru": null
   },
   {
     "slug": "company:vincom-retail",
@@ -28698,13 +29357,67 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Первый вьетнамский актив Фам Нят Выонга: курорт в Nha Trang, открыт в 2001 году. Сегодня 31 отель и курорт, более 16 100 номеров. В мае 2025 вышел на HOSE: 1,79 млрд акций по 71 300 донгов, в первый день плюс 20 процентов и оценка 153,3 трлн донгов."
   },
   {
-    "slug": "vn-thainguyen-pre2025",
+    "slug": "vn-hue",
     "kind": "region",
-    "name": "Тхайнгуен",
-    "name_vi": "Thái Nguyên",
-    "name_ru": "Тхайнгуен",
-    "region_slug": "vn-thainguyen-pre2025",
+    "name": "Хюэ",
+    "name_vi": "Huế",
+    "name_ru": "Хюэ",
+    "region_slug": "vn-hue",
     "summary_ru": null
+  },
+  {
+    "slug": "vn-caobang",
+    "kind": "region",
+    "name": "Каобанг",
+    "name_vi": "Cao Bằng",
+    "name_ru": "Каобанг",
+    "region_slug": "vn-caobang",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:vinamilk",
+    "kind": "company",
+    "name": "Vietnam Dairy Products JSC",
+    "name_vi": "Công ty CP Sữa Việt Nam",
+    "name_ru": "Винамилк",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Основана в 1976 году как госкомпания на базе трёх национализированных заводов Юга. С 1992 года компанией руководит Май Киеу Лиен. Приватизирована в 2003, вышла на биржу в 2006. Держит около половины молочного рынка страны, экспортирует в полсотни стран, владеет собственными фермами, включая органическую в Đức Trọng. В 2025 году выручка 63 724 млрд донгов, прибыль до налога 11 650 млрд, после налога 9 414 млрд. Крупнейший акционер - государственный SCIC с 36 процентами, тайская F&N наращивает долю."
+  },
+  {
+    "slug": "company:dalat-milk",
+    "kind": "company",
+    "name": "Da Lat Milk JSC",
+    "name_vi": "Công ty CP Sữa Đà Lạt",
+    "name_ru": "Далат Милк",
+    "region_slug": "vn-lamdong-pre2025",
+    "summary_ru": "Выросла из Lâm Đồng Dairy Cattle Breeding JSC, центра программы развития молочного скота провинции с начала 2000-х. В 2009 году перезапущена под брендом Dalatmilk с высокотехнологичным заводом и фермой на плато. В 2014 году куплена TH Group и вошла в её экосистему. Головной офис, ферма и завод в Lâm Đồng, филиал в седьмом округе Хошимина."
+  },
+  {
+    "slug": "company:nutifood",
+    "kind": "company",
+    "name": "Nutifood Nutrition Food JSC",
+    "name_vi": "Công ty CP Thực phẩm Dinh dưỡng Nutifood",
+    "name_ru": "Нутифуд",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Производитель детского и лечебного питания, третий-четвёртый игрок молочного рынка. В 2021-2022 годах купил 51 процент Kido Frozen Food с марками Celano и Merino, расширившись из питания в мороженое."
   },
   {
     "slug": "company:vinmec",
@@ -28752,105 +29465,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Электротакси Xanh SM, основано лично Фам Нят Выонгом в 2023 году. Ездит только на машинах VinFast. К четвёртому кварталу 2025 занимает 51,5 процента рынка заказа поездок по обороту, обойдя Grab. Более 32 тысяч своих машин и мотоциклов, присутствие в 34 провинциях и в Лаосе, Индонезии, на Филиппинах."
   },
   {
-    "slug": "vn-caobang",
-    "kind": "region",
-    "name": "Каобанг",
-    "name_vi": "Cao Bằng",
-    "name_ru": "Каобанг",
-    "region_slug": "vn-caobang",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "company:vinamilk",
-    "kind": "company",
-    "name": "Vietnam Dairy Products JSC",
-    "name_vi": "Công ty CP Sữa Việt Nam",
-    "name_ru": "Винамилк",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Основана в 1976 году как госкомпания на базе трёх национализированных заводов Юга. С 1992 года компанией руководит Май Киеу Лиен. Приватизирована в 2003, вышла на биржу в 2006. Держит около половины молочного рынка страны, экспортирует в полсотни стран, владеет собственными фермами, включая органическую в Đức Trọng. В 2025 году выручка 63 724 млрд донгов, прибыль до налога 11 650 млрд, после налога 9 414 млрд. Крупнейший акционер - государственный SCIC с 36 процентами, тайская F&N наращивает долю."
-  },
-  {
     "slug": "company:th-group",
     "kind": "company",
     "name": "TH Group",
@@ -28869,13 +29483,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Банк Тхай Хыонг, консультант и акционер проектов TH. По отчёту 2014 года держал 7 процентов акций TH true Milk. Схема банк плюс собственный агропроект повторяет связку Techcombank и Masan."
   },
   {
-    "slug": "company:dalat-milk",
-    "kind": "company",
-    "name": "Da Lat Milk JSC",
-    "name_vi": "Công ty CP Sữa Đà Lạt",
-    "name_ru": "Далат Милк",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Выросла из Lâm Đồng Dairy Cattle Breeding JSC, центра программы развития молочного скота провинции с начала 2000-х. В 2009 году перезапущена под брендом Dalatmilk с высокотехнологичным заводом и фермой на плато. В 2014 году куплена TH Group и вошла в её экосистему. Головной офис, ферма и завод в Lâm Đồng, филиал в седьмом округе Хошимина."
+    "slug": "vn-hatinh",
+    "kind": "region",
+    "name": "Хатинь",
+    "name_vi": "Hà Tĩnh",
+    "name_ru": "Хатинь",
+    "region_slug": "vn-hatinh",
+    "summary_ru": null
   },
   {
     "slug": "company:moc-chau-milk",
@@ -28896,21 +29510,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Холдинг, через который Vinamilk в 2019 году получил контроль над Mộc Châu Milk. Пример покупки не завода, а прослойки владения."
   },
   {
-    "slug": "company:nutifood",
-    "kind": "company",
-    "name": "Nutifood Nutrition Food JSC",
-    "name_vi": "Công ty CP Thực phẩm Dinh dưỡng Nutifood",
-    "name_ru": "Нутифуд",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Производитель детского и лечебного питания, третий-четвёртый игрок молочного рынка. В 2021-2022 годах купил 51 процент Kido Frozen Food с марками Celano и Merino, расширившись из питания в мороженое."
-  },
-  {
-    "slug": "vn-dongthap-pre2025",
+    "slug": "vn-lamdong-damrong",
     "kind": "region",
-    "name": "Донгтхап",
-    "name_vi": "Đồng Tháp",
-    "name_ru": "Донгтхап",
-    "region_slug": "vn-dongthap-pre2025",
+    "name": "Дамронг",
+    "name_vi": "Đam Rông",
+    "name_ru": "Дамронг",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -28932,13 +29537,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Голландский производитель, во Вьетнаме с 1995 года под маркой Dutch Lady. Второй по доле рынка после Vinamilk, около четверти молочного рынка."
   },
   {
-    "slug": "company:nestle-vietnam",
-    "kind": "company",
-    "name": "Nestle Vietnam",
-    "name_vi": "Nestlé Việt Nam",
-    "name_ru": "Нестле Вьетнам",
-    "region_slug": "vn-dongnai",
-    "summary_ru": "Работает во Вьетнаме с 1995 года. Крупнейший покупатель вьетнамской робусты с годовыми закупками до 700 млн долларов. В апреле 2025 объявила дополнительные 75 млн долларов в кофейный завод Trị An в Đồng Nai, доведя общие вложения в стране примерно до 904 млн долларов. Она же в 2010 году купила харьковский Technocom у Фам Нят Выонга."
+    "slug": "vn-lamdong-dilinh",
+    "kind": "region",
+    "name": "Дилинь",
+    "name_vi": "Di Linh",
+    "name_ru": "Дилинь",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-baolam",
+    "kind": "region",
+    "name": "Баолам",
+    "name_vi": "Bảo Lâm",
+    "name_ru": "Баолам",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-dahuoai",
+    "kind": "region",
+    "name": "Дахуоай",
+    "name_vi": "Đạ Huoai",
+    "name_ru": "Дахуоай",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
   },
   {
     "slug": "company:viettel",
@@ -28977,15 +29600,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Корпоративное и государственное ИТ-крыло Viettel: цифровые сервисы провинций, центры IOC, включая закрытый портал IOC Lâm Đồng."
   },
   {
-    "slug": "vn-lamdong-lamha-namban",
-    "kind": "region",
-    "name": "Намбан",
-    "name_vi": "Nam Ban",
-    "name_ru": "Намбан",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
     "slug": "company:vnpt",
     "kind": "company",
     "name": "Vietnam Posts and Telecommunications Group",
@@ -29013,6 +29627,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Первый мобильный оператор Вьетнама, запущен в 1993 году в партнёрстве со шведской Comvik. Выделен из VNPT в 2014 году под приватизацию, которая так и не состоялась. Третий по доле рынка."
   },
   {
+    "slug": "vn-lamdong-dateh",
+    "kind": "region",
+    "name": "Датэ",
+    "name_vi": "Đạ Tẻh",
+    "name_ru": "Датэ",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-cattien",
+    "kind": "region",
+    "name": "Катьен",
+    "name_vi": "Cát Tiên",
+    "name_ru": "Катьен",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
     "slug": "company:vietnamobile",
     "kind": "company",
     "name": "Vietnamobile",
@@ -29031,24 +29663,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Третий по величине провайдер фиксированного интернета и один из крупнейших операторов ЦОДов. Мобильной лицензии нет, работает как MVNO."
   },
   {
-    "slug": "company:masan-group",
-    "kind": "company",
-    "name": "Masan Group Corporation",
-    "name_vi": "Công ty CP Tập đoàn Masan",
-    "name_ru": "Масан Групп",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Холдинг Нгуен Данг Куанга, выросший из торговли лапшой для вьетнамской диаспоры в России. Первый вьетнамский продукт - соевый соус Chin-su 2002 года. Оформлен как группа в 2004 вместе с Хо Хунг Анем. В 2019 году забрал у Vingroup розницу VinMart и VinMart+, переименовал в WinMart и после тяжёлой чистки вывел в прибыль. Связан с Techcombank через общих основателей."
-  },
-  {
-    "slug": "company:masan-consumer",
-    "kind": "company",
-    "name": "Masan Consumer Corporation",
-    "name_vi": "Công ty CP Hàng tiêu dùng Masan",
-    "name_ru": "Масан Консьюмер",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Продуктовое ядро Masan: соусы Chin-su и Nam Ngư, лапша Omachi, кофе Vinacafé, напитки. Кассовый генератор группы."
-  },
-  {
     "slug": "company:wincommerce",
     "kind": "company",
     "name": "WinCommerce",
@@ -29058,13 +29672,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Розничная сеть WinMart и WinMart+, бывшая VinMart Vingroup. Крупнейшая по числу точек продуктовая сеть страны, упор на сельские минимаркеты: за восемь месяцев 2025 открыли 415 магазинов, около 75 процентов из них в сельской местности."
   },
   {
-    "slug": "company:phuc-long",
-    "kind": "company",
-    "name": "Phuc Long Heritage",
-    "name_vi": "Phúc Long Heritage",
-    "name_ru": "Фук Лонг",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Чайно-кофейная сеть из Bảo Lộc по происхождению: марка выросла из чайного бизнеса нагорья. В августе 2022 Masan довёл долю до 84 процентов."
+    "slug": "vn-lamdong-lamha-namban",
+    "kind": "region",
+    "name": "Намбан",
+    "name_vi": "Nam Ban",
+    "name_ru": "Намбан",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
   },
   {
     "slug": "company:techcombank",
@@ -29130,33 +29744,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Основана в 1988 году группой учёных во главе с Чыонг Зя Бинем. Крупнейшая частная ИТ-компания страны: офшорная разработка для Японии и США, внутренние ИТ-услуги, телеком, образование. За 2025 год выручка 70 113 млрд донгов и прибыль до налога 13 039 млрд, технологический сегмент дал 63 процента выручки."
   },
   {
-    "slug": "company:fpt-retail",
-    "kind": "company",
-    "name": "FPT Retail JSC",
-    "name_vi": "Công ty CP Bán lẻ Kỹ thuật số FPT",
-    "name_ru": "ФПТ Ритейл",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Розница FPT: магазины FPT Shop и аптечная сеть Long Châu, которая обогнала телефоны по темпам роста."
-  },
-  {
-    "slug": "company:vng",
-    "kind": "company",
-    "name": "VNG Corporation",
-    "name_vi": "Công ty CP VNG",
-    "name_ru": "ВНГ",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Основана Ле Хонг Минем в 2004 году как игровой издатель Vinagame. Владелец мессенджера Zalo с почти 80 млн пользователей, платежей ZaloPay и облака. Выручка 2025 года 10,89 трлн донгов, рост 17,5 процента, но группа несколько лет убыточна. Крупнейший экономический инвестор - Tencent, крупнейший голос - у основателя."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
     "slug": "company:sun-group",
     "kind": "company",
     "name": "Sun Group",
@@ -29164,15 +29751,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Сан Груп",
     "region_slug": "vn-danang",
     "summary_ru": "Основана Ле Вьет Ламом в 2007 году после возвращения из Харькова. Туризм и инфраструктура: Bà Nà Hills с Золотым мостом, канатные дороги, аэропорт Vân Đồn, курорты Phú Quốc и Sa Pa. Штаб-квартира в Đà Nẵng."
-  },
-  {
-    "slug": "company:novaland",
-    "kind": "company",
-    "name": "No Va Land Investment Group",
-    "name_vi": "Công ty CP Tập đoàn Đầu tư Địa ốc No Va",
-    "name_ru": "Новаленд",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Девелопер Буй Тхань Нёна, второй по масштабу после Vinhomes. Курортные мегапроекты NovaWorld и долговой кризис 2022-2023 годов сделали его символом перегрева рынка облигаций."
   },
   {
     "slug": "company:vietjet",
@@ -29193,39 +29771,57 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Холдинг Нгуен Тхи Фыонг Тхао: авиация, банк HDBank, недвижимость, энергетика. Ещё одна связка холдинг плюс банк."
   },
   {
-    "slug": "company:hdbank",
-    "kind": "company",
-    "name": "HDBank",
-    "name_vi": "Ngân hàng TMCP Phát triển TP HCM",
-    "name_ru": "ХДБанк",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Банк группы Sovico. За первый квартал 2025 прибыль 5 355 млрд донгов, обогнал VPBank и стал вторым по прибыли частным банком."
+    "slug": "vn-lamdong-lamha-dinhvan",
+    "kind": "region",
+    "name": "Диньван",
+    "name_vi": "Đinh Văn",
+    "name_ru": "Диньван",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
   },
   {
-    "slug": "company:mobile-world",
-    "kind": "company",
-    "name": "Mobile World Investment Corporation",
-    "name_vi": "Công ty CP Đầu tư Thế Giới Di Động",
-    "name_ru": "Мобайл Уорлд",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Сеть Нгуен Дык Тая, основана в 2004 году с трёх магазинов телефонов. Сегодня Thế Giới Di Động, Điện Máy Xanh и продуктовая Bách Hóa Xanh. Чистая прибыль 2025 года 7 040 млрд донгов, рост 89 процентов."
+    "slug": "vn-lamdong-lamha-dongthanh",
+    "kind": "region",
+    "name": "Донгтхань",
+    "name_vi": "Đông Thanh",
+    "name_ru": "Донгтхань",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
   },
   {
-    "slug": "company:bach-hoa-xanh",
-    "kind": "company",
-    "name": "Bach Hoa Xanh",
-    "name_vi": "Bách Hóa Xanh",
-    "name_ru": "Бак Хоа Сань",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Продуктовая сеть Mobile World. После болезненной чистки сети вернулась к росту: выручка 2025 года около 46 900 млрд донгов, плюс 14 процентов, открыто 789 новых магазинов при плане 600."
+    "slug": "vn-lamdong-ductrong-lienkhuong",
+    "kind": "region",
+    "name": "Льенкыонг",
+    "name_vi": "Liên Khương",
+    "name_ru": "Льенкыонг",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": "Аэропорт провинции в районе Đức Trọng, около 2 млн пассажиров и свыше 12 тысяч взлётов-посадок в 2023 году. В 2024 получил международный статус. С 4 марта по 25 августа 2026 был закрыт на реконструкцию за 966 млрд донгов: новая полоса 3250 метров, рулёжки, дренаж. Целевая мощность 5 млн пассажиров к 2030 году."
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "slug": "vn-lamdong-dalat-tanung",
+    "kind": "region",
+    "name": "Танунг",
+    "name_vi": "Tà Nung",
+    "name_ru": "Танунг",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:nestle-vietnam",
+    "kind": "company",
+    "name": "Nestle Vietnam",
+    "name_vi": "Nestlé Việt Nam",
+    "name_ru": "Нестле Вьетнам",
+    "region_slug": "vn-dongnai-pre2025",
+    "summary_ru": "Работает во Вьетнаме с 1995 года. Крупнейший покупатель вьетнамской робусты с годовыми закупками до 700 млн долларов. В апреле 2025 объявила дополнительные 75 млн долларов в кофейный завод Trị An в Đồng Nai, доведя общие вложения в стране примерно до 904 млн долларов. Она же в 2010 году купила харьковский Technocom у Фам Нят Выонга."
+  },
+  {
+    "slug": "zone:namban-home",
+    "kind": "region",
+    "name": "Дом · Đông Thanh, Nam Ban",
+    "name_vi": "Đông Thanh, Nam Ban",
+    "name_ru": "Дом · Đông Thanh, Nam Ban",
+    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
@@ -29236,15 +29832,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ле Хонг Минь",
     "region_slug": "vn-hcmc",
     "summary_ru": "Основал VNG в 2004 году как игрового издателя Vinagame, затем построил мессенджер Zalo, платежи ZaloPay и облако. Держит крупнейший пакет голосов в VNG Limited при том, что экономически крупнейший инвестор - Tencent."
-  },
-  {
-    "slug": "company:saigon-coop",
-    "kind": "company",
-    "name": "Saigon Co.op",
-    "name_vi": "Liên hiệp HTX Thương mại TP HCM",
-    "name_ru": "Сайгон Кооп",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Кооперативный ритейлер Хошимина, сеть Co.opmart более 120 магазинов, сильнее всего на Юге и в дельте Меконга. Один из немногих крупных игроков без иностранного капитала."
   },
   {
     "slug": "company:central-retail-vietnam",
@@ -29283,15 +29870,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В 2010 году Nestlé купила харьковскую Technocom у Фам Нят Выонга за 150 млн долларов. Эти деньги стали капиталом Vingroup."
   },
   {
-    "slug": "vn-lamdong-x-tanhai",
-    "kind": "region",
-    "name": "Tân Hải",
-    "name_vi": "Tân Hải",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhai",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-baolam:coffee_shop",
     "kind": "market",
     "name": "Кофейни",
@@ -29310,21 +29888,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baolam:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-baolam",
+    "slug": "vn-lamdong-x-damrong3",
+    "kind": "region",
+    "name": "Đam Rông 3",
+    "name_vi": "Đam Rông 3",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-damrong3",
     "summary_ru": null
   },
   {
@@ -29335,6 +29904,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": null,
     "region_slug": "vn-lamdong",
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "vn-lamdong-x-damrong4",
+    "kind": "region",
+    "name": "Đam Rông 4",
+    "name_vi": "Đam Rông 4",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-damrong4",
+    "summary_ru": null
   },
   {
     "slug": "company:vietcombank",
@@ -29382,31 +29960,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Частный банк, прибыль первого квартала 2025 - 5 015 млрд донгов. Сильный в рознице и потребкредите через FE Credit."
   },
   {
-    "slug": "market:vn-lamdong-baolam:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
+    "slug": "company:masan-group",
+    "kind": "company",
+    "name": "Masan Group Corporation",
+    "name_vi": "Công ty CP Tập đoàn Masan",
+    "name_ru": "Масан Групп",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Холдинг Нгуен Данг Куанга, выросший из торговли лапшой для вьетнамской диаспоры в России. Первый вьетнамский продукт - соевый соус Chin-su 2002 года. Оформлен как группа в 2004 вместе с Хо Хунг Анем. В 2019 году забрал у Vingroup розницу VinMart и VinMart+, переименовал в WinMart и после тяжёлой чистки вывел в прибыль. Связан с Techcombank через общих основателей."
   },
   {
-    "slug": "market:vn-lamdong-baolam:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
+    "slug": "company:masan-consumer",
+    "kind": "company",
+    "name": "Masan Consumer Corporation",
+    "name_vi": "Công ty CP Hàng tiêu dùng Masan",
+    "name_ru": "Масан Консьюмер",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Продуктовое ядро Masan: соусы Chin-su и Nam Ngư, лапша Omachi, кофе Vinacafé, напитки. Кассовый генератор группы."
   },
   {
     "slug": "source:c2d91abe-7a23-4ecd-902a-518c2965ee60",
@@ -29418,21 +29987,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Чёрная собака всю ночь охраняла заблудившегося в горах Даклака 6-летнего мальчика; история тронула сеть и стала призывом беречь животных."
   },
   {
-    "slug": "market:vn-lamdong-baolam:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-baolam",
+    "slug": "vn-lamdong-x-dakmil",
+    "kind": "region",
+    "name": "Đắk Mil",
+    "name_vi": "Đắk Mil",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dakmil",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baolam:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-baolam",
+    "slug": "vn-lamdong-x-daksak",
+    "kind": "region",
+    "name": "Đắk Sắk",
+    "name_vi": "Đắk Sắk",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-daksak",
     "summary_ru": null
   },
   {
@@ -29452,15 +30021,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "8 месяцев, 45 случаев преступлений против половой неприкосновенности лиц младше 16 лет в Футхо",
     "region_slug": "vn-lamdong",
     "summary_ru": "Полиция провинции Футхо сообщила о 45 случаях сексуальных преступлений против несовершеннолетних за 8 месяцев."
-  },
-  {
-    "slug": "company:sabeco",
-    "kind": "company",
-    "name": "Saigon Beer Alcohol Beverage Corporation",
-    "name_vi": "Tổng công ty CP Bia - Rượu - Nước giải khát Sài Gòn",
-    "name_ru": "Сабеко",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Пивоварня с колониальными корнями, национализирована после 1975 года. В декабре 2017 ThaiBev через Vietnam Beverage купила 53,59 процента за 4,85 млрд долларов - крупнейшая сделка в истории вьетнамского рынка. Доля пивного рынка около 34 процентов в 2024 году."
   },
   {
     "slug": "company:habeco",
@@ -29499,22 +30059,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Крупнейший по стоимости игрок пивного рынка, лидер премиального сегмента."
   },
   {
-    "slug": "market:vn-lamdong-baoloc:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
+    "slug": "company:phuc-long",
+    "kind": "company",
+    "name": "Phuc Long Heritage",
+    "name_vi": "Phúc Long Heritage",
+    "name_ru": "Фук Лонг",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Чайно-кофейная сеть из Bảo Lộc по происхождению: марка выросла из чайного бизнеса нагорья. В августе 2022 Masan довёл долю до 84 процентов."
   },
   {
     "slug": "source:b23ce4f2-858b-4fe9-8e71-60e7771b9fbb",
@@ -29535,6 +30086,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "На севере Вьетнама сильные дожди, в Ханое усиление с вечера; в Центральном и Южном Вьетнаме улучшение, меньше дождей, больше солнца."
   },
   {
+    "slug": "market:vn-lamdong-baoloc:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
     "slug": "company:trung-nguyen",
     "kind": "company",
     "name": "Trung Nguyen Legend Group",
@@ -29544,15 +30104,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Основана 16 июня 1996 года Данг Ле Нгуен Ву и Ле Хоанг Дьеп Тхао в Buôn Ma Thuột. С 2003 года растворимый G7 вывел компанию в лидеры внутреннего рынка кофе примерно на десять лет. Экспорт в полсотни стран. Затяжной бракоразводный спор основателей разделил управление и бренды."
   },
   {
-    "slug": "company:highlands-coffee",
-    "kind": "company",
-    "name": "Highlands Coffee",
-    "name_vi": "Highlands Coffee",
-    "name_ru": "Хайлендс Кофе",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Крупнейшая кофейная сеть страны: 928 точек на конец сентября 2025, из них 800 собственных и 128 франчайзинговых. С 2012 года 60 процентов у филиппинской Jollibee, обсуждается IPO во Вьетнаме к первому кварталу 2027."
-  },
-  {
     "slug": "company:jollibee",
     "kind": "company",
     "name": "Jollibee Foods Corporation",
@@ -29560,15 +30111,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Джоллиби",
     "region_slug": "vn",
     "summary_ru": "Филиппинская ресторанная группа, владелец контрольного пакета Highlands Coffee."
-  },
-  {
-    "slug": "company:the-coffee-house",
-    "kind": "company",
-    "name": "The Coffee House",
-    "name_vi": "The Coffee House",
-    "name_ru": "Зе Кофе Хаус",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Вьетнамская кофейная сеть, после пика 2021 года сократилась под давлением Highlands и Phúc Long."
   },
   {
     "slug": "company:evn",
@@ -29605,24 +30147,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Бамбу Эйрвейс",
     "region_slug": "vn-hanoi",
     "summary_ru": "Авиакомпания FLC, взлетела в 2019 году и разогналась до 44 бортов на деньги группы. После ареста Чинь Ван Куйета в 2022 году схлопнулась: на бумаге три самолёта, два из них на приколе, летает один A321."
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
   },
   {
     "slug": "source:c90c943d-5bc3-45ab-80aa-7943f8adf77b",
@@ -29670,15 +30194,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Группа Чинь Ван Куйета: курортная недвижимость, гольф, авиация. После уголовного дела основателя фактически остановилась, в 2025 году начала подавать признаки жизни."
   },
   {
-    "slug": "company:acv",
-    "kind": "company",
-    "name": "Airports Corporation of Vietnam",
-    "name_vi": "Tổng công ty Cảng hàng không Việt Nam",
-    "name_ru": "АЦВ",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Государственный оператор 22 аэропортов, включая Liên Khương. Ведёт реконструкцию полосы в Đà Lạt за 966 млрд донгов."
-  },
-  {
     "slug": "company:dalat-hasfarm",
     "kind": "company",
     "name": "Dalat Hasfarm",
@@ -29706,31 +30221,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Экспортёр кофе из Buôn Ma Thuột, 102,58 тысячи тонн за 2025 год, второй по объёму в стране."
   },
   {
-    "slug": "market:vn-lamdong-cattien:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
+    "slug": "company:fpt-retail",
+    "kind": "company",
+    "name": "FPT Retail JSC",
+    "name_vi": "Công ty CP Bán lẻ Kỹ thuật số FPT",
+    "name_ru": "ФПТ Ритейл",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Розница FPT: магазины FPT Shop и аптечная сеть Long Châu, которая обогнала телефоны по темпам роста."
   },
   {
     "slug": "source:56f65468-cc8d-46d1-ad06-44a1eac88a2e",
@@ -29742,57 +30239,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "company:thanh-buoi",
-    "kind": "company",
-    "name": "Thanh Buoi Transport",
-    "name_vi": "Công ty TNHH Thành Bưởi",
-    "name_ru": "Тхань Быой",
-    "region_slug": "vn-hcmc",
-    "summary_ru": "Второй крупный перевозчик на линии Хошимин - Đà Lạt. В 2023 году после смертельной аварии в Đồng Nai получил штраф 91 млн донгов и трёхмесячную приостановку, затем бессрочный отзыв лицензии. Провинция Lâm Đồng отказала компании в открытии временного автовокзала в Đà Lạt. В 2025 году линия была восстановлена."
-  },
-  {
     "slug": "source:59c33dc3-5e80-466c-b18b-2577e5b17999",
     "kind": "source",
     "name": "814 thí sinh Lâm Đồng dự thi chọn đội tuyển học sinh giỏi quốc gia",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "company:lien-khuong-airport",
-    "kind": "company",
-    "name": "Lien Khuong International Airport",
-    "name_vi": "Cảng hàng không quốc tế Liên Khương",
-    "name_ru": "Аэропорт Льенкхыонг",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": "Аэропорт провинции в районе Đức Trọng, около 2 млн пассажиров и свыше 12 тысяч взлётов-посадок в 2023 году. В 2024 получил международный статус. С 4 марта по 25 августа 2026 был закрыт на реконструкцию за 966 млрд донгов: новая полоса 3250 метров, рулёжки, дренаж. Целевая мощность 5 млн пассажиров к 2030 году."
-  },
-  {
-    "slug": "company:da-nhim-hydropower",
-    "kind": "company",
-    "name": "Da Nhim Hydropower Plant",
-    "name_vi": "Nhà máy thủy điện Đa Nhim",
-    "name_ru": "ГЭС Данхим",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": "Гидроузел на 160 МВт в районе Đơn Dương. Построен на японские репарации: из 39 млн долларов около 35,3 млн ушли в этот проект. Стройка началась в апреле 1961, первая очередь сдана в январе 1964, вторая в декабре того же года. Электричество шло в Сайгон и стало первой большой энергетической связкой плато с югом страны."
-  },
-  {
-    "slug": "vn-lamdong-ductrong-liennghia",
-    "kind": "region",
-    "name": "Льеннгиа",
-    "name_vi": "Liên Nghĩa",
-    "name_ru": "Льеннгиа",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-dalat-tanung",
-    "kind": "region",
-    "name": "Танунг",
-    "name_vi": "Tà Nung",
-    "name_ru": "Танунг",
-    "region_slug": "vn-lamdong-dalat-tanung",
     "summary_ru": null
   },
   {
@@ -29811,6 +30263,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Ngân hàng",
     "name_ru": "Банки",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-ductrong-liennghia",
+    "kind": "region",
+    "name": "Льеннгиа",
+    "name_vi": "Liên Nghĩa",
+    "name_ru": "Льеннгиа",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
     "summary_ru": null
   },
   {
@@ -29877,6 +30347,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Марка электротакси GSM, узнаваемая по мятно-зелёному цвету. К концу 2025 обошла Grab по обороту."
   },
   {
+    "slug": "company:vng",
+    "kind": "company",
+    "name": "VNG Corporation",
+    "name_vi": "Công ty CP VNG",
+    "name_ru": "ВНГ",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Основана Ле Хонг Минем в 2004 году как игровой издатель Vinagame. Владелец мессенджера Zalo с почти 80 млн пользователей, платежей ZaloPay и облака. Выручка 2025 года 10,89 трлн донгов, рост 17,5 процента, но группа несколько лет убыточна. Крупнейший экономический инвестор - Tencent, крупнейший голос - у основателя."
+  },
+  {
     "slug": "source:7a4d62c0-8139-48ce-8b41-0cc1b5675cb3",
     "kind": "source",
     "name": "Chợ Kim Liên hơn 30 năm tuổi ở Hà Nội tạm dừng hoạt động",
@@ -29895,12 +30374,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-damrong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-damrong",
+    "slug": "vn-lamdong-x-dinhtrangthuong",
+    "kind": "region",
+    "name": "Đinh Trang Thượng",
+    "name_vi": "Đinh Trang Thượng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dinhtrangthuong",
     "summary_ru": null
   },
   {
@@ -29909,15 +30388,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name": "Супермаркеты",
     "name_vi": "Siêu thị",
     "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
     "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
@@ -29931,13 +30401,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Марка высокогорного молока из Lâm Đồng, с 2014 года в экосистеме TH Group."
   },
   {
-    "slug": "event:seed:holiday-2026-02-18",
-    "kind": "event",
-    "name": "Mùng hai Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-dahuoai:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:novaland",
+    "kind": "company",
+    "name": "No Va Land Investment Group",
+    "name_vi": "Công ty CP Tập đoàn Đầu tư Địa ốc No Va",
+    "name_ru": "Новаленд",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Девелопер Буй Тхань Нёна, второй по масштабу после Vinhomes. Курортные мегапроекты NovaWorld и долговой кризис 2022-2023 годов сделали его символом перегрева рынка облигаций."
   },
   {
     "slug": "vn-haiphong",
@@ -29946,15 +30425,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Hải Phòng",
     "name_ru": "Хайфон",
     "region_slug": "vn-haiphong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
   {
@@ -29976,51 +30446,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "zone:namban-home",
-    "kind": "region",
-    "name": "Дом · Đông Thanh, Nam Ban",
-    "name_vi": "Đông Thanh, Nam Ban",
-    "name_ru": "Дом · Đông Thanh, Nam Ban",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-khanhhoa",
-    "kind": "region",
-    "name": "Кханьхоа",
-    "name_vi": "Khánh Hòa",
-    "name_ru": "Кханьхоа",
-    "region_slug": "vn-khanhhoa",
-    "summary_ru": "Провинция с Nha Trang, где в 2001 году родился Vinpearl."
-  },
-  {
-    "slug": "vn-laichau",
-    "kind": "region",
-    "name": "Лайтяу",
-    "name_vi": "Lai Châu",
-    "name_ru": "Лайтяу",
-    "region_slug": "vn-laichau",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dateh:gym",
     "kind": "market",
     "name": "Спортзалы",
@@ -30028,6 +30453,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Спортзалы",
     "region_slug": "vn-lamdong-dateh",
     "summary_ru": null
+  },
+  {
+    "slug": "company:hdbank",
+    "kind": "company",
+    "name": "HDBank",
+    "name_vi": "Ngân hàng TMCP Phát triển TP HCM",
+    "name_ru": "ХДБанк",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Банк группы Sovico. За первый квартал 2025 прибыль 5 355 млрд донгов, обогнал VPBank и стал вторым по прибыли частным банком."
   },
   {
     "slug": "market:vn-lamdong-dateh:pharmacy",
@@ -30057,13 +30491,40 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha-namban:car_repair",
+    "slug": "market:vn-lamdong-dahuoai:florist",
     "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-lamha-namban",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:mobile-world",
+    "kind": "company",
+    "name": "Mobile World Investment Corporation",
+    "name_vi": "Công ty CP Đầu tư Thế Giới Di Động",
+    "name_ru": "Мобайл Уорлд",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Сеть Нгуен Дык Тая, основана в 2004 году с трёх магазинов телефонов. Сегодня Thế Giới Di Động, Điện Máy Xanh и продуктовая Bách Hóa Xanh. Чистая прибыль 2025 года 7 040 млрд донгов, рост 89 процентов."
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-18",
+    "kind": "event",
+    "name": "Mùng hai Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
     "slug": "person:charoen-sirivadhanabhakdi",
@@ -30091,15 +30552,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Передача VinMart группе Masan",
     "region_slug": "vn-hanoi",
     "summary_ru": "В декабре 2019 Vingroup передал розницу VinMart и VinMart+ группе Masan в обмен на долю. Vingroup ушёл из ритейла в промышленность, Masan получил крупнейшую сеть страны."
-  },
-  {
-    "slug": "vn-langson",
-    "kind": "region",
-    "name": "Лангшон",
-    "name_vi": "Lạng Sơn",
-    "name_ru": "Лангшон",
-    "region_slug": "vn-langson",
-    "summary_ru": null
   },
   {
     "slug": "source:74022d21-297d-4044-b2c1-5f97d593ce21",
@@ -30165,6 +30617,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-dinhvanlamha",
+    "kind": "region",
+    "name": "Đinh Văn Lâm Hà",
+    "name_vi": "Đinh Văn Lâm Hà",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dinhvanlamha",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-beer",
     "kind": "market",
     "name": "Vietnam beer market",
@@ -30174,31 +30635,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Heineken и Sabeco делят верх, Habeco держит север, Carlsberg центральные провинции."
   },
   {
-    "slug": "market:zone:lienkhuong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
+    "slug": "company:bach-hoa-xanh",
+    "kind": "company",
+    "name": "Bach Hoa Xanh",
+    "name_vi": "Bách Hóa Xanh",
+    "name_ru": "Бак Хоа Сань",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Продуктовая сеть Mobile World. После болезненной чистки сети вернулась к росту: выручка 2025 года около 46 900 млрд донгов, плюс 14 процентов, открыто 789 новых магазинов при плане 600."
   },
   {
     "slug": "source:7797ade9-c220-408c-afe4-e6e9e7b6d2cc",
@@ -30255,12 +30698,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "После проверки безопасности и уборки грязи с полотна трасса Кам Ло — Ла Шон (Куангчи — Хюэ) снова открыта для движения в дневное время."
   },
   {
-    "slug": "vn-kiengiang-pre2025",
+    "slug": "vn-lamdong-x-donggiang",
     "kind": "region",
-    "name": "Кьензянг",
-    "name_vi": "Kiên Giang",
-    "name_ru": "Кьензянг",
-    "region_slug": "vn-kiengiang-pre2025",
+    "name": "Đông Giang",
+    "name_vi": "Đông Giang",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-donggiang",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-dongkho",
+    "kind": "region",
+    "name": "Đồng Kho",
+    "name_vi": "Đồng Kho",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dongkho",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-ducan",
+    "kind": "region",
+    "name": "Đức An",
+    "name_vi": "Đức An",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-ducan",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-duclap",
+    "kind": "region",
+    "name": "Đức Lập",
+    "name_vi": "Đức Lập",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-duclap",
     "summary_ru": null
   },
   {
@@ -30336,22 +30806,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Полиция Куангчи просит производителей настоящей косметики и БАДов прислать образцы для сравнения по делу о 25 тоннах поддельной продукции."
   },
   {
-    "slug": "market:vn-lamdong-dateh:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
+    "slug": "company:saigon-coop",
+    "kind": "company",
+    "name": "Saigon Co.op",
+    "name_vi": "Liên hiệp HTX Thương mại TP HCM",
+    "name_ru": "Сайгон Кооп",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Кооперативный ритейлер Хошимина, сеть Co.opmart более 120 магазинов, сильнее всего на Юге и в дельте Меконга. Один из немногих крупных игроков без иностранного капитала."
   },
   {
     "slug": "market:vn-lamdong-dateh:school",
@@ -30363,21 +30824,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
+    "slug": "company:sabeco",
+    "kind": "company",
+    "name": "Saigon Beer Alcohol Beverage Corporation",
+    "name_vi": "Tổng công ty CP Bia - Rượu - Nước giải khát Sài Gòn",
+    "name_ru": "Сабеко",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Пивоварня с колониальными корнями, национализирована после 1975 года. В декабре 2017 ThaiBev через Vietnam Beverage купила 53,59 процента за 4,85 млрд долларов - крупнейшая сделка в истории вьетнамского рынка. Доля пивного рынка около 34 процентов в 2024 году."
   },
   {
-    "slug": "market:vn-lamdong-dateh:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dateh",
+    "slug": "vn-lamdong-x-duclinh",
+    "kind": "region",
+    "name": "Đức Linh",
+    "name_vi": "Đức Linh",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-duclinh",
     "summary_ru": null
   },
   {
@@ -30388,15 +30849,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Покупка GTNfoods компанией Vinamilk",
     "region_slug": "vn-hanoi",
     "summary_ru": "В 2019 году Vinamilk купил контроль в GTNfoods и вместе с ним Mộc Châu Milk."
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
   },
   {
     "slug": "event:vinfast-nasdaq-2023",
@@ -30462,22 +30914,40 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В 2009 году TH Group начала завоз коров из Новой Зеландии и строительство молочного комплекса в Nghệ An с вложениями свыше 350 млн долларов."
   },
   {
-    "slug": "market:vn-lamdong-baoloc:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
+    "slug": "company:highlands-coffee",
+    "kind": "company",
+    "name": "Highlands Coffee",
+    "name_vi": "Highlands Coffee",
+    "name_ru": "Хайлендс Кофе",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Крупнейшая кофейная сеть страны: 928 точек на конец сентября 2025, из них 800 собственных и 128 франчайзинговых. С 2012 года 60 процентов у филиппинской Jollibee, обсуждается IPO во Вьетнаме к первому кварталу 2027."
   },
   {
-    "slug": "market:vn-lamdong-cattien:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
+    "slug": "company:the-coffee-house",
+    "kind": "company",
+    "name": "The Coffee House",
+    "name_vi": "The Coffee House",
+    "name_ru": "Зе Кофе Хаус",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Вьетнамская кофейная сеть, после пика 2021 года сократилась под давлением Highlands и Phúc Long."
+  },
+  {
+    "slug": "company:acv",
+    "kind": "company",
+    "name": "Airports Corporation of Vietnam",
+    "name_vi": "Tổng công ty Cảng hàng không Việt Nam",
+    "name_ru": "АЦВ",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Государственный оператор 22 аэропортов, включая Liên Khương. Ведёт реконструкцию полосы в Đà Lạt за 966 млрд донгов."
+  },
+  {
+    "slug": "company:thanh-buoi",
+    "kind": "company",
+    "name": "Thanh Buoi Transport",
+    "name_vi": "Công ty TNHH Thành Bưởi",
+    "name_ru": "Тхань Быой",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Второй крупный перевозчик на линии Хошимин - Đà Lạt. В 2023 году после смертельной аварии в Đồng Nai получил штраф 91 млн донгов и трёхмесячную приостановку, затем бессрочный отзыв лицензии. Провинция Lâm Đồng отказала компании в открытии временного автовокзала в Đà Lạt. В 2025 году линия была восстановлена."
   },
   {
     "slug": "market:vn-lamdong-dalat:motorbike_rental",
@@ -30486,33 +30956,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Thuê xe máy",
     "name_ru": "Аренда мотобайков",
     "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
@@ -30525,48 +30968,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-damrong:real_estate_agency",
+    "slug": "market:vn-lamdong-baolam:real_estate_agency",
     "kind": "market",
     "name": "Агентства недвижимости",
     "name_vi": "Môi giới bất động sản",
     "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-lamha",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
@@ -30588,76 +30995,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Главный экспортный товар вьетнамского сельского хозяйства."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
+    "slug": "company:lien-khuong-airport",
+    "kind": "company",
+    "name": "Lien Khuong International Airport",
+    "name_vi": "Cảng hàng không quốc tế Liên Khương",
+    "name_ru": "Аэропорт Льенкхыонг",
+    "region_slug": "vn-lamdong-x-ductrong",
+    "summary_ru": "Аэропорт провинции в районе Đức Trọng, около 2 млн пассажиров и свыше 12 тысяч взлётов-посадок в 2023 году. В 2024 получил международный статус. С 4 марта по 25 августа 2026 был закрыт на реконструкцию за 966 млрд донгов: новая полоса 3250 метров, рулёжки, дренаж. Целевая мощность 5 млн пассажиров к 2030 году."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
+    "slug": "company:da-nhim-hydropower",
+    "kind": "company",
+    "name": "Da Nhim Hydropower Plant",
+    "name_vi": "Nhà máy thủy điện Đa Nhim",
+    "name_ru": "ГЭС Данхим",
+    "region_slug": "vn-lamdong-x-donduong",
+    "summary_ru": "Гидроузел на 160 МВт в районе Đơn Dương. Построен на японские репарации: из 39 млн долларов около 35,3 млн ушли в этот проект. Стройка началась в апреле 1961, первая очередь сдана в январе 1964, вторая в декабре того же года. Электричество шло в Сайгон и стало первой большой энергетической связкой плато с югом страны."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
+    "slug": "institution:lamdong-peoples-committee",
+    "kind": "institution",
+    "name": "Lam Dong Provincial People's Committee",
+    "name_vi": "Ủy ban nhân dân tỉnh Lâm Đồng",
+    "name_ru": "Народный комитет провинции Lâm Đồng",
+    "region_slug": "vn-lamdong-pre2025",
+    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
   },
   {
     "slug": "source:f48bd036-1afa-4a95-a403-a28ce15c88da",
@@ -30676,69 +31038,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "VII Всевьетнамский съезд Союза дружественных организаций, 2026-2031",
     "region_slug": "vn-lamdong",
     "summary_ru": "В Ханое прошёл VII съезд Союза дружественных организаций Вьетнама на период 2026-2031."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-daksong",
-    "kind": "region",
-    "name": "Đắk Song",
-    "name_vi": "Đắk Song",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-daksong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-dakwil",
-    "kind": "region",
-    "name": "Đắk Wil",
-    "name_vi": "Đắk Wil",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dakwil",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-dinhtrangthuong",
-    "kind": "region",
-    "name": "Đinh Trang Thượng",
-    "name_vi": "Đinh Trang Thượng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dinhtrangthuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-dinhvanlamha",
-    "kind": "region",
-    "name": "Đinh Văn Lâm Hà",
-    "name_vi": "Đinh Văn Lâm Hà",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dinhvanlamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-donggiang",
-    "kind": "region",
-    "name": "Đông Giang",
-    "name_vi": "Đông Giang",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-donggiang",
-    "summary_ru": null
   },
   {
     "slug": "source:036f8138-6e67-4fa3-9007-c9e2408e90c4",
@@ -30784,6 +31083,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Sơn Mỹ связывает сокращение бедности по информации со средствами к существованию",
     "region_slug": "vn-lamdong",
     "summary_ru": "В коммуне Sơn Mỹ информационное сокращение бедности сочетается с кредитами, обучением и диверсификацией занятий."
+  },
+  {
+    "slug": "vn-lamdong-x-daksong",
+    "kind": "region",
+    "name": "Đắk Song",
+    "name_vi": "Đắk Song",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-daksong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-dakwil",
+    "kind": "region",
+    "name": "Đắk Wil",
+    "name_vi": "Đắk Wil",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dakwil",
+    "summary_ru": null
   },
   {
     "slug": "source:9a3dfef4-98fe-4788-9eea-88772fdedbaa",
@@ -30912,15 +31229,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Владелец Viettel. Связь как военный актив - ключевая особенность вьетнамского телекома."
   },
   {
-    "slug": "institution:lamdong-peoples-committee",
-    "kind": "institution",
-    "name": "Lam Dong Provincial People's Committee",
-    "name_vi": "Ủy ban nhân dân tỉnh Lâm Đồng",
-    "name_ru": "Народный комитет провинции Lâm Đồng",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
-  },
-  {
     "slug": "institution:yersin-university",
     "kind": "institution",
     "name": "Yersin University",
@@ -30939,24 +31247,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция Lâm Đồng решает вопросы реализации туристического проекта площадью более 72 га в Sơn Mỹ."
   },
   {
-    "slug": "company:abbott-vietnam",
-    "kind": "company",
-    "name": "Abbott Vietnam",
-    "name_vi": "Abbott Việt Nam",
-    "name_ru": "Эбботт Вьетнам",
-    "region_slug": "vn",
-    "summary_ru": "Американский импортёр детских смесей, лидер премиального сегмента сухих смесей во Вьетнаме."
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dalat-xuanhuong:travel_agency",
     "kind": "market",
     "name": "Турагентства",
@@ -30966,6 +31256,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "company:abbott-vietnam",
+    "kind": "company",
+    "name": "Abbott Vietnam",
+    "name_vi": "Abbott Việt Nam",
+    "name_ru": "Эбботт Вьетнам",
+    "region_slug": "vn",
+    "summary_ru": "Американский импортёр детских смесей, лидер премиального сегмента сухих смесей во Вьетнаме."
+  },
+  {
     "slug": "company:golden-gate",
     "kind": "company",
     "name": "Golden Gate Group",
@@ -30973,78 +31272,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Голден Гейт",
     "region_slug": "vn-hanoi",
     "summary_ru": "Крупнейшая ресторанная группа страны: Kichi-Kichi, GoGi House, Manwah и десятки других марок, включая точки в Đà Lạt."
-  },
-  {
-    "slug": "vn-bariavungtau-pre2025",
-    "kind": "region",
-    "name": "Бариа-Вунгтау",
-    "name_vi": "Bà Rịa - Vũng Tàu",
-    "name_ru": "Бариа-Вунгтау",
-    "region_slug": "vn-bariavungtau-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-binhduong-pre2025",
-    "kind": "region",
-    "name": "Биньзыонг",
-    "name_vi": "Bình Dương",
-    "name_ru": "Биньзыонг",
-    "region_slug": "vn-binhduong-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-binhphuoc-pre2025",
-    "kind": "region",
-    "name": "Биньфыок",
-    "name_vi": "Bình Phước",
-    "name_ru": "Биньфыок",
-    "region_slug": "vn-binhphuoc-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-binhthuan-pre2025",
-    "kind": "region",
-    "name": "Биньтхуан",
-    "name_vi": "Bình Thuận",
-    "name_ru": "Биньтхуан",
-    "region_slug": "vn-binhthuan-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-binhdinh-pre2025",
-    "kind": "region",
-    "name": "Биньдинь",
-    "name_vi": "Bình Định",
-    "name_ru": "Биньдинь",
-    "region_slug": "vn-binhdinh-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-bacninh-pre2025",
-    "kind": "region",
-    "name": "Бакнинь",
-    "name_vi": "Bắc Ninh",
-    "name_ru": "Бакнинь",
-    "region_slug": "vn-bacninh-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-bentre-pre2025",
-    "kind": "region",
-    "name": "Бенче",
-    "name_vi": "Bến Tre",
-    "name_ru": "Бенче",
-    "region_slug": "vn-bentre-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-camau-pre2025",
-    "kind": "region",
-    "name": "Камау",
-    "name_vi": "Cà Mau",
-    "name_ru": "Камау",
-    "region_slug": "vn-camau-pre2025",
-    "summary_ru": null
   },
   {
     "slug": "source:06db7531-23e2-411d-9e31-b76c8420193f",
@@ -31081,15 +31308,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Повышение участия Вьетнама в многосторонних институтах",
     "region_slug": "vn-lamdong",
     "summary_ru": "Визит премьер-министра в Индию укрепляет многостороннюю дипломатию Вьетнама."
-  },
-  {
-    "slug": "vn-hanoi-pre2025",
-    "kind": "region",
-    "name": "Ханой",
-    "name_vi": "Hà Nội",
-    "name_ru": "Ханой",
-    "region_slug": "vn-hanoi-pre2025",
-    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
   },
   {
     "slug": "source:5f905356-9902-4c59-b966-d1ae96f4e918",
@@ -31155,22 +31373,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Материал газеты Lâm Đồng об эмоциональном видео Ксении Гулько с посланием из Муйне."
   },
   {
-    "slug": "company:dai-ninh-hydropower",
-    "kind": "company",
-    "name": "Dai Ninh Hydropower Plant",
-    "name_vi": "Nhà máy thủy điện Đại Ninh",
-    "name_ru": "ГЭС Дайнинь",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Вторая крупная ГЭС провинции, переброска стока Đa Nhim в сторону Bình Thuận. Не путать с одноимённым скандальным туристическим проектом."
-  },
-  {
-    "slug": "company:sai-gon-dai-ninh",
-    "kind": "company",
-    "name": "Sai Gon Dai Ninh Company",
-    "name_vi": "Công ty Sài Gòn Đại Ninh",
-    "name_ru": "Сайгон Дайнинь",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Компания, получившая в 2010 году одобрение на экотуристический проект Đại Ninh почти на 3600 гектарах стоимостью свыше 25 трлн донгов. Проверки 2013-2018 годов нашли неуплату земельных сборов, вред природе и срыв сроков, Госинспекция рекомендовала изъять землю. Попытка отменить это решение через взятки закончилась приговорами в январе 2025."
+    "slug": "vn-lamdong-x-giahiep",
+    "kind": "region",
+    "name": "Gia Hiệp",
+    "name_vi": "Gia Hiệp",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-giahiep",
+    "summary_ru": null
   },
   {
     "slug": "brand:mivina",
@@ -31191,31 +31400,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Ксения Гулько считает Муйне в Ламдонге родиной, плачет из-за мусора на пляже и призывает спасти побережье."
   },
   {
-    "slug": "vn-lamdong-x-ductrong",
-    "kind": "region",
-    "name": "Đức Trọng",
-    "name_vi": "Đức Trọng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-ductrong",
-    "summary_ru": "Район с аэропортом Liên Khương и органической фермой Vinamilk. Транспортный вход в провинцию."
+    "slug": "company:dai-ninh-hydropower",
+    "kind": "company",
+    "name": "Dai Ninh Hydropower Plant",
+    "name_vi": "Nhà máy thủy điện Đại Ninh",
+    "name_ru": "ГЭС Дайнинь",
+    "region_slug": "vn-lamdong-pre2025",
+    "summary_ru": "Вторая крупная ГЭС провинции, переброска стока Đa Nhim в сторону Bình Thuận. Не путать с одноимённым скандальным туристическим проектом."
   },
   {
-    "slug": "vn-soctrang-pre2025",
-    "kind": "region",
-    "name": "Шокчанг",
-    "name_vi": "Sóc Trăng",
-    "name_ru": "Шокчанг",
-    "region_slug": "vn-soctrang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-thanhhoa-pre2025",
-    "kind": "region",
-    "name": "Тханьхоа",
-    "name_vi": "Thanh Hóa",
-    "name_ru": "Тханьхоа",
-    "region_slug": "vn-thanhhoa-pre2025",
-    "summary_ru": null
+    "slug": "company:sai-gon-dai-ninh",
+    "kind": "company",
+    "name": "Sai Gon Dai Ninh Company",
+    "name_vi": "Công ty Sài Gòn Đại Ninh",
+    "name_ru": "Сайгон Дайнинь",
+    "region_slug": "vn-lamdong-pre2025",
+    "summary_ru": "Компания, получившая в 2010 году одобрение на экотуристический проект Đại Ninh почти на 3600 гектарах стоимостью свыше 25 трлн донгов. Проверки 2013-2018 годов нашли неуплату земельных сборов, вред природе и срыв сроков, Госинспекция рекомендовала изъять землю. Попытка отменить это решение через взятки закончилась приговорами в январе 2025."
   },
   {
     "slug": "source:9f3d133c-d2ec-4b3b-8f30-15269301658b",
@@ -31227,30 +31427,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Травмы и физическая форма основных игроков — главная проблема сборной перед Кубком АСЕАН 2026."
   },
   {
-    "slug": "vn-thanhphohochiminh-pre2025",
+    "slug": "vn-lamdong-x-ductrong",
     "kind": "region",
-    "name": "Хошимин",
-    "name_vi": "Thành phố Hồ Chí Minh",
-    "name_ru": "Хошимин",
-    "region_slug": "vn-thanhphohochiminh-pre2025",
+    "name": "Đức Trọng",
+    "name_vi": "Đức Trọng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-ductrong",
+    "summary_ru": "Район с аэропортом Liên Khương и органической фермой Vinamilk. Транспортный вход в провинцию."
+  },
+  {
+    "slug": "vn-lamdong-x-haininh",
+    "kind": "region",
+    "name": "Hải Ninh",
+    "name_vi": "Hải Ninh",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-haininh",
     "summary_ru": null
   },
   {
-    "slug": "vn-thuathienhue-pre2025",
+    "slug": "vn-soctrang-pre2025",
     "kind": "region",
-    "name": "Тхыатхьен-Хюэ",
-    "name_vi": "Thừa Thiên Huế",
-    "name_ru": "Тхыатхьен-Хюэ",
-    "region_slug": "vn-thuathienhue-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-tiengiang-pre2025",
-    "kind": "region",
-    "name": "Тьензянг",
-    "name_vi": "Tiền Giang",
-    "name_ru": "Тьензянг",
-    "region_slug": "vn-tiengiang-pre2025",
+    "name": "Шокчанг",
+    "name_vi": "Sóc Trăng",
+    "name_ru": "Шокчанг",
+    "region_slug": "vn-soctrang-pre2025",
     "summary_ru": null
   },
   {
@@ -31335,13 +31535,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Экотуристический проект Vingroup на восточном берегу озера Tuyền Lâm. Инвестиционный сертификат отозван с октября 2020 года после срыва подготовительных процедур. Пример того, что даже крупнейший холдинг страны не смог закрепиться в Đà Lạt."
   },
   {
-    "slug": "market:vn-lamdong-cattien:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
+    "slug": "vn-khanhhoa",
+    "kind": "region",
+    "name": "Кханьхоа",
+    "name_vi": "Khánh Hòa",
+    "name_ru": "Кханьхоа",
+    "region_slug": "vn-khanhhoa",
+    "summary_ru": "Провинция с Nha Trang, где в 2001 году родился Vinpearl."
   },
   {
     "slug": "event:vinamilk-organic-farm-2017",
@@ -31398,33 +31598,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Экспорт зелёного кофе, почти целиком робуста. Топ экспортёров: Vĩnh Hiệp, Intimex, Simexco, Louis Dreyfus, Nestlé."
   },
   {
-    "slug": "vn-travinh-pre2025",
-    "kind": "region",
-    "name": "Чавинь",
-    "name_vi": "Trà Vinh",
-    "name_ru": "Чавинь",
-    "region_slug": "vn-travinh-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-tuyenquang-pre2025",
-    "kind": "region",
-    "name": "Туенкуанг",
-    "name_vi": "Tuyên Quang",
-    "name_ru": "Туенкуанг",
-    "region_slug": "vn-tuyenquang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-gialai-pre2025",
-    "kind": "region",
-    "name": "Зялай",
-    "name_vi": "Gia Lai",
-    "name_ru": "Зялай",
-    "region_slug": "vn-gialai-pre2025",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dilinh:hotel",
     "kind": "market",
     "name": "Отели",
@@ -31452,21 +31625,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha:language_school",
     "kind": "market",
     "name": "Языковые школы",
     "name_vi": "Trung tâm ngoại ngữ",
     "name_ru": "Языковые школы",
     "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-laichau",
+    "kind": "region",
+    "name": "Лайтяу",
+    "name_vi": "Lai Châu",
+    "name_ru": "Лайтяу",
+    "region_slug": "vn-laichau",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-laocai",
+    "kind": "region",
+    "name": "Лаокай",
+    "name_vi": "Lào Cai",
+    "name_ru": "Лаокай",
+    "region_slug": "vn-laocai",
     "summary_ru": null
   },
   {
@@ -31488,12 +31670,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Завтра 16/9 плановые отключения света с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:car_repair",
+    "slug": "market:vn-lamdong-dilinh:coffee_shop",
     "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
     "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
@@ -31515,65 +31715,11 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Строительная арматура и горячекатаный рулон. Hòa Phát - крупнейший производитель."
   },
   {
-    "slug": "vn-lamdong-pre2025",
-    "kind": "region",
-    "name": "Ламдонг",
-    "name_vi": "Lâm Đồng",
-    "name_ru": "Ламдонг",
-    "region_slug": "vn-lamdong-pre2025",
-    "summary_ru": "Провинция на плато Lâm Viên, столица Đà Lạt. С 1 июля 2025 объединена с Bình Thuận и Đắk Nông, поэтому статистика с 2025 года идёт по новым границам. Главные отрасли: кофе, овощи и цветы закрытого грунта, чай, шёлк, туризм и гидроэнергетика. Регион первого этапа для Data OS."
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dahuoai:motorbike_rental",
     "kind": "market",
     "name": "Аренда мотобайков",
     "name_vi": "Thuê xe máy",
     "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
     "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
@@ -31686,24 +31832,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Продукт Hòa Phát Dung Quất 2, замещает импорт из Китая."
   },
   {
-    "slug": "market:vn-lamdong-dilinh:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-ductrong-liennghia:supermarket",
     "kind": "market",
     "name": "Супермаркеты",
@@ -31722,192 +31850,102 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Социалистическая Республика Вьетнам. Около 101,6 млн человек, ВВП 514,7 млрд долларов за 2025 год. Экономика сборочная: экспорт почти равен ВВП. Корневой узел графа: все национальные рынки и компании привязаны сюда."
   },
   {
-    "slug": "vn-camau",
+    "slug": "vn-sonla",
     "kind": "region",
-    "name": "Камау",
-    "name_vi": "Cà Mau",
-    "name_ru": "Камау",
-    "region_slug": "vn-camau",
+    "name": "Шонла",
+    "name_vi": "Sơn La",
+    "name_ru": "Шонла",
+    "region_slug": "vn-sonla",
     "summary_ru": null
   },
   {
-    "slug": "vn-cantho",
-    "kind": "region",
-    "name": "Кантхо",
-    "name_vi": "Cần Thơ",
-    "name_ru": "Кантхо",
-    "region_slug": "vn-cantho",
-    "summary_ru": null
+    "slug": "source:c34f2d34-de6e-4327-bfb3-95d03fdb8b6b",
+    "kind": "source",
+    "name": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
+    "name_vi": null,
+    "name_ru": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Повтор: 16/9 плановые отключения электроэнергии с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
   },
   {
-    "slug": "vn-gialai",
-    "kind": "region",
-    "name": "Зялай",
-    "name_vi": "Gia Lai",
-    "name_ru": "Зялай",
-    "region_slug": "vn-gialai",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-hue",
-    "kind": "region",
-    "name": "Хюэ",
-    "name_vi": "Huế",
-    "name_ru": "Хюэ",
-    "region_slug": "vn-hue",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-hatinh",
-    "kind": "region",
-    "name": "Хатинь",
-    "name_vi": "Hà Tĩnh",
-    "name_ru": "Хатинь",
-    "region_slug": "vn-hatinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-damrong",
-    "kind": "region",
-    "name": "Дамронг",
-    "name_vi": "Đam Rông",
-    "name_ru": "Дамронг",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-dilinh",
-    "kind": "region",
-    "name": "Дилинь",
-    "name_vi": "Di Linh",
-    "name_ru": "Дилинь",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-baolam",
-    "kind": "region",
-    "name": "Баолам",
-    "name_vi": "Bảo Lâm",
-    "name_ru": "Баолам",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-dahuoai",
-    "kind": "region",
-    "name": "Дахуоай",
-    "name_vi": "Đạ Huoai",
-    "name_ru": "Дахуоай",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-dateh",
-    "kind": "region",
-    "name": "Датэ",
-    "name_vi": "Đạ Tẻh",
-    "name_ru": "Датэ",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-cattien",
-    "kind": "region",
-    "name": "Катьен",
-    "name_vi": "Cát Tiên",
-    "name_ru": "Катьен",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-lamha-dinhvan",
-    "kind": "region",
-    "name": "Диньван",
-    "name_vi": "Đinh Văn",
-    "name_ru": "Диньван",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-damrong3",
-    "kind": "region",
-    "name": "Đam Rông 3",
-    "name_vi": "Đam Rông 3",
+    "slug": "source:d63e7fbd-916b-46c7-b71d-d1c65b12c22e",
+    "kind": "source",
+    "name": "Nhận diện thực lực U23 Kuwait trước màn so tài với U23 Việt Nam",
+    "name_vi": null,
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-damrong3",
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-damrong4",
+    "slug": "vn-sonla-pre2025",
     "kind": "region",
-    "name": "Đam Rông 4",
-    "name_vi": "Đam Rông 4",
+    "name": "Шонла",
+    "name_vi": "Sơn La",
+    "name_ru": "Шонла",
+    "region_slug": "vn-sonla-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:14623ecd-c898-4407-8309-36ed18ccc2fc",
+    "kind": "source",
+    "name": "Разобрана особо крупная схема мошенничества, похитившая более 1000 млрд донгов",
+    "name_vi": null,
+    "name_ru": "Разобрана особо крупная схема мошенничества, похитившая более 1000 млрд донгов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Куангниня раскрыла сеть мошенничества, похитившую свыше 1000 млрд донгов у тысяч людей."
+  },
+  {
+    "slug": "vn-lamdong-x-1baoloc",
+    "kind": "region",
+    "name": "1 Bảo Lộc",
+    "name_vi": "1 Bảo Lộc",
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-damrong4",
+    "region_slug": "vn-lamdong-x-1baoloc",
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-dongkho",
-    "kind": "region",
-    "name": "Đồng Kho",
-    "name_vi": "Đồng Kho",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dongkho",
+    "slug": "market:vn-lamdong-lamha:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha",
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-ducan",
+    "slug": "vn-langson",
     "kind": "region",
-    "name": "Đức An",
-    "name_vi": "Đức An",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-ducan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-duclap",
-    "kind": "region",
-    "name": "Đức Lập",
-    "name_vi": "Đức Lập",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-duclap",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-duclinh",
-    "kind": "region",
-    "name": "Đức Linh",
-    "name_vi": "Đức Linh",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-duclinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-giahiep",
-    "kind": "region",
-    "name": "Gia Hiệp",
-    "name_vi": "Gia Hiệp",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-giahiep",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-haininh",
-    "kind": "region",
-    "name": "Hải Ninh",
-    "name_vi": "Hải Ninh",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-haininh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-laocai",
-    "kind": "region",
-    "name": "Лаокай",
-    "name_vi": "Lào Cai",
-    "name_ru": "Лаокай",
-    "region_slug": "vn-laocai",
+    "name": "Лангшон",
+    "name_vi": "Lạng Sơn",
+    "name_ru": "Лангшон",
+    "region_slug": "vn-langson",
     "summary_ru": null
   },
   {
@@ -31929,12 +31967,102 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-lamha:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:0f072804-f781-490b-bee6-2458962da011",
+    "kind": "source",
+    "name": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
+    "name_vi": null,
+    "name_ru": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция оптимизирует ресурсы для реализации нового генплана развития до 2050 года."
+  },
+  {
+    "slug": "vn-quangngai",
+    "kind": "region",
+    "name": "Куангнгай",
+    "name_vi": "Quảng Ngãi",
+    "name_ru": "Куангнгай",
+    "region_slug": "vn-quangngai",
+    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-quangninh",
     "kind": "region",
     "name": "Куангнинь",
     "name_vi": "Quảng Ninh",
     "name_ru": "Куангнинь",
     "region_slug": "vn-quangninh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
   },
   {
@@ -31947,15 +32075,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-sonla",
-    "kind": "region",
-    "name": "Шонла",
-    "name_vi": "Sơn La",
-    "name_ru": "Шонла",
-    "region_slug": "vn-sonla",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-thanhhoa",
     "kind": "region",
     "name": "Тханьхоа",
@@ -31963,6 +32082,159 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Тханьхоа",
     "region_slug": "vn-thanhhoa",
     "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f1e34e71-de6f-4922-948e-7d5473e8d513",
+    "kind": "source",
+    "name": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
+    "name_vi": null,
+    "name_ru": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Корректировка генплана провинции 2021–2030 с горизонтом до 2050 определяет новые центры роста; ключевой вопрос — источники финансирования."
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:46ad6b78-4875-41eb-bd2f-1d7b1a406f0f",
+    "kind": "source",
+    "name": "Хошимин планирует ввести единый билет на автобус и метро",
+    "name_vi": null,
+    "name_ru": "Хошимин планирует ввести единый билет на автобус и метро",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Жители Хошимина смогут построить маршрут в приложении и оплатить одну поездку с пересадками, не покупая новый билет при смене транспорта."
+  },
+  {
+    "slug": "source:6006d7e2-374e-4c93-8794-a2df24c2ffc3",
+    "kind": "source",
+    "name": "«Тупик» при покупке социального жилья",
+    "name_vi": null,
+    "name_ru": "«Тупик» при покупке социального жилья",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Покупатели социального жилья в Куангчи не могут получить льготные кредиты. К региону не относится."
   },
   {
     "slug": "vn-thanhphohochiminh",
@@ -32019,6 +32291,78 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-damrong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:d32a8847-c218-4404-a08a-69621a429ccc",
+    "kind": "source",
+    "name": "Kỳ vọng những dự án điện mặt trời trên hồ thủy điện",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:ac6172d1-0bf3-4d18-9760-efe47cfb431b",
+    "kind": "source",
+    "name": "Понимание людей — чистая площадка",
+    "name_vi": null,
+    "name_ru": "Понимание людей — чистая площадка",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Жители сносят дома и убирают урожай, освобождая землю под скоростные дороги Тан Фу — Бао Лок и Бао Лок — Льен Кхыонг; на некоторых участках готовы площадки для переселения."
+  },
+  {
+    "slug": "vn-nghean",
+    "kind": "region",
+    "name": "Нгеан",
+    "name_vi": "Nghệ An",
+    "name_ru": "Нгеан",
+    "region_slug": "vn-nghean",
+    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
+  },
+  {
     "slug": "vn-danang",
     "kind": "region",
     "name": "Дананг",
@@ -32064,6 +32408,114 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-lacduong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-07",
+    "kind": "event",
+    "name": "Mùng hai Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "vn-bariavungtau-pre2025",
+    "kind": "region",
+    "name": "Бариа-Вунгтау",
+    "name_vi": "Bà Rịa - Vũng Tàu",
+    "name_ru": "Бариа-Вунгтау",
+    "region_slug": "vn-bariavungtau-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-binhduong-pre2025",
+    "kind": "region",
+    "name": "Биньзыонг",
+    "name_vi": "Bình Dương",
+    "name_ru": "Биньзыонг",
+    "region_slug": "vn-binhduong-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-binhphuoc-pre2025",
+    "kind": "region",
+    "name": "Биньфыок",
+    "name_vi": "Bình Phước",
+    "name_ru": "Биньфыок",
+    "region_slug": "vn-binhphuoc-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-binhthuan-pre2025",
+    "kind": "region",
+    "name": "Биньтхуан",
+    "name_vi": "Bình Thuận",
+    "name_ru": "Биньтхуан",
+    "region_slug": "vn-binhthuan-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:3d5c08e9-88cd-4ed5-abc3-98a1073672df",
+    "kind": "source",
+    "name": "Цифровой гражданин Ламдонга: удобства под рукой",
+    "name_vi": null,
+    "name_ru": "Цифровой гражданин Ламдонга: удобства под рукой",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Ламдонге развивают сервисы цифрового гражданина для удобства жителей."
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-binhdinh-pre2025",
+    "kind": "region",
+    "name": "Биньдинь",
+    "name_vi": "Bình Định",
+    "name_ru": "Биньдинь",
+    "region_slug": "vn-binhdinh-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-baclieu-pre2025",
+    "kind": "region",
+    "name": "Баклиеу",
+    "name_vi": "Bạc Liêu",
+    "name_ru": "Баклиеу",
+    "region_slug": "vn-baclieu-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-bacgiang-pre2025",
     "kind": "region",
     "name": "Бакзянг",
@@ -32071,6 +32523,141 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Бакзянг",
     "region_slug": "vn-bacgiang-pre2025",
     "summary_ru": null
+  },
+  {
+    "slug": "vn-backan-pre2025",
+    "kind": "region",
+    "name": "Баккан",
+    "name_vi": "Bắc Kạn",
+    "name_ru": "Баккан",
+    "region_slug": "vn-backan-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-bacninh-pre2025",
+    "kind": "region",
+    "name": "Бакнинь",
+    "name_vi": "Bắc Ninh",
+    "name_ru": "Бакнинь",
+    "region_slug": "vn-bacninh-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-bentre-pre2025",
+    "kind": "region",
+    "name": "Бенче",
+    "name_vi": "Bến Tre",
+    "name_ru": "Бенче",
+    "region_slug": "vn-bentre-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:c7bcac0a-2627-4b02-87ca-eae3d38c565a",
+    "kind": "source",
+    "name": "Giàn giáo công trình không phép đổ sập tại phường trung tâm ở Tây Ninh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:54ab217d-a5af-4689-869f-62f99305d793",
+    "kind": "source",
+    "name": "Ближе к народу через конкретные дела",
+    "name_vi": null,
+    "name_ru": "Ближе к народу через конкретные дела",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Материал о работе местных властей по практической помощи населению."
+  },
+  {
+    "slug": "source:5c5a31ab-83f1-4c53-bae8-df4d6260b8c4",
+    "kind": "source",
+    "name": "Ранний Праздник середины осени для бедных детей",
+    "name_vi": null,
+    "name_ru": "Ранний Праздник середины осени для бедных детей",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Организации провинции проводят программы празднования Тета чунгтху для детей из малоимущих семей и этнических меньшинств."
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:739edcde-6470-4c79-a058-4415e95fd89e",
+    "kind": "source",
+    "name": "Ранний Праздник середины осени для бедных детей",
+    "name_vi": null,
+    "name_ru": "Ранний Праздник середины осени для бедных детей",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Повтор публикации о праздничных мероприятиях для малоимущих детей провинции."
   },
   {
     "slug": "vn-caobang-pre2025",
@@ -32082,12 +32669,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-camau-pre2025",
+    "kind": "region",
+    "name": "Камау",
+    "name_vi": "Cà Mau",
+    "name_ru": "Камау",
+    "region_slug": "vn-camau-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-cantho-pre2025",
     "kind": "region",
     "name": "Кантхо",
     "name_vi": "Cần Thơ",
     "name_ru": "Кантхо",
     "region_slug": "vn-cantho-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:0856ec1a-08c0-4fbd-84ba-4964dc943afb",
+    "kind": "source",
+    "name": "Phường 1 Bảo Lộc thu gom gần 200 tấn rác tồn đọng sau nhiều ngày ùn ứ",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -32107,6 +32721,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ханам",
     "region_slug": "vn-hanam-pre2025",
     "summary_ru": null
+  },
+  {
+    "slug": "vn-hanoi-pre2025",
+    "kind": "region",
+    "name": "Ханой",
+    "name_vi": "Hà Nội",
+    "name_ru": "Ханой",
+    "region_slug": "vn-hanoi-pre2025",
+    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
   },
   {
     "slug": "vn-hatinh-pre2025",
@@ -32133,6 +32756,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Hưng Yên",
     "name_ru": "Хынгйен",
     "region_slug": "vn-hungyen-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b4ddd6e8-ac1f-45d6-b796-6b13fe9e7a49",
+    "kind": "source",
+    "name": "Ngăn chặn hành khách mang 5 viên đạn lên máy bay ở Tân Sơn Nhất",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -32172,6 +32804,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция с Nha Trang, где в 2001 году родился Vinpearl."
   },
   {
+    "slug": "vn-kiengiang-pre2025",
+    "kind": "region",
+    "name": "Кьензянг",
+    "name_vi": "Kiên Giang",
+    "name_ru": "Кьензянг",
+    "region_slug": "vn-kiengiang-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-kontum-pre2025",
     "kind": "region",
     "name": "Контум",
@@ -32208,6 +32849,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-pre2025",
+    "kind": "region",
+    "name": "Ламдонг",
+    "name_vi": "Lâm Đồng",
+    "name_ru": "Ламдонг",
+    "region_slug": "vn-lamdong-pre2025",
+    "summary_ru": "Провинция на плато Lâm Viên, столица Đà Lạt. С 1 июля 2025 объединена с Bình Thuận и Đắk Nông, поэтому статистика с 2025 года идёт по новым границам. Главные отрасли: кофе, овощи и цветы закрытого грунта, чай, шёлк, туризм и гидроэнергетика. Регион первого этапа для Data OS."
+  },
+  {
     "slug": "vn-langson-pre2025",
     "kind": "region",
     "name": "Лангшон",
@@ -32224,6 +32874,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Намдинь",
     "region_slug": "vn-namdinh-pre2025",
     "summary_ru": null
+  },
+  {
+    "slug": "vn-nghean-pre2025",
+    "kind": "region",
+    "name": "Нгеан",
+    "name_vi": "Nghệ An",
+    "name_ru": "Нгеан",
+    "region_slug": "vn-nghean-pre2025",
+    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
   },
   {
     "slug": "vn-ninhbinh-pre2025",
@@ -32298,12 +32957,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-sonla-pre2025",
+    "slug": "vn-thanhhoa-pre2025",
     "kind": "region",
-    "name": "Шонла",
-    "name_vi": "Sơn La",
-    "name_ru": "Шонла",
-    "region_slug": "vn-sonla-pre2025",
+    "name": "Тханьхоа",
+    "name_vi": "Thanh Hóa",
+    "name_ru": "Тханьхоа",
+    "region_slug": "vn-thanhhoa-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-thanhphohochiminh-pre2025",
+    "kind": "region",
+    "name": "Хошимин",
+    "name_vi": "Thành phố Hồ Chí Minh",
+    "name_ru": "Хошимин",
+    "region_slug": "vn-thanhphohochiminh-pre2025",
     "summary_ru": null
   },
   {
@@ -32313,6 +32981,51 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Thái Bình",
     "name_ru": "Тхайбинь",
     "region_slug": "vn-thaibinh-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-thuathienhue-pre2025",
+    "kind": "region",
+    "name": "Тхыатхьен-Хюэ",
+    "name_vi": "Thừa Thiên Huế",
+    "name_ru": "Тхыатхьен-Хюэ",
+    "region_slug": "vn-thuathienhue-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-tiengiang-pre2025",
+    "kind": "region",
+    "name": "Тьензянг",
+    "name_vi": "Tiền Giang",
+    "name_ru": "Тьензянг",
+    "region_slug": "vn-tiengiang-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-travinh-pre2025",
+    "kind": "region",
+    "name": "Чавинь",
+    "name_vi": "Trà Vinh",
+    "name_ru": "Чавинь",
+    "region_slug": "vn-travinh-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-tuyenquang-pre2025",
+    "kind": "region",
+    "name": "Туенкуанг",
+    "name_vi": "Tuyên Quang",
+    "name_ru": "Туенкуанг",
+    "region_slug": "vn-tuyenquang-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-gialai-pre2025",
+    "kind": "region",
+    "name": "Зялай",
+    "name_vi": "Gia Lai",
+    "name_ru": "Зялай",
+    "region_slug": "vn-gialai-pre2025",
     "summary_ru": null
   },
   {
@@ -32343,6 +33056,60 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-yenbai-pre2025",
+    "kind": "region",
+    "name": "Йенбай",
+    "name_vi": "Yên Bái",
+    "name_ru": "Йенбай",
+    "region_slug": "vn-yenbai-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-dienbien-pre2025",
+    "kind": "region",
+    "name": "Дьенбьен",
+    "name_vi": "Điện Biên",
+    "name_ru": "Дьенбьен",
+    "region_slug": "vn-dienbien-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-danang-pre2025",
+    "kind": "region",
+    "name": "Дананг",
+    "name_vi": "Đà Nẵng",
+    "name_ru": "Дананг",
+    "region_slug": "vn-danang-pre2025",
+    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
+  },
+  {
+    "slug": "source:55b35aee-ee0c-43ec-b54c-3c2c6dac248e",
+    "kind": "source",
+    "name": "Ламдонг создаёт особую прибрежную экономическую зону",
+    "name_vi": null,
+    "name_ru": "Ламдонг создаёт особую прибрежную экономическую зону",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ламдонг готовит проект особой экономической зоны площадью 86 048 га на побережье бывшей провинции Биньтхуан."
+  },
+  {
+    "slug": "vn-daklak-pre2025",
+    "kind": "region",
+    "name": "Даклак",
+    "name_vi": "Đắk Lắk",
+    "name_ru": "Даклак",
+    "region_slug": "vn-daklak-pre2025",
+    "summary_ru": "Главная кофейная провинция страны, столица Buôn Ma Thuột. Родина Trung Nguyên и экспортёра Simexco."
+  },
+  {
+    "slug": "vn-daknong-pre2025",
+    "kind": "region",
+    "name": "Дакнонг",
+    "name_vi": "Đắk Nông",
+    "name_ru": "Дакнонг",
+    "region_slug": "vn-daknong-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-dongnai-pre2025",
     "kind": "region",
     "name": "Донгнай",
@@ -32352,6 +33119,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Индустриальная провинция рядом с Хошимином, здесь кофейный завод Nestlé Trị An."
   },
   {
+    "slug": "vn-dongthap-pre2025",
+    "kind": "region",
+    "name": "Донгтхап",
+    "name_vi": "Đồng Tháp",
+    "name_ru": "Донгтхап",
+    "region_slug": "vn-dongthap-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-lamdong-dalat",
     "kind": "region",
     "name": "Далат",
@@ -32359,60 +33135,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Далат",
     "region_slug": "vn-lamdong-dalat",
     "summary_ru": "Город на высоте около 1500 метров, основан французами как курорт. Центр цветоводства, овощеводства закрытого грунта и туризма провинции. Здесь сидят Dalat Hasfarm, Cầu Đất, Dalat Palace, отсюда родом автобусный оператор Phương Trang."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:c34f2d34-de6e-4327-bfb3-95d03fdb8b6b",
-    "kind": "source",
-    "name": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
-    "name_vi": null,
-    "name_ru": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Повтор: 16/9 плановые отключения электроэнергии с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
-  },
-  {
-    "slug": "source:d63e7fbd-916b-46c7-b71d-d1c65b12c22e",
-    "kind": "source",
-    "name": "Nhận diện thực lực U23 Kuwait trước màn so tài với U23 Việt Nam",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:14623ecd-c898-4407-8309-36ed18ccc2fc",
-    "kind": "source",
-    "name": "Разобрана особо крупная схема мошенничества, похитившая более 1000 млрд донгов",
-    "name_vi": null,
-    "name_ru": "Разобрана особо крупная схема мошенничества, похитившая более 1000 млрд донгов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Куангниня раскрыла сеть мошенничества, похитившую свыше 1000 млрд донгов у тысяч людей."
   },
   {
     "slug": "vn-lamdong-baoloc",
@@ -32451,12 +33173,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Район к северо-западу от Đà Lạt, кофейные и ягодные хозяйства, посёлки Nam Ban и Đinh Văn."
   },
   {
-    "slug": "vn-lamdong-x-1baoloc",
+    "slug": "zone:dalat-center",
     "kind": "region",
-    "name": "1 Bảo Lộc",
-    "name_vi": "1 Bảo Lộc",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-1baoloc",
+    "name": "Центр Далата",
+    "name_vi": "Trung tâm Đà Lạt",
+    "name_ru": "Центр Далата",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "zone:lienkhuong",
+    "kind": "region",
+    "name": "Аэропорт Льенкыонг",
+    "name_vi": "Sân bay Liên Khương",
+    "name_ru": "Аэропорт Льенкыонг",
+    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -32568,15 +33299,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-lamdong-x-muine",
     "kind": "region",
     "name": "Mũi Né",
@@ -32628,6 +33350,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Tiến Thành",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-tienthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-xuanhuongdalat",
+    "kind": "region",
+    "name": "Xuân Hương – Đà Lạt",
+    "name_vi": "Xuân Hương – Đà Lạt",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-xuanhuongdalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam4",
+    "kind": "region",
+    "name": "Bảo Lâm 4",
+    "name_vi": "Bảo Lâm 4",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam4",
     "summary_ru": null
   },
   {
@@ -32739,24 +33488,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-lamdong-x-dahuoai3",
     "kind": "region",
     "name": "Đạ Huoai 3",
@@ -32782,15 +33513,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": null,
     "region_slug": "vn-lamdong-x-dateh2",
     "summary_ru": null
-  },
-  {
-    "slug": "source:0f072804-f781-490b-bee6-2458962da011",
-    "kind": "source",
-    "name": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
-    "name_vi": null,
-    "name_ru": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция оптимизирует ресурсы для реализации нового генплана развития до 2050 года."
   },
   {
     "slug": "vn-lamdong-x-dateh3",
@@ -32892,51 +33614,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha-dinhvan:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-lamdong-x-hiepthanh",
     "kind": "region",
     "name": "Hiệp Thạnh",
@@ -32991,12 +33668,255 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-kienduc",
+    "kind": "region",
+    "name": "Kiến Đức",
+    "name_vi": "Kiến Đức",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-kienduc",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-krongno",
+    "kind": "region",
+    "name": "Krông Nô",
+    "name_vi": "Krông Nô",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-krongno",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-lada",
+    "kind": "region",
+    "name": "La Dạ",
+    "name_vi": "La Dạ",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-lada",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-lienhuong",
+    "kind": "region",
+    "name": "Liên Hương",
+    "name_vi": "Liên Hương",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-lienhuong",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-lamdong-x-luongson",
     "kind": "region",
     "name": "Lương Sơn",
     "name_vi": "Lương Sơn",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-luongson",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:7f847434-96a2-43b8-bcb4-17a813511b88",
+    "kind": "source",
+    "name": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Туризм Ламдонга объединяет нагорье, леса и побережье, включая людей в туристические маршруты; возможен рост потока гостей."
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "institution:ministry-of-finance-vn",
+    "kind": "institution",
+    "name": "Ministry of Finance",
+    "name_vi": "Bộ Tài chính",
+    "name_ru": "Министерство финансов Вьетнама",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "С 2025 года держит представительство государства в 18 крупнейших госкорпорациях, включая PVN, EVN, VNPT, MobiFone и Vietnam Airlines."
+  },
+  {
+    "slug": "institution:government-inspectorate-vn",
+    "kind": "institution",
+    "name": "Government Inspectorate of Vietnam",
+    "name_vi": "Thanh tra Chính phủ",
+    "name_ru": "Госинспекция Вьетнама",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Госинспекция, чьё заключение о нарушениях по проекту Đại Ninh стало точкой отсчёта коррупционного дела 2024-2025 годов."
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-17",
+    "kind": "event",
+    "name": "Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-20",
+    "kind": "event",
+    "name": "Mùng bốn Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "source:81c8d2a7-bbd5-4670-b6ed-462f5842032b",
+    "kind": "source",
+    "name": "Близость к народу через конкретные дела",
+    "name_vi": null,
+    "name_ru": "Близость к народу через конкретные дела",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Дорожная полиция Лам Донга регулярно спасает больных, доставляя их в больницы во время патрулирования. О работе ГИБДД, на движение не влияет."
+  },
+  {
+    "slug": "vn-lamdong",
+    "kind": "region",
+    "name": "Ламдонг",
+    "name_vi": "Lâm Đồng",
+    "name_ru": "Ламдонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
+  },
+  {
+    "slug": "vn-lamdong-x-xuantruongdalat",
+    "kind": "region",
+    "name": "Xuân Trường – Đà Lạt",
+    "name_vi": "Xuân Trường – Đà Lạt",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-xuantruongdalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam1",
+    "kind": "region",
+    "name": "Bảo Lâm 1",
+    "name_vi": "Bảo Lâm 1",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam1",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam2",
+    "kind": "region",
+    "name": "Bảo Lâm 2",
+    "name_vi": "Bảo Lâm 2",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam2",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam3",
+    "kind": "region",
+    "name": "Bảo Lâm 3",
+    "name_vi": "Bảo Lâm 3",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam3",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:8bdc42f5-ee2c-4cc8-a38b-3d1553feb9af",
+    "kind": "source",
+    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Продолжение цикла о развитии зеленого туризма в Лам Донге и вовлечении местных жителей. На движение по дорогам не влияет."
+  },
+  {
+    "slug": "source:fabb7104-5615-467a-a16c-6e2e4b0a4fc5",
+    "kind": "source",
+    "name": "Импульс развития от сельских дорог",
+    "name_vi": null,
+    "name_ru": "Импульс развития от сельских дорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Западный Лам Донг инвестирует в ключевые сельские автодороги внутрирегионального и межрегионального значения. Влияет на развитие транспортной сети региона."
+  },
+  {
+    "slug": "source:9e7e19a0-0bba-41f7-9f5b-82274d1e92c9",
+    "kind": "source",
+    "name": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
+    "name_vi": null,
+    "name_ru": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В отдаленной коммуне Тà Hine волонтеры обучают жителей цифровым навыкам и онлайн-госуслугам. К дорогам отношения не имеет."
+  },
+  {
+    "slug": "source:b304fa4d-f77b-4f17-87ac-1b7b9a2d8182",
+    "kind": "source",
+    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "name_vi": null,
+    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Лам Донг развивает сеть первичной медицины до 2030 года, особенно в отдаленных районах. На дороги не влияет."
+  },
+  {
+    "slug": "source:c67ae113-60d3-4d3e-916c-b1fbd382fdc6",
+    "kind": "source",
+    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Туризм Лам Донга объединяет ценности разных регионов, повышая доходы местных жителей. Прямого влияния на дороги нет."
+  },
+  {
+    "slug": "source:db57d2c0-8bfc-4129-bc48-fe0ed2d3488e",
+    "kind": "source",
+    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "name_vi": null,
+    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Лам Донге развивают медицинские стандарты на уровне общин, повышая качество базовой медицины. На движение не влияет."
+  },
+  {
+    "slug": "source:dbb50664-2dc9-4711-a284-4f64a023b667",
+    "kind": "source",
+    "name": "Импульс развития от сельских дорог",
+    "name_vi": null,
+    "name_ru": "Импульс развития от сельских дорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Статья о строительстве и развитии сельских дорог в Западном Лам Донге как драйвере развития. Долгосрочно улучшает транспортную сеть."
+  },
+  {
+    "slug": "market:zone:lienkhuong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-hongthai",
+    "kind": "region",
+    "name": "Hồng Thái",
+    "name_vi": "Hồng Thái",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-hongthai",
     "summary_ru": null
   },
   {
@@ -33153,3390 +34073,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-quangtin",
-    "kind": "region",
-    "name": "Quảng Tín",
-    "name_vi": "Quảng Tín",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-quangtin",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-quangtruc",
-    "kind": "region",
-    "name": "Quảng Trực",
-    "name_vi": "Quảng Trực",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-quangtruc",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-songluy",
-    "kind": "region",
-    "name": "Sông Lũy",
-    "name_vi": "Sông Lũy",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-songluy",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-sondien",
-    "kind": "region",
-    "name": "Sơn Điền",
-    "name_vi": "Sơn Điền",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-sondien",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-yenbai-pre2025",
-    "kind": "region",
-    "name": "Йенбай",
-    "name_vi": "Yên Bái",
-    "name_ru": "Йенбай",
-    "region_slug": "vn-yenbai-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-sonmy",
-    "kind": "region",
-    "name": "Sơn Mỹ",
-    "name_vi": "Sơn Mỹ",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-sonmy",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-suoikiet",
-    "kind": "region",
-    "name": "Suối Kiết",
-    "name_vi": "Suối Kiết",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-suoikiet",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tadung",
-    "kind": "region",
-    "name": "Tà Đùng",
-    "name_vi": "Tà Đùng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tadung",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tahine",
-    "kind": "region",
-    "name": "Tà Hine",
-    "name_vi": "Tà Hine",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tahine",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanang",
-    "kind": "region",
-    "name": "Tà Năng",
-    "name_vi": "Tà Năng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanang",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanhlinh",
-    "kind": "region",
-    "name": "Tánh Linh",
-    "name_vi": "Tánh Linh",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhlinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanhalamha",
-    "kind": "region",
-    "name": "Tân Hà Lâm Hà",
-    "name_vi": "Tân Hà Lâm Hà",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhalamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanthanh",
-    "kind": "region",
-    "name": "Tân Thành",
-    "name_vi": "Tân Thành",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-thuanan",
-    "kind": "region",
-    "name": "Thuận An",
-    "name_vi": "Thuận An",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-thuanan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tratan",
-    "kind": "region",
-    "name": "Trà Tân",
-    "name_vi": "Trà Tân",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tratan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-truongxuan",
-    "kind": "region",
-    "name": "Trường Xuân",
-    "name_vi": "Trường Xuân",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-truongxuan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tuyduc",
-    "kind": "region",
-    "name": "Tuy Đức",
-    "name_vi": "Tuy Đức",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tuyduc",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tuyphong",
-    "kind": "region",
-    "name": "Tuy Phong",
-    "name_vi": "Tuy Phong",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tuyphong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f1e34e71-de6f-4922-948e-7d5473e8d513",
-    "kind": "source",
-    "name": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
-    "name_vi": null,
-    "name_ru": "Лам Донг оптимизирует ресурсы для прорыва в планировке пространства",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Корректировка генплана провинции 2021–2030 с горизонтом до 2050 определяет новые центры роста; ключевой вопрос — источники финансирования."
-  },
-  {
-    "slug": "vn-dienbien-pre2025",
-    "kind": "region",
-    "name": "Дьенбьен",
-    "name_vi": "Điện Biên",
-    "name_ru": "Дьенбьен",
-    "region_slug": "vn-dienbien-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:46ad6b78-4875-41eb-bd2f-1d7b1a406f0f",
-    "kind": "source",
-    "name": "Хошимин планирует ввести единый билет на автобус и метро",
-    "name_vi": null,
-    "name_ru": "Хошимин планирует ввести единый билет на автобус и метро",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Жители Хошимина смогут построить маршрут в приложении и оплатить одну поездку с пересадками, не покупая новый билет при смене транспорта."
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:6006d7e2-374e-4c93-8794-a2df24c2ffc3",
-    "kind": "source",
-    "name": "«Тупик» при покупке социального жилья",
-    "name_vi": null,
-    "name_ru": "«Тупик» при покупке социального жилья",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Покупатели социального жилья в Куангчи не могут получить льготные кредиты. К региону не относится."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:d32a8847-c218-4404-a08a-69621a429ccc",
-    "kind": "source",
-    "name": "Kỳ vọng những dự án điện mặt trời trên hồ thủy điện",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "event:seed:holiday-2027-02-07",
-    "kind": "event",
-    "name": "Mùng hai Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "source:ac6172d1-0bf3-4d18-9760-efe47cfb431b",
-    "kind": "source",
-    "name": "Понимание людей — чистая площадка",
-    "name_vi": null,
-    "name_ru": "Понимание людей — чистая площадка",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Жители сносят дома и убирают урожай, освобождая землю под скоростные дороги Тан Фу — Бао Лок и Бао Лок — Льен Кхыонг; на некоторых участках готовы площадки для переселения."
-  },
-  {
-    "slug": "vn-nghean",
-    "kind": "region",
-    "name": "Нгеан",
-    "name_vi": "Nghệ An",
-    "name_ru": "Нгеан",
-    "region_slug": "vn-nghean",
-    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:3d5c08e9-88cd-4ed5-abc3-98a1073672df",
-    "kind": "source",
-    "name": "Цифровой гражданин Ламдонга: удобства под рукой",
-    "name_vi": null,
-    "name_ru": "Цифровой гражданин Ламдонга: удобства под рукой",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Ламдонге развивают сервисы цифрового гражданина для удобства жителей."
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-danang-pre2025",
-    "kind": "region",
-    "name": "Дананг",
-    "name_vi": "Đà Nẵng",
-    "name_ru": "Дананг",
-    "region_slug": "vn-danang-pre2025",
-    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
-  },
-  {
-    "slug": "market:vn-lamdong-dilinh:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:c7bcac0a-2627-4b02-87ca-eae3d38c565a",
-    "kind": "source",
-    "name": "Giàn giáo công trình không phép đổ sập tại phường trung tâm ở Tây Ninh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-daknong-pre2025",
-    "kind": "region",
-    "name": "Дакнонг",
-    "name_vi": "Đắk Nông",
-    "name_ru": "Дакнонг",
-    "region_slug": "vn-daknong-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:54ab217d-a5af-4689-869f-62f99305d793",
-    "kind": "source",
-    "name": "Ближе к народу через конкретные дела",
-    "name_vi": null,
-    "name_ru": "Ближе к народу через конкретные дела",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Материал о работе местных властей по практической помощи населению."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:5c5a31ab-83f1-4c53-bae8-df4d6260b8c4",
-    "kind": "source",
-    "name": "Ранний Праздник середины осени для бедных детей",
-    "name_vi": null,
-    "name_ru": "Ранний Праздник середины осени для бедных детей",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Организации провинции проводят программы празднования Тета чунгтху для детей из малоимущих семей и этнических меньшинств."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:739edcde-6470-4c79-a058-4415e95fd89e",
-    "kind": "source",
-    "name": "Ранний Праздник середины осени для бедных детей",
-    "name_vi": null,
-    "name_ru": "Ранний Праздник середины осени для бедных детей",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Повтор публикации о праздничных мероприятиях для малоимущих детей провинции."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-xuanhuongdalat",
-    "kind": "region",
-    "name": "Xuân Hương – Đà Lạt",
-    "name_vi": "Xuân Hương – Đà Lạt",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-xuanhuongdalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:0856ec1a-08c0-4fbd-84ba-4964dc943afb",
-    "kind": "source",
-    "name": "Phường 1 Bảo Lộc thu gom gần 200 tấn rác tồn đọng sau nhiều ngày ùn ứ",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b4ddd6e8-ac1f-45d6-b796-6b13fe9e7a49",
-    "kind": "source",
-    "name": "Ngăn chặn hành khách mang 5 viên đạn lên máy bay ở Tân Sơn Nhất",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:55b35aee-ee0c-43ec-b54c-3c2c6dac248e",
-    "kind": "source",
-    "name": "Ламдонг создаёт особую прибрежную экономическую зону",
-    "name_vi": null,
-    "name_ru": "Ламдонг создаёт особую прибрежную экономическую зону",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ламдонг готовит проект особой экономической зоны площадью 86 048 га на побережье бывшей провинции Биньтхуан."
-  },
-  {
-    "slug": "market:zone:lienkhuong:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:7f847434-96a2-43b8-bcb4-17a813511b88",
-    "kind": "source",
-    "name": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
-    "name_vi": null,
-    "name_ru": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Туризм Ламдонга объединяет нагорье, леса и побережье, включая людей в туристические маршруты; возможен рост потока гостей."
-  },
-  {
-    "slug": "vn-quangngai",
-    "kind": "region",
-    "name": "Куангнгай",
-    "name_vi": "Quảng Ngãi",
-    "name_ru": "Куангнгай",
-    "region_slug": "vn-quangngai",
-    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
-  },
-  {
-    "slug": "vn-nghean-pre2025",
-    "kind": "region",
-    "name": "Нгеан",
-    "name_vi": "Nghệ An",
-    "name_ru": "Нгеан",
-    "region_slug": "vn-nghean-pre2025",
-    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "institution:ministry-of-finance-vn",
-    "kind": "institution",
-    "name": "Ministry of Finance",
-    "name_vi": "Bộ Tài chính",
-    "name_ru": "Министерство финансов Вьетнама",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "С 2025 года держит представительство государства в 18 крупнейших госкорпорациях, включая PVN, EVN, VNPT, MobiFone и Vietnam Airlines."
-  },
-  {
-    "slug": "institution:government-inspectorate-vn",
-    "kind": "institution",
-    "name": "Government Inspectorate of Vietnam",
-    "name_vi": "Thanh tra Chính phủ",
-    "name_ru": "Госинспекция Вьетнама",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Госинспекция, чьё заключение о нарушениях по проекту Đại Ninh стало точкой отсчёта коррупционного дела 2024-2025 годов."
-  },
-  {
-    "slug": "vn-lamdong",
-    "kind": "region",
-    "name": "Ламдонг",
-    "name_vi": "Lâm Đồng",
-    "name_ru": "Ламдонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
-  },
-  {
-    "slug": "vn-lamdong-x-xuantruongdalat",
-    "kind": "region",
-    "name": "Xuân Trường – Đà Lạt",
-    "name_vi": "Xuân Trường – Đà Lạt",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-xuantruongdalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam1",
-    "kind": "region",
-    "name": "Bảo Lâm 1",
-    "name_vi": "Bảo Lâm 1",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam1",
-    "summary_ru": null
-  },
-  {
-    "slug": "event:seed:holiday-2026-02-17",
-    "kind": "event",
-    "name": "Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-02-20",
-    "kind": "event",
-    "name": "Mùng bốn Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "source:81c8d2a7-bbd5-4670-b6ed-462f5842032b",
-    "kind": "source",
-    "name": "Близость к народу через конкретные дела",
-    "name_vi": null,
-    "name_ru": "Близость к народу через конкретные дела",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Дорожная полиция Лам Донга регулярно спасает больных, доставляя их в больницы во время патрулирования. О работе ГИБДД, на движение не влияет."
-  },
-  {
-    "slug": "vn-lamdong-x-baolam2",
-    "kind": "region",
-    "name": "Bảo Lâm 2",
-    "name_vi": "Bảo Lâm 2",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam2",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam3",
-    "kind": "region",
-    "name": "Bảo Lâm 3",
-    "name_vi": "Bảo Lâm 3",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam3",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam4",
-    "kind": "region",
-    "name": "Bảo Lâm 4",
-    "name_vi": "Bảo Lâm 4",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam4",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:8bdc42f5-ee2c-4cc8-a38b-3d1553feb9af",
-    "kind": "source",
-    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "name_vi": null,
-    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Продолжение цикла о развитии зеленого туризма в Лам Донге и вовлечении местных жителей. На движение по дорогам не влияет."
-  },
-  {
-    "slug": "source:fabb7104-5615-467a-a16c-6e2e4b0a4fc5",
-    "kind": "source",
-    "name": "Импульс развития от сельских дорог",
-    "name_vi": null,
-    "name_ru": "Импульс развития от сельских дорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Западный Лам Донг инвестирует в ключевые сельские автодороги внутрирегионального и межрегионального значения. Влияет на развитие транспортной сети региона."
-  },
-  {
-    "slug": "source:9e7e19a0-0bba-41f7-9f5b-82274d1e92c9",
-    "kind": "source",
-    "name": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
-    "name_vi": null,
-    "name_ru": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В отдаленной коммуне Тà Hine волонтеры обучают жителей цифровым навыкам и онлайн-госуслугам. К дорогам отношения не имеет."
-  },
-  {
-    "slug": "source:b304fa4d-f77b-4f17-87ac-1b7b9a2d8182",
-    "kind": "source",
-    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "name_vi": null,
-    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Лам Донг развивает сеть первичной медицины до 2030 года, особенно в отдаленных районах. На дороги не влияет."
-  },
-  {
-    "slug": "source:c67ae113-60d3-4d3e-916c-b1fbd382fdc6",
-    "kind": "source",
-    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "name_vi": null,
-    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Туризм Лам Донга объединяет ценности разных регионов, повышая доходы местных жителей. Прямого влияния на дороги нет."
-  },
-  {
-    "slug": "source:db57d2c0-8bfc-4129-bc48-fe0ed2d3488e",
-    "kind": "source",
-    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "name_vi": null,
-    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Лам Донге развивают медицинские стандарты на уровне общин, повышая качество базовой медицины. На движение не влияет."
-  },
-  {
-    "slug": "source:dbb50664-2dc9-4711-a284-4f64a023b667",
-    "kind": "source",
-    "name": "Импульс развития от сельских дорог",
-    "name_vi": null,
-    "name_ru": "Импульс развития от сельских дорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Статья о строительстве и развитии сельских дорог в Западном Лам Донге как драйвере развития. Долгосрочно улучшает транспортную сеть."
-  },
-  {
-    "slug": "vn-lamdong-x-hongthai",
-    "kind": "region",
-    "name": "Hồng Thái",
-    "name_vi": "Hồng Thái",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-hongthai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:homestay",
-    "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
     "slug": "technology:5g",
     "kind": "technology",
     "name": "5G mobile network",
@@ -36582,15 +34118,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В общине Tân Thành провинции Lâm Đồng запущено движение рыбаков по охране безопасности на море."
   },
   {
-    "slug": "technology:organic-dairy",
-    "kind": "technology",
-    "name": "Organic dairy farming",
-    "name_vi": null,
-    "name_ru": "Органическое молочное животноводство",
-    "region_slug": "vn",
-    "summary_ru": "Органическое молочное животноводство по стандарту EU. Во Вьетнаме первым сертифицировали ферму Vinamilk в Đức Trọng."
-  },
-  {
     "slug": "vn-lamdong-x-kado",
     "kind": "region",
     "name": "Ka Đô",
@@ -36600,40 +34127,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-kienduc",
-    "kind": "region",
-    "name": "Kiến Đức",
-    "name_vi": "Kiến Đức",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-kienduc",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-krongno",
-    "kind": "region",
-    "name": "Krông Nô",
-    "name_vi": "Krông Nô",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-krongno",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-lada",
-    "kind": "region",
-    "name": "La Dạ",
-    "name_vi": "La Dạ",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-lada",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-lienhuong",
-    "kind": "region",
-    "name": "Liên Hương",
-    "name_vi": "Liên Hương",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-lienhuong",
-    "summary_ru": null
+    "slug": "technology:organic-dairy",
+    "kind": "technology",
+    "name": "Organic dairy farming",
+    "name_vi": null,
+    "name_ru": "Органическое молочное животноводство",
+    "region_slug": "vn",
+    "summary_ru": "Органическое молочное животноводство по стандарту EU. Во Вьетнаме первым сертифицировали ферму Vinamilk в Đức Trọng."
   },
   {
     "slug": "source:a8e8aac4-2c5f-4f26-a3eb-764d5f83a9d0",
@@ -36690,66 +34190,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Полиция Лам Донга координирует охрану порядка при международном сотрудничестве университета Фантхьет."
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "vn-lamdong-x-quangtin",
+    "kind": "region",
+    "name": "Quảng Tín",
+    "name_vi": "Quảng Tín",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-quangtin",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dateh",
+    "slug": "vn-lamdong-x-quangtruc",
+    "kind": "region",
+    "name": "Quảng Trực",
+    "name_vi": "Quảng Trực",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-quangtruc",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "slug": "vn-lamdong-x-songluy",
+    "kind": "region",
+    "name": "Sông Lũy",
+    "name_vi": "Sông Lũy",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-songluy",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:lienkhuong:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha",
+    "slug": "vn-lamdong-x-sondien",
+    "kind": "region",
+    "name": "Sơn Điền",
+    "name_vi": "Sơn Điền",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-sondien",
     "summary_ru": null
   },
   {
@@ -36816,57 +34289,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baolam:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
     "slug": "market:zone:dalat-center:dental",
     "kind": "market",
     "name": "Стоматологии",
     "name_vi": "Nha khoa",
     "name_ru": "Стоматологии",
     "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
@@ -36906,96 +34334,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha-namban:bakery",
     "kind": "market",
     "name": "Пекарни",
@@ -37023,74 +34361,11 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:zone:namban-home:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanhoi",
-    "kind": "region",
-    "name": "Tân Hội",
-    "name_vi": "Tân Hội",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhoi",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanlap",
-    "kind": "region",
-    "name": "Tân Lập",
-    "name_vi": "Tân Lập",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanlap",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dalat-tanung:motorbike_rental",
     "kind": "market",
     "name": "Аренда мотобайков",
     "name_vi": "Thuê xe máy",
     "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
     "region_slug": "vn-lamdong-dalat-tanung",
     "summary_ru": null
   },
@@ -37129,15 +34404,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Охрана порядка на церемонии открытия I Спартакиады провинции Лам Донг 2026",
     "region_slug": "vn-lamdong",
     "summary_ru": "Полиция обеспечит безопасность на открытии спартакиады провинции; возможен приток людей и машин в день мероприятия."
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
   },
   {
     "slug": "source:84691fbb-cd2b-4463-8ce8-0f9426be472b",
@@ -37203,192 +34469,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Лаокае нашли сбежавшую из дома школьницу при проверке автобуса. К региону отношения не имеет."
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha-namban:pharmacy",
     "kind": "market",
     "name": "Аптеки",
     "name_vi": "Nhà thuốc",
     "name_ru": "Аптеки",
     "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dongthanh:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
     "summary_ru": null
   },
   {
@@ -37444,6 +34530,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Экстренное предупреждение о селях и оползнях в Phú Thọ и от Thanh Hóa до Quảng Trị на 14.09.2026",
     "region_slug": "vn-lamdong",
     "summary_ru": "Предупреждение о селях и оползнях в Phú Thọ и от Thanh Hóa до Quảng Trị 14.09.2026. Регион Lâm Đồng не затронут."
+  },
+  {
+    "slug": "vn-lamdong-x-sonmy",
+    "kind": "region",
+    "name": "Sơn Mỹ",
+    "name_vi": "Sơn Mỹ",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-sonmy",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-suoikiet",
+    "kind": "region",
+    "name": "Suối Kiết",
+    "name_vi": "Suối Kiết",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-suoikiet",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tadung",
+    "kind": "region",
+    "name": "Tà Đùng",
+    "name_vi": "Tà Đùng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tadung",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tahine",
+    "kind": "region",
+    "name": "Tà Hine",
+    "name_vi": "Tà Hine",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tahine",
+    "summary_ru": null
   },
   {
     "slug": "source:948bdaf1-06e8-4687-a79d-4ab1876156e2",
@@ -37509,6 +34631,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Хошимине медосмотр прошли свыше 4,44 млн человек — 34,8% населения; в 112 из 168 районов показатель превысил 30%, программа ускоряется."
   },
   {
+    "slug": "vn-lamdong-x-tanang",
+    "kind": "region",
+    "name": "Tà Năng",
+    "name_vi": "Tà Năng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanang",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tanhlinh",
+    "kind": "region",
+    "name": "Tánh Linh",
+    "name_vi": "Tánh Linh",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhlinh",
+    "summary_ru": null
+  },
+  {
     "slug": "source:b67e09e6-904f-4fcf-8537-7f106ba2fcf4",
     "kind": "source",
     "name": "Приливы на реке Донгнай наступают раньше обычного",
@@ -37572,6 +34712,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Рынок электромобилей и электробайков во Вьетнаме сильно меняется после официального выхода Tesla на рынок."
   },
   {
+    "slug": "vn-lamdong-x-tanhalamha",
+    "kind": "region",
+    "name": "Tân Hà Lâm Hà",
+    "name_vi": "Tân Hà Lâm Hà",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhalamha",
+    "summary_ru": null
+  },
+  {
     "slug": "company:petrovietnam",
     "kind": "company",
     "name": "Vietnam National Industry - Energy Group",
@@ -37581,120 +34730,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Нефтегазовая госкорпорация, крупнейшая компания страны по выручке: 651 трлн донгов за 2025 год."
   },
   {
-    "slug": "market:zone:dalat-center:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "vn-lamdong-x-tanhai",
+    "kind": "region",
+    "name": "Tân Hải",
+    "name_vi": "Tân Hải",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhai",
     "summary_ru": null
   },
   {
@@ -37707,120 +34748,48 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-tanhoi",
+    "kind": "region",
+    "name": "Tân Hội",
+    "name_vi": "Tân Hội",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhoi",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
     "slug": "company:intimex-group",
     "kind": "company",
     "name": "Intimex Group JSC",
     "name_vi": "Công ty CP Tập đoàn Intimex",
     "name_ru": "Интимекс",
-    "region_slug": "vn-hcmc",
+    "region_slug": "vn-thanhphohochiminh",
     "summary_ru": "Многолетний лидер экспорта вьетнамского кофе. В 2025 году около 407 млн долларов у головной компании, вся семья Intimex вместе с филиалами превысила 716 млн долларов. Один из филиалов сидит в Bảo Lộc."
   },
   {
-    "slug": "market:vn-lamdong-damrong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-damrong",
+    "slug": "vn-lamdong-x-tanlap",
+    "kind": "region",
+    "name": "Tân Lập",
+    "name_vi": "Tân Lập",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanlap",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-baolam",
+    "slug": "vn-lamdong-x-tanthanh",
+    "kind": "region",
+    "name": "Tân Thành",
+    "name_vi": "Tân Thành",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanthanh",
     "summary_ru": null
   },
   {
@@ -37842,15 +34811,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
     "slug": "company:louis-dreyfus-vietnam",
     "kind": "company",
     "name": "Louis Dreyfus Company Vietnam",
@@ -37858,33 +34818,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Луи Дрейфус Вьетнам",
     "region_slug": "vn",
     "summary_ru": "Вьетнамское подразделение мирового трейдера, 90,39 тысячи тонн кофе на экспорт за 2025 год."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:clinic",
-    "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
   },
   {
     "slug": "source:fdeb9651-db73-4f45-8dcd-8340508f28af",
@@ -37921,33 +34854,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Мужчина погиб после столкновения мотоцикла с грузовиком в Лам Донге",
     "region_slug": "vn-lamdong",
     "summary_ru": "Мотоциклист врезался в грузовик и погиб в Лам Донге; на месте ДТП возможны заторы."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": null
   },
   {
     "slug": "source:b6ea8d8c-69aa-4d00-9270-ca64d8d610f3",
@@ -38004,6 +34910,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В отдалённых районах Ламдонга проводят бесплатные медосмотры с выездом к жителям. На дорожное движение влияния не оказывает."
   },
   {
+    "slug": "vn-lamdong-x-thuanan",
+    "kind": "region",
+    "name": "Thuận An",
+    "name_vi": "Thuận An",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-thuanan",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tratan",
+    "kind": "region",
+    "name": "Trà Tân",
+    "name_vi": "Trà Tân",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tratan",
+    "summary_ru": null
+  },
+  {
     "slug": "source:f390b17d-0e65-48bd-9fc0-fab82c5f1666",
     "kind": "source",
     "name": "Две женщины погибли, купаясь в море в Муйне провинции Ламдонг",
@@ -38011,33 +34935,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Две женщины погибли, купаясь в море в Муйне провинции Ламдонг",
     "region_slug": "vn-lamdong",
     "summary_ru": "Две женщины утонули при купании в море в Муйне (Ламдонг). Напоминание об опасности купания в штормовую погоду — туристический трафик на побережье может снизиться."
-  },
-  {
-    "slug": "vn-lamdong-x-donduong",
-    "kind": "region",
-    "name": "Đơn Dương",
-    "name_vi": "Đơn Dương",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-donduong",
-    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
-  },
-  {
-    "slug": "vn-quangngai-pre2025",
-    "kind": "region",
-    "name": "Куангнгай",
-    "name_vi": "Quảng Ngãi",
-    "name_ru": "Куангнгай",
-    "region_slug": "vn-quangngai-pre2025",
-    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
-  },
-  {
-    "slug": "vn-daklak-pre2025",
-    "kind": "region",
-    "name": "Даклак",
-    "name_vi": "Đắk Lắk",
-    "name_ru": "Даклак",
-    "region_slug": "vn-daklak-pre2025",
-    "summary_ru": "Главная кофейная провинция страны, столица Buôn Ma Thuột. Родина Trung Nguyên и экспортёра Simexco."
   },
   {
     "slug": "market:vn-lamdong-dalat-xuanhuong:beauty_salon",
@@ -38058,93 +34955,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-donduong",
+    "kind": "region",
+    "name": "Đơn Dương",
+    "name_vi": "Đơn Dương",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-donduong",
+    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
+  },
+  {
+    "slug": "vn-quangngai-pre2025",
+    "kind": "region",
+    "name": "Куангнгай",
+    "name_vi": "Quảng Ngãi",
+    "name_ru": "Куангнгай",
+    "region_slug": "vn-quangngai-pre2025",
+    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
+  },
+  {
     "slug": "market:vn-lamdong-dateh:beauty_salon",
     "kind": "market",
     "name": "Салоны красоты",
     "name_vi": "Thẩm mỹ viện",
     "name_ru": "Салоны красоты",
     "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -38238,12 +35072,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Кофейный экспортёр из Gia Lai, в 2025 году вышел на первое место по экспортной выручке: свыше 520 млн долларов и 120,51 тысячи тонн, обойдя многолетнего лидера Intimex."
   },
   {
-    "slug": "vn-bacninh",
-    "kind": "region",
-    "name": "Бакнинь",
-    "name_vi": "Bắc Ninh",
-    "name_ru": "Бакнинь",
-    "region_slug": "vn-bacninh",
+    "slug": "market:zone:namban-home:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
@@ -38256,57 +35090,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Полиция расследует два случая подделки документов для покупки социального жилья в жилом комплексе в бывшем городе Vĩnh Yên."
   },
   {
-    "slug": "event:seed:holiday-2026-02-19",
-    "kind": "event",
-    "name": "Mùng ba Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "vn-lamdong-lamha-dongthanh",
+    "slug": "vn-bacninh",
     "kind": "region",
-    "name": "Донгтхань",
-    "name_vi": "Đông Thanh",
-    "name_ru": "Донгтхань",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-ductrong-lienkhuong",
-    "kind": "region",
-    "name": "Льенкыонг",
-    "name_vi": "Liên Khương",
-    "name_ru": "Льенкыонг",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": "Аэропорт провинции в районе Đức Trọng, около 2 млн пассажиров и свыше 12 тысяч взлётов-посадок в 2023 году. В 2024 получил международный статус. С 4 марта по 25 августа 2026 был закрыт на реконструкцию за 966 млрд донгов: новая полоса 3250 метров, рулёжки, дренаж. Целевая мощность 5 млн пассажиров к 2030 году."
-  },
-  {
-    "slug": "vn-lamdong-x-dakmil",
-    "kind": "region",
-    "name": "Đắk Mil",
-    "name_vi": "Đắk Mil",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dakmil",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-daksak",
-    "kind": "region",
-    "name": "Đắk Sắk",
-    "name_vi": "Đắk Sắk",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-daksak",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "zone:namban-home",
+    "name": "Бакнинь",
+    "name_vi": "Bắc Ninh",
+    "name_ru": "Бакнинь",
+    "region_slug": "vn-bacninh",
     "summary_ru": null
   },
   {
@@ -38344,6 +35133,5100 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Банки",
     "region_slug": "vn-lamdong-ductrong-lienkhuong",
     "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-19",
+    "kind": "event",
+    "name": "Mùng ba Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:6ce5b78f-536b-485e-8d63-0f6c2d960117",
+    "kind": "source",
+    "name": "Сила народа хранит покой на местах",
+    "name_vi": null,
+    "name_ru": "Сила народа хранит покой на местах",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В квартале Фантхьета развивают модели самоохраны порядка жителями."
+  },
+  {
+    "slug": "vn-lamdong-x-truongxuan",
+    "kind": "region",
+    "name": "Trường Xuân",
+    "name_vi": "Trường Xuân",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-truongxuan",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tuyduc",
+    "kind": "region",
+    "name": "Tuy Đức",
+    "name_vi": "Tuy Đức",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tuyduc",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-tuyphong",
+    "kind": "region",
+    "name": "Tuy Phong",
+    "name_vi": "Tuy Phong",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tuyphong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:01abb34c-d8e8-4d79-a00c-43ca495b7471",
+    "kind": "source",
+    "name": "Группа иностранных подозреваемых ограбила ювелирный магазин в Даклаке",
+    "name_vi": null,
+    "name_ru": "Группа иностранных подозреваемых ограбила ювелирный магазин в Даклаке",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Группа иностранных подозреваемых, мужчины и женщины, ограбила ювелирный магазин в квартале Сонг Кау провинции Даклак."
+  },
+  {
+    "slug": "source:0dea7ce6-2c38-4ed3-92b4-90adee350b9b",
+    "kind": "source",
+    "name": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
+    "name_vi": null,
+    "name_ru": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Сильные дожди вызвали затопления на многих улицах Ханоя, утром 15 сентября серьёзные заторы у моста Винь Тью."
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "person:alexandre-yersin",
+    "kind": "person",
+    "name": "Alexandre Yersin",
+    "name_vi": "Alexandre Yersin",
+    "name_ru": "Александр Йерсен",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Швейцарско-французский бактериолог, в 1893 году вышел на плато Lâm Viên и рекомендовал основать здесь курорт. Его имя носит частный университет Đà Lạt."
+  },
+  {
+    "slug": "person:larry-hillblom",
+    "kind": "person",
+    "name": "Larry Hillblom",
+    "name_vi": "Larry Hillblom",
+    "name_ru": "Ларри Хиллблом",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Американский предприниматель, буква H в названии DHL. В 1991 году через Danao International Holdings профинансировал реставрацию Dalat Palace и соседних вилл."
+  },
+  {
+    "slug": "sector:dairy",
+    "kind": "sector",
+    "name": "Dairy",
+    "name_vi": null,
+    "name_ru": "Молочная отрасль",
+    "region_slug": "vn",
+    "summary_ru": "Молочный рынок Вьетнама: сырое молоко, UHT, йогурты, сухие смеси. Импортозависим по сырью, сильно консолидирован."
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:telecom",
+    "kind": "sector",
+    "name": "Telecom",
+    "name_vi": null,
+    "name_ru": "Связь",
+    "region_slug": "vn",
+    "summary_ru": "Мобильная связь, фиксированный интернет, ЦОДы. Три госоператора держат более 90 процентов рынка."
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:real-estate",
+    "kind": "sector",
+    "name": "Real estate",
+    "name_vi": null,
+    "name_ru": "Недвижимость",
+    "region_slug": "vn",
+    "summary_ru": "Жилая и коммерческая недвижимость. Главный генератор денег вьетнамских холдингов и главный источник их кризисов."
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:retail",
+    "kind": "sector",
+    "name": "Retail",
+    "name_vi": null,
+    "name_ru": "Розница",
+    "region_slug": "vn",
+    "summary_ru": "Современная розница: супермаркеты, минимаркеты, электроника. Быстро растёт, но традиционные рынки всё ещё крупнее."
+  },
+  {
+    "slug": "sector:tourism",
+    "kind": "sector",
+    "name": "Tourism",
+    "name_vi": null,
+    "name_ru": "Туризм",
+    "region_slug": "vn",
+    "summary_ru": "Гостиницы, курорты, транспорт, парки. В 2025 году страна приняла 21,17 млн иностранных гостей."
+  },
+  {
+    "slug": "source:9c3f1fb6-d572-443d-b65a-7e0fd59ee5bb",
+    "kind": "source",
+    "name": "Пустующие здания и земля в Ка Мау ищут арендаторов",
+    "name_vi": null,
+    "name_ru": "Пустующие здания и земля в Ка Мау ищут арендаторов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Десятки неиспользуемых госзданий и участков в Ка Мау и Бак Лиу сдают в краткосрочную аренду."
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:coffee",
+    "kind": "sector",
+    "name": "Coffee",
+    "name_vi": null,
+    "name_ru": "Кофе",
+    "region_slug": "vn",
+    "summary_ru": "Вьетнам - крупнейший производитель робусты в мире. Основные площади в Đắk Lắk и Lâm Đồng."
+  },
+  {
+    "slug": "sector:steel",
+    "kind": "sector",
+    "name": "Steel",
+    "name_vi": null,
+    "name_ru": "Металлургия",
+    "region_slug": "vn",
+    "summary_ru": "Сталь и прокат. Рынок замкнут на Hòa Phát и Formosa Hà Tĩnh."
+  },
+  {
+    "slug": "source:284d9e5e-035e-4aab-95fd-9970fc0a0a89",
+    "kind": "source",
+    "name": "Благотворительная «Зелёная кухня» у моря",
+    "name_vi": null,
+    "name_ru": "Благотворительная «Зелёная кухня» у моря",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Волонтёрская группа «Bếp xanh» помогает нуждающимся в Фантхьете."
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:automotive",
+    "kind": "sector",
+    "name": "Automotive",
+    "name_vi": null,
+    "name_ru": "Автопром",
+    "region_slug": "vn",
+    "summary_ru": "Сборка и продажа автомобилей. Thaco и Hyundai Thành Công держат ДВС, VinFast толкает электромобили."
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "sector:banking",
+    "kind": "sector",
+    "name": "Banking",
+    "name_vi": null,
+    "name_ru": "Банки",
+    "region_slug": "vn",
+    "summary_ru": "Госбанки Big-4 и частные банки, каждый крупный холдинг связан со своим банком."
+  },
+  {
+    "slug": "sector:agriculture",
+    "kind": "sector",
+    "name": "Agriculture",
+    "name_vi": null,
+    "name_ru": "Сельское хозяйство",
+    "region_slug": "vn",
+    "summary_ru": "Кофе, рис, каучук, фрукты, цветы, овощи. В Lâm Đồng - высокогорное овощеводство и цветоводство."
+  },
+  {
+    "slug": "sector:energy",
+    "kind": "sector",
+    "name": "Energy",
+    "name_vi": null,
+    "name_ru": "Энергетика",
+    "region_slug": "vn",
+    "summary_ru": "Нефть, газ, электроэнергия. PVN и EVN дают вместе около 1,3 квадриллиона донгов выручки."
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "company:futa-bus-lines",
+    "kind": "company",
+    "name": "Phuong Trang FUTA Bus Lines",
+    "name_vi": "Công ty CP Xe khách Phương Trang FUTA Bus Lines",
+    "name_ru": "Фыонг Чанг ФУТА",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Крупнейший междугородный автобусный оператор Юга. Основан в 2001 году тремя акционерами во главе с Нгуен Хыу Луаном, головной офис зарегистрирован в Đà Lạt на улице Tô Hiến Thành. Начинали с пяти-десяти автобусов, сегодня более 20 млн пассажиров в год, свыше 250 касс и станций, более 1600 рейсов в сутки. Держит основной поток Хошимин - Đà Lạt."
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dilinh:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-ductrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-tanung:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:e3260b67-a1f4-4764-bb50-1e65f12a84e0",
+    "kind": "source",
+    "name": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "name_vi": null,
+    "name_ru": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ламдонг ускоряет подготовку площадок под проекты скоростных автодорог."
+  },
+  {
+    "slug": "source:1994b87f-a071-4049-b4a5-62790cc3bd38",
+    "kind": "source",
+    "name": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "name_vi": null,
+    "name_ru": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "За более чем неделю поисков отряд K72 собрал останки 5 вьетнамских военных специалистов и добровольцев в Камбодже."
+  },
+  {
+    "slug": "market:zone:namban-home:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-donduong",
+    "kind": "region",
+    "name": "Донзыонг",
+    "name_vi": "Đơn Dương",
+    "name_ru": "Донзыонг",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
+  },
+  {
+    "slug": "source:a348b70e-ce20-4f94-95d5-8c2d37e24b87",
+    "kind": "source",
+    "name": "Quảng Khê khoanh vùng, cảnh báo vị trí mặt đường có vết nứt",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2af3987e-6457-4fcc-957f-e4ef822fd5ae",
+    "kind": "source",
+    "name": "Thanh Hóa: 2 nhà dân đổ nghiêng trong mưa lớn, 60 người phải sơ tán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:44301549-085e-48d0-9259-181adb3ad755",
+    "kind": "source",
+    "name": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
+    "name_vi": null,
+    "name_ru": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция провинции требует от пассажирских автоперевозчиков соблюдать новые нормы и предупреждать нарушения."
+  },
+  {
+    "slug": "source:f18b4a1e-a76c-46dd-8152-d1f41cb29f9c",
+    "kind": "source",
+    "name": "Cà Mau đặt mục tiêu hoàn thành khám sức khỏe người dân trong tháng 10",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2a7fd21a-84ac-4f30-a1fa-208f4b7dde6e",
+    "kind": "source",
+    "name": "Hơn 3.100 vận động viên tham gia Đại hội Thể dục thể thao tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b5862da1-306f-4dff-8306-ac956a625ef7",
+    "kind": "source",
+    "name": "Hơn 40 người nghi ngộ độc thực phẩm sau khi ăn bánh mì ở tiệm mới mở",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:461154ee-0199-47eb-8c1c-ec31bfb52a89",
+    "kind": "source",
+    "name": "Vụ người nước ngoài cướp tiệm vàng: Tiếng chuông báo động khẩn cấp",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:4a4f79a1-8ec5-42a0-99a4-72ad4a03921a",
+    "kind": "source",
+    "name": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
+    "name_vi": null,
+    "name_ru": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Ламдонг договорилась о сотрудничестве с группой Lulu International по переработке местной сельхозпродукции. Экономическая новость провинции, на дороги напрямую не влияет."
+  },
+  {
+    "slug": "source:5b730c26-b01e-47e4-bf31-f0d305f375b5",
+    "kind": "source",
+    "name": "В могиле 17 солдат в Дананге найдены артефакты",
+    "name_vi": null,
+    "name_ru": "В могиле 17 солдат в Дананге найдены артефакты",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "При эксгумации 17 останков в общине Тхубон найдены вещи бойцов-диверсантов 1970 года."
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:67e93cf6-59f2-4aa8-8605-d96473d652df",
+    "kind": "source",
+    "name": "Молодой человек странно вёл себя на перилах моста в Куангчи",
+    "name_vi": null,
+    "name_ru": "Молодой человек странно вёл себя на перилах моста в Куангчи",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Куангчи сняла молодого человека с перил моста и отвела в безопасное место."
+  },
+  {
+    "slug": "source:e67ea055-7973-486b-84e9-948212eb3c54",
+    "kind": "source",
+    "name": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
+    "name_vi": null,
+    "name_ru": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Дананг завершил забор образцов для ДНК-экспертизы из 26 000 могил на 144 кладбищах до сезона дождей."
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a5fe3d06-5127-47a3-91df-ebe204409b08",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a37790ce-794d-42fe-b9b6-e74005851084",
+    "kind": "source",
+    "name": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
+    "name_vi": null,
+    "name_ru": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция предложила Lulu International стать стратегическим дистрибьютором ключевых продуктов региона. На дороги не влияет."
+  },
+  {
+    "slug": "market:zone:lienkhuong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:678cf372-21ee-49a3-8dfa-38ac0c13b76f",
+    "kind": "source",
+    "name": "Công an Lâm Đồng tập huấn công nghệ thông tin, bồi dưỡng kỹ năng số",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baoloc:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-16",
+    "kind": "event",
+    "name": "Giao thừa Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-26",
+    "kind": "event",
+    "name": "Ngày Giỗ Tổ Hùng Vương",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-27",
+    "kind": "event",
+    "name": "Ngày Giỗ Tổ Hùng Vương (nghỉ bù)",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-30",
+    "kind": "event",
+    "name": "Ngày Chiến thắng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-05-01",
+    "kind": "event",
+    "name": "Ngày Quốc tế Lao động",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
     "slug": "event:seed:holiday-2026-09-02",
@@ -38427,6 +40310,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
+    "slug": "market:vn-lamdong-dalat:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
     "slug": "event:seed:holiday-2027-02-09",
     "kind": "event",
     "name": "Mùng bốn Tết Nguyên Đán",
@@ -38472,177 +40364,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
-    "slug": "market:zone:dalat-center:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:6ce5b78f-536b-485e-8d63-0f6c2d960117",
-    "kind": "source",
-    "name": "Сила народа хранит покой на местах",
-    "name_vi": null,
-    "name_ru": "Сила народа хранит покой на местах",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В квартале Фантхьета развивают модели самоохраны порядка жителями."
-  },
-  {
     "slug": "event:seed:holiday-2027-05-03",
     "kind": "event",
     "name": "Ngày Quốc tế Lao động (nghỉ bù)",
@@ -38686,33 +40407,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": null,
     "region_slug": "vn-lamdong",
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "source:01abb34c-d8e8-4d79-a00c-43ca495b7471",
-    "kind": "source",
-    "name": "Группа иностранных подозреваемых ограбила ювелирный магазин в Даклаке",
-    "name_vi": null,
-    "name_ru": "Группа иностранных подозреваемых ограбила ювелирный магазин в Даклаке",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Группа иностранных подозреваемых, мужчины и женщины, ограбила ювелирный магазин в квартале Сонг Кау провинции Даклак."
-  },
-  {
-    "slug": "source:0dea7ce6-2c38-4ed3-92b4-90adee350b9b",
-    "kind": "source",
-    "name": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
-    "name_vi": null,
-    "name_ru": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Сильные дожди вызвали затопления на многих улицах Ханоя, утром 15 сентября серьёзные заторы у моста Винь Тью."
-  },
-  {
-    "slug": "source:6d1925aa-18d9-40d5-9099-b790a21ee5b7",
-    "kind": "source",
-    "name": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
-    "name_vi": null,
-    "name_ru": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Дананге 15 сентября объявлены решения министра обороны по кадровым назначениям в штабах 5-го военного округа."
   },
   {
     "slug": "source:1b3f29e6-2af1-481e-b4f9-747abeeb58cd",
@@ -38769,13 +40463,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция Донгтхап утвердила план развития экологического сельского хозяйства с целью довести средний доход сельских жителей до 145 млн донгов в год к 2030 году."
   },
   {
-    "slug": "source:da6f112c-52c3-4c64-a02a-d7050c3d2991",
+    "slug": "source:6d1925aa-18d9-40d5-9099-b790a21ee5b7",
     "kind": "source",
-    "name": "Đề xuất tăng mức phạt hành chính tối đa lên 1,5 tỉ với cá nhân: Có cơ sở nhưng cần tăng tính minh bạch",
+    "name": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
     "name_vi": null,
-    "name_ru": null,
+    "name_ru": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
     "region_slug": "vn-lamdong",
-    "summary_ru": null
+    "summary_ru": "В Дананге 15 сентября объявлены решения министра обороны по кадровым назначениям в штабах 5-го военного округа."
   },
   {
     "slug": "source:700f7bb8-c656-4881-a2ce-af47b666a7bc",
@@ -38805,42 +40499,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция рассматривает корректировку проекта скоростной автомагистрали Тан Фу - Бао Лок с строительством сразу всех 4 полос по всей трассе."
   },
   {
-    "slug": "person:alexandre-yersin",
-    "kind": "person",
-    "name": "Alexandre Yersin",
-    "name_vi": "Alexandre Yersin",
-    "name_ru": "Александр Йерсен",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Швейцарско-французский бактериолог, в 1893 году вышел на плато Lâm Viên и рекомендовал основать здесь курорт. Его имя носит частный университет Đà Lạt."
-  },
-  {
-    "slug": "person:larry-hillblom",
-    "kind": "person",
-    "name": "Larry Hillblom",
-    "name_vi": "Larry Hillblom",
-    "name_ru": "Ларри Хиллблом",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Американский предприниматель, буква H в названии DHL. В 1991 году через Danao International Holdings профинансировал реставрацию Dalat Palace и соседних вилл."
-  },
-  {
-    "slug": "sector:dairy",
-    "kind": "sector",
-    "name": "Dairy",
-    "name_vi": null,
-    "name_ru": "Молочная отрасль",
-    "region_slug": "vn",
-    "summary_ru": "Молочный рынок Вьетнама: сырое молоко, UHT, йогурты, сухие смеси. Импортозависим по сырью, сильно консолидирован."
-  },
-  {
-    "slug": "market:zone:namban-home:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
     "slug": "source:82be43a4-8dfe-4d00-a9d0-d9fe9b12659e",
     "kind": "source",
     "name": "Поиск решений задач логистики и циркулярной экономики на вьетнамско-корейских технологиях",
@@ -38868,12 +40526,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В квартале 1 Бао Лока (Ламдонг) скопились бытовые отходы: мусороперерабатывающий завод временно прекратил приём, жители опасаются загрязнения и эпидемий."
   },
   {
-    "slug": "source:40121272-a98f-4ece-b5ba-43267543945a",
-    "kind": "source",
-    "name": "Khởi tố thêm bị can liên quan vụ lật ca nô làm 15 người tử vong ở Phú Quốc",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
+    "slug": "market:vn-lamdong-baolam:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
@@ -38893,24 +40551,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Четверо иностранцев ограбили ювелирный магазин: тревожная сигнализация подключена к дежурной части полиции",
     "region_slug": "vn-lamdong",
     "summary_ru": "Полиция провинции Даклак сообщила о группе иностранцев, ограбивших ювелирный магазин в квартале Шонг Кау."
-  },
-  {
-    "slug": "sector:telecom",
-    "kind": "sector",
-    "name": "Telecom",
-    "name_vi": null,
-    "name_ru": "Связь",
-    "region_slug": "vn",
-    "summary_ru": "Мобильная связь, фиксированный интернет, ЦОДы. Три госоператора держат более 90 процентов рынка."
-  },
-  {
-    "slug": "market:zone:dalat-center:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
   },
   {
     "slug": "source:aa956a15-7d0e-4e9d-b8f9-e41e865d3f1b",
@@ -38958,6 +40598,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Дананге началась эксгумация останков 17 солдат, захороненных жителями на народном кладбище в коммуне Тхы Бон."
   },
   {
+    "slug": "source:da6f112c-52c3-4c64-a02a-d7050c3d2991",
+    "kind": "source",
+    "name": "Đề xuất tăng mức phạt hành chính tối đa lên 1,5 tỉ với cá nhân: Có cơ sở nhưng cần tăng tính minh bạch",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "source:df3c6309-7730-4c9e-bd69-d2adb2d73951",
     "kind": "source",
     "name": "Оползень отрезал 2200 жителей, Куангчи «заимствует» дорогу через ГЭС",
@@ -38974,15 +40623,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": null,
     "region_slug": "vn-lamdong",
     "summary_ru": null
-  },
-  {
-    "slug": "sector:real-estate",
-    "kind": "sector",
-    "name": "Real estate",
-    "name_vi": null,
-    "name_ru": "Недвижимость",
-    "region_slug": "vn",
-    "summary_ru": "Жилая и коммерческая недвижимость. Главный генератор денег вьетнамских холдингов и главный источник их кризисов."
   },
   {
     "slug": "source:f40026d5-4042-42c3-8d4b-6fd8687e55e5",
@@ -39021,6 +40661,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Автомобиль съехал с обочины и застрял на склоне перевала в Далате; на месте работают спасатели, возможны заторы."
   },
   {
+    "slug": "market:vn-lamdong-damrong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
     "slug": "source:735314a1-712a-4bc8-8185-955fb2580ca8",
     "kind": "source",
     "name": "Промышленный кластер Quảng Tâm под угрозой повторного захвата земли",
@@ -39037,33 +40686,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
     "region_slug": "vn-lamdong",
     "summary_ru": "Власти провинции Ламдонг ускоряют реализацию приоритетных задач конца года."
-  },
-  {
-    "slug": "sector:retail",
-    "kind": "sector",
-    "name": "Retail",
-    "name_vi": null,
-    "name_ru": "Розница",
-    "region_slug": "vn",
-    "summary_ru": "Современная розница: супермаркеты, минимаркеты, электроника. Быстро растёт, но традиционные рынки всё ещё крупнее."
-  },
-  {
-    "slug": "sector:tourism",
-    "kind": "sector",
-    "name": "Tourism",
-    "name_vi": null,
-    "name_ru": "Туризм",
-    "region_slug": "vn",
-    "summary_ru": "Гостиницы, курорты, транспорт, парки. В 2025 году страна приняла 21,17 млн иностранных гостей."
-  },
-  {
-    "slug": "source:9c3f1fb6-d572-443d-b65a-7e0fd59ee5bb",
-    "kind": "source",
-    "name": "Пустующие здания и земля в Ка Мау ищут арендаторов",
-    "name_vi": null,
-    "name_ru": "Пустующие здания и земля в Ка Мау ищут арендаторов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Десятки неиспользуемых госзданий и участков в Ка Мау и Бак Лиу сдают в краткосрочную аренду."
   },
   {
     "slug": "source:db6827c8-08a9-45e5-a946-a528ea75764b",
@@ -39102,6 +40724,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Кантхо мужчина убил жену ножом, попытался самоубийство, но выжил. К региону отношения не имеет."
   },
   {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
     "slug": "source:fd52e01b-d364-4da5-9409-667560591c79",
     "kind": "source",
     "name": "Полиция квартала Xuân Trường в Далате участвует в церемонии посадки деревьев 2026 года",
@@ -39129,15 +40778,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В коммуне Фуокдинь (Кханьхоа) полиция задержала группу, добывавшую ископаемые с экскаваторами и грузовиками."
   },
   {
-    "slug": "source:64fd40e8-7134-43cf-8081-f62fa48f3ac6",
-    "kind": "source",
-    "name": "Vụ lật ca n&ocirc; khiến 15 người tử vong ở Ph&uacute; Quốc: Khởi tố th&ecirc;m 1 bị can",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "source:73da8549-ada4-4fe0-89d5-9107dcc939a0",
     "kind": "source",
     "name": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
@@ -39145,6 +40785,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
     "region_slug": "vn-lamdong",
     "summary_ru": "Рекомендация ограничить срезку склонов и стройку на них ради профилактики оползней — актуально для горного Ламдонга."
+  },
+  {
+    "slug": "market:zone:namban-home:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2026-09-01",
+    "kind": "event",
+    "name": "Quốc khánh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
     "slug": "source:71ba6248-e204-427c-8298-da96e5871bc6",
@@ -39172,33 +40848,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ту Ань через 3 года после победы в The Face: «Я не полагаюсь только на внешность»",
     "region_slug": "vn-lamdong",
     "summary_ru": "Интервью победительницы The Face Vietnam 2023 о жизни и карьере модели."
-  },
-  {
-    "slug": "sector:coffee",
-    "kind": "sector",
-    "name": "Coffee",
-    "name_vi": null,
-    "name_ru": "Кофе",
-    "region_slug": "vn",
-    "summary_ru": "Вьетнам - крупнейший производитель робусты в мире. Основные площади в Đắk Lắk и Lâm Đồng."
-  },
-  {
-    "slug": "sector:steel",
-    "kind": "sector",
-    "name": "Steel",
-    "name_vi": null,
-    "name_ru": "Металлургия",
-    "region_slug": "vn",
-    "summary_ru": "Сталь и прокат. Рынок замкнут на Hòa Phát и Formosa Hà Tĩnh."
-  },
-  {
-    "slug": "source:284d9e5e-035e-4aab-95fd-9970fc0a0a89",
-    "kind": "source",
-    "name": "Благотворительная «Зелёная кухня» у моря",
-    "name_vi": null,
-    "name_ru": "Благотворительная «Зелёная кухня» у моря",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Волонтёрская группа «Bếp xanh» помогает нуждающимся в Фантхьете."
   },
   {
     "slug": "source:99099ee9-f878-4c87-8ad0-8437ab5a39f5",
@@ -39244,15 +40893,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
     "region_slug": "vn-lamdong",
     "summary_ru": "15/9 во второй половине дня прошло совещание Соцстраха Вьетнама по кадровым вопросам и вручению ордена Труда в Лам Донге. На трафик не влияет."
-  },
-  {
-    "slug": "sector:automotive",
-    "kind": "sector",
-    "name": "Automotive",
-    "name_vi": null,
-    "name_ru": "Автопром",
-    "region_slug": "vn",
-    "summary_ru": "Сборка и продажа автомобилей. Thaco и Hyundai Thành Công держат ДВС, VinFast толкает электромобили."
   },
   {
     "slug": "source:b8676059-1774-4b6a-a781-8a9d4fe64d17",
@@ -39307,15 +40947,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Вопросы к основанию штрафа для молодого человека, срубившего сосну во дворе дома в Далате",
     "region_slug": "vn-lamdong",
     "summary_ru": "Обсуждается законность наказания молодого человека за вырубку сосны на частном участке в Далате. На движение не влияет."
-  },
-  {
-    "slug": "sector:banking",
-    "kind": "sector",
-    "name": "Banking",
-    "name_vi": null,
-    "name_ru": "Банки",
-    "region_slug": "vn",
-    "summary_ru": "Госбанки Big-4 и частные банки, каждый крупный холдинг связан со своим банком."
   },
   {
     "slug": "source:308f52b1-159c-4a13-98d3-9ba183c52847",
@@ -39390,117 +41021,27 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "sector:agriculture",
-    "kind": "sector",
-    "name": "Agriculture",
-    "name_vi": null,
-    "name_ru": "Сельское хозяйство",
-    "region_slug": "vn",
-    "summary_ru": "Кофе, рис, каучук, фрукты, цветы, овощи. В Lâm Đồng - высокогорное овощеводство и цветоводство."
-  },
-  {
-    "slug": "sector:energy",
-    "kind": "sector",
-    "name": "Energy",
-    "name_vi": null,
-    "name_ru": "Энергетика",
-    "region_slug": "vn",
-    "summary_ru": "Нефть, газ, электроэнергия. PVN и EVN дают вместе около 1,3 квадриллиона донгов выручки."
-  },
-  {
-    "slug": "company:futa-bus-lines",
-    "kind": "company",
-    "name": "Phuong Trang FUTA Bus Lines",
-    "name_vi": "Công ty CP Xe khách Phương Trang FUTA Bus Lines",
-    "name_ru": "Фыонг Чанг ФУТА",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Крупнейший междугородный автобусный оператор Юга. Основан в 2001 году тремя акционерами во главе с Нгуен Хыу Луаном, головной офис зарегистрирован в Đà Lạt на улице Tô Hiến Thành. Начинали с пяти-десяти автобусов, сегодня более 20 млн пассажиров в год, свыше 250 касс и станций, более 1600 рейсов в сутки. Держит основной поток Хошимин - Đà Lạt."
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e3260b67-a1f4-4764-bb50-1e65f12a84e0",
+    "slug": "source:40121272-a98f-4ece-b5ba-43267543945a",
     "kind": "source",
-    "name": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "name": "Khởi tố thêm bị can liên quan vụ lật ca nô làm 15 người tử vong ở Phú Quốc",
     "name_vi": null,
-    "name_ru": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "name_ru": null,
     "region_slug": "vn-lamdong",
-    "summary_ru": "Ламдонг ускоряет подготовку площадок под проекты скоростных автодорог."
+    "summary_ru": null
   },
   {
-    "slug": "source:1994b87f-a071-4049-b4a5-62790cc3bd38",
+    "slug": "source:64fd40e8-7134-43cf-8081-f62fa48f3ac6",
     "kind": "source",
-    "name": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "name": "Vụ lật ca n&ocirc; khiến 15 người tử vong ở Ph&uacute; Quốc: Khởi tố th&ecirc;m 1 bị can",
     "name_vi": null,
-    "name_ru": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "name_ru": null,
     "region_slug": "vn-lamdong",
-    "summary_ru": "За более чем неделю поисков отряд K72 собрал останки 5 вьетнамских военных специалистов и добровольцев в Камбодже."
+    "summary_ru": null
   },
   {
     "slug": "source:b1a425bd-8a23-4f4f-9b7e-93faeaf6d4d6",
     "kind": "source",
     "name": "Nghệ An \"điểm tên\" địa phương, đơn vị giải ngân đầu tư công chậm",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a348b70e-ce20-4f94-95d5-8c2d37e24b87",
-    "kind": "source",
-    "name": "Quảng Khê khoanh vùng, cảnh báo vị trí mặt đường có vết nứt",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2af3987e-6457-4fcc-957f-e4ef822fd5ae",
-    "kind": "source",
-    "name": "Thanh Hóa: 2 nhà dân đổ nghiêng trong mưa lớn, 60 người phải sơ tán",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
@@ -39550,33 +41091,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Момент, когда король Таиланда и королева сами вели борт в Ханой",
     "region_slug": "vn-lamdong",
     "summary_ru": "Король и королева Таиланда лично управляли самолётом, прибывшим в аэропорт Нойбай, начав государственный визит во Вьетнам."
-  },
-  {
-    "slug": "vn-lamdong-donduong",
-    "kind": "region",
-    "name": "Донзыонг",
-    "name_vi": "Đơn Dương",
-    "name_ru": "Донзыонг",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
-  },
-  {
-    "slug": "zone:dalat-center",
-    "kind": "region",
-    "name": "Центр Далата",
-    "name_vi": "Trung tâm Đà Lạt",
-    "name_ru": "Центр Далата",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "zone:lienkhuong",
-    "kind": "region",
-    "name": "Аэропорт Льенкыонг",
-    "name_vi": "Sân bay Liên Khương",
-    "name_ru": "Аэропорт Льенкыонг",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
   },
   {
     "slug": "source:526a7928-efad-4c51-8f0f-2d829646cfdd",
@@ -39640,15 +41154,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Две женщины, торговавшие морепродуктами, утонули на пляже Хон Рём - Муйне",
     "region_slug": "vn-lamdong",
     "summary_ru": "14 сентября вечером две женщины утонули на пляже Хон Рём - Муйне (бывший Биньтхуан, ныне провинция Ламдонг). Купание там в этот период опасно."
-  },
-  {
-    "slug": "source:77337033-3050-4ab9-bbee-d7274d94aa18",
-    "kind": "source",
-    "name": "Cụ bà Trung Quốc chi 3 triệu nhân dân tệ để làm đẹp",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
   },
   {
     "slug": "source:e94336bf-b093-4972-a582-6004699cb8dd",
@@ -39793,6 +41298,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "На межобщинной дороге в Ламдонге снова появилась трещина длиной 20 метров",
     "region_slug": "vn-lamdong",
     "summary_ru": "На дороге в Ламдонге образовалась трещина длиной 20 метров — риск просадки, водителям стоит соблюдать осторожность на этом участке."
+  },
+  {
+    "slug": "source:77337033-3050-4ab9-bbee-d7274d94aa18",
+    "kind": "source",
+    "name": "Cụ bà Trung Quốc chi 3 triệu nhân dân tệ để làm đẹp",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "source:b0291dac-23ca-4117-be74-f4c895bc55e0",
@@ -39948,15 +41462,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:04ef839a-5687-461a-858c-41dcedac873d",
-    "kind": "source",
-    "name": "Vì sao chặt thông trong vườn nhà bị phạt 35 triệu đồng?",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "source:1808b1ea-a133-45c5-81ed-8c009b2e6dd2",
     "kind": "source",
     "name": "Cao tốc gần 66km nối Lâm Đồng với Đông Nam Bộ trước phương án điều chỉnh đáng chú ý",
@@ -40050,6 +41555,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "slug": "source:90b99723-ed3b-4eeb-9c74-75ec2edd7e18",
     "kind": "source",
     "name": "Ông Nguyễn Hồng Hải làm Phó chủ tịch thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:04ef839a-5687-461a-858c-41dcedac873d",
+    "kind": "source",
+    "name": "Vì sao chặt thông trong vườn nhà bị phạt 35 triệu đồng?",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
@@ -40182,42 +41696,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Власти провинции Ламдонг потребовали от восьми коммун срочно подписать контракты на переработку отходов."
   },
   {
-    "slug": "source:44301549-085e-48d0-9259-181adb3ad755",
-    "kind": "source",
-    "name": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
-    "name_vi": null,
-    "name_ru": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция провинции требует от пассажирских автоперевозчиков соблюдать новые нормы и предупреждать нарушения."
-  },
-  {
-    "slug": "source:f18b4a1e-a76c-46dd-8152-d1f41cb29f9c",
-    "kind": "source",
-    "name": "Cà Mau đặt mục tiêu hoàn thành khám sức khỏe người dân trong tháng 10",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2a7fd21a-84ac-4f30-a1fa-208f4b7dde6e",
-    "kind": "source",
-    "name": "Hơn 3.100 vận động viên tham gia Đại hội Thể dục thể thao tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b5862da1-306f-4dff-8306-ac956a625ef7",
-    "kind": "source",
-    "name": "Hơn 40 người nghi ngộ độc thực phẩm sau khi ăn bánh mì ở tiệm mới mở",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "source:2412d5bd-8a6c-4b53-b2f6-dc22b72f0724",
     "kind": "source",
     "name": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
@@ -40225,78 +41703,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
     "region_slug": "vn-lamdong",
     "summary_ru": "Жительница Ханоя 5 месяцев перекрывает общий проход в переулке кроватью, мешая соседям строить дом. К региону Ламдонг не относится."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:461154ee-0199-47eb-8c1c-ec31bfb52a89",
-    "kind": "source",
-    "name": "Vụ người nước ngoài cướp tiệm vàng: Tiếng chuông báo động khẩn cấp",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
   },
   {
     "slug": "source:ba04ee35-8935-48d9-bf57-84733a137384",
@@ -40344,96 +41750,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Суд Кантхо вернул дело о подделке красных книг и самозваных владельцев земли на доследование. К региону отношения не имеет."
   },
   {
-    "slug": "market:zone:dalat-center:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "event:seed:holiday-2026-02-16",
-    "kind": "event",
-    "name": "Giao thừa Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-26",
-    "kind": "event",
-    "name": "Ngày Giỗ Tổ Hùng Vương",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-27",
-    "kind": "event",
-    "name": "Ngày Giỗ Tổ Hùng Vương (nghỉ bù)",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-30",
-    "kind": "event",
-    "name": "Ngày Chiến thắng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-05-01",
-    "kind": "event",
-    "name": "Ngày Quốc tế Lao động",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "source:4a4f79a1-8ec5-42a0-99a4-72ad4a03921a",
-    "kind": "source",
-    "name": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
-    "name_vi": null,
-    "name_ru": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Ламдонг договорилась о сотрудничестве с группой Lulu International по переработке местной сельхозпродукции. Экономическая новость провинции, на дороги напрямую не влияет."
-  },
-  {
-    "slug": "source:5b730c26-b01e-47e4-bf31-f0d305f375b5",
-    "kind": "source",
-    "name": "В могиле 17 солдат в Дананге найдены артефакты",
-    "name_vi": null,
-    "name_ru": "В могиле 17 солдат в Дананге найдены артефакты",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "При эксгумации 17 останков в общине Тхубон найдены вещи бойцов-диверсантов 1970 года."
-  },
-  {
-    "slug": "source:67e93cf6-59f2-4aa8-8605-d96473d652df",
-    "kind": "source",
-    "name": "Молодой человек странно вёл себя на перилах моста в Куангчи",
-    "name_vi": null,
-    "name_ru": "Молодой человек странно вёл себя на перилах моста в Куангчи",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Куангчи сняла молодого человека с перил моста и отвела в безопасное место."
-  },
-  {
-    "slug": "source:e67ea055-7973-486b-84e9-948212eb3c54",
-    "kind": "source",
-    "name": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
-    "name_vi": null,
-    "name_ru": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Дананг завершил забор образцов для ДНК-экспертизы из 26 000 могил на 144 кладбищах до сезона дождей."
-  },
-  {
     "slug": "source:00f05cac-e997-4417-8cc8-834269e2c87b",
     "kind": "source",
     "name": "Картина прибыли лотерейных компаний: где собирают триллионы, где особый контроль",
@@ -40459,204 +41775,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
     "region_slug": "vn-lamdong",
     "summary_ru": "Нгуен Хонг Хай назначен постоянным зампредом Народного комитета Ламдонга и будет замещать председателя в его отсутствие."
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a5fe3d06-5127-47a3-91df-ebe204409b08",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a37790ce-794d-42fe-b9b6-e74005851084",
-    "kind": "source",
-    "name": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
-    "name_vi": null,
-    "name_ru": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция предложила Lulu International стать стратегическим дистрибьютором ключевых продуктов региона. На дороги не влияет."
   },
   {
     "slug": "source:4b20a7a3-fe82-4206-bac1-b373e05d18d5",
@@ -40711,15 +41829,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
     "region_slug": "vn-lamdong",
     "summary_ru": "Власти Ламдонга предупреждают о риске оползня на участке дороги рядом с мостом Đắk Glong. Водителям стоит снизить скорость и быть готовыми к ограничениям движения."
-  },
-  {
-    "slug": "market:zone:namban-home:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
   },
   {
     "slug": "source:8348d0af-e1e4-4220-86d2-a0bd958b0f8a",
@@ -40911,15 +42020,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Департамент образования Лам Донга собирает кандидатуры отличников 12-х классов на премию 2026 года."
   },
   {
-    "slug": "source:678cf372-21ee-49a3-8dfa-38ac0c13b76f",
-    "kind": "source",
-    "name": "Công an Lâm Đồng tập huấn công nghệ thông tin, bồi dưỡng kỹ năng số",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "source:ab8aed2f-3745-45c9-98e6-77ba2bf58785",
     "kind": "source",
     "name": "Полиция Лам Донга провела обучение по ИТ и цифровым навыкам",
@@ -40974,15 +42074,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В соседней провинции Донгнай срочно ремонтируют оползень на дороге. Может затронуть транзитные маршруты, но не дороги Лам Донга."
   },
   {
-    "slug": "market:vn-lamdong-baoloc:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
     "slug": "source:32ab1a4d-6ef6-4491-910b-e421e5a62fb7",
     "kind": "source",
     "name": "Цены на перец сегодня 15.09.2026: Лам Донг держит 141 000 донгов/кг",
@@ -41035,15 +42126,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Паводок в районе Донг Тхап Мыой в Тэйнине быстро поднимается, риск широкого затопления",
     "region_slug": "vn-lamdong",
     "summary_ru": "Уровень воды в Тэйнине растёт из-за дождей и прилива, возможны обширные затопления. К региону Лам Донг не относится."
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
   },
   {
     "slug": "source:fbd9d107-1dcb-4846-96a4-548d4e258a27",
@@ -41109,15 +42191,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Более 40 человек отравились хлебом из новой булочной в Куангчи. К региону отношения не имеет."
   },
   {
-    "slug": "source:4558dd81-2f68-41f0-82f1-510551c994d7",
-    "kind": "source",
-    "name": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
-    "name_vi": null,
-    "name_ru": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Цены на кофе стабильны (95 000 донгов/кг), фрукты с юга страны сильно упали в цене — до 50% год к году."
-  },
-  {
     "slug": "source:9d529861-1345-4f1d-8ace-19f3e9003cdd",
     "kind": "source",
     "name": "Школьница спасена от «онлайн-похищения» с требованием выкупа 100 млн",
@@ -41179,6 +42252,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Генеральный секретарь, президент Тô Lâm встретился с делегатами Союза дружественных организаций Вьетнама VII созыва",
     "region_slug": "vn-lamdong",
     "summary_ru": "15 сентября в Ханое прошла встреча руководителя государства с делегатами Союза дружественных организаций."
+  },
+  {
+    "slug": "source:4558dd81-2f68-41f0-82f1-510551c994d7",
+    "kind": "source",
+    "name": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
+    "name_vi": null,
+    "name_ru": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Цены на кофе стабильны (95 000 донгов/кг), фрукты с юга страны сильно упали в цене — до 50% год к году."
   },
   {
     "slug": "source:622b7e52-f650-44bf-948d-a2138c258b7c",
@@ -41406,447 +42488,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-cattien:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "event:seed:holiday-2026-09-01",
-    "kind": "event",
-    "name": "Quốc khánh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
     "slug": "source:9a4c239f-3ec6-48c2-a64a-5a6bdc2b71a5",
     "kind": "source",
     "name": "Tỷ giá trung tâm lên cao nhất từ trước đến nay",
@@ -41929,6 +42570,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "VND",
     "source_type": "analyst",
     "source_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_urban_pct",
+    "period": "2024",
+    "value": 38.4900703430176,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "company:vingroup",
@@ -42750,6 +43400,24 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://xaydungchinhsach.chinhphu.vn/vi-pham-cua-nha-xe-thanh-buoi-can-khoi-to-hinh-su-ngay-hanh-vi-tron-thue-119231011000340069.htm"
   },
   {
+    "entity_slug": "vn",
+    "metric": "population_urban_pct",
+    "period": "2023",
+    "value": 38.1298904418945,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_urban_pct",
+    "period": "2022",
+    "value": 37.5478515625,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "company:lien-khuong-airport",
     "metric": "passengers_m",
     "period": "2023",
@@ -42939,6 +43607,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://www.nestle.com/media/news/vietnam-investment-coffee-factory"
   },
   {
+    "entity_slug": "vn",
+    "metric": "population_urban_pct",
+    "period": "2021",
+    "value": 36.6540656426603,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "company:nestle-vietnam",
     "metric": "total_investment_usd",
     "period": "2025",
@@ -43119,6 +43796,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
   },
   {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2025",
+    "value": 0.603044839155161,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "company:dalat-hasfarm",
     "metric": "greenhouse_area_ha",
     "period": "2025",
@@ -43218,6 +43904,42 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://www.samland.com.vn/vn/sam-tuyen-lam-golf-amp-resort.html"
   },
   {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2024",
+    "value": 0.631267006487247,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2023",
+    "value": 0.671429250652247,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2022",
+    "value": 0.750756665157789,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population",
+    "period": "2025",
+    "value": 101600000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json"
+  },
+  {
     "entity_slug": "vn-lamdong-pre2025",
     "metric": "grdp_agri_growth_pct",
     "period": "2025",
@@ -43252,15 +43974,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "%",
     "source_type": "forecast",
     "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population",
-    "period": "2025",
-    "value": 101600000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json"
   },
   {
     "entity_slug": "vn-lamdong-pre2025",
@@ -43444,78 +44157,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
-    "metric": "population_urban_pct",
-    "period": "2024",
-    "value": 38.4900703430176,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_urban_pct",
-    "period": "2023",
-    "value": 38.1298904418945,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_urban_pct",
-    "period": "2022",
-    "value": 37.5478515625,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_urban_pct",
-    "period": "2021",
-    "value": 36.6540656426603,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2025",
-    "value": 0.603044839155161,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2024",
-    "value": 0.631267006487247,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2023",
-    "value": 0.671429250652247,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2022",
-    "value": 0.750756665157789,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
     "metric": "population_growth_pct",
     "period": "2021",
     "value": 0.868883560805873,
@@ -43587,6 +44228,96 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
   },
   {
+    "entity_slug": "company:vinpearl",
+    "metric": "hotels",
+    "period": "2025",
+    "value": 31,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "upgrade_cost_vnd",
+    "period": "2026",
+    "value": 966000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
+  },
+  {
+    "entity_slug": "company:cau-dat-tea",
+    "metric": "visitors_m",
+    "period": "2025",
+    "value": 1,
+    "unit": "млн",
+    "source_type": "analyst",
+    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_growth_pct",
+    "period": "2025",
+    "value": 6.42,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "coffee_area_ha",
+    "period": "2025",
+    "value": 176000,
+    "unit": "га",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "coffee_output_t",
+    "period": "2025",
+    "value": 600000,
+    "unit": "т",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "accommodations",
+    "period": "2025",
+    "value": 2500,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "rooms",
+    "period": "2025",
+    "value": 29400,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "hotels_3_5_star",
+    "period": "2025",
+    "value": 40,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "pine_forest_ha",
+    "period": "2025",
+    "value": 22000,
+    "unit": "га",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
     "entity_slug": "vn",
     "metric": "unemployment_rate",
     "period": "2023",
@@ -43596,6 +44327,60 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
   },
   {
+    "entity_slug": "company:trung-nguyen",
+    "metric": "export_countries",
+    "period": "2025",
+    "value": 50,
+    "unit": "шт",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Trung_Nguy%C3%AAn"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_agri_growth_pct",
+    "period": "2025",
+    "value": 5.1,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_industry_growth_pct",
+    "period": "2025",
+    "value": 5.54,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_services_growth_pct",
+    "period": "2025",
+    "value": 8.28,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_growth_target_pct",
+    "period": "2026",
+    "value": 10,
+    "unit": "%",
+    "source_type": "forecast",
+    "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "tourist_sites",
+    "period": "2025",
+    "value": 35,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
     "entity_slug": "vn",
     "metric": "unemployment_rate",
     "period": "2022",
@@ -43603,6 +44388,114 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "percent",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "avg_passengers_m",
+    "period": "2025",
+    "value": 2.5,
+    "unit": "млн",
+    "source_type": "official",
+    "source_url": "https://www.vietnam.vn/en/nang-cap-san-bay-lien-khuong-co-hoi-thuc-day-du-lich-dau-tu-va-hoi-nhap-quoc-te"
+  },
+  {
+    "entity_slug": "company:da-nhim-hydropower",
+    "metric": "construction_start_year",
+    "period": "1961",
+    "value": 1961,
+    "unit": "год",
+    "source_type": "official",
+    "source_url": "https://thanhnien.vn/50-nam-da-nhim-dau-son-huu-nghi-viet-nam-nhat-ban-1855018.htm"
+  },
+  {
+    "entity_slug": "company:dalat-palace-hotel",
+    "metric": "opened_year",
+    "period": "1922",
+    "value": 1922,
+    "unit": "год",
+    "source_type": "company",
+    "source_url": "https://www.dalatpalacehotel.com/en/history/"
+  },
+  {
+    "entity_slug": "institution:dalat-university",
+    "metric": "founded_year",
+    "period": "1957",
+    "value": 1957,
+    "unit": "год",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Dalat_University"
+  },
+  {
+    "entity_slug": "company:cau-dat-tea",
+    "metric": "founded_year",
+    "period": "1927",
+    "value": 1927,
+    "unit": "год",
+    "source_type": "analyst",
+    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
+  },
+  {
+    "entity_slug": "company:vietjet",
+    "metric": "domestic_routes",
+    "period": "2025",
+    "value": 52,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
+  },
+  {
+    "entity_slug": "company:vietjet",
+    "metric": "intl_routes",
+    "period": "2025",
+    "value": 202,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
+  },
+  {
+    "entity_slug": "company:wincommerce",
+    "metric": "revenue_vnd",
+    "period": "7M2025",
+    "value": 21400000000000,
+    "unit": "VND",
+    "source_type": "company",
+    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
+  },
+  {
+    "entity_slug": "company:wincommerce",
+    "metric": "monthly_revenue_vnd",
+    "period": "10.2025",
+    "value": 3458000000000,
+    "unit": "VND",
+    "source_type": "company",
+    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
+  },
+  {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "sentence_years_initial",
+    "period": "2024",
+    "value": 21,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://vir.com.vn/former-flc-chairman-trinh-van-quyet-sentenced-to-21-years-in-prison-113364.html"
+  },
+  {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "sentence_years_appeal",
+    "period": "2025",
+    "value": 7,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/business/companies/former-flc-chairman-trinh-van-quyet-returns-to-public-eye-5010651.html"
+  },
+  {
+    "entity_slug": "company:sai-gon-dai-ninh",
+    "metric": "sentence_years_ceo",
+    "period": "2025",
+    "value": 3,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://tuoitre.vn/hom-nay-toa-an-xet-xu-ong-mai-tien-dung-dai-gia-nguyen-cao-tri-cung-cuu-bi-thu-tinh-lam-dong-20250116072403194.htm"
   },
   {
     "entity_slug": "vn",
@@ -43686,6 +44579,69 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
   },
   {
+    "entity_slug": "company:vinhomes",
+    "metric": "contracted_sales_vnd",
+    "period": "2025",
+    "value": 205300000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
+  },
+  {
+    "entity_slug": "company:vinhomes",
+    "metric": "profit_after_tax_vnd",
+    "period": "1H2025",
+    "value": 11000000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Quan%20he%20co%20dong/0_Vingroup_2025/T9/2025.9_Vingroup%20Corporate%20Presentation_2Q2025_Short%20version.pdf"
+  },
+  {
+    "entity_slug": "company:vincom-retail",
+    "metric": "malls",
+    "period": "2025",
+    "value": 80,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinschool",
+    "metric": "campuses",
+    "period": "2025",
+    "value": 56,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinschool",
+    "metric": "students",
+    "period": "2025",
+    "value": 50200,
+    "unit": "чел",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinmec",
+    "metric": "hospitals",
+    "period": "2025",
+    "value": 9,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinpearl",
+    "metric": "rooms",
+    "period": "2025",
+    "value": 16100,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
+  },
+  {
     "entity_slug": "vn",
     "metric": "employment_ratio_pct",
     "period": "2022",
@@ -43693,6 +44649,42 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "percent",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "passengers_m",
+    "period": "2023",
+    "value": 2,
+    "unit": "млн",
+    "source_type": "company",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "movements",
+    "period": "2023",
+    "value": 12000,
+    "unit": "шт",
+    "source_type": "company",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "capacity_target_m",
+    "period": "2030",
+    "value": 5,
+    "unit": "млн",
+    "source_type": "forecast",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "runway_m",
+    "period": "2026",
+    "value": 3250,
+    "unit": "м",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
   },
   {
     "entity_slug": "vn",
@@ -43711,6 +44703,96 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "percent",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2023",
+    "value": 39.5494160842561,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2022",
+    "value": 35.8550348764279,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2021",
+    "value": 37.8460942595862,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2020",
+    "value": 3837000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2019",
+    "value": 18009000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2018",
+    "value": 15498000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2017",
+    "value": 12922000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "fleet",
+    "period": "2022",
+    "value": 44,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://liveandletsfly.com/bamboo-airways-died-in-a-booming-vietnam/"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2016",
+    "value": 10013000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2020",
+    "value": 3232000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -43903,12 +44985,75 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn-angiang",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 9888.91,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/An_Giang"
+  },
+  {
+    "entity_slug": "vn-angiang",
     "metric": "population",
     "period": "2025",
     "value": 4952238,
     "unit": "person",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/An_Giang"
+  },
+  {
+    "entity_slug": "company:hdbank",
+    "metric": "profit_before_tax_vnd",
+    "period": "Q1 2025",
+    "value": 5355000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/loi-nhuan-ngan-hang-quy-i-2025-vietcombank-duy-tri-vi-tri-dan-dau-techcombank-gay-bat-ngo"
+  },
+  {
+    "entity_slug": "company:vpbank",
+    "metric": "profit_before_tax_vnd",
+    "period": "Q1 2025",
+    "value": 5015000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/loi-nhuan-ngan-hang-quy-i-2025-vietcombank-duy-tri-vi-tri-dan-dau-techcombank-gay-bat-ngo"
+  },
+  {
+    "entity_slug": "company:bidv",
+    "metric": "assets_vnd",
+    "period": "2025",
+    "value": 3260000000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://vnmarketinsights.com/banking"
+  },
+  {
+    "entity_slug": "company:thaco-agri",
+    "metric": "revenue_vnd",
+    "period": "2025",
+    "value": 8340000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
+  },
+  {
+    "entity_slug": "company:thaco-agri",
+    "metric": "investment_vnd",
+    "period": "2025",
+    "value": 7550000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
+  },
+  {
+    "entity_slug": "company:hagl-agrico",
+    "metric": "revenue_vnd",
+    "period": "2025",
+    "value": 678000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
   },
   {
     "entity_slug": "vn-bacninh",
@@ -43918,6 +45063,42 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%AFc_Ninh"
+  },
+  {
+    "entity_slug": "company:sai-gon-dai-ninh",
+    "metric": "project_value_vnd",
+    "period": "2010",
+    "value": 25000000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/politics-laws/1690784/former-chief-of-the-government-office-faces-trial-over-bribery-allegations-connected-to-illegal-project.html"
+  },
+  {
+    "entity_slug": "company:sai-gon-dai-ninh",
+    "metric": "project_area_ha",
+    "period": "2010",
+    "value": 3600,
+    "unit": "га",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/politics-laws/1690784/former-chief-of-the-government-office-faces-trial-over-bribery-allegations-connected-to-illegal-project.html"
+  },
+  {
+    "entity_slug": "company:bao-loc-silk",
+    "metric": "japan_investment_usd",
+    "period": "1960",
+    "value": 10000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/sunday/features/1723319/bao-loc-silk-weaving-a-path-from-heritage-to-global-investment.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "intl_arrivals_m",
+    "period": "2025",
+    "value": 21.17,
+    "unit": "млн",
+    "source_type": "official",
+    "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp"
   },
   {
     "entity_slug": "vn-bacninh",
@@ -43945,6 +45126,42 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau"
+  },
+  {
+    "entity_slug": "vn-cantho",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 6360.83,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
+  },
+  {
+    "entity_slug": "vn-cantho",
+    "metric": "population",
+    "period": "2025",
+    "value": 4257581,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
+  },
+  {
+    "entity_slug": "vn-caobang",
+    "metric": "area_km2",
+    "period": "2026",
+    "value": 6700.39,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
+  },
+  {
+    "entity_slug": "vn-caobang",
+    "metric": "population",
+    "period": "2026",
+    "value": 573119,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
   },
   {
     "entity_slug": "vn-daklak",
@@ -44064,6 +45281,42 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/Gia_Lai"
   },
   {
+    "entity_slug": "company:petrolimex",
+    "metric": "soe_group_revenue_vnd",
+    "period": "2025",
+    "value": 1740000000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/economy/1783336/23-vietnamese-enterprises-earn-nearly-144-billion.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "exports_usd",
+    "period": "2025",
+    "value": 505660000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.EXP.GNFS.CD?format=json"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "credit_outstanding_vnd",
+    "period": "2025",
+    "value": 18400000000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://en.vietnamplus.vn/credit-growth-nears-18-in-2025-central-bank-post335108.vnp"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "credit_growth_pct",
+    "period": "2025",
+    "value": 17.87,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://en.vietnamplus.vn/credit-growth-nears-18-in-2025-central-bank-post335108.vnp"
+  },
+  {
     "entity_slug": "vn-haiphong",
     "metric": "area_km2",
     "period": "2026",
@@ -44109,13 +45362,31 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/H%C3%A0_T%C4%A9nh"
   },
   {
-    "entity_slug": "vn-cantho",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 6360.83,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2019",
+    "value": 11830000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2018",
+    "value": 10080000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2017",
+    "value": 8890000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn-hatinh",
@@ -44316,6 +45587,24 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%E1%BA%A1ng_S%C6%A1n"
   },
   {
+    "entity_slug": "company:jollibee",
+    "metric": "highlands_stake_pct",
+    "period": "2025",
+    "value": 60,
+    "unit": "%",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Highlands_Coffee"
+  },
+  {
+    "entity_slug": "company:masan-group",
+    "metric": "phuc_long_stake_pct",
+    "period": "2022",
+    "value": 84,
+    "unit": "%",
+    "source_type": "analyst",
+    "source_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
+  },
+  {
     "entity_slug": "vn-laocai",
     "metric": "area_km2",
     "period": "2025",
@@ -44413,15 +45702,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_Tr%E1%BB%8B"
-  },
-  {
-    "entity_slug": "vn-cantho",
-    "metric": "population",
-    "period": "2025",
-    "value": 4257581,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
   },
   {
     "entity_slug": "vn-quangtri",
@@ -44632,6 +45912,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
+    "metric": "imports_goods_services_usd",
+    "period": "2025",
+    "value": 474000000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.IMP.GNFS.CD?format=json"
+  },
+  {
+    "entity_slug": "vn",
     "metric": "fdi_inflow_usd",
     "period": "2024",
     "value": 20170000000,
@@ -44656,6 +45945,96 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "USD",
     "source_type": "official",
     "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2024",
+    "value": 25.8741334316538,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2023",
+    "value": 26.9827056291982,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2022",
+    "value": 33.4623722339218,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2021",
+    "value": 29.0283266030004,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2025",
+    "value": 34.8260889132074,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2024",
+    "value": 34.3195198506067,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2023",
+    "value": 33.467876483268,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2022",
+    "value": 30.6825928896503,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2021",
+    "value": 33.1255735800284,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2025",
+    "value": 40.1305077279733,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -44703,15 +46082,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp"
   },
   {
-    "entity_slug": "vn-caobang",
-    "metric": "area_km2",
-    "period": "2026",
-    "value": 6700.39,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
-  },
-  {
     "entity_slug": "vn",
     "metric": "tourist_revenue_vnd",
     "period": "2025",
@@ -44746,6 +46116,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2024",
+    "value": 39.8063485099891,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -44973,6 +46352,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
   },
   {
+    "entity_slug": "vn-lamdong",
+    "metric": "businesses_registered_capital_vnd",
+    "period": "2025",
+    "value": 22959000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
+  },
+  {
     "entity_slug": "vn-lamdong-pre2025",
     "metric": "grdp_growth_pct",
     "period": "2024",
@@ -44998,15 +46386,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "ha",
     "source_type": "official",
     "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
-  },
-  {
-    "entity_slug": "vn-caobang",
-    "metric": "population",
-    "period": "2026",
-    "value": 573119,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
   },
   {
     "entity_slug": "vn-lamdong",
@@ -45288,24 +46667,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "vn-angiang",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 9888.91,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/An_Giang"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "imports_goods_services_usd",
-    "period": "2025",
-    "value": 474000000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.IMP.GNFS.CD?format=json"
-  },
-  {
     "entity_slug": "vn-lamdong-x-1baoloc",
     "metric": "area_km2",
     "period": "2025",
@@ -45522,15 +46883,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "company:vinpearl",
-    "metric": "hotels",
-    "period": "2025",
-    "value": 31,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
-  },
-  {
     "entity_slug": "vn-lamdong-x-muine",
     "metric": "population",
     "period": "2025",
@@ -45592,6 +46944,24 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-laocai",
+    "metric": "population",
+    "period": "2025",
+    "value": 1778785,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A0o_Cai"
+  },
+  {
+    "entity_slug": "vn-nghean",
+    "metric": "area_km2",
+    "period": "2026",
+    "value": 16486.5,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Ngh%E1%BB%87_An"
   },
   {
     "entity_slug": "vn-lamdong-x-phuthuy",
@@ -45808,6 +47178,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "exports_goods_usd",
+    "period": "2025",
+    "value": 475040000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
   },
   {
     "entity_slug": "vn-lamdong-x-bacruong",
@@ -46485,33 +47864,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "upgrade_cost_vnd",
-    "period": "2026",
-    "value": 966000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
-  },
-  {
-    "entity_slug": "company:cau-dat-tea",
-    "metric": "visitors_m",
-    "period": "2025",
-    "value": 1,
-    "unit": "млн",
-    "source_type": "analyst",
-    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_growth_pct",
-    "period": "2025",
-    "value": 6.42,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
     "entity_slug": "vn-lamdong-x-hamthanh",
     "metric": "area_km2",
     "period": "2025",
@@ -46555,60 +47907,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "coffee_area_ha",
-    "period": "2025",
-    "value": 176000,
-    "unit": "га",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "coffee_output_t",
-    "period": "2025",
-    "value": 600000,
-    "unit": "т",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "accommodations",
-    "period": "2025",
-    "value": 2500,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "rooms",
-    "period": "2025",
-    "value": 29400,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "hotels_3_5_star",
-    "period": "2025",
-    "value": 40,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "pine_forest_ha",
-    "period": "2025",
-    "value": 22000,
-    "unit": "га",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
   },
   {
     "entity_slug": "vn-lamdong-x-hamthuannam",
@@ -46746,24 +48044,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "company:trung-nguyen",
-    "metric": "export_countries",
-    "period": "2025",
-    "value": 50,
-    "unit": "шт",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Trung_Nguy%C3%AAn"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "businesses_registered_capital_vnd",
-    "period": "2025",
-    "value": 22959000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
-  },
-  {
     "entity_slug": "vn-lamdong-x-hongthai",
     "metric": "area_km2",
     "period": "2025",
@@ -46798,51 +48078,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_agri_growth_pct",
-    "period": "2025",
-    "value": 5.1,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_industry_growth_pct",
-    "period": "2025",
-    "value": 5.54,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_services_growth_pct",
-    "period": "2025",
-    "value": 8.28,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_growth_target_pct",
-    "period": "2026",
-    "value": 10,
-    "unit": "%",
-    "source_type": "forecast",
-    "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "tourist_sites",
-    "period": "2025",
-    "value": 35,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
   },
   {
     "entity_slug": "vn-lamdong-x-kienduc",
@@ -46989,96 +48224,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "avg_passengers_m",
-    "period": "2025",
-    "value": 2.5,
-    "unit": "млн",
-    "source_type": "official",
-    "source_url": "https://www.vietnam.vn/en/nang-cap-san-bay-lien-khuong-co-hoi-thuc-day-du-lich-dau-tu-va-hoi-nhap-quoc-te"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2023",
-    "value": 39.5494160842561,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2022",
-    "value": 35.8550348764279,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2021",
-    "value": 37.8460942595862,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2020",
-    "value": 3837000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2019",
-    "value": 18009000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2018",
-    "value": 15498000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2017",
-    "value": 12922000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2016",
-    "value": 10013000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2020",
-    "value": 3232000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "vn-lamdong-x-namnung",
     "metric": "area_km2",
     "period": "2025",
@@ -47095,105 +48240,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "company:da-nhim-hydropower",
-    "metric": "construction_start_year",
-    "period": "1961",
-    "value": 1961,
-    "unit": "год",
-    "source_type": "official",
-    "source_url": "https://thanhnien.vn/50-nam-da-nhim-dau-son-huu-nghi-viet-nam-nhat-ban-1855018.htm"
-  },
-  {
-    "entity_slug": "company:dalat-palace-hotel",
-    "metric": "opened_year",
-    "period": "1922",
-    "value": 1922,
-    "unit": "год",
-    "source_type": "company",
-    "source_url": "https://www.dalatpalacehotel.com/en/history/"
-  },
-  {
-    "entity_slug": "institution:dalat-university",
-    "metric": "founded_year",
-    "period": "1957",
-    "value": 1957,
-    "unit": "год",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Dalat_University"
-  },
-  {
-    "entity_slug": "company:cau-dat-tea",
-    "metric": "founded_year",
-    "period": "1927",
-    "value": 1927,
-    "unit": "год",
-    "source_type": "analyst",
-    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
-  },
-  {
-    "entity_slug": "company:vietjet",
-    "metric": "domestic_routes",
-    "period": "2025",
-    "value": 52,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
-  },
-  {
-    "entity_slug": "company:vietjet",
-    "metric": "intl_routes",
-    "period": "2025",
-    "value": 202,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
-  },
-  {
-    "entity_slug": "company:wincommerce",
-    "metric": "revenue_vnd",
-    "period": "7M2025",
-    "value": 21400000000000,
-    "unit": "VND",
-    "source_type": "company",
-    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
-  },
-  {
-    "entity_slug": "company:wincommerce",
-    "metric": "monthly_revenue_vnd",
-    "period": "10.2025",
-    "value": 3458000000000,
-    "unit": "VND",
-    "source_type": "company",
-    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "sentence_years_initial",
-    "period": "2024",
-    "value": 21,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://vir.com.vn/former-flc-chairman-trinh-van-quyet-sentenced-to-21-years-in-prison-113364.html"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "sentence_years_appeal",
-    "period": "2025",
-    "value": 7,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/business/companies/former-flc-chairman-trinh-van-quyet-returns-to-public-eye-5010651.html"
-  },
-  {
-    "entity_slug": "company:sai-gon-dai-ninh",
-    "metric": "sentence_years_ceo",
-    "period": "2025",
-    "value": 3,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://tuoitre.vn/hom-nay-toa-an-xet-xu-ong-mai-tien-dung-dai-gia-nguyen-cao-tri-cung-cuu-bi-thu-tinh-lam-dong-20250116072403194.htm"
   },
   {
     "entity_slug": "vn-lamdong-x-nghiduc",
@@ -47374,69 +48420,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "company:vinhomes",
-    "metric": "contracted_sales_vnd",
-    "period": "2025",
-    "value": 205300000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
-  },
-  {
-    "entity_slug": "company:vinhomes",
-    "metric": "profit_after_tax_vnd",
-    "period": "1H2025",
-    "value": 11000000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Quan%20he%20co%20dong/0_Vingroup_2025/T9/2025.9_Vingroup%20Corporate%20Presentation_2Q2025_Short%20version.pdf"
-  },
-  {
-    "entity_slug": "company:vincom-retail",
-    "metric": "malls",
-    "period": "2025",
-    "value": 80,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinschool",
-    "metric": "campuses",
-    "period": "2025",
-    "value": 56,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinschool",
-    "metric": "students",
-    "period": "2025",
-    "value": 50200,
-    "unit": "чел",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinmec",
-    "metric": "hospitals",
-    "period": "2025",
-    "value": 9,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinpearl",
-    "metric": "rooms",
-    "period": "2025",
-    "value": 16100,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
   },
   {
     "entity_slug": "vn-lamdong-x-quangphu",
@@ -47943,42 +48926,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "passengers_m",
-    "period": "2023",
-    "value": 2,
-    "unit": "млн",
-    "source_type": "company",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "movements",
-    "period": "2023",
-    "value": 12000,
-    "unit": "шт",
-    "source_type": "company",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "capacity_target_m",
-    "period": "2030",
-    "value": 5,
-    "unit": "млн",
-    "source_type": "forecast",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "runway_m",
-    "period": "2026",
-    "value": 3250,
-    "unit": "м",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
-  },
-  {
     "entity_slug": "vn-lamdong-baolam",
     "metric": "population",
     "period": "2025",
@@ -48004,312 +48951,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "fleet",
-    "period": "2022",
-    "value": 44,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://liveandletsfly.com/bamboo-airways-died-in-a-booming-vietnam/"
-  },
-  {
-    "entity_slug": "company:hdbank",
-    "metric": "profit_before_tax_vnd",
-    "period": "Q1 2025",
-    "value": 5355000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/loi-nhuan-ngan-hang-quy-i-2025-vietcombank-duy-tri-vi-tri-dan-dau-techcombank-gay-bat-ngo"
-  },
-  {
-    "entity_slug": "company:vpbank",
-    "metric": "profit_before_tax_vnd",
-    "period": "Q1 2025",
-    "value": 5015000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/loi-nhuan-ngan-hang-quy-i-2025-vietcombank-duy-tri-vi-tri-dan-dau-techcombank-gay-bat-ngo"
-  },
-  {
-    "entity_slug": "company:bidv",
-    "metric": "assets_vnd",
-    "period": "2025",
-    "value": 3260000000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://vnmarketinsights.com/banking"
-  },
-  {
-    "entity_slug": "company:thaco-agri",
-    "metric": "revenue_vnd",
-    "period": "2025",
-    "value": 8340000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
-  },
-  {
-    "entity_slug": "company:thaco-agri",
-    "metric": "investment_vnd",
-    "period": "2025",
-    "value": 7550000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
-  },
-  {
-    "entity_slug": "company:hagl-agrico",
-    "metric": "revenue_vnd",
-    "period": "2025",
-    "value": 678000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://vietnambusinessinsider.vn/buc-tranh-nong-nghiep-cua-ong-tran-ba-duongchung-kien-hai-gam-mau-doi-lap-thaco-agri-tang-toc-loi-nhuan-hagl-agrico-tiep-tuc-ganh-lo-nghin-ty-a51934.html"
-  },
-  {
-    "entity_slug": "company:sai-gon-dai-ninh",
-    "metric": "project_value_vnd",
-    "period": "2010",
-    "value": 25000000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/politics-laws/1690784/former-chief-of-the-government-office-faces-trial-over-bribery-allegations-connected-to-illegal-project.html"
-  },
-  {
-    "entity_slug": "company:sai-gon-dai-ninh",
-    "metric": "project_area_ha",
-    "period": "2010",
-    "value": 3600,
-    "unit": "га",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/politics-laws/1690784/former-chief-of-the-government-office-faces-trial-over-bribery-allegations-connected-to-illegal-project.html"
-  },
-  {
-    "entity_slug": "company:bao-loc-silk",
-    "metric": "japan_investment_usd",
-    "period": "1960",
-    "value": 10000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/sunday/features/1723319/bao-loc-silk-weaving-a-path-from-heritage-to-global-investment.html"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "intl_arrivals_m",
-    "period": "2025",
-    "value": 21.17,
-    "unit": "млн",
-    "source_type": "official",
-    "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp"
-  },
-  {
-    "entity_slug": "company:petrolimex",
-    "metric": "soe_group_revenue_vnd",
-    "period": "2025",
-    "value": 1740000000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/economy/1783336/23-vietnamese-enterprises-earn-nearly-144-billion.html"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "exports_usd",
-    "period": "2025",
-    "value": 505660000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.EXP.GNFS.CD?format=json"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "credit_outstanding_vnd",
-    "period": "2025",
-    "value": 18400000000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://en.vietnamplus.vn/credit-growth-nears-18-in-2025-central-bank-post335108.vnp"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "credit_growth_pct",
-    "period": "2025",
-    "value": 17.87,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://en.vietnamplus.vn/credit-growth-nears-18-in-2025-central-bank-post335108.vnp"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2019",
-    "value": 11830000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2018",
-    "value": 10080000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "company:jollibee",
-    "metric": "highlands_stake_pct",
-    "period": "2025",
-    "value": 60,
-    "unit": "%",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Highlands_Coffee"
-  },
-  {
-    "entity_slug": "company:masan-group",
-    "metric": "phuc_long_stake_pct",
-    "period": "2022",
-    "value": 84,
-    "unit": "%",
-    "source_type": "analyst",
-    "source_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2017",
-    "value": 8890000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2024",
-    "value": 25.8741334316538,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2023",
-    "value": 26.9827056291982,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2022",
-    "value": 33.4623722339218,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2021",
-    "value": 29.0283266030004,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2025",
-    "value": 34.8260889132074,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2024",
-    "value": 34.3195198506067,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2023",
-    "value": 33.467876483268,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2022",
-    "value": 30.6825928896503,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2021",
-    "value": 33.1255735800284,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2025",
-    "value": 40.1305077279733,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2024",
-    "value": 39.8063485099891,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn-laocai",
-    "metric": "population",
-    "period": "2025",
-    "value": 1778785,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A0o_Cai"
-  },
-  {
-    "entity_slug": "vn-nghean",
-    "metric": "area_km2",
-    "period": "2026",
-    "value": 16486.5,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Ngh%E1%BB%87_An"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "exports_goods_usd",
-    "period": "2025",
-    "value": 475040000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
   },
   {
     "entity_slug": "vn-lamdong-x-tuyduc",

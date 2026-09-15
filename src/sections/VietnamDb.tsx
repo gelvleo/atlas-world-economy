@@ -112,7 +112,10 @@ const METRIC_LABEL: Record<string, string> = {
   population_urban_pct: 'Доля городского населения',
   population_growth_pct: 'Прирост населения',
   business_density: 'Плотность бизнеса',
-  tourist_revenue_usd: 'Выручка туризма в долларах'
+  tourist_revenue_usd: 'Выручка туризма в долларах',
+  tourists_growth_pct: 'Рост турпотока',
+  tourists_intl_growth_pct: 'Рост потока иностранцев',
+  tourist_spend_per_visit_vnd: 'Средний чек визита'
 };
 
 // Отрасли занятости приходят семейством employed:<отрасль>_pct.
@@ -306,6 +309,52 @@ const SEARCH_INDEX: Hit[] = [
     href: `#/vietnam/section/regions`
   }))
 ];
+
+/** Сущности графа по регионам. Не берём три вида: зеркала регионов и рынков это
+ *  те же объекты, что в своих таблицах, а `source` это заголовки новостных лент
+ *  (397 штук), которым на карточке провинции делать нечего - свежие темы живут
+ *  в блоке результатов обходов. */
+const GRAPH_NOISE = ['market', 'region', 'source'];
+const ENTITIES_BY_REGION = new Map<string, GenEntity[]>();
+for (const e of GEN_ENTITIES) {
+  if (!e.region_slug || GRAPH_NOISE.includes(e.kind ?? '')) continue;
+  const list = ENTITIES_BY_REGION.get(e.region_slug) ?? [];
+  list.push(e);
+  ENTITIES_BY_REGION.set(e.region_slug, list);
+}
+
+const ENTITY_KIND: Record<string, string> = {
+  company: 'компании',
+  person: 'люди',
+  institution: 'институты',
+  event: 'события',
+  brand: 'бренды',
+  product: 'продукты',
+  place: 'места',
+  sector: 'отрасли',
+  technology: 'технологии'
+};
+
+/** «компании 12 · люди 3 · отрасли 2» плюс несколько имён для примера. */
+function entityKindSummary(list: GenEntity[]): string {
+  const byKind = new Map<string, number>();
+  for (const e of list) {
+    const k = ENTITY_KIND[e.kind ?? ''] ?? e.kind ?? 'прочее';
+    byKind.set(k, (byKind.get(k) ?? 0) + 1);
+  }
+  const counts = [...byKind.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, n]) => `${k} ${n}`)
+    .join(' · ');
+  const names = list
+    .filter((e) => e.kind === 'company' || e.kind === 'person' || e.kind === 'institution')
+    .slice(0, 6)
+    .map(entityName);
+  return names.length ? `${counts}. Например: ${names.join(', ')}` : counts;
+}
+
+/** Строки рынков, которые обход ни разу не пересчитал. */
+const NEVER_COUNTED = GEN_MARKETS.filter((m) => !m.players_counted_at).length;
 
 /** Сколько рынков получили оценку возможности. Остальным в базе стоит null, и
  *  это «не считали», а не ноль: у зоны неизвестно население. */
@@ -633,6 +682,21 @@ export default function VietnamDb() {
                         </span>
                       </div>
                     )}
+                    {(ENTITIES_BY_REGION.get(region.slug) ?? []).length > 0 && (
+                      <div className="list-row">
+                        <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
+                          <span>Сущности графа</span>
+                          <span className="stat-note">
+                            {entityKindSummary(ENTITIES_BY_REGION.get(region.slug) ?? [])}
+                          </span>
+                        </span>
+                        <Val
+                          className="list-side"
+                          value={String((ENTITIES_BY_REGION.get(region.slug) ?? []).length)}
+                          unit="шт."
+                        />
+                      </div>
+                    )}
                     {latestPerMetric(stats).map(({ last, history }) => (
                       <div className="list-row" key={last.metric}>
                         <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
@@ -748,6 +812,18 @@ export default function VietnamDb() {
             </div>
             <div className="list-row">
               <span className="list-main">
+                <span>Свежесть у каждой строки своя.</span>
+                <span className="stat-note">
+                  Обход рынков недельный. Если карта не ответит по одной зоне, её числа останутся
+                  с прошлого раза, а пульс обхода останется зелёным: он краснеет, только когда не
+                  прошла ни одна зона. Поэтому дата пересчёта стоит в каждой строке, а не одной
+                  подписью на весь блок. Строк без пересчёта сейчас {NEVER_COUNTED} из{' '}
+                  {GEN_MARKETS.length}.
+                </span>
+              </span>
+            </div>
+            <div className="list-row">
+              <span className="list-main">
                 <span>Прочерк в оценке значит «не считали».</span>
                 <span className="stat-note">
                   Оценка возможности есть у {SCORED} строк из {GEN_MARKETS.length}. Зоны без
@@ -779,6 +855,7 @@ export default function VietnamDb() {
                     <th scope="col" className="num">Средний чек</th>
                     <th scope="col" className="num">Размер в год</th>
                     <th scope="col" className="num">Возможность</th>
+                    <th scope="col" className="num">Пересчитано</th>
                     <th scope="col">Чем подкреплено</th>
                   </tr>
                 </thead>
@@ -812,6 +889,14 @@ export default function VietnamDb() {
                           {m.opportunity_score === null || m.opportunity_score === undefined
                             ? '—'
                             : fmt1(Number(m.opportunity_score))}
+                        </td>
+                        <td className="num">
+                          {/* Свежесть по строке, а не одной подписью на блок:
+                              обход недельный, и если Overpass отдаст зоне отказ,
+                              её числа останутся с прошлого раза, а пульс обхода
+                              будет зелёным - он краснеет, только когда не прошла
+                              ни одна зона. */}
+                          {m.players_counted_at ? dayRu(m.players_counted_at) : 'не считалось'}
                         </td>
                         <td>
                           {/* Размер рынка и перепись точек это разные вещи:

@@ -75,7 +75,7 @@ async function table<T>(name: string, query: string): Promise<T[]> {
 
 interface Region { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 interface Stat { region_id: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
-interface Market { id: string; region_id: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null }
+interface Market { id: string; region_id: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null }
 interface Player { market_id: string; name: string | null; lat: number | null; lon: number | null; rating: number | null; reviews: number | null; source: string | null }
 interface EventRow { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; summary: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 interface Heartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
@@ -94,7 +94,7 @@ async function pull() {
   const [regions, stats, markets, players] = await Promise.all([
     table<Region>('regions', 'select=id,slug,level,parent_id,name_vi,name_ru,name_en,perimeter,lat,lon,area_km2&order=level,slug'),
     table<Stat>('region_stats', 'select=region_id,metric,period,value,unit,source_type,source_url,source_note,fetched_at'),
-    table<Market>('markets', 'select=id,region_id,slug,name_ru,players_count,players_source,size_vnd_year,size_source_type,size_source_url,avg_price_vnd,opportunity_score,opportunity_note&order=slug'),
+    table<Market>('markets', 'select=id,region_id,slug,name_ru,players_count,players_source,players_counted_at,size_vnd_year,size_source_type,size_source_url,avg_price_vnd,opportunity_score,opportunity_note&order=slug'),
     table<Player>('market_players', 'select=market_id,name,lat,lon,rating,reviews,source')
   ]);
 
@@ -194,7 +194,7 @@ ${missing.length ? `// Таблиц ещё нет в базе: ${missing.join(',
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
-export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
+export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; players_counted_at: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
