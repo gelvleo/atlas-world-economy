@@ -6,9 +6,10 @@
   "description": "ATLAS — интерактивный дашборд понимания мировой экономики: потоки денег, цепочки зависимостей, динамика услуг, влияние ИИ.",
   "scripts": {
     "dev": "vite",
-    "build": "tsx scripts/validate-links.ts && tsc && vite build",
+    "build": "tsx scripts/pull-vietnam.ts && tsx scripts/validate-links.ts && tsc && vite build",
     "preview": "vite preview",
-    "check": "tsx scripts/validate-links.ts"
+    "check": "tsx scripts/validate-links.ts",
+    "pull": "tsx scripts/pull-vietnam.ts"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

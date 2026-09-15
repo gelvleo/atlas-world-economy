@@ -1,0 +1,809 @@
+{
+  "_": "Сид для region_stats базы region-lamdong. Собран из docs/research/vietnam-data-os/atlas-vietnam-flows.md (разведка 14.09.2026).",
+  "_contract": "Поля строки = колонки region_stats, кроме region_slug: его надо разрешить в region_id по regions.slug.",
+  "_slugs": "Слаги по схеме region-data от 15.09: vn (страна), vn-lamdong (объединённая провинция, 2025+), vn-lamdong-pre2025 (старый периметр, 2024 и раньше), vn-lamdong-<район> (районы), vn-lamdong-<район>-<община> (общины).",
+  "_note": "Периметры не складываются: строки vietnam и lam-dong считают разные службы. Строки lam-dong за 2024 идут по старому периметру (до слияния 01.07.2025), за 2025 по объединённому: между собой не сравнивать.",
+  "_missing": "Чего в разведке нет и что надо добрать самим: employed_total, employed:<sector>, unemployment_rate, avg_income_vnd_month, а также все зонные метрики (население Nam Ban, Đinh Văn, Liên Nghĩa) и все рынки (massage, spa, hotel, coffee_shop).",
+  "stats": [
+    {
+      "region_slug": "vn",
+      "metric": "population",
+      "period": "2025",
+      "value": 101600000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn",
+      "metric": "gdp_usd",
+      "period": "2025",
+      "value": 514700000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json",
+      "source_note": "2024: 476,32 млрд $"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "gdp_growth_pct",
+      "period": "2025",
+      "value": 8.02,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.KD.ZG?format=json",
+      "source_note": "2024: 7,04 %; 2023: 4,98 %"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "gdp_per_capita_usd",
+      "period": "2025",
+      "value": 5066,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.PCAP.CD?format=json",
+      "source_note": "2024: 4 717 $"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "share_agriculture_pct",
+      "period": "2025",
+      "value": 11.64,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NV.AGR.TOTL.ZS?format=json",
+      "source_note": "доля в добавленной стоимости, не в ВВП"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "share_industry_pct",
+      "period": "2025",
+      "value": 37.65,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NV.IND.TOTL.ZS?format=json",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn",
+      "metric": "share_services_pct",
+      "period": "2025",
+      "value": 42.74,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NV.SRV.TOTL.ZS?format=json",
+      "source_note": "три доли не дают 100 %: остаток это налоги за вычетом субсидий"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "exports_goods_services_usd",
+      "period": "2025",
+      "value": 505660000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.EXP.GNFS.CD?format=json",
+      "source_note": "с услугами; с товарной строкой Нацстатслужбы не складывать"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "imports_goods_services_usd",
+      "period": "2025",
+      "value": 474000000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.IMP.GNFS.CD?format=json",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn",
+      "metric": "fdi_inflow_usd",
+      "period": "2024",
+      "value": 20170000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/BX.KLT.DINV.CD.WD?format=json",
+      "source_note": "за 2025 строки в API нет"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "exports_goods_usd",
+      "period": "2025",
+      "value": 475040000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "+17,0 %; только товары"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "imports_goods_usd",
+      "period": "2025",
+      "value": 455010000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "+19,4 %"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "trade_balance_usd",
+      "period": "2025",
+      "value": 20030000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "2024 было +24,77 млрд $, профицит сжимается"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "gdp_vnd",
+      "period": "2025",
+      "value": 12847600000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "с долларовой строкой World Bank не совпадает: разные курсы"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "cpi_pct",
+      "period": "2025",
+      "value": 3.31,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "цель Нацсобрания выполнена"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "retail_turnover_vnd",
+      "period": "2025",
+      "value": 7008900000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/",
+      "source_note": "+9,2 %, около 270 млрд $"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "exports_foreign_sector_usd",
+      "period": "2025",
+      "value": 367090000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/vietnam-runs-trade-surplus-of-over-20-bln-usd-in-2025-post335424.vnp",
+      "source_note": "77,3 % экспорта делают иностранные компании"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "tourists_intl",
+      "period": "2025",
+      "value": 21170000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp",
+      "source_note": "+20,4 % г/г, на 17,8 % выше 2019; единица - прибытие в страну"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "tourist_revenue_vnd",
+      "period": "2025",
+      "value": 843100000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp",
+      "source_note": "размещение и питание, +14,6 %, около 32 млрд $"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "travel_agency_revenue_vnd",
+      "period": "2025",
+      "value": 93900000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp",
+      "source_note": "+20,2 %; в предыдущую строку целиком не входит"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "tourists_intl:china",
+      "period": "2025",
+      "value": 5300000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp",
+      "source_note": "+41,3 %, около 25 % потока"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "tourists_intl:russia",
+      "period": "2025",
+      "value": 690000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp",
+      "source_note": "+196,9 %, седьмое место"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "tourists_intl:russia",
+      "period": "2026-01..08",
+      "value": 1000000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://news.tuoitre.vn/vietnam-russia-promote-visa-free-travel-to-boost-two-way-tourism-103260908182021128.htm",
+      "source_note": "свыше 1 млн, +165,7 %; безвиз 45 дней с августа 2023"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "digital_economy_gmv_usd",
+      "period": "2025",
+      "value": 39000000000,
+      "unit": "USD",
+      "source_type": "analyst",
+      "source_url": "https://vir.com.vn/vietnams-digital-economy-to-touch-39-billion-in-2025-141430.html",
+      "source_note": "e-Conomy SEA, Google/Temasek/Bain, 10-й выпуск"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "ecommerce_gmv_usd",
+      "period": "2025",
+      "value": 25000000000,
+      "unit": "USD",
+      "source_type": "analyst",
+      "source_url": "https://vir.com.vn/vietnams-digital-economy-to-touch-39-billion-in-2025-141430.html",
+      "source_note": "+17 %"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "it_outsourcing_market_usd",
+      "period": "2025",
+      "value": 698000000,
+      "unit": "USD",
+      "source_type": "analyst",
+      "source_url": "https://vietnamnews.vn/economy/1690004/it-outsourcing-fetchs-nearly-us-700-million.html",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn",
+      "metric": "it_outsourcing_market_usd",
+      "period": "2028",
+      "value": 880000000,
+      "unit": "USD",
+      "source_type": "forecast",
+      "source_url": "https://vietnamnews.vn/economy/1690004/it-outsourcing-fetchs-nearly-us-700-million.html",
+      "source_note": "рост 16,38 % в год"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "ai_market_usd",
+      "period": "2024",
+      "value": 750000000,
+      "unit": "USD",
+      "source_type": "analyst",
+      "source_url": "https://b-company.jp/vietnam-ai-market-update-to-2025/",
+      "source_note": "прогноз 2,0 млрд $ к 2030, CAGR около 15 %"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "ai_adoption_any_pct",
+      "period": "2025",
+      "value": 73.0,
+      "unit": "percent",
+      "source_type": "analyst",
+      "source_url": "https://b-company.jp/vietnam-ai-market-update-to-2025/",
+      "source_note": "внедрили хоть как-то"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "ai_adoption_production_pct",
+      "period": "2025",
+      "value": 13.8,
+      "unit": "percent",
+      "source_type": "analyst",
+      "source_url": "https://b-company.jp/vietnam-ai-market-update-to-2025/",
+      "source_note": "в промышленной эксплуатации, остальные в пилотах"
+    },
+    {
+      "region_slug": "vn",
+      "metric": "ai_no_inhouse_skills_pct",
+      "period": "2025",
+      "value": 46.4,
+      "unit": "percent",
+      "source_type": "analyst",
+      "source_url": "https://b-company.jp/vietnam-ai-market-update-to-2025/",
+      "source_note": "главное ограничение рынка"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "population",
+      "period": "2025",
+      "value": 3872999,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://thuvienphapluat.vn/phap-luat/ho-tro-phap-luat/bang-tra-cuu-day-du-124-xa-phuong-moi-tinh-lam-dong-sau-sap-nhap-chi-tiet-day-du-danh-sach-xa-phuon-159611-223978.html",
+      "source_note": "объединённый периметр; старая Lâm Đồng была 1 595 597"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "area_km2",
+      "period": "2025",
+      "value": 24233.07,
+      "unit": "km2",
+      "source_type": "official",
+      "source_url": "https://thuvienphapluat.vn/phap-luat/ho-tro-phap-luat/bang-tra-cuu-day-du-124-xa-phuong-moi-tinh-lam-dong-sau-sap-nhap-chi-tiet-day-du-danh-sach-xa-phuon-159611-223978.html",
+      "source_note": "крупнейшая провинция Вьетнама"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "communes_count",
+      "period": "2025",
+      "value": 124,
+      "unit": "unit",
+      "source_type": "official",
+      "source_url": "https://xaydungchinhsach.chinhphu.vn/sap-xep-dvhc-danh-sach-124-xa-phuong-dac-khu-cua-tinh-lam-dong-moi-119250623065800248.htm",
+      "source_note": "103 xã, 20 phường, 1 đặc khu"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "grdp_growth_pct",
+      "period": "2025",
+      "value": 6.42,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10052",
+      "source_note": "против 8,02 % по стране"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "grdp_per_capita_vnd",
+      "period": "2025",
+      "value": 105240000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10052",
+      "source_note": "+12,7 %; 4 047,6 $ по пересчёту источника"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "labour_productivity_vnd",
+      "period": "2025",
+      "value": 186020000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10052",
+      "source_note": "на работника в год"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "grdp_vnd",
+      "period": "2025",
+      "value": 407600000000000,
+      "unit": "VND",
+      "source_type": "proxy",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10052",
+      "source_note": "расчёт: 105,24 млн × 3 872 999 чел.; абсолютного GRDP не печатает ни один источник"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "share_agriculture_pct",
+      "period": "2025",
+      "value": 38.59,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "крупнейшая доля в структуре"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "share_industry_pct",
+      "period": "2025",
+      "value": 20.87,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "промышленность и строительство"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "share_services_pct",
+      "period": "2025",
+      "value": 35.83,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "налоги за вычетом субсидий 4,71 %, сумма даёт 100 %"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "growth_agriculture_pct",
+      "period": "2025",
+      "value": 5.1,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "growth_industry_pct",
+      "period": "2025",
+      "value": 5.54,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "growth_services_pct",
+      "period": "2025",
+      "value": 8.28,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "услуги растут быстрее всех три года подряд"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "budget_revenue_vnd",
+      "period": "2025",
+      "value": 31319000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "110,86 % плана, +9,59 %"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "businesses_registered",
+      "period": "2025",
+      "value": 4183,
+      "unit": "unit",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+78,61 %; капитал 22 959 млрд VND"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "businesses_registered_capital_vnd",
+      "period": "2025",
+      "value": 22959000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "grdp_growth_pct",
+      "period": "2024",
+      "value": 4.02,
+      "unit": "percent",
+      "source_type": "official",
+      "source_url": "https://www.sggp.org.vn/grdp-nam-2024-cua-lam-dong-xep-thu-61-ca-nuoc-post776583.html",
+      "source_note": "старый периметр, 61-е место из 63; с 2025 не сравнивать"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "budget_revenue_vnd",
+      "period": "2024",
+      "value": 13175300000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://www.sggp.org.vn/grdp-nam-2024-cua-lam-dong-xep-thu-61-ca-nuoc-post776583.html",
+      "source_note": "старый периметр, 93,1 % плана"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:coffee_area_ha",
+      "period": "2025",
+      "value": 328650,
+      "unit": "ha",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+1,03 %; первое место в стране"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:coffee_tons",
+      "period": "2025",
+      "value": 1028393,
+      "unit": "ton",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+5,57 %; 48,3 % урожая страны"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:vegetables_tons",
+      "period": "2025",
+      "value": 2823372,
+      "unit": "ton",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "за три сезона"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:durian_area_ha",
+      "period": "2025",
+      "value": 44283.5,
+      "unit": "ha",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:durian_tons",
+      "period": "2025",
+      "value": 290266,
+      "unit": "ton",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+11,34 %"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:tea_area_ha",
+      "period": "2025",
+      "value": 9329.3,
+      "unit": "ha",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:tea_tons",
+      "period": "2025",
+      "value": 116699.1,
+      "unit": "ton",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "−0,49 %"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:dragonfruit_tons",
+      "period": "2025",
+      "value": 577731,
+      "unit": "ton",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "культура Bình Thuận, в ряду только из-за слияния"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:avocado_area_ha",
+      "period": "2026-01",
+      "value": 9050.0,
+      "unit": "ha",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tinh-hinh-kinh-te-xa-hoi/31",
+      "source_note": "−1,56 %; урожая в тоннах нет"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "crop:mulberry_area_ha",
+      "period": "2026-01",
+      "value": 11320.4,
+      "unit": "ha",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tinh-hinh-kinh-te-xa-hoi/31",
+      "source_note": "+4,93 %"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "silk_export_usd",
+      "period": "2025",
+      "value": 180000000,
+      "unit": "USD",
+      "source_type": "official",
+      "source_url": "https://baolamdong.vn/kinh-te/202505/khi-cay-dau-tam-tang-ca-3-tieu-chi-a231387/",
+      "source_note": "старый периметр; второе место после кофе"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "flowers_stems",
+      "period": "2024",
+      "value": 4400000000,
+      "unit": "unit",
+      "source_type": "official",
+      "source_url": "https://nhandan.vn/tao-chuoi-gia-tri-cao-cho-nganh-hoa-da-lat-post858798.html",
+      "source_note": "старый периметр, свыше 4,4 млрд стеблей в год"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "flowers_stems_export",
+      "period": "2024",
+      "value": 494000000,
+      "unit": "unit",
+      "source_type": "official",
+      "source_url": "https://nhandan.vn/tao-chuoi-gia-tri-cao-cho-nganh-hoa-da-lat-post858798.html",
+      "source_note": "11,2 % объёма, 23 страны; выручки в долларах источник не даёт"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "flowers_export_usd",
+      "period": "2030",
+      "value": 217000000,
+      "unit": "USD",
+      "source_type": "forecast",
+      "source_url": "https://baolamdong.vn/khat-vong-dua-hoa-da-lat-vuon-tam-khu-vuc-va-quoc-te-286053.html",
+      "source_note": "цель: 5,4 млрд стеблей"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "tourists_total",
+      "period": "2025",
+      "value": 20733100,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+17,91 %; единица - визит в провинцию, с прибытиями в страну не складывать"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "tourists_intl",
+      "period": "2025",
+      "value": 1287000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+39,78 %, доля 6,2 % потока"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "tourist_revenue_vnd",
+      "period": "2025",
+      "value": 56610600000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051",
+      "source_note": "+24,1 %, около 2,15 млрд $"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "tourist_revenue_accommodation_vnd",
+      "period": "2025",
+      "value": 11007300000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html",
+      "source_note": "+21,4 %; питание 45 599 млрд, турагентства 648,3 млрд"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "tourists_total",
+      "period": "2024",
+      "value": 10000000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://www.vietnamplus.vn/lam-dong-chao-don-khach-du-lich-thu-10-trieu-trong-nam-2024-post1004935.vnp",
+      "source_note": "старый периметр; иностранцев 600 тыс."
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "tourist_revenue_vnd",
+      "period": "2024",
+      "value": 18000000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://www.vietnamplus.vn/lam-dong-chao-don-khach-du-lich-thu-10-trieu-trong-nam-2024-post1004935.vnp",
+      "source_note": "старый периметр"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "accommodation_units",
+      "period": "2024",
+      "value": 3070,
+      "unit": "unit",
+      "source_type": "proxy",
+      "source_url": "https://www.vietnam.vn/lam-dong-chao-don-khach-du-lich-thu-10-trieu-trong-nam-2024",
+      "source_note": "из них 449 звёздных отелей"
+    },
+    {
+      "region_slug": "vn-lamdong-pre2025",
+      "metric": "accommodation_rooms",
+      "period": "2024",
+      "value": 43684,
+      "unit": "unit",
+      "source_type": "proxy",
+      "source_url": "https://www.vietnam.vn/lam-dong-chao-don-khach-du-lich-thu-10-trieu-trong-nam-2024",
+      "source_note": "звёздных 13 172"
+    },
+    {
+      "region_slug": "vn-lamdong",
+      "metric": "tourists_total",
+      "period": "2026",
+      "value": 25000000,
+      "unit": "person",
+      "source_type": "forecast",
+      "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html",
+      "source_note": "цель провинции, иностранцев около 1,6 млн"
+    },
+    {
+      "region_slug": "vn-lamdong-ductrong-lienkhuong",
+      "metric": "airport_passengers",
+      "period": "2025",
+      "value": 3000000,
+      "unit": "person",
+      "source_type": "official",
+      "source_url": "https://dantri.com.vn/thoi-su/san-bay-lien-khuong-dong-cua-6-thang-du-lich-da-lat-tim-huong-thich-nghi-20260305082255291.htm",
+      "source_note": "пик, выше проектной мощности; свыше 12 млн за 2020-2025"
+    },
+    {
+      "region_slug": "vn-lamdong-ductrong-lienkhuong",
+      "metric": "airport_closure_cost_vnd",
+      "period": "2026",
+      "value": 1032000000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://dantri.com.vn/thoi-su/san-bay-lien-khuong-dong-cua-6-thang-du-lich-da-lat-tim-huong-thich-nghi-20260305082255291.htm",
+      "source_note": "закрытие на ремонт 04.03.2026 - 25.08.2026"
+    },
+    {
+      "region_slug": "vn-lamdong-ductrong-lienkhuong",
+      "metric": "airport_passengers",
+      "period": "2030",
+      "value": 5000000,
+      "unit": "person",
+      "source_type": "forecast",
+      "source_url": "https://vneconomy.vn/mo-rong-duong-bay-quoc-te-tai-san-bay-lien-khuong.htm",
+      "source_note": "расширение около 3 700 млрд VND, класс 4E"
+    },
+    {
+      "region_slug": "vn-lamdong-dalat",
+      "metric": "land_price_state_max_vnd_m2",
+      "period": "2025",
+      "value": 72800000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://vneconomy.vn/lam-dong-gia-dat-o-do-thi-tai-huyen-duc-trong-va-da-lat-duoc-dieu-chinh-cao-nhat.htm",
+      "source_note": "государственная таблица до 31.12.2025, не рынок"
+    },
+    {
+      "region_slug": "vn-lamdong-ductrong",
+      "metric": "land_price_state_max_vnd_m2",
+      "period": "2025",
+      "value": 72000000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://vneconomy.vn/lam-dong-gia-dat-o-do-thi-tai-huyen-duc-trong-va-da-lat-duoc-dieu-chinh-cao-nhat.htm",
+      "source_note": ""
+    },
+    {
+      "region_slug": "vn-lamdong-lamha",
+      "metric": "land_price_state_max_vnd_m2",
+      "period": "2025",
+      "value": 21600000,
+      "unit": "VND",
+      "source_type": "official",
+      "source_url": "https://vneconomy.vn/lam-dong-gia-dat-o-do-thi-tai-huyen-duc-trong-va-da-lat-duoc-dieu-chinh-cao-nhat.htm",
+      "source_note": "в три с лишним раза дешевле Đà Lạt"
+    },
+    {
+      "region_slug": "vn-lamdong-dalat",
+      "metric": "land_price_market_avg_vnd_m2",
+      "period": "2025",
+      "value": 45000000,
+      "unit": "VND",
+      "source_type": "proxy",
+      "source_url": "https://smartland.vn/phan-tich-thi-truong-bat-dong-san-da-lat-2025/",
+      "source_note": "данные брокера о своём рынке; центр 260-540 млн"
+    },
+    {
+      "region_slug": "vn-lamdong-dalat",
+      "metric": "rent_apartment_vnd_month",
+      "period": "2025",
+      "value": 10000000,
+      "unit": "VND",
+      "source_type": "proxy",
+      "source_url": "https://batdongsan.com.vn/cho-thue-can-ho-chung-cu-da-lat-ldd/gia-tu-5-trieu-den-10-trieu",
+      "source_note": "середина вилки объявлений 5-15 млн; доска объявлений, не статистика"
+    }
+  ]
+}
