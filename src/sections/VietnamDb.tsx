@@ -27,6 +27,7 @@ import {
   generatedAt,
   generatedCounts,
   missingTables,
+  type GenEntity,
   type GenMarket,
   type GenRegion,
   type GenStat
@@ -123,7 +124,26 @@ const METRIC_LABEL: Record<string, string> = {
   airport_closure_cost_vnd: 'Стоимость ремонта аэропорта',
   land_price_state_max_vnd_m2: 'Цена земли, госпрайс за м²',
   land_price_market_avg_vnd_m2: 'Цена земли, рынок за м²',
-  rent_apartment_vnd_month: 'Аренда квартиры в месяц'
+  rent_apartment_vnd_month: 'Аренда квартиры в месяц',
+  grdp_usd: 'ВРП в долларах',
+  grdp_per_capita_usd: 'ВРП на душу',
+  gni_per_capita_usd: 'ВНД на душу',
+  labour_force: 'Рабочая сила',
+  employment_ratio_pct: 'Доля занятых в населении',
+  unemployment_rate_youth: 'Безработица среди молодёжи',
+  population_urban: 'Городское население',
+  population_urban_pct: 'Доля городского населения',
+  population_growth_pct: 'Прирост населения',
+  business_density: 'Плотность бизнеса',
+  tourist_revenue_usd: 'Выручка туризма в долларах'
+};
+
+// Отрасли занятости приходят семейством employed:<отрасль>_pct.
+const SECTOR: Record<string, string> = {
+  agriculture: 'сельское хозяйство',
+  industry: 'промышленность',
+  services: 'услуги',
+  construction: 'строительство'
 };
 
 // Урожаи приходят семейством crop:<культура>_<единица>: словарь на каждую
@@ -135,6 +155,8 @@ const CROP: Record<string, string> = {
 
 function metricLabel(m: string): string {
   if (METRIC_LABEL[m]) return METRIC_LABEL[m];
+  const sector = /^employed:([a-z]+)(_pct)?$/.exec(m);
+  if (sector) return `Занятость: ${SECTOR[sector[1]] ?? sector[1]}`;
   if (m.startsWith('employed:')) return `Занятость: ${m.slice(9)}`;
   const crop = /^crop:([a-z]+)_(ha|tons|area_ha)$/.exec(m);
   if (crop) {
@@ -157,6 +179,13 @@ const asKind = (s: string | null | undefined): EvidenceKind | null =>
 const REGION_BY_SLUG = new Map(GEN_REGIONS.map((r) => [r.slug, r]));
 const regionName = (slug: string) => REGION_BY_SLUG.get(slug)?.name_ru ?? slug;
 
+// В таблице entities имя лежит в name, русское резюме в summary_ru: колонки
+// name_ru и summary у первой волны строк пустые, поэтому берём что есть.
+const str = (v: unknown) => (typeof v === 'string' && v ? v : null);
+const entityName = (e: GenEntity) =>
+  str(e.name_ru) ?? str(e.name) ?? str(e.name_vi) ?? e.slug;
+const entitySummary = (e: GenEntity) => str(e.summary_ru) ?? str(e.summary) ?? null;
+
 /** Показатели региона: ключ «слаг|метрика», внутри последний по периоду. */
 const STATS_BY_KEY = new Map<string, GenStat[]>();
 const STATS_BY_REGION = new Map<string, GenStat[]>();
@@ -169,6 +198,24 @@ const statOf = (slug: string, metric: string): GenStat | undefined => {
   const list = STATS_BY_KEY.get(`${slug}|${metric}`);
   return list?.reduce((a, b) => ((b.period ?? '') > (a.period ?? '') ? b : a));
 };
+
+/** Обход пишет ряд по годам: показываем последний год строкой, прошлые подписью.
+ *  Иначе одна метрика занимает пять строк и регион читать невозможно. */
+function latestPerMetric(rows: GenStat[]): { last: GenStat; history: GenStat[] }[] {
+  const byMetric = new Map<string, GenStat[]>();
+  for (const r of rows) {
+    const list = byMetric.get(r.metric) ?? [];
+    list.push(r);
+    byMetric.set(r.metric, list);
+  }
+  return [...byMetric.entries()]
+    .map(([metric, list]) => {
+      const sorted = list.slice().sort((a, b) => (b.period ?? '').localeCompare(a.period ?? ''));
+      return { metric, last: sorted[0], history: sorted.slice(1, 5) };
+    })
+    .sort((a, b) => metricLabel(a.metric).localeCompare(metricLabel(b.metric)))
+    .map(({ last, history }) => ({ last, history }));
+}
 
 const SCALES: [number, string][] = [
   [1e12, 'трлн'],
@@ -262,7 +309,7 @@ const SEARCH_INDEX: Hit[] = [
   })),
   ...GEN_ENTITIES.map((e) => ({
     kind: 'entity' as const,
-    label: e.name_ru ?? e.slug,
+    label: entityName(e),
     sub: `сущность${e.kind ? ` · ${e.kind}` : ''}${e.region_slug ? ` · ${regionName(e.region_slug)}` : ''}`,
     level: e.region_slug ? REGION_BY_SLUG.get(e.region_slug)?.level ?? null : null,
     href: `#/vietnam/entity/${e.slug}`
@@ -386,33 +433,38 @@ export default function VietnamDb() {
   const employmentRows = useMemo(() => {
     const slugs = [...new Set(GEN_STATS.filter((s) => s.metric.startsWith('employed') || s.metric === 'unemployment_rate' || s.metric === 'avg_income_vnd_month').map((s) => s.region_slug))];
     return slugs.map((slug) => {
-      const sectors = (STATS_BY_REGION.get(slug) ?? []).filter((s) => s.metric.startsWith('employed:'));
-      const total = statOf(slug, 'employed_total');
-      const max = Math.max(...sectors.map((s) => Number(s.value ?? 0)), 1);
+      // Ряд по годам сворачиваем как в дереве регионов: столбик показывает
+      // последний год, прошлые уходят подписью.
+      const sectors = latestPerMetric(
+        (STATS_BY_REGION.get(slug) ?? []).filter((s) => s.metric.startsWith('employed:'))
+      );
+      const max = Math.max(...sectors.map((s) => Number(s.last.value ?? 0)), 1);
       return {
         slug,
-        total,
+        total: statOf(slug, 'employed_total') ?? statOf(slug, 'labour_force'),
         unemployment: statOf(slug, 'unemployment_rate'),
         income: statOf(slug, 'avg_income_vnd_month'),
         sectors: sectors
-          .sort((a, b) => Number(b.value ?? 0) - Number(a.value ?? 0))
-          .map((s) => ({ stat: s, share: Number(s.value ?? 0) / max }))
+          .sort((a, b) => Number(b.last.value ?? 0) - Number(a.last.value ?? 0))
+          .map(({ last, history }) => ({ stat: last, history, share: Number(last.value ?? 0) / max }))
       };
     });
   }, []);
 
-  // Провинций в базе 120, и у 90 из них ни одного показателя: вывалить их все
-  // значит утопить Lâm Đồng в списке. По умолчанию показываем страну, ветку
-  // Lâm Đồng, зоны владельца и всё, у чего есть числа или рынки.
+  // В базе 238 регионов: 97 провинций страны и 125 общин объединённой Lâm Đồng.
+  // Вывалить всё значит утопить то, ради чего раздел и сделан. По умолчанию
+  // показываем страну, обе Lâm Đồng, её районы, зоны владельца, всё, где есть
+  // рынки, и регион, на который ведёт ссылка. Полный список за переключателем.
   const visibleTree = useMemo(() => {
     if (allRegions) return TREE;
     const withMarkets = new Set(GEN_MARKETS.map((m) => m.region_slug));
     return TREE.filter(
       ({ region }) =>
         region.level === 'country' ||
-        region.slug.startsWith('vn-lamdong') ||
         region.level === 'zone' ||
-        (STATS_BY_REGION.get(region.slug)?.length ?? 0) > 0 ||
+        region.slug === 'vn-lamdong' ||
+        region.slug === 'vn-lamdong-pre2025' ||
+        (region.level === 'district' && region.slug.startsWith('vn-lamdong')) ||
         withMarkets.has(region.slug) ||
         region.slug === openRegion
     );
@@ -621,7 +673,7 @@ export default function VietnamDb() {
       <div className="toolbar">
         <div className="seg" role="group" aria-label="Охват списка регионов">
           <button className="seg-btn" aria-pressed={!allRegions} onClick={() => setAllRegions(false)}>
-            Lâm Đồng и всё с числами
+            Lâm Đồng, районы и зоны
           </button>
           <button className="seg-btn" aria-pressed={allRegions} onClick={() => setAllRegions(true)}>
             Все регионы · {TREE.length}
@@ -668,23 +720,25 @@ export default function VietnamDb() {
                         </span>
                       </div>
                     )}
-                    {stats
-                      .slice()
-                      .sort((a, b) => a.metric.localeCompare(b.metric))
-                      .map((s) => (
-                        <div className="list-row" key={s.metric + s.period + s.source_url}>
-                          <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
-                            <span>{metricLabel(s.metric)}</span>
-                            <StatSource s={s} />
-                          </span>
-                          <span className="list-side">
-                            <Val value={statText(s) ?? '—'} />
-                            {s.unit === 'VND' && s.value ? (
-                              <span className="stat-note">{vndText(Number(s.value))}</span>
-                            ) : null}
-                          </span>
-                        </div>
-                      ))}
+                    {latestPerMetric(stats).map(({ last, history }) => (
+                      <div className="list-row" key={last.metric}>
+                        <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
+                          <span>{metricLabel(last.metric)}</span>
+                          <StatSource s={last} />
+                          {history.length > 0 && (
+                            <span className="stat-note">
+                              раньше: {history.map((h) => `${h.period} ${statText(h)}`).join(' · ')}
+                            </span>
+                          )}
+                        </span>
+                        <span className="list-side">
+                          <Val value={statText(last) ?? '—'} />
+                          {last.unit === 'VND' && last.value ? (
+                            <span className="stat-note">{vndText(Number(last.value))}</span>
+                          ) : null}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
@@ -724,14 +778,19 @@ export default function VietnamDb() {
               </span>
             </div>
             <div className="list">
-              {r.sectors.map(({ stat, share }) => (
-                <div className="list-row" key={stat.metric + stat.period}>
+              {r.sectors.map(({ stat, history, share }) => (
+                <div className="list-row" key={stat.metric}>
                   <span className="list-main">
                     <span>{metricLabel(stat.metric)}</span>
                     <span className="bar">
                       <span className="bar-fill" style={{ width: `${Math.round(share * 100)}%` }} />
                     </span>
                     <StatSource s={stat} />
+                    {history.length > 0 && (
+                      <span className="stat-note">
+                        раньше: {history.map((h) => `${h.period} ${statText(h)}`).join(' · ')}
+                      </span>
+                    )}
                   </span>
                   <Val className="list-side" value={statText(stat) ?? '—'} />
                 </div>
@@ -868,10 +927,10 @@ export default function VietnamDb() {
           {GEN_ENTITIES.slice(0, 40).map((e) => (
             <div className="list-row" key={e.slug}>
               <span className="list-main">
-                <span>{e.name_ru ?? e.slug}</span>
+                <span>{entityName(e)}</span>
                 {e.kind && <span className="tag">{e.kind}</span>}
                 {e.region_slug && <span className="meta"> · {regionName(e.region_slug)}</span>}
-                {e.summary && <span className="stat-note">{e.summary}</span>}
+                {entitySummary(e) && <span className="stat-note">{entitySummary(e)}</span>}
               </span>
               <span className="list-side num">
                 {GEN_ENTITY_METRICS.filter((m) => m.entity_slug === e.slug).length}

@@ -148,17 +148,22 @@ async function pull() {
   // Слаг вместо uuid: генерированный файл читается человеком и джойнится в UI
   // по слагу, а uuid базы наружу не нужен.
   const slugById = new Map(regions.map((r) => [r.id, r.slug]));
-  const statRows = stats.map((s) => ({ ...s, region_slug: slugById.get(s.region_id) ?? s.region_id }));
+  const statRows = stats.map(({ region_id, ...rest }) => ({
+    region_slug: slugById.get(region_id) ?? region_id,
+    ...rest
+  }));
   const playersByMarket = new Map<string, Player[]>();
   for (const p of players) {
     const list = playersByMarket.get(p.market_id) ?? [];
     list.push(p);
     playersByMarket.set(p.market_id, list);
   }
-  const marketRows = markets.map((m) => ({
-    ...m,
-    region_slug: slugById.get(m.region_id) ?? m.region_id,
-    players: (playersByMarket.get(m.id) ?? []).sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
+  const marketRows = markets.map(({ region_id, ...rest }) => ({
+    ...rest,
+    region_slug: slugById.get(region_id) ?? region_id,
+    players: (playersByMarket.get(rest.id) ?? [])
+      .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
+      .map(({ market_id, ...player }) => player)
   }));
 
   return { regions, statRows, marketRows, forecasts, events, observationSummary, heartbeats, topics, insights, entities, edges, entityMetrics, now };
@@ -201,10 +206,12 @@ export interface GenForecast { for_date: string; made_at: string; horizon: strin
 export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; summary: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
-export interface GenInsight { region_slug?: string | null; title?: string | null; summary?: string | null; kind?: string | null; score?: number | null; created_at?: string | null }
-export interface GenEntity { slug: string; kind?: string | null; name_ru?: string | null; name_vi?: string | null; region_slug?: string | null; summary?: string | null }
-export interface GenEdge { from_slug?: string | null; to_slug?: string | null; kind?: string | null; note?: string | null }
-export interface GenEntityMetric { entity_slug?: string | null; metric: string; period?: string | null; value?: number | null; unit?: string | null; source_type?: string | null; source_url?: string | null }
+/** Инсайты и граф ведёт агент region-graph: колонки ещё меняются, поэтому
+ *  интерфейсы терпят лишние поля - новая колонка в базе не роняет сборку. */
+export interface GenInsight { [column: string]: unknown; region_slug?: string | null; title?: string | null; summary?: string | null; kind?: string | null; score?: number | null; created_at?: string | null }
+export interface GenEntity { [column: string]: unknown; slug: string; kind?: string | null; name_ru?: string | null; name_vi?: string | null; region_slug?: string | null; summary?: string | null }
+export interface GenEdge { [column: string]: unknown; from_slug?: string | null; to_slug?: string | null; kind?: string | null; note?: string | null }
+export interface GenEntityMetric { [column: string]: unknown; entity_slug?: string | null; metric: string; period?: string | null; value?: number | null; unit?: string | null; source_type?: string | null; source_url?: string | null }
 export interface GenObservation { point: string; point_kind: string; metric: string; min: number; max: number; avg: number; sum: number; last: number | null; last_at: string | null; samples: number }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
