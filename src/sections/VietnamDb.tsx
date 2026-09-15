@@ -436,7 +436,7 @@ export default function VietnamDb() {
     if (!route || route.domain !== 'vietnam') return;
     const anchor =
       route.kind === 'region' ? `vn-region-${route.a}`
-      : route.kind === 'market' ? 'vn-markets'
+      : route.kind === 'market' ? `vn-market-${route.a}/${route.b}`
       : route.kind === 'entity' ? 'vn-entities'
       : `vn-${route.a}`;
     if (route.kind === 'region') setOpenRegion(route.a);
@@ -450,9 +450,17 @@ export default function VietnamDb() {
     // проход с поправкой нужен при переходе по ссылке внутри уже открытой
     // страницы: прошлый регион схлопывается во время плавной прокрутки, вёрстка
     // над целью уезжает, и анимация приходит не туда.
-    const scroll = (behavior: ScrollBehavior) =>
-      (document.getElementById(anchor) ?? document.getElementById('vn-regions'))
-        ?.scrollIntoView({ behavior, block: 'start' });
+    const fallback = route.kind === 'market' ? 'vn-markets' : 'vn-regions';
+    // Считаем смещение сами вместо scrollIntoView. Строка рынка лежит в таблице
+    // внутри .table-wrap с overflow-x, и scrollIntoView крутит ещё и этот
+    // горизонтальный контейнер: Chromium из-за этого оставлял цель за четыре
+    // экрана, WebKit доезжал. Ручной scrollTo ведёт себя одинаково в обоих.
+    const HEADER = 96;
+    const scroll = (behavior: ScrollBehavior) => {
+      const el = document.getElementById(anchor) ?? document.getElementById(fallback);
+      if (!el) return;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - HEADER, behavior });
+    };
     requestAnimationFrame(() => scroll('smooth'));
     const fix = setTimeout(() => scroll('auto'), 700);
     return () => clearTimeout(fix);
@@ -682,7 +690,6 @@ export default function VietnamDb() {
               <div
                 key={region.id}
                 id={`vn-region-${region.slug}`}
-                style={{ scrollMarginTop: 96 }}
               >
                 <button
                   className="list-row"
@@ -895,7 +902,11 @@ export default function VietnamDb() {
                     const key = `${m.region_slug}/${m.slug}`;
                     const open = openMarket === key;
                     return (
-                      <tr key={m.id} aria-current={open ? 'true' : undefined}>
+                      <tr
+                        key={m.id}
+                        id={`vn-market-${key}`}
+                        aria-current={open ? 'true' : undefined}
+                      >
                         <td>
                           <button className="link" onClick={() => setOpenMarket(open ? null : key)}>
                             {m.name_ru ?? m.slug}
