@@ -210,7 +210,7 @@ npm run pull       # перечитать базу и перезаписать s
 #/vietnam/market/<region_slug>/<market_slug> например .../namban/massage
 #/vietnam/entity/<slug>                      сущность графа
 #/vietnam/section/<id>                       search · calendar · regions ·
-                                             employment · markets ·
+                                             employment · markets · national ·
                                              opportunity · entities · sweeps
 ```
 
