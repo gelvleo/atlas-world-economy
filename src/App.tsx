@@ -10,6 +10,7 @@ import AiImpact from './sections/AiImpact';
 import Market from './sections/Market';
 import MarketAi from './sections/MarketAi';
 import Vietnam from './sections/Vietnam';
+import { parseHash } from './ui/hashRoute';
 import NodePanel from './components/NodePanel';
 import {
   IconOverview,
@@ -53,6 +54,18 @@ export default function App() {
 
   const openNode = useCallback((id: string) => {
     if (NODE_MAP[id]) setSelectedNodeId(id);
+  }, []);
+
+  // Ссылка вида #/vietnam/region/vn-lamdong открывает свой раздел сама: тул
+  // агента региона даёт человеку один адрес, а не адрес плюс инструкцию кликать.
+  useEffect(() => {
+    const apply = () => {
+      const r = parseHash(window.location.hash);
+      if (r?.domain === 'vietnam') setSection('vietnam');
+    };
+    apply();
+    window.addEventListener('hashchange', apply);
+    return () => window.removeEventListener('hashchange', apply);
   }, []);
 
   const goTo = useCallback((s: SectionId) => {

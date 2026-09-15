@@ -165,6 +165,52 @@ NVIDIA ~80-90% рынка AI-GPU; услуги ~60-65% мирового ВВП. 
 
 Источники и их границы периметра указаны в панели каждого узла.
 
+## Живой слой домена vietnam: чтение из базы региона
+
+Часть раздела «Вьетнам» не вписана в `.ts` руками, а приходит из базы региона
+Lâm Đồng (Supabase `region-lamdong`, ref `umhoqwhjcjmajcloijvl`). Читаются
+таблицы `regions`, `region_stats`, `markets`, `market_players`, `forecasts`,
+`events`, `observations`, `job_heartbeats`, `media_topics`, а также `insights`,
+`entities`, `edges`, `entity_metrics`, когда их заведут.
+
+Атлас остаётся статическим: в рантайме он в базу не ходит и на Vercel её не
+видит. Обновление данных — отдельный шаг разработчика:
+
+```bash
+npm run pull       # перечитать базу и перезаписать src/data/vietnam.generated.ts
+```
+
+`src/data/vietnam.generated.ts` **коммитится**. `npm run build` вызывает pull
+первым шагом: есть ключи — данные освежаются, нет ключей — берётся
+закоммиченный файл, и сборка не падает. Руками этот файл править нельзя, он
+перезаписывается.
+
+Ключи лежат в `.env` (он в `.gitignore`), образец — `.env.example`:
+`REGION_SUPABASE_URL` и `REGION_SUPABASE_SERVICE_KEY`. У всех таблиц базы
+включён RLS и ноль политик, поэтому анонимный ключ вернёт пустые массивы:
+читать надо сервисным.
+
+Пустая таблица даёт честно пустой блок с объяснением, чего именно нет, а не
+выдуманное число. `data/vietnam-flows-seed.json` — сид из 80 показателей
+разведки 14.09.2026 в формате `region_stats`, его заливает в базу агент региона.
+
+### Ссылки внутрь раздела
+
+Маршрутизация по хэшу, без роутера. Адрес открывает нужный блок и
+прокручивает к нему — этим пользуется тул агента региона `region_atlas_link`:
+
+```
+#/vietnam/region/<slug>                      например vn-lamdong-lamha-namban
+#/vietnam/market/<region_slug>/<market_slug> например .../namban/massage
+#/vietnam/entity/<slug>                      сущность графа
+#/vietnam/section/<id>                       today · regions · employment ·
+                                             markets · opportunity · sweeps ·
+                                             entities · search
+```
+
+Неизвестный слаг раздел не ломает: он открывается целиком и говорит, чего не
+нашёл.
+
 ## Стек и запуск
 
 Vite + React + TypeScript, данные — TS-модули в `src/data/`. Статический билд, готов к Vercel.
@@ -172,7 +218,8 @@ Vite + React + TypeScript, данные — TS-модули в `src/data/`. Ст
 ```bash
 npm install
 npm run dev        # разработка: http://localhost:5173
-npm run build      # прод-сборка в dist/
+npm run pull       # перечитать базу региона (нужен .env)
+npm run build      # pull + валидатор + прод-сборка в dist/
 npm run preview    # локальный просмотр прод-билда
 ```
 

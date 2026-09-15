@@ -3,6 +3,7 @@ import type { EvidenceKind, SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
 import { EvidenceTag, NodeEvidenceTag, evidenceKind } from './Overview';
 import Val from '../ui/num';
+import VietnamDb from './VietnamDb';
 import {
   LD_ACCOMMODATION_SHARE,
   LD_FOREIGN_SHARE,
@@ -151,6 +152,8 @@ export default function Vietnam({ openNode, goTo }: Props) {
           </div>
         ))}
       </div>
+
+      <VietnamDb />
 
       <div className="hair" />
 
