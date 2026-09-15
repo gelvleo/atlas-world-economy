@@ -7,7 +7,7 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T13:23:33.677Z
+// Снято: 2026-09-15T13:30:00.254Z
 // Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · named_markets 13 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
@@ -26,7 +26,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T13:23:33.677Z";
+export const generatedAt = "2026-09-15T13:30:00.254Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -31710,8 +31710,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:sources",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T11:29:17.28039+00:00",
-    "last_ok_at": "2026-09-15T11:29:17.28039+00:00"
+    "last_run_at": "2026-09-15T13:27:18.459246+00:00",
+    "last_ok_at": "2026-09-15T13:27:18.459246+00:00"
   },
   {
     "job": "region:weather",

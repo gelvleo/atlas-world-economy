@@ -20,6 +20,9 @@ import { AI_IMPACTS } from '../src/data/ai';
 import { EDTECH_FLOWS, EDTECH_CHAINS, EDTECH_LINKS } from '../src/data/edtech';
 import { AI_NATIVE_FLOWS, AI_NATIVE_CHAINS, AI_NATIVE_LINKS } from '../src/data/ai-native';
 import { VIETNAM_FLOWS, VIETNAM_CHAINS, VIETNAM_LINKS } from '../src/data/vietnam';
+import { readFileSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { EcoNode } from '../src/types';
 
 const ids = new Set(ALL_NODES.map((n) => n.id));
@@ -45,6 +48,28 @@ for (const s of SERVICE_ERAS) check('динамика', s.serviceId, `${s.servic
 for (const e of AI_IMPACTS) check('ИИ', e.targetId, e.id);
 for (const n of ALL_NODES) n.related.forEach((r) => check('related', r, n.id));
 
+// Якоря блоков раздела «Вьетнам» записаны дважды: разметкой (id="vn-<якорь>") и
+// списком SECTION_IDS, по которому маршрут решает, есть такой блок или нет.
+// Пока строки совпадают, всё работает; разойдутся — ссылка на существующий блок
+// начнёт отвечать «блока нет», и ни одна проверка не покраснеет. Поэтому
+// сверяем оба списка здесь, на гейте. Тот же список держит у себя агент
+// region-brief в ATLAS_SECTIONS, и о его изменении он просит предупреждать.
+const dbSource = readFileSync(
+  resolve(dirname(fileURLToPath(import.meta.url)), '../src/sections/VietnamDb.tsx'),
+  'utf8'
+);
+const declared = (/const SECTION_IDS = \[([\s\S]*?)\]/.exec(dbSource)?.[1] ?? '')
+  .match(/'([a-z]+)'/g)
+  ?.map((q) => q.replace(/'/g, '')) ?? [];
+// Якоря строк региона и рынка динамические, они не блоки раздела.
+const rendered = [...dbSource.matchAll(/id="vn-([a-z]+)"/g)].map((m) => m[1]);
+for (const id of rendered) {
+  if (!declared.includes(id)) problems.push(`якорь · блок «${id}» есть в разметке, но не в SECTION_IDS`);
+}
+for (const id of declared) {
+  if (!rendered.includes(id)) problems.push(`якорь · «${id}» есть в SECTION_IDS, но блока с таким id в разметке нет`);
+}
+
 // Дубль id — узел молча перекрывает другой в NODE_MAP, и панель открывает не тот.
 const seen = new Map<string, number>();
 for (const n of ALL_NODES) seen.set(n.id, (seen.get(n.id) ?? 0) + 1);
@@ -61,6 +86,7 @@ const emptyUrl = ALL_NODES.flatMap((n) => n.evidence ?? []).filter((e) => !e.url
 console.log(`узлов: ${ALL_NODES.length} · с числом в подписи: ${numeric.length} · из них без источника: ${unsourced.length}`);
 console.log(`потоков: ${FLOWS.length + EDTECH_FLOWS.length + AI_NATIVE_FLOWS.length + VIETNAM_FLOWS.length} · цепочек: ${CHAINS.length + EDTECH_CHAINS.length + AI_NATIVE_CHAINS.length + VIETNAM_CHAINS.length} · связей: ${DEPENDENCY_LINKS.length + EDTECH_LINKS.length + AI_NATIVE_LINKS.length + VIETNAM_LINKS.length}`);
 console.log(`источников без ссылки (названы словами): ${emptyUrl}`);
+console.log(`якорей раздела «Вьетнам»: ${declared.length}, разметка и SECTION_IDS сверены`);
 
 if (problems.length) {
   problems.forEach((p) => console.log(`  ✗ ${p}`));
