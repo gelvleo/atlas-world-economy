@@ -7,8 +7,8 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-15T12:52:03.101Z
-// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5610 · entity_metrics 735
+// Снято: 2026-09-15T12:58:23.813Z
+// Строк: regions 238 · region_stats 497 · markets 641 · market_players_shown 1576 · market_players_counted 7032 · events 12 · job_heartbeats 10 · media_topics 6 · insights 20 · entities 1501 · edges 5733 · entity_metrics 735
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
@@ -24,7 +24,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-15T12:52:03.101Z";
+export const generatedAt = "2026-09-15T12:58:23.813Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -38,7 +38,7 @@ export const generatedCounts = {
   "media_topics": 6,
   "insights": 20,
   "entities": 1501,
-  "edges": 5610,
+  "edges": 5733,
   "entity_metrics": 735
 };
 
@@ -28746,8 +28746,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:graph_mentions",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-15T12:42:00.46129+00:00",
-    "last_ok_at": "2026-09-15T12:42:00.46129+00:00"
+    "last_run_at": "2026-09-15T12:56:27.327184+00:00",
+    "last_ok_at": "2026-09-15T12:56:27.327184+00:00"
   },
   {
     "job": "region:markets",
@@ -29033,6 +29033,15 @@ export const GEN_INSIGHTS: GenInsight[] = [
 
 export const GEN_ENTITIES: GenEntity[] = [
   {
+    "slug": "source:0dea7ce6-2c38-4ed3-92b4-90adee350b9b",
+    "kind": "source",
+    "name": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
+    "name_vi": null,
+    "name_ru": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Сильные дожди вызвали затопления на многих улицах Ханоя, утром 15 сентября серьёзные заторы у моста Винь Тью."
+  },
+  {
     "slug": "source:b8c510ef-f1ec-44b4-85e8-7268d719341f",
     "kind": "source",
     "name": "От чистой сельхозпродукции Đà Lạt к пути построения устойчивого сельского хозяйства",
@@ -29040,6 +29049,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "От чистой сельхозпродукции Đà Lạt к пути построения устойчивого сельского хозяйства",
     "region_slug": "vn-lamdong",
     "summary_ru": "Материал о чистой сельхозпродукции Đà Lạt и развитии устойчивого земледелия в регионе."
+  },
+  {
+    "slug": "source:2da6003a-2052-45bf-8cb5-4567b7328659",
+    "kind": "source",
+    "name": "Что делает Хошимин, чтобы стать направлением медицинского туризма для иностранцев",
+    "name_vi": null,
+    "name_ru": "Что делает Хошимин, чтобы стать направлением медицинского туризма для иностранцев",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Хошимин имеет преимущества для привлечения иностранцев на лечение: опытные специалисты, современные технологии и конкурентные цены."
   },
   {
     "slug": "vn-camau",
@@ -29060,6 +29078,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:418d1d28-3833-4198-a6eb-278a06fe5b32",
+    "kind": "source",
+    "name": "21 артиллерийский залп в честь государственного визита короля и королевы Таиланда",
+    "name_vi": null,
+    "name_ru": "21 артиллерийский залп в честь государственного визита короля и королевы Таиланда",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Утром 14 сентября в Ханое прошла церемония встречи тайской королевской четы. На движение по дорогам Лам Донга не влияет."
+  },
+  {
+    "slug": "source:54e10f51-27fa-41ba-b0c2-d7e3798b0cda",
+    "kind": "source",
+    "name": "Сильные дожди: пять гидроэлектростанций Нгеана сбрасывают воду",
+    "name_vi": null,
+    "name_ru": "Сильные дожди: пять гидроэлектростанций Нгеана сбрасывают воду",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Из-за тропической депрессии пять водохранилищ ГЭС в провинции Нгеан начали сброс воды, готовясь к паводкам в низовьях."
+  },
+  {
+    "slug": "source:5c0ae2fa-d3e1-4ea7-afc9-a1c64df2f4b4",
+    "kind": "source",
+    "name": "Получат ли фермеры Донгтхапа доход 145 млн донгов в год к 2030 году?",
+    "name_vi": null,
+    "name_ru": "Получат ли фермеры Донгтхапа доход 145 млн донгов в год к 2030 году?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Донгтхап утвердила план развития экологического сельского хозяйства с целью довести средний доход сельских жителей до 145 млн донгов в год к 2030 году."
+  },
+  {
     "slug": "person:le-hoang-diep-thao",
     "kind": "person",
     "name": "Le Hoang Diep Thao",
@@ -29076,6 +29121,105 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "U23 Вьетнам — U23 Кувейт (сегодня в 17:00): победа в стартовом матче?",
     "region_slug": "vn-lamdong",
     "summary_ru": "Сборная Вьетнама U23 играет с Кувейтом в первом матче футбола на Азиаде в Японии; вьетнамцы считаются фаворитами."
+  },
+  {
+    "slug": "source:6d1925aa-18d9-40d5-9099-b790a21ee5b7",
+    "kind": "source",
+    "name": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
+    "name_vi": null,
+    "name_ru": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Дананге 15 сентября объявлены решения министра обороны по кадровым назначениям в штабах 5-го военного округа."
+  },
+  {
+    "slug": "source:700f7bb8-c656-4881-a2ce-af47b666a7bc",
+    "kind": "source",
+    "name": "Председатель Нгуен Ван Дуок получил дополнительные задачи по науке, инновациям и цифровой трансформации",
+    "name_vi": null,
+    "name_ru": "Председатель Нгуен Ван Дуок получил дополнительные задачи по науке, инновациям и цифровой трансформации",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Хошимин назначил председателя Нгуен Ван Дуока ответственным за развитие науки, технологий, инноваций и цифровой трансформации города."
+  },
+  {
+    "slug": "source:765fef1b-b59a-4bd7-b287-cd4c692a69ee",
+    "kind": "source",
+    "name": "Погода сегодня 15-9: на севере до Нгеана очень сильные дожди",
+    "name_vi": null,
+    "name_ru": "Погода сегодня 15-9: на севере до Нгеана очень сильные дожди",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Сильные и очень сильные дожди в северных провинциях до Нгеана. На Лам Донг не влияет, но возможны изменения погоды в целом по стране."
+  },
+  {
+    "slug": "source:7ceb6af6-1cd6-4327-9af3-93aeba417d0d",
+    "kind": "source",
+    "name": "Ламдонг меняет проект скоростной дороги Тан Фу - Бао Лок: сразу 4 полноценные полосы",
+    "name_vi": null,
+    "name_ru": "Ламдонг меняет проект скоростной дороги Тан Фу - Бао Лок: сразу 4 полноценные полосы",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция рассматривает корректировку проекта скоростной автомагистрали Тан Фу - Бао Лок с строительством сразу всех 4 полос по всей трассе."
+  },
+  {
+    "slug": "source:82be43a4-8dfe-4d00-a9d0-d9fe9b12659e",
+    "kind": "source",
+    "name": "Поиск решений задач логистики и циркулярной экономики на вьетнамско-корейских технологиях",
+    "name_vi": null,
+    "name_ru": "Поиск решений задач логистики и циркулярной экономики на вьетнамско-корейских технологиях",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Вьетнамские и корейские компании представили решения по логистике и переработке. На дороги региона сегодня-завтра не влияет."
+  },
+  {
+    "slug": "source:881c75da-48ed-442c-a0cc-24931db344fe",
+    "kind": "source",
+    "name": "Управление автодорог: платность на скоростной трассе Кантхо — Ка Мау пока не вводится",
+    "name_vi": null,
+    "name_ru": "Управление автодорог: платность на скоростной трассе Кантхо — Ка Мау пока не вводится",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Сбор платы за проезд на двух участках трассы Кантхо — Ка Мау ещё не начался. Трасса далеко от Лам Донга, но полезно знать для дальних поездок на юг."
+  },
+  {
+    "slug": "source:8d449b88-88e5-4ab1-81cb-01af5f052689",
+    "kind": "source",
+    "name": "Мусор скапливается вокруг центра Бао Лока",
+    "name_vi": null,
+    "name_ru": "Мусор скапливается вокруг центра Бао Лока",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В квартале 1 Бао Лока (Ламдонг) скопились бытовые отходы: мусороперерабатывающий завод временно прекратил приём, жители опасаются загрязнения и эпидемий."
+  },
+  {
+    "slug": "source:90be27f6-e57c-403f-9832-ff99ffd82b4e",
+    "kind": "source",
+    "name": "Рынок Ким Льен закрыт без временной площадки: более 200 торговцев в растерянности",
+    "name_vi": null,
+    "name_ru": "Рынок Ким Льен закрыт без временной площадки: более 200 торговцев в растерянности",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Рынок Ким Льен в Ханое приостановил работу из-за пожарных нарушений. Событие в Ханое, к дорогам Лам Донга не относится."
+  },
+  {
+    "slug": "source:98f7b935-ac25-4276-8fa6-7989d3bd9f0b",
+    "kind": "source",
+    "name": "Четверо иностранцев ограбили ювелирный магазин: тревожная сигнализация подключена к дежурной части полиции",
+    "name_vi": null,
+    "name_ru": "Четверо иностранцев ограбили ювелирный магазин: тревожная сигнализация подключена к дежурной части полиции",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция провинции Даклак сообщила о группе иностранцев, ограбивших ювелирный магазин в квартале Шонг Кау."
+  },
+  {
+    "slug": "source:08c53a8f-d536-4f50-aea8-f2753751ab54",
+    "kind": "source",
+    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-hanoi",
+    "kind": "region",
+    "name": "Ханой",
+    "name_vi": "Hà Nội",
+    "name_ru": "Ханой",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
   },
   {
     "slug": "vn-hungyen",
@@ -29105,22 +29249,58 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
-    "slug": "source:08c53a8f-d536-4f50-aea8-f2753751ab54",
+    "slug": "source:aa956a15-7d0e-4e9d-b8f9-e41e865d3f1b",
     "kind": "source",
-    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
+    "name": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
+    "name_vi": null,
+    "name_ru": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Нгуен Хонг Хай, курирующий важные проекты, назначен постоянным заместителем председателя Народного комитета Ламдонга."
+  },
+  {
+    "slug": "source:b42fefa3-9e7c-45d8-bd20-3f9a14ff0d61",
+    "kind": "source",
+    "name": "Предупреждение о паводках на реке Донгнай и реках Западного Вьетнама",
+    "name_vi": null,
+    "name_ru": "Предупреждение о паводках на реке Донгнай и реках Западного Вьетнама",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Власти предупреждают о паводке в системе реки Донгнай и реках дельты Меконга — возможны затопления прибрежных территорий."
+  },
+  {
+    "slug": "source:b6fd6066-84be-44a7-9bc9-90331898d3a6",
+    "kind": "source",
+    "name": "Cất bốc mộ tập thể 17 liệt sĩ tại Đà Nẵng, đưa các anh về yên nằm bên đồng đội",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "vn-hanoi",
-    "kind": "region",
-    "name": "Hanoi",
-    "name_vi": "Hà Nội",
-    "name_ru": "Ханой",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
+    "slug": "source:b9190c05-efa1-4fad-85dc-de9829e28497",
+    "kind": "source",
+    "name": "Под братской могилой 17 солдат в Дананге найдены многочисленные артефакты",
+    "name_vi": null,
+    "name_ru": "Под братской могилой 17 солдат в Дананге найдены многочисленные артефакты",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Дананге началась эксгумация останков 17 солдат, захороненных жителями на народном кладбище в коммуне Тхы Бон."
+  },
+  {
+    "slug": "source:da6f112c-52c3-4c64-a02a-d7050c3d2991",
+    "kind": "source",
+    "name": "Đề xuất tăng mức phạt hành chính tối đa lên 1,5 tỉ với cá nhân: Có cơ sở nhưng cần tăng tính minh bạch",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "institution:dalat-university",
+    "kind": "institution",
+    "name": "Dalat University",
+    "name_vi": "Trường Đại học Đà Lạt",
+    "name_ru": "Университет Đà Lạt",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Открыт 8 августа 1957 года как частный Институт Đà Lạt по инициативе архиепископа Нго Динь Тхука и Совета католических епископов. После 1975 года стал государственным Đại học Đà Lạt. Главный поставщик кадров для агро- и туристических компаний провинции."
   },
   {
     "slug": "vn-thainguyen-pre2025",
@@ -29141,15 +29321,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "institution:dalat-university",
-    "kind": "institution",
-    "name": "Dalat University",
-    "name_vi": "Trường Đại học Đà Lạt",
-    "name_ru": "Университет Đà Lạt",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Открыт 8 августа 1957 года как частный Институт Đà Lạt по инициативе архиепископа Нго Динь Тхука и Совета католических епископов. После 1975 года стал государственным Đại học Đà Lạt. Главный поставщик кадров для агро- и туристических компаний провинции."
-  },
-  {
     "slug": "vn-hue",
     "kind": "region",
     "name": "Хюэ",
@@ -29157,6 +29328,60 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Хюэ",
     "region_slug": "vn-hue",
     "summary_ru": null
+  },
+  {
+    "slug": "source:df3c6309-7730-4c9e-bd69-d2adb2d73951",
+    "kind": "source",
+    "name": "Оползень отрезал 2200 жителей, Куангчи «заимствует» дорогу через ГЭС",
+    "name_vi": null,
+    "name_ru": "Оползень отрезал 2200 жителей, Куангчи «заимствует» дорогу через ГЭС",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Оползень на единственной дороге Хыонгтан - Хыонглинь полностью изолировал две деревни, объезд открыт через плотину ГЭС."
+  },
+  {
+    "slug": "source:e2820d4f-7898-441e-ad61-4a08552e817a",
+    "kind": "source",
+    "name": "Vụ lật ca nô ở Phú Quốc: Khởi tố thêm một người",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f40026d5-4042-42c3-8d4b-6fd8687e55e5",
+    "kind": "source",
+    "name": "На Фукуоке начали укладывать первый километр рельсов городской электрички",
+    "name_vi": null,
+    "name_ru": "На Фукуоке начали укладывать первый километр рельсов городской электрички",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В особой зоне Фукуок начинается укладка первого километра рельсов городской ж/д линии к APEC 2027."
+  },
+  {
+    "slug": "source:ff5105f4-6e3c-4560-8ee5-f4018fb15238",
+    "kind": "source",
+    "name": "Причины сильных затоплений в Кантхо",
+    "name_vi": null,
+    "name_ru": "Причины сильных затоплений в Кантхо",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В центре Кантхо есть системы защиты от наводнений, но многие улицы затоплены из-за высокого прилива."
+  },
+  {
+    "slug": "source:ffd7281e-1ebe-4487-bd42-8b0241bc1a61",
+    "kind": "source",
+    "name": "26 человек попали в больницу после еды в новой булочной",
+    "name_vi": null,
+    "name_ru": "26 человек попали в больницу после еды в новой булочной",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В коммуне Cam Lộ (Куангчи) 42 человека отравились после покупки хлеба в новом магазине."
+  },
+  {
+    "slug": "source:f589f3e4-58f3-477b-a690-d219d95de04c",
+    "kind": "source",
+    "name": "Женщина за рулём автомобиля вылетела с дороги и повисла на склоне перевала в Далате",
+    "name_vi": null,
+    "name_ru": "Женщина за рулём автомобиля вылетела с дороги и повисла на склоне перевала в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Автомобиль съехал с обочины и застрял на склоне перевала в Далате; на месте работают спасатели, возможны заторы."
   },
   {
     "slug": "vn-caobang",
@@ -29168,22 +29393,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-cattien:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
+    "slug": "source:1060bc86-c3d2-49dc-8ada-fa53b391de8d",
+    "kind": "source",
+    "name": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
+    "name_vi": null,
+    "name_ru": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Власти провинции Ламдонг ускоряют реализацию приоритетных задач конца года."
   },
   {
-    "slug": "market:vn-lamdong-dalat:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
+    "slug": "source:db6827c8-08a9-45e5-a946-a528ea75764b",
+    "kind": "source",
+    "name": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
+    "name_vi": null,
+    "name_ru": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Постоянный комитет парткома требует от ведомств оценить ход работ, устранить узкие места и не допускать накопления нерешённых вопросов."
   },
   {
     "slug": "company:th-group",
@@ -29195,13 +29420,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Холдинг Тхай Хыонг, построенный на деньги и гарантии BAC A BANK. В 2009 году запустил молочный мегакомплекс в Nghệ An: коровы из Новой Зеландии, технология из Израиля, стартовые вложения свыше 350 млн долларов. Второй молочный производитель страны после Vinamilk. В 2014 году купил Dalat Milk и получил присутствие в Lâm Đồng."
   },
   {
-    "slug": "vn-hatinh",
-    "kind": "region",
-    "name": "Хатинь",
-    "name_vi": "Hà Tĩnh",
-    "name_ru": "Хатинь",
-    "region_slug": "vn-hatinh",
-    "summary_ru": null
+    "slug": "source:4dc5b6d9-dda8-4622-b54b-e2b508e17018",
+    "kind": "source",
+    "name": "Возбуждено дело против двух ростовщиков со ставкой свыше 300% годовых",
+    "name_vi": null,
+    "name_ru": "Возбуждено дело против двух ростовщиков со ставкой свыше 300% годовых",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В провинции Gia Lai возбуждено дело о ростовщичестве под 304% годовых. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:cb2bad3e-f20f-4f26-96f1-3adb978d4b70",
+    "kind": "source",
+    "name": "Расследуется нападение группы в масках с ножами на охрану предприятия в Ламдонге",
+    "name_vi": null,
+    "name_ru": "Расследуется нападение группы в масках с ножами на охрану предприятия в Ламдонге",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Ламдонге группа в масках с ножами напала на охрану предприятия, есть раненые; ведётся расследование."
   },
   {
     "slug": "company:bac-a-bank",
@@ -29211,15 +29445,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Бак А Банк",
     "region_slug": "vn-nghean",
     "summary_ru": "Банк Тхай Хыонг, консультант и акционер проектов TH. По отчёту 2014 года держал 7 процентов акций TH true Milk. Схема банк плюс собственный агропроект повторяет связку Techcombank и Masan."
-  },
-  {
-    "slug": "vn-lamdong-damrong",
-    "kind": "region",
-    "name": "Дамронг",
-    "name_vi": "Đam Rông",
-    "name_ru": "Дамронг",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
   },
   {
     "slug": "company:moc-chau-milk",
@@ -29238,6 +29463,78 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "ДжиТиЭнфудс",
     "region_slug": "vn-hanoi",
     "summary_ru": "Холдинг, через который Vinamilk в 2019 году получил контроль над Mộc Châu Milk. Пример покупки не завода, а прослойки владения."
+  },
+  {
+    "slug": "vn-hatinh",
+    "kind": "region",
+    "name": "Хатинь",
+    "name_vi": "Hà Tĩnh",
+    "name_ru": "Хатинь",
+    "region_slug": "vn-hatinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-damrong",
+    "kind": "region",
+    "name": "Дамронг",
+    "name_vi": "Đam Rông",
+    "name_ru": "Дамронг",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:8382073d-ec32-47f0-a46d-59e08d806206",
+    "kind": "source",
+    "name": "Муж убил жену и попытался покончить с собой, но безуспешно",
+    "name_vi": null,
+    "name_ru": "Муж убил жену и попытался покончить с собой, но безуспешно",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Кантхо мужчина убил жену ножом, попытался самоубийство, но выжил. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:547eb925-346b-48e5-92f5-ec2e69cd61c2",
+    "kind": "source",
+    "name": "Ночной патруль обнаружил незаконную добычу полезных ископаемых",
+    "name_vi": null,
+    "name_ru": "Ночной патруль обнаружил незаконную добычу полезных ископаемых",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В коммуне Фуокдинь (Кханьхоа) полиция задержала группу, добывавшую ископаемые с экскаваторами и грузовиками."
+  },
+  {
+    "slug": "source:73da8549-ada4-4fe0-89d5-9107dcc939a0",
+    "kind": "source",
+    "name": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
+    "name_vi": null,
+    "name_ru": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Рекомендация ограничить срезку склонов и стройку на них ради профилактики оползней — актуально для горного Ламдонга."
+  },
+  {
+    "slug": "company:idp-lof",
+    "kind": "company",
+    "name": "International Dairy Products JSC",
+    "name_vi": "Công ty CP Sữa Quốc tế Lof",
+    "name_ru": "Ай-Ди-Пи",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Производитель марок LOF, Kun и Ba Vì. Вырос на детских йогуртах и молочных напитках, конкурирует с Vinamilk в сегменте до десяти лет."
+  },
+  {
+    "slug": "source:3bbebe78-961f-41fa-aca8-7d567b5369e8",
+    "kind": "source",
+    "name": "Ту Ань через 3 года после победы в The Face: «Я не полагаюсь только на внешность»",
+    "name_vi": null,
+    "name_ru": "Ту Ань через 3 года после победы в The Face: «Я не полагаюсь только на внешность»",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Интервью победительницы The Face Vietnam 2023 о жизни и карьере модели."
+  },
+  {
+    "slug": "source:99099ee9-f878-4c87-8ad0-8437ab5a39f5",
+    "kind": "source",
+    "name": "Около 800 сотрудников полиции провинции Ламдонг обучили ИТ и цифровым навыкам",
+    "name_vi": null,
+    "name_ru": "Около 800 сотрудников полиции провинции Ламдонг обучили ИТ и цифровым навыкам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Сотрудники полиции Ламдонга прошли обучение информационным технологиям и цифровым навыкам."
   },
   {
     "slug": "vn-lamdong-dilinh",
@@ -29267,40 +29564,40 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "company:idp-lof",
-    "kind": "company",
-    "name": "International Dairy Products JSC",
-    "name_vi": "Công ty CP Sữa Quốc tế Lof",
-    "name_ru": "Ай-Ди-Пи",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Производитель марок LOF, Kun и Ba Vì. Вырос на детских йогуртах и молочных напитках, конкурирует с Vinamilk в сегменте до десяти лет."
+    "slug": "source:27260f22-f80c-4f89-a515-d3b66112c1ed",
+    "kind": "source",
+    "name": "Мужчина, облигший бензином и сжёгший возлюбленную в Донгнаи, приговорён к смертной казни",
+    "name_vi": null,
+    "name_ru": "Мужчина, облигший бензином и сжёгший возлюбленную в Донгнаи, приговорён к смертной казни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "После ссоры Кхань облил женщину бензином и поджёг, она погибла; вынесен смертный приговор."
   },
   {
-    "slug": "vn-lamdong-dateh",
-    "kind": "region",
-    "name": "Датэ",
-    "name_vi": "Đạ Tẻh",
-    "name_ru": "Датэ",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
+    "slug": "source:06876171-36f3-4a0c-b73e-2cfbbdadfacc",
+    "kind": "source",
+    "name": "Найдена причина массовой гибели рыбы на реке Ча Кук в Куангнгай",
+    "name_vi": null,
+    "name_ru": "Найдена причина массовой гибели рыбы на реке Ча Кук в Куангнгай",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Загрязнения не выявлено: рыба погибла, застряв в изолированных углублениях при падении уровня реки."
   },
   {
-    "slug": "vn-lamdong-cattien",
-    "kind": "region",
-    "name": "Катьен",
-    "name_vi": "Cát Tiên",
-    "name_ru": "Катьен",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
+    "slug": "source:2582694d-e2dc-48c5-b092-8584e9166a2a",
+    "kind": "source",
+    "name": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
+    "name_vi": null,
+    "name_ru": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Кадровая новость: новый замдиректора социального страхования провинции. На движение по дорогам не влияет."
   },
   {
-    "slug": "vn-lamdong-lamha-namban",
-    "kind": "region",
-    "name": "Намбан",
-    "name_vi": "Nam Ban",
-    "name_ru": "Намбан",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
+    "slug": "source:c402992d-a04d-4326-b999-235027056ec3",
+    "kind": "source",
+    "name": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
+    "name_vi": null,
+    "name_ru": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15/9 во второй половине дня прошло совещание Соцстраха Вьетнама по кадровым вопросам и вручению ордена Труда в Лам Донге. На трафик не влияет."
   },
   {
     "slug": "company:vnpt",
@@ -29330,6 +29627,78 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Первый мобильный оператор Вьетнама, запущен в 1993 году в партнёрстве со шведской Comvik. Выделен из VNPT в 2014 году под приватизацию, которая так и не состоялась. Третий по доле рынка."
   },
   {
+    "slug": "vn-lamdong-dateh",
+    "kind": "region",
+    "name": "Датэ",
+    "name_vi": "Đạ Tẻh",
+    "name_ru": "Датэ",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-cattien",
+    "kind": "region",
+    "name": "Катьен",
+    "name_vi": "Cát Tiên",
+    "name_ru": "Катьен",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-lamha-namban",
+    "kind": "region",
+    "name": "Намбан",
+    "name_vi": "Nam Ban",
+    "name_ru": "Намбан",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b8676059-1774-4b6a-a781-8a9d4fe64d17",
+    "kind": "source",
+    "name": "Почему недвижимость Вьетнама уступает Таиланду и Филиппинам по прозрачности",
+    "name_vi": null,
+    "name_ru": "Почему недвижимость Вьетнама уступает Таиланду и Филиппинам по прозрачности",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Общестрановая аналитика рынка недвижимости: Вьетнам в группе «полупрозрачных» рынков. К дорогам региона отношения не имеет."
+  },
+  {
+    "slug": "source:1ac72a9d-a9e4-43d8-a3b6-691a19bfdf17",
+    "kind": "source",
+    "name": "Управляющий ломбарда обманул хозяина, похитив 129 млн донгов",
+    "name_vi": null,
+    "name_ru": "Управляющий ломбарда обманул хозяина, похитив 129 млн донгов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Дак Лак арестован управляющий ломбарда за мошенничество на 129 млн донгов. Регион не затронут, на дороги не влияет."
+  },
+  {
+    "slug": "source:a392b456-f079-4d09-91e6-a41e8dc302b6",
+    "kind": "source",
+    "name": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
+    "name_vi": null,
+    "name_ru": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15/9 власти Лам Донга обсуждали ход строительства платных автострад Тан Фу — Бао Лок и Бао Лок — Льен Кхыонг по схеме PPP."
+  },
+  {
+    "slug": "source:f3710da5-51d8-4247-b3c1-6b9d23cfde82",
+    "kind": "source",
+    "name": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
+    "name_vi": null,
+    "name_ru": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция снимает барьеры по землеотводу для ускорения строительства автострад до Бао Лока и Льен Кхыона."
+  },
+  {
+    "slug": "source:13a7283c-788b-4746-afa9-183091ed343f",
+    "kind": "source",
+    "name": "Задержаны двое содержателей притона в массажном салоне Bony 5 на Фукуоке",
+    "name_vi": null,
+    "name_ru": "Задержаны двое содержателей притона в массажном салоне Bony 5 на Фукуоке",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Ан Зяна возбудила дело против содержателей притона в массажном салоне на Фукуоке. К региону отношения не имеет."
+  },
+  {
     "slug": "company:techcombank",
     "kind": "company",
     "name": "Vietnam Technological and Commercial JSB",
@@ -29348,6 +29717,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Крупнейший металлург Вьетнама, основан Чан Динь Лонгом в 1992 году как торговля строительным оборудованием. За 2025 год выручка 158,33 трлн донгов и чистая прибыль 15,52 трлн. Комплекс Dung Quất 2 доводит мощность группы до 15 млн тонн стали в год и выводит её в тридцатку мировых производителей."
   },
   {
+    "slug": "source:0531627f-73e9-4166-8e2e-a9375d70c186",
+    "kind": "source",
+    "name": "Вопросы к основанию штрафа для молодого человека, срубившего сосну во дворе дома в Далате",
+    "name_vi": null,
+    "name_ru": "Вопросы к основанию штрафа для молодого человека, срубившего сосну во дворе дома в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Обсуждается законность наказания молодого человека за вырубку сосны на частном участке в Далате. На движение не влияет."
+  },
+  {
+    "slug": "source:308f52b1-159c-4a13-98d3-9ba183c52847",
+    "kind": "source",
+    "name": "Грузовик столкнулся с мотоциклом, погибли два школьника",
+    "name_vi": null,
+    "name_ru": "Грузовик столкнулся с мотоциклом, погибли два школьника",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В провинции Hà Tĩnh грузовик сбил мотоцикл со школьниками: двое погибли, один тяжело ранен."
+  },
+  {
+    "slug": "source:9dfd3009-df9b-45fc-96e9-322f58b5f68f",
+    "kind": "source",
+    "name": "Удержание 5% при покупке жилья: избавит ли покупателей ожидания 'красной книги'?",
+    "name_vi": null,
+    "name_ru": "Удержание 5% при покупке жилья: избавит ли покупателей ожидания 'красной книги'?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Минстрой предлагает переводить последние 5% стоимости жилья в гарантийный счёт в банке до получения покупателем свидетельства."
+  },
+  {
     "slug": "company:sun-group",
     "kind": "company",
     "name": "Sun Group",
@@ -29355,6 +29751,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Сан Груп",
     "region_slug": "vn-danang",
     "summary_ru": "Основана Ле Вьет Ламом в 2007 году после возвращения из Харькова. Туризм и инфраструктура: Bà Nà Hills с Золотым мостом, канатные дороги, аэропорт Vân Đồn, курорты Phú Quốc и Sa Pa. Штаб-квартира в Đà Nẵng."
+  },
+  {
+    "slug": "company:vietjet",
+    "kind": "company",
+    "name": "Vietjet Aviation JSC",
+    "name_vi": "Công ty CP Hàng không Vietjet",
+    "name_ru": "Вьетджет",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Лоукостер Нгуен Тхи Фыонг Тхао, первый рейс в декабре 2011 года. За 2025 год 28,2 млн пассажиров, более 153 тысяч рейсов, выручка 82 093 млрд донгов или 3,11 млрд долларов, флот 135 бортов и 254 маршрута. Летает в Đà Lạt через Liên Khương."
+  },
+  {
+    "slug": "company:sovico",
+    "kind": "company",
+    "name": "Sovico Group",
+    "name_vi": "Tập đoàn Sovico",
+    "name_ru": "Совико",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Холдинг Нгуен Тхи Фыонг Тхао: авиация, банк HDBank, недвижимость, энергетика. Ещё одна связка холдинг плюс банк."
   },
   {
     "slug": "vn-lamdong-lamha-dinhvan",
@@ -29384,40 +29798,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Аэропорт провинции в районе Đức Trọng, около 2 млн пассажиров и свыше 12 тысяч взлётов-посадок в 2023 году. В 2024 получил международный статус. С 4 марта по 25 августа 2026 был закрыт на реконструкцию за 966 млрд донгов: новая полоса 3250 метров, рулёжки, дренаж. Целевая мощность 5 млн пассажиров к 2030 году."
   },
   {
-    "slug": "vn-lamdong-dalat-tanung",
-    "kind": "region",
-    "name": "Танунг",
-    "name_vi": "Tà Nung",
-    "name_ru": "Танунг",
-    "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "company:vietjet",
-    "kind": "company",
-    "name": "Vietjet Aviation JSC",
-    "name_vi": "Công ty CP Hàng không Vietjet",
-    "name_ru": "Вьетджет",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Лоукостер Нгуен Тхи Фыонг Тхао, первый рейс в декабре 2011 года. За 2025 год 28,2 млн пассажиров, более 153 тысяч рейсов, выручка 82 093 млрд донгов или 3,11 млрд долларов, флот 135 бортов и 254 маршрута. Летает в Đà Lạt через Liên Khương."
-  },
-  {
-    "slug": "company:sovico",
-    "kind": "company",
-    "name": "Sovico Group",
-    "name_vi": "Tập đoàn Sovico",
-    "name_ru": "Совико",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Холдинг Нгуен Тхи Фыонг Тхао: авиация, банк HDBank, недвижимость, энергетика. Ещё одна связка холдинг плюс банк."
-  },
-  {
-    "slug": "zone:namban-home",
-    "kind": "region",
-    "name": "Дом · Đông Thanh, Nam Ban",
-    "name_vi": "Đông Thanh, Nam Ban",
-    "name_ru": "Дом · Đông Thanh, Nam Ban",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
+    "slug": "source:89a99bcc-6680-435f-bc1f-3a480a424c02",
+    "kind": "source",
+    "name": "Назначены начальники штабов военных округов трёх провинций",
+    "name_vi": null,
+    "name_ru": "Назначены начальники штабов военных округов трёх провинций",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "5-й военный округ объявил о назначении командных постов в Дананге, Куангнгае и Зялае."
   },
   {
     "slug": "person:le-hong-minh",
@@ -29438,21 +29825,48 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В 2010 году Nestlé купила харьковскую Technocom у Фам Нят Выонга за 150 млн долларов. Эти деньги стали капиталом Vingroup."
   },
   {
-    "slug": "market:vn-lamdong-baolam:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-baolam",
+    "slug": "zone:namban-home",
+    "kind": "region",
+    "name": "Дом · Đông Thanh, Nam Ban",
+    "name_vi": "Đông Thanh, Nam Ban",
+    "name_ru": "Дом · Đông Thanh, Nam Ban",
+    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dalat",
+    "slug": "source:8e30cb86-b04d-4df1-b1ef-d559869eb7f5",
+    "kind": "source",
+    "name": "Собака умерла странно, соцсети искали укушенного",
+    "name_vi": null,
+    "name_ru": "Собака умерла странно, соцсети искали укушенного",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Зялае нашли юношу, укушенного погибшей собакой, чтобы он привился от бешенства."
+  },
+  {
+    "slug": "source:175cd15c-ea65-44aa-9dfd-fbf800b7b9b8",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:750e4422-3c6d-4117-a64f-06a49fe1ed89",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b07262ba-4ba4-4874-8d99-cd7e53f4cbd6",
+    "kind": "source",
+    "name": "Nước suối dâng cao, cha mẹ bất chấp nguy hiểm cõng con đến trường",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -29465,6 +29879,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-damrong4",
+    "kind": "region",
+    "name": "Đam Rông 4",
+    "name_vi": "Đam Rông 4",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-damrong4",
+    "summary_ru": null
+  },
+  {
     "slug": "event:seed:holiday-2027-02-04",
     "kind": "event",
     "name": "29 Tết",
@@ -29474,12 +29897,75 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
-    "slug": "vn-lamdong-x-damrong4",
-    "kind": "region",
-    "name": "Đam Rông 4",
-    "name_vi": "Đam Rông 4",
+    "slug": "source:8aee3a2d-d35b-4dda-846f-950cf2a7084e",
+    "kind": "source",
+    "name": "Bỏ phương án đặt Trung tâm hành chính Cần Thơ tại Ngã Bảy",
+    "name_vi": null,
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-damrong4",
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:40121272-a98f-4ece-b5ba-43267543945a",
+    "kind": "source",
+    "name": "Khởi tố thêm bị can liên quan vụ lật ca nô làm 15 người tử vong ở Phú Quốc",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:64fd40e8-7134-43cf-8081-f62fa48f3ac6",
+    "kind": "source",
+    "name": "Vụ lật ca n&ocirc; khiến 15 người tử vong ở Ph&uacute; Quốc: Khởi tố th&ecirc;m 1 bị can",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b1a425bd-8a23-4f4f-9b7e-93faeaf6d4d6",
+    "kind": "source",
+    "name": "Nghệ An \"điểm tên\" địa phương, đơn vị giải ngân đầu tư công chậm",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a348b70e-ce20-4f94-95d5-8c2d37e24b87",
+    "kind": "source",
+    "name": "Quảng Khê khoanh vùng, cảnh báo vị trí mặt đường có vết nứt",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2af3987e-6457-4fcc-957f-e4ef822fd5ae",
+    "kind": "source",
+    "name": "Thanh Hóa: 2 nhà dân đổ nghiêng trong mưa lớn, 60 người phải sơ tán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:059f389b-af76-40e4-b4bb-dd1f65a72c04",
+    "kind": "source",
+    "name": "JW Marriott Hanoi tổ chức lễ hội văn hóa Đức Oktoberfest 2026",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-dakmil",
+    "kind": "region",
+    "name": "Đắk Mil",
+    "name_vi": "Đắk Mil",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dakmil",
     "summary_ru": null
   },
   {
@@ -29492,21 +29978,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Чёрная собака всю ночь охраняла заблудившегося в горах Даклака 6-летнего мальчика; история тронула сеть и стала призывом беречь животных."
   },
   {
-    "slug": "vn-lamdong-x-dakmil",
-    "kind": "region",
-    "name": "Đắk Mil",
-    "name_vi": "Đắk Mil",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dakmil",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-lamdong-x-daksak",
     "kind": "region",
     "name": "Đắk Sắk",
     "name_vi": "Đắk Sắk",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-daksak",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:25f13fd2-f812-44c2-bcd5-41ecf1b72030",
+    "kind": "source",
+    "name": "Cần Thơ loại phương &aacute;n chuyển trung t&acirc;m h&agrave;nh ch&iacute;nh về Ng&atilde; Bảy",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -29517,6 +30003,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "8 месяцев, 45 случаев преступлений против половой неприкосновенности лиц младше 16 лет в Футхо",
     "region_slug": "vn-lamdong",
     "summary_ru": "Полиция провинции Футхо сообщила о 45 случаях сексуальных преступлений против несовершеннолетних за 8 месяцев."
+  },
+  {
+    "slug": "source:c67a1bef-39b3-4e8a-b4ef-949f39378f78",
+    "kind": "source",
+    "name": "Phụ huynh Hà Nội đến trường từ 5h để kiểm tra thịt gà, thịt lợn",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:261b1c3e-d917-4e65-97d9-f4ddebdff23d",
+    "kind": "source",
+    "name": "Прилив в Кантхо превысил третий тревожный уровень: когда спадёт вода?",
+    "name_vi": null,
+    "name_ru": "Прилив в Кантхо превысил третий тревожный уровень: когда спадёт вода?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Высокий прилив превысил третий тревожный уровень, многие районы Кантхо затоплены, что осложняет быт и передвижение жителей."
+  },
+  {
+    "slug": "source:4cc3cce7-bbeb-4b49-b99f-1b7f74ac61ac",
+    "kind": "source",
+    "name": "Момент, когда король Таиланда и королева сами вели борт в Ханой",
+    "name_vi": null,
+    "name_ru": "Момент, когда король Таиланда и королева сами вели борт в Ханой",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Король и королева Таиланда лично управляли самолётом, прибывшим в аэропорт Нойбай, начав государственный визит во Вьетнам."
+  },
+  {
+    "slug": "source:526a7928-efad-4c51-8f0f-2d829646cfdd",
+    "kind": "source",
+    "name": "На севере, в Тханьхоа и Нгеане до 16 сентября ливни, местами свыше 450 мм",
+    "name_vi": null,
+    "name_ru": "На севере, в Тханьхоа и Нгеане до 16 сентября ливни, местами свыше 450 мм",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "С сегодняшнего вечера по 16 сентября от Нгеана до севера продолжатся сильные дожди, местами более 450 мм; 12 провинциям поручено готовиться."
   },
   {
     "slug": "company:phuc-long",
@@ -29562,6 +30084,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Чунг Нгуен",
     "region_slug": "vn-daklak",
     "summary_ru": "Основана 16 июня 1996 года Данг Ле Нгуен Ву и Ле Хоанг Дьеп Тхао в Buôn Ma Thuột. С 2003 года растворимый G7 вывел компанию в лидеры внутреннего рынка кофе примерно на десять лет. Экспорт в полсотни стран. Затяжной бракоразводный спор основателей разделил управление и бренды."
+  },
+  {
+    "slug": "source:63a7ceef-62c6-47a6-be20-921ae0abc94e",
+    "kind": "source",
+    "name": "32 рыбака вернулись с того света: пили даже мочу, беспомощно наблюдая, как 14 товарищей опускают руки",
+    "name_vi": null,
+    "name_ru": "32 рыбака вернулись с того света: пили даже мочу, беспомощно наблюдая, как 14 товарищей опускают руки",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "32 рыбака из Дананга четыре дня и ночи добирались до берега, беспомощно глядя, как измученные товарищи гибнут в море; для выживания они пили мочу."
+  },
+  {
+    "slug": "source:8286f622-4948-4c8d-a06a-c44aa71ba253",
+    "kind": "source",
+    "name": "Повышение уровня участия Вьетнама в многосторонних институтах",
+    "name_vi": null,
+    "name_ru": "Повышение уровня участия Вьетнама в многосторонних институтах",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Министр иностранных дел Lê Hoài Trung рассказал об итогах участия премьер-министра в саммите БРИКС в Индии."
+  },
+  {
+    "slug": "source:8eba8b60-110e-4c5f-a408-83cfef2f6d3b",
+    "kind": "source",
+    "name": "Управляющему и шести сотрудникам бара в «квартале Tây» An Thượng предъявлены обвинения в торговле закисью азота",
+    "name_vi": null,
+    "name_ru": "Управляющему и шести сотрудникам бара в «квартале Tây» An Thượng предъявлены обвинения в торговле закисью азота",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Семеро — управляющий и работники бара на улице An Thượng 4 в туристическом «квартале Tây» Дананга — обвиняются в продаже веселящего газа."
   },
   {
     "slug": "market:vn-lamdong-baoloc:florist",
@@ -29627,6 +30176,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:93f6d7f9-1bc5-4282-a222-5382fbec4e06",
+    "kind": "source",
+    "name": "300-летнее дерево бачмай в Виньлонге установило рекорд Вьетнама",
+    "name_vi": null,
+    "name_ru": "300-летнее дерево бачмай в Виньлонге установило рекорд Вьетнама",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Древнему дереву бачмай в общинном доме Фыты в провинции Виньлонг присвоен рекорд Вьетнама, ещё два дерева признаны деревьями-наследием."
+  },
+  {
+    "slug": "source:9521cbbb-4420-4466-b7d2-ed260ea0e005",
+    "kind": "source",
+    "name": "Множество водохранилищ в Khánh Hòa протекают и сильно повреждены перед сезоном дождей и паводков",
+    "name_vi": null,
+    "name_ru": "Множество водохранилищ в Khánh Hòa протекают и сильно повреждены перед сезоном дождей и паводков",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ряд водохранилищ Khánh Hòa даёт протечки, дамбы деформированы и размываются; провинция готовит материалы и людей к паводкам на случай аварий."
+  },
+  {
+    "slug": "source:e8c076fc-2cb7-433c-b06a-1a8f341d5fc0",
+    "kind": "source",
+    "name": "Две женщины, торговавшие морепродуктами, утонули на пляже Хон Рём - Муйне",
+    "name_vi": null,
+    "name_ru": "Две женщины, торговавшие морепродуктами, утонули на пляже Хон Рём - Муйне",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "14 сентября вечером две женщины утонули на пляже Хон Рём - Муйне (бывший Биньтхуан, ныне провинция Ламдонг). Купание там в этот период опасно."
+  },
+  {
     "slug": "company:fpt-retail",
     "kind": "company",
     "name": "FPT Retail JSC",
@@ -29645,6 +30221,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-ductrong-liennghia",
+    "kind": "region",
+    "name": "Льеннгиа",
+    "name_vi": "Liên Nghĩa",
+    "name_ru": "Льеннгиа",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:e94336bf-b093-4972-a582-6004699cb8dd",
+    "kind": "source",
+    "name": "Молодой человек «работал циркачом» на перилах моста в Фонгня — капитан полиции вовремя его остановил",
+    "name_vi": null,
+    "name_ru": "Молодой человек «работал циркачом» на перилах моста в Фонгня — капитан полиции вовремя его остановил",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Молодой человек с неадекватным поведением лез по перилам моста Сюаншон через реку Сон в Фонгня (Куангчи); полиция успела его остановить."
+  },
+  {
     "slug": "source:59c33dc3-5e80-466c-b18b-2577e5b17999",
     "kind": "source",
     "name": "814 thí sinh Lâm Đồng dự thi chọn đội tuyển học sinh giỏi quốc gia",
@@ -29654,40 +30248,85 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "source:f49445ba-2e3d-47ff-8055-14018e1afe68",
+    "kind": "source",
+    "name": "U23 Việt Nam 0-0 U23 Kuwait (hết hiệp 1): Ba lần bóng dội khung gỗ",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "source:14894a01-c524-4f92-afac-2d7be8881bba",
+    "kind": "source",
+    "name": "U23 Uzbekistan thắng đậm U23 Philippines, đứng đầu bảng của U23 Việt Nam",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "source:1d7cc96b-acf2-48fb-8006-b39acf327031",
+    "kind": "source",
+    "name": "Автомобиль с женщиной за рулём слетел с дороги и завис на склоне перевала в Далате",
+    "name_vi": null,
+    "name_ru": "Автомобиль с женщиной за рулём слетел с дороги и завис на склоне перевала в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Далате легковушка вылетела с дороги и повисла над склоном; вероятны заторы и работа спасателей на месте."
+  },
+  {
+    "slug": "source:6f0af5aa-7644-4896-85d1-b296b8325ae6",
+    "kind": "source",
+    "name": "Tiếp tục điều chỉnh giao thông nút giao Láng Hạ - Giảng Võ - La Thành",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-ductrong-liennghia",
-    "kind": "region",
-    "name": "Льеннгиа",
-    "name_vi": "Liên Nghĩa",
-    "name_ru": "Льеннгиа",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "slug": "source:746494f1-dd41-4f53-87ee-7ca2945f7425",
+    "kind": "source",
+    "name": "AEON sẽ mở thêm trung tâm thương mại mới tại Thanh Hóa và Hạ Long trong quý IV",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
+  },
+  {
+    "slug": "source:a5309d66-0fbb-4d57-8880-66cf94e3a311",
+    "kind": "source",
+    "name": "Приоритет ресурсов для расчистки площадок под проекты, связывающие аэропорт Лонгтхань",
+    "name_vi": null,
+    "name_ru": "Приоритет ресурсов для расчистки площадок под проекты, связывающие аэропорт Лонгтхань",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Власти Доннай направляют ресурсы на дорожные проекты к аэропорту Лонгтхань; на регион Ламдонг влияния почти нет."
+  },
+  {
+    "slug": "source:c8f9117f-c3db-4ac4-a4e7-479a641d7201",
+    "kind": "source",
+    "name": "Автомобиль съехал с дороги и застрял на перевале Пренн в Далате",
+    "name_vi": null,
+    "name_ru": "Автомобиль съехал с дороги и застрял на перевале Пренн в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "На перевале Prenn машина съехала с дороги и застряла; возможны ограничения движения по трассе Đà Lạt."
+  },
+  {
+    "slug": "source:6c199342-a0c0-44e1-aae6-1df92ee3be1a",
+    "kind": "source",
+    "name": "В Куангкхе обозначили и предупредили о трещинах на дорожном полотне",
+    "name_vi": null,
+    "name_ru": "В Куангкхе обозначили и предупредили о трещинах на дорожном полотне",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В xã Quảng Khê (Ламдонг) установлены знаки о трещинах на дороге и дежурят люди из-за угрозы оползня; движение усложнено."
+  },
+  {
+    "slug": "source:c35ee1ee-77b3-4733-b0e2-e27555755ea8",
+    "kind": "source",
+    "name": "Задержаны двое ростовщиков под 7000 донгов с миллиона в день",
+    "name_vi": null,
+    "name_ru": "Задержаны двое ростовщиков под 7000 донгов с миллиона в день",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция поймала ростовщиков, выдавших 300 млн под 252% годовых; к региону отношения не имеет."
   },
   {
     "slug": "source:7a4d62c0-8139-48ce-8b41-0cc1b5675cb3",
@@ -29717,30 +30356,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-damrong:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
+    "slug": "source:d4c8e299-40ea-4b13-bc25-0116093d28e6",
+    "kind": "source",
+    "name": "Автомобиль съехал с дороги и скатился на сосновый холм в Далате",
+    "name_vi": null,
+    "name_ru": "Автомобиль съехал с дороги и скатился на сосновый холм в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Далате машина упала с дороги на сосновый склон; возможны пробки и спасательные работы на участке."
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-haiphong",
-    "kind": "region",
-    "name": "Хайфон",
-    "name_vi": "Hải Phòng",
-    "name_ru": "Хайфон",
-    "region_slug": "vn-haiphong",
+    "slug": "source:6b2ca29f-8104-40db-88e8-22c3b3f1c1fa",
+    "kind": "source",
+    "name": "Sản phẩm OCOP Đà Nẵng lên Grab: Mở rộng thị trường từ câu chuyện địa phương",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -29753,69 +30383,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-dalat-xuanhuong",
-    "kind": "region",
-    "name": "Суанхыонг",
-    "name_vi": "Xuân Hương - Đà Lạt",
-    "name_ru": "Суанхыонг",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
     "slug": "event:seed:holiday-2026-02-18",
     "kind": "event",
     "name": "Mùng hai Tết Nguyên Đán",
@@ -29825,6 +30392,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
+    "slug": "source:3161f229-2d17-49a9-9feb-cfa336c4e055",
+    "kind": "source",
+    "name": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
+    "name_vi": null,
+    "name_ru": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Далате строят эстакаду Mimosa и укрепляют участок перевала Mimosa за 37 млрд донгов. Возможны локальные ограничения движения и объезды."
+  },
+  {
+    "slug": "vn-haiphong",
+    "kind": "region",
+    "name": "Хайфон",
+    "name_vi": "Hải Phòng",
+    "name_ru": "Хайфон",
+    "region_slug": "vn-haiphong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-dalat-xuanhuong",
+    "kind": "region",
+    "name": "Суанхыонг",
+    "name_vi": "Xuân Hương - Đà Lạt",
+    "name_ru": "Суанхыонг",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
     "slug": "event:sabeco-thaibev-2017",
     "kind": "event",
     "name": "ThaiBev acquires Sabeco stake",
@@ -29832,6 +30426,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Покупка Sabeco группой ThaiBev",
     "region_slug": "vn-thanhphohochiminh",
     "summary_ru": "18 декабря 2017 года Vietnam Beverage, косвенно принадлежащая ThaiBev, купила 53,59 процента Sabeco по 320 тысяч донгов за акцию, всего около 4,85 млрд долларов."
+  },
+  {
+    "slug": "vn-lamdong-x-dinhvanlamha",
+    "kind": "region",
+    "name": "Đinh Văn Lâm Hà",
+    "name_vi": "Đinh Văn Lâm Hà",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dinhvanlamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:5cef2ac6-6e19-4a7a-a89f-65fa4a49f83a",
+    "kind": "source",
+    "name": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
+    "name_vi": null,
+    "name_ru": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Повтор публикации: в Далате за 37 млрд донгов строят мост Mimosa и укрепляют дорогу на перевале, возможно ограничение движения."
   },
   {
     "slug": "source:74022d21-297d-4044-b2c1-5f97d593ce21",
@@ -29897,22 +30509,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-dinhvanlamha",
+    "slug": "vn-lamdong-x-ducan",
     "kind": "region",
-    "name": "Đinh Văn Lâm Hà",
-    "name_vi": "Đinh Văn Lâm Hà",
+    "name": "Đức An",
+    "name_vi": "Đức An",
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-dinhvanlamha",
+    "region_slug": "vn-lamdong-x-ducan",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-beer",
-    "kind": "market",
-    "name": "Vietnam beer market",
+    "slug": "source:110f48a1-d8ed-4bbe-9697-6d3d4a471d9f",
+    "kind": "source",
+    "name": "На межобщинной дороге в Ламдонге снова появилась трещина длиной 20 метров",
     "name_vi": null,
-    "name_ru": "Пивной рынок Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Heineken и Sabeco делят верх, Habeco держит север, Carlsberg центральные провинции."
+    "name_ru": "На межобщинной дороге в Ламдонге снова появилась трещина длиной 20 метров",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "На дороге в Ламдонге образовалась трещина длиной 20 метров — риск просадки, водителям стоит соблюдать осторожность на этом участке."
+  },
+  {
+    "slug": "vn-lamdong-x-donggiang",
+    "kind": "region",
+    "name": "Đông Giang",
+    "name_vi": "Đông Giang",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-donggiang",
+    "summary_ru": null
   },
   {
     "slug": "source:7797ade9-c220-408c-afe4-e6e9e7b6d2cc",
@@ -29969,30 +30590,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "После проверки безопасности и уборки грязи с полотна трасса Кам Ло — Ла Шон (Куангчи — Хюэ) снова открыта для движения в дневное время."
   },
   {
-    "slug": "vn-lamdong-x-donggiang",
-    "kind": "region",
-    "name": "Đông Giang",
-    "name_vi": "Đông Giang",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-donggiang",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-lamdong-x-dongkho",
     "kind": "region",
     "name": "Đồng Kho",
     "name_vi": "Đồng Kho",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-dongkho",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-ducan",
-    "kind": "region",
-    "name": "Đức An",
-    "name_vi": "Đức An",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-ducan",
     "summary_ru": null
   },
   {
@@ -30011,15 +30614,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Phòng gym",
     "name_ru": "Спортзалы",
     "region_slug": "vn-lamdong-dalat-tanung",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -30077,22 +30671,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Полиция Куангчи просит производителей настоящей косметики и БАДов прислать образцы для сравнения по делу о 25 тоннах поддельной продукции."
   },
   {
-    "slug": "market:vn-lamdong-dateh:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
+    "slug": "source:b0291dac-23ca-4117-be74-f4c895bc55e0",
+    "kind": "source",
+    "name": "Уникальная гигантская тыквенная ферма садовода из Далата",
+    "name_vi": null,
+    "name_ru": "Уникальная гигантская тыквенная ферма садовода из Далата",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ферма в Далате выращивает гигантские тыквы, что может привлечь туристов. На движение по дорогам заметного влияния нет."
   },
   {
-    "slug": "vn-lamdong-x-duclinh",
-    "kind": "region",
-    "name": "Đức Linh",
-    "name_vi": "Đức Linh",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-duclinh",
-    "summary_ru": null
+    "slug": "source:1efe6528-eaf2-4ff1-8360-df834584abdc",
+    "kind": "source",
+    "name": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
+    "name_vi": null,
+    "name_ru": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В перевал Mimosa, главный въезд в Далат, вложат 37 млрд донгов: построят эстакаду и укрепят склон. Возможны ремонтные ограничения движения."
+  },
+  {
+    "slug": "source:b706dad4-134d-40c9-aae4-205e1618793e",
+    "kind": "source",
+    "name": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
+    "name_vi": null,
+    "name_ru": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Дубль новости об укреплении перевала Mimosa и строительстве эстакады за 37 млрд донгов на въезде в Далат."
   },
   {
     "slug": "event:gtnfoods-vinamilk-2019",
@@ -30120,6 +30723,51 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Листинг Vinpearl на HOSE",
     "region_slug": "vn-thanhphohochiminh",
     "summary_ru": "13 мая 2025 года Vinpearl разместил 1,79 млрд акций по 71 300 донгов, в первый день торгов плюс 20 процентов и оценка 5,9 млрд долларов."
+  },
+  {
+    "slug": "vn-lamdong-x-duclinh",
+    "kind": "region",
+    "name": "Đức Linh",
+    "name_vi": "Đức Linh",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-duclinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:4fdbd97e-dfc1-4b1c-a0bf-4577a32fd4b1",
+    "kind": "source",
+    "name": "Фестиваль цветов Далата расширяет пространство и выстраивает цепочку ценности",
+    "name_vi": null,
+    "name_ru": "Фестиваль цветов Далата расширяет пространство и выстраивает цепочку ценности",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Фестиваль цветов Далата пройдёт на расширенной площадке, ожидается наплыв туристов и рост трафика в городе."
+  },
+  {
+    "slug": "source:0d4efc8a-88b4-4573-8d45-bd656dbfd224",
+    "kind": "source",
+    "name": "Автомобиль скатился с соснового холма у подножия перевала Prenn, без жертв",
+    "name_vi": null,
+    "name_ru": "Автомобиль скатился с соснового холма у подножия перевала Prenn, без жертв",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15 сентября около 10:00 легковушка скатилась к сосновому холму у дороги Đống Đа (район Xuân Hương, у перевала Prenn). Обошлось без жертв, возможны заторы."
+  },
+  {
+    "slug": "source:dc3104ee-75fa-4ced-adb1-0d2eb19837d0",
+    "kind": "source",
+    "name": "Решение для модели цифрового правительства на местном уровне в Хайфоне",
+    "name_vi": null,
+    "name_ru": "Решение для модели цифрового правительства на местном уровне в Хайфоне",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Опыт цифровых коммуникаций власти в Хайфоне. К региону и дорогам отношения не имеет."
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
   },
   {
     "slug": "company:highlands-coffee",
@@ -30158,40 +30806,49 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В 2009 году TH Group начала завоз коров из Новой Зеландии и строительство молочного комплекса в Nghệ An с вложениями свыше 350 млн долларов."
   },
   {
-    "slug": "market:vn-lamdong-dalat:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-property",
-    "kind": "market",
-    "name": "Vietnam residential property",
+    "slug": "source:9c7a9ee9-f7f5-4a5a-8209-bd0910eea8ea",
+    "kind": "source",
+    "name": "Ещё один вьетнамский научный журнал вошёл в индекс Scopus",
     "name_vi": null,
-    "name_ru": "Жилая недвижимость Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Vinhomes - крупнейший девелопер, в 2025 году законтрактовал продажи на 205,3 трлн донгов."
+    "name_ru": "Ещё один вьетнамский научный журнал вошёл в индекс Scopus",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Asian Journal of Economics and Banking официально проиндексирован в Scopus с охватом данных с 2022 года."
+  },
+  {
+    "slug": "source:79e73258-1ff6-4d9d-a20e-52f83d6e003b",
+    "kind": "source",
+    "name": "Скоростная дорога Cam Lộ – La Sơn снова открыта после временного закрытия",
+    "name_vi": null,
+    "name_ru": "Скоростная дорога Cam Lộ – La Sơn снова открыта после временного закрытия",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "После дождей трасса через Quảng Trị и Huế reopened только для движения в дневное время."
+  },
+  {
+    "slug": "source:d656690f-9310-4d3f-be88-d9dc88532f5f",
+    "kind": "source",
+    "name": "300-летнее дерево bạch mai с 10 стволами получило рекорд Вьетнама",
+    "name_vi": null,
+    "name_ru": "300-летнее дерево bạch mai с 10 стволами получило рекорд Вьетнама",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Древнее дерево в đình Phú Tự признано рекордом Вьетнама; ещё два дерева получили статус наследия."
+  },
+  {
+    "slug": "source:3c6eb42f-0475-4c34-85e3-ba69a54c7956",
+    "kind": "source",
+    "name": "Hậu vệ cao gần 1,9m chính thức trở thành công dân Việt Nam",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:1f474b99-a4ab-4a42-84ae-f9b8d1a12d08",
+    "kind": "source",
+    "name": "Ôtô trượt khỏi đường, mắc trên sườn đèo Prenn",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "product:robusta-coffee",
@@ -30228,6 +30885,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Фам Нят Выонг",
     "region_slug": "vn-hanoi",
     "summary_ru": "Родился в 1968 году в Ханое, учился в Москве на горного инженера. В начале 1990-х уехал в Харьков, занял 10 тысяч долларов и после провала ресторана начал варить лапшу быстрого приготовления под маркой Mivina. Компания Technocom выросла до выручки свыше 100 млн долларов в год и была продана Nestlé в 2010 году за 150 млн долларов. На эти деньги он построил Vinpearl в Nha Trang и дальше Vingroup - крупнейший частный холдинг Вьетнама. Сейчас вкладывает в убыточный VinFast и электротакси Xanh SM, оставаясь богатейшим человеком страны."
+  },
+  {
+    "slug": "vn-lamdong-x-daksong",
+    "kind": "region",
+    "name": "Đắk Song",
+    "name_vi": "Đắk Song",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-daksong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2446ba4a-92d7-4dfc-9277-3b9aa4f73c93",
+    "kind": "source",
+    "name": "Mùa trăng tròn thắp sáng “trái tim” đô thị bên sông",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "source:036f8138-6e67-4fa3-9007-c9e2408e90c4",
@@ -30275,24 +30950,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В коммуне Sơn Mỹ информационное сокращение бедности сочетается с кредитами, обучением и диверсификацией занятий."
   },
   {
-    "slug": "vn-lamdong-x-daksong",
-    "kind": "region",
-    "name": "Đắk Song",
-    "name_vi": "Đắk Song",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-daksong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-dakwil",
-    "kind": "region",
-    "name": "Đắk Wil",
-    "name_vi": "Đắk Wil",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-dakwil",
-    "summary_ru": null
-  },
-  {
     "slug": "source:9a3dfef4-98fe-4788-9eea-88772fdedbaa",
     "kind": "source",
     "name": "Цены на драгонфрут упали до 3000 донгов за кг",
@@ -30338,6 +30995,69 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Thanh Hóa обследовали пещеру Co Phương с останками 11 солдат, но раскопки отложили ради сохранения памятника."
   },
   {
+    "slug": "source:e9310a1f-450e-4de7-8bbd-9fe55269338b",
+    "kind": "source",
+    "name": "Cảnh giác thủ đoạn lợi dụng người say xỉn, gặp nạn trong đêm để trộm cắp tài sản",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b071f56e-7973-49be-9b20-f53376fff1c9",
+    "kind": "source",
+    "name": "Hưng Yên trải thảm khu công nghiệp xanh thế hệ mới, hút dòng vốn \"khủng\"",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:dad7d479-b659-43d3-96bf-1b06e01f8acf",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2f94f4b5-2855-4a67-bfe0-6c2fecdfcb10",
+    "kind": "source",
+    "name": "Cụm 8 diễn tập thực binh, nâng cao năng lực xử trí các tình huống quốc phòng - an ninh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:ed61c994-276d-4f38-a7e3-177068ed9516",
+    "kind": "source",
+    "name": "Chợ Kim Liên tạm dừng hoạt động, tiểu thương khẩn trương dọn hàng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:1808b1ea-a133-45c5-81ed-8c009b2e6dd2",
+    "kind": "source",
+    "name": "Cao tốc gần 66km nối Lâm Đồng với Đông Nam Bộ trước phương án điều chỉnh đáng chú ý",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:d85d9223-a684-4742-843f-3e43131fcf92",
+    "kind": "source",
+    "name": "Cao tốc gần 66km nối Lâm Đồng với Đông Nam Bộ trước phương án điều chỉnh đáng chú ý",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "person:le-viet-lam",
     "kind": "person",
     "name": "Le Viet Lam",
@@ -30356,12 +31076,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция Lâm Đồng решает вопросы реализации туристического проекта площадью более 72 га в Sơn Mỹ."
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "slug": "source:79750dc7-a59d-4768-ba90-8ae3a6717cb9",
+    "kind": "source",
+    "name": "Nữ tài xế cùng ô tô rơi xuống đồi thông ở Đà Lạt",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:ec554b10-ed92-4a78-a382-c1afa126d4c9",
+    "kind": "source",
+    "name": "Nữ tài xế cùng ô tô rơi xuống đồi thông ở Đà Lạt",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -30372,6 +31101,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Хо Хунг Ань",
     "region_slug": "vn-hanoi",
     "summary_ru": "Соучредитель Masan и председатель Techcombank. Его карьера показывает главный вьетнамский узор: холдинг и банк держит один и тот же круг людей."
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f5111e80-8854-4d17-97b8-070e20d2f6dc",
+    "kind": "source",
+    "name": "Xử phạt tài xế ô tô tải làm rơi vãi hàng hóa ra đường cao tốc",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "person:nguyen-dang-quang",
@@ -30437,6 +31184,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Визит премьер-министра в Индию укрепляет многостороннюю дипломатию Вьетнама."
   },
   {
+    "slug": "vn-lamdong-x-giahiep",
+    "kind": "region",
+    "name": "Gia Hiệp",
+    "name_vi": "Gia Hiệp",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-giahiep",
+    "summary_ru": null
+  },
+  {
     "slug": "source:5f905356-9902-4c59-b966-d1ae96f4e918",
     "kind": "source",
     "name": "Медицинское сотрудничество добавляет импульс отношениям Вьетнам-США",
@@ -30500,12 +31256,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Материал газеты Lâm Đồng об эмоциональном видео Ксении Гулько с посланием из Муйне."
   },
   {
-    "slug": "vn-lamdong-x-giahiep",
-    "kind": "region",
-    "name": "Gia Hiệp",
-    "name_vi": "Gia Hiệp",
+    "slug": "source:39d8bd80-952f-4b1d-80c4-8afd12b9e374",
+    "kind": "source",
+    "name": "Nữ sinh công nghệ thông tin bị \"bắt cóc online\", dọa đưa qua Campuchia",
+    "name_vi": null,
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-giahiep",
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -30527,13 +31283,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Начинал механиком, в 1997 году основал Trường Hải (THACO) как ремонт и сборку грузовиков. Развернул сборку Kia, Mazda, Peugeot и BMW, затем ушёл в агропромышленность и спасение долгов Hoàng Anh Gia Lai через HAGL Agrico."
   },
   {
-    "slug": "vn-lamdong-x-ductrong",
-    "kind": "region",
-    "name": "Duc Trong",
-    "name_vi": "Đức Trọng",
-    "name_ru": "Дыкчонг",
-    "region_slug": "vn-lamdong-ductrong",
-    "summary_ru": "Район с аэропортом Liên Khương и органической фермой Vinamilk. Транспортный вход в провинцию."
+    "slug": "source:098c9d5e-f4c1-47b0-8d62-8a404f152639",
+    "kind": "source",
+    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "source:d37ee5bb-730d-4754-bf3c-83c85136dfce",
@@ -30543,6 +31299,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Слёзы Ксении Гулько и послание из Муйне",
     "region_slug": "vn-lamdong",
     "summary_ru": "Ксения Гулько считает Муйне в Ламдонге родиной, плачет из-за мусора на пляже и призывает спасти побережье."
+  },
+  {
+    "slug": "source:ab757b1e-d7a1-4e89-95a4-65b580065acf",
+    "kind": "source",
+    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:e5724e00-da97-4824-b644-d441cace6cf7",
+    "kind": "source",
+    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "source:9f3d133c-d2ec-4b3b-8f30-15269301658b",
@@ -30563,6 +31337,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Физик, выпускник МГУ, в 1988 году собрал команду учёных и основал FPT как продовольственную технологическую компанию. Перевёл её в программирование и офшорную разработку, вывел на рынки Японии и США."
   },
   {
+    "slug": "vn-lamdong-x-ductrong",
+    "kind": "region",
+    "name": "Đức Trọng",
+    "name_vi": "Đức Trọng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-ductrong",
+    "summary_ru": "Район с аэропортом Liên Khương и органической фермой Vinamilk. Транспортный вход в провинцию."
+  },
+  {
     "slug": "vn-lamdong-x-haininh",
     "kind": "region",
     "name": "Hải Ninh",
@@ -30581,13 +31364,112 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:6f583010-a359-4bf7-afb2-82f075326415",
+    "kind": "source",
+    "name": "Dự báo Hà Nội mưa lớn giờ tan tầm",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:90b99723-ed3b-4eeb-9c74-75ec2edd7e18",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó chủ tịch thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:04ef839a-5687-461a-858c-41dcedac873d",
+    "kind": "source",
+    "name": "Vì sao chặt thông trong vườn nhà bị phạt 35 triệu đồng?",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:9ad1bab8-1c23-4591-9020-7a184917e0af",
+    "kind": "source",
+    "name": "Giáo dục Lâm Đồng đẩy mạnh quản trị số từ dữ liệu dân cư",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:bf1b75a4-a70c-45b2-be3e-09e6010818fb",
+    "kind": "source",
+    "name": "Giáo dục Lâm Đồng đẩy mạnh quản trị số từ dữ liệu dân cư",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:3f4b5da7-8cb1-4ce1-bbcf-9742bbed724e",
+    "kind": "source",
+    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:51252726-26cf-415a-9616-c2ad87dac0b5",
+    "kind": "source",
+    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:9835f58f-3679-429e-b8be-ad4902839c71",
+    "kind": "source",
+    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:aa36dfe3-373b-4380-a930-1801116aac27",
+    "kind": "source",
+    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:9c5a079b-6b23-4c6d-b913-fd4b49694c0d",
+    "kind": "source",
+    "name": "Khởi công công trình thể dục ngoài trời tại xã Hải Ninh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-khanhhoa",
     "kind": "region",
-    "name": "Khanh Hoa",
+    "name": "Кханьхоа",
     "name_vi": "Khánh Hòa",
     "name_ru": "Кханьхоа",
     "region_slug": "vn-khanhhoa",
     "summary_ru": "Провинция с Nha Trang, где в 2001 году родился Vinpearl."
+  },
+  {
+    "slug": "source:0d4b7c14-5204-47d2-9729-544047969d79",
+    "kind": "source",
+    "name": "Bộ Văn hóa phát động cuộc thi video lịch sử, du lịch, khuyến khích dùng AI",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "sector:aviation",
@@ -30599,39 +31481,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Перевозки и аэропорты. ACV держит 22 аэропорта, включая Liên Khương."
   },
   {
+    "slug": "source:46ca75bb-b684-462a-bb01-394205aa0764",
+    "kind": "source",
+    "name": "Анзянгу необходимо сосредоточиться на пересмотре кадровой работы",
+    "name_vi": null,
+    "name_ru": "Анзянгу необходимо сосредоточиться на пересмотре кадровой работы",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Постоянное бюро комитета партии провинции Анзянг продолжает пересматривать и расставлять общинные кадры для эффективной работы двухуровневой местной власти."
+  },
+  {
+    "slug": "source:d78ed357-fe32-4cac-9810-4335e5a26f47",
+    "kind": "source",
+    "name": "Предложен план распределения земли, камня и песка для Ханоя, Хынгйена, Кантхо под нацпроекты",
+    "name_vi": null,
+    "name_ru": "Предложен план распределения земли, камня и песка для Ханоя, Хынгйена, Кантхо под нацпроекты",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Минсельхозы и среды: Ханой, Хынгйен, Нинбинь, Камау, Тэйнинь и Кантхо не обеспечивают себя стройматериалами — предложена схема их распределения."
+  },
+  {
     "slug": "market:vn-lamdong-dilinh:hotel",
     "kind": "market",
     "name": "Отели",
     "name_vi": "Khách sạn",
     "name_ru": "Отели",
     "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lamha",
     "summary_ru": null
   },
   {
@@ -30642,15 +31515,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Нгуен Тхи Фыонг Тхао",
     "region_slug": "vn-hanoi",
     "summary_ru": "Училась и торговала в Москве в 1980-х, заработала первый капитал на товарообороте с Восточной Европой. Основала Sovico, вошла в HDBank, в 2011 году подняла лоукостер Vietjet. Первая женщина-миллиардер Вьетнама."
-  },
-  {
-    "slug": "market:vn-dairy",
-    "kind": "market",
-    "name": "Vietnam dairy market",
-    "name_vi": null,
-    "name_ru": "Молочный рынок Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Рынок, где Vinamilk держит около половины, FrieslandCampina четверть, TH и Nestlé по 7 процентов."
   },
   {
     "slug": "vn-laichau",
@@ -30671,15 +31535,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-mobile",
-    "kind": "market",
-    "name": "Vietnam mobile market",
-    "name_vi": null,
-    "name_ru": "Рынок мобильной связи Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "127 млн активных подключений при населении 101,6 млн. Viettel около 56 процентов."
-  },
-  {
     "slug": "source:9620fc0a-350d-4d37-a752-692303ee3670",
     "kind": "source",
     "name": "Городской квартал почти за 7000 млрд в «втором Далате» Тэйнгуена от Sun Group ждёт хорошей новости перед стартом стройки",
@@ -30698,31 +31553,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Завтра 16/9 плановые отключения света с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
   },
   {
-    "slug": "market:vn-lamdong-dilinh:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dilinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
+    "slug": "source:dc88ce34-2020-4c95-a1db-d3d702f0dad9",
+    "kind": "source",
+    "name": "По 8 заявлениям о хищении 160 млн донгов полиция раскрыла сеть интернет-мошенничества более чем на 1 трлн донгов",
+    "name_vi": null,
+    "name_ru": "По 8 заявлениям о хищении 160 млн донгов полиция раскрыла сеть интернет-мошенничества более чем на 1 трлн донгов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "По 8 заявлениям потерпевших полиция Куангниня раскрыла онлайн-сеть мошенников, похитившую свыше 1 трлн донгов у тысяч жертв по всей стране."
   },
   {
     "slug": "person:nguyen-duc-tai",
@@ -30743,12 +31580,57 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В 1996 году, будучи студентом-медиком, основал Trung Nguyên в Buôn Ma Thuột вместе с женой Ле Хоанг Дьеп Тхао. Растворимый G7 с 2003 года на десять лет вывел компанию в лидеры внутреннего рынка кофе. Многолетний бракоразводный спор за контроль над группой разделил бизнес и бренд."
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dahuoai",
+    "slug": "source:e4793d1c-8dde-4e82-bdef-c6e850b82f3e",
+    "kind": "source",
+    "name": "«Сверхбыстрые» медосмотры для трудоустройства: Минздрав требует срочно проверить и принять меры",
+    "name_vi": null,
+    "name_ru": "«Сверхбыстрые» медосмотры для трудоустройства: Минздрав требует срочно проверить и принять меры",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Минздрав поручил департаментам здравоохранения Кантхо и Донгтхапа срочно проверить частные клиники дельты Меконга, где проводили быстрые медосмотры для найма на работу."
+  },
+  {
+    "slug": "source:dea00ebb-1b8b-4da9-a515-ac5d5fa2b618",
+    "kind": "source",
+    "name": "Lam Dong requests 8 communes to urgently sign waste treatment contracts",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f10e9e0d-bd4f-44e0-a583-07b3634c7f19",
+    "kind": "source",
+    "name": "Ламдонг требует от 8 коммун срочно заключить договоры на вывоз мусора",
+    "name_vi": null,
+    "name_ru": "Ламдонг требует от 8 коммун срочно заключить договоры на вывоз мусора",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Власти провинции Ламдонг потребовали от восьми коммун срочно подписать контракты на переработку отходов."
+  },
+  {
+    "slug": "source:44301549-085e-48d0-9259-181adb3ad755",
+    "kind": "source",
+    "name": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
+    "name_vi": null,
+    "name_ru": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция провинции требует от пассажирских автоперевозчиков соблюдать новые нормы и предупреждать нарушения."
+  },
+  {
+    "slug": "source:f18b4a1e-a76c-46dd-8152-d1f41cb29f9c",
+    "kind": "source",
+    "name": "Cà Mau đặt mục tiêu hoàn thành khám sức khỏe người dân trong tháng 10",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:2a7fd21a-84ac-4f30-a1fa-208f4b7dde6e",
+    "kind": "source",
+    "name": "Hơn 3.100 vận động viên tham gia Đại hội Thể dục thể thao tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -30950,6 +31832,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Основана в 1976 году как госкомпания на базе трёх национализированных заводов Юга. С 1992 года компанией руководит Май Киеу Лиен. Приватизирована в 2003, вышла на биржу в 2006. Держит около половины молочного рынка страны, экспортирует в полсотни стран, владеет собственными фермами, включая органическую в Đức Trọng. В 2025 году выручка 63 724 млрд донгов, прибыль до налога 11 650 млрд, после налога 9 414 млрд. Крупнейший акционер - государственный SCIC с 36 процентами, тайская F&N наращивает долю."
   },
   {
+    "slug": "source:2412d5bd-8a6c-4b53-b2f6-dc22b72f0724",
+    "kind": "source",
+    "name": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
+    "name_vi": null,
+    "name_ru": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Жительница Ханоя 5 месяцев перекрывает общий проход в переулке кроватью, мешая соседям строить дом. К региону Ламдонг не относится."
+  },
+  {
     "slug": "company:nutifood",
     "kind": "company",
     "name": "Nutifood Nutrition Food JSC",
@@ -30966,6 +31857,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "ФрисландКампина Вьетнам",
     "region_slug": "vn",
     "summary_ru": "Голландский производитель, во Вьетнаме с 1995 года под маркой Dutch Lady. Второй по доле рынка после Vinamilk, около четверти молочного рынка."
+  },
+  {
+    "slug": "source:ba04ee35-8935-48d9-bf57-84733a137384",
+    "kind": "source",
+    "name": "Дефицит инженеров: подрядчики строящихся объектов резко повышают зарплаты",
+    "name_vi": null,
+    "name_ru": "Дефицит инженеров: подрядчики строящихся объектов резко повышают зарплаты",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Ханое и соседних провинциях обострилась конкуренция за инженеров и квалифицированных рабочих из-за крупных строек. На движение в Ламдонге не сказывается."
   },
   {
     "slug": "company:viettel",
@@ -31022,24 +31922,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Третий по величине провайдер фиксированного интернета и один из крупнейших операторов ЦОДов. Мобильной лицензии нет, работает как MVNO."
   },
   {
-    "slug": "source:c34f2d34-de6e-4327-bfb3-95d03fdb8b6b",
-    "kind": "source",
-    "name": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
-    "name_vi": null,
-    "name_ru": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Повтор: 16/9 плановые отключения электроэнергии с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
-  },
-  {
-    "slug": "source:d63e7fbd-916b-46c7-b71d-d1c65b12c22e",
-    "kind": "source",
-    "name": "Nhận diện thực lực U23 Kuwait trước màn so tài với U23 Việt Nam",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "vn-sonla-pre2025",
     "kind": "region",
     "name": "Шонла",
@@ -31058,21 +31940,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
+    "slug": "source:c34f2d34-de6e-4327-bfb3-95d03fdb8b6b",
+    "kind": "source",
+    "name": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
+    "name_vi": null,
+    "name_ru": "График отключений электричества Lâm Đồng на завтра 16/9: Đà Lạt, Đức Trọng, Di Linh, Bảo Lộc, Đạ Tẻh, Phú Quý, Lâm Hà без света с утра",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Повтор: 16/9 плановые отключения электроэнергии с утра в Đà Lạt, Đức Trọng, Lâm Hà и других районах провинции."
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "slug": "source:d63e7fbd-916b-46c7-b71d-d1c65b12c22e",
+    "kind": "source",
+    "name": "Nhận diện thực lực U23 Kuwait trước màn so tài với U23 Việt Nam",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -31148,48 +32030,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Группа Доан Нгуен Дыка: мебель, недвижимость, каучук, затем бананы и свиноводство. Пример вьетнамского холдинга, который перегрузился долгом на плантациях Лаоса и Камбоджи."
   },
   {
-    "slug": "vn-lamdong-x-1baoloc",
-    "kind": "region",
-    "name": "1 Bảo Lộc",
-    "name_vi": "1 Bảo Lộc",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-1baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:kindergarten",
+    "slug": "market:vn-lamdong-lamha:bank",
     "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
     "region_slug": "vn-lamdong-lamha",
     "summary_ru": null
   },
   {
-    "slug": "vn-langson",
-    "kind": "region",
-    "name": "Лангшон",
-    "name_vi": "Lạng Sơn",
-    "name_ru": "Лангшон",
-    "region_slug": "vn-langson",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-ninhbinh",
-    "kind": "region",
-    "name": "Ниньбинь",
-    "name_vi": "Ninh Bình",
-    "name_ru": "Ниньбинь",
-    "region_slug": "vn-ninhbinh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-phutho",
-    "kind": "region",
-    "name": "Футхо",
-    "name_vi": "Phú Thọ",
-    "name_ru": "Футхо",
-    "region_slug": "vn-phutho",
+    "slug": "market:vn-lamdong-lamha:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha",
     "summary_ru": null
   },
   {
@@ -31256,21 +32111,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Кооперативный ритейлер Хошимина, сеть Co.opmart более 120 магазинов, сильнее всего на Юге и в дельте Меконга. Один из немногих крупных игроков без иностранного капитала."
   },
   {
-    "slug": "market:vn-lamdong-lamha:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha",
+    "slug": "vn-langson",
+    "kind": "region",
+    "name": "Лангшон",
+    "name_vi": "Lạng Sơn",
+    "name_ru": "Лангшон",
+    "region_slug": "vn-langson",
     "summary_ru": null
   },
   {
@@ -31301,6 +32147,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Японская группа AEON: шесть крупных моллов в Ханое, Хошимине, Хайфоне и Бинь Зыонге, план на 37 средних открытий в 2026 году."
   },
   {
+    "slug": "source:374b2db9-e0dd-4320-8108-a4058336db85",
+    "kind": "source",
+    "name": "Ханой объяснил приоритеты переселения и сроки отселения с трассы Красной реки",
+    "name_vi": null,
+    "name_ru": "Ханой объяснил приоритеты переселения и сроки отселения с трассы Красной реки",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ханой раскрыл принципы программы переселения: новое жильё готовится до изъятия земли. Касается только столицы."
+  },
+  {
+    "slug": "source:07d8cca4-02b9-4057-9476-dc630cdd3ba2",
+    "kind": "source",
+    "name": "Двусторонняя торговля Вьетнама и Таиланда",
+    "name_vi": null,
+    "name_ru": "Двусторонняя торговля Вьетнама и Таиланда",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "За 8 месяцев 2026 года товарооборот Вьетнама и Таиланда достиг 18,5 млрд долларов. Макроэкономика, на дороги региона не влияет."
+  },
+  {
     "slug": "company:lotte-mart-vietnam",
     "kind": "company",
     "name": "Lotte Mart Vietnam",
@@ -31308,51 +32172,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Лотте Март Вьетнам",
     "region_slug": "vn",
     "summary_ru": "Корейская сеть премиальных комплексов, включая Lotte Mall West Lake в Ханое."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
   },
   {
     "slug": "company:vietcombank",
@@ -31472,24 +32291,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственная энергетическая корпорация, выручка 646 трлн донгов за 2025 год. Через дочерние генерирующие компании владеет гидроузлами Lâm Đồng."
   },
   {
-    "slug": "vn-quangninh",
-    "kind": "region",
-    "name": "Куангнинь",
-    "name_vi": "Quảng Ninh",
-    "name_ru": "Куангнинь",
-    "region_slug": "vn-quangninh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
     "slug": "company:petrolimex",
     "kind": "company",
     "name": "Vietnam National Petroleum Group",
@@ -31526,6 +32327,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный оператор 22 аэропортов, включая Liên Khương. Ведёт реконструкцию полосы в Đà Lạt за 966 млрд донгов."
   },
   {
+    "slug": "vn-quangninh",
+    "kind": "region",
+    "name": "Куангнинь",
+    "name_vi": "Quảng Ninh",
+    "name_ru": "Куангнинь",
+    "region_slug": "vn-quangninh",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-quangtri",
     "kind": "region",
     "name": "Куангчи",
@@ -31535,40 +32345,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-thanhhoa",
-    "kind": "region",
-    "name": "Тханьхоа",
-    "name_vi": "Thanh Hóa",
-    "name_ru": "Тханьхоа",
-    "region_slug": "vn-thanhhoa",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:real_estate_agency",
-    "kind": "market",
-    "name": "Агентства недвижимости",
-    "name_vi": "Môi giới bất động sản",
-    "name_ru": "Агентства недвижимости",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:travel_agency",
-    "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
+    "slug": "source:4a18f393-13e5-4adf-8e96-2efb9489eaca",
+    "kind": "source",
+    "name": "ГИБДД Донгнай проверяет ход ремонта национальной трассы 51",
+    "name_vi": null,
+    "name_ru": "ГИБДД Донгнай проверяет ход ремонта национальной трассы 51",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Донгнай проверила ход ремонтных работ на трассе 51 и потребовал ускорить их с обеспечением безопасности движения. Другая провинция, но ремонт трассы влияет на транзит."
   },
   {
     "slug": "market:vn-lamdong-baoloc:real_estate_agency",
@@ -31598,21 +32381,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Корректировка генплана провинции 2021–2030 с горизонтом до 2050 определяет новые центры роста; ключевой вопрос — источники финансирования."
   },
   {
+    "slug": "source:c8f7f890-459c-4c4b-9aec-490f4914b188",
+    "kind": "source",
+    "name": "Дело экс-нотариуса с группой, выдававшей себя за владельцев земли, возвращено на доследование",
+    "name_vi": null,
+    "name_ru": "Дело экс-нотариуса с группой, выдававшей себя за владельцев земли, возвращено на доследование",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Суд Кантхо вернул дело о подделке красных книг и самозваных владельцев земли на доследование. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:00f05cac-e997-4417-8cc8-834269e2c87b",
+    "kind": "source",
+    "name": "Картина прибыли лотерейных компаний: где собирают триллионы, где особый контроль",
+    "name_vi": null,
+    "name_ru": "Картина прибыли лотерейных компаний: где собирают триллионы, где особый контроль",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Южные лотерейные компании растут двузначными темпами, северные показывают обратную тенденцию."
+  },
+  {
     "slug": "market:vn-lamdong-baolam:restaurant",
     "kind": "market",
     "name": "Рестораны",
     "name_vi": "Nhà hàng",
     "name_ru": "Рестораны",
     "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:supermarket",
-    "kind": "market",
-    "name": "Супермаркеты",
-    "name_vi": "Siêu thị",
-    "name_ru": "Супермаркеты",
-    "region_slug": "zone:dalat-center",
     "summary_ru": null
   },
   {
@@ -31623,15 +32415,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Далат Хасфарм",
     "region_slug": "vn-lamdong-dalat",
     "summary_ru": "Основана в 1994 году голландцем Томасом Хофтом с вложением 700 тысяч долларов: гектар роз и гектар гвоздик в деревянных теплицах. Место выбрали за климат, землю, рабочие руки и короткое плечо до международных рынков. Сегодня 220 гектаров теплиц, более 4500 сотрудников, до 200 млн стеблей и 250 млн черенков в год, сестринские компании в Японии, Китае и Индонезии. Крупнейший производитель цветов Азиатско-Тихоокеанского региона и главный частный работодатель Đà Lạt."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
   },
   {
     "slug": "company:cau-dat-tea",
@@ -31652,58 +32435,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Экспортёр кофе из Buôn Ma Thuột, 102,58 тысячи тонн за 2025 год, второй по объёму в стране."
   },
   {
-    "slug": "market:vn-lamdong-lamha-namban:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
+    "slug": "source:3bf2d540-21ac-43a9-97cd-f144c9d7e871",
+    "kind": "source",
+    "name": "Рабочий погиб в промзоне в Тэйнинь",
+    "name_vi": null,
+    "name_ru": "Рабочий погиб в промзоне в Тэйнинь",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В промзоне ТанДук в Тэйнинь прохожие обнаружили тело погибшего мужчины."
   },
   {
-    "slug": "market:zone:dalat-center:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
+    "slug": "source:27958720-21a6-4f05-9284-70fbc91a53ff",
+    "kind": "source",
+    "name": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
+    "name_vi": null,
+    "name_ru": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Нгуен Хонг Хай назначен постоянным зампредом Народного комитета Ламдонга и будет замещать председателя в его отсутствие."
   },
   {
     "slug": "company:thanh-buoi",
@@ -31715,13 +32462,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Второй крупный перевозчик на линии Хошимин - Đà Lạt. В 2023 году после смертельной аварии в Đồng Nai получил штраф 91 млн донгов и трёхмесячную приостановку, затем бессрочный отзыв лицензии. Провинция Lâm Đồng отказала компании в открытии временного автовокзала в Đà Lạt. В 2025 году линия была восстановлена."
   },
   {
-    "slug": "vn-thanhphohochiminh",
-    "kind": "region",
-    "name": "Ho Chi Minh City",
-    "name_vi": "Thành phố Hồ Chí Minh",
-    "name_ru": "Хошимин",
-    "region_slug": "vn-thanhphohochiminh",
-    "summary_ru": "Крупнейший город и финансовый центр, биржа HOSE. Штаб-квартиры Vinamilk, Masan, Mobile World, Vietjet, Saigon Co.op."
+    "slug": "market:zone:namban-home:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
   },
   {
     "slug": "source:46ad6b78-4875-41eb-bd2f-1d7b1a406f0f",
@@ -31733,6 +32480,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Жители Хошимина смогут построить маршрут в приложении и оплатить одну поездку с пересадками, не покупая новый билет при смене транспорта."
   },
   {
+    "slug": "vn-thanhphohochiminh",
+    "kind": "region",
+    "name": "Хошимин",
+    "name_vi": "Thành phố Hồ Chí Minh",
+    "name_ru": "Хошимин",
+    "region_slug": "vn-thanhphohochiminh",
+    "summary_ru": "Крупнейший город и финансовый центр, биржа HOSE. Штаб-квартиры Vinamilk, Masan, Mobile World, Vietjet, Saigon Co.op."
+  },
+  {
     "slug": "source:6006d7e2-374e-4c93-8794-a2df24c2ffc3",
     "kind": "source",
     "name": "«Тупик» при покупке социального жилья",
@@ -31740,78 +32496,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "«Тупик» при покупке социального жилья",
     "region_slug": "vn-lamdong",
     "summary_ru": "Покупатели социального жилья в Куангчи не могут получить льготные кредиты. К региону не относится."
-  },
-  {
-    "slug": "vn-thainguyen",
-    "kind": "region",
-    "name": "Тхайнгуен",
-    "name_vi": "Thái Nguyên",
-    "name_ru": "Тхайнгуен",
-    "region_slug": "vn-thainguyen",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-tuyenquang",
-    "kind": "region",
-    "name": "Туенкуанг",
-    "name_vi": "Tuyên Quang",
-    "name_ru": "Туенкуанг",
-    "region_slug": "vn-tuyenquang",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-tayninh",
-    "kind": "region",
-    "name": "Тэйнинь",
-    "name_vi": "Tây Ninh",
-    "name_ru": "Тэйнинь",
-    "region_slug": "vn-tayninh",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-vinhlong",
-    "kind": "region",
-    "name": "Виньлонг",
-    "name_vi": "Vĩnh Long",
-    "name_ru": "Виньлонг",
-    "region_slug": "vn-vinhlong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-dienbien",
-    "kind": "region",
-    "name": "Дьенбьен",
-    "name_vi": "Điện Biên",
-    "name_ru": "Дьенбьен",
-    "region_slug": "vn-dienbien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
   },
   {
     "slug": "source:d32a8847-c218-4404-a08a-69621a429ccc",
@@ -31823,21 +32507,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:a37790ce-794d-42fe-b9b6-e74005851084",
+    "kind": "source",
+    "name": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
+    "name_vi": null,
+    "name_ru": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция предложила Lulu International стать стратегическим дистрибьютором ключевых продуктов региона. На дороги не влияет."
+  },
+  {
+    "slug": "source:4b20a7a3-fe82-4206-bac1-b373e05d18d5",
+    "kind": "source",
+    "name": "Генеральный секретарь, президент Тô Лам провёл официальную церемонию встречи короля и королевы Таиланда",
+    "name_vi": null,
+    "name_ru": "Генеральный секретарь, президент Тô Лам провёл официальную церемонию встречи короля и королевы Таиланда",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Официальная встреча короля Таиланда в Ханое. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:cb6e0631-04f4-42ae-a915-1e8b37e5a719",
+    "kind": "source",
+    "name": "Почти 500 сотрудников и учителей Лам Донга обучают навыкам безопасного вождения мотоциклов",
+    "name_vi": null,
+    "name_ru": "Почти 500 сотрудников и учителей Лам Донга обучают навыкам безопасного вождения мотоциклов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "14–15 сентября полиция провинции проводит обучение безопасному вождению мотоциклов для ~500 чиновников и учителей. Косвенно касается всех, кто ездит по дорогам провинции."
+  },
+  {
     "slug": "market:zone:lienkhuong:laundry",
     "kind": "market",
     "name": "Прачечные",
     "name_vi": "Giặt là",
     "name_ru": "Прачечные",
     "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
@@ -31868,6 +32570,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Жители сносят дома и убирают урожай, освобождая землю под скоростные дороги Тан Фу — Бао Лок и Бао Лок — Льен Кхыонг; на некоторых участках готовы площадки для переселения."
   },
   {
+    "slug": "vn-dongthap",
+    "kind": "region",
+    "name": "Донгтхап",
+    "name_vi": "Đồng Tháp",
+    "name_ru": "Донгтхап",
+    "region_slug": "vn-dongthap",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:5ad79864-3c30-4d34-99c7-a4ce7aad1224",
+    "kind": "source",
+    "name": "Две женщины помогли найти 100 останков солдат в кокосовом и дуриановом садах",
+    "name_vi": null,
+    "name_ru": "Две женщины помогли найти 100 останков солдат в кокосовом и дуриановом садах",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Находка останков солдат в Донг Тхап. К региону не относится."
+  },
+  {
+    "slug": "source:effe04d6-a688-4484-902c-1d8c2f68c88f",
+    "kind": "source",
+    "name": "После дождя некоторые улицы Ханоя всё ещё глубоко затоплены, заглохшие мотоциклы повсюду",
+    "name_vi": null,
+    "name_ru": "После дождя некоторые улицы Ханоя всё ещё глубоко затоплены, заглохшие мотоциклы повсюду",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Затопление улиц в Ханое после двухдневных дождей. К региону не относится."
+  },
+  {
     "slug": "company:ana-mandara-villas-dalat",
     "kind": "company",
     "name": "Ana Mandara Villas Dalat",
@@ -31895,15 +32624,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Флагманская марка TH Group, построена на обещании свежего молока с собственных ферм против сухого молока конкурентов."
   },
   {
-    "slug": "vn-dongthap",
-    "kind": "region",
-    "name": "Донгтхап",
-    "name_vi": "Đồng Tháp",
-    "name_ru": "Донгтхап",
-    "region_slug": "vn-dongthap",
-    "summary_ru": null
-  },
-  {
     "slug": "brand:g7-coffee",
     "kind": "brand",
     "name": "G7",
@@ -31928,24 +32648,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "An Giang",
     "name_ru": "Анзянг",
     "region_slug": "vn-angiang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:car_rental",
-    "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
@@ -31983,6 +32685,51 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Бариа-Вунгтау",
     "region_slug": "vn-bariavungtau-pre2025",
     "summary_ru": null
+  },
+  {
+    "slug": "source:30e655df-b8e9-40f5-8b78-8400fbd394d0",
+    "kind": "source",
+    "name": "Лам Донг: определён победитель тендера на строительство школы стоимостью более 11,5 млрд в коммуне Ka Đô",
+    "name_vi": null,
+    "name_ru": "Лам Донг: определён победитель тендера на строительство школы стоимостью более 11,5 млрд в коммуне Ka Đô",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Определён подрядчик строительства школы за 11,5 млрд донгов в Ka Đô. Возможны строительные работы и техника рядом."
+  },
+  {
+    "slug": "source:1ac9161f-3776-4224-b39b-9eb5f21b7dd5",
+    "kind": "source",
+    "name": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
+    "name_vi": null,
+    "name_ru": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Власти Ламдонга предупреждают о риске оползня на участке дороги рядом с мостом Đắk Glong. Водителям стоит снизить скорость и быть готовыми к ограничениям движения."
+  },
+  {
+    "slug": "source:8348d0af-e1e4-4220-86d2-a0bd958b0f8a",
+    "kind": "source",
+    "name": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
+    "name_vi": null,
+    "name_ru": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Повтор новости: риск оползня на трассе у моста Đắk Glong в Ламдонге. Возможны заторы или перекрытие участка, планируйте объезд."
+  },
+  {
+    "slug": "source:b471086c-4d6e-45a4-8301-80bf7fa04b13",
+    "kind": "source",
+    "name": "Толпы пациентов в больнице Chợ Rẫy",
+    "name_vi": null,
+    "name_ru": "Толпы пациентов в больнице Chợ Rẫy",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В больнице Chợ Rẫy в Хошимине огромные очереди: осмотр занимает один-два дня, приходить надо затемно. К региону Ламдонг напрямую не относится."
+  },
+  {
+    "slug": "source:7ecb6e13-8479-4c09-b786-41cf5c774acb",
+    "kind": "source",
+    "name": "Ламдонг предупреждает об опасности оползня на дороге у моста Дакглонг",
+    "name_vi": null,
+    "name_ru": "Ламдонг предупреждает об опасности оползня на дороге у моста Дакглонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Третий дубль предупреждения об оползне у моста Đắk Glong в Ламдонге. Актуально для поездок по горным дорогам провинции сегодня."
   },
   {
     "slug": "event:vinmart-masan-2019",
@@ -32057,13 +32804,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn",
-    "kind": "region",
-    "name": "Vietnam",
-    "name_vi": "Việt Nam",
-    "name_ru": "Вьетнам",
-    "region_slug": "vn",
-    "summary_ru": "Социалистическая Республика Вьетнам. Около 101,6 млн человек, ВВП 514,7 млрд долларов за 2025 год. Экономика сборочная: экспорт почти равен ВВП. Корневой узел графа: все национальные рынки и компании привязаны сюда."
+    "slug": "source:bae73610-cfd7-4c4c-873c-e5dfcce6ee25",
+    "kind": "source",
+    "name": "Где смотреть в прямом эфире матч U23 Вьетнам — U23 Кувейт",
+    "name_vi": null,
+    "name_ru": "Где смотреть в прямом эфире матч U23 Вьетнам — U23 Кувейт",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Матч U23 Вьетнам против U23 Кувейт на Азиаде-20 в Нагое состоится 15 сентября в 17:00, показ в прямом эфире. На дороги региона не влияет."
+  },
+  {
+    "slug": "source:0f519694-cc87-4210-96ec-9dbc878a36ba",
+    "kind": "source",
+    "name": "Минобрнауки взял на себя ответственность за нехватку учебников в ряде регионов",
+    "name_vi": null,
+    "name_ru": "Минобрнауки взял на себя ответственность за нехватку учебников в ряде регионов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Министерство образования Вьетнама признало ответственность министерства, издательства и местных властей за локальный дефицит школьных учебников. Движения не касается."
+  },
+  {
+    "slug": "source:776eee11-5190-4942-926c-ce3c45c6c25e",
+    "kind": "source",
+    "name": "Парашютный шнур совпал с рассказом о связанных солдатах в братской могиле 17 погибших",
+    "name_vi": null,
+    "name_ru": "Парашютный шнур совпал с рассказом о связанных солдатах в братской могиле 17 погибших",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Дананге в братской могиле найден парашютный шнур, подтверждающий свидетельства о связывании солдат перед захоронением. К Ламдонгу отношения не имеет."
   },
   {
     "slug": "region:vn-lamdong",
@@ -32075,58 +32840,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция на плато Lâm Viên, столица Đà Lạt. С 1 июля 2025 объединена с Bình Thuận и Đắk Nông, поэтому статистика с 2025 года идёт по новым границам. Главные отрасли: кофе, овощи и цветы закрытого грунта, чай, шёлк, туризм и гидроэнергетика. Регион первого этапа для Data OS."
   },
   {
-    "slug": "vn-lamdong-baoloc",
-    "kind": "region",
-    "name": "Bao Loc",
-    "name_vi": "Bảo Lộc",
-    "name_ru": "Баолок",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": "Второй город провинции, столица вьетнамского шелководства и чая. Здесь чайные фабрики, шелкомотальные производства и филиал Intimex по кофе."
+    "slug": "source:cca96b86-b0c1-42cc-bc38-acf6daefe578",
+    "kind": "source",
+    "name": "Банки массово выпускают депозитные сертификаты со ставкой выше 8% годовых: чем отличаются от вкладов?",
+    "name_vi": null,
+    "name_ru": "Банки массово выпускают депозитные сертификаты со ставкой выше 8% годовых: чем отличаются от вкладов?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Банки наращивают выпуск депозитных сертификатов со ставками до 8% годовых, вдвое выше вкладов того же срока. На дороги региона не влияет."
   },
   {
-    "slug": "vn-danang",
-    "kind": "region",
-    "name": "Da Nang",
-    "name_vi": "Đà Nẵng",
-    "name_ru": "Дананг",
-    "region_slug": "vn-danang",
-    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
-  },
-  {
-    "slug": "vn-daklak",
-    "kind": "region",
-    "name": "Dak Lak",
-    "name_vi": "Đắk Lắk",
-    "name_ru": "Даклак",
-    "region_slug": "vn-daklak",
-    "summary_ru": "Главная кофейная провинция страны, столица Buôn Ma Thuột. Родина Trung Nguyên и экспортёра Simexco."
-  },
-  {
-    "slug": "vn-nghean",
-    "kind": "region",
-    "name": "Nghe An",
-    "name_vi": "Nghệ An",
-    "name_ru": "Нгеан",
-    "region_slug": "vn-nghean",
-    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
-  },
-  {
-    "slug": "vn-quangngai",
-    "kind": "region",
-    "name": "Quang Ngai",
-    "name_vi": "Quảng Ngãi",
-    "name_ru": "Куангнгай",
-    "region_slug": "vn-quangngai",
-    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
-  },
-  {
-    "slug": "vn-dongnai",
-    "kind": "region",
-    "name": "Dong Nai",
-    "name_vi": "Đồng Nai",
-    "name_ru": "Донгнай",
-    "region_slug": "vn-dongnai",
-    "summary_ru": "Индустриальная провинция рядом с Хошимином, здесь кофейный завод Nestlé Trị An."
+    "slug": "source:6430e48f-0088-4c70-bf58-8360f64648b9",
+    "kind": "source",
+    "name": "Vụ quay video clip bức tử cây thông Đà Lạt: Bạn đọc đồng tình phạt nhưng băn khoăn cây vườn nhà",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
   },
   {
     "slug": "region:ua-kharkiv",
@@ -32264,13 +32993,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Шелкомотальное производство в Bảo Lộc, одно из предприятий, на которых держится возрождение отрасли после ухода фермеров в кофе и чай."
   },
   {
-    "slug": "market:vn-lamdong-donduong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
+    "slug": "source:e36c3656-7624-470d-b469-f35324997619",
+    "kind": "source",
+    "name": "После скандала с курицей с посторонним запахом родители проверяют все продукты в школе",
+    "name_vi": null,
+    "name_ru": "После скандала с курицей с посторонним запахом родители проверяют все продукты в школе",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Родители школы Ле Чонг Тан в Ханое с 5 утра проверяют мясо и овощи для школьных обедов после жалоб на запах курицы. К региону отношения не имеет."
   },
   {
     "slug": "company:intimex-bao-loc",
@@ -32300,15 +33029,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Крупный курорт на озере Tuyền Lâm, один из якорей гостиничного фонда за пределами центра города."
   },
   {
-    "slug": "vn-binhdinh-pre2025",
-    "kind": "region",
-    "name": "Биньдинь",
-    "name_vi": "Bình Định",
-    "name_ru": "Биньдинь",
-    "region_slug": "vn-binhdinh-pre2025",
-    "summary_ru": null
-  },
-  {
     "slug": "company:vinpearl-dalat",
     "kind": "company",
     "name": "Vinpearl Da Lat project",
@@ -32336,121 +33056,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Выросла из Lâm Đồng Dairy Cattle Breeding JSC, центра программы развития молочного скота провинции с начала 2000-х. В 2009 году перезапущена под брендом Dalatmilk с высокотехнологичным заводом и фермой на плато. В 2014 году куплена TH Group и вошла в её экосистему. Головной офис, ферма и завод в Lâm Đồng, филиал в седьмом округе Хошимина."
   },
   {
-    "slug": "vn-baclieu-pre2025",
+    "slug": "vn-binhdinh-pre2025",
     "kind": "region",
-    "name": "Баклиеу",
-    "name_vi": "Bạc Liêu",
-    "name_ru": "Баклиеу",
-    "region_slug": "vn-baclieu-pre2025",
+    "name": "Биньдинь",
+    "name_vi": "Bình Định",
+    "name_ru": "Биньдинь",
+    "region_slug": "vn-binhdinh-pre2025",
     "summary_ru": null
-  },
-  {
-    "slug": "vn-bacgiang-pre2025",
-    "kind": "region",
-    "name": "Бакзянг",
-    "name_vi": "Bắc Giang",
-    "name_ru": "Бакзянг",
-    "region_slug": "vn-bacgiang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-backan-pre2025",
-    "kind": "region",
-    "name": "Баккан",
-    "name_vi": "Bắc Kạn",
-    "name_ru": "Баккан",
-    "region_slug": "vn-backan-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-grocery-retail",
-    "kind": "market",
-    "name": "Vietnam modern grocery retail",
-    "name_vi": null,
-    "name_ru": "Современная продуктовая розница Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "14 млрд долларов в 2025 году, рост 19 процентов. Лидеры WinCommerce, Bách Hóa Xanh, Saigon Co.op, Central Retail, AEON."
-  },
-  {
-    "slug": "market:vn-coffee-export",
-    "kind": "market",
-    "name": "Vietnam coffee export market",
-    "name_vi": null,
-    "name_ru": "Экспорт кофе из Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Экспорт зелёного кофе, почти целиком робуста. Топ экспортёров: Vĩnh Hiệp, Intimex, Simexco, Louis Dreyfus, Nestlé."
-  },
-  {
-    "slug": "market:vn-ride-hailing",
-    "kind": "market",
-    "name": "Vietnam ride hailing",
-    "name_vi": null,
-    "name_ru": "Заказ поездок во Вьетнаме",
-    "region_slug": "vn",
-    "summary_ru": "К четвёртому кварталу 2025 Xanh SM обошла Grab по обороту: 51,5 против 42,64 процента."
-  },
-  {
-    "slug": "market:vn-steel",
-    "kind": "market",
-    "name": "Vietnam steel market",
-    "name_vi": null,
-    "name_ru": "Рынок стали Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Строительная арматура и горячекатаный рулон. Hòa Phát - крупнейший производитель."
-  },
-  {
-    "slug": "market:vn-aviation",
-    "kind": "market",
-    "name": "Vietnam air travel market",
-    "name_vi": null,
-    "name_ru": "Рынок авиаперевозок Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Vietnam Airlines и Vietjet делят основной объём, Bamboo Airways фактически выбыл."
-  },
-  {
-    "slug": "market:vn-coffee-chains",
-    "kind": "market",
-    "name": "Vietnam branded coffee shops",
-    "name_vi": null,
-    "name_ru": "Сетевые кофейни Вьетнама",
-    "region_slug": "vn",
-    "summary_ru": "Более 5100 точек к 2025 году. Highlands Coffee крупнейшая сеть."
-  },
-  {
-    "slug": "market:lamdong-tourism",
-    "kind": "market",
-    "name": "Lam Dong tourism market",
-    "name_vi": null,
-    "name_ru": "Туристический рынок Lâm Đồng",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "20,7 млн визитов и 56,6 трлн донгов выручки за 2025 год по новым границам провинции."
-  },
-  {
-    "slug": "market:lamdong-flowers",
-    "kind": "market",
-    "name": "Lam Dong cut flower market",
-    "name_vi": null,
-    "name_ru": "Рынок срезанных цветов Lâm Đồng",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Đà Lạt даёт основную массу срезанных цветов страны. Крупнейший игрок - Dalat Hasfarm."
-  },
-  {
-    "slug": "market:lamdong-silk",
-    "kind": "market",
-    "name": "Bao Loc silk market",
-    "name_vi": null,
-    "name_ru": "Шёлковый рынок Bảo Lộc",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Bảo Lộc - столица вьетнамского шелководства с 1960-х, сегодня отрасль восстанавливается после ухода в кофе и чай."
   },
   {
     "slug": "product:instant-noodles",
@@ -32534,6 +33146,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:1f9de607-f045-42b1-a7ea-703563d3c16c",
+    "kind": "source",
+    "name": "Вард Ан Фу Дон поблагодарил актив кварталов: при любой загруженности люди приходили на помощь",
+    "name_vi": null,
+    "name_ru": "Вард Ан Фу Дон поблагодарил актив кварталов: при любой загруженности люди приходили на помощь",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "14 сентября вард Ан Фу Дон (Хошимин) провёл встречу в честь нештатных работников кварталов, завершивших работу из-за реорганизации."
+  },
+  {
     "slug": "market:vn-lamdong-cattien:kindergarten",
     "kind": "market",
     "name": "Детские сады",
@@ -32541,6 +33162,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Детские сады",
     "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
+  },
+  {
+    "slug": "source:376ebbea-7a9e-4892-a94f-bb65d9b7543c",
+    "kind": "source",
+    "name": "Хошимин собирает мнения по проекту компенсаций и переселения для метро № 6 (Фу Хыу — Тан Шон Нят)",
+    "name_vi": null,
+    "name_ru": "Хошимин собирает мнения по проекту компенсаций и переселения для метро № 6 (Фу Хыу — Тан Шон Нят)",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Для первой очереди метро № 6 потребуется около 95,3 га земли, затронуты около 2501 случая; идёт сбор мнений по компенсациям и переселению."
+  },
+  {
+    "slug": "source:5cd39c11-d538-4864-ae3f-da7e40ab879b",
+    "kind": "source",
+    "name": "Наводнение в Đồng Nai из-за смещённой относительно русла трубы на трассе Бьенхоа - Вунгтау, вода отводится с трудом",
+    "name_vi": null,
+    "name_ru": "Наводнение в Đồng Nai из-за смещённой относительно русла трубы на трассе Бьенхоа - Вунгтау, вода отводится с трудом",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "После паводка, затопившего сотни домов, власти Đồng Nai установили: труба на трассе Бьенхоа - Вунгтау смещена и мешает водоотводу."
   },
   {
     "slug": "source:c7bcac0a-2627-4b02-87ca-eae3d38c565a",
@@ -32552,13 +33191,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha-dongthanh:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-lamha-dongthanh",
-    "summary_ru": null
+    "slug": "source:8b5559cf-5bb5-4a86-badb-09097e824f52",
+    "kind": "source",
+    "name": "Британия обязалась выделить 6,5 млрд долларов на потенциальные проекты во Вьетнаме",
+    "name_vi": null,
+    "name_ru": "Британия обязалась выделить 6,5 млрд долларов на потенциальные проекты во Вьетнаме",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Посол Великобритании Iain Frew сообщил, что страна обязалась предоставить не менее 6,5 млрд долларов поддержки возможностей во Вьетнаме."
   },
   {
     "slug": "company:nestle-vietnam",
@@ -32615,6 +33254,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Материал о работе местных властей по практической помощи населению."
   },
   {
+    "slug": "vn",
+    "kind": "region",
+    "name": "Вьетнам",
+    "name_vi": "Việt Nam",
+    "name_ru": "Вьетнам",
+    "region_slug": "vn",
+    "summary_ru": "Социалистическая Республика Вьетнам. Около 101,6 млн человек, ВВП 514,7 млрд долларов за 2025 год. Экономика сборочная: экспорт почти равен ВВП. Корневой узел графа: все национальные рынки и компании привязаны сюда."
+  },
+  {
+    "slug": "vn-lamdong-dalat-tanung",
+    "kind": "region",
+    "name": "Танунг",
+    "name_vi": "Tà Nung",
+    "name_ru": "Танунг",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-dakwil",
+    "kind": "region",
+    "name": "Đắk Wil",
+    "name_vi": "Đắk Wil",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-dakwil",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a760bf33-4e0d-4674-b852-936d2ddba4b4",
+    "kind": "source",
+    "name": "Вице-премьер Фам Зя Тук: FDI-компании должны активно расширять базу вьетнамских поставщиков",
+    "name_vi": null,
+    "name_ru": "Вице-премьер Фам Зя Тук: FDI-компании должны активно расширять базу вьетнамских поставщиков",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Готовится программа связей с вьетнамскими поставщиками для корпораций электроники и полупроводников — по цепочкам продуктов и техстандартам."
+  },
+  {
     "slug": "source:5c5a31ab-83f1-4c53-bae8-df4d6260b8c4",
     "kind": "source",
     "name": "Ранний Праздник середины осени для бедных детей",
@@ -32624,48 +33299,84 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Организации провинции проводят программы празднования Тета чунгтху для детей из малоимущих семей и этнических меньшинств."
   },
   {
-    "slug": "market:vn-lamdong-damrong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-damrong",
+    "slug": "vn-nghean",
+    "kind": "region",
+    "name": "Нгеан",
+    "name_vi": "Nghệ An",
+    "name_ru": "Нгеан",
+    "region_slug": "vn-nghean",
+    "summary_ru": "Провинция, где TH Group построила молочный мегакомплекс."
+  },
+  {
+    "slug": "vn-ninhbinh",
+    "kind": "region",
+    "name": "Ниньбинь",
+    "name_vi": "Ninh Bình",
+    "name_ru": "Ниньбинь",
+    "region_slug": "vn-ninhbinh",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dateh",
+    "slug": "vn-phutho",
+    "kind": "region",
+    "name": "Футхо",
+    "name_vi": "Phú Thọ",
+    "name_ru": "Футхо",
+    "region_slug": "vn-phutho",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "slug": "vn-quangngai",
+    "kind": "region",
+    "name": "Куангнгай",
+    "name_vi": "Quảng Ngãi",
+    "name_ru": "Куангнгай",
+    "region_slug": "vn-quangngai",
+    "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
+  },
+  {
+    "slug": "vn-thanhhoa",
+    "kind": "region",
+    "name": "Тханьхоа",
+    "name_vi": "Thanh Hóa",
+    "name_ru": "Тханьхоа",
+    "region_slug": "vn-thanhhoa",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha",
+    "slug": "vn-thainguyen",
+    "kind": "region",
+    "name": "Тхайнгуен",
+    "name_vi": "Thái Nguyên",
+    "name_ru": "Тхайнгуен",
+    "region_slug": "vn-thainguyen",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha-dinhvan:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "slug": "vn-tuyenquang",
+    "kind": "region",
+    "name": "Туенкуанг",
+    "name_vi": "Tuyên Quang",
+    "name_ru": "Туенкуанг",
+    "region_slug": "vn-tuyenquang",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-tayninh",
+    "kind": "region",
+    "name": "Тэйнинь",
+    "name_vi": "Tây Ninh",
+    "name_ru": "Тэйнинь",
+    "region_slug": "vn-tayninh",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-vinhlong",
+    "kind": "region",
+    "name": "Виньлонг",
+    "name_vi": "Vĩnh Long",
+    "name_ru": "Виньлонг",
+    "region_slug": "vn-vinhlong",
     "summary_ru": null
   },
   {
@@ -32678,84 +33389,75 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Повтор публикации о праздничных мероприятиях для малоимущих детей провинции."
   },
   {
+    "slug": "vn-dienbien",
+    "kind": "region",
+    "name": "Дьенбьен",
+    "name_vi": "Điện Biên",
+    "name_ru": "Дьенбьен",
+    "region_slug": "vn-dienbien",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-danang",
+    "kind": "region",
+    "name": "Дананг",
+    "name_vi": "Đà Nẵng",
+    "name_ru": "Дананг",
+    "region_slug": "vn-danang",
+    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
+  },
+  {
+    "slug": "vn-daklak",
+    "kind": "region",
+    "name": "Даклак",
+    "name_vi": "Đắk Lắk",
+    "name_ru": "Даклак",
+    "region_slug": "vn-daklak",
+    "summary_ru": "Главная кофейная провинция страны, столица Buôn Ma Thuột. Родина Trung Nguyên и экспортёра Simexco."
+  },
+  {
+    "slug": "vn-dongnai",
+    "kind": "region",
+    "name": "Донгнай",
+    "name_vi": "Đồng Nai",
+    "name_ru": "Донгнай",
+    "region_slug": "vn-dongnai",
+    "summary_ru": "Индустриальная провинция рядом с Хошимином, здесь кофейный завод Nestlé Trị An."
+  },
+  {
+    "slug": "vn-baclieu-pre2025",
+    "kind": "region",
+    "name": "Баклиеу",
+    "name_vi": "Bạc Liêu",
+    "name_ru": "Баклиеу",
+    "region_slug": "vn-baclieu-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-bacgiang-pre2025",
+    "kind": "region",
+    "name": "Бакзянг",
+    "name_vi": "Bắc Giang",
+    "name_ru": "Бакзянг",
+    "region_slug": "vn-bacgiang-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-backan-pre2025",
+    "kind": "region",
+    "name": "Баккан",
+    "name_vi": "Bắc Kạn",
+    "name_ru": "Баккан",
+    "region_slug": "vn-backan-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-caobang-pre2025",
     "kind": "region",
     "name": "Каобанг",
     "name_vi": "Cao Bằng",
     "name_ru": "Каобанг",
     "region_slug": "vn-caobang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-camau-pre2025",
-    "kind": "region",
-    "name": "Камау",
-    "name_vi": "Cà Mau",
-    "name_ru": "Камау",
-    "region_slug": "vn-camau-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-cantho-pre2025",
-    "kind": "region",
-    "name": "Кантхо",
-    "name_vi": "Cần Thơ",
-    "name_ru": "Кантхо",
-    "region_slug": "vn-cantho-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:0856ec1a-08c0-4fbd-84ba-4964dc943afb",
-    "kind": "source",
-    "name": "Phường 1 Bảo Lộc thu gom gần 200 tấn rác tồn đọng sau nhiều ngày ùn ứ",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-hagiang-pre2025",
-    "kind": "region",
-    "name": "Хазянг",
-    "name_vi": "Hà Giang",
-    "name_ru": "Хазянг",
-    "region_slug": "vn-hagiang-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-hanam-pre2025",
-    "kind": "region",
-    "name": "Ханам",
-    "name_vi": "Hà Nam",
-    "name_ru": "Ханам",
-    "region_slug": "vn-hanam-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-hanoi-pre2025",
-    "kind": "region",
-    "name": "Ханой",
-    "name_vi": "Hà Nội",
-    "name_ru": "Ханой",
-    "region_slug": "vn-hanoi-pre2025",
-    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
-  },
-  {
-    "slug": "vn-hatinh-pre2025",
-    "kind": "region",
-    "name": "Хатинь",
-    "name_vi": "Hà Tĩnh",
-    "name_ru": "Хатинь",
-    "region_slug": "vn-hatinh-pre2025",
     "summary_ru": null
   },
   {
@@ -32774,15 +33476,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Hưng Yên",
     "name_ru": "Хынгйен",
     "region_slug": "vn-hungyen-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b4ddd6e8-ac1f-45d6-b796-6b13fe9e7a49",
-    "kind": "source",
-    "name": "Ngăn chặn hành khách mang 5 viên đạn lên máy bay ở Tân Sơn Nhất",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -32837,6 +33530,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Kon Tum",
     "name_ru": "Контум",
     "region_slug": "vn-kontum-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-camau-pre2025",
+    "kind": "region",
+    "name": "Камау",
+    "name_vi": "Cà Mau",
+    "name_ru": "Камау",
+    "region_slug": "vn-camau-pre2025",
     "summary_ru": null
   },
   {
@@ -32993,6 +33695,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-cantho-pre2025",
+    "kind": "region",
+    "name": "Кантхо",
+    "name_vi": "Cần Thơ",
+    "name_ru": "Кантхо",
+    "region_slug": "vn-cantho-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:0856ec1a-08c0-4fbd-84ba-4964dc943afb",
+    "kind": "source",
+    "name": "Phường 1 Bảo Lộc thu gom gần 200 tấn rác tồn đọng sau nhiều ngày ùn ứ",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-hagiang-pre2025",
+    "kind": "region",
+    "name": "Хазянг",
+    "name_vi": "Hà Giang",
+    "name_ru": "Хазянг",
+    "region_slug": "vn-hagiang-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-hanam-pre2025",
+    "kind": "region",
+    "name": "Ханам",
+    "name_vi": "Hà Nam",
+    "name_ru": "Ханам",
+    "region_slug": "vn-hanam-pre2025",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-thaibinh-pre2025",
     "kind": "region",
     "name": "Тхайбинь",
@@ -33065,60 +33803,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-dalat",
-    "kind": "region",
-    "name": "Da Lat",
-    "name_vi": "Đà Lạt",
-    "name_ru": "Далат",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Город на высоте около 1500 метров, основан французами как курорт. Центр цветоводства, овощеводства закрытого грунта и туризма провинции. Здесь сидят Dalat Hasfarm, Cầu Đất, Dalat Palace, отсюда родом автобусный оператор Phương Trang."
-  },
-  {
-    "slug": "vn-vinhphuc-pre2025",
-    "kind": "region",
-    "name": "Виньфук",
-    "name_vi": "Vĩnh Phúc",
-    "name_ru": "Виньфук",
-    "region_slug": "vn-vinhphuc-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-yenbai-pre2025",
-    "kind": "region",
-    "name": "Йенбай",
-    "name_vi": "Yên Bái",
-    "name_ru": "Йенбай",
-    "region_slug": "vn-yenbai-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-dienbien-pre2025",
-    "kind": "region",
-    "name": "Дьенбьен",
-    "name_vi": "Điện Biên",
-    "name_ru": "Дьенбьен",
-    "region_slug": "vn-dienbien-pre2025",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-danang-pre2025",
-    "kind": "region",
-    "name": "Дананг",
-    "name_vi": "Đà Nẵng",
-    "name_ru": "Дананг",
-    "region_slug": "vn-danang-pre2025",
-    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
-  },
-  {
-    "slug": "source:55b35aee-ee0c-43ec-b54c-3c2c6dac248e",
-    "kind": "source",
-    "name": "Ламдонг создаёт особую прибрежную экономическую зону",
-    "name_vi": null,
-    "name_ru": "Ламдонг создаёт особую прибрежную экономическую зону",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ламдонг готовит проект особой экономической зоны площадью 86 048 га на побережье бывшей провинции Биньтхуан."
-  },
-  {
     "slug": "vn-daklak-pre2025",
     "kind": "region",
     "name": "Даклак",
@@ -33155,6 +33839,402 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:f1a7422b-343c-4e00-9e47-8afd138ea799",
+    "kind": "source",
+    "name": "Tesla создала компанию во Вьетнаме — где будут заряжаться электромобили?",
+    "name_vi": null,
+    "name_ru": "Tesla создала компанию во Вьетнаме — где будут заряжаться электромобили?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Tesla зарегистрировала во Вьетнаме юрлицо с капиталом почти 77,7 млрд донгов, но планы по продажам и зарядной инфраструктуре пока не раскрыты."
+  },
+  {
+    "slug": "vn-hanoi-pre2025",
+    "kind": "region",
+    "name": "Ханой",
+    "name_vi": "Hà Nội",
+    "name_ru": "Ханой",
+    "region_slug": "vn-hanoi-pre2025",
+    "summary_ru": "Столица, штаб-квартиры Vingroup, Viettel, VNPT, FPT, Hoa Phat, большинства госкорпораций."
+  },
+  {
+    "slug": "vn-hatinh-pre2025",
+    "kind": "region",
+    "name": "Хатинь",
+    "name_vi": "Hà Tĩnh",
+    "name_ru": "Хатинь",
+    "region_slug": "vn-hatinh-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:86d0d0ae-5e2b-46dd-aad4-de728c01a5cf",
+    "kind": "source",
+    "name": "Образование переходит от «учёбы» к «практике» по заветам Хо Ши Мина",
+    "name_vi": null,
+    "name_ru": "Образование переходит от «учёбы» к «практике» по заветам Хо Ши Мина",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Департамент образования Лам Донга внедряет директиву Политбюро в школах провинции."
+  },
+  {
+    "slug": "source:6a08a5e5-c425-4a00-a092-d1988ce4916b",
+    "kind": "source",
+    "name": "Lâm Đồng: Tàu cá bị lật gần đảo Phú Quý, 1 người mất tích",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b4ddd6e8-ac1f-45d6-b796-6b13fe9e7a49",
+    "kind": "source",
+    "name": "Ngăn chặn hành khách mang 5 viên đạn lên máy bay ở Tân Sơn Nhất",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:24a08372-bfcf-475c-909d-1881a6bf9e2b",
+    "kind": "source",
+    "name": "Cận cảnh xe máy Honda Super Cub 2026 giá 87,37 triệu đồng tại Việt Nam",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:b5862da1-306f-4dff-8306-ac956a625ef7",
+    "kind": "source",
+    "name": "Hơn 40 người nghi ngộ độc thực phẩm sau khi ăn bánh mì ở tiệm mới mở",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:855fc585-55e2-4991-8ce7-468e3f2b1c3d",
+    "kind": "source",
+    "name": "Lâm Đồng: Hàng loạt vi phạm về nhãn, chất lượng phân bón và thuốc bảo vệ thực vật",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:93285dda-2efa-40b7-bf06-16bbe86f28e8",
+    "kind": "source",
+    "name": "Лам Донг отбирает учеников на премию «Хоа Чанг Нгуен 2026»",
+    "name_vi": null,
+    "name_ru": "Лам Донг отбирает учеников на премию «Хоа Чанг Нгуен 2026»",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Департамент образования Лам Донга собирает кандидатуры отличников 12-х классов на премию 2026 года."
+  },
+  {
+    "slug": "source:ab8aed2f-3745-45c9-98e6-77ba2bf58785",
+    "kind": "source",
+    "name": "Полиция Лам Донга провела обучение по ИТ и цифровым навыкам",
+    "name_vi": null,
+    "name_ru": "Полиция Лам Донга провела обучение по ИТ и цифровым навыкам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция провинции 15 сентября провела очно-дистанционный семинар по цифровой грамотности для сотрудников."
+  },
+  {
+    "slug": "source:def5e2e6-7e85-416a-b56e-a4855eb1f43f",
+    "kind": "source",
+    "name": "Vụ xin không nhận chức hiệu trưởng: Bí thư Tỉnh ủy yêu cầu kiểm tra",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:32480a6e-c1c2-4673-a11b-fc76bd96fc26",
+    "kind": "source",
+    "name": "Bé sơ sinh nằm trong túi xách bên đường kèm mảnh giấy \"mẹ là sinh viên\"",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:294d49d6-dda5-49e6-9937-cf8557b188ed",
+    "kind": "source",
+    "name": "Предупреждение о паводках на реке Меконг 15.09.2026: риск обширных затоплений",
+    "name_vi": null,
+    "name_ru": "Предупреждение о паводках на реке Меконг 15.09.2026: риск обширных затоплений",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Прогноз паводка на Меконге, угроза затоплений в дельте. К региону Лам Донг отношения не имеет."
+  },
+  {
+    "slug": "source:1658ed74-242e-4ae7-87a4-56dbdec3b833",
+    "kind": "source",
+    "name": "Khẩn trương xử lý điểm sạt lở trên tuyến đường liên xã ở Đồng Nai",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:3bbc84dc-d43c-4e62-91e4-0a970ac0cf85",
+    "kind": "source",
+    "name": "Устранение оползня на межобщинной дороге в Донгнае",
+    "name_vi": null,
+    "name_ru": "Устранение оползня на межобщинной дороге в Донгнае",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В соседней провинции Донгнай срочно ремонтируют оползень на дороге. Может затронуть транзитные маршруты, но не дороги Лам Донга."
+  },
+  {
+    "slug": "source:32ab1a4d-6ef6-4491-910b-e421e5a62fb7",
+    "kind": "source",
+    "name": "Цены на перец сегодня 15.09.2026: Лам Донг держит 141 000 донгов/кг",
+    "name_vi": null,
+    "name_ru": "Цены на перец сегодня 15.09.2026: Лам Донг держит 141 000 донгов/кг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Цена перца в Лам Донге стабильна — 141 000 донгов/кг. Важно для фермеров провинции, на дороги не влияет."
+  },
+  {
+    "slug": "source:34d59f0e-d11f-422f-90b3-ffc573740dcb",
+    "kind": "source",
+    "name": "Опрокинулось судно с 10 людьми у острова Фукуи (провинция Лам Донг), ищут одного пропавшего",
+    "name_vi": null,
+    "name_ru": "Опрокинулось судно с 10 людьми у острова Фукуи (провинция Лам Донг), ищут одного пропавшего",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "У острова Фукуи в составе провинции Лам Донг перевернулось рыболовецкое судно, ведётся поиск пропавшего. Морской инцидент, на дороги региона не влияет."
+  },
+  {
+    "slug": "source:80ef1f40-d787-4627-a24d-aa6ce3536abf",
+    "kind": "source",
+    "name": "Один день на «Изумрудном острове»: утром — исследования, вечером — отдых у моря",
+    "name_vi": null,
+    "name_ru": "Один день на «Изумрудном острове»: утром — исследования, вечером — отдых у моря",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Рекламный материал об отдыхе в Дананге. К региону Лам Донг отношения не имеет."
+  },
+  {
+    "slug": "vn-vinhphuc-pre2025",
+    "kind": "region",
+    "name": "Виньфук",
+    "name_vi": "Vĩnh Phúc",
+    "name_ru": "Виньфук",
+    "region_slug": "vn-vinhphuc-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:55b35aee-ee0c-43ec-b54c-3c2c6dac248e",
+    "kind": "source",
+    "name": "Ламдонг создаёт особую прибрежную экономическую зону",
+    "name_vi": null,
+    "name_ru": "Ламдонг создаёт особую прибрежную экономическую зону",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ламдонг готовит проект особой экономической зоны площадью 86 048 га на побережье бывшей провинции Биньтхуан."
+  },
+  {
+    "slug": "source:e9ac3025-3c17-471b-b6fe-62afb37e0312",
+    "kind": "source",
+    "name": "Нгуен Хонг Хай назначен постоянным заместителем председателя Народного комитета провинции Лам Донг",
+    "name_vi": null,
+    "name_ru": "Нгуен Хонг Хай назначен постоянным заместителем председателя Народного комитета провинции Лам Донг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Кадровая перестановка в руководстве провинции Лам Донг. На движение по дорогам региона не влияет."
+  },
+  {
+    "slug": "source:7336358c-202c-4eb4-a4dd-f7b35d29003d",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-yenbai-pre2025",
+    "kind": "region",
+    "name": "Йенбай",
+    "name_vi": "Yên Bái",
+    "name_ru": "Йенбай",
+    "region_slug": "vn-yenbai-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f5824462-e642-4d90-ab8c-a403c18b24b0",
+    "kind": "source",
+    "name": "Паводок в районе Донг Тхап Мыой в Тэйнине быстро поднимается, риск широкого затопления",
+    "name_vi": null,
+    "name_ru": "Паводок в районе Донг Тхап Мыой в Тэйнине быстро поднимается, риск широкого затопления",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Уровень воды в Тэйнине растёт из-за дождей и прилива, возможны обширные затопления. К региону Лам Донг не относится."
+  },
+  {
+    "slug": "source:fbd9d107-1dcb-4846-96a4-548d4e258a27",
+    "kind": "source",
+    "name": "Эксгумация коллективной могилы павших солдат, которую почти 40 лет тайно чтил местный житель",
+    "name_vi": null,
+    "name_ru": "Эксгумация коллективной могилы павших солдат, которую почти 40 лет тайно чтил местный житель",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В коммуне Тхыу Бон (Дананг) эксгумировали братскую могилу с 17 останками. К региону не относится."
+  },
+  {
+    "slug": "vn-dienbien-pre2025",
+    "kind": "region",
+    "name": "Дьенбьен",
+    "name_vi": "Điện Biên",
+    "name_ru": "Дьенбьен",
+    "region_slug": "vn-dienbien-pre2025",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-danang-pre2025",
+    "kind": "region",
+    "name": "Дананг",
+    "name_vi": "Đà Nẵng",
+    "name_ru": "Дананг",
+    "region_slug": "vn-danang-pre2025",
+    "summary_ru": "Город центрального побережья, база Sun Group и курортного девелопмента."
+  },
+  {
+    "slug": "source:7d09d126-9f24-4ee1-8fd1-02c310a77f8b",
+    "kind": "source",
+    "name": "Оползень отрезал 2200 человек, коммуна вынуждена использовать дорогу через плотину ГЭС",
+    "name_vi": null,
+    "name_ru": "Оползень отрезал 2200 человек, коммуна вынуждена использовать дорогу через плотину ГЭС",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Оползень перекрыл дорогу в коммуне Хыонг Фунг (Куангчи), 400 домохозяйств отрезаны. К региону не относится."
+  },
+  {
+    "slug": "vn-lamdong-dalat",
+    "kind": "region",
+    "name": "Далат",
+    "name_vi": "Đà Lạt",
+    "name_ru": "Далат",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Город на высоте около 1500 метров, основан французами как курорт. Центр цветоводства, овощеводства закрытого грунта и туризма провинции. Здесь сидят Dalat Hasfarm, Cầu Đất, Dalat Palace, отсюда родом автобусный оператор Phương Trang."
+  },
+  {
+    "slug": "source:c9a24834-8e97-4b64-8bcd-ee9af68da47b",
+    "kind": "source",
+    "name": "Торжественная церемония встречи короля Таиланда и королевы с визитом во Вьетнам",
+    "name_vi": null,
+    "name_ru": "Торжественная церемония встречи короля Таиланда и королевы с визитом во Вьетнам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15 сентября в Ханое прошла официальная встреча короля Таиланда. На дороги Лам Донга не влияет."
+  },
+  {
+    "slug": "source:42903179-e433-4056-9a9e-8acdb71f5225",
+    "kind": "source",
+    "name": "139 учеников всё ещё не ходят в школу из-за протеста против закрытия малокомплектного пункта обучения",
+    "name_vi": null,
+    "name_ru": "139 учеников всё ещё не ходят в школу из-за протеста против закрытия малокомплектного пункта обучения",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Нгеане 139 школьников бойкотируют занятия из-за закрытия пункта обучения. К региону не относится."
+  },
+  {
+    "slug": "source:95978b3b-2f49-4b47-85aa-6ba5433cc045",
+    "kind": "source",
+    "name": "В Лам Донге выявлено ещё 311 объектов домов и земли, переданных на управление коммунам",
+    "name_vi": null,
+    "name_ru": "В Лам Донге выявлено ещё 311 объектов домов и земли, переданных на управление коммунам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Учёт 311 «лишних» домов и участков на уровне коммун Лам Донга. На дорожное движение не влияет."
+  },
+  {
+    "slug": "source:bd72bc39-0973-47d1-86b5-a3c8b3c39270",
+    "kind": "source",
+    "name": "Судно с 10 рабочими опрокинулось у острова Фукуй, один человек пропал без вести",
+    "name_vi": null,
+    "name_ru": "Судно с 10 рабочими опрокинулось у острова Фукуй, один человек пропал без вести",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Рыболовное судно опрокинулось у острова Фукуй (Биньтхуан), один из 10 членов экипажа пропал. К региону Ламдонг отношения не имеет."
+  },
+  {
+    "slug": "source:72e29167-cb5d-4507-a6a5-3677ffa41650",
+    "kind": "source",
+    "name": "Более 40 человек предположительно отравились после еды в новой булочной",
+    "name_vi": null,
+    "name_ru": "Более 40 человек предположительно отравились после еды в новой булочной",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Более 40 человек отравились хлебом из новой булочной в Куангчи. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:9d529861-1345-4f1d-8ace-19f3e9003cdd",
+    "kind": "source",
+    "name": "Школьница спасена от «онлайн-похищения» с требованием выкупа 100 млн",
+    "name_vi": null,
+    "name_ru": "Школьница спасена от «онлайн-похищения» с требованием выкупа 100 млн",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Виньлонга спасла студентку, которой манипулировали через интернет. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:48a4b0d7-916f-4c4b-8d4a-490bd1821ff2",
+    "kind": "source",
+    "name": "Эдисон Чан: от популярного красавца к закрытой жизни",
+    "name_vi": null,
+    "name_ru": "Эдисон Чан: от популярного красавца к закрытой жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Развлекательная новость о гонконгском актёре. К региону отношения не имеет."
+  },
+  {
+    "slug": "source:fc75a290-13a5-48ab-8aaf-30052b89acb6",
+    "kind": "source",
+    "name": "Финансовый обзор 15/9: Tesla открыла компанию во Вьетнаме, Brent превысил 105 долларов",
+    "name_vi": null,
+    "name_ru": "Финансовый обзор 15/9: Tesla открыла компанию во Вьетнаме, Brent превысил 105 долларов",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Цены на нефть растут на фоне обострения на Ближнем Востоке; в стране обсуждают открытие Tesla компании во Вьетнаме."
+  },
+  {
+    "slug": "source:2997f45d-9ffd-42e8-8ebc-c415f5c6ea7e",
+    "kind": "source",
+    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "name_vi": null,
+    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
+  },
+  {
+    "slug": "source:340e952c-8b04-42ef-adbe-6469fb20ae6a",
+    "kind": "source",
+    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "name_vi": null,
+    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
+  },
+  {
+    "slug": "vn-lamdong-x-xuanhuongdalat",
+    "kind": "region",
+    "name": "Xuân Hương – Đà Lạt",
+    "name_vi": "Xuân Hương – Đà Lạt",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-xuanhuongdalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:dc566121-4ce5-4da7-926a-b8cf129a65d4",
+    "kind": "source",
+    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "name_vi": null,
+    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-baoloc",
+    "kind": "region",
+    "name": "Баолок",
+    "name_vi": "Bảo Lộc",
+    "name_ru": "Баолок",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": "Второй город провинции, столица вьетнамского шелководства и чая. Здесь чайные фабрики, шелкомотальные производства и филиал Intimex по кофе."
+  },
+  {
     "slug": "vn-lamdong-lacduong",
     "kind": "region",
     "name": "Лакзыонг",
@@ -33175,7 +34255,7 @@ export const GEN_ENTITIES: GenEntity[] = [
   {
     "slug": "vn-lamdong-lamha",
     "kind": "region",
-    "name": "Lam Ha",
+    "name": "Ламха",
     "name_vi": "Lâm Hà",
     "name_ru": "Ламха",
     "region_slug": "vn-lamdong-lamha",
@@ -33200,12 +34280,84 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-1baoloc",
+    "kind": "region",
+    "name": "1 Bảo Lộc",
+    "name_vi": "1 Bảo Lộc",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-1baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:1abdb87b-1c89-436c-9aaf-8daf64f27930",
+    "kind": "source",
+    "name": "Генеральный секретарь, президент Тô Lâm встретился с делегатами Союза дружественных организаций Вьетнама VII созыва",
+    "name_vi": null,
+    "name_ru": "Генеральный секретарь, президент Тô Lâm встретился с делегатами Союза дружественных организаций Вьетнама VII созыва",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15 сентября в Ханое прошла встреча руководителя государства с делегатами Союза дружественных организаций."
+  },
+  {
+    "slug": "source:4558dd81-2f68-41f0-82f1-510551c994d7",
+    "kind": "source",
+    "name": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
+    "name_vi": null,
+    "name_ru": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Цены на кофе стабильны (95 000 донгов/кг), фрукты с юга страны сильно упали в цене — до 50% год к году."
+  },
+  {
+    "slug": "source:622b7e52-f650-44bf-948d-a2138c258b7c",
+    "kind": "source",
+    "name": "Đưa điện thoại v&agrave; CCCD nhờ hỗ trợ vay tiền, 2 vợ chồng bị chiếm đoạt hơn 74 triệu",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:957c0202-c85b-46cd-ba55-0695bfec3459",
+    "kind": "source",
+    "name": "Công an phường Xuân Hương - Đà Lạt tuyên truyền an toàn giao thông, phòng, chống bạo lực học đường cho học sinh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:3c39db00-0bb8-4318-bf66-a530f00c9fa1",
+    "kind": "source",
+    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:7f847434-96a2-43b8-bcb4-17a813511b88",
+    "kind": "source",
+    "name": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Туризм Ламдонга объединяет нагорье, леса и побережье, включая людей в туристические маршруты; возможен рост потока гостей."
+  },
+  {
     "slug": "vn-lamdong-x-2baoloc",
     "kind": "region",
     "name": "2 Bảo Lộc",
     "name_vi": "2 Bảo Lộc",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-2baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:f0202847-3eb2-4b38-9687-894b7f2b851a",
+    "kind": "source",
+    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -33362,21 +34514,120 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dahuoai",
+    "slug": "vn-lamdong",
+    "kind": "region",
+    "name": "Ламдонг",
+    "name_vi": "Lâm Đồng",
+    "name_ru": "Ламдонг",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
+  },
+  {
+    "slug": "vn-lamdong-x-xuantruongdalat",
+    "kind": "region",
+    "name": "Xuân Trường – Đà Lạt",
+    "name_vi": "Xuân Trường – Đà Lạt",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-xuantruongdalat",
     "summary_ru": null
   },
   {
-    "slug": "vn-lamdong-x-xuanhuongdalat",
-    "kind": "region",
-    "name": "Xuân Hương – Đà Lạt",
-    "name_vi": "Xuân Hương – Đà Lạt",
+    "slug": "source:e6a78dc2-3742-4fbf-bb8b-4646a8687a60",
+    "kind": "source",
+    "name": "Quốc lộ 1 qua Tây Ninh ngập sau mưa, xe máy phải lấn làn ô tô",
+    "name_vi": null,
     "name_ru": null,
-    "region_slug": "vn-lamdong-x-xuanhuongdalat",
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:71a5ba1e-febc-40b1-84b8-68b19f507e08",
+    "kind": "source",
+    "name": "Đất vùng ven Hà Nội trúng đấu giá tới 117 triệu đồng/m2",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "institution:ministry-of-finance-vn",
+    "kind": "institution",
+    "name": "Ministry of Finance",
+    "name_vi": "Bộ Tài chính",
+    "name_ru": "Министерство финансов Вьетнама",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "С 2025 года держит представительство государства в 18 крупнейших госкорпорациях, включая PVN, EVN, VNPT, MobiFone и Vietnam Airlines."
+  },
+  {
+    "slug": "institution:government-inspectorate-vn",
+    "kind": "institution",
+    "name": "Government Inspectorate of Vietnam",
+    "name_vi": "Thanh tra Chính phủ",
+    "name_ru": "Госинспекция Вьетнама",
+    "region_slug": "vn-hanoi",
+    "summary_ru": "Госинспекция, чьё заключение о нарушениях по проекту Đại Ninh стало точкой отсчёта коррупционного дела 2024-2025 годов."
+  },
+  {
+    "slug": "source:81c8d2a7-bbd5-4670-b6ed-462f5842032b",
+    "kind": "source",
+    "name": "Близость к народу через конкретные дела",
+    "name_vi": null,
+    "name_ru": "Близость к народу через конкретные дела",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Дорожная полиция Лам Донга регулярно спасает больных, доставляя их в больницы во время патрулирования. О работе ГИБДД, на движение не влияет."
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-17",
+    "kind": "event",
+    "name": "Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-20",
+    "kind": "event",
+    "name": "Mùng bốn Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "source:40242ee2-dcb1-4808-a34f-34c5b88feba2",
+    "kind": "source",
+    "name": "Chưa thu phí cao tốc Cần Thơ - Cà Mau từ ngày 15/9",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam1",
+    "kind": "region",
+    "name": "Bảo Lâm 1",
+    "name_vi": "Bảo Lâm 1",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam1",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam2",
+    "kind": "region",
+    "name": "Bảo Lâm 2",
+    "name_vi": "Bảo Lâm 2",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam2",
+    "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-baolam3",
+    "kind": "region",
+    "name": "Bảo Lâm 3",
+    "name_vi": "Bảo Lâm 3",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-baolam3",
     "summary_ru": null
   },
   {
@@ -33386,6 +34637,78 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Bảo Lâm 4",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-baolam4",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:8bdc42f5-ee2c-4cc8-a38b-3d1553feb9af",
+    "kind": "source",
+    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Продолжение цикла о развитии зеленого туризма в Лам Донге и вовлечении местных жителей. На движение по дорогам не влияет."
+  },
+  {
+    "slug": "source:fabb7104-5615-467a-a16c-6e2e4b0a4fc5",
+    "kind": "source",
+    "name": "Импульс развития от сельских дорог",
+    "name_vi": null,
+    "name_ru": "Импульс развития от сельских дорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Западный Лам Донг инвестирует в ключевые сельские автодороги внутрирегионального и межрегионального значения. Влияет на развитие транспортной сети региона."
+  },
+  {
+    "slug": "source:9e7e19a0-0bba-41f7-9f5b-82274d1e92c9",
+    "kind": "source",
+    "name": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
+    "name_vi": null,
+    "name_ru": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В отдаленной коммуне Тà Hine волонтеры обучают жителей цифровым навыкам и онлайн-госуслугам. К дорогам отношения не имеет."
+  },
+  {
+    "slug": "source:b304fa4d-f77b-4f17-87ac-1b7b9a2d8182",
+    "kind": "source",
+    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "name_vi": null,
+    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Лам Донг развивает сеть первичной медицины до 2030 года, особенно в отдаленных районах. На дороги не влияет."
+  },
+  {
+    "slug": "source:c67ae113-60d3-4d3e-916c-b1fbd382fdc6",
+    "kind": "source",
+    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "name_vi": null,
+    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Туризм Лам Донга объединяет ценности разных регионов, повышая доходы местных жителей. Прямого влияния на дороги нет."
+  },
+  {
+    "slug": "source:db57d2c0-8bfc-4129-bc48-fe0ed2d3488e",
+    "kind": "source",
+    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "name_vi": null,
+    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Лам Донге развивают медицинские стандарты на уровне общин, повышая качество базовой медицины. На движение не влияет."
+  },
+  {
+    "slug": "source:dbb50664-2dc9-4711-a284-4f64a023b667",
+    "kind": "source",
+    "name": "Импульс развития от сельских дорог",
+    "name_vi": null,
+    "name_ru": "Импульс развития от сельских дорог",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Статья о строительстве и развитии сельских дорог в Западном Лам Донге как драйвере развития. Долгосрочно улучшает транспортную сеть."
+  },
+  {
+    "slug": "source:24aa4e0a-6c7e-4c41-843f-9f852eb9cbb4",
+    "kind": "source",
+    "name": "Lâm Đồng tập trung cứu hộ, cứu nạn tàu cá bị lật tại Phú Quý",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -33416,12 +34739,75 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:7af615da-230e-4ab9-9db6-717b4eb0033e",
+    "kind": "source",
+    "name": "Lâm Đồng tập trung cứu hộ, cứu nạn tàu cá bị lật tại Phú Quý",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-lamdong-x-bacruong",
     "kind": "region",
     "name": "Bắc Ruộng",
     "name_vi": "Bắc Ruộng",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-bacruong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:5d864679-c1d5-42c1-b0c4-7d9da4695abf",
+    "kind": "source",
+    "name": "Lâm Đồng: Công ty Tiến Đức được chỉ định gói thầu điện chiếu sáng ở Đức Trọng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:03c69013-a16f-4d20-bbed-ab5cff0d46f0",
+    "kind": "source",
+    "name": "Toàn cảnh tập huấn, diễn tập bảo đảm an ninh mạng, bảo vệ dữ liệu cá nhân năm 2026 tại Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a6397718-c2bb-45a6-8da9-2b572dd09b7b",
+    "kind": "source",
+    "name": "M&acirc;u thuẫn t&igrave;nh cảm, người đ&agrave;n &ocirc;ng ph&aacute;t t&aacute;n 6 clip &#039;n&oacute;ng&#039; của bạn g&aacute;i",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a0d97296-6728-4311-9763-d064c9a4de7d",
+    "kind": "source",
+    "name": "Mở hướng phát triển mới cho du lịch Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:1d674f4b-9aba-430c-9e68-55512bd0f2ba",
+    "kind": "source",
+    "name": "Trưởng Ban Tuyên giáo Lào Cai làm Cục trưởng Trồng trọt và Bảo vệ thực vật",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:31f459cd-b3fa-4020-9653-0d7f41fd0699",
+    "kind": "source",
+    "name": "Lâm Đồng đẩy mạnh phát triển du lịch trở thành ngành kinh tế mũi nhọn",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -33677,6 +35063,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-x-hongthai",
+    "kind": "region",
+    "name": "Hồng Thái",
+    "name_vi": "Hồng Thái",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-hongthai",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-lamdong-x-kienduc",
     "kind": "region",
     "name": "Kiến Đức",
@@ -33684,6 +35079,69 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": null,
     "region_slug": "vn-lamdong-x-kienduc",
     "summary_ru": null
+  },
+  {
+    "slug": "vn-lamdong-x-kado",
+    "kind": "region",
+    "name": "Ka Đô",
+    "name_vi": "Ka Đô",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-kado",
+    "summary_ru": null
+  },
+  {
+    "slug": "technology:5g",
+    "kind": "technology",
+    "name": "5G mobile network",
+    "name_vi": null,
+    "name_ru": "Сеть 5G",
+    "region_slug": "vn",
+    "summary_ru": "Пятое поколение мобильной связи. Viettel запустила коммерческую сеть первой, VNPT и MobiFone следом."
+  },
+  {
+    "slug": "source:f2138457-27b8-4312-a950-2f6aecee7056",
+    "kind": "source",
+    "name": "Цифровой гражданин Лам Донга: удобства под рукой",
+    "name_vi": null,
+    "name_ru": "Цифровой гражданин Лам Донга: удобства под рукой",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Через приложение «Цифровой гражданин Лам Донг» можно смотреть планы, подавать документы и жалобы онлайн. К дорогам не относится."
+  },
+  {
+    "slug": "source:f7d2d4ee-fe5e-45c0-8578-1fb41f85333d",
+    "kind": "source",
+    "name": "Сила народа обеспечивает спокойствие на территории",
+    "name_vi": null,
+    "name_ru": "Сила народа обеспечивает спокойствие на территории",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В Лам Донге привлекают население к охране порядка и безопасности на местах. На движение людей не влияет."
+  },
+  {
+    "slug": "source:6343a9d8-0041-4241-aca2-0d0e4d2a9f48",
+    "kind": "source",
+    "name": "Дорога в сплошных «яминах» в Đồng Nai: что говорит заказчик строительства?",
+    "name_vi": null,
+    "name_ru": "Дорога в сплошных «яминах» в Đồng Nai: что говорит заказчик строительства?",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В провинции Đồng Nai дорога покрыта ямами, машины выезжают на встречную полосу для объезда; крупный ремонт начат после 13 лет эксплуатации. Это не маршрут Lâm Đồng, но движение по трассам в сторону Đồng Nai может осложни"
+  },
+  {
+    "slug": "source:2dcd30c9-d133-4c18-8afa-d7a8b805e78e",
+    "kind": "source",
+    "name": "Отдел внешней безопасности совместно с полицией общины Tân Thành представил движение «Рыбаки Tân Thành объединяются для обеспечения безопасности на море»",
+    "name_vi": null,
+    "name_ru": "Отдел внешней безопасности совместно с полицией общины Tân Thành представил движение «Рыбаки Tân Thành объединяются для обеспечения безопасности на море»",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "В общине Tân Thành провинции Lâm Đồng запущено движение рыбаков по охране безопасности на море."
+  },
+  {
+    "slug": "technology:organic-dairy",
+    "kind": "technology",
+    "name": "Organic dairy farming",
+    "name_vi": null,
+    "name_ru": "Органическое молочное животноводство",
+    "region_slug": "vn",
+    "summary_ru": "Органическое молочное животноводство по стандарту EU. Во Вьетнаме первым сертифицировали ферму Vinamilk в Đức Trọng."
   },
   {
     "slug": "vn-lamdong-x-krongno",
@@ -33722,210 +35180,66 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:7f847434-96a2-43b8-bcb4-17a813511b88",
+    "slug": "source:a8e8aac4-2c5f-4f26-a3eb-764d5f83a9d0",
     "kind": "source",
-    "name": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "name": "Полиция квартала Cam Ly в Đà Lạt вместе со школьниками поддержала кампанию «Не один»",
     "name_vi": null,
-    "name_ru": "«Зелёная нота» туризма Ламдонга. Часть 2: чтобы туризм касался жизни",
+    "name_ru": "Полиция квартала Cam Ly в Đà Lạt вместе со школьниками поддержала кампанию «Не один»",
     "region_slug": "vn-lamdong",
-    "summary_ru": "Туризм Ламдонга объединяет нагорье, леса и побережье, включая людей в туристические маршруты; возможен рост потока гостей."
+    "summary_ru": "Полиция квартала Cam Ly и учащиеся Đà Lạt присоединились к кампании «Не один» против насилия и преступлений."
   },
   {
-    "slug": "market:vn-lamdong-lamha:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
+    "slug": "source:aa1cd6f0-dff9-4e20-84f7-23a898a28d43",
+    "kind": "source",
+    "name": "Полиция квартала Lâm Viên в Đà Lạt проводит обучение пожарной безопасности в школах",
+    "name_vi": null,
+    "name_ru": "Полиция квартала Lâm Viên в Đà Lạt проводит обучение пожарной безопасности в школах",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция квартала Lâm Viên Đà Lạt проводит в школах города инструктажи по пожарной безопасности."
   },
   {
-    "slug": "market:vn-lamdong-lamha-dinhvan:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
+    "slug": "source:d6ad8fcc-cefd-48fc-b6f7-c7d9c4c81aa8",
+    "kind": "source",
+    "name": "Повышение эффективности борьбы с терроризмом и его финансированием",
+    "name_vi": null,
+    "name_ru": "Повышение эффективности борьбы с терроризмом и его финансированием",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Лам Донга о мерах по противодействию терроризму и финансированию терроризма."
   },
   {
-    "slug": "market:vn-lamdong-damrong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
+    "slug": "source:02a310ec-559a-4110-8b63-c8a9b2da2229",
+    "kind": "source",
+    "name": "Участок Tân Vạn - Nhơn Trạch будет преобразован в скоростную дорогу",
+    "name_vi": null,
+    "name_ru": "Участок Tân Vạn - Nhơn Trạch будет преобразован в скоростную дорогу",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Проект модернизации участка Tân Vạn - Nhơn Trạch до 4-полосной скоростной трассы (100 км/ч) обойдётся дополнительно почти в 2 трлн донгов. Дорога вне региона Lâm Đồng."
   },
   {
-    "slug": "event:seed:holiday-2026-02-17",
-    "kind": "event",
-    "name": "Tết Nguyên Đán",
+    "slug": "source:413a52e9-027c-43c9-b74e-7366da2155b8",
+    "kind": "source",
+    "name": "В Ханое очень сильные дожди, на севере страны высок риск затоплений",
+    "name_vi": null,
+    "name_ru": "В Ханое очень сильные дожди, на севере страны высок риск затоплений",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "15 сентября в Ханое и на севере Вьетнама ожидаются сильные дожди с риском наводнений и оползней. На Lâm Đồng влияния не окажет."
+  },
+  {
+    "slug": "source:d4f6603b-6e86-4806-a747-ced88329cce7",
+    "kind": "source",
+    "name": "Обеспечение безопасности международного сотрудничества в университете Фантхьет",
+    "name_vi": null,
+    "name_ru": "Обеспечение безопасности международного сотрудничества в университете Фантхьет",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Лам Донга координирует охрану порядка при международном сотрудничестве университета Фантхьет."
+  },
+  {
+    "slug": "source:a767a830-aaf1-480c-b80e-9b32a5fb72d9",
+    "kind": "source",
+    "name": "Lâm Đồng đẩy mạnh phát triển du lịch trở thành ngành kinh tế mũi nhọn",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-02-20",
-    "kind": "event",
-    "name": "Mùng bốn Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "institution:ministry-of-finance-vn",
-    "kind": "institution",
-    "name": "Ministry of Finance",
-    "name_vi": "Bộ Tài chính",
-    "name_ru": "Министерство финансов Вьетнама",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "С 2025 года держит представительство государства в 18 крупнейших госкорпорациях, включая PVN, EVN, VNPT, MobiFone и Vietnam Airlines."
-  },
-  {
-    "slug": "institution:government-inspectorate-vn",
-    "kind": "institution",
-    "name": "Government Inspectorate of Vietnam",
-    "name_vi": "Thanh tra Chính phủ",
-    "name_ru": "Госинспекция Вьетнама",
-    "region_slug": "vn-hanoi",
-    "summary_ru": "Госинспекция, чьё заключение о нарушениях по проекту Đại Ninh стало точкой отсчёта коррупционного дела 2024-2025 годов."
-  },
-  {
-    "slug": "source:81c8d2a7-bbd5-4670-b6ed-462f5842032b",
-    "kind": "source",
-    "name": "Близость к народу через конкретные дела",
-    "name_vi": null,
-    "name_ru": "Близость к народу через конкретные дела",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Дорожная полиция Лам Донга регулярно спасает больных, доставляя их в больницы во время патрулирования. О работе ГИБДД, на движение не влияет."
-  },
-  {
-    "slug": "vn-lamdong",
-    "kind": "region",
-    "name": "Ламдонг",
-    "name_vi": "Lâm Đồng",
-    "name_ru": "Ламдонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Исполнительная власть провинции. Выдаёт и отзывает инвестиционные сертификаты, решает судьбу проектов вроде Đại Ninh и автовокзала Thành Bưởi."
-  },
-  {
-    "slug": "vn-lamdong-x-xuantruongdalat",
-    "kind": "region",
-    "name": "Xuân Trường – Đà Lạt",
-    "name_vi": "Xuân Trường – Đà Lạt",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-xuantruongdalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam1",
-    "kind": "region",
-    "name": "Bảo Lâm 1",
-    "name_vi": "Bảo Lâm 1",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam1",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam2",
-    "kind": "region",
-    "name": "Bảo Lâm 2",
-    "name_vi": "Bảo Lâm 2",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam2",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-baolam3",
-    "kind": "region",
-    "name": "Bảo Lâm 3",
-    "name_vi": "Bảo Lâm 3",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-baolam3",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:8bdc42f5-ee2c-4cc8-a38b-3d1553feb9af",
-    "kind": "source",
-    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "name_vi": null,
-    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Продолжение цикла о развитии зеленого туризма в Лам Донге и вовлечении местных жителей. На движение по дорогам не влияет."
-  },
-  {
-    "slug": "source:fabb7104-5615-467a-a16c-6e2e4b0a4fc5",
-    "kind": "source",
-    "name": "Импульс развития от сельских дорог",
-    "name_vi": null,
-    "name_ru": "Импульс развития от сельских дорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Западный Лам Донг инвестирует в ключевые сельские автодороги внутрирегионального и межрегионального значения. Влияет на развитие транспортной сети региона."
-  },
-  {
-    "slug": "source:9e7e19a0-0bba-41f7-9f5b-82274d1e92c9",
-    "kind": "source",
-    "name": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
-    "name_vi": null,
-    "name_ru": "Распространение «цифровой ликбез-программы» в отдаленной коммуне Та Хине",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В отдаленной коммуне Тà Hine волонтеры обучают жителей цифровым навыкам и онлайн-госуслугам. К дорогам отношения не имеет."
-  },
-  {
-    "slug": "source:b304fa4d-f77b-4f17-87ac-1b7b9a2d8182",
-    "kind": "source",
-    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "name_vi": null,
-    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Лам Донг развивает сеть первичной медицины до 2030 года, особенно в отдаленных районах. На дороги не влияет."
-  },
-  {
-    "slug": "source:c67ae113-60d3-4d3e-916c-b1fbd382fdc6",
-    "kind": "source",
-    "name": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "name_vi": null,
-    "name_ru": "«Зеленая нота» туризма Лам Донга. Часть 2: Чтобы туризм касался жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Туризм Лам Донга объединяет ценности разных регионов, повышая доходы местных жителей. Прямого влияния на дороги нет."
-  },
-  {
-    "slug": "source:db57d2c0-8bfc-4129-bc48-fe0ed2d3488e",
-    "kind": "source",
-    "name": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "name_vi": null,
-    "name_ru": "Усилия по построению коммун и кварталов, соответствующих национальным медстандартам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Лам Донге развивают медицинские стандарты на уровне общин, повышая качество базовой медицины. На движение не влияет."
-  },
-  {
-    "slug": "source:dbb50664-2dc9-4711-a284-4f64a023b667",
-    "kind": "source",
-    "name": "Импульс развития от сельских дорог",
-    "name_vi": null,
-    "name_ru": "Импульс развития от сельских дорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Статья о строительстве и развитии сельских дорог в Западном Лам Донге как драйвере развития. Долгосрочно улучшает транспортную сеть."
-  },
-  {
-    "slug": "market:zone:lienkhuong:hotel",
-    "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-hongthai",
-    "kind": "region",
-    "name": "Hồng Thái",
-    "name_vi": "Hồng Thái",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-hongthai",
     "summary_ru": null
   },
   {
@@ -33989,6 +35303,51 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Ninh Gia",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-ninhgia",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a8ea82e5-1d2d-4309-9e13-2b8957a23f4a",
+    "kind": "source",
+    "name": "Lâm Đồng đặt mục tiêu kinh tế số chiếm 30% GRDP vào năm 2030",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:601f0944-b9ee-41c5-92d5-b73cdabec599",
+    "kind": "source",
+    "name": "Vụ thịt gà \"có mùi lạ\" tại trường học Hà Nội: Đơn vị nấu suất ăn lên tiếng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:13f94397-d800-4d38-8210-06a721a22d96",
+    "kind": "source",
+    "name": "Bệnh viện Hoàn Mỹ Đà Lạt ứng dụng MRI tích hợp AI chẩn đoán bệnh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:e4a64262-2b05-4432-a1eb-28ee51460679",
+    "kind": "source",
+    "name": "Hơn 1.200 t&agrave;u c&aacute; ở Gia Lai được hỗ trợ nhi&ecirc;n liệu",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -34082,123 +35441,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "technology:5g",
-    "kind": "technology",
-    "name": "5G mobile network",
-    "name_vi": null,
-    "name_ru": "Сеть 5G",
-    "region_slug": "vn",
-    "summary_ru": "Пятое поколение мобильной связи. Viettel запустила коммерческую сеть первой, VNPT и MobiFone следом."
-  },
-  {
-    "slug": "source:f2138457-27b8-4312-a950-2f6aecee7056",
-    "kind": "source",
-    "name": "Цифровой гражданин Лам Донга: удобства под рукой",
-    "name_vi": null,
-    "name_ru": "Цифровой гражданин Лам Донга: удобства под рукой",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Через приложение «Цифровой гражданин Лам Донг» можно смотреть планы, подавать документы и жалобы онлайн. К дорогам не относится."
-  },
-  {
-    "slug": "source:f7d2d4ee-fe5e-45c0-8578-1fb41f85333d",
-    "kind": "source",
-    "name": "Сила народа обеспечивает спокойствие на территории",
-    "name_vi": null,
-    "name_ru": "Сила народа обеспечивает спокойствие на территории",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Лам Донге привлекают население к охране порядка и безопасности на местах. На движение людей не влияет."
-  },
-  {
-    "slug": "source:6343a9d8-0041-4241-aca2-0d0e4d2a9f48",
-    "kind": "source",
-    "name": "Дорога в сплошных «яминах» в Đồng Nai: что говорит заказчик строительства?",
-    "name_vi": null,
-    "name_ru": "Дорога в сплошных «яминах» в Đồng Nai: что говорит заказчик строительства?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В провинции Đồng Nai дорога покрыта ямами, машины выезжают на встречную полосу для объезда; крупный ремонт начат после 13 лет эксплуатации. Это не маршрут Lâm Đồng, но движение по трассам в сторону Đồng Nai может осложни"
-  },
-  {
-    "slug": "source:2dcd30c9-d133-4c18-8afa-d7a8b805e78e",
-    "kind": "source",
-    "name": "Отдел внешней безопасности совместно с полицией общины Tân Thành представил движение «Рыбаки Tân Thành объединяются для обеспечения безопасности на море»",
-    "name_vi": null,
-    "name_ru": "Отдел внешней безопасности совместно с полицией общины Tân Thành представил движение «Рыбаки Tân Thành объединяются для обеспечения безопасности на море»",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В общине Tân Thành провинции Lâm Đồng запущено движение рыбаков по охране безопасности на море."
-  },
-  {
-    "slug": "vn-lamdong-x-kado",
-    "kind": "region",
-    "name": "Ka Đô",
-    "name_vi": "Ka Đô",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-kado",
-    "summary_ru": null
-  },
-  {
-    "slug": "technology:organic-dairy",
-    "kind": "technology",
-    "name": "Organic dairy farming",
-    "name_vi": null,
-    "name_ru": "Органическое молочное животноводство",
-    "region_slug": "vn",
-    "summary_ru": "Органическое молочное животноводство по стандарту EU. Во Вьетнаме первым сертифицировали ферму Vinamilk в Đức Trọng."
-  },
-  {
-    "slug": "source:a8e8aac4-2c5f-4f26-a3eb-764d5f83a9d0",
-    "kind": "source",
-    "name": "Полиция квартала Cam Ly в Đà Lạt вместе со школьниками поддержала кампанию «Не один»",
-    "name_vi": null,
-    "name_ru": "Полиция квартала Cam Ly в Đà Lạt вместе со школьниками поддержала кампанию «Не один»",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция квартала Cam Ly и учащиеся Đà Lạt присоединились к кампании «Не один» против насилия и преступлений."
-  },
-  {
-    "slug": "source:aa1cd6f0-dff9-4e20-84f7-23a898a28d43",
-    "kind": "source",
-    "name": "Полиция квартала Lâm Viên в Đà Lạt проводит обучение пожарной безопасности в школах",
-    "name_vi": null,
-    "name_ru": "Полиция квартала Lâm Viên в Đà Lạt проводит обучение пожарной безопасности в школах",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция квартала Lâm Viên Đà Lạt проводит в школах города инструктажи по пожарной безопасности."
-  },
-  {
-    "slug": "source:d6ad8fcc-cefd-48fc-b6f7-c7d9c4c81aa8",
-    "kind": "source",
-    "name": "Повышение эффективности борьбы с терроризмом и его финансированием",
-    "name_vi": null,
-    "name_ru": "Повышение эффективности борьбы с терроризмом и его финансированием",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Лам Донга о мерах по противодействию терроризму и финансированию терроризма."
-  },
-  {
-    "slug": "source:02a310ec-559a-4110-8b63-c8a9b2da2229",
-    "kind": "source",
-    "name": "Участок Tân Vạn - Nhơn Trạch будет преобразован в скоростную дорогу",
-    "name_vi": null,
-    "name_ru": "Участок Tân Vạn - Nhơn Trạch будет преобразован в скоростную дорогу",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Проект модернизации участка Tân Vạn - Nhơn Trạch до 4-полосной скоростной трассы (100 км/ч) обойдётся дополнительно почти в 2 трлн донгов. Дорога вне региона Lâm Đồng."
-  },
-  {
-    "slug": "source:413a52e9-027c-43c9-b74e-7366da2155b8",
-    "kind": "source",
-    "name": "В Ханое очень сильные дожди, на севере страны высок риск затоплений",
-    "name_vi": null,
-    "name_ru": "В Ханое очень сильные дожди, на севере страны высок риск затоплений",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15 сентября в Ханое и на севере Вьетнама ожидаются сильные дожди с риском наводнений и оползней. На Lâm Đồng влияния не окажет."
-  },
-  {
-    "slug": "source:d4f6603b-6e86-4806-a747-ced88329cce7",
-    "kind": "source",
-    "name": "Обеспечение безопасности международного сотрудничества в университете Фантхьет",
-    "name_vi": null,
-    "name_ru": "Обеспечение безопасности международного сотрудничества в университете Фантхьет",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Лам Донга координирует охрану порядка при международном сотрудничестве университета Фантхьет."
-  },
-  {
     "slug": "vn-lamdong-x-quangtin",
     "kind": "region",
     "name": "Quảng Tín",
@@ -34235,147 +35477,111 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-damrong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-damrong",
+    "slug": "vn-lamdong-x-tadung",
+    "kind": "region",
+    "name": "Tà Đùng",
+    "name_vi": "Tà Đùng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tadung",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dateh:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-dateh",
+    "slug": "vn-lamdong-x-tahine",
+    "kind": "region",
+    "name": "Tà Hine",
+    "name_vi": "Tà Hine",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tahine",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "slug": "vn-lamdong-x-tanang",
+    "kind": "region",
+    "name": "Tà Năng",
+    "name_vi": "Tà Năng",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanang",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha-dinhvan:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "slug": "vn-lamdong-x-tanhlinh",
+    "kind": "region",
+    "name": "Tánh Linh",
+    "name_vi": "Tánh Linh",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhlinh",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:dalat-center:bar",
+    "slug": "market:vn-lamdong-cattien:bank",
     "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "zone:dalat-center",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:lienkhuong:bar",
+    "slug": "market:vn-lamdong-dalat:laundry",
     "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "zone:lienkhuong",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:dalat-center:convenience",
+    "slug": "market:vn-lamdong-baolam:coffee_shop",
     "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "zone:dalat-center",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:dalat-center:dental",
-    "kind": "market",
-    "name": "Стоматологии",
-    "name_vi": "Nha khoa",
-    "name_ru": "Стоматологии",
-    "region_slug": "zone:dalat-center",
+    "slug": "vn-lamdong-x-thuanan",
+    "kind": "region",
+    "name": "Thuận An",
+    "name_vi": "Thuận An",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-thuanan",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:namban-home:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "zone:namban-home",
+    "slug": "vn-lamdong-x-tratan",
+    "kind": "region",
+    "name": "Trà Tân",
+    "name_vi": "Trà Tân",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tratan",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:bakery",
+    "slug": "market:vn-lamdong-dalat:florist",
     "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dahuoai",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:bakery",
+    "slug": "market:vn-lamdong-dalat-xuanhuong:veterinary",
     "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-damrong:bakery",
+    "slug": "market:vn-lamdong-dalat-xuanhuong:bank",
     "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:dalat-center:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "zone:dalat-center",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-tanung:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-dalat-tanung",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
     "summary_ru": null
   },
   {
@@ -34478,12 +35684,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Лаокае нашли сбежавшую из дома школьницу при проверке автобуса. К региону отношения не имеет."
   },
   {
-    "slug": "market:vn-lamdong-lamha-namban:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-lamha-namban",
+    "slug": "vn-lamdong-x-sonmy",
+    "kind": "region",
+    "name": "Sơn Mỹ",
+    "name_vi": "Sơn Mỹ",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-sonmy",
     "summary_ru": null
   },
   {
@@ -34541,12 +35747,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Предупреждение о селях и оползнях в Phú Thọ и от Thanh Hóa до Quảng Trị 14.09.2026. Регион Lâm Đồng не затронут."
   },
   {
-    "slug": "vn-lamdong-x-sonmy",
-    "kind": "region",
-    "name": "Sơn Mỹ",
-    "name_vi": "Sơn Mỹ",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-sonmy",
+    "slug": "market:vn-lamdong-dalat-xuanhuong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -34556,24 +35771,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Suối Kiết",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-suoikiet",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tadung",
-    "kind": "region",
-    "name": "Tà Đùng",
-    "name_vi": "Tà Đùng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tadung",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tahine",
-    "kind": "region",
-    "name": "Tà Hine",
-    "name_vi": "Tà Hine",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tahine",
     "summary_ru": null
   },
   {
@@ -34640,21 +35837,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В Хошимине медосмотр прошли свыше 4,44 млн человек — 34,8% населения; в 112 из 168 районов показатель превысил 30%, программа ускоряется."
   },
   {
-    "slug": "vn-lamdong-x-tanang",
-    "kind": "region",
-    "name": "Tà Năng",
-    "name_vi": "Tà Năng",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanang",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tanhlinh",
-    "kind": "region",
-    "name": "Tánh Linh",
-    "name_vi": "Tánh Linh",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhlinh",
+    "slug": "market:vn-lamdong-dahuoai:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
   {
@@ -34721,15 +35909,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Рынок электромобилей и электробайков во Вьетнаме сильно меняется после официального выхода Tesla на рынок."
   },
   {
-    "slug": "vn-lamdong-x-tanhalamha",
-    "kind": "region",
-    "name": "Tân Hà Lâm Hà",
-    "name_vi": "Tân Hà Lâm Hà",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tanhalamha",
-    "summary_ru": null
-  },
-  {
     "slug": "company:petrovietnam",
     "kind": "company",
     "name": "Vietnam National Industry - Energy Group",
@@ -34739,21 +35918,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Нефтегазовая госкорпорация, крупнейшая компания страны по выручке: 651 трлн донгов за 2025 год."
   },
   {
+    "slug": "vn-lamdong-x-tanhalamha",
+    "kind": "region",
+    "name": "Tân Hà Lâm Hà",
+    "name_vi": "Tân Hà Lâm Hà",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-tanhalamha",
+    "summary_ru": null
+  },
+  {
     "slug": "vn-lamdong-x-tanhai",
     "kind": "region",
     "name": "Tân Hải",
     "name_vi": "Tân Hải",
     "name_ru": null,
     "region_slug": "vn-lamdong-x-tanhai",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:1407f91d-0c25-4fb5-8627-1d8950aafd7d",
-    "kind": "source",
-    "name": "814 thí sinh Lâm Đồng dự thi chọn đội tuyển học sinh giỏi quốc gia",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -34766,13 +35945,49 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:zone:dalat-center:pharmacy",
-    "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "zone:dalat-center",
+    "slug": "source:1407f91d-0c25-4fb5-8627-1d8950aafd7d",
+    "kind": "source",
+    "name": "814 thí sinh Lâm Đồng dự thi chọn đội tuyển học sinh giỏi quốc gia",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
     "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-beer",
+    "kind": "market",
+    "name": "Vietnam beer market",
+    "name_vi": null,
+    "name_ru": "Пивной рынок Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Heineken и Sabeco делят верх, Habeco держит север, Carlsberg центральные провинции."
   },
   {
     "slug": "company:intimex-group",
@@ -34802,21 +36017,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:zone:lienkhuong:clinic",
+    "slug": "market:vn-lamdong-dateh:pharmacy",
     "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "zone:lienkhuong",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-dateh",
     "summary_ru": null
   },
   {
-    "slug": "market:zone:namban-home:clinic",
+    "slug": "market:vn-lamdong-lamha:car_repair",
     "kind": "market",
-    "name": "Клиники и врачи",
-    "name_vi": "Phòng khám",
-    "name_ru": "Клиники и врачи",
-    "region_slug": "zone:namban-home",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -34863,6 +36096,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Мужчина погиб после столкновения мотоцикла с грузовиком в Лам Донге",
     "region_slug": "vn-lamdong",
     "summary_ru": "Мотоциклист врезался в грузовик и погиб в Лам Донге; на месте ДТП возможны заторы."
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
   },
   {
     "slug": "source:b6ea8d8c-69aa-4d00-9270-ca64d8d610f3",
@@ -34919,21 +36161,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "В отдалённых районах Ламдонга проводят бесплатные медосмотры с выездом к жителям. На дорожное движение влияния не оказывает."
   },
   {
-    "slug": "vn-lamdong-x-thuanan",
-    "kind": "region",
-    "name": "Thuận An",
-    "name_vi": "Thuận An",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-thuanan",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-x-tratan",
-    "kind": "region",
-    "name": "Trà Tân",
-    "name_vi": "Trà Tân",
-    "name_ru": null,
-    "region_slug": "vn-lamdong-x-tratan",
+    "slug": "market:zone:namban-home:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "zone:namban-home",
     "summary_ru": null
   },
   {
@@ -34946,30 +36179,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Две женщины утонули при купании в море в Муйне (Ламдонг). Напоминание об опасности купания в штормовую погоду — туристический трафик на побережье может снизиться."
   },
   {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:beauty_salon",
+    "slug": "market:vn-property",
     "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
+    "name": "Vietnam residential property",
+    "name_vi": null,
+    "name_ru": "Жилая недвижимость Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Vinhomes - крупнейший девелопер, в 2025 году законтрактовал продажи на 205,3 трлн донгов."
   },
   {
-    "slug": "market:vn-lamdong-damrong:beauty_salon",
+    "slug": "market:vn-dairy",
     "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
+    "name": "Vietnam dairy market",
+    "name_vi": null,
+    "name_ru": "Молочный рынок Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Рынок, где Vinamilk держит около половины, FrieslandCampina четверть, TH и Nestlé по 7 процентов."
   },
   {
     "slug": "vn-lamdong-x-donduong",
     "kind": "region",
-    "name": "Don Duong",
+    "name": "Đơn Dương",
     "name_vi": "Đơn Dương",
-    "name_ru": "Дондыонг",
-    "region_slug": "vn-lamdong-donduong",
+    "name_ru": null,
+    "region_slug": "vn-lamdong-x-donduong",
     "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
   },
   {
@@ -34982,31 +36215,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Провинция с металлургическим комплексом Hòa Phát Dung Quất."
   },
   {
-    "slug": "market:vn-lamdong-dateh:beauty_salon",
+    "slug": "market:vn-mobile",
     "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:lienkhuong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
+    "name": "Vietnam mobile market",
+    "name_vi": null,
+    "name_ru": "Рынок мобильной связи Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "127 млн активных подключений при населении 101,6 млн. Viettel около 56 процентов."
   },
   {
     "slug": "source:40d8c79d-f6ef-4a3b-add2-2902846f1125",
@@ -35063,15 +36278,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Сводка новостей провинции Ламдонг за 14 сентября от газеты Báo Lâm Đồng."
   },
   {
-    "slug": "market:zone:namban-home:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
     "slug": "source:83a13a55-2562-4bfb-a39e-bfc7695a1e80",
     "kind": "source",
     "name": "Возбуждено дело против группы, подделывавшей документы на покупку социального жилья в Phú Thọ",
@@ -35079,15 +36285,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Возбуждено дело против группы, подделывавшей документы на покупку социального жилья в Phú Thọ",
     "region_slug": "vn-lamdong",
     "summary_ru": "Полиция расследует два случая подделки документов для покупки социального жилья в жилом комплексе в бывшем городе Vĩnh Yên."
-  },
-  {
-    "slug": "vn-bacninh",
-    "kind": "region",
-    "name": "Бакнинь",
-    "name_vi": "Bắc Ninh",
-    "name_ru": "Бакнинь",
-    "region_slug": "vn-bacninh",
-    "summary_ru": null
   },
   {
     "slug": "company:bao-loc-silk",
@@ -35108,39 +36305,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Кофейный экспортёр из Gia Lai, в 2025 году вышел на первое место по экспортной выручке: свыше 520 млн долларов и 120,51 тысячи тонн, обойдя многолетнего лидера Intimex."
   },
   {
-    "slug": "market:vn-lamdong-dahuoai:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:coworking",
-    "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "slug": "vn-bacninh",
+    "kind": "region",
+    "name": "Бакнинь",
+    "name_vi": "Bắc Ninh",
+    "name_ru": "Бакнинь",
+    "region_slug": "vn-bacninh",
     "summary_ru": null
   },
   {
@@ -35153,21 +36323,48 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
-    "slug": "market:vn-lamdong-dateh:coworking",
+    "slug": "market:vn-lamdong-dahuoai:restaurant",
     "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-dateh",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:coworking",
+    "slug": "market:vn-lamdong-dahuoai:language_school",
     "kind": "market",
-    "name": "Коворкинги",
-    "name_vi": "Không gian làm việc chung",
-    "name_ru": "Коворкинги",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
   {
@@ -35207,6 +36404,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dilinh:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dilinh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
     "slug": "source:01abb34c-d8e8-4d79-a00c-43ca495b7471",
     "kind": "source",
     "name": "Группа иностранных подозреваемых ограбила ювелирный магазин в Даклаке",
@@ -35216,21 +36431,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Группа иностранных подозреваемых, мужчины и женщины, ограбила ювелирный магазин в квартале Сонг Кау провинции Даклак."
   },
   {
-    "slug": "source:0dea7ce6-2c38-4ed3-92b4-90adee350b9b",
-    "kind": "source",
-    "name": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
-    "name_vi": null,
-    "name_ru": "Улицы Ханоя затоплены после ночных ливней, пробки у моста Винь Тью",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Сильные дожди вызвали затопления на многих улицах Ханоя, утром 15 сентября серьёзные заторы у моста Винь Тью."
+    "slug": "market:vn-lamdong-ductrong-liennghia:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baoloc:restaurant",
+    "slug": "market:vn-lamdong-lamha:kindergarten",
     "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-baoloc",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
     "summary_ru": null
   },
   {
@@ -35261,21 +36485,48 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Молочный рынок Вьетнама: сырое молоко, UHT, йогурты, сухие смеси. Импортозависим по сырью, сильно консолидирован."
   },
   {
-    "slug": "market:vn-lamdong-baolam:homestay",
+    "slug": "market:vn-lamdong-cattien:real_estate_agency",
     "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-baolam",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baolam:bakery",
+    "slug": "market:vn-lamdong-dalat:real_estate_agency",
     "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-baolam",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
     "summary_ru": null
   },
   {
@@ -35288,11 +36539,11 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Мобильная связь, фиксированный интернет, ЦОДы. Три госоператора держат более 90 процентов рынка."
   },
   {
-    "slug": "market:vn-lamdong-baolam:gym",
+    "slug": "market:vn-lamdong-baolam:florist",
     "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
     "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
@@ -35306,12 +36557,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Жилая и коммерческая недвижимость. Главный генератор денег вьетнамских холдингов и главный источник их кризисов."
   },
   {
-    "slug": "market:vn-lamdong-baolam:pharmacy",
+    "slug": "market:zone:namban-home:laundry",
     "kind": "market",
-    "name": "Аптеки",
-    "name_vi": "Nhà thuốc",
-    "name_ru": "Аптеки",
-    "region_slug": "vn-lamdong-baolam",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-lacduong",
     "summary_ru": null
   },
   {
@@ -35333,21 +36593,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Гостиницы, курорты, транспорт, парки. В 2025 году страна приняла 21,17 млн иностранных гостей."
   },
   {
+    "slug": "market:vn-lamdong-dalat:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat-xuanhuong:real_estate_agency",
     "kind": "market",
     "name": "Агентства недвижимости",
     "name_vi": "Môi giới bất động sản",
     "name_ru": "Агентства недвижимости",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -35360,40 +36638,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Десятки неиспользуемых госзданий и участков в Ка Мау и Бак Лиу сдают в краткосрочную аренду."
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:massage",
+    "slug": "market:vn-grocery-retail",
     "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
+    "name": "Vietnam modern grocery retail",
+    "name_vi": null,
+    "name_ru": "Современная продуктовая розница Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "14 млрд долларов в 2025 году, рост 19 процентов. Лидеры WinCommerce, Bách Hóa Xanh, Saigon Co.op, Central Retail, AEON."
   },
   {
-    "slug": "market:vn-lamdong-cattien:travel_agency",
+    "slug": "market:vn-coffee-export",
     "kind": "market",
-    "name": "Турагентства",
-    "name_vi": "Đại lý du lịch",
-    "name_ru": "Турагентства",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:laundry",
-    "kind": "market",
-    "name": "Прачечные",
-    "name_vi": "Giặt là",
-    "name_ru": "Прачечные",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lacduong:massage",
-    "kind": "market",
-    "name": "Массаж",
-    "name_vi": "Mát-xa",
-    "name_ru": "Массаж",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
+    "name": "Vietnam coffee export market",
+    "name_vi": null,
+    "name_ru": "Экспорт кофе из Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Экспорт зелёного кофе, почти целиком робуста. Топ экспортёров: Vĩnh Hiệp, Intimex, Simexco, Louis Dreyfus, Nestlé."
   },
   {
     "slug": "sector:coffee",
@@ -35414,6 +36674,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Сталь и прокат. Рынок замкнут на Hòa Phát и Formosa Hà Tĩnh."
   },
   {
+    "slug": "market:vn-ride-hailing",
+    "kind": "market",
+    "name": "Vietnam ride hailing",
+    "name_vi": null,
+    "name_ru": "Заказ поездок во Вьетнаме",
+    "region_slug": "vn",
+    "summary_ru": "К четвёртому кварталу 2025 Xanh SM обошла Grab по обороту: 51,5 против 42,64 процента."
+  },
+  {
     "slug": "source:284d9e5e-035e-4aab-95fd-9970fc0a0a89",
     "kind": "source",
     "name": "Благотворительная «Зелёная кухня» у моря",
@@ -35432,20 +36701,20 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Сборка и продажа автомобилей. Thaco и Hyundai Thành Công держат ДВС, VinFast толкает электромобили."
   },
   {
+    "slug": "market:vn-steel",
+    "kind": "market",
+    "name": "Vietnam steel market",
+    "name_vi": null,
+    "name_ru": "Рынок стали Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Строительная арматура и горячекатаный рулон. Hòa Phát - крупнейший производитель."
+  },
+  {
     "slug": "market:vn-lamdong-donduong:language_school",
     "kind": "market",
     "name": "Языковые школы",
     "name_vi": "Trung tâm ngoại ngữ",
     "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-donduong:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
     "region_slug": "vn-lamdong-donduong",
     "summary_ru": null
   },
@@ -35459,22 +36728,22 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Госбанки Big-4 и частные банки, каждый крупный холдинг связан со своим банком."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:spa",
+    "slug": "market:vn-aviation",
     "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
+    "name": "Vietnam air travel market",
+    "name_vi": null,
+    "name_ru": "Рынок авиаперевозок Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Vietnam Airlines и Vietjet делят основной объём, Bamboo Airways фактически выбыл."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:hotel",
+    "slug": "market:vn-coffee-chains",
     "kind": "market",
-    "name": "Отели",
-    "name_vi": "Khách sạn",
-    "name_ru": "Отели",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
+    "name": "Vietnam branded coffee shops",
+    "name_vi": null,
+    "name_ru": "Сетевые кофейни Вьетнама",
+    "region_slug": "vn",
+    "summary_ru": "Более 5100 точек к 2025 году. Highlands Coffee крупнейшая сеть."
   },
   {
     "slug": "sector:agriculture",
@@ -35495,30 +36764,111 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Нефть, газ, электроэнергия. PVN и EVN дают вместе около 1,3 квадриллиона донгов выручки."
   },
   {
-    "slug": "market:vn-lamdong-lacduong:homestay",
+    "slug": "market:lamdong-tourism",
     "kind": "market",
-    "name": "Гостевые дома и хоумстеи",
-    "name_vi": "Nhà nghỉ, homestay",
-    "name_ru": "Гостевые дома и хоумстеи",
-    "region_slug": "vn-lamdong-lacduong",
+    "name": "Lam Dong tourism market",
+    "name_vi": null,
+    "name_ru": "Туристический рынок Lâm Đồng",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "20,7 млн визитов и 56,6 трлн донгов выручки за 2025 год по новым границам провинции."
+  },
+  {
+    "slug": "market:lamdong-flowers",
+    "kind": "market",
+    "name": "Lam Dong cut flower market",
+    "name_vi": null,
+    "name_ru": "Рынок срезанных цветов Lâm Đồng",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Đà Lạt даёт основную массу срезанных цветов страны. Крупнейший игрок - Dalat Hasfarm."
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dongthanh:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha-dongthanh",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lacduong:coffee_shop",
+    "slug": "company:futa-bus-lines",
+    "kind": "company",
+    "name": "Phuong Trang FUTA Bus Lines",
+    "name_vi": "Công ty CP Xe khách Phương Trang FUTA Bus Lines",
+    "name_ru": "Фыонг Чанг ФУТА",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": "Крупнейший междугородный автобусный оператор Юга. Основан в 2001 году тремя акционерами во главе с Нгуен Хыу Луаном, головной офис зарегистрирован в Đà Lạt на улице Tô Hiến Thành. Начинали с пяти-десяти автобусов, сегодня более 20 млн пассажиров в год, свыше 250 касс и станций, более 1600 рейсов в сутки. Держит основной поток Хошимин - Đà Lạt."
+  },
+  {
+    "slug": "market:lamdong-silk",
     "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lacduong",
+    "name": "Bao Loc silk market",
+    "name_vi": null,
+    "name_ru": "Шёлковый рынок Bảo Lộc",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Bảo Lộc - столица вьетнамского шелководства с 1960-х, сегодня отрасль восстанавливается после ухода в кофе и чай."
+  },
+  {
+    "slug": "market:vn-lamdong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lacduong:restaurant",
+    "slug": "market:vn-lamdong-damrong:bank",
     "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lacduong",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -35531,15 +36881,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lacduong:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lacduong",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lacduong:bakery",
     "kind": "market",
     "name": "Пекарни",
@@ -35547,15 +36888,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Пекарни",
     "region_slug": "vn-lamdong-lacduong",
     "summary_ru": null
-  },
-  {
-    "slug": "company:futa-bus-lines",
-    "kind": "company",
-    "name": "Phuong Trang FUTA Bus Lines",
-    "name_vi": "Công ty CP Xe khách Phương Trang FUTA Bus Lines",
-    "name_ru": "Фыонг Чанг ФУТА",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": "Крупнейший междугородный автобусный оператор Юга. Основан в 2001 году тремя акционерами во главе с Нгуен Хыу Луаном, головной офис зарегистрирован в Đà Lạt на улице Tô Hiến Thành. Начинали с пяти-десяти автобусов, сегодня более 20 млн пассажиров в год, свыше 250 касс и станций, более 1600 рейсов в сутки. Держит основной поток Хошимин - Đà Lạt."
   },
   {
     "slug": "market:vn-lamdong-lacduong:gym",
@@ -35711,6 +37043,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dalat-tanung:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat-tanung:car_repair",
     "kind": "market",
     "name": "Автосервисы",
@@ -35735,6 +37076,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Đại lý du lịch",
     "name_ru": "Турагентства",
     "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "zone:dalat-center",
     "summary_ru": null
   },
   {
@@ -35807,6 +37166,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Cửa hàng hoa",
     "name_ru": "Цветочные",
     "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -35891,6 +37259,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:zone:namban-home:clinic",
+    "kind": "market",
+    "name": "Клиники и врачи",
+    "name_vi": "Phòng khám",
+    "name_ru": "Клиники и врачи",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lacduong:laundry",
     "kind": "market",
     "name": "Прачечные",
@@ -35963,12 +37340,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat:homestay",
     "kind": "market",
     "name": "Гостевые дома и хоумстеи",
     "name_vi": "Nhà nghỉ, homestay",
     "name_ru": "Гостевые дома и хоумстеи",
     "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -35986,6 +37381,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name": "Цветочные",
     "name_vi": "Cửa hàng hoa",
     "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
     "region_slug": "vn-lamdong-dateh",
     "summary_ru": null
   },
@@ -36008,12 +37412,57 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:zone:namban-home:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lamha:florist",
     "kind": "market",
     "name": "Цветочные",
     "name_vi": "Cửa hàng hoa",
     "name_ru": "Цветочные",
     "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
   },
   {
@@ -36404,6 +37853,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-baoloc:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dilinh:travel_agency",
     "kind": "market",
     "name": "Турагентства",
@@ -36557,6 +38015,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-baolam:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-ductrong:bank",
     "kind": "market",
     "name": "Банки",
@@ -36608,6 +38084,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Nhà thuốc",
     "name_ru": "Аптеки",
     "region_slug": "vn-lamdong-donduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
@@ -36746,6 +38231,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-baolam:pharmacy",
+    "kind": "market",
+    "name": "Аптеки",
+    "name_vi": "Nhà thuốc",
+    "name_ru": "Аптеки",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-ductrong:homestay",
     "kind": "market",
     "name": "Гостевые дома и хоумстеи",
@@ -36881,6 +38375,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-damrong:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-ductrong:coworking",
     "kind": "market",
     "name": "Коворкинги",
@@ -36968,6 +38471,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Khách sạn",
     "name_ru": "Отели",
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-liennghia:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lacduong",
     "summary_ru": null
   },
   {
@@ -37079,6 +38618,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:e3260b67-a1f4-4764-bb50-1e65f12a84e0",
+    "kind": "source",
+    "name": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "name_vi": null,
+    "name_ru": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ламдонг ускоряет подготовку площадок под проекты скоростных автодорог."
+  },
+  {
+    "slug": "source:1994b87f-a071-4049-b4a5-62790cc3bd38",
+    "kind": "source",
+    "name": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "name_vi": null,
+    "name_ru": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "За более чем неделю поисков отряд K72 собрал останки 5 вьетнамских военных специалистов и добровольцев в Камбодже."
+  },
+  {
     "slug": "market:vn-lamdong-ductrong-lienkhuong:hotel",
     "kind": "market",
     "name": "Отели",
@@ -37124,6 +38681,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "vn-lamdong-donduong",
+    "kind": "region",
+    "name": "Донзыонг",
+    "name_vi": "Đơn Dương",
+    "name_ru": "Донзыонг",
+    "region_slug": "vn-lamdong-donduong",
+    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
+  },
+  {
     "slug": "market:vn-lamdong-lacduong:language_school",
     "kind": "market",
     "name": "Языковые школы",
@@ -37160,6 +38726,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dalat:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong:travel_agency",
     "kind": "market",
     "name": "Турагентства",
@@ -37178,6 +38753,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-ductrong-liennghia:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-baoloc:spa",
     "kind": "market",
     "name": "Спа",
@@ -37187,21 +38771,21 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-cattien:spa",
-    "kind": "market",
-    "name": "Спа",
-    "name_vi": "Spa",
-    "name_ru": "Спа",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha-dongthanh:restaurant",
     "kind": "market",
     "name": "Рестораны",
     "name_vi": "Nhà hàng",
     "name_ru": "Рестораны",
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-donduong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-donduong",
     "summary_ru": null
   },
   {
@@ -37250,12 +38834,66 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-lamha:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lamha-dongthanh:dental",
     "kind": "market",
     "name": "Стоматологии",
     "name_vi": "Nha khoa",
     "name_ru": "Стоматологии",
     "region_slug": "vn-lamdong-lamha-dongthanh",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:461154ee-0199-47eb-8c1c-ec31bfb52a89",
+    "kind": "source",
+    "name": "Vụ người nước ngoài cướp tiệm vàng: Tiếng chuông báo động khẩn cấp",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:4a4f79a1-8ec5-42a0-99a4-72ad4a03921a",
+    "kind": "source",
+    "name": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
+    "name_vi": null,
+    "name_ru": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Провинция Ламдонг договорилась о сотрудничестве с группой Lulu International по переработке местной сельхозпродукции. Экономическая новость провинции, на дороги напрямую не влияет."
+  },
+  {
+    "slug": "source:5b730c26-b01e-47e4-bf31-f0d305f375b5",
+    "kind": "source",
+    "name": "В могиле 17 солдат в Дананге найдены артефакты",
+    "name_vi": null,
+    "name_ru": "В могиле 17 солдат в Дананге найдены артефакты",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "При эксгумации 17 останков в общине Тхубон найдены вещи бойцов-диверсантов 1970 года."
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
     "summary_ru": null
   },
   {
@@ -37277,6 +38915,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-ductrong-liennghia:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:67e93cf6-59f2-4aa8-8605-d96473d652df",
+    "kind": "source",
+    "name": "Молодой человек странно вёл себя на перилах моста в Куангчи",
+    "name_vi": null,
+    "name_ru": "Молодой человек странно вёл себя на перилах моста в Куангчи",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция Куангчи сняла молодого человека с перил моста и отвела в безопасное место."
+  },
+  {
+    "slug": "source:e67ea055-7973-486b-84e9-948212eb3c54",
+    "kind": "source",
+    "name": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
+    "name_vi": null,
+    "name_ru": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Дананг завершил забор образцов для ДНК-экспертизы из 26 000 могил на 144 кладбищах до сезона дождей."
+  },
+  {
     "slug": "market:vn-lamdong-baolam:massage",
     "kind": "market",
     "name": "Массаж",
@@ -37295,6 +38969,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-cattien:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat:spa",
     "kind": "market",
     "name": "Спа",
@@ -37304,12 +38996,57 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-damrong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:a5fe3d06-5127-47a3-91df-ebe204409b08",
+    "kind": "source",
+    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat-xuanhuong:spa",
     "kind": "market",
     "name": "Спа",
     "name_vi": "Spa",
     "name_ru": "Спа",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:hotel",
+    "kind": "market",
+    "name": "Отели",
+    "name_vi": "Khách sạn",
+    "name_ru": "Отели",
+    "region_slug": "vn-lamdong-lacduong",
     "summary_ru": null
   },
   {
@@ -37376,6 +39113,33 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:zone:dalat-center:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "source:678cf372-21ee-49a3-8dfa-38ac0c13b76f",
+    "kind": "source",
+    "name": "Công an Lâm Đồng tập huấn công nghệ thông tin, bồi dưỡng kỹ năng số",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:zone:dalat-center:coffee_shop",
     "kind": "market",
     "name": "Кофейни",
@@ -37401,6 +39165,105 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Кофейни",
     "region_slug": "zone:namban-home",
     "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2026-02-16",
+    "kind": "event",
+    "name": "Giao thừa Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-26",
+    "kind": "event",
+    "name": "Ngày Giỗ Tổ Hùng Vương",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-27",
+    "kind": "event",
+    "name": "Ngày Giỗ Tổ Hùng Vương (nghỉ bù)",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-04-30",
+    "kind": "event",
+    "name": "Ngày Chiến thắng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-05-01",
+    "kind": "event",
+    "name": "Ngày Quốc tế Lao động",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2026-09-02",
+    "kind": "event",
+    "name": "Quốc khánh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:school-2026-2027-term1",
+    "kind": "event",
+    "name": "Учебный период: I семестр 2026-2027",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "18 учебных недель, конец до 18 января. Внутри периода будни это школьные дни: утренний и дневной поток родителей и школьников."
+  },
+  {
+    "slug": "event:seed:school-2026-2027-open",
+    "kind": "event",
+    "name": "Khai giảng: единая линейка, начало учебного года 2026-2027",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Линейка по всей стране 5 сентября. Утренний поток к школам региона с этого дня становится будничным фактором."
+  },
+  {
+    "slug": "event:seed:festival-hoa-dalat-2026",
+    "kind": "event",
+    "name": "Festival Hoa Đà Lạt lần thứ XI",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Главный туристический пик города: открытие 19.12 на площади Lâm Viên, закрытие вечером 31.12. Даты объявлены как предварительные, отсюда certainty=expected."
+  },
+  {
+    "slug": "event:seed:holiday-2027-01-01",
+    "kind": "event",
+    "name": "Tết Dương lịch",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
     "slug": "market:vn-lamdong-cattien:restaurant",
@@ -37430,12 +39293,129 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "event:seed:school-2026-2027-term2",
+    "kind": "event",
+    "name": "Учебный период: II семестр 2026-2027",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "17 учебных недель, учебный год кончается до 31 мая. Внутри периода лежат каникулы Тэта, они приходят отдельными строками праздников."
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-05",
+    "kind": "event",
+    "name": "Giao thừa Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-06",
+    "kind": "event",
+    "name": "Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-08",
+    "kind": "event",
+    "name": "Mùng ba Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-10",
+    "kind": "event",
+    "name": "Mùng năm Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-04-16",
+    "kind": "event",
+    "name": "Ngày Giỗ Tổ Hùng Vương",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-04-30",
+    "kind": "event",
+    "name": "Ngày Chiến thắng",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-05-01",
+    "kind": "event",
+    "name": "Ngày Quốc tế Lao động",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:holiday-2027-05-03",
+    "kind": "event",
+    "name": "Ngày Quốc tế Lao động (nghỉ bù)",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "event:seed:school-2027-summer",
+    "kind": "event",
+    "name": "Летние каникулы 2027",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Школьного потока нет, зато это высокий сезон внутреннего туризма в Đà Lạt. Границы взяты из рамочного плана, приказа провинции на 2027-2028 ещё нет, отсюда certainty=expected."
+  },
+  {
+    "slug": "event:seed:school-2027-thpt-exam",
+    "kind": "event",
+    "name": "Экзамены THPT 2027",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Выпускные экзамены: два дня с утренним потоком к пунктам сдачи и сопровождающими родителями."
+  },
+  {
+    "slug": "event:seed:holiday-2027-09-03",
+    "kind": "event",
+    "name": "Quốc khánh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
     "slug": "market:vn-lamdong-dalat-xuanhuong:pharmacy",
     "kind": "market",
     "name": "Аптеки",
     "name_vi": "Nhà thuốc",
     "name_ru": "Аптеки",
     "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:homestay",
+    "kind": "market",
+    "name": "Гостевые дома и хоумстеи",
+    "name_vi": "Nhà nghỉ, homestay",
+    "name_ru": "Гостевые дома и хоумстеи",
+    "region_slug": "vn-lamdong-lacduong",
     "summary_ru": null
   },
   {
@@ -37481,6 +39461,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Tiệm bánh",
     "name_ru": "Пекарни",
     "region_slug": "vn-lamdong-dalat-tanung",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:massage",
+    "kind": "market",
+    "name": "Массаж",
+    "name_vi": "Mát-xa",
+    "name_ru": "Массаж",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
     "summary_ru": null
   },
   {
@@ -37535,6 +39533,42 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Spa",
     "name_ru": "Спа",
     "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lacduong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lacduong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:spa",
+    "kind": "market",
+    "name": "Спа",
+    "name_vi": "Spa",
+    "name_ru": "Спа",
+    "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
   },
   {
@@ -37772,22 +39806,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:e3260b67-a1f4-4764-bb50-1e65f12a84e0",
-    "kind": "source",
-    "name": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
-    "name_vi": null,
-    "name_ru": "Ламдонг ускоряет расчистку площадок под два скоростных шоссе",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ламдонг ускоряет подготовку площадок под проекты скоростных автодорог."
-  },
-  {
-    "slug": "source:1994b87f-a071-4049-b4a5-62790cc3bd38",
-    "kind": "source",
-    "name": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
-    "name_vi": null,
-    "name_ru": "Отряд K72 нашёл останки 5 павших солдат в Камбодже",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "За более чем неделю поисков отряд K72 собрал останки 5 вьетнамских военных специалистов и добровольцев в Камбодже."
+    "slug": "market:vn-lamdong-ductrong-liennghia:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
   },
   {
     "slug": "market:zone:namban-home:homestay",
@@ -37817,15 +39842,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-dalat-xuanhuong:coffee_shop",
     "kind": "market",
     "name": "Кофейни",
@@ -37841,33 +39857,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Quán cà phê",
     "name_ru": "Кофейни",
     "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "vn-lamdong-donduong",
-    "kind": "region",
-    "name": "Донзыонг",
-    "name_vi": "Đơn Dương",
-    "name_ru": "Донзыонг",
-    "region_slug": "vn-lamdong-donduong",
-    "summary_ru": "Район с гидроузлом Đa Nhim и овощными хозяйствами долины Đơn Dương."
-  },
-  {
-    "slug": "source:a348b70e-ce20-4f94-95d5-8c2d37e24b87",
-    "kind": "source",
-    "name": "Quảng Khê khoanh vùng, cảnh báo vị trí mặt đường có vết nứt",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2af3987e-6457-4fcc-957f-e4ef822fd5ae",
-    "kind": "source",
-    "name": "Thanh Hóa: 2 nhà dân đổ nghiêng trong mưa lớn, 60 người phải sơ tán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
     "summary_ru": null
   },
   {
@@ -37898,150 +39887,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:44301549-085e-48d0-9259-181adb3ad755",
-    "kind": "source",
-    "name": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
-    "name_vi": null,
-    "name_ru": "Ламдонг: пассажирским перевозчикам нужно строго соблюдать новые правила",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция провинции требует от пассажирских автоперевозчиков соблюдать новые нормы и предупреждать нарушения."
-  },
-  {
-    "slug": "source:f18b4a1e-a76c-46dd-8152-d1f41cb29f9c",
-    "kind": "source",
-    "name": "Cà Mau đặt mục tiêu hoàn thành khám sức khỏe người dân trong tháng 10",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2a7fd21a-84ac-4f30-a1fa-208f4b7dde6e",
-    "kind": "source",
-    "name": "Hơn 3.100 vận động viên tham gia Đại hội Thể dục thể thao tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b5862da1-306f-4dff-8306-ac956a625ef7",
-    "kind": "source",
-    "name": "Hơn 40 người nghi ngộ độc thực phẩm sau khi ăn bánh mì ở tiệm mới mở",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:coffee_shop",
-    "kind": "market",
-    "name": "Кофейни",
-    "name_vi": "Quán cà phê",
-    "name_ru": "Кофейни",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:461154ee-0199-47eb-8c1c-ec31bfb52a89",
-    "kind": "source",
-    "name": "Vụ người nước ngoài cướp tiệm vàng: Tiếng chuông báo động khẩn cấp",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
     "slug": "market:zone:dalat-center:restaurant",
     "kind": "market",
     "name": "Рестораны",
@@ -38057,303 +39902,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Nhà hàng",
     "name_ru": "Рестораны",
     "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:4a4f79a1-8ec5-42a0-99a4-72ad4a03921a",
-    "kind": "source",
-    "name": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
-    "name_vi": null,
-    "name_ru": "Ламдонг и группа Lulu International открывают сотрудничество от сырьевой зоны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Ламдонг договорилась о сотрудничестве с группой Lulu International по переработке местной сельхозпродукции. Экономическая новость провинции, на дороги напрямую не влияет."
-  },
-  {
-    "slug": "source:5b730c26-b01e-47e4-bf31-f0d305f375b5",
-    "kind": "source",
-    "name": "В могиле 17 солдат в Дананге найдены артефакты",
-    "name_vi": null,
-    "name_ru": "В могиле 17 солдат в Дананге найдены артефакты",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "При эксгумации 17 останков в общине Тхубон найдены вещи бойцов-диверсантов 1970 года."
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:kindergarten",
-    "kind": "market",
-    "name": "Детские сады",
-    "name_vi": "Trường mầm non",
-    "name_ru": "Детские сады",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:67e93cf6-59f2-4aa8-8605-d96473d652df",
-    "kind": "source",
-    "name": "Молодой человек странно вёл себя на перилах моста в Куангчи",
-    "name_vi": null,
-    "name_ru": "Молодой человек странно вёл себя на перилах моста в Куангчи",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Куангчи сняла молодого человека с перил моста и отвела в безопасное место."
-  },
-  {
-    "slug": "source:e67ea055-7973-486b-84e9-948212eb3c54",
-    "kind": "source",
-    "name": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
-    "name_vi": null,
-    "name_ru": "Дананг завершил забор ДНК почти из 26 000 могил павших солдат",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Дананг завершил забор образцов для ДНК-экспертизы из 26 000 могил на 144 кладбищах до сезона дождей."
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:florist",
-    "kind": "market",
-    "name": "Цветочные",
-    "name_vi": "Cửa hàng hoa",
-    "name_ru": "Цветочные",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a5fe3d06-5127-47a3-91df-ebe204409b08",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a37790ce-794d-42fe-b9b6-e74005851084",
-    "kind": "source",
-    "name": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
-    "name_vi": null,
-    "name_ru": "Лам Донг и корпорация Lulu International открывают сотрудничество от сырьевой зоны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция предложила Lulu International стать стратегическим дистрибьютором ключевых продуктов региона. На дороги не влияет."
-  },
-  {
-    "slug": "market:zone:lienkhuong:veterinary",
-    "kind": "market",
-    "name": "Ветклиники",
-    "name_vi": "Thú y",
-    "name_ru": "Ветклиники",
-    "region_slug": "zone:lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:restaurant",
-    "kind": "market",
-    "name": "Рестораны",
-    "name_vi": "Nhà hàng",
-    "name_ru": "Рестораны",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baolam:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-baolam",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:678cf372-21ee-49a3-8dfa-38ac0c13b76f",
-    "kind": "source",
-    "name": "Công an Lâm Đồng tập huấn công nghệ thông tin, bồi dưỡng kỹ năng số",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:fast_food",
-    "kind": "market",
-    "name": "Уличная еда",
-    "name_vi": "Quán ăn nhanh",
-    "name_ru": "Уличная еда",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-namban:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha-namban",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-liennghia:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-lamha-dinhvan:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "vn-lamdong-lamha-dinhvan",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:zone:namban-home:bakery",
-    "kind": "market",
-    "name": "Пекарни",
-    "name_vi": "Tiệm bánh",
-    "name_ru": "Пекарни",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-baoloc:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-baoloc",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dahuoai:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dahuoai",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:gym",
-    "kind": "market",
-    "name": "Спортзалы",
-    "name_vi": "Phòng gym",
-    "name_ru": "Спортзалы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
     "summary_ru": null
   },
   {
@@ -38471,6 +40019,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Nhà thuốc",
     "name_ru": "Аптеки",
     "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:coffee_shop",
+    "kind": "market",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
     "summary_ru": null
   },
   {
@@ -38870,15 +40436,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:beauty_salon",
-    "kind": "market",
-    "name": "Салоны красоты",
-    "name_vi": "Thẩm mỹ viện",
-    "name_ru": "Салоны красоты",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha:beauty_salon",
     "kind": "market",
     "name": "Салоны красоты",
@@ -39113,15 +40670,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-dalat:bar",
-    "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-ductrong-lienkhuong:car_rental",
     "kind": "market",
     "name": "Аренда машин",
@@ -39218,6 +40766,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Thuê xe máy",
     "name_ru": "Аренда мотобайков",
     "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
@@ -39356,15 +40913,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:car_repair",
-    "kind": "market",
-    "name": "Автосервисы",
-    "name_vi": "Sửa xe",
-    "name_ru": "Автосервисы",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
-    "summary_ru": null
-  },
-  {
     "slug": "market:vn-lamdong-lamha-namban:car_repair",
     "kind": "market",
     "name": "Автосервисы",
@@ -39455,6 +41003,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-damrong:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lamha:real_estate_agency",
     "kind": "market",
     "name": "Агентства недвижимости",
@@ -39509,21 +41066,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-ductrong-liennghia:bar",
+    "slug": "market:vn-lamdong-baolam:school",
     "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-lamha:bar",
+    "slug": "market:vn-lamdong-lamha-namban:coffee_shop",
     "kind": "market",
-    "name": "Бары",
-    "name_vi": "Quán bar",
-    "name_ru": "Бары",
-    "region_slug": "vn-lamdong-lamha",
+    "name": "Кофейни",
+    "name_vi": "Quán cà phê",
+    "name_ru": "Кофейни",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
     "summary_ru": null
   },
   {
@@ -39536,12 +41102,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-baoloc:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dahuoai:travel_agency",
     "kind": "market",
     "name": "Турагентства",
     "name_vi": "Đại lý du lịch",
     "name_ru": "Турагентства",
     "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:travel_agency",
+    "kind": "market",
+    "name": "Турагентства",
+    "name_vi": "Đại lý du lịch",
+    "name_ru": "Турагентства",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
@@ -39626,66 +41210,48 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-cattien:language_school",
+    "slug": "market:vn-lamdong-lamha-dinhvan:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:language_school",
     "kind": "market",
     "name": "Языковые школы",
     "name_vi": "Trung tâm ngoại ngữ",
     "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat-xuanhuong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dalat-xuanhuong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-damrong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-damrong",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-cattien:motorbike_rental",
-    "kind": "market",
-    "name": "Аренда мотобайков",
-    "name_vi": "Thuê xe máy",
-    "name_ru": "Аренда мотобайков",
-    "region_slug": "vn-lamdong-cattien",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dateh:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-dateh",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-ductrong-lienkhuong:language_school",
-    "kind": "market",
-    "name": "Языковые школы",
-    "name_vi": "Trung tâm ngoại ngữ",
-    "name_ru": "Языковые школы",
-    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -39716,12 +41282,57 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-dateh:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-dalat:kindergarten",
     "kind": "market",
     "name": "Детские сады",
     "name_vi": "Trường mầm non",
     "name_ru": "Детские сады",
     "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:florist",
+    "kind": "market",
+    "name": "Цветочные",
+    "name_vi": "Cửa hàng hoa",
+    "name_ru": "Цветочные",
+    "region_slug": "vn-lamdong-cattien",
     "summary_ru": null
   },
   {
@@ -39734,6 +41345,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-lamha-dinhvan:kindergarten",
+    "kind": "market",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
     "slug": "market:zone:dalat-center:kindergarten",
     "kind": "market",
     "name": "Детские сады",
@@ -39743,12 +41363,12 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:vn-lamdong-baolam:school",
+    "slug": "market:zone:lienkhuong:kindergarten",
     "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "vn-lamdong-baolam",
+    "name": "Детские сады",
+    "name_vi": "Trường mầm non",
+    "name_ru": "Детские сады",
+    "region_slug": "zone:lienkhuong",
     "summary_ru": null
   },
   {
@@ -39815,12 +41435,30 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:zone:lienkhuong:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lamha:school",
     "kind": "market",
     "name": "Школы",
     "name_vi": "Trường học",
     "name_ru": "Школы",
     "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
     "summary_ru": null
   },
   {
@@ -39831,6 +41469,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Супермаркеты",
     "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2027-02-09",
+    "kind": "event",
+    "name": "Mùng bốn Tết Nguyên Đán",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "source:1b3f29e6-2af1-481e-b4f9-747abeeb58cd",
+    "kind": "source",
+    "name": "Там, где каждый дождь вызывает наводнение: жители разгребают мусор метлами и загораживают двери щитами",
+    "name_vi": null,
+    "name_ru": "Там, где каждый дождь вызывает наводнение: жители разгребают мусор метлами и загораживают двери щитами",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Ливень с вечера 14 до утра 15 сентября затопил улицу Нгок Лам в Ханое, нарушив жизнь и торговлю. К Лам Донгу отношения не имеет, но сигнал: в сезон дождей возможны подтопления и на дорогах региона."
   },
   {
     "slug": "market:vn-lamdong-baoloc:supermarket",
@@ -39875,6 +41531,69 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Siêu thị",
     "name_ru": "Супермаркеты",
     "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:restaurant",
+    "kind": "market",
+    "name": "Рестораны",
+    "name_vi": "Nhà hàng",
+    "name_ru": "Рестораны",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:car_rental",
+    "kind": "market",
+    "name": "Аренда машин",
+    "name_vi": "Thuê ô tô",
+    "name_ru": "Аренда машин",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
+  },
+  {
+    "slug": "event:seed:holiday-2027-09-02",
+    "kind": "event",
+    "name": "Quốc khánh",
+    "name_vi": null,
+    "name_ru": null,
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "source:293e3563-f998-4b8b-b059-505695392fa7",
+    "kind": "source",
+    "name": "Отклонён вариант переноса административного центра Кантхо в Нга Бай",
+    "name_vi": null,
+    "name_ru": "Отклонён вариант переноса административного центра Кантхо в Нга Бай",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Из четырёх первоначальных вариантов для нового административного центра Кантхо осталось два участка для изучения."
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-baolam",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:supermarket",
+    "kind": "market",
+    "name": "Супермаркеты",
+    "name_vi": "Siêu thị",
+    "name_ru": "Супермаркеты",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
     "summary_ru": null
   },
   {
@@ -39950,12 +41669,39 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:zone:dalat-center:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:dental",
+    "kind": "market",
+    "name": "Стоматологии",
+    "name_vi": "Nha khoa",
+    "name_ru": "Стоматологии",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-baoloc:bakery",
     "kind": "market",
     "name": "Пекарни",
     "name_vi": "Tiệm bánh",
     "name_ru": "Пекарни",
     "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dahuoai:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dahuoai",
     "summary_ru": null
   },
   {
@@ -39974,6 +41720,60 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Nha khoa",
     "name_ru": "Стоматологии",
     "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:dalat-center:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "zone:dalat-center",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:coworking",
+    "kind": "market",
+    "name": "Коворкинги",
+    "name_vi": "Không gian làm việc chung",
+    "name_ru": "Коворкинги",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-baolam:real_estate_agency",
+    "kind": "market",
+    "name": "Агентства недвижимости",
+    "name_vi": "Môi giới bất động sản",
+    "name_ru": "Агентства недвижимости",
+    "region_slug": "vn-lamdong-baolam",
     "summary_ru": null
   },
   {
@@ -40013,13 +41813,13 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "market:zone:namban-home:school",
-    "kind": "market",
-    "name": "Школы",
-    "name_vi": "Trường học",
-    "name_ru": "Школы",
-    "region_slug": "zone:namban-home",
-    "summary_ru": null
+    "slug": "source:acfbd7c5-4b5b-463f-b70f-a54d1409a5ce",
+    "kind": "source",
+    "name": "Куангчи срочно устраняет последствия наводнения",
+    "name_vi": null,
+    "name_ru": "Куангчи срочно устраняет последствия наводнения",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "После спада воды населённые пункты Куангчи ликвидируют селевые завалы и восстанавливают нормальную жизнь."
   },
   {
     "slug": "market:vn-lamdong-ductrong-lienkhuong:supermarket",
@@ -40055,6 +41855,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_vi": "Cửa hàng tiện lợi",
     "name_ru": "Магазины у дома",
     "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dalat-xuanhuong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
     "summary_ru": null
   },
   {
@@ -40121,6 +41930,51 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:735314a1-712a-4bc8-8185-955fb2580ca8",
+    "kind": "source",
+    "name": "Промышленный кластер Quảng Tâm под угрозой повторного захвата земли",
+    "name_vi": null,
+    "name_ru": "Промышленный кластер Quảng Tâm под угрозой повторного захвата земли",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "На более чем 32 га изъятой земли в кластере Quảng Tâm (Tuy Đức, Lâm Đồng) появились признаки повторного захвата: посадки, насыпи, времянки."
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-dinhvan:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-lamha-namban:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:lienkhuong:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-cattien:convenience",
     "kind": "market",
     "name": "Магазины у дома",
@@ -40166,6 +42020,15 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "market:vn-lamdong-ductrong-liennghia:laundry",
+    "kind": "market",
+    "name": "Прачечные",
+    "name_vi": "Giặt là",
+    "name_ru": "Прачечные",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
     "slug": "market:vn-lamdong-lamha-namban:laundry",
     "kind": "market",
     "name": "Прачечные",
@@ -40184,6 +42047,24 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
+    "slug": "source:fd52e01b-d364-4da5-9409-667560591c79",
+    "kind": "source",
+    "name": "Полиция квартала Xuân Trường в Далате участвует в церемонии посадки деревьев 2026 года",
+    "name_vi": null,
+    "name_ru": "Полиция квартала Xuân Trường в Далате участвует в церемонии посадки деревьев 2026 года",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Полиция квартала Xuân Trường (Далат) приняла участие в церемонии посадки деревьев 2026 года."
+  },
+  {
+    "slug": "source:9acfbe21-748b-4f54-96a6-6c64b4e5f292",
+    "kind": "source",
+    "name": "Небывалая мутная дымка на Западе страны",
+    "name_vi": null,
+    "name_ru": "Небывалая мутная дымка на Западе страны",
+    "region_slug": "vn-lamdong",
+    "summary_ru": "Небо в Камау, Кантхо, Анзянг мутное весь день два дня подряд, даже в солнечные часы."
+  },
+  {
     "slug": "market:vn-lamdong-damrong:florist",
     "kind": "market",
     "name": "Цветочные",
@@ -40193,346 +42074,256 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2026-02-16",
-    "kind": "event",
-    "name": "Giao thừa Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-26",
-    "kind": "event",
-    "name": "Ngày Giỗ Tổ Hùng Vương",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-27",
-    "kind": "event",
-    "name": "Ngày Giỗ Tổ Hùng Vương (nghỉ bù)",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-04-30",
-    "kind": "event",
-    "name": "Ngày Chiến thắng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-05-01",
-    "kind": "event",
-    "name": "Ngày Quốc tế Lao động",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2026-09-02",
-    "kind": "event",
-    "name": "Quốc khánh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:school-2026-2027-term1",
-    "kind": "event",
-    "name": "Учебный период: I семестр 2026-2027",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "18 учебных недель, конец до 18 января. Внутри периода будни это школьные дни: утренний и дневной поток родителей и школьников."
-  },
-  {
-    "slug": "event:seed:school-2026-2027-open",
-    "kind": "event",
-    "name": "Khai giảng: единая линейка, начало учебного года 2026-2027",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Линейка по всей стране 5 сентября. Утренний поток к школам региона с этого дня становится будничным фактором."
-  },
-  {
-    "slug": "event:seed:festival-hoa-dalat-2026",
-    "kind": "event",
-    "name": "Festival Hoa Đà Lạt lần thứ XI",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Главный туристический пик города: открытие 19.12 на площади Lâm Viên, закрытие вечером 31.12. Даты объявлены как предварительные, отсюда certainty=expected."
-  },
-  {
-    "slug": "event:seed:holiday-2027-01-01",
-    "kind": "event",
-    "name": "Tết Dương lịch",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:school-2026-2027-term2",
-    "kind": "event",
-    "name": "Учебный период: II семестр 2026-2027",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "17 учебных недель, учебный год кончается до 31 мая. Внутри периода лежат каникулы Тэта, они приходят отдельными строками праздников."
-  },
-  {
-    "slug": "event:seed:holiday-2027-02-05",
-    "kind": "event",
-    "name": "Giao thừa Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2027-02-06",
-    "kind": "event",
-    "name": "Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "event:seed:holiday-2027-02-08",
-    "kind": "event",
-    "name": "Mùng ba Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:car_rental",
+    "slug": "market:vn-lamdong-dalat:veterinary",
     "kind": "market",
-    "name": "Аренда машин",
-    "name_vi": "Thuê ô tô",
-    "name_ru": "Аренда машин",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
     "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-02-09",
-    "kind": "event",
-    "name": "Mùng bốn Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-damrong:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-02-10",
-    "kind": "event",
-    "name": "Mùng năm Tết Nguyên Đán",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-dateh:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-04-16",
-    "kind": "event",
-    "name": "Ngày Giỗ Tổ Hùng Vương",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-ductrong-liennghia:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-04-30",
-    "kind": "event",
-    "name": "Ngày Chiến thắng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-lamha:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-05-01",
-    "kind": "event",
-    "name": "Ngày Quốc tế Lao động",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-lamha-dinhvan:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-05-03",
-    "kind": "event",
-    "name": "Ngày Quốc tế Lao động (nghỉ bù)",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-lamha-namban:veterinary",
+    "kind": "market",
+    "name": "Ветклиники",
+    "name_vi": "Thú y",
+    "name_ru": "Ветклиники",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:school-2027-summer",
-    "kind": "event",
-    "name": "Летние каникулы 2027",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Школьного потока нет, зато это высокий сезон внутреннего туризма в Đà Lạt. Границы взяты из рамочного плана, приказа провинции на 2027-2028 ещё нет, отсюда certainty=expected."
+    "slug": "market:vn-lamdong-damrong:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:school-2027-thpt-exam",
-    "kind": "event",
-    "name": "Экзамены THPT 2027",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Выпускные экзамены: два дня с утренним потоком к пунктам сдачи и сопровождающими родителями."
+    "slug": "market:vn-lamdong-dateh:fast_food",
+    "kind": "market",
+    "name": "Уличная еда",
+    "name_vi": "Quán ăn nhanh",
+    "name_ru": "Уличная еда",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-09-02",
-    "kind": "event",
-    "name": "Quốc khánh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-lamha-namban:bar",
+    "kind": "market",
+    "name": "Бары",
+    "name_vi": "Quán bar",
+    "name_ru": "Бары",
+    "region_slug": "vn-lamdong-lamha-namban",
+    "summary_ru": null
   },
   {
-    "slug": "event:seed:holiday-2027-09-03",
-    "kind": "event",
-    "name": "Quốc khánh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+    "slug": "market:vn-lamdong-dateh:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
   },
   {
-    "slug": "source:1b3f29e6-2af1-481e-b4f9-747abeeb58cd",
-    "kind": "source",
-    "name": "Там, где каждый дождь вызывает наводнение: жители разгребают мусор метлами и загораживают двери щитами",
-    "name_vi": null,
-    "name_ru": "Там, где каждый дождь вызывает наводнение: жители разгребают мусор метлами и загораживают двери щитами",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ливень с вечера 14 до утра 15 сентября затопил улицу Нгок Лам в Ханое, нарушив жизнь и торговлю. К Лам Донгу отношения не имеет, но сигнал: в сезон дождей возможны подтопления и на дорогах региона."
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
   },
   {
-    "slug": "source:293e3563-f998-4b8b-b059-505695392fa7",
-    "kind": "source",
-    "name": "Отклонён вариант переноса административного центра Кантхо в Нга Бай",
-    "name_vi": null,
-    "name_ru": "Отклонён вариант переноса административного центра Кантхо в Нга Бай",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Из четырёх первоначальных вариантов для нового административного центра Кантхо осталось два участка для изучения."
+    "slug": "market:vn-lamdong-lamha:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha",
+    "summary_ru": null
   },
   {
-    "slug": "source:2da6003a-2052-45bf-8cb5-4567b7328659",
-    "kind": "source",
-    "name": "Что делает Хошимин, чтобы стать направлением медицинского туризма для иностранцев",
-    "name_vi": null,
-    "name_ru": "Что делает Хошимин, чтобы стать направлением медицинского туризма для иностранцев",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Хошимин имеет преимущества для привлечения иностранцев на лечение: опытные специалисты, современные технологии и конкурентные цены."
+    "slug": "market:vn-lamdong-lamha-dinhvan:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "vn-lamdong-lamha-dinhvan",
+    "summary_ru": null
   },
   {
-    "slug": "source:418d1d28-3833-4198-a6eb-278a06fe5b32",
-    "kind": "source",
-    "name": "21 артиллерийский залп в честь государственного визита короля и королевы Таиланда",
-    "name_vi": null,
-    "name_ru": "21 артиллерийский залп в честь государственного визита короля и королевы Таиланда",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Утром 14 сентября в Ханое прошла церемония встречи тайской королевской четы. На движение по дорогам Лам Донга не влияет."
+    "slug": "market:zone:namban-home:bakery",
+    "kind": "market",
+    "name": "Пекарни",
+    "name_vi": "Tiệm bánh",
+    "name_ru": "Пекарни",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
   },
   {
-    "slug": "source:54e10f51-27fa-41ba-b0c2-d7e3798b0cda",
-    "kind": "source",
-    "name": "Сильные дожди: пять гидроэлектростанций Нгеана сбрасывают воду",
-    "name_vi": null,
-    "name_ru": "Сильные дожди: пять гидроэлектростанций Нгеана сбрасывают воду",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Из-за тропической депрессии пять водохранилищ ГЭС в провинции Нгеан начали сброс воды, готовясь к паводкам в низовьях."
+    "slug": "market:vn-lamdong-baoloc:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-baoloc",
+    "summary_ru": null
   },
   {
-    "slug": "source:5c0ae2fa-d3e1-4ea7-afc9-a1c64df2f4b4",
-    "kind": "source",
-    "name": "Получат ли фермеры Донгтхапа доход 145 млн донгов в год к 2030 году?",
-    "name_vi": null,
-    "name_ru": "Получат ли фермеры Донгтхапа доход 145 млн донгов в год к 2030 году?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Донгтхап утвердила план развития экологического сельского хозяйства с целью довести средний доход сельских жителей до 145 млн донгов в год к 2030 году."
+    "slug": "market:vn-lamdong-cattien:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
   },
   {
-    "slug": "source:6d1925aa-18d9-40d5-9099-b790a21ee5b7",
-    "kind": "source",
-    "name": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
-    "name_vi": null,
-    "name_ru": "5-й военный округ объявил кадровые решения в Гиалае, Куангнгай и Дананге",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Дананге 15 сентября объявлены решения министра обороны по кадровым назначениям в штабах 5-го военного округа."
+    "slug": "market:vn-lamdong-dahuoai:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dahuoai",
+    "summary_ru": null
   },
   {
-    "slug": "source:700f7bb8-c656-4881-a2ce-af47b666a7bc",
-    "kind": "source",
-    "name": "Председатель Нгуен Ван Дуок получил дополнительные задачи по науке, инновациям и цифровой трансформации",
-    "name_vi": null,
-    "name_ru": "Председатель Нгуен Ван Дуок получил дополнительные задачи по науке, инновациям и цифровой трансформации",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Хошимин назначил председателя Нгуен Ван Дуока ответственным за развитие науки, технологий, инноваций и цифровой трансформации города."
+    "slug": "market:vn-lamdong-dalat:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dalat",
+    "summary_ru": null
   },
   {
-    "slug": "source:765fef1b-b59a-4bd7-b287-cd4c692a69ee",
-    "kind": "source",
-    "name": "Погода сегодня 15-9: на севере до Нгеана очень сильные дожди",
-    "name_vi": null,
-    "name_ru": "Погода сегодня 15-9: на севере до Нгеана очень сильные дожди",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Сильные и очень сильные дожди в северных провинциях до Нгеана. На Лам Донг не влияет, но возможны изменения погоды в целом по стране."
+    "slug": "market:vn-lamdong-dalat-xuanhuong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-dalat-xuanhuong",
+    "summary_ru": null
   },
   {
-    "slug": "source:7ceb6af6-1cd6-4327-9af3-93aeba417d0d",
-    "kind": "source",
-    "name": "Ламдонг меняет проект скоростной дороги Тан Фу - Бао Лок: сразу 4 полноценные полосы",
-    "name_vi": null,
-    "name_ru": "Ламдонг меняет проект скоростной дороги Тан Фу - Бао Лок: сразу 4 полноценные полосы",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция рассматривает корректировку проекта скоростной автомагистрали Тан Фу - Бао Лок с строительством сразу всех 4 полос по всей трассе."
+    "slug": "market:vn-lamdong-damrong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-damrong",
+    "summary_ru": null
   },
   {
-    "slug": "source:82be43a4-8dfe-4d00-a9d0-d9fe9b12659e",
-    "kind": "source",
-    "name": "Поиск решений задач логистики и циркулярной экономики на вьетнамско-корейских технологиях",
-    "name_vi": null,
-    "name_ru": "Поиск решений задач логистики и циркулярной экономики на вьетнамско-корейских технологиях",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Вьетнамские и корейские компании представили решения по логистике и переработке. На дороги региона сегодня-завтра не влияет."
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:gym",
+    "kind": "market",
+    "name": "Спортзалы",
+    "name_vi": "Phòng gym",
+    "name_ru": "Спортзалы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
   },
   {
-    "slug": "source:881c75da-48ed-442c-a0cc-24931db344fe",
-    "kind": "source",
-    "name": "Управление автодорог: платность на скоростной трассе Кантхо — Ка Мау пока не вводится",
-    "name_vi": null,
-    "name_ru": "Управление автодорог: платность на скоростной трассе Кантхо — Ка Мау пока не вводится",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Сбор платы за проезд на двух участках трассы Кантхо — Ка Мау ещё не начался. Трасса далеко от Лам Донга, но полезно знать для дальних поездок на юг."
+    "slug": "market:vn-lamdong-ductrong-liennghia:beauty_salon",
+    "kind": "market",
+    "name": "Салоны красоты",
+    "name_vi": "Thẩm mỹ viện",
+    "name_ru": "Салоны красоты",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
   },
   {
-    "slug": "source:8d449b88-88e5-4ab1-81cb-01af5f052689",
-    "kind": "source",
-    "name": "Мусор скапливается вокруг центра Бао Лока",
-    "name_vi": null,
-    "name_ru": "Мусор скапливается вокруг центра Бао Лока",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В квартале 1 Бао Лока (Ламдонг) скопились бытовые отходы: мусороперерабатывающий завод временно прекратил приём, жители опасаются загрязнения и эпидемий."
+    "slug": "market:vn-lamdong-ductrong-liennghia:car_repair",
+    "kind": "market",
+    "name": "Автосервисы",
+    "name_vi": "Sửa xe",
+    "name_ru": "Автосервисы",
+    "region_slug": "vn-lamdong-ductrong-liennghia",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-cattien:motorbike_rental",
+    "kind": "market",
+    "name": "Аренда мотобайков",
+    "name_vi": "Thuê xe máy",
+    "name_ru": "Аренда мотобайков",
+    "region_slug": "vn-lamdong-cattien",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-dateh:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-dateh",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:vn-lamdong-ductrong-lienkhuong:language_school",
+    "kind": "market",
+    "name": "Языковые школы",
+    "name_vi": "Trung tâm ngoại ngữ",
+    "name_ru": "Языковые школы",
+    "region_slug": "vn-lamdong-ductrong-lienkhuong",
+    "summary_ru": null
+  },
+  {
+    "slug": "market:zone:namban-home:school",
+    "kind": "market",
+    "name": "Школы",
+    "name_vi": "Trường học",
+    "name_ru": "Школы",
+    "region_slug": "zone:namban-home",
+    "summary_ru": null
   },
   {
     "slug": "market:vn-lamdong-baolam:car_repair",
@@ -40544,132 +42335,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:90be27f6-e57c-403f-9832-ff99ffd82b4e",
-    "kind": "source",
-    "name": "Рынок Ким Льен закрыт без временной площадки: более 200 торговцев в растерянности",
-    "name_vi": null,
-    "name_ru": "Рынок Ким Льен закрыт без временной площадки: более 200 торговцев в растерянности",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Рынок Ким Льен в Ханое приостановил работу из-за пожарных нарушений. Событие в Ханое, к дорогам Лам Донга не относится."
-  },
-  {
-    "slug": "source:98f7b935-ac25-4276-8fa6-7989d3bd9f0b",
-    "kind": "source",
-    "name": "Четверо иностранцев ограбили ювелирный магазин: тревожная сигнализация подключена к дежурной части полиции",
-    "name_vi": null,
-    "name_ru": "Четверо иностранцев ограбили ювелирный магазин: тревожная сигнализация подключена к дежурной части полиции",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция провинции Даклак сообщила о группе иностранцев, ограбивших ювелирный магазин в квартале Шонг Кау."
-  },
-  {
-    "slug": "source:aa956a15-7d0e-4e9d-b8f9-e41e865d3f1b",
-    "kind": "source",
-    "name": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
-    "name_vi": null,
-    "name_ru": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Нгуен Хонг Хай, курирующий важные проекты, назначен постоянным заместителем председателя Народного комитета Ламдонга."
-  },
-  {
-    "slug": "source:acfbd7c5-4b5b-463f-b70f-a54d1409a5ce",
-    "kind": "source",
-    "name": "Куангчи срочно устраняет последствия наводнения",
-    "name_vi": null,
-    "name_ru": "Куангчи срочно устраняет последствия наводнения",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "После спада воды населённые пункты Куангчи ликвидируют селевые завалы и восстанавливают нормальную жизнь."
-  },
-  {
-    "slug": "source:b42fefa3-9e7c-45d8-bd20-3f9a14ff0d61",
-    "kind": "source",
-    "name": "Предупреждение о паводках на реке Донгнай и реках Западного Вьетнама",
-    "name_vi": null,
-    "name_ru": "Предупреждение о паводках на реке Донгнай и реках Западного Вьетнама",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Власти предупреждают о паводке в системе реки Донгнай и реках дельты Меконга — возможны затопления прибрежных территорий."
-  },
-  {
-    "slug": "source:b6fd6066-84be-44a7-9bc9-90331898d3a6",
-    "kind": "source",
-    "name": "Cất bốc mộ tập thể 17 liệt sĩ tại Đà Nẵng, đưa các anh về yên nằm bên đồng đội",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b9190c05-efa1-4fad-85dc-de9829e28497",
-    "kind": "source",
-    "name": "Под братской могилой 17 солдат в Дананге найдены многочисленные артефакты",
-    "name_vi": null,
-    "name_ru": "Под братской могилой 17 солдат в Дананге найдены многочисленные артефакты",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Дананге началась эксгумация останков 17 солдат, захороненных жителями на народном кладбище в коммуне Тхы Бон."
-  },
-  {
-    "slug": "source:da6f112c-52c3-4c64-a02a-d7050c3d2991",
-    "kind": "source",
-    "name": "Đề xuất tăng mức phạt hành chính tối đa lên 1,5 tỉ với cá nhân: Có cơ sở nhưng cần tăng tính minh bạch",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:df3c6309-7730-4c9e-bd69-d2adb2d73951",
-    "kind": "source",
-    "name": "Оползень отрезал 2200 жителей, Куангчи «заимствует» дорогу через ГЭС",
-    "name_vi": null,
-    "name_ru": "Оползень отрезал 2200 жителей, Куангчи «заимствует» дорогу через ГЭС",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Оползень на единственной дороге Хыонгтан - Хыонглинь полностью изолировал две деревни, объезд открыт через плотину ГЭС."
-  },
-  {
-    "slug": "source:e2820d4f-7898-441e-ad61-4a08552e817a",
-    "kind": "source",
-    "name": "Vụ lật ca nô ở Phú Quốc: Khởi tố thêm một người",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f40026d5-4042-42c3-8d4b-6fd8687e55e5",
-    "kind": "source",
-    "name": "На Фукуоке начали укладывать первый километр рельсов городской электрички",
-    "name_vi": null,
-    "name_ru": "На Фукуоке начали укладывать первый километр рельсов городской электрички",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В особой зоне Фукуок начинается укладка первого километра рельсов городской ж/д линии к APEC 2027."
-  },
-  {
-    "slug": "source:ff5105f4-6e3c-4560-8ee5-f4018fb15238",
-    "kind": "source",
-    "name": "Причины сильных затоплений в Кантхо",
-    "name_vi": null,
-    "name_ru": "Причины сильных затоплений в Кантхо",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В центре Кантхо есть системы защиты от наводнений, но многие улицы затоплены из-за высокого прилива."
-  },
-  {
-    "slug": "source:ffd7281e-1ebe-4487-bd42-8b0241bc1a61",
-    "kind": "source",
-    "name": "26 человек попали в больницу после еды в новой булочной",
-    "name_vi": null,
-    "name_ru": "26 человек попали в больницу после еды в новой булочной",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В коммуне Cam Lộ (Куангчи) 42 человека отравились после покупки хлеба в новом магазине."
-  },
-  {
-    "slug": "source:f589f3e4-58f3-477b-a690-d219d95de04c",
-    "kind": "source",
-    "name": "Женщина за рулём автомобиля вылетела с дороги и повисла на склоне перевала в Далате",
-    "name_vi": null,
-    "name_ru": "Женщина за рулём автомобиля вылетела с дороги и повисла на склоне перевала в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Автомобиль съехал с обочины и застрял на склоне перевала в Далате; на месте работают спасатели, возможны заторы."
-  },
-  {
     "slug": "market:vn-lamdong-damrong:travel_agency",
     "kind": "market",
     "name": "Турагентства",
@@ -40677,60 +42342,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Турагентства",
     "region_slug": "vn-lamdong-damrong",
     "summary_ru": null
-  },
-  {
-    "slug": "source:735314a1-712a-4bc8-8185-955fb2580ca8",
-    "kind": "source",
-    "name": "Промышленный кластер Quảng Tâm под угрозой повторного захвата земли",
-    "name_vi": null,
-    "name_ru": "Промышленный кластер Quảng Tâm под угрозой повторного захвата земли",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "На более чем 32 га изъятой земли в кластере Quảng Tâm (Tuy Đức, Lâm Đồng) появились признаки повторного захвата: посадки, насыпи, времянки."
-  },
-  {
-    "slug": "source:1060bc86-c3d2-49dc-8ada-fa53b391de8d",
-    "kind": "source",
-    "name": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
-    "name_vi": null,
-    "name_ru": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Власти провинции Ламдонг ускоряют реализацию приоритетных задач конца года."
-  },
-  {
-    "slug": "source:db6827c8-08a9-45e5-a946-a528ea75764b",
-    "kind": "source",
-    "name": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
-    "name_vi": null,
-    "name_ru": "Ламдонг ускоряет выполнение ключевых задач последних месяцев года",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Постоянный комитет парткома требует от ведомств оценить ход работ, устранить узкие места и не допускать накопления нерешённых вопросов."
-  },
-  {
-    "slug": "source:4dc5b6d9-dda8-4622-b54b-e2b508e17018",
-    "kind": "source",
-    "name": "Возбуждено дело против двух ростовщиков со ставкой свыше 300% годовых",
-    "name_vi": null,
-    "name_ru": "Возбуждено дело против двух ростовщиков со ставкой свыше 300% годовых",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В провинции Gia Lai возбуждено дело о ростовщичестве под 304% годовых. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:cb2bad3e-f20f-4f26-96f1-3adb978d4b70",
-    "kind": "source",
-    "name": "Расследуется нападение группы в масках с ножами на охрану предприятия в Ламдонге",
-    "name_vi": null,
-    "name_ru": "Расследуется нападение группы в масках с ножами на охрану предприятия в Ламдонге",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Ламдонге группа в масках с ножами напала на охрану предприятия, есть раненые; ведётся расследование."
-  },
-  {
-    "slug": "source:8382073d-ec32-47f0-a46d-59e08d806206",
-    "kind": "source",
-    "name": "Муж убил жену и попытался покончить с собой, но безуспешно",
-    "name_vi": null,
-    "name_ru": "Муж убил жену и попытался покончить с собой, но безуспешно",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Кантхо мужчина убил жену ножом, попытался самоубийство, но выжил. К региону отношения не имеет."
   },
   {
     "slug": "market:vn-lamdong-dalat-xuanhuong:motorbike_rental",
@@ -40760,42 +42371,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:fd52e01b-d364-4da5-9409-667560591c79",
-    "kind": "source",
-    "name": "Полиция квартала Xuân Trường в Далате участвует в церемонии посадки деревьев 2026 года",
-    "name_vi": null,
-    "name_ru": "Полиция квартала Xuân Trường в Далате участвует в церемонии посадки деревьев 2026 года",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция квартала Xuân Trường (Далат) приняла участие в церемонии посадки деревьев 2026 года."
-  },
-  {
-    "slug": "source:9acfbe21-748b-4f54-96a6-6c64b4e5f292",
-    "kind": "source",
-    "name": "Небывалая мутная дымка на Западе страны",
-    "name_vi": null,
-    "name_ru": "Небывалая мутная дымка на Западе страны",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Небо в Камау, Кантхо, Анзянг мутное весь день два дня подряд, даже в солнечные часы."
-  },
-  {
-    "slug": "source:547eb925-346b-48e5-92f5-ec2e69cd61c2",
-    "kind": "source",
-    "name": "Ночной патруль обнаружил незаконную добычу полезных ископаемых",
-    "name_vi": null,
-    "name_ru": "Ночной патруль обнаружил незаконную добычу полезных ископаемых",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В коммуне Фуокдинь (Кханьхоа) полиция задержала группу, добывавшую ископаемые с экскаваторами и грузовиками."
-  },
-  {
-    "slug": "source:73da8549-ada4-4fe0-89d5-9107dcc939a0",
-    "kind": "source",
-    "name": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
-    "name_vi": null,
-    "name_ru": "Ограничение выравнивания и строительства на склонах для предотвращения оползней",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Рекомендация ограничить срезку склонов и стройку на них ради профилактики оползней — актуально для горного Ламдонга."
-  },
-  {
     "slug": "market:zone:namban-home:language_school",
     "kind": "market",
     "name": "Языковые школы",
@@ -40803,33 +42378,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "name_ru": "Языковые школы",
     "region_slug": "zone:namban-home",
     "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:convenience",
-    "kind": "market",
-    "name": "Магазины у дома",
-    "name_vi": "Cửa hàng tiện lợi",
-    "name_ru": "Магазины у дома",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "market:vn-lamdong-dalat:bank",
-    "kind": "market",
-    "name": "Банки",
-    "name_vi": "Ngân hàng",
-    "name_ru": "Банки",
-    "region_slug": "vn-lamdong-dalat",
-    "summary_ru": null
-  },
-  {
-    "slug": "event:seed:holiday-2026-09-01",
-    "kind": "event",
-    "name": "Quốc khánh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
   },
   {
     "slug": "source:71ba6248-e204-427c-8298-da96e5871bc6",
@@ -40850,418 +42398,31 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "15 сентября Союз женщин провинции с фондом An Farm Đà Lạt вручил средства к существованию и помощь в строительстве домов в Đam Rông 2 и Đam Rông 4."
   },
   {
-    "slug": "source:3bbebe78-961f-41fa-aca8-7d567b5369e8",
-    "kind": "source",
-    "name": "Ту Ань через 3 года после победы в The Face: «Я не полагаюсь только на внешность»",
-    "name_vi": null,
-    "name_ru": "Ту Ань через 3 года после победы в The Face: «Я не полагаюсь только на внешность»",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Интервью победительницы The Face Vietnam 2023 о жизни и карьере модели."
-  },
-  {
-    "slug": "source:99099ee9-f878-4c87-8ad0-8437ab5a39f5",
-    "kind": "source",
-    "name": "Около 800 сотрудников полиции провинции Ламдонг обучили ИТ и цифровым навыкам",
-    "name_vi": null,
-    "name_ru": "Около 800 сотрудников полиции провинции Ламдонг обучили ИТ и цифровым навыкам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Сотрудники полиции Ламдонга прошли обучение информационным технологиям и цифровым навыкам."
-  },
-  {
-    "slug": "source:27260f22-f80c-4f89-a515-d3b66112c1ed",
-    "kind": "source",
-    "name": "Мужчина, облигший бензином и сжёгший возлюбленную в Донгнаи, приговорён к смертной казни",
-    "name_vi": null,
-    "name_ru": "Мужчина, облигший бензином и сжёгший возлюбленную в Донгнаи, приговорён к смертной казни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "После ссоры Кхань облил женщину бензином и поджёг, она погибла; вынесен смертный приговор."
-  },
-  {
-    "slug": "source:06876171-36f3-4a0c-b73e-2cfbbdadfacc",
-    "kind": "source",
-    "name": "Найдена причина массовой гибели рыбы на реке Ча Кук в Куангнгай",
-    "name_vi": null,
-    "name_ru": "Найдена причина массовой гибели рыбы на реке Ча Кук в Куангнгай",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Загрязнения не выявлено: рыба погибла, застряв в изолированных углублениях при падении уровня реки."
-  },
-  {
-    "slug": "source:2582694d-e2dc-48c5-b092-8584e9166a2a",
-    "kind": "source",
-    "name": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
-    "name_vi": null,
-    "name_ru": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Кадровая новость: новый замдиректора социального страхования провинции. На движение по дорогам не влияет."
-  },
-  {
-    "slug": "source:c402992d-a04d-4326-b999-235027056ec3",
-    "kind": "source",
-    "name": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
-    "name_vi": null,
-    "name_ru": "Во Ван Кань Бинь назначен заместителем директора Соцстраха провинции Лам Донг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15/9 во второй половине дня прошло совещание Соцстраха Вьетнама по кадровым вопросам и вручению ордена Труда в Лам Донге. На трафик не влияет."
-  },
-  {
-    "slug": "source:b8676059-1774-4b6a-a781-8a9d4fe64d17",
-    "kind": "source",
-    "name": "Почему недвижимость Вьетнама уступает Таиланду и Филиппинам по прозрачности",
-    "name_vi": null,
-    "name_ru": "Почему недвижимость Вьетнама уступает Таиланду и Филиппинам по прозрачности",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Общестрановая аналитика рынка недвижимости: Вьетнам в группе «полупрозрачных» рынков. К дорогам региона отношения не имеет."
-  },
-  {
-    "slug": "source:1ac72a9d-a9e4-43d8-a3b6-691a19bfdf17",
-    "kind": "source",
-    "name": "Управляющий ломбарда обманул хозяина, похитив 129 млн донгов",
-    "name_vi": null,
-    "name_ru": "Управляющий ломбарда обманул хозяина, похитив 129 млн донгов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Дак Лак арестован управляющий ломбарда за мошенничество на 129 млн донгов. Регион не затронут, на дороги не влияет."
-  },
-  {
-    "slug": "source:a392b456-f079-4d09-91e6-a41e8dc302b6",
-    "kind": "source",
-    "name": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
-    "name_vi": null,
-    "name_ru": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15/9 власти Лам Донга обсуждали ход строительства платных автострад Тан Фу — Бао Лок и Бао Лок — Льен Кхыонг по схеме PPP."
-  },
-  {
-    "slug": "source:f3710da5-51d8-4247-b3c1-6b9d23cfde82",
-    "kind": "source",
-    "name": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
-    "name_vi": null,
-    "name_ru": "Лам Донг устраняет проблемы с землеотводом, ускоряя два проекта скоростных автодорог",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция снимает барьеры по землеотводу для ускорения строительства автострад до Бао Лока и Льен Кхыона."
-  },
-  {
-    "slug": "source:13a7283c-788b-4746-afa9-183091ed343f",
-    "kind": "source",
-    "name": "Задержаны двое содержателей притона в массажном салоне Bony 5 на Фукуоке",
-    "name_vi": null,
-    "name_ru": "Задержаны двое содержателей притона в массажном салоне Bony 5 на Фукуоке",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Ан Зяна возбудила дело против содержателей притона в массажном салоне на Фукуоке. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:0531627f-73e9-4166-8e2e-a9375d70c186",
-    "kind": "source",
-    "name": "Вопросы к основанию штрафа для молодого человека, срубившего сосну во дворе дома в Далате",
-    "name_vi": null,
-    "name_ru": "Вопросы к основанию штрафа для молодого человека, срубившего сосну во дворе дома в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Обсуждается законность наказания молодого человека за вырубку сосны на частном участке в Далате. На движение не влияет."
-  },
-  {
-    "slug": "source:308f52b1-159c-4a13-98d3-9ba183c52847",
-    "kind": "source",
-    "name": "Грузовик столкнулся с мотоциклом, погибли два школьника",
-    "name_vi": null,
-    "name_ru": "Грузовик столкнулся с мотоциклом, погибли два школьника",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В провинции Hà Tĩnh грузовик сбил мотоцикл со школьниками: двое погибли, один тяжело ранен."
-  },
-  {
-    "slug": "source:9dfd3009-df9b-45fc-96e9-322f58b5f68f",
-    "kind": "source",
-    "name": "Удержание 5% при покупке жилья: избавит ли покупателей ожидания 'красной книги'?",
-    "name_vi": null,
-    "name_ru": "Удержание 5% при покупке жилья: избавит ли покупателей ожидания 'красной книги'?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Минстрой предлагает переводить последние 5% стоимости жилья в гарантийный счёт в банке до получения покупателем свидетельства."
-  },
-  {
-    "slug": "source:89a99bcc-6680-435f-bc1f-3a480a424c02",
-    "kind": "source",
-    "name": "Назначены начальники штабов военных округов трёх провинций",
-    "name_vi": null,
-    "name_ru": "Назначены начальники штабов военных округов трёх провинций",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "5-й военный округ объявил о назначении командных постов в Дананге, Куангнгае и Зялае."
-  },
-  {
-    "slug": "source:8e30cb86-b04d-4df1-b1ef-d559869eb7f5",
-    "kind": "source",
-    "name": "Собака умерла странно, соцсети искали укушенного",
-    "name_vi": null,
-    "name_ru": "Собака умерла странно, соцсети искали укушенного",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Зялае нашли юношу, укушенного погибшей собакой, чтобы он привился от бешенства."
-  },
-  {
-    "slug": "source:175cd15c-ea65-44aa-9dfd-fbf800b7b9b8",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
+    "slug": "market:vn-lamdong-dalat:convenience",
+    "kind": "market",
+    "name": "Магазины у дома",
+    "name_vi": "Cửa hàng tiện lợi",
+    "name_ru": "Магазины у дома",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
   },
   {
-    "slug": "source:750e4422-3c6d-4117-a64f-06a49fe1ed89",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
+    "slug": "event:seed:holiday-2026-09-01",
+    "kind": "event",
+    "name": "Quốc khánh",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
+    "summary_ru": "Государственный выходной по всей стране: потоки идут не как в будний день."
+  },
+  {
+    "slug": "market:vn-lamdong-dalat:bank",
+    "kind": "market",
+    "name": "Банки",
+    "name_vi": "Ngân hàng",
+    "name_ru": "Банки",
+    "region_slug": "vn-lamdong-dalat",
     "summary_ru": null
-  },
-  {
-    "slug": "source:b07262ba-4ba4-4874-8d99-cd7e53f4cbd6",
-    "kind": "source",
-    "name": "Nước suối dâng cao, cha mẹ bất chấp nguy hiểm cõng con đến trường",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:8aee3a2d-d35b-4dda-846f-950cf2a7084e",
-    "kind": "source",
-    "name": "Bỏ phương án đặt Trung tâm hành chính Cần Thơ tại Ngã Bảy",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:40121272-a98f-4ece-b5ba-43267543945a",
-    "kind": "source",
-    "name": "Khởi tố thêm bị can liên quan vụ lật ca nô làm 15 người tử vong ở Phú Quốc",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:64fd40e8-7134-43cf-8081-f62fa48f3ac6",
-    "kind": "source",
-    "name": "Vụ lật ca n&ocirc; khiến 15 người tử vong ở Ph&uacute; Quốc: Khởi tố th&ecirc;m 1 bị can",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b1a425bd-8a23-4f4f-9b7e-93faeaf6d4d6",
-    "kind": "source",
-    "name": "Nghệ An \"điểm tên\" địa phương, đơn vị giải ngân đầu tư công chậm",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:059f389b-af76-40e4-b4bb-dd1f65a72c04",
-    "kind": "source",
-    "name": "JW Marriott Hanoi tổ chức lễ hội văn hóa Đức Oktoberfest 2026",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:25f13fd2-f812-44c2-bcd5-41ecf1b72030",
-    "kind": "source",
-    "name": "Cần Thơ loại phương &aacute;n chuyển trung t&acirc;m h&agrave;nh ch&iacute;nh về Ng&atilde; Bảy",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:c67a1bef-39b3-4e8a-b4ef-949f39378f78",
-    "kind": "source",
-    "name": "Phụ huynh Hà Nội đến trường từ 5h để kiểm tra thịt gà, thịt lợn",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:261b1c3e-d917-4e65-97d9-f4ddebdff23d",
-    "kind": "source",
-    "name": "Прилив в Кантхо превысил третий тревожный уровень: когда спадёт вода?",
-    "name_vi": null,
-    "name_ru": "Прилив в Кантхо превысил третий тревожный уровень: когда спадёт вода?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Высокий прилив превысил третий тревожный уровень, многие районы Кантхо затоплены, что осложняет быт и передвижение жителей."
-  },
-  {
-    "slug": "source:4cc3cce7-bbeb-4b49-b99f-1b7f74ac61ac",
-    "kind": "source",
-    "name": "Момент, когда король Таиланда и королева сами вели борт в Ханой",
-    "name_vi": null,
-    "name_ru": "Момент, когда король Таиланда и королева сами вели борт в Ханой",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Король и королева Таиланда лично управляли самолётом, прибывшим в аэропорт Нойбай, начав государственный визит во Вьетнам."
-  },
-  {
-    "slug": "source:526a7928-efad-4c51-8f0f-2d829646cfdd",
-    "kind": "source",
-    "name": "На севере, в Тханьхоа и Нгеане до 16 сентября ливни, местами свыше 450 мм",
-    "name_vi": null,
-    "name_ru": "На севере, в Тханьхоа и Нгеане до 16 сентября ливни, местами свыше 450 мм",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "С сегодняшнего вечера по 16 сентября от Нгеана до севера продолжатся сильные дожди, местами более 450 мм; 12 провинциям поручено готовиться."
-  },
-  {
-    "slug": "source:63a7ceef-62c6-47a6-be20-921ae0abc94e",
-    "kind": "source",
-    "name": "32 рыбака вернулись с того света: пили даже мочу, беспомощно наблюдая, как 14 товарищей опускают руки",
-    "name_vi": null,
-    "name_ru": "32 рыбака вернулись с того света: пили даже мочу, беспомощно наблюдая, как 14 товарищей опускают руки",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "32 рыбака из Дананга четыре дня и ночи добирались до берега, беспомощно глядя, как измученные товарищи гибнут в море; для выживания они пили мочу."
-  },
-  {
-    "slug": "source:8286f622-4948-4c8d-a06a-c44aa71ba253",
-    "kind": "source",
-    "name": "Повышение уровня участия Вьетнама в многосторонних институтах",
-    "name_vi": null,
-    "name_ru": "Повышение уровня участия Вьетнама в многосторонних институтах",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Министр иностранных дел Lê Hoài Trung рассказал об итогах участия премьер-министра в саммите БРИКС в Индии."
-  },
-  {
-    "slug": "source:8eba8b60-110e-4c5f-a408-83cfef2f6d3b",
-    "kind": "source",
-    "name": "Управляющему и шести сотрудникам бара в «квартале Tây» An Thượng предъявлены обвинения в торговле закисью азота",
-    "name_vi": null,
-    "name_ru": "Управляющему и шести сотрудникам бара в «квартале Tây» An Thượng предъявлены обвинения в торговле закисью азота",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Семеро — управляющий и работники бара на улице An Thượng 4 в туристическом «квартале Tây» Дананга — обвиняются в продаже веселящего газа."
-  },
-  {
-    "slug": "source:93f6d7f9-1bc5-4282-a222-5382fbec4e06",
-    "kind": "source",
-    "name": "300-летнее дерево бачмай в Виньлонге установило рекорд Вьетнама",
-    "name_vi": null,
-    "name_ru": "300-летнее дерево бачмай в Виньлонге установило рекорд Вьетнама",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Древнему дереву бачмай в общинном доме Фыты в провинции Виньлонг присвоен рекорд Вьетнама, ещё два дерева признаны деревьями-наследием."
-  },
-  {
-    "slug": "source:9521cbbb-4420-4466-b7d2-ed260ea0e005",
-    "kind": "source",
-    "name": "Множество водохранилищ в Khánh Hòa протекают и сильно повреждены перед сезоном дождей и паводков",
-    "name_vi": null,
-    "name_ru": "Множество водохранилищ в Khánh Hòa протекают и сильно повреждены перед сезоном дождей и паводков",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ряд водохранилищ Khánh Hòa даёт протечки, дамбы деформированы и размываются; провинция готовит материалы и людей к паводкам на случай аварий."
-  },
-  {
-    "slug": "source:e8c076fc-2cb7-433c-b06a-1a8f341d5fc0",
-    "kind": "source",
-    "name": "Две женщины, торговавшие морепродуктами, утонули на пляже Хон Рём - Муйне",
-    "name_vi": null,
-    "name_ru": "Две женщины, торговавшие морепродуктами, утонули на пляже Хон Рём - Муйне",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "14 сентября вечером две женщины утонули на пляже Хон Рём - Муйне (бывший Биньтхуан, ныне провинция Ламдонг). Купание там в этот период опасно."
-  },
-  {
-    "slug": "source:e94336bf-b093-4972-a582-6004699cb8dd",
-    "kind": "source",
-    "name": "Молодой человек «работал циркачом» на перилах моста в Фонгня — капитан полиции вовремя его остановил",
-    "name_vi": null,
-    "name_ru": "Молодой человек «работал циркачом» на перилах моста в Фонгня — капитан полиции вовремя его остановил",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Молодой человек с неадекватным поведением лез по перилам моста Сюаншон через реку Сон в Фонгня (Куангчи); полиция успела его остановить."
-  },
-  {
-    "slug": "source:f49445ba-2e3d-47ff-8055-14018e1afe68",
-    "kind": "source",
-    "name": "U23 Việt Nam 0-0 U23 Kuwait (hết hiệp 1): Ba lần bóng dội khung gỗ",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:14894a01-c524-4f92-afac-2d7be8881bba",
-    "kind": "source",
-    "name": "U23 Uzbekistan thắng đậm U23 Philippines, đứng đầu bảng của U23 Việt Nam",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:1d7cc96b-acf2-48fb-8006-b39acf327031",
-    "kind": "source",
-    "name": "Автомобиль с женщиной за рулём слетел с дороги и завис на склоне перевала в Далате",
-    "name_vi": null,
-    "name_ru": "Автомобиль с женщиной за рулём слетел с дороги и завис на склоне перевала в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Далате легковушка вылетела с дороги и повисла над склоном; вероятны заторы и работа спасателей на месте."
-  },
-  {
-    "slug": "source:6f0af5aa-7644-4896-85d1-b296b8325ae6",
-    "kind": "source",
-    "name": "Tiếp tục điều chỉnh giao thông nút giao Láng Hạ - Giảng Võ - La Thành",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:746494f1-dd41-4f53-87ee-7ca2945f7425",
-    "kind": "source",
-    "name": "AEON sẽ mở thêm trung tâm thương mại mới tại Thanh Hóa và Hạ Long trong quý IV",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a5309d66-0fbb-4d57-8880-66cf94e3a311",
-    "kind": "source",
-    "name": "Приоритет ресурсов для расчистки площадок под проекты, связывающие аэропорт Лонгтхань",
-    "name_vi": null,
-    "name_ru": "Приоритет ресурсов для расчистки площадок под проекты, связывающие аэропорт Лонгтхань",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Власти Доннай направляют ресурсы на дорожные проекты к аэропорту Лонгтхань; на регион Ламдонг влияния почти нет."
-  },
-  {
-    "slug": "source:c8f9117f-c3db-4ac4-a4e7-479a641d7201",
-    "kind": "source",
-    "name": "Автомобиль съехал с дороги и застрял на перевале Пренн в Далате",
-    "name_vi": null,
-    "name_ru": "Автомобиль съехал с дороги и застрял на перевале Пренн в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "На перевале Prenn машина съехала с дороги и застряла; возможны ограничения движения по трассе Đà Lạt."
-  },
-  {
-    "slug": "source:6c199342-a0c0-44e1-aae6-1df92ee3be1a",
-    "kind": "source",
-    "name": "В Куангкхе обозначили и предупредили о трещинах на дорожном полотне",
-    "name_vi": null,
-    "name_ru": "В Куангкхе обозначили и предупредили о трещинах на дорожном полотне",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В xã Quảng Khê (Ламдонг) установлены знаки о трещинах на дороге и дежурят люди из-за угрозы оползня; движение усложнено."
-  },
-  {
-    "slug": "source:c35ee1ee-77b3-4733-b0e2-e27555755ea8",
-    "kind": "source",
-    "name": "Задержаны двое ростовщиков под 7000 донгов с миллиона в день",
-    "name_vi": null,
-    "name_ru": "Задержаны двое ростовщиков под 7000 донгов с миллиона в день",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция поймала ростовщиков, выдавших 300 млн под 252% годовых; к региону отношения не имеет."
-  },
-  {
-    "slug": "source:d4c8e299-40ea-4b13-bc25-0116093d28e6",
-    "kind": "source",
-    "name": "Автомобиль съехал с дороги и скатился на сосновый холм в Далате",
-    "name_vi": null,
-    "name_ru": "Автомобиль съехал с дороги и скатился на сосновый холм в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Далате машина упала с дороги на сосновый склон; возможны пробки и спасательные работы на участке."
   },
   {
     "slug": "source:66b49bad-00c1-4e12-a654-45a7175d8339",
@@ -41273,42 +42434,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": "Вечером 15/9 в Ханое ожидаются ливни и локальные подтопления; на регион Ламдонг не влияет."
   },
   {
-    "slug": "source:6b2ca29f-8104-40db-88e8-22c3b3f1c1fa",
-    "kind": "source",
-    "name": "Sản phẩm OCOP Đà Nẵng lên Grab: Mở rộng thị trường từ câu chuyện địa phương",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:3161f229-2d17-49a9-9feb-cfa336c4e055",
-    "kind": "source",
-    "name": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
-    "name_vi": null,
-    "name_ru": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Далате строят эстакаду Mimosa и укрепляют участок перевала Mimosa за 37 млрд донгов. Возможны локальные ограничения движения и объезды."
-  },
-  {
-    "slug": "source:5cef2ac6-6e19-4a7a-a89f-65fa4a49f83a",
-    "kind": "source",
-    "name": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
-    "name_vi": null,
-    "name_ru": "Почти 37 млрд донгов на строительство моста Mimosa в Далате",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Повтор публикации: в Далате за 37 млрд донгов строят мост Mimosa и укрепляют дорогу на перевале, возможно ограничение движения."
-  },
-  {
-    "slug": "source:110f48a1-d8ed-4bbe-9697-6d3d4a471d9f",
-    "kind": "source",
-    "name": "На межобщинной дороге в Ламдонге снова появилась трещина длиной 20 метров",
-    "name_vi": null,
-    "name_ru": "На межобщинной дороге в Ламдонге снова появилась трещина длиной 20 метров",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "На дороге в Ламдонге образовалась трещина длиной 20 метров — риск просадки, водителям стоит соблюдать осторожность на этом участке."
-  },
-  {
     "slug": "source:77337033-3050-4ab9-bbee-d7274d94aa18",
     "kind": "source",
     "name": "Cụ bà Trung Quốc chi 3 triệu nhân dân tệ để làm đẹp",
@@ -41318,1125 +42443,9 @@ export const GEN_ENTITIES: GenEntity[] = [
     "summary_ru": null
   },
   {
-    "slug": "source:b0291dac-23ca-4117-be74-f4c895bc55e0",
-    "kind": "source",
-    "name": "Уникальная гигантская тыквенная ферма садовода из Далата",
-    "name_vi": null,
-    "name_ru": "Уникальная гигантская тыквенная ферма садовода из Далата",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ферма в Далате выращивает гигантские тыквы, что может привлечь туристов. На движение по дорогам заметного влияния нет."
-  },
-  {
-    "slug": "source:1efe6528-eaf2-4ff1-8360-df834584abdc",
-    "kind": "source",
-    "name": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
-    "name_vi": null,
-    "name_ru": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В перевал Mimosa, главный въезд в Далат, вложат 37 млрд донгов: построят эстакаду и укрепят склон. Возможны ремонтные ограничения движения."
-  },
-  {
-    "slug": "source:b706dad4-134d-40c9-aae4-205e1618793e",
-    "kind": "source",
-    "name": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
-    "name_vi": null,
-    "name_ru": "Инвестиции 37 млрд донгов: строительство эстакады и укрепление перевала Mimosa — ворот в Далат",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Дубль новости об укреплении перевала Mimosa и строительстве эстакады за 37 млрд донгов на въезде в Далат."
-  },
-  {
-    "slug": "source:4fdbd97e-dfc1-4b1c-a0bf-4577a32fd4b1",
-    "kind": "source",
-    "name": "Фестиваль цветов Далата расширяет пространство и выстраивает цепочку ценности",
-    "name_vi": null,
-    "name_ru": "Фестиваль цветов Далата расширяет пространство и выстраивает цепочку ценности",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Фестиваль цветов Далата пройдёт на расширенной площадке, ожидается наплыв туристов и рост трафика в городе."
-  },
-  {
-    "slug": "source:0d4efc8a-88b4-4573-8d45-bd656dbfd224",
-    "kind": "source",
-    "name": "Автомобиль скатился с соснового холма у подножия перевала Prenn, без жертв",
-    "name_vi": null,
-    "name_ru": "Автомобиль скатился с соснового холма у подножия перевала Prenn, без жертв",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15 сентября около 10:00 легковушка скатилась к сосновому холму у дороги Đống Đа (район Xuân Hương, у перевала Prenn). Обошлось без жертв, возможны заторы."
-  },
-  {
-    "slug": "source:dc3104ee-75fa-4ced-adb1-0d2eb19837d0",
-    "kind": "source",
-    "name": "Решение для модели цифрового правительства на местном уровне в Хайфоне",
-    "name_vi": null,
-    "name_ru": "Решение для модели цифрового правительства на местном уровне в Хайфоне",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Опыт цифровых коммуникаций власти в Хайфоне. К региону и дорогам отношения не имеет."
-  },
-  {
-    "slug": "source:9c7a9ee9-f7f5-4a5a-8209-bd0910eea8ea",
-    "kind": "source",
-    "name": "Ещё один вьетнамский научный журнал вошёл в индекс Scopus",
-    "name_vi": null,
-    "name_ru": "Ещё один вьетнамский научный журнал вошёл в индекс Scopus",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Asian Journal of Economics and Banking официально проиндексирован в Scopus с охватом данных с 2022 года."
-  },
-  {
-    "slug": "source:79e73258-1ff6-4d9d-a20e-52f83d6e003b",
-    "kind": "source",
-    "name": "Скоростная дорога Cam Lộ – La Sơn снова открыта после временного закрытия",
-    "name_vi": null,
-    "name_ru": "Скоростная дорога Cam Lộ – La Sơn снова открыта после временного закрытия",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "После дождей трасса через Quảng Trị и Huế reopened только для движения в дневное время."
-  },
-  {
-    "slug": "source:d656690f-9310-4d3f-be88-d9dc88532f5f",
-    "kind": "source",
-    "name": "300-летнее дерево bạch mai с 10 стволами получило рекорд Вьетнама",
-    "name_vi": null,
-    "name_ru": "300-летнее дерево bạch mai с 10 стволами получило рекорд Вьетнама",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Древнее дерево в đình Phú Tự признано рекордом Вьетнама; ещё два дерева получили статус наследия."
-  },
-  {
-    "slug": "source:3c6eb42f-0475-4c34-85e3-ba69a54c7956",
-    "kind": "source",
-    "name": "Hậu vệ cao gần 1,9m chính thức trở thành công dân Việt Nam",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:1f474b99-a4ab-4a42-84ae-f9b8d1a12d08",
-    "kind": "source",
-    "name": "Ôtô trượt khỏi đường, mắc trên sườn đèo Prenn",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2446ba4a-92d7-4dfc-9277-3b9aa4f73c93",
-    "kind": "source",
-    "name": "Mùa trăng tròn thắp sáng “trái tim” đô thị bên sông",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e9310a1f-450e-4de7-8bbd-9fe55269338b",
-    "kind": "source",
-    "name": "Cảnh giác thủ đoạn lợi dụng người say xỉn, gặp nạn trong đêm để trộm cắp tài sản",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:b071f56e-7973-49be-9b20-f53376fff1c9",
-    "kind": "source",
-    "name": "Hưng Yên trải thảm khu công nghiệp xanh thế hệ mới, hút dòng vốn \"khủng\"",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:dad7d479-b659-43d3-96bf-1b06e01f8acf",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:2f94f4b5-2855-4a67-bfe0-6c2fecdfcb10",
-    "kind": "source",
-    "name": "Cụm 8 diễn tập thực binh, nâng cao năng lực xử trí các tình huống quốc phòng - an ninh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:ed61c994-276d-4f38-a7e3-177068ed9516",
-    "kind": "source",
-    "name": "Chợ Kim Liên tạm dừng hoạt động, tiểu thương khẩn trương dọn hàng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:1808b1ea-a133-45c5-81ed-8c009b2e6dd2",
-    "kind": "source",
-    "name": "Cao tốc gần 66km nối Lâm Đồng với Đông Nam Bộ trước phương án điều chỉnh đáng chú ý",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:d85d9223-a684-4742-843f-3e43131fcf92",
-    "kind": "source",
-    "name": "Cao tốc gần 66km nối Lâm Đồng với Đông Nam Bộ trước phương án điều chỉnh đáng chú ý",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:79750dc7-a59d-4768-ba90-8ae3a6717cb9",
-    "kind": "source",
-    "name": "Nữ tài xế cùng ô tô rơi xuống đồi thông ở Đà Lạt",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:ec554b10-ed92-4a78-a382-c1afa126d4c9",
-    "kind": "source",
-    "name": "Nữ tài xế cùng ô tô rơi xuống đồi thông ở Đà Lạt",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f5111e80-8854-4d17-97b8-070e20d2f6dc",
-    "kind": "source",
-    "name": "Xử phạt tài xế ô tô tải làm rơi vãi hàng hóa ra đường cao tốc",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:39d8bd80-952f-4b1d-80c4-8afd12b9e374",
-    "kind": "source",
-    "name": "Nữ sinh công nghệ thông tin bị \"bắt cóc online\", dọa đưa qua Campuchia",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:098c9d5e-f4c1-47b0-8d62-8a404f152639",
-    "kind": "source",
-    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:ab757b1e-d7a1-4e89-95a4-65b580065acf",
-    "kind": "source",
-    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e5724e00-da97-4824-b644-d441cace6cf7",
-    "kind": "source",
-    "name": "37 tỉ đồng xây thêm cầu cạn và gia cố đèo Mimosa Đà Lạt từng sạt lở nghiêm trọng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:6f583010-a359-4bf7-afb2-82f075326415",
-    "kind": "source",
-    "name": "Dự báo Hà Nội mưa lớn giờ tan tầm",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:90b99723-ed3b-4eeb-9c74-75ec2edd7e18",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó chủ tịch thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:04ef839a-5687-461a-858c-41dcedac873d",
-    "kind": "source",
-    "name": "Vì sao chặt thông trong vườn nhà bị phạt 35 triệu đồng?",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:9ad1bab8-1c23-4591-9020-7a184917e0af",
-    "kind": "source",
-    "name": "Giáo dục Lâm Đồng đẩy mạnh quản trị số từ dữ liệu dân cư",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:bf1b75a4-a70c-45b2-be3e-09e6010818fb",
-    "kind": "source",
-    "name": "Giáo dục Lâm Đồng đẩy mạnh quản trị số từ dữ liệu dân cư",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:3f4b5da7-8cb1-4ce1-bbcf-9742bbed724e",
-    "kind": "source",
-    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:51252726-26cf-415a-9616-c2ad87dac0b5",
-    "kind": "source",
-    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:9835f58f-3679-429e-b8be-ad4902839c71",
-    "kind": "source",
-    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:aa36dfe3-373b-4380-a930-1801116aac27",
-    "kind": "source",
-    "name": "Festival Hoa Đà Lạt mở rộng không gian, kết nối chuỗi giá trị",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:9c5a079b-6b23-4c6d-b913-fd4b49694c0d",
-    "kind": "source",
-    "name": "Khởi công công trình thể dục ngoài trời tại xã Hải Ninh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:0d4b7c14-5204-47d2-9729-544047969d79",
-    "kind": "source",
-    "name": "Bộ Văn hóa phát động cuộc thi video lịch sử, du lịch, khuyến khích dùng AI",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:46ca75bb-b684-462a-bb01-394205aa0764",
-    "kind": "source",
-    "name": "Анзянгу необходимо сосредоточиться на пересмотре кадровой работы",
-    "name_vi": null,
-    "name_ru": "Анзянгу необходимо сосредоточиться на пересмотре кадровой работы",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Постоянное бюро комитета партии провинции Анзянг продолжает пересматривать и расставлять общинные кадры для эффективной работы двухуровневой местной власти."
-  },
-  {
-    "slug": "source:d78ed357-fe32-4cac-9810-4335e5a26f47",
-    "kind": "source",
-    "name": "Предложен план распределения земли, камня и песка для Ханоя, Хынгйена, Кантхо под нацпроекты",
-    "name_vi": null,
-    "name_ru": "Предложен план распределения земли, камня и песка для Ханоя, Хынгйена, Кантхо под нацпроекты",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Минсельхозы и среды: Ханой, Хынгйен, Нинбинь, Камау, Тэйнинь и Кантхо не обеспечивают себя стройматериалами — предложена схема их распределения."
-  },
-  {
-    "slug": "source:dc88ce34-2020-4c95-a1db-d3d702f0dad9",
-    "kind": "source",
-    "name": "По 8 заявлениям о хищении 160 млн донгов полиция раскрыла сеть интернет-мошенничества более чем на 1 трлн донгов",
-    "name_vi": null,
-    "name_ru": "По 8 заявлениям о хищении 160 млн донгов полиция раскрыла сеть интернет-мошенничества более чем на 1 трлн донгов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "По 8 заявлениям потерпевших полиция Куангниня раскрыла онлайн-сеть мошенников, похитившую свыше 1 трлн донгов у тысяч жертв по всей стране."
-  },
-  {
-    "slug": "source:e4793d1c-8dde-4e82-bdef-c6e850b82f3e",
-    "kind": "source",
-    "name": "«Сверхбыстрые» медосмотры для трудоустройства: Минздрав требует срочно проверить и принять меры",
-    "name_vi": null,
-    "name_ru": "«Сверхбыстрые» медосмотры для трудоустройства: Минздрав требует срочно проверить и принять меры",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Минздрав поручил департаментам здравоохранения Кантхо и Донгтхапа срочно проверить частные клиники дельты Меконга, где проводили быстрые медосмотры для найма на работу."
-  },
-  {
-    "slug": "source:dea00ebb-1b8b-4da9-a515-ac5d5fa2b618",
-    "kind": "source",
-    "name": "Lam Dong requests 8 communes to urgently sign waste treatment contracts",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f10e9e0d-bd4f-44e0-a583-07b3634c7f19",
-    "kind": "source",
-    "name": "Ламдонг требует от 8 коммун срочно заключить договоры на вывоз мусора",
-    "name_vi": null,
-    "name_ru": "Ламдонг требует от 8 коммун срочно заключить договоры на вывоз мусора",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Власти провинции Ламдонг потребовали от восьми коммун срочно подписать контракты на переработку отходов."
-  },
-  {
-    "slug": "source:2412d5bd-8a6c-4b53-b2f6-dc22b72f0724",
-    "kind": "source",
-    "name": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
-    "name_vi": null,
-    "name_ru": "Кровать перегородила общий проход, чтобы соседи не строили дом в переулке",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Жительница Ханоя 5 месяцев перекрывает общий проход в переулке кроватью, мешая соседям строить дом. К региону Ламдонг не относится."
-  },
-  {
-    "slug": "source:ba04ee35-8935-48d9-bf57-84733a137384",
-    "kind": "source",
-    "name": "Дефицит инженеров: подрядчики строящихся объектов резко повышают зарплаты",
-    "name_vi": null,
-    "name_ru": "Дефицит инженеров: подрядчики строящихся объектов резко повышают зарплаты",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Ханое и соседних провинциях обострилась конкуренция за инженеров и квалифицированных рабочих из-за крупных строек. На движение в Ламдонге не сказывается."
-  },
-  {
-    "slug": "source:374b2db9-e0dd-4320-8108-a4058336db85",
-    "kind": "source",
-    "name": "Ханой объяснил приоритеты переселения и сроки отселения с трассы Красной реки",
-    "name_vi": null,
-    "name_ru": "Ханой объяснил приоритеты переселения и сроки отселения с трассы Красной реки",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Ханой раскрыл принципы программы переселения: новое жильё готовится до изъятия земли. Касается только столицы."
-  },
-  {
-    "slug": "source:07d8cca4-02b9-4057-9476-dc630cdd3ba2",
-    "kind": "source",
-    "name": "Двусторонняя торговля Вьетнама и Таиланда",
-    "name_vi": null,
-    "name_ru": "Двусторонняя торговля Вьетнама и Таиланда",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "За 8 месяцев 2026 года товарооборот Вьетнама и Таиланда достиг 18,5 млрд долларов. Макроэкономика, на дороги региона не влияет."
-  },
-  {
-    "slug": "source:4a18f393-13e5-4adf-8e96-2efb9489eaca",
-    "kind": "source",
-    "name": "ГИБДД Донгнай проверяет ход ремонта национальной трассы 51",
-    "name_vi": null,
-    "name_ru": "ГИБДД Донгнай проверяет ход ремонта национальной трассы 51",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Донгнай проверила ход ремонтных работ на трассе 51 и потребовал ускорить их с обеспечением безопасности движения. Другая провинция, но ремонт трассы влияет на транзит."
-  },
-  {
-    "slug": "source:c8f7f890-459c-4c4b-9aec-490f4914b188",
-    "kind": "source",
-    "name": "Дело экс-нотариуса с группой, выдававшей себя за владельцев земли, возвращено на доследование",
-    "name_vi": null,
-    "name_ru": "Дело экс-нотариуса с группой, выдававшей себя за владельцев земли, возвращено на доследование",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Суд Кантхо вернул дело о подделке красных книг и самозваных владельцев земли на доследование. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:00f05cac-e997-4417-8cc8-834269e2c87b",
-    "kind": "source",
-    "name": "Картина прибыли лотерейных компаний: где собирают триллионы, где особый контроль",
-    "name_vi": null,
-    "name_ru": "Картина прибыли лотерейных компаний: где собирают триллионы, где особый контроль",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Южные лотерейные компании растут двузначными темпами, северные показывают обратную тенденцию."
-  },
-  {
-    "slug": "source:3bf2d540-21ac-43a9-97cd-f144c9d7e871",
-    "kind": "source",
-    "name": "Рабочий погиб в промзоне в Тэйнинь",
-    "name_vi": null,
-    "name_ru": "Рабочий погиб в промзоне в Тэйнинь",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В промзоне ТанДук в Тэйнинь прохожие обнаружили тело погибшего мужчины."
-  },
-  {
-    "slug": "source:27958720-21a6-4f05-9284-70fbc91a53ff",
-    "kind": "source",
-    "name": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
-    "name_vi": null,
-    "name_ru": "Нгуен Хонг Хай стал постоянным заместителем председателя Народного комитета провинции Ламдонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Нгуен Хонг Хай назначен постоянным зампредом Народного комитета Ламдонга и будет замещать председателя в его отсутствие."
-  },
-  {
-    "slug": "source:4b20a7a3-fe82-4206-bac1-b373e05d18d5",
-    "kind": "source",
-    "name": "Генеральный секретарь, президент Тô Лам провёл официальную церемонию встречи короля и королевы Таиланда",
-    "name_vi": null,
-    "name_ru": "Генеральный секретарь, президент Тô Лам провёл официальную церемонию встречи короля и королевы Таиланда",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Официальная встреча короля Таиланда в Ханое. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:cb6e0631-04f4-42ae-a915-1e8b37e5a719",
-    "kind": "source",
-    "name": "Почти 500 сотрудников и учителей Лам Донга обучают навыкам безопасного вождения мотоциклов",
-    "name_vi": null,
-    "name_ru": "Почти 500 сотрудников и учителей Лам Донга обучают навыкам безопасного вождения мотоциклов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "14–15 сентября полиция провинции проводит обучение безопасному вождению мотоциклов для ~500 чиновников и учителей. Косвенно касается всех, кто ездит по дорогам провинции."
-  },
-  {
-    "slug": "source:5ad79864-3c30-4d34-99c7-a4ce7aad1224",
-    "kind": "source",
-    "name": "Две женщины помогли найти 100 останков солдат в кокосовом и дуриановом садах",
-    "name_vi": null,
-    "name_ru": "Две женщины помогли найти 100 останков солдат в кокосовом и дуриановом садах",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Находка останков солдат в Донг Тхап. К региону не относится."
-  },
-  {
-    "slug": "source:effe04d6-a688-4484-902c-1d8c2f68c88f",
-    "kind": "source",
-    "name": "После дождя некоторые улицы Ханоя всё ещё глубоко затоплены, заглохшие мотоциклы повсюду",
-    "name_vi": null,
-    "name_ru": "После дождя некоторые улицы Ханоя всё ещё глубоко затоплены, заглохшие мотоциклы повсюду",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Затопление улиц в Ханое после двухдневных дождей. К региону не относится."
-  },
-  {
-    "slug": "source:30e655df-b8e9-40f5-8b78-8400fbd394d0",
-    "kind": "source",
-    "name": "Лам Донг: определён победитель тендера на строительство школы стоимостью более 11,5 млрд в коммуне Ka Đô",
-    "name_vi": null,
-    "name_ru": "Лам Донг: определён победитель тендера на строительство школы стоимостью более 11,5 млрд в коммуне Ka Đô",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Определён подрядчик строительства школы за 11,5 млрд донгов в Ka Đô. Возможны строительные работы и техника рядом."
-  },
-  {
-    "slug": "source:1ac9161f-3776-4224-b39b-9eb5f21b7dd5",
-    "kind": "source",
-    "name": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
-    "name_vi": null,
-    "name_ru": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Власти Ламдонга предупреждают о риске оползня на участке дороги рядом с мостом Đắk Glong. Водителям стоит снизить скорость и быть готовыми к ограничениям движения."
-  },
-  {
-    "slug": "source:8348d0af-e1e4-4220-86d2-a0bd958b0f8a",
-    "kind": "source",
-    "name": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
-    "name_vi": null,
-    "name_ru": "Ламдонг: предупреждение об опасности оползня на дороге у моста Дакглонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Повтор новости: риск оползня на трассе у моста Đắk Glong в Ламдонге. Возможны заторы или перекрытие участка, планируйте объезд."
-  },
-  {
-    "slug": "source:b471086c-4d6e-45a4-8301-80bf7fa04b13",
-    "kind": "source",
-    "name": "Толпы пациентов в больнице Chợ Rẫy",
-    "name_vi": null,
-    "name_ru": "Толпы пациентов в больнице Chợ Rẫy",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В больнице Chợ Rẫy в Хошимине огромные очереди: осмотр занимает один-два дня, приходить надо затемно. К региону Ламдонг напрямую не относится."
-  },
-  {
-    "slug": "source:7ecb6e13-8479-4c09-b786-41cf5c774acb",
-    "kind": "source",
-    "name": "Ламдонг предупреждает об опасности оползня на дороге у моста Дакглонг",
-    "name_vi": null,
-    "name_ru": "Ламдонг предупреждает об опасности оползня на дороге у моста Дакглонг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Третий дубль предупреждения об оползне у моста Đắk Glong в Ламдонге. Актуально для поездок по горным дорогам провинции сегодня."
-  },
-  {
-    "slug": "source:bae73610-cfd7-4c4c-873c-e5dfcce6ee25",
-    "kind": "source",
-    "name": "Где смотреть в прямом эфире матч U23 Вьетнам — U23 Кувейт",
-    "name_vi": null,
-    "name_ru": "Где смотреть в прямом эфире матч U23 Вьетнам — U23 Кувейт",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Матч U23 Вьетнам против U23 Кувейт на Азиаде-20 в Нагое состоится 15 сентября в 17:00, показ в прямом эфире. На дороги региона не влияет."
-  },
-  {
-    "slug": "source:0f519694-cc87-4210-96ec-9dbc878a36ba",
-    "kind": "source",
-    "name": "Минобрнауки взял на себя ответственность за нехватку учебников в ряде регионов",
-    "name_vi": null,
-    "name_ru": "Минобрнауки взял на себя ответственность за нехватку учебников в ряде регионов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Министерство образования Вьетнама признало ответственность министерства, издательства и местных властей за локальный дефицит школьных учебников. Движения не касается."
-  },
-  {
-    "slug": "source:776eee11-5190-4942-926c-ce3c45c6c25e",
-    "kind": "source",
-    "name": "Парашютный шнур совпал с рассказом о связанных солдатах в братской могиле 17 погибших",
-    "name_vi": null,
-    "name_ru": "Парашютный шнур совпал с рассказом о связанных солдатах в братской могиле 17 погибших",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Дананге в братской могиле найден парашютный шнур, подтверждающий свидетельства о связывании солдат перед захоронением. К Ламдонгу отношения не имеет."
-  },
-  {
-    "slug": "source:cca96b86-b0c1-42cc-bc38-acf6daefe578",
-    "kind": "source",
-    "name": "Банки массово выпускают депозитные сертификаты со ставкой выше 8% годовых: чем отличаются от вкладов?",
-    "name_vi": null,
-    "name_ru": "Банки массово выпускают депозитные сертификаты со ставкой выше 8% годовых: чем отличаются от вкладов?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Банки наращивают выпуск депозитных сертификатов со ставками до 8% годовых, вдвое выше вкладов того же срока. На дороги региона не влияет."
-  },
-  {
-    "slug": "source:6430e48f-0088-4c70-bf58-8360f64648b9",
-    "kind": "source",
-    "name": "Vụ quay video clip bức tử cây thông Đà Lạt: Bạn đọc đồng tình phạt nhưng băn khoăn cây vườn nhà",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e36c3656-7624-470d-b469-f35324997619",
-    "kind": "source",
-    "name": "После скандала с курицей с посторонним запахом родители проверяют все продукты в школе",
-    "name_vi": null,
-    "name_ru": "После скандала с курицей с посторонним запахом родители проверяют все продукты в школе",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Родители школы Ле Чонг Тан в Ханое с 5 утра проверяют мясо и овощи для школьных обедов после жалоб на запах курицы. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:1f9de607-f045-42b1-a7ea-703563d3c16c",
-    "kind": "source",
-    "name": "Вард Ан Фу Дон поблагодарил актив кварталов: при любой загруженности люди приходили на помощь",
-    "name_vi": null,
-    "name_ru": "Вард Ан Фу Дон поблагодарил актив кварталов: при любой загруженности люди приходили на помощь",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "14 сентября вард Ан Фу Дон (Хошимин) провёл встречу в честь нештатных работников кварталов, завершивших работу из-за реорганизации."
-  },
-  {
-    "slug": "source:376ebbea-7a9e-4892-a94f-bb65d9b7543c",
-    "kind": "source",
-    "name": "Хошимин собирает мнения по проекту компенсаций и переселения для метро № 6 (Фу Хыу — Тан Шон Нят)",
-    "name_vi": null,
-    "name_ru": "Хошимин собирает мнения по проекту компенсаций и переселения для метро № 6 (Фу Хыу — Тан Шон Нят)",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Для первой очереди метро № 6 потребуется около 95,3 га земли, затронуты около 2501 случая; идёт сбор мнений по компенсациям и переселению."
-  },
-  {
-    "slug": "source:5cd39c11-d538-4864-ae3f-da7e40ab879b",
-    "kind": "source",
-    "name": "Наводнение в Đồng Nai из-за смещённой относительно русла трубы на трассе Бьенхоа - Вунгтау, вода отводится с трудом",
-    "name_vi": null,
-    "name_ru": "Наводнение в Đồng Nai из-за смещённой относительно русла трубы на трассе Бьенхоа - Вунгтау, вода отводится с трудом",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "После паводка, затопившего сотни домов, власти Đồng Nai установили: труба на трассе Бьенхоа - Вунгтау смещена и мешает водоотводу."
-  },
-  {
-    "slug": "source:8b5559cf-5bb5-4a86-badb-09097e824f52",
-    "kind": "source",
-    "name": "Британия обязалась выделить 6,5 млрд долларов на потенциальные проекты во Вьетнаме",
-    "name_vi": null,
-    "name_ru": "Британия обязалась выделить 6,5 млрд долларов на потенциальные проекты во Вьетнаме",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Посол Великобритании Iain Frew сообщил, что страна обязалась предоставить не менее 6,5 млрд долларов поддержки возможностей во Вьетнаме."
-  },
-  {
-    "slug": "source:a760bf33-4e0d-4674-b852-936d2ddba4b4",
-    "kind": "source",
-    "name": "Вице-премьер Фам Зя Тук: FDI-компании должны активно расширять базу вьетнамских поставщиков",
-    "name_vi": null,
-    "name_ru": "Вице-премьер Фам Зя Тук: FDI-компании должны активно расширять базу вьетнамских поставщиков",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Готовится программа связей с вьетнамскими поставщиками для корпораций электроники и полупроводников — по цепочкам продуктов и техстандартам."
-  },
-  {
-    "slug": "source:f1a7422b-343c-4e00-9e47-8afd138ea799",
-    "kind": "source",
-    "name": "Tesla создала компанию во Вьетнаме — где будут заряжаться электромобили?",
-    "name_vi": null,
-    "name_ru": "Tesla создала компанию во Вьетнаме — где будут заряжаться электромобили?",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Tesla зарегистрировала во Вьетнаме юрлицо с капиталом почти 77,7 млрд донгов, но планы по продажам и зарядной инфраструктуре пока не раскрыты."
-  },
-  {
-    "slug": "source:86d0d0ae-5e2b-46dd-aad4-de728c01a5cf",
-    "kind": "source",
-    "name": "Образование переходит от «учёбы» к «практике» по заветам Хо Ши Мина",
-    "name_vi": null,
-    "name_ru": "Образование переходит от «учёбы» к «практике» по заветам Хо Ши Мина",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Департамент образования Лам Донга внедряет директиву Политбюро в школах провинции."
-  },
-  {
-    "slug": "source:6a08a5e5-c425-4a00-a092-d1988ce4916b",
-    "kind": "source",
-    "name": "Lâm Đồng: Tàu cá bị lật gần đảo Phú Quý, 1 người mất tích",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:24a08372-bfcf-475c-909d-1881a6bf9e2b",
-    "kind": "source",
-    "name": "Cận cảnh xe máy Honda Super Cub 2026 giá 87,37 triệu đồng tại Việt Nam",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
     "slug": "source:79a62967-bd65-4fdc-8d94-a6389b5b7792",
     "kind": "source",
     "name": "Chiến sự Ukraine 15/9: Vòng vây khổng lồ ở Kharkov nóng lên từng ngày",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:855fc585-55e2-4991-8ce7-468e3f2b1c3d",
-    "kind": "source",
-    "name": "Lâm Đồng: Hàng loạt vi phạm về nhãn, chất lượng phân bón và thuốc bảo vệ thực vật",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:93285dda-2efa-40b7-bf06-16bbe86f28e8",
-    "kind": "source",
-    "name": "Лам Донг отбирает учеников на премию «Хоа Чанг Нгуен 2026»",
-    "name_vi": null,
-    "name_ru": "Лам Донг отбирает учеников на премию «Хоа Чанг Нгуен 2026»",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Департамент образования Лам Донга собирает кандидатуры отличников 12-х классов на премию 2026 года."
-  },
-  {
-    "slug": "source:ab8aed2f-3745-45c9-98e6-77ba2bf58785",
-    "kind": "source",
-    "name": "Полиция Лам Донга провела обучение по ИТ и цифровым навыкам",
-    "name_vi": null,
-    "name_ru": "Полиция Лам Донга провела обучение по ИТ и цифровым навыкам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция провинции 15 сентября провела очно-дистанционный семинар по цифровой грамотности для сотрудников."
-  },
-  {
-    "slug": "source:def5e2e6-7e85-416a-b56e-a4855eb1f43f",
-    "kind": "source",
-    "name": "Vụ xin không nhận chức hiệu trưởng: Bí thư Tỉnh ủy yêu cầu kiểm tra",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:32480a6e-c1c2-4673-a11b-fc76bd96fc26",
-    "kind": "source",
-    "name": "Bé sơ sinh nằm trong túi xách bên đường kèm mảnh giấy \"mẹ là sinh viên\"",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:294d49d6-dda5-49e6-9937-cf8557b188ed",
-    "kind": "source",
-    "name": "Предупреждение о паводках на реке Меконг 15.09.2026: риск обширных затоплений",
-    "name_vi": null,
-    "name_ru": "Предупреждение о паводках на реке Меконг 15.09.2026: риск обширных затоплений",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Прогноз паводка на Меконге, угроза затоплений в дельте. К региону Лам Донг отношения не имеет."
-  },
-  {
-    "slug": "source:1658ed74-242e-4ae7-87a4-56dbdec3b833",
-    "kind": "source",
-    "name": "Khẩn trương xử lý điểm sạt lở trên tuyến đường liên xã ở Đồng Nai",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:3bbc84dc-d43c-4e62-91e4-0a970ac0cf85",
-    "kind": "source",
-    "name": "Устранение оползня на межобщинной дороге в Донгнае",
-    "name_vi": null,
-    "name_ru": "Устранение оползня на межобщинной дороге в Донгнае",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В соседней провинции Донгнай срочно ремонтируют оползень на дороге. Может затронуть транзитные маршруты, но не дороги Лам Донга."
-  },
-  {
-    "slug": "source:32ab1a4d-6ef6-4491-910b-e421e5a62fb7",
-    "kind": "source",
-    "name": "Цены на перец сегодня 15.09.2026: Лам Донг держит 141 000 донгов/кг",
-    "name_vi": null,
-    "name_ru": "Цены на перец сегодня 15.09.2026: Лам Донг держит 141 000 донгов/кг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Цена перца в Лам Донге стабильна — 141 000 донгов/кг. Важно для фермеров провинции, на дороги не влияет."
-  },
-  {
-    "slug": "source:34d59f0e-d11f-422f-90b3-ffc573740dcb",
-    "kind": "source",
-    "name": "Опрокинулось судно с 10 людьми у острова Фукуи (провинция Лам Донг), ищут одного пропавшего",
-    "name_vi": null,
-    "name_ru": "Опрокинулось судно с 10 людьми у острова Фукуи (провинция Лам Донг), ищут одного пропавшего",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "У острова Фукуи в составе провинции Лам Донг перевернулось рыболовецкое судно, ведётся поиск пропавшего. Морской инцидент, на дороги региона не влияет."
-  },
-  {
-    "slug": "source:80ef1f40-d787-4627-a24d-aa6ce3536abf",
-    "kind": "source",
-    "name": "Один день на «Изумрудном острове»: утром — исследования, вечером — отдых у моря",
-    "name_vi": null,
-    "name_ru": "Один день на «Изумрудном острове»: утром — исследования, вечером — отдых у моря",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Рекламный материал об отдыхе в Дананге. К региону Лам Донг отношения не имеет."
-  },
-  {
-    "slug": "source:e9ac3025-3c17-471b-b6fe-62afb37e0312",
-    "kind": "source",
-    "name": "Нгуен Хонг Хай назначен постоянным заместителем председателя Народного комитета провинции Лам Донг",
-    "name_vi": null,
-    "name_ru": "Нгуен Хонг Хай назначен постоянным заместителем председателя Народного комитета провинции Лам Донг",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Кадровая перестановка в руководстве провинции Лам Донг. На движение по дорогам региона не влияет."
-  },
-  {
-    "slug": "source:7336358c-202c-4eb4-a4dd-f7b35d29003d",
-    "kind": "source",
-    "name": "Ông Nguyễn Hồng Hải làm Phó Chủ tịch Thường trực UBND tỉnh Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f5824462-e642-4d90-ab8c-a403c18b24b0",
-    "kind": "source",
-    "name": "Паводок в районе Донг Тхап Мыой в Тэйнине быстро поднимается, риск широкого затопления",
-    "name_vi": null,
-    "name_ru": "Паводок в районе Донг Тхап Мыой в Тэйнине быстро поднимается, риск широкого затопления",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Уровень воды в Тэйнине растёт из-за дождей и прилива, возможны обширные затопления. К региону Лам Донг не относится."
-  },
-  {
-    "slug": "source:fbd9d107-1dcb-4846-96a4-548d4e258a27",
-    "kind": "source",
-    "name": "Эксгумация коллективной могилы павших солдат, которую почти 40 лет тайно чтил местный житель",
-    "name_vi": null,
-    "name_ru": "Эксгумация коллективной могилы павших солдат, которую почти 40 лет тайно чтил местный житель",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В коммуне Тхыу Бон (Дананг) эксгумировали братскую могилу с 17 останками. К региону не относится."
-  },
-  {
-    "slug": "source:7d09d126-9f24-4ee1-8fd1-02c310a77f8b",
-    "kind": "source",
-    "name": "Оползень отрезал 2200 человек, коммуна вынуждена использовать дорогу через плотину ГЭС",
-    "name_vi": null,
-    "name_ru": "Оползень отрезал 2200 человек, коммуна вынуждена использовать дорогу через плотину ГЭС",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Оползень перекрыл дорогу в коммуне Хыонг Фунг (Куангчи), 400 домохозяйств отрезаны. К региону не относится."
-  },
-  {
-    "slug": "source:c9a24834-8e97-4b64-8bcd-ee9af68da47b",
-    "kind": "source",
-    "name": "Торжественная церемония встречи короля Таиланда и королевы с визитом во Вьетнам",
-    "name_vi": null,
-    "name_ru": "Торжественная церемония встречи короля Таиланда и королевы с визитом во Вьетнам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15 сентября в Ханое прошла официальная встреча короля Таиланда. На дороги Лам Донга не влияет."
-  },
-  {
-    "slug": "source:42903179-e433-4056-9a9e-8acdb71f5225",
-    "kind": "source",
-    "name": "139 учеников всё ещё не ходят в школу из-за протеста против закрытия малокомплектного пункта обучения",
-    "name_vi": null,
-    "name_ru": "139 учеников всё ещё не ходят в школу из-за протеста против закрытия малокомплектного пункта обучения",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "В Нгеане 139 школьников бойкотируют занятия из-за закрытия пункта обучения. К региону не относится."
-  },
-  {
-    "slug": "source:95978b3b-2f49-4b47-85aa-6ba5433cc045",
-    "kind": "source",
-    "name": "В Лам Донге выявлено ещё 311 объектов домов и земли, переданных на управление коммунам",
-    "name_vi": null,
-    "name_ru": "В Лам Донге выявлено ещё 311 объектов домов и земли, переданных на управление коммунам",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Учёт 311 «лишних» домов и участков на уровне коммун Лам Донга. На дорожное движение не влияет."
-  },
-  {
-    "slug": "source:bd72bc39-0973-47d1-86b5-a3c8b3c39270",
-    "kind": "source",
-    "name": "Судно с 10 рабочими опрокинулось у острова Фукуй, один человек пропал без вести",
-    "name_vi": null,
-    "name_ru": "Судно с 10 рабочими опрокинулось у острова Фукуй, один человек пропал без вести",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Рыболовное судно опрокинулось у острова Фукуй (Биньтхуан), один из 10 членов экипажа пропал. К региону Ламдонг отношения не имеет."
-  },
-  {
-    "slug": "source:72e29167-cb5d-4507-a6a5-3677ffa41650",
-    "kind": "source",
-    "name": "Более 40 человек предположительно отравились после еды в новой булочной",
-    "name_vi": null,
-    "name_ru": "Более 40 человек предположительно отравились после еды в новой булочной",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Более 40 человек отравились хлебом из новой булочной в Куангчи. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:9d529861-1345-4f1d-8ace-19f3e9003cdd",
-    "kind": "source",
-    "name": "Школьница спасена от «онлайн-похищения» с требованием выкупа 100 млн",
-    "name_vi": null,
-    "name_ru": "Школьница спасена от «онлайн-похищения» с требованием выкупа 100 млн",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Полиция Виньлонга спасла студентку, которой манипулировали через интернет. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:48a4b0d7-916f-4c4b-8d4a-490bd1821ff2",
-    "kind": "source",
-    "name": "Эдисон Чан: от популярного красавца к закрытой жизни",
-    "name_vi": null,
-    "name_ru": "Эдисон Чан: от популярного красавца к закрытой жизни",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Развлекательная новость о гонконгском актёре. К региону отношения не имеет."
-  },
-  {
-    "slug": "source:fc75a290-13a5-48ab-8aaf-30052b89acb6",
-    "kind": "source",
-    "name": "Финансовый обзор 15/9: Tesla открыла компанию во Вьетнаме, Brent превысил 105 долларов",
-    "name_vi": null,
-    "name_ru": "Финансовый обзор 15/9: Tesla открыла компанию во Вьетнаме, Brent превысил 105 долларов",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Цены на нефть растут на фоне обострения на Ближнем Востоке; в стране обсуждают открытие Tesla компании во Вьетнаме."
-  },
-  {
-    "slug": "source:2997f45d-9ffd-42e8-8ebc-c415f5c6ea7e",
-    "kind": "source",
-    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "name_vi": null,
-    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
-  },
-  {
-    "slug": "source:340e952c-8b04-42ef-adbe-6469fb20ae6a",
-    "kind": "source",
-    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "name_vi": null,
-    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
-  },
-  {
-    "slug": "source:dc566121-4ce5-4da7-926a-b8cf129a65d4",
-    "kind": "source",
-    "name": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "name_vi": null,
-    "name_ru": "Ламдонг продвигает туризм через Фестиваль цветов Далата 2026",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Провинция Ламдонг использует Фестиваль цветов Далата 2026 для привлечения туристов."
-  },
-  {
-    "slug": "source:1abdb87b-1c89-436c-9aaf-8daf64f27930",
-    "kind": "source",
-    "name": "Генеральный секретарь, президент Тô Lâm встретился с делегатами Союза дружественных организаций Вьетнама VII созыва",
-    "name_vi": null,
-    "name_ru": "Генеральный секретарь, президент Тô Lâm встретился с делегатами Союза дружественных организаций Вьетнама VII созыва",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "15 сентября в Ханое прошла встреча руководителя государства с делегатами Союза дружественных организаций."
-  },
-  {
-    "slug": "source:4558dd81-2f68-41f0-82f1-510551c994d7",
-    "kind": "source",
-    "name": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
-    "name_vi": null,
-    "name_ru": "Цены на сельхозпродукцию 15/9: фрукты юга резко подешевели",
-    "region_slug": "vn-lamdong",
-    "summary_ru": "Цены на кофе стабильны (95 000 донгов/кг), фрукты с юга страны сильно упали в цене — до 50% год к году."
-  },
-  {
-    "slug": "source:622b7e52-f650-44bf-948d-a2138c258b7c",
-    "kind": "source",
-    "name": "Đưa điện thoại v&agrave; CCCD nhờ hỗ trợ vay tiền, 2 vợ chồng bị chiếm đoạt hơn 74 triệu",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:957c0202-c85b-46cd-ba55-0695bfec3459",
-    "kind": "source",
-    "name": "Công an phường Xuân Hương - Đà Lạt tuyên truyền an toàn giao thông, phòng, chống bạo lực học đường cho học sinh",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:3c39db00-0bb8-4318-bf66-a530f00c9fa1",
-    "kind": "source",
-    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:f0202847-3eb2-4b38-9687-894b7f2b851a",
-    "kind": "source",
-    "name": "Đường liên xã ở Lâm Đồng xuất hiện vết nứt chạy dài",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e6a78dc2-3742-4fbf-bb8b-4646a8687a60",
-    "kind": "source",
-    "name": "Quốc lộ 1 qua Tây Ninh ngập sau mưa, xe máy phải lấn làn ô tô",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:71a5ba1e-febc-40b1-84b8-68b19f507e08",
-    "kind": "source",
-    "name": "Đất vùng ven Hà Nội trúng đấu giá tới 117 triệu đồng/m2",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:40242ee2-dcb1-4808-a34f-34c5b88feba2",
-    "kind": "source",
-    "name": "Chưa thu phí cao tốc Cần Thơ - Cà Mau từ ngày 15/9",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:24aa4e0a-6c7e-4c41-843f-9f852eb9cbb4",
-    "kind": "source",
-    "name": "Lâm Đồng tập trung cứu hộ, cứu nạn tàu cá bị lật tại Phú Quý",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:7af615da-230e-4ab9-9db6-717b4eb0033e",
-    "kind": "source",
-    "name": "Lâm Đồng tập trung cứu hộ, cứu nạn tàu cá bị lật tại Phú Quý",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:5d864679-c1d5-42c1-b0c4-7d9da4695abf",
-    "kind": "source",
-    "name": "Lâm Đồng: Công ty Tiến Đức được chỉ định gói thầu điện chiếu sáng ở Đức Trọng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:03c69013-a16f-4d20-bbed-ab5cff0d46f0",
-    "kind": "source",
-    "name": "Toàn cảnh tập huấn, diễn tập bảo đảm an ninh mạng, bảo vệ dữ liệu cá nhân năm 2026 tại Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a6397718-c2bb-45a6-8da9-2b572dd09b7b",
-    "kind": "source",
-    "name": "M&acirc;u thuẫn t&igrave;nh cảm, người đ&agrave;n &ocirc;ng ph&aacute;t t&aacute;n 6 clip &#039;n&oacute;ng&#039; của bạn g&aacute;i",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a0d97296-6728-4311-9763-d064c9a4de7d",
-    "kind": "source",
-    "name": "Mở hướng phát triển mới cho du lịch Lâm Đồng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:1d674f4b-9aba-430c-9e68-55512bd0f2ba",
-    "kind": "source",
-    "name": "Trưởng Ban Tuyên giáo Lào Cai làm Cục trưởng Trồng trọt và Bảo vệ thực vật",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:31f459cd-b3fa-4020-9653-0d7f41fd0699",
-    "kind": "source",
-    "name": "Lâm Đồng đẩy mạnh phát triển du lịch trở thành ngành kinh tế mũi nhọn",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a767a830-aaf1-480c-b80e-9b32a5fb72d9",
-    "kind": "source",
-    "name": "Lâm Đồng đẩy mạnh phát triển du lịch trở thành ngành kinh tế mũi nhọn",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:a8ea82e5-1d2d-4309-9e13-2b8957a23f4a",
-    "kind": "source",
-    "name": "Lâm Đồng đặt mục tiêu kinh tế số chiếm 30% GRDP vào năm 2030",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:601f0944-b9ee-41c5-92d5-b73cdabec599",
-    "kind": "source",
-    "name": "Vụ thịt gà \"có mùi lạ\" tại trường học Hà Nội: Đơn vị nấu suất ăn lên tiếng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:13f94397-d800-4d38-8210-06a721a22d96",
-    "kind": "source",
-    "name": "Bệnh viện Hoàn Mỹ Đà Lạt ứng dụng MRI tích hợp AI chẩn đoán bệnh",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
@@ -42482,15 +42491,6 @@ export const GEN_ENTITIES: GenEntity[] = [
     "slug": "source:f98db4cc-6d32-4f5d-86b9-31ada4f992d2",
     "kind": "source",
     "name": "Lâm Đồng đề xuất giảm hơn 6.900 ha quy hoạch rừng đặc dụng",
-    "name_vi": null,
-    "name_ru": null,
-    "region_slug": "vn-lamdong",
-    "summary_ru": null
-  },
-  {
-    "slug": "source:e4a64262-2b05-4432-a1eb-28ee51460679",
-    "kind": "source",
-    "name": "Hơn 1.200 t&agrave;u c&aacute; ở Gia Lai được hỗ trợ nhi&ecirc;n liệu",
     "name_vi": null,
     "name_ru": null,
     "region_slug": "vn-lamdong",
@@ -42563,6 +42563,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://en.nhandan.vn/vinamilk-records-high-revenue-performance-in-second-quarter-post156507.html"
   },
   {
+    "entity_slug": "vn-lamdong-pre2025",
+    "metric": "grdp_growth_pct",
+    "period": "2025",
+    "value": 6.42,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
     "entity_slug": "vn",
     "metric": "population_urban_pct",
     "period": "2023",
@@ -42588,15 +42597,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "percent",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn-lamdong-pre2025",
-    "metric": "grdp_growth_pct",
-    "period": "2025",
-    "value": 6.42,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
   },
   {
     "entity_slug": "vn-lamdong-pre2025",
@@ -42662,33 +42662,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
   },
   {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2024",
-    "value": 0.631267006487247,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2023",
-    "value": 0.671429250652247,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2022",
-    "value": 0.750756665157789,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "vn-lamdong-pre2025",
     "metric": "grdp_agri_growth_pct",
     "period": "2025",
@@ -42732,6 +42705,33 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "млн",
     "source_type": "official",
     "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2024",
+    "value": 0.631267006487247,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2023",
+    "value": 0.671429250652247,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2022",
+    "value": 0.750756665157789,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn-lamdong-pre2025",
@@ -42797,15 +42797,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://www.stocktitan.net/sec-filings/VFS/6-k-vin-fast-auto-ltd-current-report-foreign-issuer-ceb5a68a9bc5.html"
   },
   {
-    "entity_slug": "vn",
-    "metric": "population_urban_pct",
-    "period": "2025",
-    "value": 38.8299160351294,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "company:vinfast",
     "metric": "net_loss_vnd",
     "period": "2025",
@@ -42840,6 +42831,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "шт",
     "source_type": "company",
     "source_url": "https://vinfastauto.us/investor-relations/news/vinfast-reports-unaudited-second-quarter-2025-financial-results"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_urban_pct",
+    "period": "2025",
+    "value": 38.8299160351294,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "company:vinfast",
@@ -43074,15 +43074,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "USD",
     "source_type": "analyst",
     "source_url": "https://agritrop.cirad.fr/579403/1/Report%20visit%20to%20TH%20mega-farm%20VF2.pdf"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population_growth_pct",
-    "period": "2021",
-    "value": 0.868883560805873,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "company:bac-a-bank",
@@ -43382,15 +43373,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://theinvestor.vn/hoa-phat-group-from-volume-to-value-d18299.html"
   },
   {
-    "entity_slug": "vn",
-    "metric": "labour_force",
-    "period": "2025",
-    "value": 57041323,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "company:hoa-phat",
     "metric": "revenue_vnd",
     "period": "Q1 2025",
@@ -43688,15 +43670,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://theinvestor.vn/battle-for-vietnam-beer-market-share-shows-no-signs-of-cooling-as-firms-ramp-up-advertising-spending-d19044.html"
   },
   {
-    "entity_slug": "vn",
-    "metric": "labour_force",
-    "period": "2024",
-    "value": 56703936,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "company:sabeco",
     "metric": "market_share_pct",
     "period": "2017",
@@ -43967,15 +43940,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
   },
   {
-    "entity_slug": "vn",
-    "metric": "labour_force",
-    "period": "2023",
-    "value": 56381956,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "market:lamdong-tourism",
     "metric": "intl_target_m",
     "period": "2026",
@@ -44175,24 +44139,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
-    "metric": "gdp_usd",
-    "period": "2025",
-    "value": 514700000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population",
-    "period": "2025",
-    "value": 101600000,
-    "unit": "чел",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json"
-  },
-  {
-    "entity_slug": "vn",
     "metric": "intl_arrivals_m",
     "period": "2025",
     "value": 21.17,
@@ -44211,30 +44157,12 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
-    "metric": "gdp_growth_pct",
-    "period": "2025",
-    "value": 8.02,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.KD.ZG?format=json"
-  },
-  {
-    "entity_slug": "vn",
     "metric": "exports_usd",
     "period": "2025",
     "value": 505660000000,
     "unit": "USD",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NE.EXP.GNFS.CD?format=json"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "fdi_inflow_usd",
-    "period": "2024",
-    "value": 20170000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/BX.KLT.DINV.CD.WD?format=json"
   },
   {
     "entity_slug": "vn",
@@ -44253,15 +44181,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "%",
     "source_type": "official",
     "source_url": "https://en.vietnamplus.vn/credit-growth-nears-18-in-2025-central-bank-post335108.vnp"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "labour_force",
-    "period": "2022",
-    "value": 56475416,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "region:vn-lamdong",
@@ -44480,6 +44399,123 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
   },
   {
+    "entity_slug": "vn-lamdong-x-tuyphong",
+    "metric": "population",
+    "period": "2025",
+    "value": 9510,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong-x-tuyphong",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 444.1,
+    "unit": "km2",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong-x-tuyenquang",
+    "metric": "population",
+    "period": "2025",
+    "value": 28817,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong-x-tuyenquang",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 38.17,
+    "unit": "km2",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong-x-vinhhao",
+    "metric": "population",
+    "period": "2025",
+    "value": 15509,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong-x-vinhhao",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 138.58,
+    "unit": "km2",
+    "source_type": "official",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "tourists_growth_pct",
+    "period": "2025",
+    "value": 17.91,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "tourists_intl_growth_pct",
+    "period": "2025",
+    "value": 39.78,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population_growth_pct",
+    "period": "2021",
+    "value": 0.868883560805873,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.GROW?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "labour_force",
+    "period": "2025",
+    "value": 57041323,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "labour_force",
+    "period": "2024",
+    "value": 56703936,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "labour_force",
+    "period": "2023",
+    "value": 56381956,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "labour_force",
+    "period": "2022",
+    "value": 56475416,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.TLF.TOTL.IN?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "vn",
     "metric": "unemployment_rate",
     "period": "2025",
@@ -44496,618 +44532,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "percent",
     "source_type": "official",
     "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "company:vinpearl",
-    "metric": "hotels",
-    "period": "2025",
-    "value": 31,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "upgrade_cost_vnd",
-    "period": "2026",
-    "value": 966000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_growth_pct",
-    "period": "2025",
-    "value": 6.42,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "company:cau-dat-tea",
-    "metric": "visitors_m",
-    "period": "2025",
-    "value": 1,
-    "unit": "млн",
-    "source_type": "analyst",
-    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "coffee_area_ha",
-    "period": "2025",
-    "value": 176000,
-    "unit": "га",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "coffee_output_t",
-    "period": "2025",
-    "value": 600000,
-    "unit": "т",
-    "source_type": "official",
-    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "accommodations",
-    "period": "2025",
-    "value": 2500,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "rooms",
-    "period": "2025",
-    "value": 29400,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "hotels_3_5_star",
-    "period": "2025",
-    "value": 40,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "pine_forest_ha",
-    "period": "2025",
-    "value": 22000,
-    "unit": "га",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate",
-    "period": "2023",
-    "value": 1.645,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "company:trung-nguyen",
-    "metric": "export_countries",
-    "period": "2025",
-    "value": 50,
-    "unit": "шт",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Trung_Nguy%C3%AAn"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_agri_growth_pct",
-    "period": "2025",
-    "value": 5.1,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_industry_growth_pct",
-    "period": "2025",
-    "value": 5.54,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_services_growth_pct",
-    "period": "2025",
-    "value": 8.28,
-    "unit": "%",
-    "source_type": "official",
-    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "grdp_growth_target_pct",
-    "period": "2026",
-    "value": 10,
-    "unit": "%",
-    "source_type": "forecast",
-    "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "tourist_sites",
-    "period": "2025",
-    "value": 35,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate",
-    "period": "2022",
-    "value": 1.57,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "avg_passengers_m",
-    "period": "2025",
-    "value": 2.5,
-    "unit": "млн",
-    "source_type": "official",
-    "source_url": "https://www.vietnam.vn/en/nang-cap-san-bay-lien-khuong-co-hoi-thuc-day-du-lich-dau-tu-va-hoi-nhap-quoc-te"
-  },
-  {
-    "entity_slug": "company:da-nhim-hydropower",
-    "metric": "construction_start_year",
-    "period": "1961",
-    "value": 1961,
-    "unit": "год",
-    "source_type": "official",
-    "source_url": "https://thanhnien.vn/50-nam-da-nhim-dau-son-huu-nghi-viet-nam-nhat-ban-1855018.htm"
-  },
-  {
-    "entity_slug": "company:dalat-palace-hotel",
-    "metric": "opened_year",
-    "period": "1922",
-    "value": 1922,
-    "unit": "год",
-    "source_type": "company",
-    "source_url": "https://www.dalatpalacehotel.com/en/history/"
-  },
-  {
-    "entity_slug": "institution:dalat-university",
-    "metric": "founded_year",
-    "period": "1957",
-    "value": 1957,
-    "unit": "год",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Dalat_University"
-  },
-  {
-    "entity_slug": "company:cau-dat-tea",
-    "metric": "founded_year",
-    "period": "1927",
-    "value": 1927,
-    "unit": "год",
-    "source_type": "analyst",
-    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
-  },
-  {
-    "entity_slug": "company:vietjet",
-    "metric": "domestic_routes",
-    "period": "2025",
-    "value": 52,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
-  },
-  {
-    "entity_slug": "company:vietjet",
-    "metric": "intl_routes",
-    "period": "2025",
-    "value": 202,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
-  },
-  {
-    "entity_slug": "company:wincommerce",
-    "metric": "revenue_vnd",
-    "period": "7M2025",
-    "value": 21400000000000,
-    "unit": "VND",
-    "source_type": "company",
-    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
-  },
-  {
-    "entity_slug": "company:wincommerce",
-    "metric": "monthly_revenue_vnd",
-    "period": "10.2025",
-    "value": 3458000000000,
-    "unit": "VND",
-    "source_type": "company",
-    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "sentence_years_initial",
-    "period": "2024",
-    "value": 21,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://vir.com.vn/former-flc-chairman-trinh-van-quyet-sentenced-to-21-years-in-prison-113364.html"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "sentence_years_appeal",
-    "period": "2025",
-    "value": 7,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/business/companies/former-flc-chairman-trinh-van-quyet-returns-to-public-eye-5010651.html"
-  },
-  {
-    "entity_slug": "company:sai-gon-dai-ninh",
-    "metric": "sentence_years_ceo",
-    "period": "2025",
-    "value": 3,
-    "unit": "лет",
-    "source_type": "official",
-    "source_url": "https://tuoitre.vn/hom-nay-toa-an-xet-xu-ong-mai-tien-dung-dai-gia-nguyen-cao-tri-cung-cuu-bi-thu-tinh-lam-dong-20250116072403194.htm"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate",
-    "period": "2021",
-    "value": 2.383,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate_youth",
-    "period": "2025",
-    "value": 6.165,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate_youth",
-    "period": "2024",
-    "value": 6.338,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate_youth",
-    "period": "2023",
-    "value": 6.441,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate_youth",
-    "period": "2022",
-    "value": 6.097,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "unemployment_rate_youth",
-    "period": "2021",
-    "value": 6.903,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employment_ratio_pct",
-    "period": "2025",
-    "value": 71.67,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employment_ratio_pct",
-    "period": "2024",
-    "value": 71.963,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "company:vinhomes",
-    "metric": "contracted_sales_vnd",
-    "period": "2025",
-    "value": 205300000000000,
-    "unit": "VND",
-    "source_type": "analyst",
-    "source_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
-  },
-  {
-    "entity_slug": "company:vinhomes",
-    "metric": "profit_after_tax_vnd",
-    "period": "1H2025",
-    "value": 11000000000000,
-    "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Quan%20he%20co%20dong/0_Vingroup_2025/T9/2025.9_Vingroup%20Corporate%20Presentation_2Q2025_Short%20version.pdf"
-  },
-  {
-    "entity_slug": "company:vincom-retail",
-    "metric": "malls",
-    "period": "2025",
-    "value": 80,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinschool",
-    "metric": "campuses",
-    "period": "2025",
-    "value": 56,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinschool",
-    "metric": "students",
-    "period": "2025",
-    "value": 50200,
-    "unit": "чел",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinmec",
-    "metric": "hospitals",
-    "period": "2025",
-    "value": 9,
-    "unit": "шт",
-    "source_type": "official",
-    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
-  },
-  {
-    "entity_slug": "company:vinpearl",
-    "metric": "rooms",
-    "period": "2025",
-    "value": 16100,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employment_ratio_pct",
-    "period": "2023",
-    "value": 72.335,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employment_ratio_pct",
-    "period": "2022",
-    "value": 73.314,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "company:bamboo-airways",
-    "metric": "fleet",
-    "period": "2022",
-    "value": 44,
-    "unit": "шт",
-    "source_type": "analyst",
-    "source_url": "https://liveandletsfly.com/bamboo-airways-died-in-a-booming-vietnam/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "passengers_m",
-    "period": "2023",
-    "value": 2,
-    "unit": "млн",
-    "source_type": "company",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "movements",
-    "period": "2023",
-    "value": 12000,
-    "unit": "шт",
-    "source_type": "company",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "capacity_target_m",
-    "period": "2030",
-    "value": 5,
-    "unit": "млн",
-    "source_type": "forecast",
-    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
-  },
-  {
-    "entity_slug": "zone:lienkhuong",
-    "metric": "runway_m",
-    "period": "2026",
-    "value": 3250,
-    "unit": "м",
-    "source_type": "official",
-    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employment_ratio_pct",
-    "period": "2021",
-    "value": 71.981,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2025",
-    "value": 25.0433926775449,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2023",
-    "value": 39.5494160842561,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2022",
-    "value": 35.8550348764279,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2021",
-    "value": 37.8460942595862,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2020",
-    "value": 3837000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2019",
-    "value": 18009000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2018",
-    "value": 15498000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2017",
-    "value": 12922000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourists_intl",
-    "period": "2016",
-    "value": 10013000,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2020",
-    "value": 3232000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2016",
-    "value": 8500000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "grdp_usd",
-    "period": "2025",
-    "value": 514697215165.065,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "grdp_usd",
-    "period": "2024",
-    "value": 476324572783.807,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "grdp_usd",
-    "period": "2023",
-    "value": 433805036898.465,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "grdp_usd",
-    "period": "2022",
-    "value": 413445230668.578,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -45281,87 +44705,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%AFc_Ninh"
   },
   {
-    "entity_slug": "vn-bacninh",
-    "metric": "population",
-    "period": "2026",
-    "value": 3989623,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%AFc_Ninh"
-  },
-  {
-    "entity_slug": "vn-camau",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 7942.39,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau"
-  },
-  {
-    "entity_slug": "vn-camau",
-    "metric": "population",
-    "period": "2025",
-    "value": 2606672,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau"
-  },
-  {
-    "entity_slug": "vn-cantho",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 6360.83,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
-  },
-  {
-    "entity_slug": "vn-cantho",
-    "metric": "population",
-    "period": "2025",
-    "value": 4257581,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
-  },
-  {
-    "entity_slug": "vn-caobang",
-    "metric": "area_km2",
-    "period": "2026",
-    "value": 6700.39,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
-  },
-  {
-    "entity_slug": "vn-caobang",
-    "metric": "population",
-    "period": "2026",
-    "value": 573119,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
-  },
-  {
-    "entity_slug": "vn-daklak",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 18099.8,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%AFk_L%E1%BA%AFk"
-  },
-  {
-    "entity_slug": "vn-daklak",
-    "metric": "population",
-    "period": "2025",
-    "value": 3849200,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%AFk_L%E1%BA%AFk"
-  },
-  {
     "entity_slug": "vn-danang",
     "metric": "area_km2",
     "period": "2025",
@@ -45369,15 +44712,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/%C4%90%C3%A0_N%E1%BA%B5ng"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "population",
-    "period": "2023",
-    "value": 100352192,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn-danang",
@@ -45414,6 +44748,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%93ng_Nai"
+  },
+  {
+    "entity_slug": "company:vinpearl",
+    "metric": "hotels",
+    "period": "2025",
+    "value": 31,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
   },
   {
     "entity_slug": "vn-dongnai",
@@ -45506,51 +44849,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/H%C3%A0_T%C4%A9nh"
   },
   {
-    "entity_slug": "company:jollibee",
-    "metric": "highlands_stake_pct",
-    "period": "2025",
-    "value": 60,
-    "unit": "%",
-    "source_type": "proxy",
-    "source_url": "https://en.wikipedia.org/wiki/Highlands_Coffee"
-  },
-  {
-    "entity_slug": "company:masan-group",
-    "metric": "phuc_long_stake_pct",
-    "period": "2022",
-    "value": 84,
-    "unit": "%",
-    "source_type": "analyst",
-    "source_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2019",
-    "value": 11830000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2018",
-    "value": 10080000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "tourist_revenue_usd",
-    "period": "2017",
-    "value": 8890000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
-  },
-  {
     "entity_slug": "vn-hatinh",
     "metric": "population",
     "period": "2026",
@@ -45558,15 +44856,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "proxy",
     "source_url": "https://vi.wikipedia.org/wiki/H%C3%A0_T%C4%A9nh"
-  },
-  {
-    "entity_slug": "vn-hue",
-    "metric": "area_km2",
-    "period": "2024",
-    "value": 4947.11,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Hu%E1%BA%BF"
   },
   {
     "entity_slug": "vn-hue",
@@ -45785,33 +45074,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/Ninh_B%C3%ACnh"
   },
   {
-    "entity_slug": "vn-phutho",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 9361.38,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Th%E1%BB%8D"
-  },
-  {
-    "entity_slug": "vn-phutho",
-    "metric": "population",
-    "period": "2025",
-    "value": 4022638,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Th%E1%BB%8D"
-  },
-  {
-    "entity_slug": "vn-quangngai",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 14832.55,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_Ng%C3%A3i"
-  },
-  {
     "entity_slug": "vn-quangngai",
     "metric": "population",
     "period": "2025",
@@ -45985,6 +45247,33 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   {
     "entity_slug": "vn",
     "metric": "population",
+    "period": "2025",
+    "value": 101600000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "gdp_usd",
+    "period": "2025",
+    "value": 514700000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "gdp_growth_pct",
+    "period": "2025",
+    "value": 8.02,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.KD.ZG?format=json"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population",
     "period": "2021",
     "value": 98935098,
     "unit": "person",
@@ -46047,6 +45336,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
+    "metric": "fdi_inflow_usd",
+    "period": "2024",
+    "value": 20170000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/BX.KLT.DINV.CD.WD?format=json"
+  },
+  {
+    "entity_slug": "vn",
     "metric": "imports_goods_usd",
     "period": "2025",
     "value": 455010000000,
@@ -46065,109 +45363,10 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2024",
-    "value": 25.8741334316538,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2023",
-    "value": 26.9827056291982,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2022",
-    "value": 33.4623722339218,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:agriculture_pct",
-    "period": "2021",
-    "value": 29.0283266030004,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2025",
-    "value": 34.8260889132074,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2024",
-    "value": 34.3195198506067,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2023",
-    "value": 33.467876483268,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2022",
-    "value": 30.6825928896503,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:industry_pct",
-    "period": "2021",
-    "value": 33.1255735800284,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2025",
-    "value": 40.1305077279733,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
-  },
-  {
-    "entity_slug": "vn",
     "metric": "gdp_vnd",
     "period": "2025",
     "value": 12847600000000000,
     "unit": "VND",
-    "source_type": "official",
-    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "cpi_pct",
-    "period": "2025",
-    "value": 3.31,
-    "unit": "percent",
     "source_type": "official",
     "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
   },
@@ -46233,15 +45432,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://en.vietnamplus.vn/international-arrivals-to-vietnam-hit-new-record-in-2025-up-over-20-post335449.vnp"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "employed:services_pct",
-    "period": "2024",
-    "value": 39.8063485099891,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -46560,15 +45750,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
   },
   {
     "entity_slug": "vn-lamdong",
-    "metric": "crop:avocado_area_ha",
-    "period": "2026-01",
-    "value": 9050,
-    "unit": "ha",
-    "source_type": "official",
-    "source_url": "https://thongkelamdong.nso.gov.vn/tinh-hinh-kinh-te-xa-hoi/31"
-  },
-  {
-    "entity_slug": "vn-lamdong",
     "metric": "crop:mulberry_area_ha",
     "period": "2026-01",
     "value": 11320.4,
@@ -46757,6 +45938,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vneconomy.vn/lam-dong-gia-dat-o-do-thi-tai-huyen-duc-trong-va-da-lat-duoc-dieu-chinh-cao-nhat.htm"
   },
   {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "upgrade_cost_vnd",
+    "period": "2026",
+    "value": 966000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
+  },
+  {
     "entity_slug": "vn-lamdong-dalat",
     "metric": "land_price_market_avg_vnd_m2",
     "period": "2025",
@@ -46764,6 +45954,33 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "VND",
     "source_type": "proxy",
     "source_url": "https://smartland.vn/phan-tich-thi-truong-bat-dong-san-da-lat-2025/"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_growth_pct",
+    "period": "2025",
+    "value": 6.42,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "company:cau-dat-tea",
+    "metric": "visitors_m",
+    "period": "2025",
+    "value": 1,
+    "unit": "млн",
+    "source_type": "analyst",
+    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate",
+    "period": "2023",
+    "value": 1.645,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn-lamdong-dalat",
@@ -46791,6 +46008,60 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "coffee_area_ha",
+    "period": "2025",
+    "value": 176000,
+    "unit": "га",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "coffee_output_t",
+    "period": "2025",
+    "value": 600000,
+    "unit": "т",
+    "source_type": "official",
+    "source_url": "https://vietnamnews.vn/travel/1731872/lam-dong-tourism-a-breakthrough-in-the-international-market.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "accommodations",
+    "period": "2025",
+    "value": 2500,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "rooms",
+    "period": "2025",
+    "value": 29400,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "hotels_3_5_star",
+    "period": "2025",
+    "value": 40,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "pine_forest_ha",
+    "period": "2025",
+    "value": 22000,
+    "unit": "га",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
   },
   {
     "entity_slug": "vn-lamdong-x-2baoloc",
@@ -46928,6 +46199,24 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
+    "entity_slug": "company:trung-nguyen",
+    "metric": "export_countries",
+    "period": "2025",
+    "value": 50,
+    "unit": "шт",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Trung_Nguy%C3%AAn"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate",
+    "period": "2022",
+    "value": 1.57,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "vn-lamdong-x-hamthang",
     "metric": "population",
     "period": "2025",
@@ -46962,6 +46251,51 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_agri_growth_pct",
+    "period": "2025",
+    "value": 5.1,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_industry_growth_pct",
+    "period": "2025",
+    "value": 5.54,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_services_growth_pct",
+    "period": "2025",
+    "value": 8.28,
+    "unit": "%",
+    "source_type": "official",
+    "source_url": "https://www.sggp.org.vn/lam-dong-doanh-thu-tu-du-lich-nam-2025-hon-56000-ty-dong-post832252.html"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "grdp_growth_target_pct",
+    "period": "2026",
+    "value": 10,
+    "unit": "%",
+    "source_type": "forecast",
+    "source_url": "https://langbiang.lamdong.gov.vn/chi-tiet-tin-tuc/?param=lam-dong-phan-dau-thu-hut-khoang-25-08-trieu-luot-khach-du-lich-a3809f02-ed6d-4f20-b9cd-a058993d5a0c"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "tourist_sites",
+    "period": "2025",
+    "value": 35,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://dalat-info.gov.vn/en/Post/Detail?postId=96&categoryId=2"
   },
   {
     "entity_slug": "vn-lamdong-x-langbiangdalat",
@@ -47063,24 +46397,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "vn-laocai",
-    "metric": "population",
-    "period": "2025",
-    "value": 1778785,
-    "unit": "person",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A0o_Cai"
-  },
-  {
-    "entity_slug": "vn-nghean",
-    "metric": "area_km2",
-    "period": "2026",
-    "value": 16486.5,
-    "unit": "km2",
-    "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/Ngh%E1%BB%87_An"
-  },
-  {
     "entity_slug": "vn-lamdong-x-phuthuy",
     "metric": "area_km2",
     "period": "2025",
@@ -47117,6 +46433,186 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "avg_passengers_m",
+    "period": "2025",
+    "value": 2.5,
+    "unit": "млн",
+    "source_type": "official",
+    "source_url": "https://www.vietnam.vn/en/nang-cap-san-bay-lien-khuong-co-hoi-thuc-day-du-lich-dau-tu-va-hoi-nhap-quoc-te"
+  },
+  {
+    "entity_slug": "company:da-nhim-hydropower",
+    "metric": "construction_start_year",
+    "period": "1961",
+    "value": 1961,
+    "unit": "год",
+    "source_type": "official",
+    "source_url": "https://thanhnien.vn/50-nam-da-nhim-dau-son-huu-nghi-viet-nam-nhat-ban-1855018.htm"
+  },
+  {
+    "entity_slug": "company:dalat-palace-hotel",
+    "metric": "opened_year",
+    "period": "1922",
+    "value": 1922,
+    "unit": "год",
+    "source_type": "company",
+    "source_url": "https://www.dalatpalacehotel.com/en/history/"
+  },
+  {
+    "entity_slug": "institution:dalat-university",
+    "metric": "founded_year",
+    "period": "1957",
+    "value": 1957,
+    "unit": "год",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Dalat_University"
+  },
+  {
+    "entity_slug": "company:cau-dat-tea",
+    "metric": "founded_year",
+    "period": "1927",
+    "value": 1927,
+    "unit": "год",
+    "source_type": "analyst",
+    "source_url": "https://vinwonders.com/en/wonderpedia/news/cau-dat-tea-hill-da-lat/"
+  },
+  {
+    "entity_slug": "company:vietjet",
+    "metric": "domestic_routes",
+    "period": "2025",
+    "value": 52,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
+  },
+  {
+    "entity_slug": "company:vietjet",
+    "metric": "intl_routes",
+    "period": "2025",
+    "value": 202,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.traveltrendstoday.in/vietjet-records-usd-311-bn-revenue-in-2025-eyes-expansion-to-europe-beyond"
+  },
+  {
+    "entity_slug": "company:wincommerce",
+    "metric": "revenue_vnd",
+    "period": "7M2025",
+    "value": 21400000000000,
+    "unit": "VND",
+    "source_type": "company",
+    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
+  },
+  {
+    "entity_slug": "company:wincommerce",
+    "metric": "monthly_revenue_vnd",
+    "period": "10.2025",
+    "value": 3458000000000,
+    "unit": "VND",
+    "source_type": "company",
+    "source_url": "https://www.masangroup.com/news/masan-news/wincommerce-achieves-double-digit-growth-in-july-2025/"
+  },
+  {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "sentence_years_initial",
+    "period": "2024",
+    "value": 21,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://vir.com.vn/former-flc-chairman-trinh-van-quyet-sentenced-to-21-years-in-prison-113364.html"
+  },
+  {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "sentence_years_appeal",
+    "period": "2025",
+    "value": 7,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/business/companies/former-flc-chairman-trinh-van-quyet-returns-to-public-eye-5010651.html"
+  },
+  {
+    "entity_slug": "company:sai-gon-dai-ninh",
+    "metric": "sentence_years_ceo",
+    "period": "2025",
+    "value": 3,
+    "unit": "лет",
+    "source_type": "official",
+    "source_url": "https://tuoitre.vn/hom-nay-toa-an-xet-xu-ong-mai-tien-dung-dai-gia-nguyen-cao-tri-cung-cuu-bi-thu-tinh-lam-dong-20250116072403194.htm"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate",
+    "period": "2021",
+    "value": 2.383,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.TOTL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate_youth",
+    "period": "2025",
+    "value": 6.165,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate_youth",
+    "period": "2024",
+    "value": 6.338,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate_youth",
+    "period": "2023",
+    "value": 6.441,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate_youth",
+    "period": "2022",
+    "value": 6.097,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "unemployment_rate_youth",
+    "period": "2021",
+    "value": 6.903,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.UEM.1524.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employment_ratio_pct",
+    "period": "2025",
+    "value": 71.67,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employment_ratio_pct",
+    "period": "2024",
+    "value": 71.963,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "vn-lamdong-x-tienthanh",
     "metric": "area_km2",
     "period": "2025",
@@ -47142,6 +46638,78 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "company:vinhomes",
+    "metric": "contracted_sales_vnd",
+    "period": "2025",
+    "value": 205300000000000,
+    "unit": "VND",
+    "source_type": "analyst",
+    "source_url": "https://theinvestor.vn/vingroup-posts-record-profit-revenue-in-2025-on-property-surge-manufacturing-expansion-d18275.html"
+  },
+  {
+    "entity_slug": "company:vinhomes",
+    "metric": "profit_after_tax_vnd",
+    "period": "1H2025",
+    "value": 11000000000000,
+    "unit": "VND",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Quan%20he%20co%20dong/0_Vingroup_2025/T9/2025.9_Vingroup%20Corporate%20Presentation_2Q2025_Short%20version.pdf"
+  },
+  {
+    "entity_slug": "company:vincom-retail",
+    "metric": "malls",
+    "period": "2025",
+    "value": 80,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinschool",
+    "metric": "campuses",
+    "period": "2025",
+    "value": 56,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinschool",
+    "metric": "students",
+    "period": "2025",
+    "value": 50200,
+    "unit": "чел",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinmec",
+    "metric": "hospitals",
+    "period": "2025",
+    "value": 9,
+    "unit": "шт",
+    "source_type": "official",
+    "source_url": "https://ircdn.vingroup.net/storage/Uploads/0_Bao%20cao%20thuong%20nien/2025/ENG%20Vingroup%20AR25_Chap%201-6_260422.pdf"
+  },
+  {
+    "entity_slug": "company:vinpearl",
+    "metric": "rooms",
+    "period": "2025",
+    "value": 16100,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://www.vietnam.vn/en/vinpearl-sap-niem-yet-gan-1-8-ty-co-phieu"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employment_ratio_pct",
+    "period": "2023",
+    "value": 72.335,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
   },
   {
     "entity_slug": "vn",
@@ -47261,6 +46829,15 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
+    "entity_slug": "vn",
+    "metric": "employment_ratio_pct",
+    "period": "2022",
+    "value": 73.314,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "vn-lamdong-x-baothuan",
     "metric": "population",
     "period": "2025",
@@ -47295,15 +46872,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn",
-    "metric": "exports_goods_usd",
-    "period": "2025",
-    "value": 475040000000,
-    "unit": "USD",
-    "source_type": "official",
-    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
   },
   {
     "entity_slug": "vn-lamdong-x-bacruong",
@@ -47738,6 +47306,132 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
+    "entity_slug": "company:bamboo-airways",
+    "metric": "fleet",
+    "period": "2022",
+    "value": 44,
+    "unit": "шт",
+    "source_type": "analyst",
+    "source_url": "https://liveandletsfly.com/bamboo-airways-died-in-a-booming-vietnam/"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employment_ratio_pct",
+    "period": "2021",
+    "value": 71.981,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.EMP.TOTL.SP.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2025",
+    "value": 25.0433926775449,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2023",
+    "value": 39.5494160842561,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2022",
+    "value": 35.8550348764279,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "passengers_m",
+    "period": "2023",
+    "value": 2,
+    "unit": "млн",
+    "source_type": "company",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "movements",
+    "period": "2023",
+    "value": 12000,
+    "unit": "шт",
+    "source_type": "company",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "capacity_target_m",
+    "period": "2030",
+    "value": 5,
+    "unit": "млн",
+    "source_type": "forecast",
+    "source_url": "https://www.routesonline.com/airports/12607/airports-corporation-of-vietnam/news/299664712/welcome-to-lien-khuong-international-airport-dli-gateway-to-the-central-highlands/"
+  },
+  {
+    "entity_slug": "zone:lienkhuong",
+    "metric": "runway_m",
+    "period": "2026",
+    "value": 3250,
+    "unit": "м",
+    "source_type": "official",
+    "source_url": "https://e.vnexpress.net/news/news/traffic/da-lat-airport-to-close-for-6-months-for-36m-upgrade-4986098.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2021",
+    "value": 37.8460942595862,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2020",
+    "value": 3837000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2019",
+    "value": 18009000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2018",
+    "value": 15498000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2017",
+    "value": 12922000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
     "entity_slug": "vn-lamdong-x-dinhvanlamha",
     "metric": "area_km2",
     "period": "2025",
@@ -47790,6 +47484,384 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "unit": "person",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourists_intl",
+    "period": "2016",
+    "value": 10013000,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.ARVL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2020",
+    "value": 3232000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2016",
+    "value": 8500000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "grdp_usd",
+    "period": "2025",
+    "value": 514697215165.065,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "grdp_usd",
+    "period": "2024",
+    "value": 476324572783.807,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "grdp_usd",
+    "period": "2023",
+    "value": 433805036898.465,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "grdp_usd",
+    "period": "2022",
+    "value": 413445230668.578,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/NY.GDP.MKTP.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn-bacninh",
+    "metric": "population",
+    "period": "2026",
+    "value": 3989623,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/B%E1%BA%AFc_Ninh"
+  },
+  {
+    "entity_slug": "vn-camau",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 7942.39,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau"
+  },
+  {
+    "entity_slug": "vn-camau",
+    "metric": "population",
+    "period": "2025",
+    "value": 2606672,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%C3%A0_Mau"
+  },
+  {
+    "entity_slug": "vn-cantho",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 6360.83,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
+  },
+  {
+    "entity_slug": "vn-cantho",
+    "metric": "population",
+    "period": "2025",
+    "value": 4257581,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/C%E1%BA%A7n_Th%C6%A1"
+  },
+  {
+    "entity_slug": "vn-caobang",
+    "metric": "area_km2",
+    "period": "2026",
+    "value": 6700.39,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
+  },
+  {
+    "entity_slug": "vn-caobang",
+    "metric": "population",
+    "period": "2026",
+    "value": 573119,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Cao_B%E1%BA%B1ng"
+  },
+  {
+    "entity_slug": "vn-daklak",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 18099.8,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%AFk_L%E1%BA%AFk"
+  },
+  {
+    "entity_slug": "vn-daklak",
+    "metric": "population",
+    "period": "2025",
+    "value": 3849200,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%AFk_L%E1%BA%AFk"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "population",
+    "period": "2023",
+    "value": 100352192,
+    "unit": "person",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SP.POP.TOTL?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "company:jollibee",
+    "metric": "highlands_stake_pct",
+    "period": "2025",
+    "value": 60,
+    "unit": "%",
+    "source_type": "proxy",
+    "source_url": "https://en.wikipedia.org/wiki/Highlands_Coffee"
+  },
+  {
+    "entity_slug": "company:masan-group",
+    "metric": "phuc_long_stake_pct",
+    "period": "2022",
+    "value": 84,
+    "unit": "%",
+    "source_type": "analyst",
+    "source_url": "https://theinvestor.vn/philippines-jollibee-backed-highlands-coffee-chain-weighs-ipo-in-vietnam-d18538.html"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2019",
+    "value": 11830000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2018",
+    "value": 10080000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "tourist_revenue_usd",
+    "period": "2017",
+    "value": 8890000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/ST.INT.RCPT.CD?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn-hue",
+    "metric": "area_km2",
+    "period": "2024",
+    "value": 4947.11,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Hu%E1%BA%BF"
+  },
+  {
+    "entity_slug": "vn-phutho",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 9361.38,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Th%E1%BB%8D"
+  },
+  {
+    "entity_slug": "vn-phutho",
+    "metric": "population",
+    "period": "2025",
+    "value": 4022638,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Ph%C3%BA_Th%E1%BB%8D"
+  },
+  {
+    "entity_slug": "vn-quangngai",
+    "metric": "area_km2",
+    "period": "2025",
+    "value": 14832.55,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_Ng%C3%A3i"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2024",
+    "value": 25.8741334316538,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2023",
+    "value": 26.9827056291982,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2022",
+    "value": 33.4623722339218,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:agriculture_pct",
+    "period": "2021",
+    "value": 29.0283266030004,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.AGR.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2025",
+    "value": 34.8260889132074,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2024",
+    "value": 34.3195198506067,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2023",
+    "value": 33.467876483268,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2022",
+    "value": 30.6825928896503,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:industry_pct",
+    "period": "2021",
+    "value": 33.1255735800284,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.IND.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2025",
+    "value": 40.1305077279733,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "cpi_pct",
+    "period": "2025",
+    "value": 3.31,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "employed:services_pct",
+    "period": "2024",
+    "value": 39.8063485099891,
+    "unit": "percent",
+    "source_type": "official",
+    "source_url": "https://api.worldbank.org/v2/country/VNM/indicator/SL.SRV.EMPL.ZS?format=json&per_page=8&mrv=5"
+  },
+  {
+    "entity_slug": "vn-lamdong",
+    "metric": "crop:avocado_area_ha",
+    "period": "2026-01",
+    "value": 9050,
+    "unit": "ha",
+    "source_type": "official",
+    "source_url": "https://thongkelamdong.nso.gov.vn/tinh-hinh-kinh-te-xa-hoi/31"
+  },
+  {
+    "entity_slug": "vn-laocai",
+    "metric": "population",
+    "period": "2025",
+    "value": 1778785,
+    "unit": "person",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A0o_Cai"
+  },
+  {
+    "entity_slug": "vn-nghean",
+    "metric": "area_km2",
+    "period": "2026",
+    "value": 16486.5,
+    "unit": "km2",
+    "source_type": "proxy",
+    "source_url": "https://vi.wikipedia.org/wiki/Ngh%E1%BB%87_An"
+  },
+  {
+    "entity_slug": "vn",
+    "metric": "exports_goods_usd",
+    "period": "2025",
+    "value": 475040000000,
+    "unit": "USD",
+    "source_type": "official",
+    "source_url": "https://www.nso.gov.vn/en/data-and-statistics/2026/01/press-release-social-economic-situation-in-the-fourth-quarter-and-2025/"
   },
   {
     "entity_slug": "vn-lamdong-x-donduong",
@@ -48917,76 +48989,13 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {
-    "entity_slug": "vn-lamdong-x-tuyphong",
-    "metric": "population",
-    "period": "2025",
-    "value": 9510,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-tuyphong",
+    "entity_slug": "vn-lamdong-x-tuyduc",
     "metric": "area_km2",
     "period": "2025",
-    "value": 444.1,
+    "value": 265.99,
     "unit": "km2",
     "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-tuyenquang",
-    "metric": "population",
-    "period": "2025",
-    "value": 28817,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-tuyenquang",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 38.17,
-    "unit": "km2",
-    "source_type": "official",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-vinhhao",
-    "metric": "population",
-    "period": "2025",
-    "value": 15509,
-    "unit": "person",
-    "source_type": "official",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-vinhhao",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 138.58,
-    "unit": "km2",
-    "source_type": "official",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "tourists_growth_pct",
-    "period": "2025",
-    "value": 17.91,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
-  },
-  {
-    "entity_slug": "vn-lamdong",
-    "metric": "tourists_intl_growth_pct",
-    "period": "2025",
-    "value": 39.78,
-    "unit": "percent",
-    "source_type": "official",
-    "source_url": "https://thongkelamdong.nso.gov.vn/tin-tuc/10051"
   },
   {
     "entity_slug": "vn-lamdong",
@@ -49067,15 +49076,6 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = [
     "value": 44617,
     "unit": "person",
     "source_type": "proxy",
-    "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
-  },
-  {
-    "entity_slug": "vn-lamdong-x-tuyduc",
-    "metric": "area_km2",
-    "period": "2025",
-    "value": 265.99,
-    "unit": "km2",
-    "source_type": "official",
     "source_url": "https://vi.wikipedia.org/wiki/L%C3%A2m_%C4%90%E1%BB%93ng"
   },
   {

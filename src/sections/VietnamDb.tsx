@@ -161,7 +161,14 @@ const REGION_BY_SLUG = new Map(GEN_REGIONS.map((r) => [r.slug, r]));
 // показывается местом, а не домом. Экономику зоны (29 рынков) при этом не
 // выбрасываем: личное тут только имя.
 const depersonalize = (name: string) => name.replace(/^Дом\s*·\s*/, '').replace(/^Дом$/, 'Đông Thanh, Nam Ban');
-const regionName = (slug: string) => depersonalize(REGION_BY_SLUG.get(slug)?.name_ru ?? slug);
+const regionName = (slug: string) => {
+  const region = REGION_BY_SLUG.get(slug);
+  if (region) return depersonalize(region.name_ru ?? region.name_vi ?? slug);
+  // Запасной путь графа для мест вне реестра Вьетнама: слаг с префиксом
+  // `region:`. Например Харьков, откуда родом предшественник Vingroup.
+  const outside = /^region:(.+)$/.exec(slug);
+  return outside ? `${outside[1]} · вне реестра мест` : slug;
+};
 
 // В таблице entities имя лежит в name, русское резюме в summary_ru: колонки
 // name_ru и summary у первой волны строк пустые, поэтому берём что есть.
@@ -426,12 +433,21 @@ export default function VietnamDb() {
       : `vn-${route.a}`;
     if (route.kind === 'region') setOpenRegion(route.a);
     if (route.kind === 'market') setOpenMarket(`${route.a}/${route.b}`);
-    // Строка региона появляется только после setOpenRegion, поэтому прокрутка
-    // идёт следующим кадром; запасной якорь - начало блока.
-    requestAnimationFrame(() => {
+    // Якорь региона это обёртка, внутри которой лежит и заголовок строки, и все
+    // её раскрытые показатели: у Вьетнама их 116, и обёртка высотой в пять
+    // экранов. Центрировать такую нельзя - block:'center' уводил заголовок на
+    // 1 271 пиксель выше экрана. Выравниваем по верху, отступ под липкую шапку
+    // задан scrollMarginTop на самой обёртке.
+    // Строка появляется только после setOpenRegion, поэтому ждём кадр. Второй
+    // проход с поправкой нужен при переходе по ссылке внутри уже открытой
+    // страницы: прошлый регион схлопывается во время плавной прокрутки, вёрстка
+    // над целью уезжает, и анимация приходит не туда.
+    const scroll = (behavior: ScrollBehavior) =>
       (document.getElementById(anchor) ?? document.getElementById('vn-regions'))
-        ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+        ?.scrollIntoView({ behavior, block: 'start' });
+    requestAnimationFrame(() => scroll('smooth'));
+    const fix = setTimeout(() => scroll('auto'), 700);
+    return () => clearTimeout(fix);
   }, [route]);
 
   // Блоки раздела: список нужен и для проверки ссылки на секцию.
@@ -653,7 +669,11 @@ export default function VietnamDb() {
             const open = openRegion === region.slug;
             const stats = STATS_BY_REGION.get(region.slug) ?? [];
             return (
-              <div key={region.id} id={`vn-region-${region.slug}`}>
+              <div
+                key={region.id}
+                id={`vn-region-${region.slug}`}
+                style={{ scrollMarginTop: 96 }}
+              >
                 <button
                   className="list-row"
                   aria-current={open ? 'true' : undefined}
