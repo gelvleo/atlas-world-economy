@@ -5,7 +5,8 @@
 //   #/vietnam/region/<slug>
 //   #/vietnam/market/<region_slug>/<market_slug>
 //   #/vietnam/entity/<slug>
-//   #/vietnam/section/<id>
+//   #/vietnam/section/<id>   search · calendar · regions · employment ·
+//                            markets · opportunity · entities · sweeps
 // Двоеточие в слаге зоны (zone:namban-home) допустимо и не кодируется.
 
 import { useEffect, useState } from 'react';

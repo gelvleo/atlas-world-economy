@@ -169,9 +169,15 @@ NVIDIA ~80-90% рынка AI-GPU; услуги ~60-65% мирового ВВП. 
 
 Часть раздела «Вьетнам» не вписана в `.ts` руками, а приходит из базы региона
 Lâm Đồng (Supabase `region-lamdong`, ref `umhoqwhjcjmajcloijvl`). Читаются
-таблицы `regions`, `region_stats`, `markets`, `market_players`, `forecasts`,
-`events`, `observations`, `job_heartbeats`, `media_topics`, а также `insights`,
-`entities`, `edges`, `entity_metrics`, когда их заведут.
+таблицы `regions`, `region_stats`, `markets`, `market_players`, `events`,
+`job_heartbeats`, `insights`, `media_topics` и граф `entities`, `edges`,
+`entity_metrics`.
+
+Атлас показывает только рынки и экономику. Прогноза потоков людей, погоды по
+точкам наблюдения и учебного календаря здесь нет намеренно: это персональный
+слой владельца, он живёт в консоли региона у агента `region-brief`. Из
+календаря берутся только государственные праздники и фестивали - как
+сезонность спроса, одной строкой, без личного контекста.
 
 Атлас остаётся статическим: в рантайме он в базу не ходит и на Vercel её не
 видит. Обновление данных — отдельный шаг разработчика:
@@ -203,9 +209,9 @@ npm run pull       # перечитать базу и перезаписать s
 #/vietnam/region/<slug>                      например vn-lamdong-lamha-namban
 #/vietnam/market/<region_slug>/<market_slug> например .../namban/massage
 #/vietnam/entity/<slug>                      сущность графа
-#/vietnam/section/<id>                       today · regions · employment ·
-                                             markets · opportunity · sweeps ·
-                                             entities · search
+#/vietnam/section/<id>                       search · calendar · regions ·
+                                             employment · markets ·
+                                             opportunity · entities · sweeps
 ```
 
 Неизвестный слаг раздел не ломает: он открывается целиком и говорит, чего не

@@ -77,10 +77,7 @@ interface Region { id: string; slug: string; level: string; parent_id: string | 
 interface Stat { region_id: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 interface Market { id: string; region_id: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null }
 interface Player { market_id: string; name: string | null; lat: number | null; lon: number | null; rating: number | null; reviews: number | null; source: string | null }
-interface Forecast { for_date: string; made_at: string; horizon: string | null; subject: string; value: number | null; direction_note: string | null; reasoning: string | null }
 interface EventRow { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; summary: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
-interface Point { id: string; external_id: string; kind: string; name: string; lat: number | null; lon: number | null }
-interface Obs { point_id: string; metric: string; at: string; value: number | null; source: string | null }
 interface Heartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 interface Topic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
 interface Insight { kind: string | null; title_ru: string | null; body_ru: string | null; score: number | null; confidence: string | null; status: string | null; created_at: string | null }
@@ -93,79 +90,33 @@ const day = (d: Date) => d.toISOString().slice(0, 10);
 
 async function pull() {
   const now = new Date();
-  const yesterday = new Date(now.getTime() - 864e5);
 
-  const [regions, stats, markets, players, points] = await Promise.all([
+  const [regions, stats, markets, players] = await Promise.all([
     table<Region>('regions', 'select=id,slug,level,parent_id,name_vi,name_ru,name_en,perimeter,lat,lon,area_km2&order=level,slug'),
     table<Stat>('region_stats', 'select=region_id,metric,period,value,unit,source_type,source_url,source_note,fetched_at'),
     table<Market>('markets', 'select=id,region_id,slug,name_ru,players_count,players_source,size_vnd_year,size_source_type,size_source_url,avg_price_vnd,opportunity_score,opportunity_note&order=slug'),
-    table<Player>('market_players', 'select=market_id,name,lat,lon,rating,reviews,source'),
-    table<Point>('observation_points', 'select=id,external_id,kind,name,lat,lon')
+    table<Player>('market_players', 'select=market_id,name,lat,lon,rating,reviews,source')
   ]);
 
-  // Прогноз берём только последнего замеса на сегодня: суточный обход пишет
-  // весь набор направлений разом, старые замесы того же дня это история.
-  const rawForecasts = await table<Forecast>(
-    'forecasts',
-    // features не берём: там сырые новости прогноза, файл раздувается в мегабайты.
-    `select=for_date,made_at,horizon,subject,value,direction_note,reasoning&for_date=eq.${day(now)}&order=made_at.desc&limit=200`
-  );
-  const lastMade = rawForecasts[0]?.made_at ?? null;
-  const forecasts = rawForecasts.filter((f) => f.made_at === lastMade);
-
-  // Ближайшие события, а не окно в 30 дней: календарь региона редкий, до
-  // фестиваля цветов 95 дней, и окно в месяц оставляло блок пустым. Берём
-  // идущие сейчас (учебный семестр) и ближайшие впереди.
-  const events = await table<EventRow>(
-    'events',
-    `select=title,kind,event_class,starts_at,ends_at,summary,source_url,source_name,evidence_kind&or=(starts_at.gte.${iso(now)},ends_at.gte.${iso(now)})&order=starts_at&limit=12`
-  );
-
-  // Граф сущностей (миграция 0004 агента region-graph) и инсайты могут ещё не
-  // существовать: table() отдаёт пустой массив и отметку в missingTables.
+  // Колонки перечисляем поимённо: у entities есть tsvector search и jsonb
+  // attrs, у edges - attrs. Через select=* они утраивали вес выгрузки, а в
+  // разделе не показывается ни одна из них.
   const [heartbeats, topics, insights, entities, edges, entityMetrics] = await Promise.all([
     table<Heartbeat>('job_heartbeats', 'select=job,ok,message,last_run_at,last_ok_at&order=job'),
     table<Topic>('media_topics', 'select=region_slug,title_ru,title_vi,angle,audience,score,score_reason,status,created_at&order=created_at.desc&limit=20'),
-    // Колонки перечисляем поимённо: у entities есть tsvector search и jsonb
-    // attrs, у edges - attrs. Через select=* они утраивали вес выгрузки, а в
-    // разделе не показывается ни одна из них.
     table<Insight>('insights', 'select=kind,title_ru,body_ru,score,confidence,status,created_at&order=created_at.desc&limit=20'),
     table<Entity>('entities', 'select=id,slug,kind,name,name_vi,name_ru,region_slug,summary_ru'),
     table<Edge>('edges', 'select=src,dst,relation,weight,weight_unit,source_type,note'),
     table<EntityMetric>('entity_metrics', 'select=entity_id,metric,period,value,unit,source_type,source_url')
   ]);
 
-  const obs = await table<Obs>(
-    'observations',
-    `select=point_id,metric,at,value,source&at=gte.${iso(yesterday)}&at=lte.${iso(now)}&order=at`
+  // Календарь берём только экономический: государственные праздники и
+  // фестивали двигают спрос на рынках. Учебные периоды и расписание школ это
+  // личный контекст владельца, он живёт в консоли региона, а не в атласе.
+  const events = await table<EventRow>(
+    'events',
+    `select=title,kind,event_class,starts_at,ends_at,source_url,source_name,evidence_kind&kind=in.(holiday,conference)&or=(starts_at.gte.${iso(now)},ends_at.gte.${iso(now)})&order=starts_at&limit=12`
   );
-
-  // Сводка наблюдений за сутки: по точке и метрике min/max/среднее и последнее.
-  const pointById = new Map(points.map((p) => [p.id, p]));
-  const buckets = new Map<string, { point: Point; metric: string; vals: number[]; last: number | null; lastAt: string | null }>();
-  for (const o of obs) {
-    const point = pointById.get(o.point_id);
-    if (!point || o.value === null) continue;
-    const key = `${o.point_id}|${o.metric}`;
-    let b = buckets.get(key);
-    if (!b) buckets.set(key, (b = { point, metric: o.metric, vals: [], last: null, lastAt: null }));
-    b.vals.push(Number(o.value));
-    if (!b.lastAt || o.at > b.lastAt) { b.lastAt = o.at; b.last = Number(o.value); }
-  }
-  const observationSummary = [...buckets.values()]
-    .map((b) => ({
-      point: b.point.name,
-      point_kind: b.point.kind,
-      metric: b.metric,
-      min: Math.min(...b.vals),
-      max: Math.max(...b.vals),
-      avg: b.vals.reduce((s, v) => s + v, 0) / b.vals.length,
-      sum: b.vals.reduce((s, v) => s + v, 0),
-      last: b.last,
-      last_at: b.lastAt,
-      samples: b.vals.length
-    }))
-    .sort((a, b) => a.point.localeCompare(b.point) || a.metric.localeCompare(b.metric));
 
   // Слаг вместо uuid: генерированный файл читается человеком и джойнится в UI
   // по слагу, а uuid базы наружу не нужен.
@@ -183,6 +134,8 @@ async function pull() {
   const marketRows = markets.map(({ region_id, ...rest }) => ({
     ...rest,
     region_slug: slugById.get(region_id) ?? region_id,
+    // Игроков в файл целиком не кладём: раздел показывает имена первых, а счёт
+    // берёт из players_count. Координаты не рисуются вовсе.
     players: (playersByMarket.get(rest.id) ?? [])
       .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
       .slice(0, 12)
@@ -204,7 +157,7 @@ async function pull() {
     value: num(rest.value)
   }));
 
-  return { regions, statRows, marketRows, forecasts, events, observationSummary, heartbeats, topics, insights, entities: entityRows, edges: edgeRows, entityMetrics: entityMetricRows, now };
+  return { regions, statRows, marketRows, events, heartbeats, topics, insights, entities: entityRows, edges: edgeRows, entityMetrics: entityMetricRows, now };
 }
 
 // ─── Запись ───────────────────────────────────────────────────────────────────
@@ -218,9 +171,7 @@ function render(d: Awaited<ReturnType<typeof pull>>) {
     markets: d.marketRows.length,
     market_players_shown: d.marketRows.reduce((s, m) => s + m.players.length, 0),
     market_players_counted: d.marketRows.reduce((s, m) => s + (m.players_count ?? 0), 0),
-    forecasts: d.forecasts.length,
     events: d.events.length,
-    observation_metrics: d.observationSummary.length,
     job_heartbeats: d.heartbeats.length,
     media_topics: d.topics.length,
     insights: d.insights.length,
@@ -230,7 +181,10 @@ function render(d: Awaited<ReturnType<typeof pull>>) {
   };
   return `// СГЕНЕРИРОВАННЫЙ ФАЙЛ. Руками не править: перезапишется.
 // Источник: база региона Supabase region-lamdong, таблицы regions, region_stats,
-// markets, market_players, forecasts, events, observations.
+// markets, market_players, events, job_heartbeats, insights, media_topics и
+// граф entities/edges/entity_metrics.
+// Прогноза потоков и погоды здесь нет: атлас про рынки и экономику, а
+// персональный экран владельца живёт в консоли региона.
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
@@ -241,8 +195,7 @@ export interface GenRegion { id: string; slug: string; level: string; parent_id:
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
 export interface GenPlayer { name: string | null; rating: number | null; reviews: number | null; source: string | null }
 export interface GenMarket { id: string; region_slug: string; slug: string; name_ru: string | null; players_count: number | null; players_source: string | null; size_vnd_year: number | null; size_source_type: string | null; size_source_url: string | null; avg_price_vnd: number | null; opportunity_score: number | null; opportunity_note: string | null; players: GenPlayer[] }
-export interface GenForecast { for_date: string; made_at: string; horizon: string | null; subject: string; value: number | null; direction_note: string | null; reasoning: string | null }
-export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; summary: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
+export interface GenEvent { title: string; kind: string | null; event_class: string | null; starts_at: string | null; ends_at: string | null; source_url: string | null; source_name: string | null; evidence_kind: string | null }
 export interface GenHeartbeat { job: string; ok: boolean; message: string | null; last_run_at: string | null; last_ok_at: string | null }
 export interface GenTopic { region_slug: string | null; title_ru: string | null; title_vi: string | null; angle: string | null; audience: string | null; score: number | null; score_reason: string | null; status: string | null; created_at: string | null }
 /** Инсайты и граф ведёт агент region-graph: колонки ещё меняются, поэтому
@@ -250,7 +203,6 @@ export interface GenTopic { region_slug: string | null; title_ru: string | null;
 export interface GenInsight { kind: string | null; title_ru: string | null; body_ru: string | null; score: number | null; confidence: string | null; status: string | null; created_at: string | null }
 export interface GenEntity { slug: string; kind: string | null; name: string | null; name_vi: string | null; name_ru: string | null; region_slug: string | null; summary_ru: string | null }
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
-export interface GenObservation { point: string; point_kind: string; metric: string; min: number; max: number; avg: number; sum: number; last: number | null; last_at: string | null; samples: number }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
 export const generatedAt = ${json(d.now.toISOString())};
@@ -267,11 +219,7 @@ export const GEN_STATS: GenStat[] = ${json(d.statRows)};
 
 export const GEN_MARKETS: GenMarket[] = ${json(d.marketRows)};
 
-export const GEN_FORECASTS: GenForecast[] = ${json(d.forecasts)};
-
 export const GEN_EVENTS: GenEvent[] = ${json(d.events)};
-
-export const GEN_OBSERVATIONS: GenObservation[] = ${json(d.observationSummary)};
 
 export const GEN_HEARTBEATS: GenHeartbeat[] = ${json(d.heartbeats)};
 
@@ -294,7 +242,7 @@ pull()
   .then((d) => {
     writeFileSync(OUT, render(d));
     console.log(
-      `pull-vietnam: регионов ${d.regions.length} · показателей ${d.statRows.length} · рынков ${d.marketRows.length} · прогнозов ${d.forecasts.length} · событий ${d.events.length} · метрик наблюдений ${d.observationSummary.length} · пульс ${d.heartbeats.length} · тем ${d.topics.length} · сущностей ${d.entities.length}`
+      `pull-vietnam: регионов ${d.regions.length} · показателей ${d.statRows.length} · рынков ${d.marketRows.length} · событий ${d.events.length} · пульс ${d.heartbeats.length} · тем ${d.topics.length} · сущностей ${d.entities.length}`
     );
     if (missing.length) console.log(`pull-vietnam: таблиц ещё нет: ${missing.join(', ')}`);
   })

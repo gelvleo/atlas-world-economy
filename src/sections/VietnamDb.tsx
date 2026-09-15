@@ -15,11 +15,9 @@ import {
   GEN_ENTITIES,
   GEN_ENTITY_METRICS,
   GEN_EVENTS,
-  GEN_FORECASTS,
   GEN_HEARTBEATS,
   GEN_INSIGHTS,
   GEN_MARKETS,
-  GEN_OBSERVATIONS,
   GEN_REGIONS,
   GEN_STATS,
   GEN_TOPICS,
@@ -45,26 +43,6 @@ const LEVEL_LABEL: Record<string, string> = {
   zone: 'зона'
 };
 const LEVEL_ORDER = ['country', 'province', 'district', 'commune', 'zone'];
-
-// Слаги направлений в прогнозе: flow:namban->dalat.
-const PLACE: Record<string, string> = {
-  namban: 'Nam Ban',
-  dalat: 'Đà Lạt',
-  lienkhuong: 'Liên Khương',
-  dinhvan: 'Đinh Văn',
-  liennghia: 'Liên Nghĩa'
-};
-const flowLabel = (subject: string) => {
-  const m = /^flow:(.+?)->(.+)$/.exec(subject);
-  if (!m) return subject;
-  return `${PLACE[m[1]] ?? m[1]} → ${PLACE[m[2]] ?? m[2]}`;
-};
-
-const HORIZONS = [
-  { key: 'morning', label: 'Утро' },
-  { key: 'midday', label: 'День' },
-  { key: 'evening', label: 'Вечер' }
-];
 
 const METRIC_LABEL: Record<string, string> = {
   population: 'Население',
@@ -176,13 +154,17 @@ const asKind = (s: string | null | undefined): EvidenceKind | null =>
 // ─── Разбор строк базы ────────────────────────────────────────────────────────
 
 const REGION_BY_SLUG = new Map(GEN_REGIONS.map((r) => [r.slug, r]));
-const regionName = (slug: string) => REGION_BY_SLUG.get(slug)?.name_ru ?? slug;
+// В базе зона владельца названа «Дом · Đông Thanh, Nam Ban»: в атласе она
+// показывается местом, а не домом. Экономику зоны (29 рынков) при этом не
+// выбрасываем: личное тут только имя.
+const depersonalize = (name: string) => name.replace(/^Дом\s*·\s*/, '').replace(/^Дом$/, 'Đông Thanh, Nam Ban');
+const regionName = (slug: string) => depersonalize(REGION_BY_SLUG.get(slug)?.name_ru ?? slug);
 
 // В таблице entities имя лежит в name, русское резюме в summary_ru: колонки
 // name_ru и summary у первой волны строк пустые, поэтому берём что есть.
 const str = (v: unknown) => (typeof v === 'string' && v ? v : null);
 const entityName = (e: GenEntity) =>
-  str(e.name_ru) ?? str(e.name) ?? str(e.name_vi) ?? e.slug;
+  depersonalize(str(e.name_ru) ?? str(e.name) ?? str(e.name_vi) ?? e.slug);
 const entitySummary = (e: GenEntity) => str(e.summary_ru) ?? null;
 
 /** Показатели региона: ключ «слаг|метрика», внутри последний по периоду. */
@@ -294,7 +276,7 @@ interface Hit {
 const SEARCH_INDEX: Hit[] = [
   ...GEN_REGIONS.map((r) => ({
     kind: 'region' as const,
-    label: [r.name_ru, r.name_vi, r.name_en].filter(Boolean).join(' · ') || r.slug,
+    label: depersonalize([r.name_ru, r.name_vi, r.name_en].filter(Boolean).join(' · ') || r.slug),
     sub: `${LEVEL_LABEL[r.level] ?? r.level} · ${r.slug}${r.perimeter ? ` · ${r.perimeter}` : ''}`,
     level: r.level,
     href: `#/vietnam/region/${r.slug}`
@@ -323,6 +305,11 @@ const SEARCH_INDEX: Hit[] = [
     level: null,
     href: `#/vietnam/section/regions`
   }))
+];
+
+/** Якоря блоков раздела. Тот же список назван агенту region-brief и в README. */
+const SECTION_IDS = [
+  'search', 'calendar', 'regions', 'employment', 'markets', 'opportunity', 'entities', 'sweeps'
 ];
 
 const HIT_LABEL: Record<Hit['kind'], string> = {
@@ -392,12 +379,16 @@ export default function VietnamDb() {
     });
   }, [route]);
 
+  // Блоки раздела: список нужен и для проверки ссылки на секцию.
+  // Прогноза потоков и погоды здесь нет намеренно: атлас про рынки и
+  // экономику, персональный экран владельца живёт в консоли региона.
   // Ссылка ведёт в никуда — говорим об этом, а не показываем пустой экран.
   const lostRoute =
     route && route.domain === 'vietnam'
       ? route.kind === 'region' && !REGION_BY_SLUG.has(route.a) ? `региона «${route.a}» в выгрузке нет`
         : route.kind === 'market' && !GEN_MARKETS.some((m) => m.region_slug === route.a && m.slug === route.b) ? `рынка «${route.b}» в регионе «${route.a}» в выгрузке нет`
         : route.kind === 'entity' && !GEN_ENTITIES.some((e) => e.slug === route.a) ? `сущности «${route.a}» в выгрузке нет`
+        : route.kind === 'section' && !SECTION_IDS.includes(route.a) ? `блока «${route.a}» в разделе нет; блоки: ${SECTION_IDS.join(', ')}`
         : null
       : null;
 
@@ -410,26 +401,6 @@ export default function VietnamDb() {
         (h.label.toLowerCase().includes(q) || h.sub.toLowerCase().includes(q))
     ).slice(0, 24);
   }, [query, level]);
-
-  // Прогноз: направления строками, горизонты столбцами.
-  const flowRows = useMemo(() => {
-    const subjects = [...new Set(GEN_FORECASTS.map((f) => f.subject))].sort();
-    return subjects.map((subject) => ({
-      subject,
-      cells: HORIZONS.map((h) => GEN_FORECASTS.find((f) => f.subject === subject && f.horizon === h.key)),
-      note: GEN_FORECASTS.filter((f) => f.subject === subject)
-        .reduce((a, b) => ((b.value ?? 0) > (a.value ?? 0) ? b : a), GEN_FORECASTS.find((f) => f.subject === subject)!)
-    }));
-  }, []);
-
-  // Погода: точка строкой, метрики столбцами.
-  const weatherRows = useMemo(() => {
-    const points = [...new Set(GEN_OBSERVATIONS.map((o) => o.point))];
-    return points.map((point) => {
-      const at = (metric: string) => GEN_OBSERVATIONS.find((o) => o.point === point && o.metric === metric);
-      return { point, temp: at('temp_c'), rain: at('rain_mm'), cloud: at('cloud_pct'), vis: at('visibility_m') };
-    });
-  }, []);
 
   // Занятость: всё, что база знает про труд, по регионам.
   const employmentRows = useMemo(() => {
@@ -571,101 +542,31 @@ export default function VietnamDb() {
 
       <div className="hair" />
 
-      {/* ── Сегодня в регионе ─────────────────────────────────────────────── */}
-      <div id="vn-today" className="section-head">
-        <h2 className="section-title">Сегодня в регионе</h2>
-        <p className="section-lead">
-          Суточный прогноз потоков людей по четырём направлениям, погода по точкам наблюдения за
-          последние сутки и ближайшие события календаря. Это прогноз модели по фактам погоды и
-          календаря, а не замер трафика: машин на дороге никто не считает.
-        </p>
-      </div>
-      {flowRows.length === 0 ? (
-        <Gap
-          what="Прогноза на сегодня в выгрузке нет"
-          why="Суточный обход region:forecast пишет прогноз дважды в день. Либо он ещё не отработал, либо выгрузка старше сегодняшнего дня: обнови её командой npm run pull."
-        />
-      ) : (
-        <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Направление</th>
-                {HORIZONS.map((h) => (
-                  <th key={h.key} scope="col" className="num">{h.label}</th>
-                ))}
-                <th scope="col">Чем объясняется пик</th>
-              </tr>
-            </thead>
-            <tbody>
-              {flowRows.map((r) => (
-                <tr key={r.subject}>
-                  <td>{flowLabel(r.subject)}</td>
-                  {r.cells.map((c, i) => (
-                    <td key={i} className="num">{c?.value ?? '—'}</td>
-                  ))}
-                  <td>{r.note?.direction_note ?? ''}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      {flowRows.length > 0 && (
-        <div className="note">
-          <div className="kicker">Шкала</div>
-          <p className="section-lead">
-            0 пусто, 1 обычный будний поток, 2 плотнее обычного, 3 затор. Метка{' '}
-            <EvidenceTag kind="forecast" /> у всего блока: это прогноз, а не наблюдение.
-          </p>
-        </div>
-      )}
-
-      {weatherRows.length > 0 && (
-        <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Точка наблюдения</th>
-                <th scope="col" className="num">Температура</th>
-                <th scope="col" className="num">Дождь за сутки</th>
-                <th scope="col" className="num">Облачность</th>
-                <th scope="col" className="num">Видимость</th>
-              </tr>
-            </thead>
-            <tbody>
-              {weatherRows.map((w) => (
-                <tr key={w.point}>
-                  <td>{w.point}</td>
-                  <td className="num">
-                    {w.temp ? <Val value={`${fmt1(w.temp.min)}–${fmt1(w.temp.max)}`} unit="°C" /> : '—'}
-                  </td>
-                  <td className="num">{w.rain ? <Val value={fmt1(w.rain.sum)} unit="мм" /> : '—'}</td>
-                  <td className="num">{w.cloud ? <Val value={fmtInt(w.cloud.avg)} unit="%" /> : '—'}</td>
-                  <td className="num">{w.vis ? <Val value={fmtInt(w.vis.min)} unit="м мин." /> : '—'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
+      {/* ── Календарь рынка ────────────────────────────────────────────── */}
       {GEN_EVENTS.length > 0 && (
-        <div className="list">
-          {GEN_EVENTS.map((e) => (
-            <div className="list-row" key={e.title + (e.starts_at ?? '')}>
-              <span className="list-main">
-                <span>{e.title}</span>
-                <span className="tag">{e.event_class ?? e.kind ?? 'событие'}</span>
-                {e.summary && <span className="stat-note">{e.summary}</span>}
-              </span>
-              <span className="list-side num">{dayRu(e.starts_at)}</span>
-            </div>
-          ))}
-        </div>
-      )}
+        <>
+          <div id="vn-calendar" className="section-head">
+            <h2 className="section-title">Календарь: что двигает спрос</h2>
+            <p className="section-lead">
+              Государственные праздники и фестивали из календаря региона. Это сезонность рынков:
+              в эти дни спрос на размещение, еду и услуги идёт не как в будни.
+            </p>
+          </div>
+          <div className="list">
+            {GEN_EVENTS.map((e) => (
+              <div className="list-row" key={e.title + (e.starts_at ?? '')}>
+                <span className="list-main">
+                  <span>{e.title}</span>
+                  <span className="tag">{e.event_class ?? e.kind ?? 'событие'}</span>
+                </span>
+                <span className="list-side num">{dayRu(e.starts_at)}</span>
+              </div>
+            ))}
+          </div>
 
-      <div className="hair" />
+          <div className="hair" />
+        </>
+      )}
 
       {/* ── Регионы ───────────────────────────────────────────────────────── */}
       <div id="vn-regions" className="section-head">
@@ -705,7 +606,7 @@ export default function VietnamDb() {
                   onClick={() => setOpenRegion(open ? null : region.slug)}
                 >
                   <span className="list-main" style={{ paddingLeft: depth * 16 }}>
-                    <span>{region.name_ru ?? region.name_vi ?? region.slug}</span>
+                    <span>{depersonalize(region.name_ru ?? region.name_vi ?? region.slug)}</span>
                     <span className="tag">{LEVEL_LABEL[region.level] ?? region.level}</span>
                     {region.perimeter && <span className="tag tag--muted">{region.perimeter}</span>}
                     <span className="stat-note">
