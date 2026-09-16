@@ -45,6 +45,23 @@ function monthTicks(start: Date, end: Date) {
 const dayRu = (iso: string | null) =>
   iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) : '—';
 
+/** Короткая дата для колонки значения: «26 апр 2026». Полная («26 апреля
+ *  2026 г.») в паре с концом периода давала строку в 40 знаков, а колонка
+ *  значения в атласе не переносится - на 390 она сжимала имя события в
+ *  столбик по одному слову. */
+const dayShort = (iso: string | null) =>
+  iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+
+/** Диапазон дат строки. Конец печатается, только если это ДРУГОЙ день: у
+ *  однодневного праздника в базе стоят две метки времени одних суток, и
+ *  строка читалась как «26 апр 2026 - 26 апр 2026». */
+function rangeShort(a: string | null, b: string | null): string {
+  const one = dayShort(a);
+  if (!a || !b) return one;
+  const sameDay = new Date(a).toDateString() === new Date(b).toDateString();
+  return sameDay ? one : `${one} - ${dayShort(b)}`;
+}
+
 /** Дорожки: что во что попадает. Порядок дорожек сверху вниз - тот же. */
 const TRACKS: { key: string; label: string; bar: boolean; match: (e: GenEvent) => boolean }[] = [
   { key: 'holiday', label: 'Госпраздники', bar: false, match: (e) => e.kind === 'holiday' },
@@ -60,8 +77,35 @@ interface Props {
   mobilityRegion: string;
 }
 
+/** Ближе этой доли оси точки сливаются в одну пилюлю со счётчиком. 0,022 от
+ *  окна в 13 месяцев - это примерно девять дней: праздники одной связки
+ *  («29 Tết», «Mồng 1 Tết», «Mồng 2 Tết») сходятся в одну, а разные события
+ *  остаются разными точками. */
+const CLUSTER_GAP = 0.022;
+
+/** Самая узкая дорожка: 640 px минимальной ширины таймлайна минус колонка имён.
+ *  Подпись ставится, только если она влезает ПРИ ЭТОЙ ширине - тогда на 390 и
+ *  на 1440 подписи не наезжают одинаково, а не «на десктопе повезло». */
+const TRACK_MIN_PX = 524;
+/** Уже этого подпись не читается и не ставится: остаётся точка с подсказкой. */
+const MIN_LABEL_PX = 56;
+
+/** Точки дорожки, схлопнутые по близости. Кластер из одной точки - обычная
+ *  точка с подписью, кластер из нескольких - пилюля со счётчиком. */
+function clusterPoints(items: GenEvent[], start: Date, end: Date) {
+  const out: { pos: number; items: GenEvent[] }[] = [];
+  for (const e of items) {
+    const pos = posIn(new Date(e.starts_at as string), start, end);
+    const last = out[out.length - 1];
+    if (last && pos - last.pos < CLUSTER_GAP) last.items.push(e);
+    else out.push({ pos, items: [e] });
+  }
+  return out;
+}
+
 export default function VietnamTimeline({ events, mobility, mobilityRegion }: Props) {
-  const [open, setOpen] = useState<GenEvent | null>(null);
+  // Открыт кластер, а не событие: у пилюли внутри может быть три даты.
+  const [open, setOpen] = useState<GenEvent[] | null>(null);
 
   // Окно: полгода назад и полгода вперёд от первого числа текущего месяца.
   // Считается один раз на маунт - таймлайн не должен перерисовываться от того,
@@ -165,8 +209,7 @@ export default function VietnamTimeline({ events, mobility, mobilityRegion }: Pr
         </div>
 
         {tracks.map((track) => {
-          // Позиция последней поставленной подписи на этой дорожке.
-          let lastLabel = -1;
+          const groups = track.bar ? [] : clusterPoints(track.items, start, end);
           return (
           <div className="tl-row" key={track.key}>
             <span className="tl-name">{track.label}</span>
@@ -177,49 +220,72 @@ export default function VietnamTimeline({ events, mobility, mobilityRegion }: Pr
                 ))}
                 {today > 0 && today < 1 && <span className="tl-today" style={{ left: `${today * 100}%` }} />}
               </div>
-              {track.items.map((e, i) => {
-                const s = new Date(e.starts_at as string);
-                const left = posIn(s, start, end);
-                if (track.bar) {
-                  // Отрезок: у учебного периода есть конец. Без конца рисуем
-                  // короткую полосу, а не точку - вид дорожки не меняем.
-                  const f = e.ends_at ? new Date(e.ends_at) : s;
-                  const right = posIn(f, start, end);
-                  return (
-                    <button
-                      className="tl-bar"
-                      key={`${e.title}-${i}`}
-                      style={{ left: `${left * 100}%`, width: `${Math.max(2, (right - left) * 100)}%` }}
-                      onClick={() => setOpen(e)}
-                      title={`${e.title} · ${dayRu(e.starts_at)} - ${dayRu(e.ends_at)}`}
-                    >
-                      {e.title}
-                    </button>
-                  );
-                }
-                // Подпись ставим, только если слева на дорожке есть место:
-                // двадцать шесть праздников за год иначе сливаются в кашу из
-                // наложенных слов. Остальные читаются подсказкой и карточкой.
-                const labelled = left - lastLabel > 0.085;
-                if (labelled) lastLabel = left;
-                return (
-                  <span key={`${e.title}-${i}`}>
-                    <button
-                      className={`tl-dot${s < new Date() ? ' tl-dot--past' : ''}`}
-                      style={{ left: `${left * 100}%` }}
-                      aria-pressed={open === e}
-                      aria-label={`${e.title}, ${dayRu(e.starts_at)}`}
-                      onClick={() => setOpen(open === e ? null : e)}
-                      title={`${e.title} · ${dayRu(e.starts_at)}`}
-                    />
-                    {labelled && (
-                      <span className="tl-dot-label" style={{ left: `${left * 100}%` }} aria-hidden>
+              {track.bar
+                ? track.items.map((e, i) => {
+                    // Отрезок: у учебного периода есть конец. Без конца рисуем
+                    // короткую полосу, а не точку - вид дорожки не меняем.
+                    const s = new Date(e.starts_at as string);
+                    const left = posIn(s, start, end);
+                    const f = e.ends_at ? new Date(e.ends_at) : s;
+                    const right = posIn(f, start, end);
+                    return (
+                      <button
+                        className="tl-bar"
+                        key={`${e.title}-${i}`}
+                        style={{ left: `${left * 100}%`, width: `${Math.max(2, (right - left) * 100)}%` }}
+                        onClick={() => setOpen([e])}
+                        title={`${e.title} · ${dayRu(e.starts_at)} - ${dayRu(e.ends_at)}`}
+                      >
                         {e.title}
+                      </button>
+                    );
+                  })
+                : groups.map((g, i) => {
+                    // Место до следующего кластера. Подпись шире этого места
+                    // наезжала на соседа: «Tết Dương lịch» упиралось в связку
+                    // «29 Tết», кружки ложились поверх букв.
+                    const room = (groups[i + 1]?.pos ?? 1) - g.pos;
+                    const roomPx = room * TRACK_MIN_PX;
+                    const many = g.items.length > 1;
+                    const first = g.items[0];
+                    const past = new Date(first.starts_at as string) < new Date();
+                    const isOpen = open === g.items;
+                    const titles = g.items.map((e) => `${e.title} · ${dayRu(e.starts_at)}`).join('\n');
+                    return (
+                      <span key={`${first.title}-${i}`}>
+                        {many ? (
+                          <button
+                            className={`tl-pill${past ? ' tl-pill--past' : ''}`}
+                            style={{ left: `${g.pos * 100}%` }}
+                            aria-pressed={isOpen}
+                            aria-label={`${g.items.length} события подряд: ${g.items.map((e) => e.title).join(', ')}`}
+                            onClick={() => setOpen(isOpen ? null : g.items)}
+                            title={titles}
+                          >
+                            ×{g.items.length}
+                          </button>
+                        ) : (
+                          <button
+                            className={`tl-dot${past ? ' tl-dot--past' : ''}`}
+                            style={{ left: `${g.pos * 100}%` }}
+                            aria-pressed={isOpen}
+                            aria-label={`${first.title}, ${dayRu(first.starts_at)}`}
+                            onClick={() => setOpen(isOpen ? null : g.items)}
+                            title={titles}
+                          />
+                        )}
+                        {roomPx >= MIN_LABEL_PX && (
+                          <span
+                            className={`tl-dot-label${many ? ' tl-dot-label--pill' : ''}`}
+                            style={{ left: `${g.pos * 100}%`, maxWidth: `calc(${room * 100}% - 20px)` }}
+                            aria-hidden
+                          >
+                            {first.title}
+                          </span>
+                        )}
                       </span>
-                    )}
-                  </span>
-                );
-              })}
+                    );
+                  })}
             </div>
           </div>
           );
@@ -254,7 +320,8 @@ export default function VietnamTimeline({ events, mobility, mobilityRegion }: Pr
 
       <div className="tl-legend">
         <span>
-          Красная черта - сегодня. Точка - день, полоса - период. Окно:{' '}
+          Красная черта - сегодня. Точка - день, полоса - период, пилюля «×N» -
+          несколько дат подряд, клик раскрывает их списком. Окно:{' '}
           {start.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })} -{' '}
           {end.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })}.
         </span>
@@ -262,24 +329,32 @@ export default function VietnamTimeline({ events, mobility, mobilityRegion }: Pr
 
       {open && (
         <div className="note">
-          <div className="kicker">{open.event_class ?? open.kind ?? 'событие'}</div>
-          <div className="row row--between row--wrap">
-            <span className="h2">{open.title}</span>
-            <span className="num">
-              {dayRu(open.starts_at)}
-              {open.ends_at && open.ends_at !== open.starts_at ? ` - ${dayRu(open.ends_at)}` : ''}
-            </span>
+          <div className="kicker">
+            {open.length > 1
+              ? `Подряд идут ${open.length} события`
+              : open[0].event_class ?? open[0].kind ?? 'событие'}
           </div>
-          <p className="section-lead">
-            {open.source_url ? (
-              <a href={open.source_url} target="_blank" rel="noreferrer">
-                {open.source_name ?? 'источник'}
-              </a>
-            ) : (
-              <span className="meta">Источник у этой строки не указан.</span>
-            )}
-            {open.evidence_kind ? ` · тип источника: ${open.evidence_kind}` : ''}
-          </p>
+          <div className="list">
+            {open.map((e, i) => (
+              <div className="list-row" key={`${e.title}-${i}`}>
+                <span className="list-main">
+                  <span>{e.title}</span>
+                  <span className="tag">{e.event_class ?? e.kind ?? 'событие'}</span>
+                  <span className="stat-note">
+                    {e.source_url ? (
+                      <a href={e.source_url} target="_blank" rel="noreferrer">
+                        {e.source_name ?? 'источник'}
+                      </a>
+                    ) : (
+                      'источник у этой строки не указан'
+                    )}
+                    {e.evidence_kind ? ` · тип источника: ${e.evidence_kind}` : ''}
+                  </span>
+                </span>
+                <span className="list-side num">{rangeShort(e.starts_at, e.ends_at)}</span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
