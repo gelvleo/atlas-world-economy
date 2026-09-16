@@ -15,32 +15,24 @@
 //   · граф грузится по требованию из public/data/vietnam-graph.json, а не
 //     лежит в бандле: 1,1 МБ в модуле оплачивал бы каждый, кто открыл атлас.
 
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { GEN_ENTITY_METRICS } from '../data/vietnam.generated';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { GEN_ENTITIES, GEN_ENTITY_METRICS } from '../data/vietnam.generated';
 import { Bars } from '../ui/charts';
 import Val from '../ui/num';
+import {
+  nationalMarketNodes,
+  isBusinessEdge,
+  searchGraphNodes,
+  validateGraphData,
+  type GraphEdge,
+  type GraphFile,
+  type GraphNode
+} from './vietnam-graph.helpers';
+import './vietnam-graph.css';
 
 // ─── Данные ───────────────────────────────────────────────────────────────────
 
-export interface GraphNode {
-  slug: string;
-  kind: string | null;
-  name: string;
-  region_slug: string | null;
-  degree: number;
-}
-export interface GraphEdge {
-  src: string;
-  dst: string;
-  relation: string | null;
-  weight: number | null;
-  note: string | null;
-}
-interface GraphFile {
-  generated_at: string;
-  nodes: GraphNode[];
-  edges: GraphEdge[];
-}
+export type { GraphEdge, GraphFile, GraphNode } from './vietnam-graph.helpers';
 
 const KIND_LABEL: Record<string, string> = {
   company: 'компании',
@@ -155,7 +147,10 @@ interface Props {
 export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Props) {
   const [graph, setGraph] = useState<GraphFile | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [mode, setMode] = useState<'constellation' | 'layers'>('constellation');
+  const [edgeLens, setEdgeLens] = useState<'business' | 'all'>('business');
   const [openKind, setOpenKind] = useState<string | null>(null);
   const [focus, setFocus] = useState<string | null>(null);
   const [query, setQuery] = useState('');
@@ -169,20 +164,29 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // Граф тянем один раз при первом показе блока. Ошибка сети говорится словами:
-  // молчаливо пустое созвездие читалось бы как «связей нет».
+  // Валидируем снимок до построения индексов: частичный JSON не должен
+  // превращаться в пустой граф и выглядеть как отсутствие связей.
   useEffect(() => {
     let alive = true;
+    setLoading(true);
+    setError(null);
+    setGraph(null);
     fetch(`${import.meta.env.BASE_URL}data/vietnam-graph.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
-      .then((d: GraphFile) => alive && setGraph(d))
-      .catch((e: Error) => alive && setError(e.message));
+      .then((d: unknown) => {
+        const checked = validateGraphData(d);
+        if (!checked.ok) throw new Error(checked.error);
+        if (alive) setGraph(checked.value);
+      })
+      .catch((e: unknown) => alive && setError(e instanceof Error ? e.message : 'неизвестная ошибка'))
+      .finally(() => alive && setLoading(false));
     return () => { alive = false; };
-  }, []);
+  }, [loadAttempt]);
 
   // Маршрут на сущность открывает её в созвездии.
   useEffect(() => {
     if (routeSlug) { setFocus(routeSlug); setOpenKind(null); setMode('constellation'); }
+    else setFocus(null);
   }, [routeSlug]);
 
   const nodeBySlug = useMemo(
@@ -190,35 +194,70 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
     [graph]
   );
 
+  const pickNode = useCallback((id: string) => {
+    if (!nodeBySlug.has(id)) return;
+    setFocus(id);
+    setOpenKind(null);
+    setMode('constellation');
+    setQuery('');
+    const hash = `#/vietnam/entity/${encodeURIComponent(id)}`;
+    if (window.location.hash !== hash) window.location.hash = hash;
+  }, [nodeBySlug]);
+
+  const leaveEntityRoute = useCallback(() => {
+    if (window.location.hash.startsWith('#/vietnam/entity/')) window.location.hash = '#/vietnam/section/entities';
+  }, []);
+
+  const visibleEdges = useMemo(
+    () => (graph?.edges ?? []).filter((edge) => edgeLens === 'all' || isBusinessEdge(edge)),
+    [graph, edgeLens]
+  );
+
+  const visibleDegreeByNode = useMemo(() => {
+    const degrees = new Map<string, number>();
+    for (const edge of visibleEdges) {
+      degrees.set(edge.src, (degrees.get(edge.src) ?? 0) + 1);
+      degrees.set(edge.dst, (degrees.get(edge.dst) ?? 0) + 1);
+    }
+    return degrees;
+  }, [visibleEdges]);
+
+  const renderedNodes = useMemo(
+    () => edgeLens === 'business'
+      ? (graph?.nodes ?? []).filter((node) => visibleDegreeByNode.has(node.slug))
+      : (graph?.nodes ?? []),
+    [graph, edgeLens, visibleDegreeByNode]
+  );
+
   // Связи по узлу: индекс строится один раз на выгрузку, перебирать 5 020 рёбер
   // на каждый клик незачем.
   const edgesByNode = useMemo(() => {
     const map = new Map<string, GraphEdge[]>();
-    for (const e of graph?.edges ?? []) {
+    for (const e of visibleEdges) {
       (map.get(e.src) ?? map.set(e.src, []).get(e.src)!).push(e);
       (map.get(e.dst) ?? map.set(e.dst, []).get(e.dst)!).push(e);
     }
     return map;
-  }, [graph]);
+  }, [visibleEdges]);
 
   /** Группы по видам: счёт узлов и сумма их связей. Порядок по числу узлов. */
   const kinds = useMemo(() => {
     const map = new Map<string, { kind: string; n: number; links: number }>();
-    for (const n of graph?.nodes ?? []) {
+    for (const n of renderedNodes) {
       const k = n.kind ?? 'прочее';
       const row = map.get(k) ?? { kind: k, n: 0, links: 0 };
       row.n += 1;
-      row.links += n.degree;
+      row.links += visibleDegreeByNode.get(n.slug) ?? 0;
       map.set(k, row);
     }
     return [...map.values()].sort((a, b) => b.n - a.n);
-  }, [graph]);
+  }, [renderedNodes, visibleDegreeByNode]);
 
   /** Ленты «вид ↔ вид»: сколько рёбер связывает пару групп. Десяток самых
    *  толстых, иначе на экране 60 линий и читать нечего. */
   const pairs = useMemo(() => {
     const map = new Map<string, { a: string; b: string; n: number }>();
-    for (const e of graph?.edges ?? []) {
+    for (const e of visibleEdges) {
       const ka = nodeBySlug.get(e.src)?.kind ?? '';
       const kb = nodeBySlug.get(e.dst)?.kind ?? '';
       if (!ka || !kb || ka === kb) continue;
@@ -229,15 +268,19 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
       map.set(key, row);
     }
     return [...map.values()].sort((x, y) => y.n - x.n).slice(0, 12);
-  }, [graph, nodeBySlug]);
+  }, [visibleEdges, nodeBySlug]);
 
   const focusNode = focus ? nodeBySlug.get(focus) ?? null : null;
   const focusEdges = useMemo(() => {
     if (!focus) return [];
     return (edgesByNode.get(focus) ?? [])
       .slice()
-      .sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0) || (a.relation ?? '').localeCompare(b.relation ?? ''));
+      .sort((a, b) => (a.relation ?? '').localeCompare(b.relation ?? '') || a.dst.localeCompare(b.dst));
   }, [focus, edgesByNode]);
+  const focusAllEdges = useMemo(
+    () => (focus ? (graph?.edges ?? []).filter((edge) => edge.src === focus || edge.dst === focus) : []),
+    [focus, graph]
+  );
 
   const focusMetrics = useMemo(
     () => (focus ? GEN_ENTITY_METRICS.filter((m) => m.entity_slug === focus) : []),
@@ -245,10 +288,13 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
   );
 
   const hits = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (q.length < 2 || !graph) return [];
-    return graph.nodes.filter((n) => n.name.toLowerCase().includes(q) || n.slug.toLowerCase().includes(q)).slice(0, 12);
+    return searchGraphNodes(graph?.nodes ?? [], query, GEN_ENTITIES);
   }, [query, graph]);
+
+  const nationalMarkets = useMemo(
+    () => nationalMarketNodes(graph?.nodes ?? []),
+    [graph]
+  );
 
   // Режим «Слои»: сколько сущностей графа привязано к каждому уровню регионов.
   const layers = useMemo(() => {
@@ -264,20 +310,45 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
 
   if (error) {
     return (
-      <div className="empty">
+      <div className="empty graph-state">
         <span className="empty-title">Граф не загрузился</span>
         <span>
           Файл <span className="code">public/data/vietnam-graph.json</span> не отдался: {error}. Его пишет{' '}
           <span className="code">npm run pull</span> вместе с остальной выгрузкой.
         </span>
+        <button className="btn btn--ghost" type="button" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>
+          Повторить загрузку
+        </button>
       </div>
     );
   }
-  if (!graph) {
+  if (loading || !graph) {
     return (
-      <div className="stack">
+      <div className="stack graph-state" aria-busy="true">
         <div className="skeleton" style={{ height: 24, width: 220 }} />
         <div className="skeleton" style={{ height: 360 }} />
+      </div>
+    );
+  }
+  if (graph.nodes.length === 0) {
+    return (
+      <div className="empty graph-state">
+        <span className="empty-title">В снимке нет узлов</span>
+        <span>Проверьте выгрузку графа: пустой список не означает отсутствие бизнеса.</span>
+        <button className="btn btn--ghost" type="button" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>
+          Повторить загрузку
+        </button>
+      </div>
+    );
+  }
+  if (routeSlug && !focusNode) {
+    return (
+      <div className="empty graph-state">
+        <span className="empty-title">Узел не найден в снимке</span>
+        <span>Сущность «{routeSlug}» отсутствует в текущей выгрузке графа.</span>
+        <button className="btn btn--ghost" type="button" onClick={() => { setFocus(null); leaveEntityRoute(); }}>
+          Открыть весь граф
+        </button>
       </div>
     );
   }
@@ -305,22 +376,22 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
             if (seen.has(other)) continue;
             seen.add(other);
             const n = nodeBySlug.get(other);
-            if (n) out.push({ ...n, via: e.relation });
+            if (n) out.push({ ...n, degree: visibleDegreeByNode.get(n.slug) ?? 0, via: e.relation });
           }
           return out.slice(0, cap);
         })()
       : (openKind
-          ? graph.nodes.filter((n) => (n.kind ?? 'прочее') === openKind)
+          ? renderedNodes.filter((n) => (n.kind ?? 'прочее') === openKind)
           // По умолчанию кольцо показывает настоящую экономику, а не зеркала.
           // Узлы места и рынка почти всегда самые связанные (у Lâm Đồng 251
           // связь), и верхушка графа получалась списком из двенадцати мест, где
           // половина - Ханой и Дананг по два раза: место живёт в базе и в
           // старых границах, и в новых. Свои блоки у мест и рынков стоят выше,
           // а группы «места» и «рынки» на кольце раскрываются кликом.
-          : graph.nodes.filter((n) => n.kind !== 'region' && n.kind !== 'market')
+          : renderedNodes.filter((n) => n.kind !== 'region' && n.kind !== 'market')
         )
           .slice(0, cap)
-          .map((n) => ({ ...n, via: null }));
+          .map((n) => ({ ...n, degree: visibleDegreeByNode.get(n.slug) ?? 0, via: null }));
 
   // Углы кольца: узлы одной группы идут подряд, поэтому каждый оказывается в
   // секторе своей группы и выноска до её пузыря получается короткой.
@@ -349,12 +420,61 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
     };
   });
 
-  const totalNodes = kinds.reduce((a, k) => a + k.n, 0);
-  const reset = () => { setFocus(null); setOpenKind(null); };
+  const totalNodes = renderedNodes.length;
+  const allNodes = graph.nodes.length;
+  const businessEdgeCount = graph.edges.filter(isBusinessEdge).length;
+  const selectedEntity = focus ? GEN_ENTITIES.find((entity) => entity.slug === focus) : undefined;
+  const selectedAliases = focusNode
+    ? [...new Set([selectedEntity?.name_vi, selectedEntity?.name_ru].filter(
+        (alias): alias is string => Boolean(alias) && alias !== focusNode.name
+      ))]
+    : [];
+  const reset = () => {
+    setFocus(null);
+    setOpenKind(null);
+    leaveEntityRoute();
+  };
 
   return (
-    <div className="stack stack--loose">
-      <div className="toolbar">
+    <div className="stack stack--loose vietnam-graph">
+      <div className="graph-intro">
+        <div className="graph-intro-line">
+          <span className="kicker">Граф связей</span>
+          <span className="h2">Поиск участника и решения</span>
+          <span className="meta">Источник → отношение → цель</span>
+        </div>
+        <div className="graph-counts" aria-label="Размер снимка графа">
+            <span><strong>{totalNodes}</strong> узлов слоя / {allNodes} всего</span>
+          <span><strong>{businessEdgeCount}</strong> деловых связей</span>
+          <span><strong>{graph.edges.length}</strong> всего рёбер</span>
+        </div>
+      </div>
+
+      <details className="graph-markets">
+        <summary className="graph-markets-summary">
+          <span><span className="kicker">Точки входа</span> <span className="h2">Национальные рынки</span></span>
+          <span className="meta">{nationalMarkets.length} узлов · открыть список</span>
+        </summary>
+        {nationalMarkets.length > 0 ? (
+          <div className="graph-market-list">
+            {nationalMarkets.map((market) => (
+              <button
+                className="graph-market"
+                type="button"
+                key={market.slug}
+                onClick={() => pickNode(market.slug)}
+              >
+                <span className="graph-market-name">{market.name}</span>
+                <span className="graph-market-meta">национальный рынок · {market.degree} связей</span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <p className="meta">В текущем снимке нет узлов рынка с национальным охватом.</p>
+        )}
+      </details>
+
+      <div className="toolbar graph-toolbar">
         <div className="seg" role="group" aria-label="Проекция графа">
           <button className="seg-btn" aria-pressed={mode === 'constellation'} onClick={() => setMode('constellation')}>
             Созвездие
@@ -364,7 +484,7 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
           </button>
         </div>
         {mode === 'constellation' && (
-          <div className="field">
+          <label className="field graph-search">
             <input
               type="search"
               value={query}
@@ -372,8 +492,16 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
               placeholder="Vingroup, кофе, Далат"
               aria-label="Поиск узла графа"
             />
-          </div>
+          </label>
         )}
+        <div className="seg" role="group" aria-label="Состав связей">
+          <button className="seg-btn" aria-pressed={edgeLens === 'business'} onClick={() => setEdgeLens('business')}>
+            Деловые связи
+          </button>
+          <button className="seg-btn" aria-pressed={edgeLens === 'all'} onClick={() => setEdgeLens('all')}>
+            Все связи
+          </button>
+        </div>
         {(focus || openKind) && (
           <button className="btn btn--ghost" onClick={reset}>
             Показать весь граф
@@ -381,13 +509,15 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
         )}
       </div>
 
-      {mode === 'constellation' && hits.length > 0 && (
-        <div className="list">
+      {mode === 'constellation' && query.trim().length >= 2 && hits.length > 0 && (
+        <div className="list graph-search-results" aria-label="Результаты поиска">
+          <p className="meta graph-search-summary">Найдено узлов: {hits.length}. Точный и близкий результат выше; список прокручивается.</p>
           {hits.map((n) => (
             <button
+              type="button"
               className="list-row"
               key={n.slug}
-              onClick={() => { setFocus(n.slug); setOpenKind(null); setQuery(''); }}
+              onClick={() => pickNode(n.slug)}
             >
               <span className="list-main">
                 <span>{n.name}</span>
@@ -399,6 +529,20 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
           ))}
         </div>
       )}
+      {mode === 'constellation' && query.trim().length >= 2 && hits.length === 0 && (
+        <div className="empty graph-search-empty">
+          <span className="empty-title">Узел не найден</span>
+          <span>Проверьте название, slug или попробуйте вариант без диакритики.</span>
+          <button className="btn btn--ghost" type="button" onClick={() => setQuery('')}>Очистить поиск</button>
+        </div>
+      )}
+
+      <p className="meta graph-lens-note">
+        {edgeLens === 'business'
+          ? `Деловой слой: ${businessEdgeCount} рёбер. Совместные упоминания и привязка к месту скрыты из рабочей выборки.`
+          : `Полный слой: ${graph.edges.length} рёбер. Совместное упоминание не означает причинность или партнёрство.`}
+        {' '}Источник связи пока не передан; источники доступны только для метрик узла.
+      </p>
 
       {mode === 'layers' ? (
         <>
@@ -409,18 +553,19 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
             note="Уровень места, к которому привязан узел. «Без привязки» это отрасли, технологии и национальные рынки: у них места нет и не должно быть."
           />
           <p className="section-lead">
-            Узлов в графе <span className="num">{totalNodes}</span>, связей между ними{' '}
+            Узлов в графе <span className="num">{allNodes}</span>, связей между ними{' '}
             <span className="num">{graph.edges.length}</span>. Заголовки новостных лент
             (<span className="code">kind=source</span>) в граф не едут: это 511 узлов и половина всех
             рёбер, на экране они дают шум, а не смысл.
           </p>
         </>
       ) : (
+        <div className="graph-workspace">
         <div className="constellation" ref={box}>
           <svg
             viewBox={`${-g.pad} 0 ${g.W + g.pad * 2} ${g.H}`}
             role="img"
-            aria-label={`Созвездие графа региона: ${kinds.length} групп сущностей, ${totalNodes} узлов, ${graph.edges.length} связей`}
+            aria-label={`Созвездие графа региона: ${kinds.length} групп сущностей, ${totalNodes} узлов, ${visibleEdges.length} связей в выбранном слое`}
           >
             {/* Направляющая кольца групп - чтобы кольцо читалось кольцом */}
             <ellipse
@@ -478,12 +623,13 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
                     opacity={off ? 0.3 : 1}
                     role="button"
                     tabIndex={0}
-                    onClick={() => { setFocus(null); setOpenKind(openKind === b.kind ? null : b.kind); }}
+                    onClick={() => { setFocus(null); setOpenKind(openKind === b.kind ? null : b.kind); leaveEntityRoute(); }}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         setFocus(null);
                         setOpenKind(openKind === b.kind ? null : b.kind);
+                        leaveEntityRoute();
                       }
                     }}
                   >
@@ -542,7 +688,7 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
                     узлов графа
                   </text>
                   <text x={g.cx} y={r4(g.cy + 26 * g.fs)} textAnchor="middle" style={{ fontSize: 10 * g.fs, fill: INK_3 }}>
-                    {graph.edges.length} связей
+                    {visibleEdges.length} связей в слое
                   </text>
                 </>
               )}
@@ -561,7 +707,20 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
               {ring.map((n, i) => {
                 const rr = r4((focus || openKind ? 6 : 5 + Math.min(4, Math.sqrt(n.degree))) * (narrow ? 1.4 : 1));
                 return (
-                  <g key={n.slug} className="con-hit" onClick={() => { setFocus(n.slug); setOpenKind(null); }}>
+                  <g
+                    key={n.slug}
+                    className="con-hit"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Открыть узел ${n.name}`}
+                    onClick={() => pickNode(n.slug)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        pickNode(n.slug);
+                      }
+                    }}
+                  >
                     <circle cx={n.x} cy={n.y} r={rr + 9} fill="transparent" />
                     <circle cx={n.x} cy={n.y} r={rr} fill={ACCENT} stroke={SURFACE} strokeWidth="2" />
                     <text
@@ -587,7 +746,6 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
             )}
           </svg>
         </div>
-      )}
 
       {mode === 'constellation' && ringHidden && (
         <p className="meta">
@@ -597,9 +755,9 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
       )}
 
       {mode === 'constellation' && focusNode && (
-        <div className="stack">
+        <aside className="stack graph-selection" aria-labelledby="graph-selected-title">
           <div className="row row--between row--wrap">
-            <span className="h2">{focusNode.name}</span>
+            <span id="graph-selected-title" className="h2">{focusNode.name}</span>
             <span className="row row--wrap">
               <span className="tag">{kindOne(focusNode.kind)}</span>
               {focusNode.region_slug && <span className="tag tag--muted">{regionName(focusNode.region_slug)}</span>}
@@ -607,7 +765,13 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
             </span>
           </div>
 
-          {focusMetrics.length > 0 && (
+          <div className="graph-scope">
+            <span className="kicker">Выбранный узел</span>
+            <span className="graph-scope-value">{kindOne(focusNode.kind)} · {focusNode.region_slug ? regionName(focusNode.region_slug) : 'охват не указан'}</span>
+            {selectedAliases.length > 0 && <span className="meta">Также встречается: {selectedAliases.join(', ')}</span>}
+          </div>
+
+          {focusMetrics.length > 0 ? (
             <div className="table-wrap">
               <table className="table">
                 <thead>
@@ -643,40 +807,82 @@ export default function VietnamGraph({ routeSlug, regionName, regionLevel }: Pro
                 </tbody>
               </table>
             </div>
+          ) : (
+            <p className="meta">Для этого узла в снимке нет отдельной метрики с источником.</p>
           )}
 
-          <div className="list">
+          {focusEdges.length === 0 ? (
+            <div className="empty graph-edge-empty">
+              <span className="empty-title">В выбранном слое рёбер нет</span>
+              <span>{edgeLens === 'business' && focusAllEdges.length > 0
+                ? `У узла есть ${focusAllEdges.length} контекстных рёбер, но они не являются деловыми связями.`
+                : 'Узел пока не связан с другими сущностями в этом снимке.'}</span>
+              {edgeLens === 'business' && focusAllEdges.length > 0 && (
+                <button className="btn btn--ghost" type="button" onClick={() => setEdgeLens('all')}>Показать все связи узла</button>
+              )}
+            </div>
+          ) : <div className="list graph-edge-list">
             {focusEdges.slice(0, 40).map((e, i) => {
+              const source = nodeBySlug.get(e.src);
+              const target = nodeBySlug.get(e.dst);
               const otherSlug = e.src === focus ? e.dst : e.src;
-              const other = nodeBySlug.get(otherSlug);
-              const outgoing = e.src === focus;
               return (
                 <button
+                  type="button"
                   className="list-row"
                   key={`${e.src}-${e.dst}-${e.relation}-${i}`}
-                  onClick={() => setFocus(otherSlug)}
+                  onClick={() => pickNode(otherSlug)}
                 >
                   <span className="list-main">
-                    <span>{other?.name ?? otherSlug}</span>
-                    <span className="tag">
-                      {outgoing ? relationLabel(e.relation) : `${relationLabel(e.relation)} (обратно)`}
+                    <span className="graph-edge-route" aria-label={`${source?.name ?? e.src} → ${relationLabel(e.relation)} → ${target?.name ?? e.dst}`}>
+                      <span className="graph-edge-node">{source?.name ?? e.src}</span>
+                      <span className="graph-edge-arrow" aria-hidden="true">→</span>
+                      <span className="tag">{relationLabel(e.relation)}</span>
+                      <span className="graph-edge-arrow" aria-hidden="true">→</span>
+                      <span className="graph-edge-node">{target?.name ?? e.dst}</span>
                     </span>
-                    {other?.kind && <span className="tag tag--muted">{kindOne(other.kind)}</span>}
                     {e.note && <span className="stat-note">{e.note}</span>}
+                    <span className="meta">
+                      {e.relation === 'co_mentioned_with'
+                        ? 'Совместное упоминание; причинность или партнёрство не доказаны.'
+                        : 'Источник связи пока не передан.'}
+                    </span>
                   </span>
                   {e.weight !== null && e.weight !== undefined && (
-                    <Val className="list-side" value={String(e.weight)} unit="вес" />
+                    <span className="graph-edge-weight">raw weight: {e.weight} · единица не задана</span>
                   )}
                 </button>
               );
             })}
-          </div>
+          </div>}
           {focusEdges.length > 40 && (
             <p className="meta">
               Показаны первые <span className="num">40</span> связей из{' '}
               <span className="num">{focusEdges.length}</span>: дальше список читать невозможно.
             </p>
           )}
+        </aside>
+      )}
+      {mode === 'constellation' && !focusNode && (
+        <aside className="stack graph-selection graph-guide" aria-labelledby="graph-guide-title">
+          <span className="kicker">Как читать</span>
+          <h3 id="graph-guide-title" className="h2">Сигнал → проверка</h3>
+          <p className="meta">Нажмите на группу или точку, чтобы открыть узел. В списке справа направление всегда задано от источника к цели.</p>
+          <div className="graph-guide-lines">
+            <span><b>Деловые связи</b> — компании, рынки и зависимости.</span>
+            <span><b>Все связи</b> — добавляет контекстные упоминания и места.</span>
+            <span><b>Метрики узла</b> — отдельные показатели с доступным источником.</span>
+          </div>
+          <div className="graph-guide-markets">
+            <span className="kicker">Быстрый вход</span>
+            {nationalMarkets.slice(0, 4).map((market) => (
+              <button key={market.slug} type="button" className="graph-guide-market" onClick={() => pickNode(market.slug)}>
+                {market.name}
+              </button>
+            ))}
+          </div>
+        </aside>
+      )}
         </div>
       )}
     </div>
