@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsx scripts/pull-vietnam.ts && tsx scripts/validate-links.ts && tsc && vite build",
+    "build:local": "tsx scripts/validate-links.ts && tsc && vite build",
     "preview": "vite preview",
     "check": "tsx scripts/validate-links.ts",
+    "test": "find src -name '*.check.ts' -print0 | xargs -0 -n1 tsx",
     "pull": "tsx scripts/pull-vietnam.ts"
   },
   "dependencies": {

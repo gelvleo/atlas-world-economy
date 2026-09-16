@@ -1,0 +1,49 @@
+.vn-workspace { display: flex; flex-direction: column; gap: var(--s6); }
+.atlas-switcher { position: relative; }
+.header .nav { overflow: visible; }
+.atlas-switcher summary { list-style: none; }
+.atlas-switcher summary::-webkit-details-marker { display: none; }
+.atlas-switcher-list { position: absolute; z-index: 4; top: calc(100% + var(--s2)); left: 0; display: grid; min-width: 18rem; padding: var(--s2); gap: var(--s1); background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius-sm); box-shadow: 0 8px 24px rgba(24,24,27,.08); }
+.atlas-switcher-list .nav-btn { justify-content: flex-start; width: 100%; }
+.vn-tabs { display: flex; gap: var(--s2); border-bottom: 1px solid var(--hair); overflow-x: auto; scrollbar-width: thin; }
+.vn-tab { min-height: var(--tap); padding: 0 var(--s3); border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--ink-2); white-space: nowrap; cursor: pointer; transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+.vn-tab:hover, .vn-tab[aria-current='page'] { color: var(--accent); border-bottom-color: var(--accent); }
+.vn-screen-wrap { min-width: 0; }
+.vn-catalog-tabs { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.vn-catalog-tabs [aria-selected='true'] { color: var(--accent); background: var(--surface-sunk); border-color: var(--accent); }
+.vn-screen { display: flex; flex-direction: column; gap: var(--s6); }
+.vn-kpis { gap: var(--s6); }
+.vn-chart-grid { align-items: start; }
+.vn-evidence-panel { border-left: 2px solid var(--accent); padding-left: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-height: 220px; }
+.vn-evidence-panel .section-title { max-width: 20ch; }
+.vn-evidence-panel .btn { align-self: flex-start; margin-top: auto; }
+.vn-hypotheses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
+.vn-hypothesis { border-top: 2px solid var(--accent); padding-top: var(--s3); }
+.vn-hypothesis:nth-child(3) { grid-column: 1 / -1; max-width: 68ch; }
+.vn-hypothesis h2 { font: var(--t-h2); margin: var(--s2) 0 var(--s4); }
+.vn-hypothesis dl { display: grid; gap: var(--s3); }
+.vn-hypothesis dl > div { display: grid; grid-template-columns: 10rem 1fr; gap: var(--s3); border-top: 1px solid var(--hair); padding-top: var(--s2); }
+.vn-hypothesis dt { font: var(--t-micro); color: var(--ink-3); text-transform: uppercase; letter-spacing: var(--tr-micro); }
+.vn-hypothesis dd { margin: 0; color: var(--ink-2); }
+.vn-controls { display: flex; flex-wrap: wrap; gap: var(--s4); align-items: end; }
+.vn-controls label { display: grid; gap: var(--s1); min-width: 14rem; font: var(--t-micro); color: var(--ink-3); text-transform: uppercase; letter-spacing: var(--tr-micro); }
+.vn-controls select.field { min-height: var(--tap); border: 1px solid var(--hair-strong); border-radius: var(--radius-sm); padding: 0 var(--s3); background: var(--surface-sunk); text-transform: none; letter-spacing: normal; color: var(--ink); }
+.vn-coverage { border-left: 2px solid var(--accent); padding: var(--s2) var(--s3); color: var(--ink-2); }
+.vn-coverage strong { font: var(--t-num-s); color: var(--ink); }
+.vn-screen .chart { min-width: 0; }
+.vn-screen .table { min-width: 760px; }
+.vn-screen .table .meta { display: inline; }
+.vn-screen .table td .stat-note { max-width: 26ch; }
+@media (max-width: 767px) {
+  .vn-workspace { gap: var(--s4); }
+  .vn-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: calc(var(--pad) * -1); padding-inline: var(--pad); overflow: visible; }
+  .vn-tab { width: auto; min-height: var(--tap); padding-inline: var(--s1); font-size: 12px; }
+  .vn-screen { gap: var(--s5); }
+  .vn-hypotheses { grid-template-columns: 1fr; gap: var(--s5); }
+  .vn-hypothesis:nth-child(3) { grid-column: auto; }
+  .vn-hypothesis dl > div { grid-template-columns: 1fr; gap: var(--s1); }
+  .vn-controls { display: grid; grid-template-columns: 1fr; }
+  .vn-controls label { min-width: 0; }
+  .vn-evidence-panel { min-height: 0; }
+  .atlas-switcher-list { left: auto; right: 0; min-width: min(18rem, calc(100vw - 32px)); }
+}

@@ -43,7 +43,16 @@ const SECTIONS: { id: SectionId; label: string; Icon: ComponentType<{ size?: 18 
 ];
 
 export default function App() {
-  const [section, setSection] = useState<SectionId>('overview');
+  const initialRoute = parseHash(window.location.hash);
+  const sectionFromRoute = (route: ReturnType<typeof parseHash>): SectionId => {
+    if (!route) return 'vietnam';
+    if (route.domain === 'vietnam') return 'vietnam';
+    if (route.domain === 'atlas' && route.kind === 'section' && SECTIONS.some((item) => item.id === route.a)) {
+      return route.a as SectionId;
+    }
+    return 'vietnam';
+  };
+  const [section, setSection] = useState<SectionId>(sectionFromRoute(initialRoute));
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   // выдача закрыта по Escape, пока пользователь не наберёт что-то ещё
@@ -61,7 +70,7 @@ export default function App() {
   useEffect(() => {
     const apply = () => {
       const r = parseHash(window.location.hash);
-      if (r?.domain === 'vietnam') setSection('vietnam');
+      setSection(sectionFromRoute(r));
     };
     apply();
     window.addEventListener('hashchange', apply);
@@ -70,6 +79,7 @@ export default function App() {
 
   const goTo = useCallback((s: SectionId) => {
     setSection(s);
+    window.location.hash = s === 'vietnam' ? '#/vietnam/section/overview' : `#/atlas/section/${s}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -77,20 +87,20 @@ export default function App() {
 
   const searchResults = useMemo(() => {
     if (query.length < 2) return [];
-    return ALL_NODES.filter(
+    return ALL_NODES.filter((n) => (section !== 'vietnam' || n.domain === 'vietnam')).filter(
       (n) =>
         n.name.toLowerCase().includes(query) ||
         n.description.toLowerCase().includes(query) ||
         (n.tags ?? []).some((t) => t.includes(query))
     ).slice(0, 8);
-  }, [query]);
+  }, [query, section]);
 
   // выпадающий список показываем, как только в поле что-то есть:
   // при коротком запросе объясняем, при пустой выдаче — говорим прямо
   const showResults = query.length > 0 && !closed;
 
   // подсвеченный результат держим в границах выдачи и в поле зрения
-  useEffect(() => { setActive(0); }, [query]);
+  useEffect(() => { setActive(0); }, [query, section]);
   useEffect(() => {
     if (!showResults) return;
     listRef.current?.querySelector('[aria-selected="true"]')?.scrollIntoView({ block: 'nearest' });
@@ -125,7 +135,8 @@ export default function App() {
         setActive((i) => (i - 1 + searchResults.length) % searchResults.length);
       } else if (e.key === 'Enter') {
         e.preventDefault();
-        pickResult(searchResults[active].id);
+        const result = searchResults[active];
+        if (result) pickResult(result.id);
       }
     },
     [showResults, searchResults, active, pickResult]
@@ -136,12 +147,12 @@ export default function App() {
       {/* шапка и лента разделов — один липкий блок */}
       <div className="header">
         <header className="topbar">
-          <button className="brand" onClick={() => goTo('overview')}>
+          <button className="brand" onClick={() => goTo('vietnam')}>
             <span className="brand-mark">
               <IconOverview size={20} />
             </span>
             <span className="brand-name">Atlas</span>
-            <span className="brand-sub">мировая экономика · оценки 2026</span>
+            <span className="brand-sub">Вьетнам · рабочее пространство</span>
           </button>
 
           <div
@@ -165,7 +176,7 @@ export default function App() {
               aria-activedescendant={
                 showResults && searchResults.length > 0 ? `search-hit-${searchResults[active]?.id}` : undefined
               }
-              placeholder="Чипы, энергия, услуги…"
+              placeholder={section === 'vietnam' ? 'Туризм, кофе, логистика…' : 'Чипы, энергия, услуги…'}
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
@@ -207,17 +218,19 @@ export default function App() {
         </header>
 
         <nav className="nav" aria-label="Разделы">
-          {SECTIONS.map((s) => (
-            <button
-              key={s.id}
-              className={section === s.id ? 'nav-btn active' : 'nav-btn'}
-              aria-current={section === s.id ? 'page' : undefined}
-              onClick={() => goTo(s.id)}
-            >
-              <s.Icon size={18} />
-              <span>{s.label}</span>
-            </button>
-          ))}
+          <button className={section === 'vietnam' ? 'nav-btn active' : 'nav-btn'} aria-current={section === 'vietnam' ? 'page' : undefined} onClick={() => goTo('vietnam')}>
+            <IconVietnam size={18} /><span>Вьетнам</span>
+          </button>
+          <details className="atlas-switcher">
+            <summary className="nav-btn">Другие атласы</summary>
+            <div className="atlas-switcher-list">
+              {SECTIONS.filter((s) => s.id !== 'vietnam').map((s) => (
+                <button key={s.id} className={section === s.id ? 'nav-btn active' : 'nav-btn'} aria-current={section === s.id ? 'page' : undefined} onClick={(event) => { goTo(s.id); event.currentTarget.closest('details')?.removeAttribute('open'); }}>
+                  <s.Icon size={18} /><span>{s.label}</span>
+                </button>
+              ))}
+            </div>
+          </details>
         </nav>
       </div>
 
@@ -234,14 +247,7 @@ export default function App() {
 
       <footer className="footer">
         <div className="footer-inner">
-          <p>
-            Карта для понимания, а не статистический справочник: цифры — ориентировочные оценки
-            на 2026 год по открытым источникам, важен порядок величины и связь. Прогнозы помечены.
-          </p>
-          <p>
-            Мировой периметр и Вьетнам считаются в долларах, рынки EdTech и AI-внедрений — в рублях.
-            Домены не складываются между собой.
-          </p>
+          {section === 'vietnam' ? <><p>Вьетнамский каталог собран из локального снимка. Периоды, единицы и доступные источники — в показателях и подробностях.</p><p>Национальные и региональные ряды не складываются: разные территории и границы остаются видимыми.</p></> : <><p>Карта для понимания, а не статистический справочник: цифры — ориентировочные оценки по открытым источникам.</p><p>Мировой периметр считается в долларах, рынки EdTech и AI-внедрений — в рублях.</p></>}
         </div>
       </footer>
 

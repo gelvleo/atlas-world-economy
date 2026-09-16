@@ -19,7 +19,14 @@ export interface AtlasRoute {
 }
 
 export function parseHash(hash: string): AtlasRoute | null {
-  const parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  let parts: string[];
+  try {
+    parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  } catch {
+    // Неполная percent-кодировка приходит из внешней ссылки: она не должна
+    // ронять всё приложение, поэтому такой адрес считается неизвестным.
+    return null;
+  }
   if (parts.length < 3) return null;
   const [domain, kind, a, b] = parts;
   if (kind !== 'region' && kind !== 'market' && kind !== 'entity' && kind !== 'section') return null;

@@ -173,11 +173,13 @@ export interface TrendProps {
   note?: ReactNode;
   /** Подписи оси X длинные (даты) - тогда через одну. */
   sparseX?: boolean;
+  /** Соединять ли точки через пропущенные периоды. По умолчанию пропуск виден. */
+  connectNulls?: boolean;
 }
 
 /** Ряд по годам или датам. Один ряд - площадь под линией: форма читается
  *  быстрее, чем голая линия. Несколько - линии с легендой. */
-export function Trend({ data, series, unit, height = 220, title, note, sparseX }: TrendProps) {
+export function Trend({ data, series, unit, height = 220, title, note, sparseX, connectNulls = false }: TrendProps) {
   const many = series.length > 1;
   const margin = { top: 8, right: 12, bottom: 4, left: 4 };
   const axes = (
@@ -222,7 +224,7 @@ export function Trend({ data, series, unit, height = 220, title, note, sparseX }
               strokeWidth={2}
               dot={{ r: 3, strokeWidth: 0, fill: CAT[i % CAT.length] }}
               activeDot={{ r: 5 }}
-              connectNulls
+              connectNulls={connectNulls}
             />
           ))}
         </LineChart>
@@ -244,7 +246,7 @@ export function Trend({ data, series, unit, height = 220, title, note, sparseX }
             fill="url(#chart-area)"
             dot={{ r: 3, strokeWidth: 0, fill: CAT[0] }}
             activeDot={{ r: 5 }}
-            connectNulls
+            connectNulls={connectNulls}
           />
         </AreaChart>
       )}
