@@ -72,3 +72,23 @@ iOS-симулятором Claude Code Desktop, у Codex своими native-и�
 Файлы в этой папке по дате и автору, коммит в `main` атласа, пуш. Я читаю
 папку при каждом заходе. Срочное: сессия `hermes-lifestyle-os-bb` на этой
 машине принимает сообщения.
+
+## Дополнение 16.09, вечер: два контракта готовы
+
+- Ряды: `HERMES_LIFESTYLE_OS/docs/research/vietnam-data-os/contracts/vietnam-series.*`
+  и раздел «Для Codex: контракт рядов» в `e21-series-report.md`. В базе
+  `region_stats` 20 844 строк с `boundary_version`, `frequency`, `method`,
+  `revision` (триггер), словарь `metric_dictionary` на 160 метрик с признаком
+  аддитивности, `boundary_map` 63 -> 34, пересчёт аддитивных метрик в новые
+  границы (`method=derived`), у всех 34 новых провинций 7 сопоставимых метрик
+  до 2005 года. Переименование `salary_median_vnd` -> `salary_mean_vnd`,
+  добавлена `salary_mean_enterprise_vnd`. У PxWeb нет розницы, туристов, ВРП
+  по провинциям и помесячных рядов: таких точек в контракте не будет из этого
+  источника.
+- Формулы: `contracts/vietnam-models.{schema,example}.json` и
+  `e22-models-report.md`. Таблица `model_results` (миграция 0012), девять
+  формул с версиями и воспроизводимыми входами, 1 543 результата первого
+  прогона, крон 06:30. Честно: backtest прогноза потоков пока проигрывает
+  бейзлайну «тот же район» (MAE 0,454 против 0,426), данных десять дат;
+  карточку формулы показывать с `limitations`.
+- Климат придёт следующим (`vietnam-climate.json`).
