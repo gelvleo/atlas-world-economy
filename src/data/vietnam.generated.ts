@@ -7,8 +7,8 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-16T08:15:16.824Z
-// Строк: regions 244 · region_stats 13884 · region_stats_periods_kept 5 · markets 641 · market_players_shown 3900 · market_players_counted 60058 · events 31 · named_markets 13 · job_heartbeats 20 · media_topics 13 · insights 20 · entities 1752 · edges 6939 · entity_metrics 7268 · climate_regions 51
+// Снято: 2026-09-16T09:07:55.108Z
+// Строк: regions 244 · region_stats 13884 · region_stats_periods_kept 5 · markets 641 · market_players_shown 3900 · market_players_counted 60058 · events 31 · named_markets 13 · job_heartbeats 21 · media_topics 13 · insights 20 · entities 1752 · edges 6939 · entity_metrics 7268 · climate_regions 63
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
 export interface GenStat { region_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null; source_note: string | null; fetched_at: string | null }
@@ -25,7 +25,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-16T08:15:16.824Z";
+export const generatedAt = "2026-09-16T09:07:55.108Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -37,13 +37,13 @@ export const generatedCounts = {
   "market_players_counted": 60058,
   "events": 31,
   "named_markets": 13,
-  "job_heartbeats": 20,
+  "job_heartbeats": 21,
   "media_topics": 13,
   "insights": 20,
   "entities": 1752,
   "edges": 6939,
   "entity_metrics": 7268,
-  "climate_regions": 51
+  "climate_regions": 63
 };
 
 /** Таблицы, которых в базе ещё нет: их блоки в разделе не рисуются. */
@@ -173899,6 +173899,13 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "last_ok_at": "2026-09-16T07:12:47.853434+00:00"
   },
   {
+    "job": "region:climate",
+    "ok": true,
+    "message": "outcome=complete; ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
+    "last_run_at": "2026-09-16T09:04:53.061717+00:00",
+    "last_ok_at": "2026-09-16T09:04:53.061717+00:00"
+  },
+  {
     "job": "region:demography",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
@@ -174021,8 +174028,8 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:weather",
     "ok": true,
     "message": "outcome=complete; ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-16T08:00:30.235528+00:00",
-    "last_ok_at": "2026-09-16T08:00:30.235528+00:00"
+    "last_run_at": "2026-09-16T09:00:47.072477+00:00",
+    "last_ok_at": "2026-09-16T09:00:47.072477+00:00"
   }
 ];
 
