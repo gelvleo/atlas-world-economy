@@ -3,7 +3,8 @@
 // Всё в этом файле читается из src/data/vietnam.generated.ts, который пишет
 // `npm run pull` из базы region-lamdong (Supabase). Руками эти числа никто не
 // вписывает: пустая таблица в базе даёт честно пустой блок, а не выдумку.
-// Сборка на Vercel в базу не ходит и берёт закоммиченный файл.
+// `npm run build` перед сборкой выполняет `pull`; только сценарий
+// `build:local` гарантирует проверку и сборку по этому снимку без запроса к базе.
 
 import { useEffect, useMemo, useState } from 'react';
 import type { EvidenceKind } from '../types';
@@ -230,6 +231,166 @@ function metricLabel(m: string): string {
   // как она называется в базе.
   return m;
 }
+
+type CompactCatalogView = 'search' | 'regions' | 'markets' | 'national' | 'employment' | 'entities' | 'sweeps';
+const COMPACT_VIEWS: { id: CompactCatalogView; label: string }[] = [
+  { id: 'search', label: 'Поиск' }, { id: 'regions', label: 'Регионы' }, { id: 'markets', label: 'Рынки по зонам' },
+  { id: 'national', label: 'Национальные игроки' }, { id: 'employment', label: 'Занятость' }, { id: 'entities', label: 'Сущности' }, { id: 'sweeps', label: 'Обходы' }
+];
+const COMPACT_ALIASES: Record<string, CompactCatalogView> = { search: 'search', regions: 'regions', markets: 'markets', national: 'national', employment: 'employment', entities: 'entities', sweeps: 'sweeps', opportunity: 'markets', mobility: 'employment' };
+
+function ResultCount({ shown, total }: { shown: number; total: number }) {
+  if (shown >= total) return null;
+  return <p className="stat-note">Показано {shown} из {total}; остальные строки доступны через уточнение поиска.</p>;
+}
+
+function CompactVietnamDb({ initialScope = 'country' }: { initialScope?: 'lamdong' | 'country' } = {}) {
+  const route = useHashRoute();
+  const routeView = route?.kind === 'section'
+    ? route.a === 'data' ? COMPACT_ALIASES[route.b] ?? 'search' : COMPACT_ALIASES[route.a]
+    : undefined;
+  const [view, setView] = useState<CompactCatalogView>(routeView ?? (route?.kind === 'entity' ? 'entities' : route?.kind === 'region' || route?.kind === 'market' ? 'regions' : 'search'));
+  const [scope, setScope] = useState<'country' | 'local'>(initialScope === 'lamdong' ? 'local' : 'country');
+  const [query, setQuery] = useState('');
+
+  useEffect(() => setScope(initialScope === 'lamdong' ? 'local' : 'country'), [initialScope]);
+  useEffect(() => {
+    if (routeView) setView(routeView);
+    else if (route?.kind === 'region' || route?.kind === 'market') setView('regions');
+  }, [routeView, route?.kind]);
+
+  const selectedRegion = route?.kind === 'region' ? route.a : null;
+  const selectedMarket = route?.kind === 'market' ? `${route.a}/${route.b}` : null;
+  const unknownRegion = Boolean(selectedRegion && !REGION_BY_SLUG.has(selectedRegion));
+  const unknownMarket = Boolean(selectedMarket && !GEN_MARKETS.some((market) => `${market.region_slug}/${market.slug}` === selectedMarket));
+  const hasUnknownSelection = unknownRegion || unknownMarket;
+  const q = query.trim().toLowerCase();
+  const searchMatches = q.length >= 2
+    ? SEARCH_INDEX.filter((hit) => `${hit.label} ${hit.sub}`.toLowerCase().includes(q))
+    : [];
+  const hits = searchMatches.slice(0, 30);
+  const choose = (next: CompactCatalogView) => {
+    setView(next);
+    window.location.hash = `#/vietnam/section/data/${next}`;
+  };
+
+  const localPrefixes = ['vn-lamdong-dalat', 'vn-lamdong-ductrong'];
+  const localZoneSlugs = new Set(['zone:dalat-center', 'zone:lienkhuong', 'zone:namban-home']);
+  const isLocalDliSlice = (slug: string) => localPrefixes.some((prefix) => slug === prefix || slug.startsWith(`${prefix}-`)) || localZoneSlugs.has(slug);
+  const country = GEN_REGIONS.find((region) => region.level === 'country');
+  const regionMatches = GEN_REGIONS.filter((region) => {
+    const inScope = scope === 'local'
+      ? isLocalDliSlice(region.slug)
+      : region.slug === country?.slug || (region.level === 'province' && region.perimeter === 'post-2025');
+    return inScope && (!q || `${region.name_ru ?? ''} ${region.name_vi ?? ''} ${region.slug}`.toLowerCase().includes(q));
+  });
+  const regions = regionMatches.slice(0, 80);
+
+  const marketMatches = GEN_MARKETS.filter((market) => !q || `${market.name_ru ?? market.slug} ${market.region_slug}`.toLowerCase().includes(q));
+  const marketRows = marketMatches.slice(0, 30);
+  const namedNationalMatches = GEN_NAMED_MARKETS.filter((market) => market.region_slug === 'vn' && (!q || `${market.name_ru} ${market.players.map((player) => player.name).join(' ')}`.toLowerCase().includes(q)));
+  const nationalRows = namedNationalMatches.slice(0, 30);
+  const entityMatches = GEN_ENTITIES.filter((entity) => !q || `${entity.name_ru ?? entity.name ?? entity.slug} ${entity.kind ?? ''}`.toLowerCase().includes(q));
+  const entityRows = entityMatches.slice(0, 30);
+  const employmentMatches = GEN_STATS.filter((stat) => stat.region_slug === 'vn' && (stat.metric.startsWith('employed') || stat.metric === 'unemployment_rate' || stat.metric === 'employment_ratio_pct') && (!q || `${metricLabel(stat.metric)} ${stat.period ?? ''} ${stat.source_note ?? ''}`.toLowerCase().includes(q)));
+  const employmentRows = employmentMatches.slice(0, 80);
+  const sweepMatches = GEN_HEARTBEATS.filter((heartbeat) => !q || `${heartbeat.job} ${heartbeat.message ?? ''}`.toLowerCase().includes(q));
+  const detailStats = selectedRegion && !unknownRegion
+    ? (STATS_BY_REGION.get(selectedRegion) ?? []).slice().sort((a, b) => (b.period ?? '').localeCompare(a.period ?? ''))
+    : [];
+  const detailMarket = selectedMarket && !unknownMarket
+    ? GEN_MARKETS.find((market) => `${market.region_slug}/${market.slug}` === selectedMarket)
+    : undefined;
+  const returnHref = unknownMarket ? '#/vietnam/section/data/markets' : '#/vietnam/section/data/regions';
+  const returnLabel = unknownMarket ? 'Вернуться к рынкам' : 'Вернуться к регионам';
+
+  return (
+    <div className="vn-compact-catalog">
+      <p className="stat-note">Снимок данных: {new Intl.DateTimeFormat('ru-RU', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date(generatedAt))} (Вьетнам)</p>
+      <div className="vn-catalog-tabs" role="tablist" aria-label="Категории каталога">
+        {COMPACT_VIEWS.map((item) => <button key={item.id} className="btn btn--ghost" role="tab" aria-selected={view === item.id} onClick={() => choose(item.id)}>{item.label}</button>)}
+      </div>
+
+      <div className="toolbar">
+        {!selectedRegion && !detailMarket && !hasUnknownSelection && <div>
+          <input className="field" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Поиск по выбранной категории" aria-label="Поиск в каталоге" />
+        </div>}
+        {view === 'regions' && !selectedRegion && <div className="seg" role="group" aria-label="Охват каталога">
+          <button className="seg-btn" aria-pressed={scope === 'country'} onClick={() => setScope('country')}>Вся страна</button>
+          <button className="seg-btn" aria-pressed={scope === 'local'} onClick={() => setScope('local')}>Срез DLI: Далат и Льенкыонг</button>
+        </div>}
+      </div>
+
+      {hasUnknownSelection && <div className="empty" role="status">
+        <span className="empty-title">Объект не найден</span>
+        <span>{unknownRegion ? `Регион «${selectedRegion}» отсутствует в текущей выгрузке.` : `Рынок «${selectedMarket?.split('/')[1]}» отсутствует в текущей выгрузке.`}</span>
+        <a href={returnHref}>{returnLabel}</a>
+      </div>}
+
+      {!hasUnknownSelection && selectedRegion && <div className="note">
+        <div className="kicker">Выбранный регион</div>
+        <h2 className="h2">{regionName(selectedRegion)}</h2>
+        <p className="stat-note">Строки относятся к этой территории. Старые и новые границы не складываются.</p>
+        <p><a href="#/vietnam/section/data/regions">Вернуться к каталогу регионов</a></p>
+        <div className="list">
+          {detailStats.map((stat, index) => {
+            const conflict = detailStats.some((other, otherIndex) => otherIndex !== index && other.metric === stat.metric && other.period === stat.period && other.unit === stat.unit && stat.value !== null && Number.isFinite(stat.value) && other.value !== null && Number.isFinite(other.value) && other.value !== stat.value);
+            return <div className="list-row" key={`${stat.metric}-${stat.period}-${stat.source_url ?? 'без-источника'}-${index}`}>
+              <span className="list-main"><span>{metricLabel(stat.metric)}</span><StatSource s={stat} />{conflict && <span className="tag">Конфликт значений: источники расходятся</span>}</span>
+              <Val className="list-side" value={statText(stat) ?? '—'} />
+            </div>;
+          })}
+        </div>
+      </div>}
+
+      {!hasUnknownSelection && detailMarket && <div className="note">
+        <div className="kicker">Выбранный рынок</div>
+        <h2 className="h2">{detailMarket.name_ru ?? detailMarket.slug}</h2>
+        <p className="stat-note">{regionName(detailMarket.region_slug)} · единица точек карты · {detailMarket.players_count ?? 'нет данных'}</p>
+        <p>{detailMarket.players.join(' · ') || 'Игроки поимённо не указаны в выгрузке.'}</p>
+      </div>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'search' && <>
+        <div className="list">{hits.map((hit) => <a className="list-row" key={hit.href + hit.label} href={hit.href}><span className="list-main"><span>{hit.label}</span><span className="tag">{HIT_LABEL[hit.kind]}</span><span className="stat-note">{hit.sub}</span></span></a>)}</div>
+        <ResultCount shown={hits.length} total={searchMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'regions' && <>
+        <div className="list">{regions.map((region) => <a className="list-row" key={region.id} href={`#/vietnam/region/${region.slug}`}><span className="list-main"><span>{depersonalize(region.name_ru ?? region.name_vi ?? region.slug)}</span><span className="tag">{region.perimeter ?? region.level}</span></span><span className="list-side meta">{statText(statOf(region.slug, 'population')) ?? 'нет данных'}</span></a>)}</div>
+        <ResultCount shown={regions.length} total={regionMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'markets' && <>
+        <div className="list">{marketRows.map((market) => <a className="list-row" key={market.id} href={`#/vietnam/market/${market.region_slug}/${market.slug}`}><span className="list-main"><span>{market.name_ru ?? market.slug}</span><span className="stat-note">{regionName(market.region_slug)} · пересчитано {market.players_counted_at ? dayRu(market.players_counted_at) : 'нет даты'}</span></span><Val className="list-side" value={market.players_count === null ? '—' : String(market.players_count)} unit="точек" /></a>)}</div>
+        <ResultCount shown={marketRows.length} total={marketMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'national' && <>
+        <div className="list">{nationalRows.map((market) => <div className="list-row" key={market.slug}><span className="list-main"><span>{market.name_ru}</span><span className="stat-note">{market.players.map((player) => player.name).join(' · ')}</span></span><Val className="list-side" value={String(market.players.length)} unit="игроков" /></div>)}</div>
+        <ResultCount shown={nationalRows.length} total={namedNationalMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'employment' && <>
+        <div className="list">{employmentRows.map((stat, index) => <div className="list-row" key={`${stat.metric}-${stat.period}-${stat.source_url ?? 'без-источника'}-${index}`}><span className="list-main"><span>{metricLabel(stat.metric)}</span><StatSource s={stat} /></span><Val className="list-side" value={statText(stat) ?? '—'} /></div>)}</div>
+        <ResultCount shown={employmentRows.length} total={employmentMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'entities' && <>
+        <div className="list">{entityRows.map((entity) => <a className="list-row" key={entity.slug} href={`#/vietnam/entity/${entity.slug}`}><span className="list-main"><span>{entity.name_ru ?? entity.name ?? entity.slug}</span><span className="tag">{ENTITY_KIND[entity.kind ?? ''] ?? 'сущность'}</span></span></a>)}</div>
+        <ResultCount shown={entityRows.length} total={entityMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'sweeps' && <>
+        <div className="table-wrap"><table className="table"><thead><tr><th>Обход</th><th>Итог</th><th>Последний запуск</th></tr></thead><tbody>{sweepMatches.map((heartbeat) => <tr key={heartbeat.job}><td>{heartbeat.job}</td><td>{heartbeat.ok ? 'успех' : 'отказ'}{heartbeat.message ? ` · ${heartbeat.message}` : ''}</td><td>{heartbeat.last_run_at ? new Date(heartbeat.last_run_at).toLocaleString('ru-RU') : '—'}</td></tr>)}</tbody></table></div>
+        <ResultCount shown={sweepMatches.length} total={sweepMatches.length} />
+      </>}
+
+      {!hasUnknownSelection && !selectedRegion && !detailMarket && ((view === 'search' && hits.length === 0) || (view === 'regions' && regions.length === 0) || (view === 'markets' && marketRows.length === 0) || (view === 'national' && nationalRows.length === 0) || (view === 'employment' && employmentRows.length === 0) || (view === 'entities' && entityRows.length === 0) || (view === 'sweeps' && sweepMatches.length === 0)) && <div className="empty">{view === 'search' && q.length < 2 ? 'Введите минимум два символа для поиска.' : 'В выбранной категории нет данных по этому запросу.'}</div>}
+    </div>
+  );
+}
+
+export default CompactVietnamDb;
 
 // Тип источника в базе и метка доказательства в интерфейсе — один словарь.
 // Незнакомое значение показывается как «без источника», а не прячется.
@@ -839,14 +1000,14 @@ function RegionCharts({ slug }: { slug: string }) {
 
 // ─── Раздел ───────────────────────────────────────────────────────────────────
 
-export default function VietnamDb() {
+function LegacyVietnamDb({ initialScope = 'country' }: { initialScope?: 'lamdong' | 'country' } = {}) {
   const route = useHashRoute();
   const [query, setQuery] = useState('');
   const [level, setLevel] = useState<string>('all');
   const [openRegion, setOpenRegion] = useState<string | null>(null);
   const [openMarket, setOpenMarket] = useState<string | null>(null);
   // Охват дерева регионов и два переключателя шума.
-  const [scope, setScope] = useState<'lamdong' | 'country'>('lamdong');
+  const [scope, setScope] = useState<'lamdong' | 'country'>(initialScope);
   const [oldPerimeter, setOldPerimeter] = useState(false);
   const [showEmpty, setShowEmpty] = useState(false);
   // Район, чей ряд подвижности развёрнут по датам.
