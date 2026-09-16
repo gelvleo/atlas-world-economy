@@ -7,7 +7,7 @@
 // Обновить: npm run pull (нужен .env с REGION_SUPABASE_URL и SERVICE_KEY).
 // Сборка на Vercel базу не видит и берёт этот файл как есть.
 //
-// Снято: 2026-09-16T03:21:01.383Z
+// Снято: 2026-09-16T03:32:13.798Z
 // Строк: regions 244 · region_stats 6839 · region_stats_periods_kept 5 · markets 641 · market_players_shown 3900 · market_players_counted 60058 · events 31 · named_markets 13 · job_heartbeats 19 · media_topics 13 · insights 20 · entities 1752 · edges 6939 · entity_metrics 7268
 
 export interface GenRegion { id: string; slug: string; level: string; parent_id: string | null; name_vi: string | null; name_ru: string | null; name_en: string | null; perimeter: string | null; lat: number | null; lon: number | null; area_km2: number | null }
@@ -25,7 +25,7 @@ export interface GenEntity { slug: string; kind: string | null; name: string | n
 export interface GenEntityMetric { entity_slug: string; metric: string; period: string | null; value: number | null; unit: string | null; source_type: string | null; source_url: string | null }
 
 /** Момент выгрузки. Показывается в разделе: данные ровно этой свежести. */
-export const generatedAt = "2026-09-16T03:21:01.383Z";
+export const generatedAt = "2026-09-16T03:32:13.798Z";
 
 /** Сколько строк пришло из каждой таблицы на момент выгрузки. */
 export const generatedCounts = {
@@ -96511,15 +96511,15 @@ export const GEN_HEARTBEATS: GenHeartbeat[] = [
     "job": "region:sources",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-16T01:31:04.633916+00:00",
-    "last_ok_at": "2026-09-16T01:31:04.633916+00:00"
+    "last_run_at": "2026-09-16T03:26:28.518872+00:00",
+    "last_ok_at": "2026-09-16T03:26:28.518872+00:00"
   },
   {
     "job": "region:weather",
     "ok": true,
     "message": "ниш ok 1, ниш с ошибкой 0, элементов с ошибкой 0, уборка не прошла 0",
-    "last_run_at": "2026-09-16T03:00:32.451343+00:00",
-    "last_ok_at": "2026-09-16T03:00:32.451343+00:00"
+    "last_run_at": "2026-09-16T03:30:38.72514+00:00",
+    "last_ok_at": "2026-09-16T03:30:38.72514+00:00"
   }
 ];
 
