@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react';
 import type { AtlasRoute } from '../ui/hashRoute';
 import type { SectionId } from '../types';
 import Val from '../ui/num';
-import { Bars, Shares, Trend, type Point } from '../ui/charts';
+import { Bars, Shares, type Point } from '../ui/charts';
+import { ComparableTrend } from '../ui/ComparableTrend';
 import { NODE_MAP } from '../data/nodes';
 import { VIETNAM_CHAINS, VIETNAM_FLOWS } from '../data/vietnam';
 import {
@@ -88,45 +89,6 @@ function WorkspaceNav({ active, onChange }: { active: WorkspaceTab; onChange: (t
       ))}
     </nav>
   );
-}
-
-function AnnualPoints(rows: GenStat[]): { data: Point[]; missing: string[] } {
-  const years = rows.map((row) => Number(row.period)).filter(Number.isInteger);
-  if (years.length < 2) return { data: rows.map((row) => ({ period: row.period!, value: Number(row.value) })), missing: [] };
-  const byYear = new Map(rows.map((row) => [row.period!, Number(row.value)]));
-  const data: Point[] = [];
-  const missing: string[] = [];
-  for (let year = Math.min(...years); year <= Math.max(...years); year += 1) {
-    const period = String(year);
-    const value = byYear.get(period);
-    if (value === undefined) missing.push(period);
-    data.push({ period, value: value ?? null });
-  }
-  return { data, missing };
-}
-
-function ComparableTrend({
-  series,
-  title,
-  note,
-  unit
-}: {
-  series: ReturnType<typeof selectComparableSeries>;
-  title: string;
-  note: string;
-  unit: string;
-}) {
-  const points = AnnualPoints(series.rows);
-  if (series.conflicts.length > 0) {
-    return <div className="empty"><strong>{title}</strong><span>Спорные периоды: {series.conflicts.join(', ')}. Линия скрыта до выбора одного значения.</span></div>;
-  }
-  if (points.data.length < 2) {
-    return <div className="empty"><strong>{title}</strong><span>Сопоставимых точек меньше двух. Ряд не строится.</span></div>;
-  }
-  if (points.missing.length > 0) {
-    return <div className="empty"><strong>{title}</strong><span>Нет данных за {points.missing.join(', ')}. Пропуски не соединяются в непрерывную тенденцию.</span></div>;
-  }
-  return <Trend data={points.data} series={[{ key: 'value', label: title.toLowerCase() }]} unit={unit} title={title} note={<>{note} · <a href={series.sourceUrl ?? '#'}>Источник ряда</a></>} sparseX />;
 }
 
 function LegacyVietnamLayer({ openNode }: { openNode: (id: string) => void }) {

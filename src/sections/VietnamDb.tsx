@@ -11,6 +11,8 @@ import type { EvidenceKind } from '../types';
 import { EvidenceTag } from './Overview';
 import Val from '../ui/num';
 import { useHashRoute } from '../ui/hashRoute';
+import { ComparableTrend } from '../ui/ComparableTrend';
+import { selectComparableSeries } from '../ui/vietnamSelectors';
 import { VND_PER_USD } from '../data/vietnam';
 import { Bars, Shares, Sparkline, Trend, type Point } from '../ui/charts';
 import VietnamGraph from './VietnamGraph';
@@ -301,6 +303,8 @@ function CompactVietnamDb({ initialScope = 'country' }: { initialScope?: 'lamdon
   const detailMarket = selectedMarket && !unknownMarket
     ? GEN_MARKETS.find((market) => `${market.region_slug}/${market.slug}` === selectedMarket)
     : undefined;
+  const regionTrendSeries = selectedRegion && !unknownRegion ? comparableRegionTrends(selectedRegion) : [];
+  const employmentTrendSeries = view === 'employment' ? employmentTrends() : [];
   const returnHref = unknownMarket ? '#/vietnam/section/data/markets' : '#/vietnam/section/data/regions';
   const returnLabel = unknownMarket ? 'Вернуться к рынкам' : 'Вернуться к регионам';
 
@@ -332,6 +336,21 @@ function CompactVietnamDb({ initialScope = 'country' }: { initialScope?: 'lamdon
         <h2 className="h2">{regionName(selectedRegion)}</h2>
         <p className="stat-note">Строки относятся к этой территории. Старые и новые границы не складываются.</p>
         <p><a href="#/vietnam/section/data/regions">Вернуться к каталогу регионов</a></p>
+        {regionTrendSeries.length > 0 ? (
+          <div className="grid grid--2">
+            {regionTrendSeries.map(({ metric, series }) => (
+              <ComparableTrend
+                key={metric}
+                series={series}
+                title={metricLabel(metric)}
+                note="Годовой ряд"
+                unit={unitRu(series.unit)}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="section-lead">Для графика нужны минимум три сопоставимых годовых наблюдения. Доступные числа — ниже.</p>
+        )}
         <div className="list">
           {detailStats.map((stat, index) => {
             const conflict = detailStats.some((other, otherIndex) => otherIndex !== index && other.metric === stat.metric && other.period === stat.period && other.unit === stat.unit && stat.value !== null && Number.isFinite(stat.value) && other.value !== null && Number.isFinite(other.value) && other.value !== stat.value);
@@ -371,6 +390,21 @@ function CompactVietnamDb({ initialScope = 'country' }: { initialScope?: 'lamdon
       </>}
 
       {!hasUnknownSelection && !selectedRegion && !detailMarket && view === 'employment' && <>
+        {employmentTrendSeries.length > 0 ? (
+          <div className="grid grid--2">
+            {employmentTrendSeries.map(({ metric, series }) => (
+              <ComparableTrend
+                key={metric}
+                series={series}
+                title={metricLabel(metric)}
+                note="Вьетнам · годовой ряд"
+                unit={unitRu(series.unit)}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="section-lead">Для графика нужны минимум три сопоставимых годовых наблюдения. Доступные числа — ниже.</p>
+        )}
         <div className="list">{employmentRows.map((stat, index) => <div className="list-row" key={`${stat.metric}-${stat.period}-${stat.source_url ?? 'без-источника'}-${index}`}><span className="list-main"><span>{metricLabel(stat.metric)}</span><StatSource s={stat} /></span><Val className="list-side" value={statText(stat) ?? '—'} /></div>)}</div>
         <ResultCount shown={employmentRows.length} total={employmentMatches.length} />
       </>}
@@ -601,6 +635,34 @@ const KEY_TRENDS = [
   'unemployment_rate',
   'avg_income_vnd_month'
 ];
+
+const EMPLOYMENT_TREND_ORDER = [
+  'unemployment_rate',
+  'employment_ratio_pct',
+  'employed_total',
+  'employed_enterprises'
+];
+
+function comparableRegionTrends(slug: string) {
+  return KEY_TRENDS
+    .map((metric) => ({ metric, series: selectComparableSeries(GEN_STATS, { regionSlug: slug, metric, frequency: 'annual' }) }))
+    .filter(({ series }) => series.rows.length >= MIN_POINTS)
+    .slice(0, 6);
+}
+
+function employmentTrends() {
+  const sectorMetrics = [...new Set(
+    GEN_STATS
+      .filter((stat) => stat.region_slug === 'vn' && stat.metric.startsWith('employed:'))
+      .map((stat) => stat.metric)
+  )].sort();
+  const metrics = [...sectorMetrics, ...EMPLOYMENT_TREND_ORDER]
+    .filter((metric, index, all) => all.indexOf(metric) === index);
+  return metrics
+    .map((metric) => ({ metric, series: selectComparableSeries(GEN_STATS, { regionSlug: 'vn', metric, frequency: 'annual' }) }))
+    .filter(({ series }) => series.rows.length >= MIN_POINTS)
+    .slice(0, 4);
+}
 
 /** Ключевые числа в строке региона: первое попавшееся из каждой тройки.
  *  Провинции по стране заполнены неровно, жёсткий список дал бы пустые слоты. */
