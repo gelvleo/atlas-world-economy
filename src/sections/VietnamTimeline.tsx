@@ -1,377 +1,233 @@
-// Таймлайн событий региона.
-//
-// Подача взята с дорожной карты Comuni (components/admin/roadmap/RoadmapClient.tsx
-// и roadmap-visuals.tsx): горизонтальная ось месяцев, вертикальная линия
-// «сегодня», дорожки по видам, длящееся рисуется полосой, точечное - маркером с
-// подписью. Перенесены геометрия окна и дорожек; зависимости донора (Next.js,
-// lucide, shadcn Button) не переносились.
-//
-// Зачем это здесь: праздник сам по себе ничего не говорит. Он говорит вместе с
-// пиком спроса, поэтому под дорожками событий на ТОЙ ЖЕ оси идёт ряд движения
-// людей. Тэт читается не как строка календаря, а как провал поездок.
-
 import { useMemo, useState } from 'react';
 import type { GenEvent, GenStat } from '../data/vietnam.generated';
-import { CAT, fullNum } from '../ui/charts';
-
-const MONTH_SHORT = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-
-/** Доля даты в окне [start, end], 0..1. Вне окна обрезается по краю. */
-const posIn = (d: Date, start: Date, end: Date) => {
-  const total = end.getTime() - start.getTime();
-  if (total <= 0) return 0;
-  return Math.min(1, Math.max(0, (d.getTime() - start.getTime()) / total));
-};
-
-/** Начала месяцев внутри окна: направляющие сетки и подписи оси. */
-function monthTicks(start: Date, end: Date) {
-  const out: { pos: number; label: string }[] = [];
-  const cursor = new Date(start.getFullYear(), start.getMonth(), 1);
-  if (cursor < start) cursor.setMonth(cursor.getMonth() + 1);
-  while (cursor <= end) {
-    out.push({
-      pos: posIn(cursor, start, end),
-      // Январь подписан годом: без года ось из двенадцати месяцев не говорит,
-      // какой это январь, а окно всегда пересекает границу года.
-      label: cursor.getMonth() === 0
-        ? `${MONTH_SHORT[0]} ${cursor.getFullYear()}`
-        : MONTH_SHORT[cursor.getMonth()]
-    });
-    cursor.setMonth(cursor.getMonth() + 1);
-  }
-  return out;
-}
-
-const dayRu = (iso: string | null) =>
-  iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) : '—';
-
-/** Короткая дата для колонки значения: «26 апр 2026». Полная («26 апреля
- *  2026 г.») в паре с концом периода давала строку в 40 знаков, а колонка
- *  значения в атласе не переносится - на 390 она сжимала имя события в
- *  столбик по одному слову. */
-const dayShort = (iso: string | null) =>
-  iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-
-/** Диапазон дат строки. Конец печатается, только если это ДРУГОЙ день: у
- *  однодневного праздника в базе стоят две метки времени одних суток, и
- *  строка читалась как «26 апр 2026 - 26 апр 2026». */
-function rangeShort(a: string | null, b: string | null): string {
-  const one = dayShort(a);
-  if (!a || !b) return one;
-  const sameDay = new Date(a).toDateString() === new Date(b).toDateString();
-  return sameDay ? one : `${one} - ${dayShort(b)}`;
-}
-
-/** Дорожки: что во что попадает. Порядок дорожек сверху вниз - тот же. */
-const TRACKS: { key: string; label: string; bar: boolean; match: (e: GenEvent) => boolean }[] = [
-  { key: 'holiday', label: 'Госпраздники', bar: false, match: (e) => e.kind === 'holiday' },
-  { key: 'festival', label: 'Фестивали', bar: false, match: (e) => e.kind === 'conference' || e.event_class === 'festival' },
-  { key: 'school', label: 'Учебный год', bar: true, match: (e) => e.kind === 'school_term' }
-];
+import {
+  clusterPointEvents,
+  clusterGapDays,
+  currentVietnamDay,
+  formatVietnamDate,
+  formatWindow,
+  getTimelineWindow,
+  layoutBars,
+  positionInWindow,
+  selectMobility,
+  selectTimelineEvents,
+  shiftAnchor,
+  type TimelineEvent,
+  type TimelineScale,
+  type VietnamDay
+} from './vietnamTimeline.helpers';
+import './vietnam-timeline.css';
 
 interface Props {
   events: GenEvent[];
-  /** Ряд подвижности по датам: доля тех, кто уехал дальше 10 км от дома. */
   mobility: GenStat[];
-  /** Имя региона, по которому снят ряд подвижности. */
   mobilityRegion: string;
 }
 
-/** Ближе этой доли оси точки сливаются в одну пилюлю со счётчиком. 0,022 от
- *  окна в 13 месяцев - это примерно девять дней: праздники одной связки
- *  («29 Tết», «Mồng 1 Tết», «Mồng 2 Tết») сходятся в одну, а разные события
- *  остаются разными точками. */
-const CLUSTER_GAP = 0.022;
+type Filter = 'all' | 'holiday' | 'festival' | 'school_term';
 
-/** Самая узкая дорожка: 640 px минимальной ширины таймлайна минус колонка имён.
- *  Подпись ставится, только если она влезает ПРИ ЭТОЙ ширине - тогда на 390 и
- *  на 1440 подписи не наезжают одинаково, а не «на десктопе повезло». */
-const TRACK_MIN_PX = 524;
-/** Уже этого подпись не читается и не ставится: остаётся точка с подсказкой. */
-const MIN_LABEL_PX = 56;
+const FILTERS: { value: Filter; label: string }[] = [
+  { value: 'all', label: 'Все типы' },
+  { value: 'holiday', label: 'Праздники' },
+  { value: 'festival', label: 'Фестивали' },
+  { value: 'school_term', label: 'Учебные периоды' }
+];
 
-/** Точки дорожки, схлопнутые по близости. Кластер из одной точки - обычная
- *  точка с подписью, кластер из нескольких - пилюля со счётчиком. */
-function clusterPoints(items: GenEvent[], start: Date, end: Date) {
-  const out: { pos: number; items: GenEvent[] }[] = [];
-  for (const e of items) {
-    const pos = posIn(new Date(e.starts_at as string), start, end);
-    const last = out[out.length - 1];
-    if (last && pos - last.pos < CLUSTER_GAP) last.items.push(e);
-    else out.push({ pos, items: [e] });
+const TRACKS: { key: string; label: string; kind: Filter }[] = [
+  { key: 'holiday', label: 'Госпраздники', kind: 'holiday' },
+  { key: 'festival', label: 'Фестивали', kind: 'festival' },
+  { key: 'school_term', label: 'Учебные периоды', kind: 'school_term' }
+];
+
+const MONTHS = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+function isoDay(day: VietnamDay): string {
+  return `${String(day.year).padStart(4, '0')}-${String(day.month).padStart(2, '0')}-${String(day.day).padStart(2, '0')}`;
+}
+
+function addDays(day: VietnamDay, amount: number): VietnamDay {
+  const date = new Date(Date.UTC(day.year, day.month - 1, day.day + amount));
+  return { year: date.getUTCFullYear(), month: date.getUTCMonth() + 1, day: date.getUTCDate() };
+}
+
+function addMonths(day: VietnamDay, amount: number): VietnamDay {
+  const date = new Date(Date.UTC(day.year, day.month - 1 + amount, 1));
+  return { year: date.getUTCFullYear(), month: date.getUTCMonth() + 1, day: 1 };
+}
+
+function dateLabel(day: VietnamDay, scale: TimelineScale): string {
+  return scale === 'year'
+    ? `${MONTHS[day.month - 1]} ${day.year}`
+    : scale === 'quarter'
+      ? `${MONTHS[day.month - 1]} ${day.year}`
+      : `${day.day} ${MONTHS[day.month - 1]}`;
+}
+
+function makeTicks(window: ReturnType<typeof getTimelineWindow>, scale: TimelineScale) {
+  const span = window.endOrdinal - window.startOrdinal;
+  let days: VietnamDay[];
+  if (scale === 'month') {
+    days = Array.from({ length: Math.ceil(span / 7) }, (_, index) => addDays(window.start, index * 7));
+  } else if (scale === 'quarter') {
+    days = [0, 1, 2].map((index) => addMonths(window.start, index));
+  } else {
+    days = [0, 3, 6, 9].map((index) => addMonths(window.start, index));
   }
-  return out;
+  return days.map((day) => ({ day, position: positionInWindow(day, window), label: dateLabel(day, scale) }));
+}
+
+function eventDateRange(item: TimelineEvent): string {
+  const options = { day: 'numeric' as const, month: 'long' as const, year: 'numeric' as const };
+  const start = formatVietnamDate(isoDay(item.start), options);
+  const end = formatVietnamDate(isoDay(item.end), options);
+  return start === end ? start : `${start} — ${end}`;
+}
+
+function typeLabel(event: GenEvent): string {
+  if (event.event_class === 'public_holiday' || event.kind === 'holiday') return 'Госпраздник';
+  if (event.event_class === 'festival' || event.kind === 'conference') return 'Фестиваль';
+  if (event.event_class === 'school_term' || event.kind === 'school_term') return 'Учебный период';
+  return 'Событие';
+}
+
+function evidenceLabel(event: GenEvent): string | null {
+  if (!event.evidence_kind) return null;
+  if (event.evidence_kind === 'official') return 'официальный источник';
+  if (event.evidence_kind === 'press') return 'пресс-источник';
+  return 'тип источника не уточнён';
+}
+
+function sourceLine(event: GenEvent) {
+  return event.source_url
+    ? <a href={event.source_url} target="_blank" rel="noreferrer">{event.source_name ?? 'Открыть источник'}</a>
+    : <span>Источник у строки не указан</span>;
 }
 
 export default function VietnamTimeline({ events, mobility, mobilityRegion }: Props) {
-  // Открыт кластер, а не событие: у пилюли внутри может быть три даты.
-  const [open, setOpen] = useState<GenEvent[] | null>(null);
+  const [scale, setScale] = useState<TimelineScale>('month');
+  const [anchor, setAnchor] = useState<VietnamDay>(() => currentVietnamDay());
+  const [filter, setFilter] = useState<Filter>('all');
+  const [open, setOpen] = useState<TimelineEvent[] | null>(null);
+  const window = useMemo(() => getTimelineWindow(anchor, scale), [anchor, scale]);
+  const ticks = useMemo(() => makeTicks(window, scale), [window, scale]);
+  const selected = useMemo(() => selectTimelineEvents(events, window, filter), [events, filter, window]);
+  const mobilityRows = useMemo(() => selectMobility(mobility, window), [mobility, window]);
+  const today = positionInWindow(currentVietnamDay(), window, true);
+  const tracks = TRACKS.map((track) => ({
+    ...track,
+    items: selected.filter((item) => track.kind === 'festival'
+      ? item.event.kind === 'conference' || item.event.event_class === 'festival'
+      : item.event.kind === track.kind)
+  })).filter((track) => track.items.length > 0);
 
-  // Окно: полгода назад и полгода вперёд от первого числа текущего месяца.
-  // Считается один раз на маунт - таймлайн не должен перерисовываться от того,
-  // что человек сидит на странице через полночь.
-  const { start, end } = useMemo(() => {
-    const now = new Date();
-    const s = new Date(now.getFullYear(), now.getMonth() - 6, 1);
-    const e = new Date(now.getFullYear(), now.getMonth() + 7, 0);
-    return { start: s, end: e };
-  }, []);
-
-  const ticks = useMemo(() => monthTicks(start, end), [start, end]);
-  const today = posIn(new Date(), start, end);
-
-  const inWindow = (e: GenEvent) => {
-    const s = e.starts_at ? new Date(e.starts_at) : null;
-    const f = e.ends_at ? new Date(e.ends_at) : s;
-    if (!s) return false;
-    return (f ?? s) >= start && s <= end;
+  const changeWindow = (amount: number) => {
+    setAnchor((current) => shiftAnchor(current, scale, amount));
+    setOpen(null);
   };
-
-  const tracks = TRACKS.map((t) => ({
-    ...t,
-    items: events.filter((e) => t.match(e) && inWindow(e)).sort((a, b) => (a.starts_at ?? '').localeCompare(b.starts_at ?? ''))
-  })).filter((t) => t.items.length > 0);
-
-  // Ряд подвижности на той же оси. Своей шкалы у него нет: он показывает форму,
-  // а числа читаются подсказкой. Поэтому это спарклайн, а не второй график с
-  // осью Y - двух шкал в одном поле не бывает.
-  const spark = useMemo(() => {
-    const rows = mobility
-      .filter((s) => s.period && s.value !== null)
-      .map((s) => ({ t: new Date(s.period as string), v: Number(s.value) }))
-      .filter((r) => !Number.isNaN(r.t.getTime()))
-      .sort((a, b) => a.t.getTime() - b.t.getTime());
-    if (rows.length < 3) return null;
-    const min = Math.min(...rows.map((r) => r.v));
-    const max = Math.max(...rows.map((r) => r.v));
-    const span = max - min || 1;
-    const pts = rows.map((r) => ({
-      x: posIn(r.t, start, end) * 100,
-      y: 90 - ((r.v - min) / span) * 80,
-      v: r.v,
-      t: r.t
-    }));
-    return {
-      d: pts.map((p, i) => `${i ? 'L' : 'M'} ${p.x.toFixed(2)} ${p.y.toFixed(1)}`).join(' '),
-      first: rows[0],
-      last: rows[rows.length - 1],
-      min,
-      max,
-      n: rows.length,
-      pts
-    };
-  }, [mobility, start, end]);
-
-  if (tracks.length === 0) {
-    return (
-      <div className="empty">
-        <span className="empty-title">В окне таймлайна событий нет</span>
-        <span>
-          Календарь региона не отдал ни одного праздника, фестиваля или учебного периода за полгода
-          назад и полгода вперёд. Их собирает обход календаря.
-        </span>
-      </div>
-    );
-  }
+  const markerVisible = today >= 0 && today <= 1;
+  const openEvent = (items: TimelineEvent[]) => setOpen(items);
 
   return (
-    <div className="stack">
-      {/* Ось на тринадцать месяцев требует места: на 390 px дорожка шириной
-          245 px превращала подписи месяцев в кашу. Широкое содержимое в атласе
-          скроллится внутри своей обёртки, как таблицы - страница вбок не едет. */}
-      <div className="table-wrap">
-      <div className="tl">
-        {/* Шапка с месяцами */}
-        <div className="tl-row tl-head">
-          <span className="tl-name">Месяц</span>
-          <div className="tl-track">
-            <div className="tl-grid">
-              {ticks.map((t, i) => (
-                <span key={i} className="tl-tick" style={{ left: `${t.pos * 100}%` }} />
-              ))}
-              {today > 0 && today < 1 && <span className="tl-today" style={{ left: `${today * 100}%` }} />}
-            </div>
-            {ticks.map((t, i) => (
-              <span
-                key={i}
-                className="tl-tick-label"
-                // У краёв дорожки центрированная подпись наполовину уезжает за
-                // границу и обрезается: «мар» читался как «ар».
-                style={{
-                  left: `${t.pos * 100}%`,
-                  transform: t.pos < 0.04 ? 'none' : t.pos > 0.96 ? 'translateX(-100%)' : 'translateX(-50%)'
-                }}
-              >
-                {t.label}
-              </span>
-            ))}
-          </div>
+    <section className="vt-calendar" aria-labelledby="vt-title">
+      <div className="vt-heading">
+        <div>
+          <p className="vt-eyebrow">Календарь Вьетнама</p>
+          <h2 id="vt-title">События и периоды</h2>
+          <p className="vt-range" aria-live="polite">
+            {formatWindow(window, scale)} · календарные дни <span>Asia/Ho_Chi_Minh</span>
+          </p>
         </div>
-
-        {tracks.map((track) => {
-          const groups = track.bar ? [] : clusterPoints(track.items, start, end);
-          return (
-          <div className="tl-row" key={track.key}>
-            <span className="tl-name">{track.label}</span>
-            <div className="tl-track">
-              <div className="tl-grid">
-                {ticks.map((t, i) => (
-                  <span key={i} className="tl-tick" style={{ left: `${t.pos * 100}%` }} />
-                ))}
-                {today > 0 && today < 1 && <span className="tl-today" style={{ left: `${today * 100}%` }} />}
-              </div>
-              {track.bar
-                ? track.items.map((e, i) => {
-                    // Отрезок: у учебного периода есть конец. Без конца рисуем
-                    // короткую полосу, а не точку - вид дорожки не меняем.
-                    const s = new Date(e.starts_at as string);
-                    const left = posIn(s, start, end);
-                    const f = e.ends_at ? new Date(e.ends_at) : s;
-                    const right = posIn(f, start, end);
-                    return (
-                      <button
-                        className="tl-bar"
-                        key={`${e.title}-${i}`}
-                        style={{ left: `${left * 100}%`, width: `${Math.max(2, (right - left) * 100)}%` }}
-                        onClick={() => setOpen([e])}
-                        title={`${e.title} · ${dayRu(e.starts_at)} - ${dayRu(e.ends_at)}`}
-                      >
-                        {e.title}
-                      </button>
-                    );
-                  })
-                : groups.map((g, i) => {
-                    // Место до следующего кластера. Подпись шире этого места
-                    // наезжала на соседа: «Tết Dương lịch» упиралось в связку
-                    // «29 Tết», кружки ложились поверх букв.
-                    const room = (groups[i + 1]?.pos ?? 1) - g.pos;
-                    const roomPx = room * TRACK_MIN_PX;
-                    const many = g.items.length > 1;
-                    const first = g.items[0];
-                    const past = new Date(first.starts_at as string) < new Date();
-                    const isOpen = open === g.items;
-                    const titles = g.items.map((e) => `${e.title} · ${dayRu(e.starts_at)}`).join('\n');
-                    return (
-                      <span key={`${first.title}-${i}`}>
-                        {many ? (
-                          <button
-                            className={`tl-pill${past ? ' tl-pill--past' : ''}`}
-                            style={{ left: `${g.pos * 100}%` }}
-                            aria-pressed={isOpen}
-                            aria-label={`${g.items.length} события подряд: ${g.items.map((e) => e.title).join(', ')}`}
-                            onClick={() => setOpen(isOpen ? null : g.items)}
-                            title={titles}
-                          >
-                            ×{g.items.length}
-                          </button>
-                        ) : (
-                          <button
-                            className={`tl-dot${past ? ' tl-dot--past' : ''}`}
-                            style={{ left: `${g.pos * 100}%` }}
-                            aria-pressed={isOpen}
-                            aria-label={`${first.title}, ${dayRu(first.starts_at)}`}
-                            onClick={() => setOpen(isOpen ? null : g.items)}
-                            title={titles}
-                          />
-                        )}
-                        {roomPx >= MIN_LABEL_PX && (
-                          <span
-                            className={`tl-dot-label${many ? ' tl-dot-label--pill' : ''}`}
-                            style={{ left: `${g.pos * 100}%`, maxWidth: `calc(${room * 100}% - 20px)` }}
-                            aria-hidden
-                          >
-                            {first.title}
-                          </span>
-                        )}
-                      </span>
-                    );
-                  })}
-            </div>
-          </div>
-          );
-        })}
-
-        {/* Ряд данных на той же оси */}
-        {spark && (
-          <div className="tl-row">
-            <span className="tl-name">Поездки от 10 км</span>
-            <div className="tl-track" style={{ minHeight: 56 }}>
-              <div className="tl-grid">
-                {ticks.map((t, i) => (
-                  <span key={i} className="tl-tick" style={{ left: `${t.pos * 100}%` }} />
-                ))}
-                {today > 0 && today < 1 && <span className="tl-today" style={{ left: `${today * 100}%` }} />}
-              </div>
-              <div className="tl-spark">
-                <svg
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                  role="img"
-                  aria-label={`Доля поездок дальше 10 км, ${mobilityRegion}: ${spark.n} дат, от ${fullNum(spark.min)} до ${fullNum(spark.max)} процента`}
-                >
-                  <path d={spark.d} fill="none" stroke={CAT[0]} strokeWidth="1.6" vectorEffect="non-scaling-stroke" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-      </div>
-
-      <div className="tl-legend">
-        <span>
-          Красная черта - сегодня. Точка - день, полоса - период, пилюля «×N» -
-          несколько дат подряд, клик раскрывает их списком. Окно:{' '}
-          {start.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })} -{' '}
-          {end.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' })}.
-        </span>
-      </div>
-
-      {open && (
-        <div className="note">
-          <div className="kicker">
-            {open.length > 1
-              ? `Подряд идут ${open.length} события`
-              : open[0].event_class ?? open[0].kind ?? 'событие'}
-          </div>
-          <div className="list">
-            {open.map((e, i) => (
-              <div className="list-row" key={`${e.title}-${i}`}>
-                <span className="list-main">
-                  <span>{e.title}</span>
-                  <span className="tag">{e.event_class ?? e.kind ?? 'событие'}</span>
-                  <span className="stat-note">
-                    {e.source_url ? (
-                      <a href={e.source_url} target="_blank" rel="noreferrer">
-                        {e.source_name ?? 'источник'}
-                      </a>
-                    ) : (
-                      'источник у этой строки не указан'
-                    )}
-                    {e.evidence_kind ? ` · тип источника: ${e.evidence_kind}` : ''}
-                  </span>
-                </span>
-                <span className="list-side num">{rangeShort(e.starts_at, e.ends_at)}</span>
-              </div>
-            ))}
-          </div>
+        <div className="vt-nav" aria-label="Навигация по календарю">
+          <button type="button" onClick={() => changeWindow(-1)} aria-label="Предыдущее окно">Назад</button>
+          <button type="button" onClick={() => { setAnchor(currentVietnamDay()); setOpen(null); }}>Сегодня</button>
+          <button type="button" onClick={() => changeWindow(1)} aria-label="Следующее окно">Вперёд</button>
         </div>
-      )}
+      </div>
 
-      {spark ? (
-        <p className="section-lead">
-          Нижняя дорожка - доля людей, уехавших дальше 10 км от дома, по дням. Ряд снят по району{' '}
-          {mobilityRegion}: <span className="num">{spark.n}</span> дат, от{' '}
-          <span className="num">{fullNum(spark.min)}</span> до{' '}
-          <span className="num">{fullNum(spark.max)}</span> процента. Своей оси Y у ряда нет намеренно:
-          двух шкал в одном поле не бывает, здесь читается форма, а числа стоят рядом.
-        </p>
+      <div className="vt-controls" aria-label="Масштаб и фильтр">
+        <div className="vt-segmented" role="group" aria-label="Масштаб оси">
+          {(['month', 'quarter', 'year'] as TimelineScale[]).map((value) => (
+            <button key={value} type="button" className={scale === value ? 'is-active' : ''} aria-pressed={scale === value} onClick={() => { setScale(value); setOpen(null); }}>
+              {value === 'month' ? 'Месяц' : value === 'quarter' ? 'Квартал' : 'Год'}
+            </button>
+          ))}
+        </div>
+        <label className="vt-filter">
+          <span>Тип события</span>
+          <select value={filter} onChange={(event) => { setFilter(event.target.value as Filter); setOpen(null); }}>
+            {FILTERS.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}
+          </select>
+        </label>
+      </div>
+
+      {tracks.length === 0 ? (
+        <div className="vt-empty" role="status">
+          <strong>В этом окне событий нет</strong>
+          <span>Попробуйте другое окно или снимите фильтр типа. Навигация и масштаб остаются доступны.</span>
+        </div>
       ) : (
-        <p className="section-lead">
-          Ряда спроса по месяцам под осью нет: помесячного турпотока база региона не знает, годовые
-          числа на дневную ось не ложатся. Появится помесячный ряд - встанет сюда же.
-        </p>
+        <div className="vt-scroll" tabIndex={0} aria-label="Прокручиваемая шкала календаря">
+          <div className="vt-board">
+            <div className="vt-row vt-axis-row">
+              <span className="vt-label">Период</span>
+              <div className="vt-track vt-axis">
+                {ticks.map((tick) => <span className="vt-tick-label" style={{ left: `${tick.position * 100}%` }} key={isoDay(tick.day)}>{tick.label}</span>)}
+                {markerVisible && <span className="vt-today-marker" style={{ left: `${today * 100}%` }} aria-hidden="true" />}
+              </div>
+            </div>
+
+            {tracks.map((track) => {
+              const points = clusterPointEvents(track.items.filter((item) => item.endOrdinal === item.startOrdinal), clusterGapDays(window));
+              const bars = layoutBars(track.items.filter((item) => item.endOrdinal > item.startOrdinal));
+              const lanes = Math.max(1, ...bars.map((bar) => bar.lane + 1));
+              return (
+                <div className="vt-row" key={track.key}>
+                  <span className="vt-label">{track.label}</span>
+                  <div className="vt-track vt-event-track" style={{ minHeight: `${Math.max(64, lanes * 48 + 16)}px` }}>
+                    {bars.map((bar) => {
+                      const left = Math.max(0, positionInWindow(bar.start, window));
+                      const right = Math.min(1, positionInWindow(addDays(bar.end, 1), window));
+                      return <button type="button" className="vt-bar" style={{ left: `${left * 100}%`, width: `${Math.max(2, (right - left) * 100)}%`, top: `${bar.lane * 48 + 8}px` }} onClick={() => openEvent([bar])} key={`${bar.event.title}-${bar.startOrdinal}`} aria-label={`${bar.event.title}, ${eventDateRange(bar)}`} title={`${bar.event.title} · ${eventDateRange(bar)}`}><span>{bar.event.title}</span></button>;
+                    })}
+                    {points.map((group) => {
+                      const first = group[0];
+                      const position = positionInWindow(first.start, window, true);
+                      const isOpen = open?.[0] === first;
+                      const label = group.length > 1 ? `${group.length} события: ${group.map((item) => item.event.title).join(', ')}` : `${first.event.title}, ${eventDateRange(first)}`;
+                      return <button type="button" className={`vt-point${group.length > 1 ? ' vt-cluster' : ''}`} style={{ left: `${position * 100}%` }} onClick={() => setOpen(isOpen ? null : group)} aria-pressed={isOpen} aria-label={label} title={label} key={`${first.event.title}-${first.startOrdinal}`}>{group.length > 1 ? `×${group.length}` : ''}</button>;
+                    })}
+                    {markerVisible && <span className="vt-today-marker" style={{ left: `${today * 100}%` }} aria-hidden="true" />}
+                  </div>
+                </div>
+              );
+            })}
+
+            {mobilityRows.length > 0 && <div className="vt-row vt-mobility-row">
+              <span className="vt-label">Мобильность</span>
+              <div className="vt-track vt-mobility-track">
+                {mobilityRows.map((row) => <span className="vt-mobility-dot" style={{ left: `${positionInWindow(row.day, window, true) * 100}%`, bottom: `${Math.min(82, Math.max(10, row.value))}%` }} title={`${formatVietnamDate(isoDay(row.day), { day: 'numeric', month: 'long', year: 'numeric' })}: ${row.value.toFixed(1)}%`} key={`${row.ordinal}-${row.value}`} />)}
+                {markerVisible && <span className="vt-today-marker" style={{ left: `${today * 100}%` }} aria-hidden="true" />}
+              </div>
+            </div>}
+          </div>
+        </div>
       )}
-    </div>
+
+      <p className="vt-note">Точки показывают отдельные дни, полосы — периоды, «×N» объединяет близкие даты. Красная линия — сегодня. У событий пока не указан регион.</p>
+
+      {open && <aside className="vt-details" aria-live="polite">
+        <div className="vt-details-head"><strong>{open.length > 1 ? `События в группе: ${open.length}` : 'Детали события'}</strong><button type="button" onClick={() => setOpen(null)} aria-label="Закрыть детали">Закрыть</button></div>
+        {open.map((item, index) => <article className="vt-detail" key={`${item.event.title}-${item.startOrdinal}-${index}`}>
+          <h3>{item.event.title}</h3>
+          <p>{eventDateRange(item)} · {typeLabel(item.event)}</p>
+          <p>{sourceLine(item.event)}{evidenceLabel(item.event) ? ` · ${evidenceLabel(item.event)}` : ''}</p>
+          <p className="vt-muted">География: не указана в данных события.</p>
+        </article>)}
+      </aside>}
+
+      <p className="vt-footnote">{mobilityRows.length > 0
+        ? `На той же оси показана отдельная серия мобильности ${mobilityRegion || 'региона'}: ${mobilityRows.length} наблюдений. Совпадение дат само по себе не доказывает причинность или изменение спроса.`
+        : 'Ряд мобильности не показан: нет наблюдений за этот период. Локальный ряд нельзя переносить на национальный календарь.'}</p>
+    </section>
   );
 }
