@@ -11,12 +11,17 @@
 // RLS включён у всех таблиц базы, политик ноль: анонимный ключ не видит НИ ОДНОЙ
 // строки и вернёт пустые массивы. Читать надо сервисным ключом.
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'src/data/vietnam.generated.ts');
+// Граф едет отдельным файлом, а не массивом в модуле. Причина техническая:
+// 6 799 литералов рёбер в одном TS-массиве роняют tsc с TS2590 («слишком
+// сложное выражение»). Причина по делу: граф нужен одному блоку раздела, и
+// грузить его вместе со страницей незачем - созвездие тянет json при открытии.
+const OUT_GRAPH = resolve(ROOT, 'public/data/vietnam-graph.json');
 
 // ─── Ключи ────────────────────────────────────────────────────────────────────
 
@@ -154,21 +159,43 @@ async function pull() {
     }))
     .sort((a, b) => b.players.length - a.players.length);
 
-  // Календарь берём только экономический: государственные праздники и
-  // фестивали двигают спрос на рынках. Учебные периоды и расписание школ это
-  // личный контекст владельца, он живёт в консоли региона, а не в атласе.
+  // Календарь берём экономический: государственные праздники, фестивали и
+  // учебные периоды. Учебный год попал сюда не как личный контекст владельца, а
+  // как сезонность спроса: каникулы двигают поток в Đà Lạt сильнее праздников.
+  // Расписание уроков конкретной школы в базе региона не лежит вовсе.
+  //
+  // Окно таймлайна - полгода назад и полгода вперёд, поэтому прошлое тоже едет:
+  // праздник читается вместе с пиком туристов, а прошлого пика без прошлых дат
+  // на оси не видно.
+  const backHalfYear = new Date(now);
+  backHalfYear.setMonth(backHalfYear.getMonth() - 7);
   const events = await table<EventRow>(
     'events',
-    `select=title,kind,event_class,starts_at,ends_at,source_url,source_name,evidence_kind&kind=in.(holiday,conference)&or=(starts_at.gte.${iso(now)},ends_at.gte.${iso(now)})&order=starts_at&limit=12`
+    `select=title,kind,event_class,starts_at,ends_at,source_url,source_name,evidence_kind&kind=in.(holiday,conference,school_term)&or=(starts_at.gte.${iso(backHalfYear)},ends_at.gte.${iso(backHalfYear)})&order=starts_at`
   );
 
   // Слаг вместо uuid: генерированный файл читается человеком и джойнится в UI
   // по слагу, а uuid базы наружу не нужен.
   const slugById = new Map(regions.map((r) => [r.id, r.slug]));
-  const statRows = stats.map(({ region_id, ...rest }) => ({
-    region_slug: slugById.get(region_id) ?? region_id,
-    ...rest
-  }));
+  // Сколько периодов метрики едет в файл. Пять хватало списку, графику тенденции
+  // мало: у населения в базе 16 лет, у промышленного индекса 13, у подвижности
+  // 10 дат. Четырнадцать даёт линии форму и держит потолок: обход подвижности
+  // пишет ряд ежедневно, без потолка через год это восемнадцать тысяч строк.
+  const KEEP_PERIODS = 14;
+  const byMetric = new Map<string, (Stat & { region_slug: string })[]>();
+  for (const { region_id, ...rest } of stats) {
+    const region_slug = slugById.get(region_id) ?? region_id;
+    const key = `${region_slug}|${rest.metric}`;
+    const list = byMetric.get(key) ?? [];
+    list.push({ region_slug, region_id, ...rest });
+    byMetric.set(key, list);
+  }
+  const statRows = [...byMetric.values()].flatMap((list) =>
+    list
+      .sort((a, b) => (b.period ?? '').localeCompare(a.period ?? ''))
+      .slice(0, KEEP_PERIODS)
+      .map(({ region_id, ...row }) => row)
+  );
   const playersByMarket = new Map<string, Player[]>();
   for (const p of players) {
     const list = playersByMarket.get(p.market_id) ?? [];
@@ -224,6 +251,7 @@ function render(d: Awaited<ReturnType<typeof pull>>) {
   const counts = {
     regions: d.regions.length,
     region_stats: d.statRows.length,
+    region_stats_periods_kept: 5,
     markets: d.marketRows.length,
     market_players_shown: d.marketRows.reduce((s, m) => s + m.players.length, 0),
     market_players_counted: d.marketRows.reduce((s, m) => s + (m.players_count ?? 0), 0),
@@ -293,14 +321,56 @@ export const GEN_ENTITY_METRICS: GenEntityMetric[] = ${json(d.entityMetrics)};
 `;
 }
 
+/** Граф для созвездия: узлы со степенью и рёбра между ними.
+ *
+ *  Источники (kind='source') выброшены целиком: это 511 заголовков новостных
+ *  лент, они дают половину рёбер (mentioned_in) и на экране читаются шумом.
+ *  Ребро с выброшенным концом уходит вместе с ним - висячих ссылок в файле нет. */
+function renderGraph(d: Awaited<ReturnType<typeof pull>>) {
+  const NOISE = new Set(['source']);
+  const keep = new Map(d.entities.filter((e) => !NOISE.has(e.kind ?? '')).map((e) => [e.slug, e]));
+  const edges = d.edges.filter((e) => keep.has(e.src_slug) && keep.has(e.dst_slug));
+  const degree = new Map<string, number>();
+  for (const e of edges) {
+    degree.set(e.src_slug, (degree.get(e.src_slug) ?? 0) + 1);
+    degree.set(e.dst_slug, (degree.get(e.dst_slug) ?? 0) + 1);
+  }
+  return {
+    generated_at: d.now.toISOString(),
+    // Узлы без единой связи в созвездии не рисуются никогда: кольцо строится по
+    // степени. В файл они не едут - это 60 % веса ни за чем.
+    nodes: [...keep.values()]
+      .filter((e) => (degree.get(e.slug) ?? 0) > 0)
+      .map((e) => ({
+        slug: e.slug,
+        kind: e.kind,
+        name: e.name_ru || e.name || e.name_vi || e.slug,
+        region_slug: e.region_slug,
+        degree: degree.get(e.slug) ?? 0
+      }))
+      .sort((a, b) => b.degree - a.degree),
+    edges: edges.map((e) => ({
+      src: e.src_slug,
+      dst: e.dst_slug,
+      relation: e.relation,
+      weight: e.weight,
+      note: e.note
+    }))
+  };
+}
+
 if (!BASE || !KEY) {
-  console.log('pull-vietnam: ключей нет, беру закоммиченный src/data/vietnam.generated.ts');
+  console.log('pull-vietnam: ключей нет, беру закоммиченные выгрузки');
   process.exit(0);
 }
 
 pull()
   .then((d) => {
     writeFileSync(OUT, render(d));
+    const graph = renderGraph(d);
+    mkdirSync(dirname(OUT_GRAPH), { recursive: true });
+    writeFileSync(OUT_GRAPH, JSON.stringify(graph));
+    console.log(`pull-vietnam: граф ${graph.nodes.length} узлов · ${graph.edges.length} связей → public/data/vietnam-graph.json`);
     console.log(
       `pull-vietnam: регионов ${d.regions.length} · показателей ${d.statRows.length} · рынков ${d.marketRows.length} · событий ${d.events.length} · пульс ${d.heartbeats.length} · тем ${d.topics.length} · сущностей ${d.entities.length}`
     );
