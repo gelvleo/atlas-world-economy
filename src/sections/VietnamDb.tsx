@@ -11,6 +11,9 @@ import { EvidenceTag } from './Overview';
 import Val from '../ui/num';
 import { useHashRoute } from '../ui/hashRoute';
 import { VND_PER_USD } from '../data/vietnam';
+import { Bars, Shares, Sparkline, Trend, type Point } from '../ui/charts';
+import VietnamGraph from './VietnamGraph';
+import VietnamTimeline from './VietnamTimeline';
 import {
   GEN_ENTITIES,
   GEN_ENTITY_METRICS,
@@ -116,8 +119,83 @@ const METRIC_LABEL: Record<string, string> = {
   tourist_revenue_usd: 'Выручка туризма в долларах',
   tourists_growth_pct: 'Рост турпотока',
   tourists_intl_growth_pct: 'Рост потока иностранцев',
-  tourist_spend_per_visit_vnd: 'Средний чек визита'
+  tourist_spend_per_visit_vnd: 'Средний чек визита',
+  // Гео-слой: считается по снимкам и моделям расселения, не по переписи.
+  // Все эти строки приходят с типом «оценка», и метка в интерфейсе это покажет.
+  population_hrsl: 'Население по снимкам',
+  buildings_count: 'Строений на снимках',
+  persons_per_building: 'Человек на строение',
+  landcover_builtup_share: 'Доля застройки',
+  landcover_cropland_share: 'Доля пашни',
+  landcover_tree_share: 'Доля леса',
+  isochrone_15min_population: 'Людей в 15 минутах езды',
+  isochrone_30min_population: 'Людей в 30 минутах езды',
+  isochrone_60min_population: 'Людей в часе езды',
+  mobility_home_share: 'Доля остающихся дома',
+  mobility_0_10km_share: 'Поездки до 10 км',
+  mobility_10_100km_share: 'Поездки 10-100 км',
+  mobility_100plus_share: 'Поездки свыше 100 км',
+  // Госстатистика PxWeb: ряды по годам, ради которых в карточке региона
+  // появились графики. Слаг на экране читался как «businesses_active».
+  population_density: 'Плотность населения',
+  iip_index: 'Индекс промышленного производства',
+  iip_yoy_pct: 'Промышленность к прошлому году',
+  employed_enterprises: 'Занятых на предприятиях',
+  businesses_active: 'Действующих предприятий',
+  businesses_registered_year: 'Зарегистрировано предприятий за год',
+  businesses_registered_month: 'Зарегистрировано предприятий за месяц',
+  businesses_resumed_month: 'Возобновили работу за месяц',
+  businesses_suspended_month: 'Приостановили работу за месяц',
+  businesses_dissolved_month: 'Закрылись за месяц',
+  cpi_avg_ytd_yoy_pct: 'Инфляция с начала года',
+  retail_turnover_month: 'Розничный товарооборот за месяц',
+  tourism_revenue_month: 'Выручка туризма за месяц',
+  tourism_revenue_vnd: 'Выручка туризма',
+  budget_revenue_month: 'Доходы бюджета за месяц',
+  tourists_month: 'Турпоток за месяц',
+  tourists_intl_month: 'Иностранные туристы за месяц',
+  tourists: 'Туристы',
+  // Слой спроса: цены, зарплаты и вакансии, собранные обходом объявлений.
+  land_ask_median_vnd_m2: 'Земля, медианная цена запроса за м²',
+  land_listings_count: 'Объявлений о продаже земли',
+  rent_ask_median_vnd: 'Аренда, медиана запроса',
+  rent_ask_1br_expat_usd: 'Аренда однушки для экспата',
+  airbnb_median_usd: 'Медиана суток на Airbnb',
+  salary_median_vnd: 'Медианная зарплата',
+  income_per_capita_vnd: 'Доход на душу',
+  poverty_rate_pct: 'Доля бедности',
+  salary_hotel_staff_min_vnd: 'Зарплата в отеле, нижняя',
+  salary_hotel_staff_max_vnd: 'Зарплата в отеле, верхняя',
+  salary_waiter_vnd: 'Зарплата официанта',
+  salary_tour_driver_vnd: 'Зарплата водителя экскурсий',
+  salary_truck_driver_vnd: 'Зарплата водителя грузовика',
+  job_postings_count: 'Вакансий всего',
+  cost_of_living_nomad_usd: 'Стоимость жизни, удалёнщик',
+  cost_of_living_local_usd: 'Стоимость жизни, местный',
+  remote_workers_count: 'Удалённых работников',
+  internet_speed_mbps: 'Скорость интернета',
+  english_course_price_vnd_hour: 'Час английского',
+  fnb_revenue_vnd: 'Выручка еды и напитков',
+  accommodation_revenue_vnd: 'Выручка размещения',
+  food_delivery_gmv_usd: 'Доставка еды, GMV',
+  ecommerce_gmv_vnd: 'Электронная торговля, GMV',
+  visa_fine_min_vnd: 'Штраф за просроченную визу'
 };
+
+/** Семейства метрик, которые различаются только хвостом слага. Заводить на
+ *  каждую отдельную строку словаря незачем: их сорок, и все читаются шаблоном. */
+const METRIC_FAMILY: [RegExp, (tail: string) => string][] = [
+  [/^job_postings_(.+)$/, (t) => `Вакансии: ${{
+    teachers: 'учителя', retail_sales: 'продавцы', finance_sales: 'финансы и продажи',
+    horeca: 'кафе и отели', pharma_sales: 'аптеки', construction: 'стройка',
+    accounting: 'бухгалтерия'
+  }[t] ?? t}`],
+  [/^(.+)_points$/, (t) => `Точек на карте: ${{
+    coworking: 'коворкинги', language_school: 'языковые школы', spa: 'спа',
+    massage: 'массаж', clinic: 'клиники', pharmacy: 'аптеки', beauty: 'красота',
+    dental: 'стоматология', clinics: 'клиники', largest_chain: 'крупнейшая сеть'
+  }[t] ?? t}`]
+];
 
 // Отрасли занятости приходят семейством employed:<отрасль>_pct.
 const SECTOR: Record<string, string> = {
@@ -136,6 +214,10 @@ const CROP: Record<string, string> = {
 
 function metricLabel(m: string): string {
   if (METRIC_LABEL[m]) return METRIC_LABEL[m];
+  for (const [re, name] of METRIC_FAMILY) {
+    const hit = re.exec(m);
+    if (hit) return name(hit[1]);
+  }
   const sector = /^employed:([a-z]+)(_pct)?$/.exec(m);
   if (sector) return `Занятость: ${SECTOR[sector[1]] ?? sector[1]}`;
   if (m.startsWith('employed:')) return `Занятость: ${m.slice(9)}`;
@@ -158,6 +240,8 @@ const asKind = (s: string | null | undefined): EvidenceKind | null =>
 // ─── Разбор строк базы ────────────────────────────────────────────────────────
 
 const REGION_BY_SLUG = new Map(GEN_REGIONS.map((r) => [r.slug, r]));
+/** Имя рынка по слагу: один рынок живёт строкой в десятках зон, имя у всех одно. */
+const MARKET_NAME = new Map(GEN_MARKETS.map((m) => [m.slug, m.name_ru ?? m.slug]));
 // В базе зона владельца названа «Дом · Đông Thanh, Nam Ban»: в атласе она
 // показывается местом, а не домом. Экономику зоны (29 рынков) при этом не
 // выбрасываем: личное тут только имя.
@@ -243,8 +327,12 @@ function vndText(v: number | null | undefined): string | null {
   return scale ? `${fmt1(usd / scale[0])} ${scale[1]} $` : `${fmtInt(usd)} $`;
 }
 
-/** Дерево регионов сверху вниз: страна, её провинции, их районы и общины. */
-function regionTree(): { region: GenRegion; depth: number }[] {
+/** Дерево регионов сверху вниз: страна, её провинции, их районы и общины.
+ *
+ *  Скрытый узел не уносит с собой детей: они поднимаются на его место. Иначе
+ *  двенадцать районов Lâm Đồng исчезали бы вместе со строкой старой провинции,
+ *  под которой они в базе висят, - а это единственный слой с подвижностью. */
+function regionTree(keep: (r: GenRegion) => boolean): { region: GenRegion; depth: number }[] {
   const byParent = new Map<string | null, GenRegion[]>();
   for (const r of GEN_REGIONS) {
     const list = byParent.get(r.parent_id) ?? [];
@@ -260,16 +348,116 @@ function regionTree(): { region: GenRegion; depth: number }[] {
         a.slug.localeCompare(b.slug)
     );
     for (const region of kids) {
-      out.push({ region, depth });
-      walk(region.id, depth + 1);
+      const shown = keep(region);
+      if (shown) out.push({ region, depth });
+      walk(region.id, shown ? depth + 1 : depth);
     }
   };
   walk(null, 0);
   // Сирота (родитель есть, но его строки в выгрузке нет) иначе исчезает молча.
-  for (const r of GEN_REGIONS) if (r.parent_id && !ids.has(r.parent_id)) out.push({ region: r, depth: 0 });
+  for (const r of GEN_REGIONS) {
+    if (r.parent_id && !ids.has(r.parent_id) && keep(r)) out.push({ region: r, depth: 0 });
+  }
   return out;
 }
-const TREE = regionTree();
+
+/** Строка старого деления. Такие провинции лежат в базе ДЕТЬМИ своих
+ *  преемников после слияния 01.07.2025, и в дереве каждая провинция страны
+ *  читалась дважды. По умолчанию показывается только актуальное деление. */
+const isOldPerimeter = (r: GenRegion) => r.perimeter === 'pre-2025';
+
+/** Сколько у региона показателей в выгрузке. */
+const statCount = (slug: string) => (STATS_BY_REGION.get(slug) ?? []).length;
+
+/** Провинции старых границ, из которых собрана нынешняя.
+ *
+ *  Это не формальность: госстатистика PxWeb печатает ряды по годам ТОЛЬКО в
+ *  границах до 01.07.2025, а у новых провинций в базе лежат население и
+ *  площадь. Спрятать старое деление и на этом закончить значило бы убрать из
+ *  атласа всю историю. Поэтому карточка новой провинции показывает ряды её
+ *  предшественниц отдельными линиями - складывать их нельзя, границы разные. */
+const OLD_PARTS = new Map<string, GenRegion[]>();
+{
+  const byId = new Map(GEN_REGIONS.map((r) => [r.id, r]));
+  for (const r of GEN_REGIONS) {
+    if (!isOldPerimeter(r) || !r.parent_id) continue;
+    const parent = byId.get(r.parent_id);
+    if (!parent || isOldPerimeter(parent)) continue;
+    const list = OLD_PARTS.get(parent.slug) ?? [];
+    list.push(r);
+    OLD_PARTS.set(parent.slug, list);
+  }
+}
+
+const regionLevel = (slug: string) => REGION_BY_SLUG.get(slug)?.level ?? null;
+
+// ─── Ряды для графиков ────────────────────────────────────────────────────────
+
+/** Единица метрики словами. В подсказке графика код базы читать нечего. */
+const UNIT_RU: Record<string, string> = {
+  percent: '%',
+  person: 'чел.',
+  ton: 'т',
+  ha: 'га',
+  km2: 'км²',
+  unit: 'шт.',
+  USD: '$',
+  VND: '₫',
+  index: 'пунктов'
+};
+const unitRu = (u: string | null | undefined) => (u ? UNIT_RU[u] ?? u : undefined);
+
+/** Ряд метрики по возрастанию периода: график читает порядок, а не сортировку
+ *  списка. Точки без значения выброшены - дырка в линии честнее нуля. */
+function historyOf(slug: string, metric: string): GenStat[] {
+  return (STATS_BY_KEY.get(`${slug}|${metric}`) ?? [])
+    .filter((s) => s.value !== null && s.value !== undefined && s.period)
+    .slice()
+    .sort((a, b) => (a.period ?? '').localeCompare(b.period ?? ''));
+}
+
+/** Сколько точек нужно, чтобы линия что-то показывала. Две точки это стрелка,
+ *  а не тенденция, и рисовать её графиком - обман. */
+const MIN_POINTS = 3;
+
+/** Метрики, ради которых человек открывает карточку региона. Порядок тот же на
+ *  экране; всё, чего в списке нет, уходит в таблицу под графиками. */
+const KEY_TRENDS = [
+  'population',
+  'tourists_total',
+  'tourists_intl',
+  'tourist_revenue_vnd',
+  'grdp_usd',
+  'grdp_per_capita_usd',
+  'gdp_usd',
+  'gdp_per_capita_usd',
+  'businesses_active',
+  'businesses_registered_year',
+  'employed_enterprises',
+  'iip_index',
+  'population_density',
+  'retail_turnover_vnd',
+  'unemployment_rate',
+  'avg_income_vnd_month'
+];
+
+/** Ключевые числа в строке региона: первое попавшееся из каждой тройки.
+ *  Провинции по стране заполнены неровно, жёсткий список дал бы пустые слоты. */
+const KEY_NUMS: { label: string; metrics: string[] }[] = [
+  { label: 'население', metrics: ['population', 'population_hrsl'] },
+  { label: 'туристы', metrics: ['tourists_total', 'tourists_intl'] },
+  { label: 'экономика', metrics: ['grdp_usd', 'gdp_usd', 'grdp_per_capita_usd', 'iip_index'] },
+  { label: 'бизнес', metrics: ['businesses_active', 'businesses_registered_year'] }
+];
+
+/** Доли подвижности: четыре ряда, сумма которых равна ста процентам. Порядок
+ *  фиксирован - слот палитры привязан к ряду, а не к его месту в сортировке. */
+const MOBILITY_SERIES = [
+  { key: 'mobility_home_share', label: 'дома' },
+  { key: 'mobility_0_10km_share', label: 'до 10 км' },
+  { key: 'mobility_10_100km_share', label: '10-100 км' },
+  { key: 'mobility_100plus_share', label: 'свыше 100 км' }
+];
 
 // ─── Поиск по домену ──────────────────────────────────────────────────────────
 
@@ -376,11 +564,61 @@ const SCORED = GEN_MARKETS.filter(
   (m) => m.opportunity_score !== null && m.opportunity_score !== undefined
 ).length;
 
-/** Якоря блоков раздела. Тот же список назван агенту region-brief и в README. */
-const SECTION_IDS = [
-  'search', 'calendar', 'regions', 'employment', 'markets', 'national', 'opportunity',
-  'entities', 'sweeps'
+/** Якоря блоков раздела. Тот же список назван агенту region-brief и в README.
+ *  Он же строит оглавление: подпись живёт рядом с якорем, чтобы новый блок
+ *  нельзя было завести, забыв про навигацию. */
+const SECTIONS: { id: string; label: string }[] = [
+  { id: 'search', label: 'Поиск' },
+  { id: 'calendar', label: 'Календарь' },
+  { id: 'regions', label: 'Регионы' },
+  { id: 'employment', label: 'Занятость' },
+  { id: 'mobility', label: 'Движение людей' },
+  { id: 'markets', label: 'Рынки по зонам' },
+  { id: 'national', label: 'Игроки поимённо' },
+  { id: 'opportunity', label: 'Возможности' },
+  { id: 'entities', label: 'Созвездие графа' },
+  { id: 'sweeps', label: 'Обходы' }
 ];
+const SECTION_IDS = SECTIONS.map((s) => s.id);
+
+/** Оглавление раздела. Активный пункт считается наблюдателем пересечений:
+ *  слушать scroll на странице высотой в двадцать экранов дороже и дёргается. */
+function Toc() {
+  const [active, setActive] = useState<string>(SECTION_IDS[0]);
+  useEffect(() => {
+    const seen = new Map<string, number>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) seen.set(e.target.id, e.intersectionRatio);
+        // Активен самый верхний из видимых: так пункт не прыгает вниз, когда
+        // в кадр попадают сразу два коротких блока.
+        const visible = SECTION_IDS.map((id) => `vn-${id}`).filter((id) => (seen.get(id) ?? 0) > 0);
+        if (visible[0]) setActive(visible[0].slice(3));
+      },
+      { rootMargin: '-96px 0px -60% 0px', threshold: [0, 0.01] }
+    );
+    for (const s of SECTION_IDS) {
+      const el = document.getElementById(`vn-${s}`);
+      if (el) io.observe(el);
+    }
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <nav className="toc" aria-label="Блоки раздела">
+      {SECTIONS.map((s) => (
+        <button
+          key={s.id}
+          className="toc-link"
+          aria-current={active === s.id ? 'true' : undefined}
+          onClick={() => scrollToAnchor(`vn-${s.id}`)}
+        >
+          {s.label}
+        </button>
+      ))}
+    </nav>
+  );
+}
 
 const HIT_LABEL: Record<Hit['kind'], string> = {
   region: 'регион',
@@ -418,8 +656,186 @@ function Gap({ what, why }: { what: string; why: string }) {
   );
 }
 
+/** Прокрутка к блоку с учётом липкой шапки. Высоту считаем по элементу, а не
+ *  константой: на телефоне под шапкой стоит ещё и полоса оглавления, и
+ *  фиксированные 96 px уводили заголовок под неё. */
+function scrollToAnchor(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const header = document.querySelector('.header') as HTMLElement | null;
+  const toc = window.innerWidth < 1024 ? (document.querySelector('.toc') as HTMLElement | null) : null;
+  const offset = (header?.offsetHeight ?? 96) + (toc?.offsetHeight ?? 0) + 16;
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+  return true;
+}
+
 const dayRu = (iso: string | null) =>
   iso ? new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : '';
+
+/** Ключевые числа прямо в строке региона: населения, туристов и экономики
+ *  хватает, чтобы понять масштаб места, не раскрывая карточку. */
+function RegionKeyNums({ slug }: { slug: string }) {
+  const nums = KEY_NUMS.map((group) => {
+    const metric = group.metrics.find((m) => statOf(slug, m));
+    if (!metric) return null;
+    const stat = statOf(slug, metric)!;
+    const text = statText(stat);
+    return text ? { label: metricLabel(metric).toLowerCase(), text, stat } : null;
+  })
+    .filter((x): x is { label: string; text: string; stat: GenStat } => x !== null)
+    // Три числа - потолок строки. Четвёртое переносило строку и делало список
+    // регионов нечитаемым; остальное открывается карточкой.
+    .slice(0, 3);
+
+  if (nums.length === 0) {
+    return <span className="stat-note">{slug} · показателей нет</span>;
+  }
+  return (
+    <span className="keynums">
+      {nums.map((n) => (
+        <span className="keynum" key={n.label}>
+          <Val value={n.text} />
+          <span className="meta">{n.label}</span>
+          {/* Метка стоит только там, где число НЕ госстатистика: четыре «ФАКТ»
+              подряд ничего не сообщают, а «оценка» рядом с числом - сообщает. */}
+          {asKind(n.stat.source_type) !== 'official' && <EvidenceTag kind={asKind(n.stat.source_type)} />}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** Спарклайн населения в строке. Три точки и больше - иначе это стрелка. */
+function RegionSpark({ slug }: { slug: string }) {
+  const series = historyOf(slug, 'population');
+  if (series.length < MIN_POINTS) return <span className="meta">{statText(statOf(slug, 'population')) ?? ''}</span>;
+  return (
+    <span className="row">
+      <Sparkline values={series.map((s) => Number(s.value))} />
+      <Val value={statText(series[series.length - 1]) ?? ''} />
+    </span>
+  );
+}
+
+/** Занятость по годам: до четырёх отраслей линиями на одной шкале процентов.
+ *  Пятой отрасли в источниках нет, и если появится - уйдёт в «прочие»: рядов
+ *  больше четырёх глаз не различает. */
+function EmploymentTrend({ slug }: { slug: string }) {
+  const sectors = [...new Set(
+    (STATS_BY_REGION.get(slug) ?? []).filter((s) => s.metric.startsWith('employed:')).map((s) => s.metric)
+  )];
+  const series = sectors
+    .map((metric) => ({ metric, rows: historyOf(slug, metric) }))
+    .filter((x) => x.rows.length >= MIN_POINTS)
+    .slice(0, 4);
+  if (series.length === 0) {
+    const rate = historyOf(slug, 'unemployment_rate');
+    if (rate.length < MIN_POINTS) return null;
+    return (
+      <Trend
+        data={rate.map((r) => ({ period: r.period ?? '', value: Number(r.value) }))}
+        series={[{ key: 'value', label: 'Безработица' }]}
+        unit="%"
+        title="Безработица по годам"
+        note={<EvidenceTag kind={asKind(rate[rate.length - 1].source_type)} />}
+      />
+    );
+  }
+  const periods = [...new Set(series.flatMap((x) => x.rows.map((r) => r.period ?? '')))].sort();
+  const data = periods.map((period) => {
+    const point: Point = { period };
+    for (const x of series) {
+      const hit = x.rows.find((r) => r.period === period);
+      if (hit) point[x.metric] = Number(hit.value);
+    }
+    return point;
+  });
+  return (
+    <Trend
+      data={data}
+      series={series.map((x) => ({
+        key: x.metric,
+        label: metricLabel(x.metric).replace('Занятость: ', '')
+      }))}
+      unit="%"
+      title="Отрасли по годам"
+      note="Доля занятых, одна шкала процентов на все ряды"
+    />
+  );
+}
+
+/** Карточка региона: графики по метрикам, у которых в базе есть ряд.
+ *  Метрики без ряда остаются таблицей ниже - линия из одной точки врёт. */
+function RegionCharts({ slug }: { slug: string }) {
+  const parts = OLD_PARTS.get(slug) ?? [];
+
+  const trends = KEY_TRENDS.map((metric) => {
+    const own = historyOf(slug, metric);
+    if (own.length >= MIN_POINTS) {
+      return { metric, old: false, series: [{ label: metricLabel(metric), rows: own }] };
+    }
+    // Ряда в нынешних границах нет - берём ряды предшественниц. Больше четырёх
+    // линий глаз не различает, поэтому длинные ряды идут первыми, остальные не
+    // рисуются: врать «это весь регион» нельзя, а четыре линии уже читаются.
+    const fromParts = parts
+      .map((r) => ({ label: depersonalize(r.name_ru ?? r.name_vi ?? r.slug), rows: historyOf(r.slug, metric) }))
+      .filter((x) => x.rows.length >= MIN_POINTS)
+      .sort((a, b) => b.rows.length - a.rows.length)
+      .slice(0, 4);
+    return fromParts.length > 0 ? { metric, old: true, series: fromParts } : null;
+  })
+    .filter((t): t is { metric: string; old: boolean; series: { label: string; rows: GenStat[] }[] } => t !== null)
+    .slice(0, 6);
+
+  if (trends.length === 0) {
+    return (
+      <p className="section-lead">
+        Рядов по годам у этого региона нет: каждая метрика снята один раз. График из одной точки
+        ничего не показывает, поэтому числа стоят таблицей ниже.
+      </p>
+    );
+  }
+
+  return (
+    <div className="grid grid--2">
+      {trends.map(({ metric, old, series }) => {
+        const periods = [...new Set(series.flatMap((x) => x.rows.map((r) => r.period ?? '')))].sort();
+        const data: Point[] = periods.map((period) => {
+          const point: Point = { period };
+          for (const x of series) {
+            const hit = x.rows.find((r) => r.period === period);
+            if (hit) point[x.label] = Number(hit.value);
+          }
+          return point;
+        });
+        const sample = series[0].rows[series[0].rows.length - 1];
+        const first = series[0].rows[0];
+        const delta =
+          !old && Number(first.value) ? (Number(sample.value) / Number(first.value) - 1) * 100 : null;
+        return (
+          <Trend
+            key={metric}
+            data={data}
+            series={series.map((x) => ({ key: x.label, label: x.label }))}
+            unit={unitRu(sample.unit)}
+            height={210}
+            title={metricLabel(metric)}
+            note={
+              <>
+                <EvidenceTag kind={asKind(sample.source_type)} />{' '}
+                {periods[0]} - {periods[periods.length - 1]}
+                {old ? ' · ряды в границах до 01.07.2025, складывать их нельзя' : ''}
+                {delta !== null && Number.isFinite(delta)
+                  ? ` · ${delta >= 0 ? '+' : '-'}${Math.abs(delta).toFixed(1).replace('.', ',')} % за период`
+                  : ''}
+              </>
+            }
+          />
+        );
+      })}
+    </div>
+  );
+}
 
 // ─── Раздел ───────────────────────────────────────────────────────────────────
 
@@ -429,7 +845,14 @@ export default function VietnamDb() {
   const [level, setLevel] = useState<string>('all');
   const [openRegion, setOpenRegion] = useState<string | null>(null);
   const [openMarket, setOpenMarket] = useState<string | null>(null);
-  const [allRegions, setAllRegions] = useState(false);
+  // Охват дерева регионов и два переключателя шума.
+  const [scope, setScope] = useState<'lamdong' | 'country'>('lamdong');
+  const [oldPerimeter, setOldPerimeter] = useState(false);
+  const [showEmpty, setShowEmpty] = useState(false);
+  // Район, чей ряд подвижности развёрнут по датам.
+  const [mobilityPick, setMobilityPick] = useState<string | null>(null);
+  // Рынок, по которому сравниваются зоны столбиками.
+  const [marketPick, setMarketPick] = useState<string | null>(null);
 
   // Маршрут раскрывает нужную строку и прокручивает к её блоку.
   useEffect(() => {
@@ -455,14 +878,9 @@ export default function VietnamDb() {
     // внутри .table-wrap с overflow-x, и scrollIntoView крутит ещё и этот
     // горизонтальный контейнер: Chromium из-за этого оставлял цель за четыре
     // экрана, WebKit доезжал. Ручной scrollTo ведёт себя одинаково в обоих.
-    const HEADER = 96;
-    const scroll = (behavior: ScrollBehavior) => {
-      const el = document.getElementById(anchor) ?? document.getElementById(fallback);
-      if (!el) return;
-      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - HEADER, behavior });
-    };
-    requestAnimationFrame(() => scroll('smooth'));
-    const fix = setTimeout(() => scroll('auto'), 700);
+    const scroll = () => scrollToAnchor(anchor) || scrollToAnchor(fallback);
+    requestAnimationFrame(scroll);
+    const fix = setTimeout(scroll, 700);
     return () => clearTimeout(fix);
   }, [route]);
 
@@ -508,27 +926,116 @@ export default function VietnamDb() {
           .sort((a, b) => Number(b.last.value ?? 0) - Number(a.last.value ?? 0))
           .map(({ last, history }) => ({ stat: last, history, share: Number(last.value ?? 0) / max }))
       };
-    });
+    })
+    // У шестидесяти провинций из PxWeb есть только «занятых на предприятиях»:
+    // ни отраслей, ни безработицы, ни дохода. Такая строка рисовала заголовок
+    // региона и под ним пустоту - это и есть строка-заглушка, которых быть не
+    // должно. Показываем регион, только если есть что показать.
+    .filter((r) => r.sectors.length > 0 || r.unemployment || r.income)
+    .sort((a, b) => b.sectors.length - a.sectors.length);
   }, []);
 
-  // В базе 238 регионов: 97 провинций страны и 125 общин объединённой Lâm Đồng.
-  // Вывалить всё значит утопить то, ради чего раздел и сделан. По умолчанию
-  // показываем страну, обе Lâm Đồng, её районы, зоны владельца, всё, где есть
-  // рынки, и регион, на который ведёт ссылка. Полный список за переключателем.
+  // Сравнение зон по одному рынку: столбики читаются за секунду, таблица из
+  // 641 строки - нет. Переключатель показывает рынки, размеченные шире прочих.
+  const topMarketSlugs = useMemo(() => {
+    const bySlug = new Map<string, number>();
+    for (const m of GEN_MARKETS) {
+      if (!m.players_count) continue;
+      bySlug.set(m.slug, (bySlug.get(m.slug) ?? 0) + 1);
+    }
+    return [...bySlug.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map(([slug]) => slug);
+  }, []);
+
+  const compareRows = useMemo(() => {
+    const slug = marketPick ?? topMarketSlugs[0];
+    if (!slug) return [];
+    return GEN_MARKETS.filter((m) => m.slug === slug && m.players_count !== null)
+      .map((m) => ({
+        label: regionName(m.region_slug),
+        value: Number(m.players_count),
+        // Зона владельца подсвечена вторым слотом палитры: она и есть причина,
+        // ради которой раздел читают.
+        active: m.region_slug.startsWith('zone:')
+      }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 14);
+  }, [marketPick, topMarketSlugs]);
+
+  // Движение людей: обход подвижности пишет четыре доли по каждому району
+  // ежедневно. Сумма четырёх равна ста процентам, поэтому стек тут честен.
+  const mobility = useMemo(() => {
+    const rows = GEN_STATS.filter((s) => s.metric.startsWith('mobility_') && s.value !== null);
+    const slugs = [...new Set(rows.map((s) => s.region_slug))];
+    const periods = [...new Set(rows.map((s) => s.period ?? ''))].sort();
+    const last = periods[periods.length - 1] ?? '';
+    const latest = slugs
+      .map((slug) => {
+        const point: Point = { period: regionName(slug), slug };
+        for (const m of MOBILITY_SERIES) {
+          const hit = rows.find((s) => s.region_slug === slug && s.metric === m.key && s.period === last);
+          if (hit) point[m.key] = Number(hit.value);
+        }
+        return point;
+      })
+      // Район без полного набора долей стек бы перекосил: показываем только те,
+      // где обход отдал все четыре.
+      .filter((p) => MOBILITY_SERIES.every((m) => typeof p[m.key] === 'number'))
+      .sort((a, b) => Number(b['mobility_100plus_share']) - Number(a['mobility_100plus_share']));
+    return { slugs, periods, last, latest };
+  }, []);
+
+  /** Ряд одного района по датам: четыре доли, четыре линии. */
+  const mobilitySeries = useMemo(() => {
+    const slug = mobilityPick ?? mobility.slugs[0];
+    if (!slug) return [];
+    return mobility.periods.map((period) => {
+      const point: Point = { period };
+      for (const m of MOBILITY_SERIES) {
+        const hit = GEN_STATS.find((s) => s.region_slug === slug && s.metric === m.key && s.period === period);
+        if (hit && hit.value !== null) point[m.key] = Number(hit.value);
+      }
+      return point;
+    });
+  }, [mobilityPick, mobility]);
+
+  /** Ряд «поездки дальше 10 км» под осью таймлайна. Берём район с самой
+   *  крупной зоной - Đà Lạt, там же живут рынки. */
+  const mobilityRow = useMemo(() => {
+    const slug = mobility.slugs.find((x) => x.endsWith('dalat')) ?? mobility.slugs[0];
+    if (!slug) return [];
+    return historyOf(slug, 'mobility_10_100km_share');
+  }, [mobility]);
+  const mobilityRegionName = regionName(
+    mobility.slugs.find((x) => x.endsWith('dalat')) ?? mobility.slugs[0] ?? ''
+  );
+
+  // В базе 244 региона, и каждая провинция страны лежит в ней дважды: строка
+  // актуального деления и строка деления до 01.07.2025, которая после слияния
+  // висит ребёнком своего преемника. В дереве это читалось дублями, а часть
+  // строк не несла ни одного показателя. Поэтому три переключателя вместо
+  // одного: охват, старое деление и пустые строки. Регион из ссылки виден
+  // всегда - иначе адрес ведёт в никуда.
   const visibleTree = useMemo(() => {
-    if (allRegions) return TREE;
     const withMarkets = new Set(GEN_MARKETS.map((m) => m.region_slug));
-    return TREE.filter(
-      ({ region }) =>
-        region.level === 'country' ||
-        region.level === 'zone' ||
-        region.slug === 'vn-lamdong' ||
-        region.slug === 'vn-lamdong-pre2025' ||
-        (region.level === 'district' && region.slug.startsWith('vn-lamdong')) ||
-        withMarkets.has(region.slug) ||
-        region.slug === openRegion
-    );
-  }, [allRegions, openRegion]);
+    const lamdongTree = (r: GenRegion) =>
+      r.slug.startsWith('vn-lamdong') || r.level === 'zone' || withMarkets.has(r.slug);
+    return regionTree((r) => {
+      if (r.slug === openRegion) return true;
+      if (isOldPerimeter(r) && r.level === 'province' && !oldPerimeter) return false;
+      if (!showEmpty && statCount(r.slug) === 0) return false;
+      if (scope === 'lamdong' && r.level !== 'country' && !lamdongTree(r)) return false;
+      return true;
+    });
+  }, [scope, oldPerimeter, showEmpty, openRegion]);
+
+  /** Сколько строк прячут переключатели - число, а не слово «часть». */
+  const hiddenCounts = useMemo(() => {
+    const shown = new Set(visibleTree.map((v) => v.region.slug));
+    return {
+      old: GEN_REGIONS.filter((r) => isOldPerimeter(r) && r.level === 'province' && !shown.has(r.slug)).length,
+      empty: GEN_REGIONS.filter((r) => statCount(r.slug) === 0 && !shown.has(r.slug)).length
+    };
+  }, [visibleTree]);
 
   const marketsByRegion = useMemo(() => {
     const byRegion = new Map<string, GenMarket[]>();
@@ -577,6 +1084,9 @@ export default function VietnamDb() {
           <p className="section-lead">{lostRoute}. Раздел открыт целиком.</p>
         </div>
       )}
+
+      <div className="with-toc">
+      <div className="vn-body">
 
       {/* ── Поиск ─────────────────────────────────────────────────────────── */}
       <div id="vn-search" className="section-head">
@@ -637,21 +1147,16 @@ export default function VietnamDb() {
           <div id="vn-calendar" className="section-head">
             <h2 className="section-title">Календарь: что двигает спрос</h2>
             <p className="section-lead">
-              Государственные праздники и фестивали из календаря региона. Это сезонность рынков:
-              в эти дни спрос на размещение, еду и услуги идёт не как в будни.
+              Государственные праздники, фестивали и учебный год на одной оси: полгода назад и
+              полгода вперёд. Это сезонность рынков - в эти дни спрос на размещение, еду и услуги
+              идёт не как в будни. Клик по точке открывает источник строки.
             </p>
           </div>
-          <div className="list">
-            {GEN_EVENTS.map((e) => (
-              <div className="list-row" key={e.title + (e.starts_at ?? '')}>
-                <span className="list-main">
-                  <span>{e.title}</span>
-                  <span className="tag">{e.event_class ?? e.kind ?? 'событие'}</span>
-                </span>
-                <span className="list-side num">{dayRu(e.starts_at)}</span>
-              </div>
-            ))}
-          </div>
+          <VietnamTimeline
+            events={GEN_EVENTS}
+            mobility={mobilityRow}
+            mobilityRegion={mobilityRegionName}
+          />
 
           <div className="hair" />
         </>
@@ -668,15 +1173,23 @@ export default function VietnamDb() {
       </div>
       <div className="toolbar">
         <div className="seg" role="group" aria-label="Охват списка регионов">
-          <button className="seg-btn" aria-pressed={!allRegions} onClick={() => setAllRegions(false)}>
+          <button className="seg-btn" aria-pressed={scope === 'lamdong'} onClick={() => setScope('lamdong')}>
             Lâm Đồng, районы и зоны
           </button>
-          <button className="seg-btn" aria-pressed={allRegions} onClick={() => setAllRegions(true)}>
-            Все регионы · {TREE.length}
+          <button className="seg-btn" aria-pressed={scope === 'country'} onClick={() => setScope('country')}>
+            Вся страна
+          </button>
+        </div>
+        <div className="seg" role="group" aria-label="Что показывать дополнительно">
+          <button className="seg-btn" aria-pressed={oldPerimeter} onClick={() => setOldPerimeter(!oldPerimeter)}>
+            Старое деление до 01.07.2025{hiddenCounts.old ? ` · ${hiddenCounts.old}` : ''}
+          </button>
+          <button className="seg-btn" aria-pressed={showEmpty} onClick={() => setShowEmpty(!showEmpty)}>
+            Показать пустые{hiddenCounts.empty ? ` · ${hiddenCounts.empty}` : ''}
           </button>
         </div>
       </div>
-      {TREE.length === 0 ? (
+      {GEN_REGIONS.length === 0 ? (
         <Gap
           what="Регионов в выгрузке нет"
           why="Таблица regions базы региона пуста или не выгружена. Запусти npm run pull с ключами в .env."
@@ -700,59 +1213,71 @@ export default function VietnamDb() {
                   <span className="list-main" style={{ paddingLeft: depth * 16 }}>
                     <span>{depersonalize(region.name_ru ?? region.name_vi ?? region.slug)}</span>
                     <span className="tag">{LEVEL_LABEL[region.level] ?? region.level}</span>
-                    {region.perimeter && <span className="tag tag--muted">{region.perimeter}</span>}
-                    <span className="stat-note">
-                      {region.slug}
-                      {stats.length ? ` · показателей ${stats.length}` : ' · показателей нет'}
-                    </span>
+                    {isOldPerimeter(region) && <span className="tag tag--muted">деление до 01.07.2025</span>}
+                    <RegionKeyNums slug={region.slug} />
                   </span>
                   <span className="list-side">
-                    {statText(statOf(region.slug, 'population')) ?? ''}
+                    <RegionSpark slug={region.slug} />
                   </span>
                 </button>
                 {open && (
-                  <div className="list">
-                    {stats.length === 0 && (
-                      <div className="list-row">
-                        <span className="list-main">
-                          У этого региона в базе нет ни одного показателя.
+                  <div className="stack stack--loose" style={{ padding: `var(--s4) 0 var(--s5) ${depth * 16}px` }}>
+                    {stats.length === 0 ? (
+                      <div className="empty">
+                        <span className="empty-title">Показателей у региона нет</span>
+                        <span>
+                          Строка есть в реестре мест, чисел по ней обход ещё не собрал. Такие строки
+                          по умолчанию скрыты переключателем «показать пустые».
                         </span>
                       </div>
+                    ) : (
+                      <RegionCharts slug={region.slug} />
                     )}
                     {(ENTITIES_BY_REGION.get(region.slug) ?? []).length > 0 && (
-                      <div className="list-row">
-                        <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
-                          <span>Сущности графа</span>
-                          <span className="stat-note">
-                            {entityKindSummary(ENTITIES_BY_REGION.get(region.slug) ?? [])}
+                      <div className="list">
+                        <a className="list-row" href="#/vietnam/section/entities">
+                          <span className="list-main">
+                            <span>Сущности графа</span>
+                            <span className="stat-note">
+                              {entityKindSummary(ENTITIES_BY_REGION.get(region.slug) ?? [])}
+                            </span>
                           </span>
-                        </span>
-                        <Val
-                          className="list-side"
-                          value={String((ENTITIES_BY_REGION.get(region.slug) ?? []).length)}
-                          unit="шт."
-                        />
+                          <Val
+                            className="list-side"
+                            value={String((ENTITIES_BY_REGION.get(region.slug) ?? []).length)}
+                            unit="шт."
+                          />
+                        </a>
                       </div>
                     )}
-                    {latestPerMetric(stats).map(({ last, history }) => (
-                      <div className="list-row" key={last.metric}>
-                        <span className="list-main" style={{ paddingLeft: (depth + 1) * 16 }}>
-                          <span>{metricLabel(last.metric)}</span>
-                          <StatSource s={last} />
-                          {history.length > 0 && (
-                            <span className="stat-note">
-                              раньше: {history.map((h) => `${h.period} ${statText(h)}`).join(' · ')}
-                            </span>
-                          )}
-                        </span>
-                        <span className="list-side">
-                          <Val value={statText(last) ?? '—'} />
-                          {last.unit === 'VND' && last.value ? (
-                            <span className="stat-note">{vndText(Number(last.value))}</span>
-                          ) : null}
-                        </span>
-                      </div>
-                    ))}
+                    {stats.length > 0 && (
+                      <details className="note">
+                        <summary className="kicker">
+                          Все показатели региона · <span className="num">{latestPerMetric(stats).length}</span>
+                        </summary>
+                        <div className="list">
+                          {latestPerMetric(stats).map(({ last, history }) => (
+                            <div className="list-row" key={last.metric}>
+                              <span className="list-main">
+                                <span>{metricLabel(last.metric)}</span>
+                                <StatSource s={last} />
+                                {history.length > 0 && (
+                                  <span className="stat-note">
+                                    раньше: {history.slice(0, 4).map((h) => `${h.period} ${statText(h)}`).join(' · ')}
+                                  </span>
+                                )}
+                              </span>
+                              <span className="list-side">
+                                <Val value={statText(last) ?? '—'} />
+                                {last.unit === 'VND' && last.value ? (
+                                  <span className="stat-note">{vndText(Number(last.value))}</span>
+                                ) : null}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    )}
                   </div>
                 )}
               </div>
@@ -767,8 +1292,10 @@ export default function VietnamDb() {
       <div id="vn-employment" className="section-head">
         <h2 className="section-title">Занятость по отраслям и безработица</h2>
         <p className="section-lead">
-          Столбик показывает долю отрасли от самой крупной в регионе, а не от всех занятых:
-          отраслевые ряды в источниках неполные и до целого не дополняются.
+          Столбики показывают долю отрасли в занятости за последний год ряда. Стеком они не
+          складываются намеренно: отраслевые ряды в источниках неполные и до целого не доходят,
+          а стек из неполных долей врёт. График тенденции идёт рядом там, где у ряда три точки
+          и больше.
         </p>
       </div>
       {employmentRows.length === 0 ? (
@@ -778,8 +1305,8 @@ export default function VietnamDb() {
         />
       ) : (
         employmentRows.map((r) => (
-          <div key={r.slug} className="stack">
-            <div className="row row--between">
+          <div key={r.slug} className="stack stack--loose">
+            <div className="row row--between row--wrap">
               <span className="h2">{regionName(r.slug)}</span>
               <span className="row row--wrap">
                 {r.total && <Val className="stat-num--s" value={statText(r.total) ?? ''} />}
@@ -791,30 +1318,76 @@ export default function VietnamDb() {
                 {r.income && <span className="tag">доход {statText(r.income)}</span>}
               </span>
             </div>
-            <div className="list">
-              {r.sectors.map(({ stat, history, share }) => (
-                <div className="list-row" key={stat.metric}>
-                  <span className="list-main">
-                    <span>{metricLabel(stat.metric)}</span>
-                    <span className="bar">
-                      <span className="bar-fill" style={{ width: `${Math.round(share * 100)}%` }} />
-                    </span>
-                    <StatSource s={stat} />
-                    {history.length > 0 && (
-                      <span className="stat-note">
-                        раньше: {history.map((h) => `${h.period} ${statText(h)}`).join(' · ')}
-                      </span>
-                    )}
-                  </span>
-                  <Val className="list-side" value={statText(stat) ?? '—'} />
-                </div>
-              ))}
+            <div className="grid grid--2">
+              {r.sectors.length > 0 && (
+                <Bars
+                  rows={r.sectors.map(({ stat }) => ({
+                    label: metricLabel(stat.metric).replace('Занятость: ', ''),
+                    value: Number(stat.value ?? 0)
+                  }))}
+                  unit="%"
+                  title={`Отрасли, ${r.sectors[0].stat.period ?? 'последний год'}`}
+                  note={
+                    <>
+                      <EvidenceTag kind={asKind(r.sectors[0].stat.source_type)} /> доля занятых по отрасли
+                    </>
+                  }
+                />
+              )}
+              <EmploymentTrend slug={r.slug} />
             </div>
           </div>
         ))
       )}
 
       <div className="hair" />
+
+      {/* ── Движение людей ────────────────────────────────────────────────── */}
+      {mobility.latest.length > 0 && (
+        <>
+          <div id="vn-mobility" className="section-head">
+            <h2 className="section-title">Движение людей по районам</h2>
+            <p className="section-lead">
+              Куда люди уезжают от дома за день. Четыре доли складываются в сто процентов, поэтому
+              стек тут честен и показывает состав, а не сумму разных вещей. Ряд снят моделью
+              расселения по снимкам, а не переписью: это оценка, и метка источника это говорит.
+              Последняя дата обхода - <span className="num">{mobility.last}</span>.
+            </p>
+          </div>
+          <Shares
+            data={mobility.latest}
+            series={MOBILITY_SERIES}
+            title="Состав поездок по районам"
+            note="Районы отсортированы по доле дальних поездок: сверху те, откуда уезжают дальше всего."
+          />
+
+          <div className="toolbar">
+            <div className="seg" role="group" aria-label="Район для ряда по датам">
+              {mobility.slugs.map((slug) => (
+                <button
+                  key={slug}
+                  className="seg-btn"
+                  aria-pressed={(mobilityPick ?? mobility.slugs[0]) === slug}
+                  onClick={() => setMobilityPick(slug)}
+                >
+                  {regionName(slug)}
+                </button>
+              ))}
+            </div>
+          </div>
+          {/* Тот же стек, что и выше, только категория - дата. Четырьмя линиями
+              это не читается: доли 58 и 0,3 процента на одной шкале дают две
+              линии и два прижатых к нулю следа, а двух шкал не бывает. */}
+          <Shares
+            data={mobilitySeries}
+            series={MOBILITY_SERIES}
+            title={`Ряд по датам · ${regionName(mobilityPick ?? mobility.slugs[0])}`}
+            note={`Состав поездок по дням, ${mobility.periods.length} дат обхода.`}
+          />
+
+          <div className="hair" />
+        </>
+      )}
 
       {/* ── Рынки ─────────────────────────────────────────────────────────── */}
       <div id="vn-markets" className="section-head">
@@ -823,8 +1396,11 @@ export default function VietnamDb() {
           Массаж, спа, отели, кофейни и прочее, что считается поимённо. Считаются точки на карте
           OpenStreetMap, а не реестр юрлиц.
         </p>
-        <div className="note note--warn">
-          <div className="kicker">Как читать эти числа</div>
+        {/* Четыре абзаца оговорок стояли стеной перед первым числом и занимали
+            весь первый экран. Прочитать их надо один раз за жизнь раздела,
+            поэтому они свёрнуты, а не выкинуты. */}
+        <details className="note note--warn">
+          <summary className="kicker">Как читать эти числа · четыре оговорки</summary>
           <div className="list">
             <div className="list-row">
               <span className="list-main">
@@ -870,8 +1446,34 @@ export default function VietnamDb() {
               </span>
             </div>
           </div>
-        </div>
+        </details>
       </div>
+      {compareRows.length > 0 && (
+        <>
+          <div className="toolbar">
+            <div className="seg" role="group" aria-label="Рынок для сравнения зон">
+              {topMarketSlugs.map((slug) => (
+                <button
+                  key={slug}
+                  className="seg-btn"
+                  aria-pressed={(marketPick ?? topMarketSlugs[0]) === slug}
+                  onClick={() => setMarketPick(slug)}
+                >
+                  {MARKET_NAME.get(slug) ?? slug}
+                </button>
+              ))}
+            </div>
+          </div>
+          <Bars
+            rows={compareRows}
+            unit="точек"
+            title={`${MARKET_NAME.get(marketPick ?? topMarketSlugs[0]) ?? ''} по зонам`}
+            note="Точки на карте OpenStreetMap в круге вокруг центра зоны. Круги соседних зон пересекаются, складывать столбики нельзя: это сравнение зон между собой, а не сумма рынка."
+          />
+
+          <div className="hair" />
+        </>
+      )}
       {marketsByRegion.length === 0 ? (
         <Gap
           what="Рынков в базе пока нет"
@@ -1030,8 +1632,8 @@ export default function VietnamDb() {
           населения их зоны база не знает. Пояснение под каждой строкой - это числа, из которых
           оценка собрана, вместе с поправкой на редко размеченную карту.
         </p>
-        <div className="note note--warn">
-          <div className="kicker">Чего в этом списке нет</div>
+        <details className="note note--warn">
+          <summary className="kicker">Чего в этом списке нет</summary>
           <p className="section-lead">
             {BLIND_SPOTS} строк сюда не попали, хотя оценка у них около пяти: граф пометил их как{' '}
             <span className="code">no_data:osm_sparse</span>. Ноль заведений при плотности разметки
@@ -1039,7 +1641,7 @@ export default function VietnamDb() {
             дыра на рынке, а неразмеченный кусок карты. В таблице выше такие строки помечены
             «карта редкая».
           </p>
-        </div>
+        </details>
       </div>
       {opportunities.length === 0 ? (
         <Gap
@@ -1071,10 +1673,12 @@ export default function VietnamDb() {
 
       {/* ── Граф сущностей ────────────────────────────────────────────────── */}
       <div id="vn-entities" className="section-head">
-        <h2 className="section-title">Сущности региона</h2>
+        <h2 className="section-title">Созвездие: кто с кем связан</h2>
         <p className="section-lead">
-          Граф из таблиц entities, edges и entity_metrics. Зеркала регионов и рынков здесь не
-          показываются: они уже есть блоками выше. Связей в графе {generatedCounts.edges}.
+          Граф из таблиц entities, edges и entity_metrics. В центре счёт узлов, кольцом - группы по
+          видам, лента между группами толщиной в число связей. Клик по группе раскрывает её состав,
+          клик по узлу показывает его связи и показатели. Связей в графе {generatedCounts.edges},
+          на экран из них едут только те, где оба конца не заголовок новостной ленты.
         </p>
       </div>
       {GEN_ENTITIES.length === 0 ? (
@@ -1083,23 +1687,11 @@ export default function VietnamDb() {
           why={`Таблиц ${['entities', 'edges', 'entity_metrics'].filter((t) => missingTables.includes(t)).join(', ') || 'entities, edges, entity_metrics'} в базе ещё нет: их заводит миграция 0004. Маршрут #/vietnam/entity/<slug> уже работает и честно говорит, что сущности нет.`}
         />
       ) : (
-        <div className="list">
-          {GEN_ENTITIES.filter((e) => e.kind !== 'market' && e.kind !== 'region')
-            .slice(0, 40)
-            .map((e) => (
-            <div className="list-row" key={e.slug}>
-              <span className="list-main">
-                <span>{entityName(e)}</span>
-                {e.kind && <span className="tag">{e.kind}</span>}
-                {e.region_slug && <span className="meta"> · {regionName(e.region_slug)}</span>}
-                {entitySummary(e) && <span className="stat-note">{entitySummary(e)}</span>}
-              </span>
-              <span className="list-side num">
-                {GEN_ENTITY_METRICS.filter((m) => m.entity_slug === e.slug).length}
-              </span>
-            </div>
-          ))}
-        </div>
+        <VietnamGraph
+          routeSlug={route?.domain === 'vietnam' && route.kind === 'entity' ? route.a : null}
+          regionName={regionName}
+          regionLevel={regionLevel}
+        />
       )}
 
       <div className="hair" />
@@ -1197,6 +1789,10 @@ export default function VietnamDb() {
             <Val className="list-side" value={String(generatedCounts.edges)} unit="строк" />
           </div>
         </div>
+      </div>
+
+      </div>
+      <Toc />
       </div>
     </>
   );

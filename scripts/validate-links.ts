@@ -66,19 +66,25 @@ const dbSource = readFileSync(
 // сличаются множества.
 const countAll = (re: RegExp) => (dbSource.match(re) ?? []).length;
 
-const sectionBody = /const SECTION_IDS = \[([\s\S]*?)\]/.exec(dbSource)?.[1] ?? '';
-const declaredAll = (sectionBody.match(/'[^']*'/g) ?? []).length;
-const declared = (sectionBody.match(/'([a-z]+)'/g) ?? []).map((q) => q.replace(/'/g, ''));
+// Список блоков объявлен парами «якорь - подпись»: он же строит оглавление
+// раздела, поэтому новый блок нельзя завести, не дав ему имени в навигации.
+// SECTION_IDS считается из него же, и сверять здесь надо именно первоисточник.
+const sectionBody = /const SECTIONS: \{ id: string; label: string \}\[\] = \[([\s\S]*?)\n\];/.exec(dbSource)?.[1] ?? '';
+const declaredAll = (sectionBody.match(/id: '[^']*'/g) ?? []).length;
+const declared = (sectionBody.match(/id: '([a-z]+)'/g) ?? []).map((q) => q.replace(/id: '|'/g, ''));
 if (declared.length !== declaredAll) {
   problems.push(
-    `якорь · шаблон разобрал ${declared.length} строк SECTION_IDS из ${declaredAll}: якорь не из одних строчных букв выпадает из сверки молча`
+    `якорь · шаблон разобрал ${declared.length} строк SECTIONS из ${declaredAll}: якорь не из одних строчных букв выпадает из сверки молча`
   );
+}
+if (declared.length === 0) {
+  problems.push('якорь · список SECTIONS не разобрался вовсе: сверка якорей выключилась бы молча');
 }
 // Сверка двусторонняя, и это безопасно только при одном правиле, которое здесь и
 // записано: **статичный якорь `id="vn-<слово>"` в разделе означает блок, на
 // который можно сослаться маршрутом**. Другого назначения у такого имени нет.
 // Понадобится якорь не под ссылку (подзаголовок, цель для фокуса) - дай ему имя
-// без приставки `vn-`, иначе гейт справедливо потребует строку в SECTION_IDS.
+// без приставки `vn-`, иначе гейт справедливо потребует строку в SECTIONS.
 // Без этого правила двусторонняя сверка краснела бы на здоровом коде, а такую
 // проверку быстро начинают глушить, и она становится хуже отсутствующей.
 // Якоря строк региона и рынка собираются шаблоном (`vn-region-…`, `vn-market-…`)
@@ -91,10 +97,10 @@ if (rendered.length !== renderedAll) {
   );
 }
 for (const id of rendered) {
-  if (!declared.includes(id)) problems.push(`якорь · блок «${id}» есть в разметке, но не в SECTION_IDS`);
+  if (!declared.includes(id)) problems.push(`якорь · блок «${id}» есть в разметке, но не в SECTIONS`);
 }
 for (const id of declared) {
-  if (!rendered.includes(id)) problems.push(`якорь · «${id}» есть в SECTION_IDS, но блока с таким id в разметке нет`);
+  if (!rendered.includes(id)) problems.push(`якорь · «${id}» есть в SECTIONS, но блока с таким id в разметке нет`);
 }
 
 // Дубль id — узел молча перекрывает другой в NODE_MAP, и панель открывает не тот.
@@ -113,7 +119,7 @@ const emptyUrl = ALL_NODES.flatMap((n) => n.evidence ?? []).filter((e) => !e.url
 console.log(`узлов: ${ALL_NODES.length} · с числом в подписи: ${numeric.length} · из них без источника: ${unsourced.length}`);
 console.log(`потоков: ${FLOWS.length + EDTECH_FLOWS.length + AI_NATIVE_FLOWS.length + VIETNAM_FLOWS.length} · цепочек: ${CHAINS.length + EDTECH_CHAINS.length + AI_NATIVE_CHAINS.length + VIETNAM_CHAINS.length} · связей: ${DEPENDENCY_LINKS.length + EDTECH_LINKS.length + AI_NATIVE_LINKS.length + VIETNAM_LINKS.length}`);
 console.log(`источников без ссылки (названы словами): ${emptyUrl}`);
-console.log(`якорей раздела «Вьетнам»: ${declared.length} из ${renderedAll} в разметке, сверены с SECTION_IDS`);
+console.log(`якорей раздела «Вьетнам»: ${declared.length} из ${renderedAll} в разметке, сверены с SECTIONS`);
 
 if (problems.length) {
   problems.forEach((p) => console.log(`  ✗ ${p}`));
