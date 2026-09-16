@@ -802,3 +802,196 @@ button.list-row:last-child, a.list-row:last-child { border-bottom: 0; }
 
   @page { margin: 14mm; }
 }
+
+/* ── 9. Графики, созвездие, таймлайн, оглавление ──────────────────── */
+/* Добавлено эпиком визуализации домена «Вьетнам». Токенов новых два: ряды
+   графиков берут категориальную палитру, проверенную валидатором dataviz.
+   Фиолетового в ней нет, первый слот — акцент атласа. */
+:root {
+  --cat-1: #14568C;
+  --cat-2: #B36A12;
+  --cat-3: #1B8A70;
+  --cat-4: #A83A3A;
+}
+
+/* График — фигура, а не карточка: рамки нет, границу держит воздух. */
+.chart { margin: 0; min-width: 0; }
+.chart-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s2);
+  margin-bottom: var(--s2);
+}
+.chart-title { font: var(--t-h2); letter-spacing: var(--tr-h2); color: var(--ink); }
+.chart-note { font: var(--t-meta); color: var(--ink-3); max-width: 68ch; }
+/* Холст: min-width:0 обязателен — ResponsiveContainer внутри грида иначе
+   растёт бесконечно и распирает страницу вбок. */
+.chart-canvas { min-width: 0; width: 100%; }
+.chart-canvas .recharts-surface { overflow: visible; }
+
+.chart-tip {
+  background: var(--surface);
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 20px rgba(24, 24, 27, 0.1);
+  padding: var(--s2) var(--s3);
+  font: var(--t-meta);
+  color: var(--ink-2);
+  max-width: 280px;
+}
+.chart-tip-head { font: var(--t-micro); letter-spacing: var(--tr-micro); text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--s1); }
+.chart-tip-row { display: flex; align-items: baseline; gap: var(--s2); }
+.chart-tip-row .num { color: var(--ink); margin-left: auto; }
+.chart-tip-name { color: var(--ink-2); }
+
+.spark { display: inline-block; vertical-align: middle; flex: none; }
+
+/* Легенда рядов вне холста — там, где график заменён таблицей. */
+.legend { display: flex; flex-wrap: wrap; gap: var(--s3); font: var(--t-meta); color: var(--ink-2); }
+.legend-item { display: inline-flex; align-items: center; gap: var(--s1); }
+
+/* Оглавление раздела: сбоку на десктопе, полосой сверху на телефоне. */
+.toc {
+  position: sticky;
+  top: 108px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 1px solid var(--hair);
+  padding-left: var(--s3);
+}
+.toc-link {
+  font: var(--t-meta);
+  color: var(--ink-3);
+  background: none;
+  border: 0;
+  padding: var(--s1) var(--s2);
+  text-align: left;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.toc-link:hover { color: var(--accent-ink); background: var(--accent-soft); }
+.toc-link[aria-current='true'] { color: var(--accent); font-weight: 500; }
+.with-toc { display: grid; grid-template-columns: minmax(0, 1fr) 208px; gap: var(--s5); align-items: start; }
+@media (max-width: 1023px) {
+  .with-toc { grid-template-columns: minmax(0, 1fr); }
+  .toc {
+    position: sticky;
+    top: 96px;
+    z-index: 3;
+    flex-direction: row;
+    overflow-x: auto;
+    border-left: 0;
+    border-bottom: 1px solid var(--hair);
+    padding: var(--s1) 0;
+    background: var(--page);
+    scrollbar-width: none;
+    order: -1;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc-link { white-space: nowrap; }
+}
+
+/* Созвездие графа. Поверхность холста утоплена, чтобы кольцо читалось. */
+.constellation {
+  background: var(--surface-sunk);
+  border-radius: var(--radius);
+  min-width: 0;
+  overflow: hidden;
+}
+.constellation svg { display: block; width: 100%; height: auto; }
+.con-hit { cursor: pointer; }
+.con-hit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Таймлайн событий. Ось — сетка месяцев, дорожки под ней. */
+.tl { min-width: 640px; }
+.tl-row { display: grid; grid-template-columns: 116px minmax(0, 1fr); align-items: stretch; border-bottom: 1px solid var(--hair); }
+.tl-row:last-child { border-bottom: 0; }
+.tl-name {
+  font: var(--t-meta);
+  color: var(--ink-2);
+  padding: var(--s2) var(--s2) var(--s2) 0;
+  border-right: 1px solid var(--hair);
+  display: flex;
+  align-items: center;
+}
+/* Подпись у крайней правой точки шире дорожки и распирала страницу на 60px
+   при ширине 390. Дорожка обрезает свой вынос сама: имя события целиком
+   читается подсказкой и карточкой под осью. */
+.tl-track { position: relative; min-height: 34px; padding: var(--s2) 0; min-width: 0; overflow: hidden; }
+.tl-grid { position: absolute; inset: 0; pointer-events: none; }
+.tl-tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--hair); }
+.tl-today { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--down); }
+.tl-head { font: var(--t-micro); letter-spacing: var(--tr-micro); text-transform: uppercase; color: var(--ink-3); }
+.tl-head .tl-track { min-height: 22px; padding: 0; }
+.tl-tick-label { position: absolute; top: 2px; transform: translateX(-50%); white-space: nowrap; }
+.tl-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  color: var(--accent-ink);
+  font: var(--t-meta);
+  line-height: 14px;
+  padding: 0 var(--s2);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-align: left;
+}
+.tl-dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  padding: 0;
+  cursor: pointer;
+}
+.tl-dot--past { border-color: var(--ink-3); }
+.tl-dot[aria-pressed='true'] { background: var(--accent); }
+.tl-spark { position: absolute; inset: var(--s1) 0; pointer-events: none; }
+.tl-spark svg { width: 100%; height: 100%; display: block; }
+.tl-legend { display: flex; flex-wrap: wrap; gap: var(--s3); font: var(--t-meta); color: var(--ink-3); }
+
+/* Числовая строка региона: несколько величин подряд в шапке строки. */
+.keynums { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); font: var(--t-meta); color: var(--ink-2); }
+.keynum { display: inline-flex; align-items: baseline; gap: var(--s1); }
+.keynum .num { font: var(--t-num-s); color: var(--ink); }
+
+/* Колонка содержимого раздела: тот же вертикальный ритм, что у .section,
+   но внутри сетки с оглавлением. */
+.vn-body { min-width: 0; }
+.vn-body > * + * { margin-top: var(--s4); }
+.tl-dot-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(8px, -50%);
+  font: var(--t-meta);
+  color: var(--ink-2);
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Свёрнутая оговорка: тот же .note, но со стрелкой и целью тапа 44px. */
+details.note > summary { cursor: pointer; list-style: none; padding: var(--s1) 0; min-height: 28px; }
+details.note > summary::-webkit-details-marker { display: none; }
+details.note > summary::before { content: '▸'; margin-right: var(--s2); color: var(--ink-3); }
+details.note[open] > summary::before { content: '▾'; }
+details.note > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Пара «число + подпись» не разрывается посередине: переносится целиком. */
+.keynum { white-space: nowrap; }
+.con-hidden { display: none; }
