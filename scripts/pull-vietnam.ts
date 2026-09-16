@@ -22,6 +22,12 @@ const OUT = resolve(ROOT, 'src/data/vietnam.generated.ts');
 // сложное выражение»). Причина по делу: граф нужен одному блоку раздела, и
 // грузить его вместе со страницей незачем - созвездие тянет json при открытии.
 const OUT_GRAPH = resolve(ROOT, 'public/data/vietnam-graph.json');
+// Климат тоже едет отдельным файлом и по той же причине, что граф. Норма это
+// 7 метрик на 13 периодов (M01..M12 и YEAR) на каждый регион: в общем массиве
+// показателей она вытеснила бы ряды по годам потолком KEEP_PERIODS, а в бандле
+// стоила бы сотней килобайт каждому, кто открыл атлас. Блок климата тянет
+// файл при открытии.
+const OUT_CLIMATE = resolve(ROOT, 'public/data/vietnam-climate.json');
 
 // ─── Ключи ────────────────────────────────────────────────────────────────────
 
@@ -190,7 +196,71 @@ async function pull() {
     list.push({ region_slug, region_id, ...rest });
     byMetric.set(key, list);
   }
-  const statRows = [...byMetric.values()].flatMap((list) =>
+  // Климат из общего массива показателей вынут: у него свой файл и свой
+  // формат. Оставленный здесь, он съел бы потолок периодов у населения.
+  // ─── Климат: норма по месяцам отдельным файлом ────────────────────────────
+  //
+  // Формат сжатый намеренно. По региону 13 строк (12 месяцев и год), в каждой
+  // семь чисел в ФИКСИРОВАННОМ порядке CLIMATE_METRICS - имена метрик в файле
+  // не повторяются 63 раза. Метрики нет в базе - на её месте null, а не ноль:
+  // ноль градусов это число, отсутствие числа это отсутствие числа.
+  const CLIMATE_METRICS = [
+    'climate_day_temp_c',
+    'climate_night_temp_c',
+    'climate_mean_temp_c',
+    'climate_max_temp_c',
+    'climate_min_temp_c',
+    'climate_rain_mm',
+    'climate_rain_days'
+  ];
+  const climateBySlug = new Map<string, Map<string, Map<string, number>>>();
+  let climateSourceUrl: string | null = null;
+  let climateNote: string | null = null;
+  for (const row of stats) {
+    if (!row.metric?.startsWith('climate_') || row.value === null) continue;
+    const slug = slugById.get(row.region_id) ?? row.region_id;
+    const periods = climateBySlug.get(slug) ?? new Map<string, Map<string, number>>();
+    const block = periods.get(row.period ?? '') ?? new Map<string, number>();
+    block.set(row.metric, Number(row.value));
+    periods.set(row.period ?? '', block);
+    climateBySlug.set(slug, periods);
+    climateSourceUrl ??= row.source_url;
+    climateNote ??= row.source_note;
+  }
+  const climateRow = (block: Map<string, number> | undefined) =>
+    block ? CLIMATE_METRICS.map((metric) => block.get(metric) ?? null) : null;
+  const climate = {
+    schema: 'vietnam-climate.v1',
+    generated_at: now.toISOString(),
+    // Порядок чисел в каждой строке months и year. Меняется только вместе с
+    // номером схемы: молча переставленная метрика поменяла бы день с ночью.
+    metrics: CLIMATE_METRICS,
+    units: ['C', 'C', 'C', 'C', 'C', 'mm', 'day'],
+    source: {
+      type: 'proxy',
+      window: '2015-2025',
+      note: climateNote,
+      example_url: climateSourceUrl
+    },
+    regions: Object.fromEntries(
+      [...climateBySlug.entries()]
+        .map(([slug, periods]) => [
+          slug,
+          {
+            elevation_m: periods.get('YEAR')?.get('climate_elevation_m') ?? null,
+            months: Array.from({ length: 12 }, (_, index) =>
+              climateRow(periods.get(`M${String(index + 1).padStart(2, '0')}`))
+            ),
+            year: climateRow(periods.get('YEAR'))
+          }
+        ])
+        .sort((a, b) => String(a[0]).localeCompare(String(b[0])))
+    )
+  };
+
+  const statRows = [...byMetric.values()]
+    .filter((list) => !(list[0]?.metric ?? '').startsWith('climate_'))
+    .flatMap((list) =>
     list
       .sort((a, b) => (b.period ?? '').localeCompare(a.period ?? ''))
       .slice(0, KEEP_PERIODS)
@@ -240,7 +310,7 @@ async function pull() {
     value: num(rest.value)
   }));
 
-  return { regions, statRows, marketRows, namedMarkets, events, heartbeats, topics, insights, entities: entityRows, edges: edgeRows, entityMetrics: entityMetricRows, now };
+  return { regions, climate, statRows, marketRows, namedMarkets, events, heartbeats, topics, insights, entities: entityRows, edges: edgeRows, entityMetrics: entityMetricRows, now };
 }
 
 // ─── Запись ───────────────────────────────────────────────────────────────────
@@ -262,7 +332,8 @@ function render(d: Awaited<ReturnType<typeof pull>>) {
     insights: d.insights.length,
     entities: d.entities.length,
     edges: d.edges.length,
-    entity_metrics: d.entityMetrics.length
+    entity_metrics: d.entityMetrics.length,
+    climate_regions: Object.keys(d.climate.regions).length
   };
   return `// СГЕНЕРИРОВАННЫЙ ФАЙЛ. Руками не править: перезапишется.
 // Источник: база региона Supabase region-lamdong, таблицы regions, region_stats,
@@ -370,6 +441,10 @@ pull()
     const graph = renderGraph(d);
     mkdirSync(dirname(OUT_GRAPH), { recursive: true });
     writeFileSync(OUT_GRAPH, JSON.stringify(graph));
+    writeFileSync(OUT_CLIMATE, JSON.stringify(d.climate));
+    console.log(
+      `pull-vietnam: климат ${Object.keys(d.climate.regions).length} мест → public/data/vietnam-climate.json`
+    );
     console.log(`pull-vietnam: граф ${graph.nodes.length} узлов · ${graph.edges.length} связей → public/data/vietnam-graph.json`);
     console.log(
       `pull-vietnam: регионов ${d.regions.length} · показателей ${d.statRows.length} · рынков ${d.marketRows.length} · событий ${d.events.length} · пульс ${d.heartbeats.length} · тем ${d.topics.length} · сущностей ${d.entities.length}`
