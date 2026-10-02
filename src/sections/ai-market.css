@@ -1,0 +1,74 @@
+/* Карта рынка ИИ-внедрений: проводник по дереву. Только токены дизайн-контракта,
+   своих цветов нет. Карточек нет: группировка волосяной линией и воздухом. */
+
+.aim-stamp { font: var(--t-meta); color: var(--ink-3); display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); }
+.aim-stamp b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; }
+
+/* Проводник: слева содержимое, справа липкое оглавление слоёв (на узких экранах сверху) */
+.aim { display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: var(--s5); align-items: start; }
+@media (max-width: 1023px) { .aim { grid-template-columns: minmax(0, 1fr); } }
+
+.aim-layers { position: sticky; top: 108px; align-self: start; display: flex; flex-direction: column; gap: 2px; border-left: 1px solid var(--hair); padding-left: var(--s3); }
+.aim-layer {
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--s2);
+  font: var(--t-meta); color: var(--ink-3); background: none; border: 0; text-align: left;
+  padding: var(--s2) var(--s2); border-radius: var(--radius-sm); cursor: pointer; min-height: 36px;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.aim-layer:hover { color: var(--accent-ink); background: var(--accent-soft); }
+.aim-layer[aria-current='true'] { color: var(--accent); font-weight: 500; }
+.aim-layer .num { color: var(--ink-3); font-size: 11.5px; }
+@media (max-width: 1023px) {
+  .aim-layers { order: -1; position: sticky; top: 96px; z-index: 3; flex-direction: row; overflow-x: auto; border-left: 0; border-bottom: 1px solid var(--hair); padding: var(--s1) 0; background: var(--page); scrollbar-width: none; }
+  .aim-layers::-webkit-scrollbar { display: none; }
+  .aim-layer { white-space: nowrap; }
+}
+
+.aim-main { display: flex; flex-direction: column; gap: var(--s5); min-width: 0; }
+
+/* Хлебные крошки */
+.aim-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s2); font: var(--t-meta); color: var(--ink-3); }
+.aim-crumbs .link { font: var(--t-meta); }
+.aim-crumbs .sep { color: var(--hair-strong); }
+
+/* Строка узла в списке: заголовок, вид, счётчик детей, одна строка сути */
+.aim-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s1) var(--s3); align-items: baseline; }
+.aim-row-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); font: var(--t-body); color: var(--ink); font-weight: 500; }
+.aim-row-sum { grid-column: 1 / -1; font: var(--t-meta); color: var(--ink-2); max-width: 68ch; }
+.aim-row-side { display: flex; align-items: baseline; gap: var(--s2); white-space: nowrap; font: var(--t-meta); color: var(--ink-3); }
+.aim-row-side .num { font-size: 12.5px; }
+@media (max-width: 767px) { .aim-row { grid-template-columns: minmax(0, 1fr); } .aim-row-side { white-space: normal; } }
+
+/* Группа детей одного вида */
+.aim-group-head { display: flex; align-items: baseline; gap: var(--s2); font: var(--t-micro); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); padding-top: var(--s3); }
+
+/* Карточка узла: заголовок, факты, цитаты, числа */
+.aim-detail { display: flex; flex-direction: column; gap: var(--s4); }
+.aim-detail-head { display: flex; flex-direction: column; gap: var(--s2); }
+.aim-detail-head h2 { margin: 0; font: var(--t-h1); letter-spacing: -0.015em; text-wrap: balance; max-width: 30ch; }
+.aim-meta { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); font: var(--t-meta); color: var(--ink-2); }
+.aim-meta b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 500; color: var(--ink); }
+.aim-meta span { display: inline-flex; gap: var(--s1); align-items: baseline; }
+.aim-meta .unit { color: var(--ink-3); }
+
+.aim-block { display: flex; flex-direction: column; gap: var(--s2); }
+.aim-block > .kicker { margin: 0; }
+.aim-block p { margin: 0; font: var(--t-body); color: var(--ink-2); max-width: 68ch; }
+.aim-block ul { margin: 0; padding-left: 18px; font: var(--t-body); color: var(--ink-2); max-width: 68ch; display: flex; flex-direction: column; gap: var(--s1); }
+
+.aim-quote { margin: 0; padding: var(--s2) 0 var(--s2) var(--s4); border-left: 2px solid var(--accent); display: flex; flex-direction: column; gap: 2px; max-width: 68ch; }
+.aim-quote p { margin: 0; font: var(--t-body); color: var(--ink); }
+.aim-quote .meta { font: var(--t-meta); color: var(--ink-3); }
+.aim-quote a { color: var(--ink-3); }
+
+.aim-nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--s3) var(--s5); }
+.aim-chips { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.aim-chip { min-height: 36px; padding: var(--s1) var(--s3); font: var(--t-meta); }
+
+.aim-src { display: flex; flex-direction: column; gap: var(--s1); font: var(--t-meta); color: var(--ink-2); }
+.aim-src a { color: var(--ink-2); }
+.aim-src .meta { color: var(--ink-3); }
+
+/* Поиск по дереву */
+.aim-search { display: flex; gap: var(--s2); align-items: center; }
+.aim-search .field { flex: 1 1 auto; min-width: 0; }

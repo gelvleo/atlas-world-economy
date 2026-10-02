@@ -7,16 +7,20 @@
 //   #/vietnam/entity/<slug>
 //   #/vietnam/section/<id>   search · calendar · regions · employment ·
 //                            markets · national · opportunity · entities · sweeps
+//   #/ai/node/<id>           узел карты рынка ИИ-внедрений (data/ai-market)
+//   #/ai/layer/<layer>       слой той же карты
 // Двоеточие в слаге зоны (zone:namban-home) допустимо и не кодируется.
 
 import { useEffect, useState } from 'react';
 
 export interface AtlasRoute {
   domain: string;
-  kind: 'region' | 'market' | 'entity' | 'section';
+  kind: 'region' | 'market' | 'entity' | 'section' | 'node' | 'layer';
   a: string;
   b: string;
 }
+
+const KINDS = new Set<AtlasRoute['kind']>(['region', 'market', 'entity', 'section', 'node', 'layer']);
 
 export function parseHash(hash: string): AtlasRoute | null {
   let parts: string[];
@@ -29,10 +33,10 @@ export function parseHash(hash: string): AtlasRoute | null {
   }
   if (parts.length < 3) return null;
   const [domain, kind, a, b] = parts;
-  if (kind !== 'region' && kind !== 'market' && kind !== 'entity' && kind !== 'section') return null;
+  if (!KINDS.has(kind as AtlasRoute['kind'])) return null;
   // У рынка два слага: без второго адрес неполный и маршрутом не считается.
   if (kind === 'market' && !b) return null;
-  return { domain, kind, a, b: b ?? '' };
+  return { domain, kind: kind as AtlasRoute['kind'], a, b: b ?? '' };
 }
 
 /** Текущий маршрут. Меняется по hashchange, в том числе по кнопке «назад». */

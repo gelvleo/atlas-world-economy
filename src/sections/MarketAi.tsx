@@ -3,24 +3,25 @@ import type { EvidenceKind, SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
 import { EvidenceTag, NodeEvidenceTag, evidenceKind } from './Overview';
 import Val from '../ui/num';
+import AiMarketExplorer from './AiMarketExplorer';
+import { AI_MARKET_EVIDENCE } from '../data/ai-market';
 import {
   AI_NATIVE_CHAINS,
-  AI_NATIVE_CHANNELS,
   AI_NATIVE_EPOCHS,
   AI_NATIVE_EVIDENCE,
   AI_NATIVE_FAILED_COST,
-  AI_NATIVE_PAINS,
-  AI_NATIVE_POSITIONS,
   AI_NATIVE_PRICES,
   AI_NATIVE_REVISION_CASE,
   AI_NATIVE_REVISION_MAX,
   AI_NATIVE_REVISION_MIN,
   AI_NATIVE_REVISION_RATIO,
-  AI_NATIVE_SEGMENTS,
   AI_NATIVE_SELLERS,
-  AI_NATIVE_STOP_QUESTIONS,
-  AI_NATIVE_TAKEN
+  AI_NATIVE_STOP_QUESTIONS
 } from '../data/ai-native';
+
+// Первоисточник для верхних цифр ищем в карте рынка по слову в названии:
+// агенты-исследователи кладут url туда, а здесь цифра получает ссылку сама.
+const findSource = (re: RegExp) => Object.values(AI_MARKET_EVIDENCE).find((e) => e.url && re.test(e.label));
 
 interface Props {
   openNode: (id: string) => void;
@@ -42,13 +43,15 @@ const TOP_STATS: {
   label: string;
   note: string;
   kind: EvidenceKind;
+  source?: RegExp;
 }[] = [
   {
     num: '95',
     unit: '% пилотов',
     label: 'без измеримого эффекта на P&L',
-    note: 'при вложениях 30–40 млрд долларов, MIT NANDA',
-    kind: 'analyst'
+    note: 'при вложениях 30-40 млрд долларов, MIT NANDA',
+    kind: 'analyst',
+    source: /nanda/i
   },
   {
     num: '89',
@@ -62,7 +65,8 @@ const TOP_STATS: {
     unit: '% внедрений',
     label: 'проваливаются за первый год',
     note: 'причина в обслуживании базы, а не в модели: минус 20% точности проходит бесшумно',
-    kind: 'proxy'
+    kind: 'proxy',
+    source: /rag/i
   },
   {
     num: fmtMln(AI_NATIVE_FAILED_COST),
@@ -93,11 +97,11 @@ export default function MarketAi({ openNode, goTo }: Props) {
     <div className="section">
       <div className="section-head">
         <div className="kicker">Рынок AI-внедрений</div>
-        <h1 className="section-title">AI-native внедрения</h1>
+        <h1 className="section-title">Карта рынка ИИ-внедрений</h1>
         <p className="section-lead">
-          Второй домен, в котором продаётся наш продукт: компании, которые уже потратили деньги
-          на ИИ и не получили возвратов. Здесь видно, кто ещё претендует на этот бюджет, сколько
-          стоит провал и почему ревизия продаётся раньше стройки.
+          От первооснов до слов конкретного человека: почему рынок существует, кто и что
+          покупает, что и почём продают, как это ломается и что из этого следует для нас.
+          Каждая строка раскрывается, у каждой цифры источник.
         </p>
       </div>
 
@@ -128,19 +132,34 @@ export default function MarketAi({ openNode, goTo }: Props) {
       </details>
 
       <div className="stats">
-        {TOP_STATS.map((s) => (
-          <div key={s.label} className="stat">
-            <span className="stat-num">
-              {s.num}
-              <span className="stat-unit">{s.unit}</span>
-            </span>
-            <span className="stat-label">{s.label}</span>
-            <span className="stat-note">
-              <EvidenceTag kind={s.kind} /> {s.note}
-            </span>
-          </div>
-        ))}
+        {TOP_STATS.map((s) => {
+          const src = s.source ? findSource(s.source) : undefined;
+          return (
+            <div key={s.label} className="stat">
+              <span className="stat-num">
+                {s.num}
+                <span className="stat-unit">{s.unit}</span>
+              </span>
+              <span className="stat-label">{s.label}</span>
+              <span className="stat-note">
+                <EvidenceTag kind={src?.kind ?? s.kind} /> {s.note}
+                {src && (
+                  <>
+                    {' · '}
+                    <a href={src.url} target="_blank" rel="noreferrer">
+                      первоисточник
+                    </a>
+                  </>
+                )}
+              </span>
+            </div>
+          );
+        })}
       </div>
+
+      <div className="hair" />
+
+      <AiMarketExplorer openNode={openNode} />
 
       <div className="hair" />
 
@@ -235,54 +254,6 @@ export default function MarketAi({ openNode, goTo }: Props) {
       <div className="hair" />
 
       <div className="section-head">
-        <h2 className="section-title">Кому продаём первыми</h2>
-        <p className="section-lead">
-          P0 это прямой цикл продаж, P1 после первых внедрений, P2 через партнёров и апселл.
-        </p>
-      </div>
-      <div className="table-wrap">
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Сегмент</th>
-              <th scope="col">Приоритет</th>
-              <th scope="col" className="num">
-                Бюджет
-              </th>
-              <th scope="col">Состояние</th>
-              <th scope="col">Боль</th>
-              <th scope="col">С чего заходим</th>
-            </tr>
-          </thead>
-          <tbody>
-            {AI_NATIVE_SEGMENTS.map((s) => (
-              <tr key={s.id}>
-                <td>
-                  <span className="row row--wrap">
-                    <button className="link" onClick={() => openNode(s.nodeId)}>
-                      {s.segment}
-                    </button>
-                    <NodeEvidenceTag id={s.nodeId} />
-                  </span>
-                </td>
-                <td>
-                  <span className="tag">{s.priority}</span>
-                </td>
-                <td className="num">
-                  <Val value={s.budget} />
-                </td>
-                <td>{s.state}</td>
-                <td>{s.pain}</td>
-                <td>{s.entry}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="hair" />
-
-      <div className="section-head">
         <h2 className="section-title">Кто ещё продаёт то же самое</h2>
         <p className="section-lead">
           Снизу демпинг от 50 000 ₽, сверху консалтинг и вендор с ценой по запросу, сбоку продукт
@@ -340,88 +311,6 @@ export default function MarketAi({ openNode, goTo }: Props) {
           </tbody>
         </table>
       </div>
-
-      <div className="hair" />
-
-      <div className="section-head">
-        <h2 className="section-title">Боли: материал для первого звонка</h2>
-        <p className="section-lead">Каждая строка это готовый аргумент со своим числом.</p>
-      </div>
-      <div className="list">
-        {AI_NATIVE_PAINS.map((p) => (
-          <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
-            <span className="list-main">
-              <span>{p.fact}</span>
-              <span className="stat-note">
-                Кого касается: {p.whom}. Боль: {p.pain}. Ответ продукта: {p.answer}
-              </span>
-            </span>
-            <span className="list-side">{p.source}</span>
-          </button>
-        ))}
-      </div>
-
-      <div className="hair" />
-
-      <div className="section-head">
-        <h2 className="section-title">Каналы до ЛПР</h2>
-        <p className="section-lead">
-          Referral идёт первым по единодушию источников, воронки на этом рынке проигрывают личным
-          касаниям.
-        </p>
-      </div>
-      <div className="list">
-        {AI_NATIVE_CHANNELS.map((ch) => (
-          <button key={ch.id} className="list-row" onClick={() => openNode(ch.nodeId)}>
-            <span className="list-main">
-              <span>{ch.name}</span>
-              <span className="stat-note">
-                {ch.type} · охват {ch.reach}. {ch.approach}. Что даёт: {ch.reward}
-              </span>
-            </span>
-            <span className="list-side">
-              <span className="tag">{ch.priority}</span>
-            </span>
-          </button>
-        ))}
-      </div>
-
-      <div className="hair" />
-
-      <div className="section-head">
-        <h2 className="section-title">Свободные позиционирования</h2>
-        <p className="section-lead">
-          Пять мест, которые на этом рынке ещё никем не заняты, и пять, куда лезть не стоит.
-        </p>
-      </div>
-      <div className="list">
-        {AI_NATIVE_POSITIONS.map((p, i) => (
-          <button key={p.id} className="list-row" onClick={() => openNode(p.nodeId)}>
-            <span className="list-main">
-              <span>
-                <span className="num">{i + 1}</span> {p.title}
-              </span>
-              <span className="stat-note">
-                {p.claim} {p.basis}
-              </span>
-            </span>
-            <NodeEvidenceTag id={p.nodeId} />
-          </button>
-        ))}
-      </div>
-      <details className="note">
-        <summary className="kicker">Занято, не лезем: пять мест</summary>
-        <div className="list">
-          {AI_NATIVE_TAKEN.map((t) => (
-            <button key={t.id} className="list-row" onClick={() => openNode(t.nodeId)}>
-              <span className="list-main">
-                <span>{t.title}</span>
-                <span className="stat-note">{t.who}</span>
-              </span>
-            </button>
-          ))}
-        </div>
-      </details>
 
       <div className="hair" />
 
