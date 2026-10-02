@@ -1,0 +1,5752 @@
+{
+  "nodes": [
+    {
+      "id": "q-owner-cost-01",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько на самом деле стоит внедрить ИИ в малый бизнес",
+      "summary": "Рынок называет вилки от 50 тыс руб за простого бота до 1,5 млн за рабочего агента и от 3 млн за корпоративную систему. Сами интеграторы советуют начать с пилота, а не с фиксированной цены вслепую.",
+      "questions": [
+        "Сколько на самом деле стоит внедрить ИИ в малый бизнес"
+      ],
+      "numbers": [
+        {
+          "label": "простой бот",
+          "value": "50 000 - 200 000",
+          "unit": "руб",
+          "evidence": "ev-habr-stoimost-2026"
+        },
+        {
+          "label": "рабочий ИИ-агент",
+          "value": "300 000 - 1 500 000",
+          "unit": "руб",
+          "evidence": "ev-habr-stoimost-2026"
+        }
+      ],
+      "priceRu": "50 000 - 3 000 000+ ₽",
+      "related": [
+        "svc-agents",
+        "fail-cost"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Пилот честнее фиксированной цены вслепую, потому что показывает окупаемость",
+          "who": "Антон Карцев, интегратор CRM",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1067438/",
+          "date": "2026-08"
+        },
+        {
+          "text": "MVP за 200-300 тысяч - это страховка от того, что вы потратите 2 миллиона на систему",
+          "who": "автор блога Apex Intellect",
+          "where": "Apex Intellect",
+          "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+          "date": "2026-03"
+        }
+      ],
+      "evidence": [
+        "ev-habr-stoimost-2026",
+        "ev-apex-cost"
+      ]
+    },
+    {
+      "id": "q-owner-roi-02",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему ИИ-проекты не окупаются и в чем тут реальная причина",
+      "summary": "В русскоязычных статьях повторяется цифра 85-95% проектов без эффекта (чаще всего со ссылкой на MIT NANDA), причины называют одни: нет процессов, данных и владельца.",
+      "questions": [
+        "Почему ИИ-проекты не окупаются и в чем тут реальная причина"
+      ],
+      "numbers": [
+        {
+          "label": "проектов без эффекта по цитате MIT",
+          "value": "95",
+          "unit": "%",
+          "evidence": "ev-habr-alp-msb"
+        }
+      ],
+      "related": [
+        "fail-pilot"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Более 85% проектов ИИ не оправдывают ожиданий бизнеса.",
+          "who": "Бинарный",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2161657-biznes-i-ii-realnosti-vnedreniya-tekhnologiy-v-kompanii",
+          "date": "2025-08"
+        },
+        {
+          "text": "только 5% внедрений реально окупаются, у остальных 95% - нулевая отдача от вложений",
+          "who": "Максим Голубов, ALP ITSM (цитата MIT NANDA)",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/alp_itsm/articles/1060048/",
+          "date": "2026-07"
+        },
+        {
+          "text": "Две трети ИИ-проектов проваливаются",
+          "who": "Rechka.Ai",
+          "where": "vc.ru",
+          "url": "https://vc.ru/life/2299849-oshibki-vnedreniya-ii-v-biznese",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-biznes-ii-razocharovanie",
+        "ev-habr-alp-msb",
+        "ev-vc-rechka-12-oshibok"
+      ]
+    },
+    {
+      "id": "q-owner-start-03",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "С чего начать ИИ в бизнесе, если ресурсов мало",
+      "summary": "Практики советуют взять одну самую болезненную задачу, закрыть ее за 3-4 недели и только потом расширять.",
+      "questions": [
+        "С чего начать ИИ в бизнесе, если ресурсов мало"
+      ],
+      "related": [
+        "svc-strategy"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Начните с одной конкретной задачи. Например, только автоматизация ответов на типовые вопросы",
+          "who": "Михаил",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2282231-stoimost-vnedreniya-ii-v-biznes",
+          "date": "2025-10"
+        },
+        {
+          "text": "Один процесс, самый болезненный. Автоматизируйте его за 3-4 недели",
+          "who": "автор блога Apex Intellect",
+          "where": "Apex Intellect",
+          "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+          "date": "2026-03"
+        }
+      ],
+      "evidence": [
+        "ev-vc-stoimost-50-keysov",
+        "ev-apex-cost"
+      ]
+    },
+    {
+      "id": "q-owner-vendor-04",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как выбрать подрядчика по ИИ и не потерять бюджет",
+      "summary": "Владельцам советуют не смотреть на презентации с логотипами, а требовать боевой опыт и измеримые кейсы; крупный интегратор не гарантирует качества.",
+      "questions": [
+        "Как выбрать подрядчика по ИИ и не потерять бюджет"
+      ],
+      "related": [
+        "sup-ru-integrators",
+        "fail-acceptance"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Большинство компаний выбирают подрядчика по презентации. Красивые слайды, логотипы клиентов - и бюджет подписан",
+          "who": "NordClan",
+          "where": "NordClan",
+          "url": "https://nordclan.com/blog/ai-agenty-dlya-biznesa-chto-vazhno-proverit-u-podryadchika",
+          "date": "2026-07"
+        },
+        {
+          "text": "Крупный интегратор за 10 млн может дать хуже, чем студия за 500 тысяч",
+          "who": "Дмитрий Худогоб",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2873629-top-kompaniy-po-ii-avtomatizatsii-v-rossii",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-nordclan",
+        "ev-vc-top-ai-avtomatizatsii"
+      ]
+    },
+    {
+      "id": "q-owner-staff-05",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что делать, если сотрудники саботируют внедрение ИИ",
+      "summary": "Сопротивление команды объясняют страхом потерять роль и статус; по опросу из статьи 29% работников в РФ опасаются потерять работу из-за ИИ.",
+      "questions": [
+        "Что делать, если сотрудники саботируют внедрение ИИ"
+      ],
+      "numbers": [
+        {
+          "label": "работников в РФ боятся потерять работу",
+          "value": "29",
+          "unit": "%",
+          "evidence": "ev-vc-guryev-2274596"
+        }
+      ],
+      "related": [
+        "fail-adoption",
+        "fail-change"
+      ],
+      "tags": [
+        "ru"
+      ],
+      "quotes": [
+        {
+          "text": "Команда не всегда сопротивляется инструменту. Иногда она защищает свою роль, статус и доверие к правилам игры.",
+          "who": "Инна Ширяева",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id5669387/2982340-oshibki-vnedreniya-ii-v-kompanii",
+          "date": "2026-06"
+        },
+        {
+          "text": "29% работников в России реально опасаются потерять работу из-за ИИ",
+          "who": "Гурьев",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2274596-pochemu-ne-stoit-vnedryat-ii-v-biznes",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-shiryaeva",
+        "ev-vc-guryev-2274596"
+      ]
+    },
+    {
+      "id": "q-owner-build-06",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нанять программиста или купить готовое решение для бота",
+      "summary": "Кейс из vc.ru: разработка на найме обошлась в 1,2 млн тенге и 200 тыс в месяц на поддержку, готовое решение стоило от 26 тыс тенге в месяц (суммы в тенге).",
+      "questions": [
+        "Нанять программиста или купить готовое решение для бота"
+      ],
+      "risk": "Автор продает готовое решение, сравнение выгодно ему.",
+      "related": [
+        "svc-dev",
+        "fail-cost"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Нанял программиста за 300К/мес. Он сказал будет готово через 2 месяца",
+          "who": "Марк об автоматизации",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id5440536/2322972-kak-sozdat-chat-bot-dlya-biznesa",
+          "date": "2025-11"
+        },
+        {
+          "text": "За 6 месяцев разработки конкуренты обработают 9,000 заявок и заработают 100+ млн",
+          "who": "Марк об автоматизации",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id5440536/2322972-kak-sozdat-chat-bot-dlya-biznesa",
+          "date": "2025-11"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bot-1-5mln"
+      ]
+    },
+    {
+      "id": "q-owner-run-07",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько ИИ стоит после запуска: токены, поддержка, доработки",
+      "summary": "После запуска закладывают 15-20% стоимости разработки в год на поддержку; у крупных команд расход на ИИ-инструменты вылетает за бюджет уже за пару кварталов.",
+      "questions": [
+        "Сколько ИИ стоит после запуска: токены, поддержка, доработки"
+      ],
+      "numbers": [
+        {
+          "label": "поддержка в год от стоимости разработки",
+          "value": "15-20",
+          "unit": "%",
+          "evidence": "ev-apex-cost"
+        }
+      ],
+      "related": [
+        "fail-cost"
+      ],
+      "tags": [
+        "ru"
+      ],
+      "quotes": [
+        {
+          "text": "закладывайте 15-20% от стоимости разработки ежегодно на поддержку",
+          "who": "автор блога Apex Intellect",
+          "where": "Apex Intellect",
+          "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+          "date": "2026-03"
+        },
+        {
+          "text": "Бюджет, запланированный на весь год, сгорел уже к апрелю",
+          "who": "Иван из Дубая (о Uber)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2947694-ekonomika-ii-gde-dengi-i-kak-schitat-effektivnost",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-apex-cost",
+        "ev-vc-ii-dengi-gde"
+      ]
+    },
+    {
+      "id": "q-owner-bot-conv-08",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему после бота продажи упали, а не выросли",
+      "summary": "Типовая история: вложили 300 тыс в бота, конверсия упала на 15%; помогают сокращение вариантов выбора и правка скриптов, после чего конверсия дошла до 14,5%.",
+      "questions": [
+        "Почему после бота продажи упали, а не выросли"
+      ],
+      "numbers": [
+        {
+          "label": "конверсия диалога в покупку после правок",
+          "value": "14,5",
+          "unit": "%",
+          "evidence": "ev-vc-dva-bota"
+        }
+      ],
+      "related": [
+        "fail-adoption",
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "Мы вложили в бота 300 тысяч, а конверсия упала на 15%",
+          "who": "Два Бота (пересказ типовой жалобы)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id4573136/1831556-pochemu-vash-bot-razdrazhaet-klientov-razbor-poletov-i-gotovye-resheniya",
+          "date": "2025-02"
+        },
+        {
+          "text": "Конверсия из диалога в покупку выросла с 6% до 14,5%",
+          "who": "Два Бота",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id4573136/1831556-pochemu-vash-bot-razdrazhaet-klientov-razbor-poletov-i-gotovye-resheniya",
+          "date": "2025-02"
+        }
+      ],
+      "evidence": [
+        "ev-vc-dva-bota"
+      ]
+    },
+    {
+      "id": "q-owner-owner-09",
+      "parent": "q-owner",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Кто в компании должен отвечать за ИИ после внедрения",
+      "summary": "Без назначенного владельца система превращается в мертвый груз: нет контроля данных, версий и качества ответов.",
+      "questions": [
+        "Кто в компании должен отвечать за ИИ после внедрения"
+      ],
+      "related": [
+        "fail-stale",
+        "fail-change"
+      ],
+      "tags": [
+        "ru"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ-система без владельца проекта превращается в мёртвый груз",
+          "who": "AI2Business",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2249088-oshibki-vnedreniya-ii-v-biznese",
+          "date": "2025-10"
+        },
+        {
+          "text": "ИИ - это живая система, которую нельзя «запустить и забыть».",
+          "who": "Бинарный",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2161657-biznes-i-ii-realnosti-vnedreniya-tekhnologiy-v-kompanii",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai2business-oshibki",
+        "ev-vc-biznes-ii-razocharovanie"
+      ]
+    },
+    {
+      "id": "q-cto-rag-01",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему наивный RAG разваливается на больших данных",
+      "summary": "Практики пишут, что поиск по чанкам теряет контекст инструкций, а реранкер LLM добавляет 5-10 секунд на запрос; решают иерархическими чанками.",
+      "questions": [
+        "Почему наивный RAG разваливается на больших данных"
+      ],
+      "numbers": [
+        {
+          "label": "доп. время реранкера на запрос",
+          "value": "5-10",
+          "unit": "сек",
+          "evidence": "ev-habr-rag-prod"
+        }
+      ],
+      "related": [
+        "svc-knowledge",
+        "fail-hallucination"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "Наивный RAG на больших данных не просто работает хуже, он разваливается.",
+          "who": "asuleykin",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1000424/",
+          "date": "2026-02"
+        },
+        {
+          "text": "Релевантный контекст вымывался из топ-выдачи нерелевантными, но семантически похожими фрагментами.",
+          "who": "asuleykin",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1000424/",
+          "date": "2026-02"
+        }
+      ],
+      "evidence": [
+        "ev-habr-rag-prod"
+      ]
+    },
+    {
+      "id": "q-cto-cloud-02",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли отдавать внутренние данные облачным LLM",
+      "summary": "В крупных компаниях облачные модели часто запрещены из-за риска утечки; встает выбор между своим сервером и российским провайдером.",
+      "questions": [
+        "Можно ли отдавать внутренние данные облачным LLM"
+      ],
+      "related": [
+        "adj-local-llm",
+        "fail-security"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "Пользоваться моделями, которые хостятся не на наших серверах, мы не можем из-за риска утечки чувствительной информации.",
+          "who": "Дарья Андреева, X5 Tech",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/X5Tech/articles/834832/",
+          "date": "2024-08"
+        }
+      ],
+      "evidence": [
+        "ev-habr-x5-llm"
+      ]
+    },
+    {
+      "id": "q-cto-russian-03",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Достаточно ли русского языка и контекста у открытых моделей",
+      "summary": "Инженеры X5 отмечали ограниченное окно контекста и слабую поддержку русского у части моделей, а у открытых моделей дублирование ответов.",
+      "questions": [
+        "Достаточно ли русского языка и контекста у открытых моделей"
+      ],
+      "related": [
+        "adj-local-llm"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "Многие модели имеют недостаточную поддержку русского языка",
+          "who": "Дарья Андреева, X5 Tech",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/X5Tech/articles/834832/",
+          "date": "2024-08"
+        },
+        {
+          "text": "Опенсорсные модели также могут дублировать информацию и склонны к галлюцинациям, что снижает качество ответов.",
+          "who": "Дарья Андреева, X5 Tech",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/X5Tech/articles/834832/",
+          "date": "2024-08"
+        }
+      ],
+      "evidence": [
+        "ev-habr-x5-llm"
+      ]
+    },
+    {
+      "id": "q-cto-integr-04",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как интегрировать ИИ с 1С, CRM и старыми системами",
+      "summary": "Проблемы интеграции с существующими IT-системами отмечают 57% опрошенных; подрядчика без боевого опыта на legacy выбирать не советуют.",
+      "questions": [
+        "Как интегрировать ИИ с 1С, CRM и старыми системами"
+      ],
+      "numbers": [
+        {
+          "label": "опрошенных с проблемами интеграции",
+          "value": "57",
+          "unit": "%",
+          "evidence": "ev-habr-speshu"
+        }
+      ],
+      "related": [
+        "fail-integration",
+        "adj-1c-bitrix"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "проблемы интеграции ИИ с существующими IT-системами отметили 57%",
+          "who": "Ассоциация менеджеров (цитата в статье Хабр)",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/speshu_ai/articles/1088408/",
+          "date": "2026"
+        },
+        {
+          "text": "Подрядчик без опыта боевых внедрений не готов к нетиповым запросам и интеграции с legacy-системами",
+          "who": "NordClan",
+          "where": "NordClan",
+          "url": "https://nordclan.com/blog/ai-agenty-dlya-biznesa-chto-vazhno-proverit-u-podryadchika",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-habr-speshu",
+        "ev-nordclan"
+      ]
+    },
+    {
+      "id": "q-cto-demo-05",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему демо-агент работает, а в проде ломается",
+      "summary": "Демо идет на идеальных запросах, в проде приходят нетиповые вопросы и нагрузка; поэтому в приемку закладывают тестовый набор реальных диалогов.",
+      "questions": [
+        "Почему демо-агент работает, а в проде ломается"
+      ],
+      "related": [
+        "fail-pilot",
+        "adj-evals"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "Демонстрационный агент работает в идеальных условиях. В production - нетиповые запросы, нагрузка",
+          "who": "NordClan",
+          "where": "NordClan",
+          "url": "https://nordclan.com/blog/ai-agenty-dlya-biznesa-chto-vazhno-proverit-u-podryadchika",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-nordclan"
+      ]
+    },
+    {
+      "id": "q-cto-data-06",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужны ли чистые данные до старта и сколько с ними возиться",
+      "summary": "Данные называют главным ограничением: 55% организаций отказывались от сценариев из-за проблем с данными (по цитате Deloitte в статье Хабр).",
+      "questions": [
+        "Нужны ли чистые данные до старта и сколько с ними возиться"
+      ],
+      "numbers": [
+        {
+          "label": "организаций отказались от сценариев из-за данных",
+          "value": "55",
+          "unit": "%",
+          "evidence": "ev-habr-speshu"
+        }
+      ],
+      "related": [
+        "adj-labeling",
+        "svc-data"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "55% организаций отказались от сценариев из-за проблем с данными",
+          "who": "Deloitte (цитата в статье Хабр)",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/speshu_ai/articles/1088408/",
+          "date": "2026"
+        },
+        {
+          "text": "Для интеграции ИИ нужны данные - много данных. Но не любые данные",
+          "who": "Бинарный",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2161657-biznes-i-ii-realnosti-vnedreniya-tekhnologiy-v-kompanii",
+          "date": "2025-08"
+        },
+        {
+          "text": "Не стоит внедрять ИИ туда, где нет достаточного объема данных - там будут галлюцинации.",
+          "who": "Влад Кармаков, Siberian.pro",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/945648/",
+          "date": "2025-09"
+        }
+      ],
+      "evidence": [
+        "ev-habr-speshu",
+        "ev-vc-biznes-ii-razocharovanie",
+        "ev-habr-siberian-945648"
+      ]
+    },
+    {
+      "id": "q-cto-quality-07",
+      "parent": "q-cto",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Чем мерить точность ответов корпоративного ассистента",
+      "summary": "В кейсах интеграторов приемку меряют долей верных ответов на подготовленном массиве вопросов, например выше 90%.",
+      "questions": [
+        "Чем мерить точность ответов корпоративного ассистента"
+      ],
+      "numbers": [
+        {
+          "label": "точность ответов на подготовленном массиве",
+          "value": "90+",
+          "unit": "%",
+          "evidence": "ev-tme-ktsdaily"
+        }
+      ],
+      "risk": "Цифра вендора на своем наборе вопросов.",
+      "related": [
+        "adj-evals",
+        "fail-acceptance"
+      ],
+      "tags": [
+        "ru",
+        "tech"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ-ассистент для Level Group: на подготовленном массиве точность ответов превысила 90%",
+          "who": "KTS (пост канала)",
+          "where": "Telegram",
+          "url": "https://t.me/ktsdaily/847",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-ktsdaily"
+      ]
+    },
+    {
+      "id": "q-marketing-voice-01",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как не потерять голос бренда, когда пишет нейросеть",
+      "summary": "Маркетологи жалуются, что ИИ-тексты звучат как у всех и считываются как фальшивые, аудитория перестает различать бренды.",
+      "questions": [
+        "Как не потерять голос бренда, когда пишет нейросеть"
+      ],
+      "related": [
+        "svc-content",
+        "fail-hallucination"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "Контент звучит «как все». Аудитория перестаёт отличать один бренд от другого",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        },
+        {
+          "text": "ИИ не испытывает эмоций. Его «восторг» и «сопереживание» считываются как фальшивые",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-biz360-marketing"
+      ]
+    },
+    {
+      "id": "q-marketing-cliche-02",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Не раздражают ли аудиторию шаблонные ИИ-посты",
+      "summary": "Аудитория устает от одинаковых оборотов, а визуал с артефактами портит доверие.",
+      "questions": [
+        "Не раздражают ли аудиторию шаблонные ИИ-посты"
+      ],
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "Аудитория устаёт от однообразных конструкций вроде «Мы рады представить» или «Это изменит вашу жизнь»",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        },
+        {
+          "text": "Визуальный ИИ-контент часто содержит артефакты: странные тени, нелогичные отражения, неестественные текстуры",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-biz360-marketing"
+      ]
+    },
+    {
+      "id": "q-marketing-measure-03",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как понять, какой из нагенерированного контента сработал",
+      "summary": "Генерировать стало дешево, вся стоимость ушла в разбор, что из контента дало результат.",
+      "questions": [
+        "Как понять, какой из нагенерированного контента сработал"
+      ],
+      "related": [
+        "svc-analytics"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "Нагенерить контента теперь легко. Разобраться, что из него сработало - отдельная работа",
+          "who": "Всеволод Устинов (канал)",
+          "where": "Telegram",
+          "url": "https://t.me/vsevolodustinovchannel/3139",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-ustinov"
+      ]
+    },
+    {
+      "id": "q-marketing-cards-04",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Не режет ли ИИ-описание конверсию карточек товаров",
+      "summary": "Вендор CRO-сервиса предупреждает: ИИ-карточки шаблонные и могут снижать конверсию и лояльность.",
+      "questions": [
+        "Не режет ли ИИ-описание конверсию карточек товаров"
+      ],
+      "related": [
+        "ind-ecom",
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "Контент, созданный ИИ, часто шаблонный и может снизить привлекательность карточек и конверсию.",
+          "who": "Yagla",
+          "where": "Yagla",
+          "url": "https://yagla.ru/blog/drugoe-o-marketinge/ai-kontent-dlya-kartochek-tovarov-gde-avtomatizaciya-pomogaet-a-gde-vredit--2510u114964/",
+          "date": "2025-10"
+        },
+        {
+          "text": "Покупатели воспринимают такой контент как безликий, неуникальный, что мешает формировать лояльность.",
+          "who": "Yagla",
+          "where": "Yagla",
+          "url": "https://yagla.ru/blog/drugoe-o-marketinge/ai-kontent-dlya-kartochek-tovarov-gde-avtomatizaciya-pomogaet-a-gde-vredit--2510u114964/",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-yagla-kartochki"
+      ]
+    },
+    {
+      "id": "q-marketing-price-05",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит ИИ-автоматизация маркетинга под ключ",
+      "summary": "Сайты студий называют вилку 100-500 тыс руб на 2-6 недель за генерацию контента и анализ рекламы.",
+      "questions": [
+        "Сколько стоит ИИ-автоматизация маркетинга под ключ"
+      ],
+      "numbers": [
+        {
+          "label": "ИИ для маркетинга",
+          "value": "100 000 - 500 000",
+          "unit": "руб",
+          "evidence": "ev-kaizenteam-cost"
+        }
+      ],
+      "priceRu": "100 000 - 500 000 ₽",
+      "time": "2-6 недель",
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "На итоговый бюджет влияют: сложность задачи; количество пользователей; качество данных",
+          "who": "KaizenTeam",
+          "where": "KaizenTeam",
+          "url": "https://kaizenteam.xyz/blog/skolko-stoit-vnedrenie-iskusstvennogo-intellekta-dlya-biznesa-v-2026-godu",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-kaizenteam-cost"
+      ]
+    },
+    {
+      "id": "q-marketing-geo-06",
+      "parent": "q-marketing",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как попасть в ответы нейросетей, а не только в выдачу поиска",
+      "summary": "Рынок GEO-агентств растет: в поиске выходят рейтинги агентств для продвижения в ИИ (по сниппету поиска, страницы не открывал).",
+      "questions": [
+        "Как попасть в ответы нейросетей, а не только в выдачу поиска"
+      ],
+      "risk": "Узел по сниппету поиска: рейтинг агентств для продвижения в ИИ на sostav.ru, текст страницы не читал.",
+      "related": [
+        "adj-ai-geo",
+        "ch-geo"
+      ],
+      "tags": [
+        "ru",
+        "marketing",
+        "geo"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-sostav-geo-rating"
+      ]
+    },
+    {
+      "id": "q-sales-effect-01",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько продаж добавляет ИИ-разбор звонков и как быстро",
+      "summary": "В кейсе школы дизайна конверсия выросла с 13% до 22% за два месяца; кейс вендора, один клиент.",
+      "questions": [
+        "Сколько продаж добавляет ИИ-разбор звонков и как быстро"
+      ],
+      "numbers": [
+        {
+          "label": "конверсия в продажу после ИИ-РОПа",
+          "value": "22",
+          "unit": "%",
+          "evidence": "ev-vc-ai-rop-shkola"
+        }
+      ],
+      "risk": "Единичный кейс вендора.",
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "Рост конверсии в продажу: с 13% до 22%. Это дополнительные 3+ млн рублей выручки в месяц.",
+          "who": "Антон Хаустов",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai-rop-shkola"
+      ]
+    },
+    {
+      "id": "q-sales-polite-02",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Правда ли, что вежливость менеджеров роняет конверсию",
+      "summary": "ИИ-анализ звонков в школе дизайна показал: менеджеры с частыми извинениями продавали на 40% хуже.",
+      "questions": [
+        "Правда ли, что вежливость менеджеров роняет конверсию"
+      ],
+      "numbers": [
+        {
+          "label": "разница конверсии менеджеров с извинениями",
+          "value": "-40",
+          "unit": "%",
+          "evidence": "ev-vc-ai-rop-shkola"
+        }
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "Менеджеры, которые часто используют фразы «Извините за беспокойство», имеют конверсию на 40% ниже.",
+          "who": "Антон Хаустов",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai-rop-shkola"
+      ]
+    },
+    {
+      "id": "q-sales-think-03",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что на самом деле стоит за ответом клиента «я подумаю»",
+      "summary": "Разбор звонков показал, что в 60% случаев за «я подумаю» были возражения, которые менеджер проигнорировал.",
+      "questions": [
+        "Что на самом деле стоит за ответом клиента «я подумаю»"
+      ],
+      "numbers": [
+        {
+          "label": "«я подумаю» с возражением",
+          "value": "60",
+          "unit": "%",
+          "evidence": "ev-vc-ai-rop-shkola"
+        }
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "В 60% случаев за фразой «Я подумаю» скрывались конкретные возражения, которые менеджер проигнорировал.",
+          "who": "Антон Хаустов",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai-rop-shkola"
+      ]
+    },
+    {
+      "id": "q-sales-time-04",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько времени РОП освобождает, если звонки слушает ИИ",
+      "summary": "РОП Аспро.Cloud говорит, что освободилось больше половины рабочего времени, раньше такой контроль был возможен только через аутсорс.",
+      "questions": [
+        "Сколько времени РОП освобождает, если звонки слушает ИИ"
+      ],
+      "numbers": [
+        {
+          "label": "освободилось времени РОПа",
+          "value": "50+",
+          "unit": "%",
+          "evidence": "ev-aspro-ai-rop"
+        }
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "У меня же стало заметно больше времени на другие задачи. По ощущениям освободилось больше 50% рабочего времени.",
+          "who": "Алина Шкурко, РОП",
+          "where": "Аспро.Cloud",
+          "url": "https://aspro.cloud/blog/kontrol-otdela-prodazh-cherez-ii-agenta/",
+          "date": "2025-11"
+        },
+        {
+          "text": "Раньше такого результата можно было добиться только если нанимать аутсорсинговую компанию.",
+          "who": "Алина Шкурко, РОП",
+          "where": "Аспро.Cloud",
+          "url": "https://aspro.cloud/blog/kontrol-otdela-prodazh-cherez-ii-agenta/",
+          "date": "2025-11"
+        }
+      ],
+      "evidence": [
+        "ev-aspro-ai-rop"
+      ]
+    },
+    {
+      "id": "q-sales-top-05",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что делать, если весь план держат 20% менеджеров",
+      "summary": "Вендор ИИ-контроля называет зависимость от топ-менеджеров главным риском отдела и продает ИИ как перенос практик.",
+      "questions": [
+        "Что делать, если весь план держат 20% менеджеров"
+      ],
+      "risk": "Цифра из маркетинговой страницы вендора, не проверена.",
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "80% плана держит 20% менеджеров. Уход одного топ-менеджера - минус 30-40% выручки",
+          "who": "SalesAI",
+          "where": "SalesAI",
+          "url": "https://salesai.ru/rop/",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-salesai-rop"
+      ]
+    },
+    {
+      "id": "q-sales-speed-06",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "За сколько минут надо перезвонить лиду",
+      "summary": "Практики лидгена советуют звонить в течение 30 минут, а лучше за 5; по их наблюдениям лиды часто остаются без ответа.",
+      "questions": [
+        "За сколько минут надо перезвонить лиду"
+      ],
+      "related": [
+        "adj-ai-sales",
+        "svc-voice"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "позвонить ему на телефон в течении 30 минут (лучше - 5)",
+          "who": "Андрей Шишкин (канал)",
+          "where": "Telegram",
+          "url": "https://t.me/andrew_shishkin/575",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-shishkin"
+      ]
+    },
+    {
+      "id": "q-sales-calls-07",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как застройщику обработать тысячи первичных звонков",
+      "summary": "Разбор звонков вручную дорог, ИИ-речевая аналитика заменяет прослушку выборки.",
+      "questions": [
+        "Как застройщику обработать тысячи первичных звонков"
+      ],
+      "related": [
+        "ind-construction",
+        "svc-voice"
+      ],
+      "tags": [
+        "ru",
+        "sales",
+        "construction"
+      ],
+      "quotes": [
+        {
+          "text": "слушать тысячи таких первичных звонков вручную - долго и дорого",
+          "who": "KTS",
+          "where": "KTS",
+          "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+          "date": "дата не указана"
+        },
+        {
+          "text": "застройщик теряет теплые лиды",
+          "who": "KTS",
+          "where": "KTS",
+          "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-kts-realestate"
+      ]
+    },
+    {
+      "id": "q-sales-leadcost-08",
+      "parent": "q-sales",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько сейчас стоит найти ЛПР и не потратить лишнее",
+      "summary": "Автоматизация обогащения лидов сдвигает цену: канал называет $0,25 за ЛПР с почтой, дороже клиентам уже не кажется вау.",
+      "questions": [
+        "Сколько сейчас стоит найти ЛПР и не потратить лишнее"
+      ],
+      "risk": "Цены из поста канала, без проверки.",
+      "related": [
+        "ch-outbound"
+      ],
+      "tags": [
+        "ru",
+        "sales"
+      ],
+      "quotes": [
+        {
+          "text": "$0.25 за ЛПР с любой почтой",
+          "who": "Андрей Шишкин (канал)",
+          "where": "Telegram",
+          "url": "https://t.me/andrew_shishkin/556",
+          "date": "дата не указана"
+        },
+        {
+          "text": "30-60 центов клиентам уже не так вау",
+          "who": "Андрей Шишкин (канал)",
+          "where": "Telegram",
+          "url": "https://t.me/andrew_shishkin/552",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-shishkin"
+      ]
+    },
+    {
+      "id": "q-hr-reject-01",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Режет ли ИИ-фильтр сильных кандидатов",
+      "summary": "Вендор подбора пишет, что ИИ-фильтры отклоняют больше 10% сильных кандидатов, и просит пересматривать настройки.",
+      "questions": [
+        "Режет ли ИИ-фильтр сильных кандидатов"
+      ],
+      "numbers": [
+        {
+          "label": "сильных кандидатов отклоняют ИИ-фильтры",
+          "value": "10+",
+          "unit": "%",
+          "evidence": "ev-nanohire-hr"
+        }
+      ],
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ-фильтры отклоняют более 10 процентов сильных кандидатов, требуя пересмотра настроек алгоритмов.",
+          "who": "NanoHire",
+          "where": "NanoHire",
+          "url": "https://nanohire.ru/blog/kak-kandidaty-obkhodyat-ai-filtry-v-2026-chto-delat-hr",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-nanohire-hr"
+      ]
+    },
+    {
+      "id": "q-hr-gaming-02",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как кандидаты обходят ИИ-скрининг и что с этим делать",
+      "summary": "До 40% откликов может быть манипуляцией ключевыми словами, поэтому HR вынужден менять правила отбора.",
+      "questions": [
+        "Как кандидаты обходят ИИ-скрининг и что с этим делать"
+      ],
+      "numbers": [
+        {
+          "label": "откликов с манипуляцией ключевыми словами",
+          "value": "до 40",
+          "unit": "%",
+          "evidence": "ev-nanohire-hr"
+        }
+      ],
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "До 40 процентов откликов могут быть результатом манипуляции с ключевыми словами в резюме кандидата.",
+          "who": "NanoHire",
+          "where": "NanoHire",
+          "url": "https://nanohire.ru/blog/kak-kandidaty-obkhodyat-ai-filtry-v-2026-chto-delat-hr",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-nanohire-hr"
+      ]
+    },
+    {
+      "id": "q-hr-respect-03",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как кандидаты реагируют, когда с ними общается ИИ",
+      "summary": "По опросу в статье Потока 38% считают общение с ИИ признаком неуважения, 28% не понимают, как ИИ принимает решения.",
+      "questions": [
+        "Как кандидаты реагируют, когда с ними общается ИИ"
+      ],
+      "numbers": [
+        {
+          "label": "считают общение с ИИ неуважением",
+          "value": "38",
+          "unit": "%",
+          "evidence": "ev-potok-hr"
+        }
+      ],
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "38% респондентов считают общение с ИИ признаком неуважения к кандидату",
+          "who": "Поток",
+          "where": "Поток",
+          "url": "https://potok.io/blog/hr-trends/ii-v-hr-kak-soiskateli-reagiruyut-na-nejroseti/",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-potok-hr"
+      ]
+    },
+    {
+      "id": "q-hr-time-04",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько времени экономит ИИ на разборе откликов",
+      "summary": "Раньше на разбор 1500-2000 откликов уходило несколько дней; по исследованию из статьи ИИ сокращает затраты времени на скрининг на 73%.",
+      "questions": [
+        "Сколько времени экономит ИИ на разборе откликов"
+      ],
+      "numbers": [
+        {
+          "label": "снижение времени скрининга резюме",
+          "value": "73",
+          "unit": "%",
+          "evidence": "ev-unisender-hr"
+        }
+      ],
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "На разбор 1500-2000 откликов уходило несколько дней",
+          "who": "Максим Оганов, Oganov.Digital",
+          "where": "Unisender",
+          "url": "https://www.unisender.com/ru/blog/ii-v-najme-avtootkliki-protiv-avtootkazov/",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-unisender-hr"
+      ]
+    },
+    {
+      "id": "q-hr-soft-05",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Может ли ИИ оценить мягкие навыки кандидата",
+      "summary": "Нет: авторы подчеркивают, что эмоциональный интеллект и креативность ИИ не оценивает.",
+      "questions": [
+        "Может ли ИИ оценить мягкие навыки кандидата"
+      ],
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ не способен оценивать мягкие навыки, такие как эмоциональный интеллект, креативность",
+          "who": "Поток",
+          "where": "Поток",
+          "url": "https://potok.io/blog/hr-trends/ii-v-hr-kak-soiskateli-reagiruyut-na-nejroseti/",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-potok-hr"
+      ]
+    },
+    {
+      "id": "q-hr-bias-06",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Не усилит ли ИИ предвзятость при найме",
+      "summary": "Риск предвзятости по полу, возрасту и вузу остается юридическим вопросом для HR.",
+      "questions": [
+        "Не усилит ли ИИ предвзятость при найме"
+      ],
+      "related": [
+        "adj-ai-recruiting",
+        "q-legal"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ может воспроизводить и усиливать предвзятость по признакам пола, возраста, университета",
+          "who": "Поток",
+          "where": "Поток",
+          "url": "https://potok.io/blog/hr-trends/ii-v-hr-kak-soiskateli-reagiruyut-na-nejroseti/",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-potok-hr"
+      ]
+    },
+    {
+      "id": "q-hr-salary-07",
+      "parent": "q-hr",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько платить AI-инженеру и почему их не найти",
+      "summary": "Вилки по ролям: промпт-инженер 80-400 тыс, ML-инженер 150-600 тыс; кандидатов в 3-4 раза меньше вакансий (оценка агрегатора).",
+      "questions": [
+        "Сколько платить AI-инженеру и почему их не найти"
+      ],
+      "numbers": [
+        {
+          "label": "ML Engineer middle",
+          "value": "250 000 - 400 000",
+          "unit": "руб/мес",
+          "evidence": "ev-aibotmanager-salary"
+        }
+      ],
+      "risk": "Оценка блога-агрегатора, методика размыта.",
+      "related": [
+        "adj-ai-recruiting"
+      ],
+      "tags": [
+        "ru",
+        "hr"
+      ],
+      "quotes": [
+        {
+          "text": "Количество открытых вакансий превышает количество квалифицированных кандидатов в 3-4 раза. Рынок продавца, а не работодателя.",
+          "who": "AIBotManager",
+          "where": "AIBotManager",
+          "url": "https://aibotmanager.ru/zarplaty-ii-specialistov/",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-aibotmanager-salary"
+      ]
+    },
+    {
+      "id": "q-finance-roi-01",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как посчитать ROI ИИ-проекта и не нарисовать его",
+      "summary": "Автор считает, что на слайдах окупаемость завышена в разы: нет TCO и поправки на риск.",
+      "questions": [
+        "Как посчитать ROI ИИ-проекта и не нарисовать его"
+      ],
+      "numbers": [
+        {
+          "label": "типичный time-to-value",
+          "value": "9-18",
+          "unit": "мес",
+          "evidence": "ev-habr-roi-otus"
+        }
+      ],
+      "related": [
+        "fail-acceptance",
+        "fail-cost"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "только около 5% компаний достигли измеримой ценности от AI в масштабе всей организации",
+          "who": "badcasedaily1, OTUS",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/otus/articles/1029724/",
+          "date": "2025-05"
+        },
+        {
+          "text": "ROI 340% в презентации часто превращается в ROI 40% в реальности",
+          "who": "badcasedaily1, OTUS",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/otus/articles/1029724/",
+          "date": "2025-05"
+        }
+      ],
+      "evidence": [
+        "ev-habr-roi-otus"
+      ]
+    },
+    {
+      "id": "q-finance-payback-02",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "За сколько месяцев ИИ-агент реально окупается",
+      "summary": "Интеграторы называют 3-6 месяцев при правильно выбранном процессе, аналитики OTUS называют 9-18 месяцев с учетом TCO.",
+      "questions": [
+        "За сколько месяцев ИИ-агент реально окупается"
+      ],
+      "numbers": [
+        {
+          "label": "окупаемость по оценке интегратора",
+          "value": "3-6",
+          "unit": "мес",
+          "evidence": "ev-habr-stoimost-2026"
+        }
+      ],
+      "risk": "Оценки продавцов против оценки аналитика расходятся втрое.",
+      "related": [
+        "fail-acceptance"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "Срок окупаемости обычно выходит на 3-6 месяцев при правильно выбранном процессе",
+          "who": "Антон Карцев",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1067438/",
+          "date": "2026-08"
+        }
+      ],
+      "evidence": [
+        "ev-habr-stoimost-2026",
+        "ev-habr-roi-otus"
+      ]
+    },
+    {
+      "id": "q-finance-tokens-03",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему бюджет на ИИ-инструменты улетает за квартал",
+      "summary": "Пример Uber: тяжелые пользователи тратили 500-2000 долл в месяц каждый и бюджет года закончился к апрелю.",
+      "questions": [
+        "Почему бюджет на ИИ-инструменты улетает за квартал"
+      ],
+      "related": [
+        "fail-cost"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "Тяжёлые пользователи жгли от $500 до $2000 в месяц каждый",
+          "who": "Иван из Дубая (об Uber)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2947694-ekonomika-ii-gde-dengi-i-kak-schitat-effektivnost",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ii-dengi-gde"
+      ]
+    },
+    {
+      "id": "q-finance-staff-04",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько реально стоит сотрудник, которого собираются заменить ботом",
+      "summary": "Сотрудник с окладом 40 тыс стоит работодателю 55-60 тыс; на этом сравнении строят окупаемость малого бизнеса.",
+      "questions": [
+        "Сколько реально стоит сотрудник, которого собираются заменить ботом"
+      ],
+      "numbers": [
+        {
+          "label": "полная стоимость сотрудника с окладом 40 000",
+          "value": "55 000 - 60 000",
+          "unit": "руб",
+          "evidence": "ev-habr-studyai-small"
+        }
+      ],
+      "related": [
+        "seg-smb"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "реальная стоимость сотрудника с окладом 40 000 рублей обходится работодателю в 55 000-60 000 рублей",
+          "who": "TehnoBlog (StudyAI)",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/companies/studyai/articles/1021040/",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-habr-studyai-small"
+      ]
+    },
+    {
+      "id": "q-finance-support-05",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Окупается ли ИИ в поддержке на примере больших компаний",
+      "summary": "Статья на vc.ru приводит цифру Klarna: ИИ-ассистент выполнял объем 853 операторов, но CEO признавал, что ставка на стоимость снизила качество.",
+      "questions": [
+        "Окупается ли ИИ в поддержке на примере больших компаний"
+      ],
+      "related": [
+        "adj-ai-support"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ-ассистент выполнял объём работы 853 операторов, ~60 млн долларов экономии",
+          "who": "Klarna (цитата в статье vc.ru)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/money/3022664-ii-dlya-biznesa-gde-prinosit-pribyl",
+          "date": "2026-06"
+        },
+        {
+          "text": "Стоимость оказалась доминирующим фактором - получаешь более низкое качество",
+          "who": "Sebastian Siemiatkowski, CEO Klarna (цитата в статье vc.ru)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/money/3022664-ii-dlya-biznesa-gde-prinosit-pribyl",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-money-ii-pribyl"
+      ]
+    },
+    {
+      "id": "q-finance-russian-06",
+      "parent": "q-finance",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что показывают российские опросы про экономию времени",
+      "summary": "По опросу Контур.Толк из статьи 43% сократили время на рутину на 10-30%, еще 13% - более чем на 30%.",
+      "questions": [
+        "Что показывают российские опросы про экономию времени"
+      ],
+      "numbers": [
+        {
+          "label": "сократили рутину на 10-30%",
+          "value": "43",
+          "unit": "%",
+          "evidence": "ev-vc-money-ii-pribyl"
+        }
+      ],
+      "related": [
+        "seg-smb"
+      ],
+      "tags": [
+        "ru",
+        "finance"
+      ],
+      "quotes": [
+        {
+          "text": "43% сократили время на рутину на 10-30%, ещё 13% - более 30%",
+          "who": "Контур.Толк (цитата в статье vc.ru)",
+          "where": "vc.ru",
+          "url": "https://vc.ru/money/3022664-ii-dlya-biznesa-gde-prinosit-pribyl",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-money-ii-pribyl"
+      ]
+    },
+    {
+      "id": "q-legal-liab-01",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Кто отвечает за ошибку ИИ: компания или разработчик",
+      "summary": "Юристы сходятся: риск несет оператор, использующий нейросеть; разработчик отвечает при заложенном противоправном поведении.",
+      "questions": [
+        "Кто отвечает за ошибку ИИ: компания или разработчик"
+      ],
+      "related": [
+        "adj-legal-ai",
+        "fail-security"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "При внедрении ИИ практически весь риск принимает на себя оператор - гражданин или юрлицо, эксплуатирующие нейросеть.",
+          "who": "Юрий Брисов, Digital & Analogue Partners",
+          "where": "Право.ру",
+          "url": "https://pravo.ru/story/263324/",
+          "date": "дата не указана"
+        },
+        {
+          "text": "Использование ИИ не снижает стандартов профессиональной ответственности специалистов и операторов.",
+          "who": "Дарья Петрухина, IPN Partners",
+          "where": "Право.ру",
+          "url": "https://pravo.ru/story/263324/",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-pravo-otvetstvennost"
+      ]
+    },
+    {
+      "id": "q-legal-152-02",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли вставлять договор с ФИО в ChatGPT по 152-ФЗ",
+      "summary": "Разбор на Хабре: это трансграничная передача персональных данных; с 2025 по август 2026 было 52 расследования и штрафов на 2,6 млн руб.",
+      "questions": [
+        "Можно ли вставлять договор с ФИО в ChatGPT по 152-ФЗ"
+      ],
+      "numbers": [
+        {
+          "label": "штрафы за период 01.2025 - 08.2026",
+          "value": "2,6",
+          "unit": "млн руб",
+          "evidence": "ev-habr-152fz"
+        },
+        {
+          "label": "расследований",
+          "value": "52",
+          "unit": "шт",
+          "evidence": "ev-habr-152fz"
+        }
+      ],
+      "related": [
+        "adj-dlp",
+        "fail-security"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "52 расследования, 40 протоколов и штрафов на 2,6 млн рублей суммарно",
+          "who": "Chronitel",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1082750/",
+          "date": "2026-09"
+        },
+        {
+          "text": "ч. 1 - обработка без основания или не в тех целях: Юрлицу 150-300 тыс.",
+          "who": "Chronitel",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1082750/",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-habr-152fz"
+      ]
+    },
+    {
+      "id": "q-legal-nda-03",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нарушает ли NDA загрузка клиентского документа в публичную модель",
+      "summary": "Юрист СберБизнес Live называет это потенциальным нарушением NDA и требует внутренней политики.",
+      "questions": [
+        "Нарушает ли NDA загрузка клиентского документа в публичную модель"
+      ],
+      "related": [
+        "adj-dlp"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Загрузить клиентский документ в публичную модель - это потенциальное нарушение NDA",
+          "who": "Софья Смирнова",
+          "where": "СберБизнес Live",
+          "url": "https://sberbusiness.live/publications/ii-napisal-dokument-za-chas-i-eto-chut-ne-stoilo-kompanii-300-tisyach-rublei",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-sber-ii-legal"
+      ]
+    },
+    {
+      "id": "q-legal-weights-04",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Кому принадлежат веса модели и результат обучения",
+      "summary": "Юристы предупреждают: заказчик платит за вычисления, но весами по умолчанию не владеет, это надо прописывать.",
+      "questions": [
+        "Кому принадлежат веса модели и результат обучения"
+      ],
+      "priceRu": "от 3 500 ₽ юридическая поддержка договора",
+      "related": [
+        "fail-lockin",
+        "adj-legal-ai"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Заказчик оплачивает вычисления и работу инженеров, но юридически не владеет результатом обучения, то есть весами нейросети.",
+          "who": "VFS Consulting",
+          "where": "VFS Consulting",
+          "url": "https://vfs.consulting/ai/dogovor-na-razrabotku-nejroseti/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vfs-dogovor"
+      ]
+    },
+    {
+      "id": "q-legal-sla-05",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как прописать приемку и SLA в договоре на ИИ",
+      "summary": "Формулировки вроде «точно распознавать» юридически пустые, нужны числовые метрики.",
+      "questions": [
+        "Как прописать приемку и SLA в договоре на ИИ"
+      ],
+      "related": [
+        "fail-acceptance"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Простая фраза «система должна точно распознавать образы» не имеет юридической силы при спорах.",
+          "who": "VFS Consulting",
+          "where": "VFS Consulting",
+          "url": "https://vfs.consulting/ai/dogovor-na-razrabotku-nejroseti/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vfs-dogovor"
+      ]
+    },
+    {
+      "id": "q-legal-data-06",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какие риски, если обучить модель на чужом контенте",
+      "summary": "Риск исков правообладателей лежит на разработчике и на заказчике, нужна гарантия законности датасета.",
+      "questions": [
+        "Какие риски, если обучить модель на чужом контенте"
+      ],
+      "related": [
+        "adj-labeling"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Обучение нейросети на чужом контенте несет риски исков от правообладателей.",
+          "who": "VFS Consulting",
+          "where": "VFS Consulting",
+          "url": "https://vfs.consulting/ai/dogovor-na-razrabotku-nejroseti/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vfs-dogovor"
+      ]
+    },
+    {
+      "id": "q-legal-draft-07",
+      "parent": "q-legal",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли доверять ИИ-черновику договора",
+      "summary": "Юристы называют готовые ИИ-инструменты переоцененными для проверки договоров и просят держать человека в контуре.",
+      "questions": [
+        "Можно ли доверять ИИ-черновику договора"
+      ],
+      "related": [
+        "fail-hallucination",
+        "adj-legal-ai"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ уверенно выдает правдоподобный, но неверный текст. В юридическом контексте это угроза.",
+          "who": "Софья Смирнова",
+          "where": "СберБизнес Live",
+          "url": "https://sberbusiness.live/publications/ii-napisal-dokument-za-chas-i-eto-chut-ne-stoilo-kompanii-300-tisyach-rublei",
+          "date": "2026-05"
+        },
+        {
+          "text": "Компании часто переоценивают возможности готовых ИИ-инструментов при проверке договоров.",
+          "who": "Дарья Торопова, Doczilla",
+          "where": "Право.ру",
+          "url": "https://pravo.ru/story/265994/",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-sber-ii-legal",
+        "ev-pravo-vtoroy-pilot"
+      ]
+    },
+    {
+      "id": "q-ops-platform-01",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Чем заменить n8n и Zapier в России и сколько это стоит команде",
+      "summary": "Эксперт обзора отмечает, что для малого бизнеса платформа автоматизации означает двойные расходы: платформа и люди, которые ее настраивают.",
+      "questions": [
+        "Чем заменить n8n и Zapier в России и сколько это стоит команде"
+      ],
+      "related": [
+        "sup-nocode",
+        "adj-1c-bitrix"
+      ],
+      "tags": [
+        "ru",
+        "ops"
+      ],
+      "quotes": [
+        {
+          "text": "Для SMB это двойные расходы: платформа + люди, которые её будут крутить",
+          "who": "Дмитрий Худогоб",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2873629-top-kompaniy-po-ii-avtomatizatsii-v-rossii",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-vc-top-ai-avtomatizatsii"
+      ]
+    },
+    {
+      "id": "q-ops-rpa-02",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько живет проект RPA и когда окупается",
+      "summary": "Интегратор называет окупаемость 4-8 месяцев в среднем по своим проектам, диапазон стоимости от 150 тыс до нескольких миллионов.",
+      "questions": [
+        "Сколько живет проект RPA и когда окупается"
+      ],
+      "numbers": [
+        {
+          "label": "окупаемость RPA по проектам интегратора",
+          "value": "4-8",
+          "unit": "мес",
+          "evidence": "ev-titanium-rpa"
+        }
+      ],
+      "related": [
+        "svc-ops"
+      ],
+      "tags": [
+        "ru",
+        "ops"
+      ],
+      "quotes": [
+        {
+          "text": "Среднее значение по нашим проектам: 4-8 месяцев до полной окупаемости.",
+          "who": "Titanium Robotics",
+          "where": "Titanium Robotics",
+          "url": "https://titaniumrobotics.ru/blog/skolko-stoit-vnedrenie-rpa/",
+          "date": "2025-05"
+        }
+      ],
+      "evidence": [
+        "ev-titanium-rpa"
+      ]
+    },
+    {
+      "id": "q-ops-dispatch-03",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько часов в сутки диспетчеры тратят на звонки водителям",
+      "summary": "Кейс Kinetics: 700 машин и два звонка по 3 минуты дают 70 рабочих часов в день.",
+      "questions": [
+        "Сколько часов в сутки диспетчеры тратят на звонки водителям"
+      ],
+      "numbers": [
+        {
+          "label": "часов звонков в сутки на парк 700 машин",
+          "value": "70",
+          "unit": "ч",
+          "evidence": "ev-dispatch42"
+        }
+      ],
+      "related": [
+        "ind-logistics",
+        "svc-voice"
+      ],
+      "tags": [
+        "ru",
+        "ops",
+        "logistics"
+      ],
+      "quotes": [
+        {
+          "text": "700 машин, 2 звонка по 3 минуты в день - это 70 рабочих часов ежедневно",
+          "who": "Dispatch42 School",
+          "where": "Dispatch42",
+          "url": "https://dispatch42.school/blog/ai-in-trucking",
+          "date": "2025"
+        }
+      ],
+      "evidence": [
+        "ev-dispatch42"
+      ]
+    },
+    {
+      "id": "q-ops-edge-04",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Где ИИ ломается на нестандартной ситуации",
+      "summary": "ИИ справляется на предсказуемых маршрутах, но не понимает контекста и не импровизирует.",
+      "questions": [
+        "Где ИИ ломается на нестандартной ситуации"
+      ],
+      "related": [
+        "ind-logistics",
+        "fail-hallucination"
+      ],
+      "tags": [
+        "ru",
+        "ops"
+      ],
+      "quotes": [
+        {
+          "text": "Если всё чётко и прогнозируемо - ИИ справляется, но так бывает крайне редко",
+          "who": "Dispatch42 School",
+          "where": "Dispatch42",
+          "url": "https://dispatch42.school/blog/ai-in-trucking",
+          "date": "2025"
+        },
+        {
+          "text": "Он не понимает контекста, не умеет импровизировать, у него нет интуиции",
+          "who": "Dispatch42 School",
+          "where": "Dispatch42",
+          "url": "https://dispatch42.school/blog/ai-in-trucking",
+          "date": "2025"
+        }
+      ],
+      "evidence": [
+        "ev-dispatch42"
+      ]
+    },
+    {
+      "id": "q-ops-handover-05",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Когда бот должен передавать диалог человеку",
+      "summary": "Топ-20 запросов покрывают 80% обращений, но без четких правил передачи бот усиливает хаос.",
+      "questions": [
+        "Когда бот должен передавать диалог человеку"
+      ],
+      "numbers": [
+        {
+          "label": "обращений покрывают топ-20 запросов",
+          "value": "80",
+          "unit": "%",
+          "evidence": "ev-vc-chatboty-ne-rabotayut"
+        }
+      ],
+      "related": [
+        "adj-ai-support"
+      ],
+      "tags": [
+        "ru",
+        "ops"
+      ],
+      "quotes": [
+        {
+          "text": "Не прописано четко: КОГДА и КУДА передавать проблему",
+          "who": "vc.ru, раздел AI",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2267582-pochemu-chat-boty-ne-rabotayut",
+          "date": "2025-10"
+        },
+        {
+          "text": "Если процессы кривые, он усилит хаос. Если отлажены - принесет результат",
+          "who": "vc.ru, раздел AI",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2267582-pochemu-chat-boty-ne-rabotayut",
+          "date": "2025-10"
+        },
+        {
+          "text": "Если чат-бот не решает вопросы - это бесполезный кусок кода. Причин тому может быть множество",
+          "who": "1PS",
+          "where": "1PS",
+          "url": "https://1ps.ru/blog/ctr/2021/pochemu-chat-botyi-ne-rabotayut-razbor-strukturnyix-i-texnicheskix-oshibok-botov/",
+          "date": "2021-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-chatboty-ne-rabotayut",
+        "ev-1ps-chatboty"
+      ]
+    },
+    {
+      "id": "q-ops-kostyl-06",
+      "parent": "q-ops",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как сделать ИИ частью процесса, а не костылем отдельных людей",
+      "summary": "Типичная картина: отдельные сотрудники используют GPT, но практика не оформлена в процессе.",
+      "questions": [
+        "Как сделать ИИ частью процесса, а не костылем отдельных людей"
+      ],
+      "related": [
+        "fail-adoption",
+        "svc-training"
+      ],
+      "tags": [
+        "ru",
+        "ops"
+      ],
+      "quotes": [
+        {
+          "text": "Практика использования ИИ ограничивается «костылем» где отдельные специалисты используют gpt",
+          "who": "Бинарный",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2161657-biznes-i-ii-realnosti-vnedreniya-tekhnologiy-v-kompanii",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-vc-biznes-ii-razocharovanie"
+      ]
+    },
+    {
+      "id": "q-person-assist-01",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли заменить помощника нейросетью за копейки",
+      "summary": "Канал оценивает автоматизацию комментариев на ChatGPT API в 1000-1500 руб в месяц (заявление автора поста).",
+      "questions": [
+        "Можно ли заменить помощника нейросетью за копейки"
+      ],
+      "risk": "Заявление автора поста без проверки.",
+      "related": [
+        "seg-person",
+        "svc-assistant"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "В среднем - 1000-1500₽/мес за полную автоматизацию",
+          "who": "канал «Ум + AI = Доход»",
+          "where": "Telegram",
+          "url": "https://t.me/um_ai_dohod/584",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-um-ai-dohod"
+      ]
+    },
+    {
+      "id": "q-person-income-02",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько самозанятому можно заработать на ИИ-услугах",
+      "summary": "В каналах описывают заработок 40 тыс руб в месяц на слайд-шоу и 50-70 тыс на ИИ-аватарах; это заявления авторов.",
+      "questions": [
+        "Сколько самозанятому можно заработать на ИИ-услугах"
+      ],
+      "risk": "Доходные кейсы из канала-инфлюенсера, без проверки.",
+      "related": [
+        "seg-person",
+        "adj-ai-video"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "5 заказов в неделю по 2000₽ = 40 000₽ в месяц",
+          "who": "канал «Ум + AI = Доход»",
+          "where": "Telegram",
+          "url": "https://t.me/um_ai_dohod/571",
+          "date": "дата не указана"
+        },
+        {
+          "text": "Начало: 20 часов в неделю, 5-7 заказов, 15 000-25 000₽. Сейчас: 10 часов, 50 000-70 000₽",
+          "who": "канал «Ум + AI = Доход»",
+          "where": "Telegram",
+          "url": "https://t.me/um_ai_dohod/578",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-um-ai-dohod"
+      ]
+    },
+    {
+      "id": "q-person-course-03",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Реально ли собрать инфопродукт с ИИ за неделю",
+      "summary": "Пост описывает нутрициолога, собравшую курс за 5 дней и продавшую 37 копий по 5000 руб.",
+      "questions": [
+        "Реально ли собрать инфопродукт с ИИ за неделю"
+      ],
+      "risk": "Заявление автора канала, без проверки.",
+      "related": [
+        "seg-person"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "Продала 37 копий по 5000₽. Доход - 185 000₽",
+          "who": "канал «Ум + AI = Доход»",
+          "where": "Telegram",
+          "url": "https://t.me/um_ai_dohod/572",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-um-ai-dohod"
+      ]
+    },
+    {
+      "id": "q-person-routine-04",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Уйдет ли рутина к ИИ и что будет с моей работой",
+      "summary": "Опасения: 29% работников в РФ боятся потерять работу; каналы бизнес-прогнозов обещают, что рутина полностью уйдет к ИИ.",
+      "questions": [
+        "Уйдет ли рутина к ИИ и что будет с моей работой"
+      ],
+      "related": [
+        "seg-person",
+        "fail-adoption"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "рутинные задачи полностью уйдут AI",
+          "who": "канал «Ум + AI = Доход»",
+          "where": "Telegram",
+          "url": "https://t.me/um_ai_dohod/581",
+          "date": "дата не указана"
+        },
+        {
+          "text": "29% работников в России реально опасаются потерять работу из-за ИИ",
+          "who": "Гурьев",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2274596-pochemu-ne-stoit-vnedryat-ii-v-biznes",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-tme-um-ai-dohod",
+        "ev-vc-guryev-2274596"
+      ]
+    },
+    {
+      "id": "q-person-data-05",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что нельзя вставлять в ChatGPT из личных данных",
+      "summary": "Договор содержит ФИО подписанта и должность, их передача считается обработкой персональных данных.",
+      "questions": [
+        "Что нельзя вставлять в ChatGPT из личных данных"
+      ],
+      "related": [
+        "adj-dlp"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "В нём есть ФИО подписанта и его должность, часто - ФИО того, кто действует по доверенности.",
+          "who": "Chronitel",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1082750/",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-habr-152fz"
+      ]
+    },
+    {
+      "id": "q-person-ai-bot-06",
+      "parent": "q-person",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Почему ИИ-боты поддержки злят клиентов",
+      "summary": "Пользователи Пикабу жалуются, что боты изображают решение вопроса и портят репутацию компании.",
+      "questions": [
+        "Почему ИИ-боты поддержки злят клиентов"
+      ],
+      "related": [
+        "adj-ai-support",
+        "fail-adoption"
+      ],
+      "tags": [
+        "ru",
+        "person"
+      ],
+      "quotes": [
+        {
+          "text": "AI/ИИ-боты лишь дают видимость решения, а на деле усугубляют проблемы",
+          "who": "Progressor.gsp",
+          "where": "Пикабу",
+          "url": "https://pikabu.ru/story/pro_iibotyi_ili_kak_ne_nado_ikh_ispolzovat_biznesu_12565711",
+          "date": "2025-04"
+        },
+        {
+          "text": "Полностью согласен, такие боты только портят репутацию компании в долгосрочной перспективе",
+          "who": "DRAGON88",
+          "where": "Пикабу",
+          "url": "https://pikabu.ru/story/pro_iibotyi_ili_kak_ne_nado_ikh_ispolzovat_biznesu_12565711",
+          "date": "2025-04"
+        }
+      ],
+      "evidence": [
+        "ev-pikabu-ii-boty"
+      ]
+    },
+    {
+      "id": "pain-med-shelf-01",
+      "parent": "ind-med",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Клиника купила ИИ, а врачи ведут бумажную тетрадь",
+      "summary": "Система простаивает, потому что врачи и администраторы работают по привычке параллельно с ней.",
+      "pains": [
+        "Клиника купила ИИ, а врачи ведут бумажную тетрадь"
+      ],
+      "related": [
+        "fail-adoption"
+      ],
+      "tags": [
+        "ru",
+        "med"
+      ],
+      "quotes": [
+        {
+          "text": "Администраторы и врачи реально ей не пользовались, а вели параллельно тетрадку как привыкли.",
+          "who": "Светлана Смахтина",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2991349-tsifrovizatsiya-meditsiny-pochemu-ii-ne-rabotayet-v-klinikakh",
+          "date": "2026-06"
+        },
+        {
+          "text": "Клиника вкладывает миллионы в цифру, в том числе в ИИ-диагностику, а система простаивает.",
+          "who": "Светлана Смахтина",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2991349-tsifrovizatsiya-meditsiny-pochemu-ii-ne-rabotayet-v-klinikakh",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-clinic-shelf"
+      ]
+    },
+    {
+      "id": "pain-med-load-02",
+      "parent": "ind-med",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Любая новая система воспринимается врачом как лишняя нагрузка",
+      "summary": "Врач не видит пользы в новом экране, пока ему не снимут часть бумажной работы.",
+      "pains": [
+        "Любая новая система воспринимается врачом как лишняя нагрузка"
+      ],
+      "related": [
+        "fail-change"
+      ],
+      "tags": [
+        "ru",
+        "med"
+      ],
+      "quotes": [
+        {
+          "text": "Любая новая система воспринимается врачом и администратором как дополнительная нагрузка.",
+          "who": "Светлана Смахтина",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2991349-tsifrovizatsiya-meditsiny-pochemu-ii-ne-rabotayet-v-klinikakh",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-clinic-shelf"
+      ]
+    },
+    {
+      "id": "pain-med-owner-03",
+      "parent": "ind-med",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Проект буксует без человека внутри клиники, который его ведет",
+      "summary": "Купленный ИИ не работает без внутреннего владельца внедрения.",
+      "pains": [
+        "Проект буксует без человека внутри клиники, который его ведет"
+      ],
+      "related": [
+        "fail-adoption",
+        "fail-change"
+      ],
+      "tags": [
+        "ru",
+        "med"
+      ],
+      "quotes": [
+        {
+          "text": "Без такого человека внутри проект буксует, кто бы вам что ни продал.",
+          "who": "Светлана Смахтина",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2991349-tsifrovizatsiya-meditsiny-pochemu-ii-ne-rabotayet-v-klinikakh",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-clinic-shelf"
+      ]
+    },
+    {
+      "id": "pain-edu-curators-01",
+      "parent": "ind-edu",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Кураторы не вывозят домашки и чаты при росте набора",
+      "summary": "Рост учеников в 2-3 раза упирается в команду кураторов, и именно туда школы хотят поставить ИИ.",
+      "pains": [
+        "Кураторы не вывозят домашки и чаты при росте набора"
+      ],
+      "related": [
+        "adj-ai-support"
+      ],
+      "tags": [
+        "ru",
+        "edu"
+      ],
+      "quotes": [
+        {
+          "text": "Ожидаете прирост учеников x2-3. А ваша команда кураторов вывезет и домашки проверять, и в чатах общаться?",
+          "who": "Ирина Перевезенцева",
+          "where": "WhiteEdTech",
+          "url": "https://blog.whiteedtech.ru/blog/pochemu-kuratory-lomayutsya/",
+          "date": "2024-01"
+        }
+      ],
+      "evidence": [
+        "ev-whiteedtech-kuratory"
+      ]
+    },
+    {
+      "id": "pain-edu-polite-02",
+      "parent": "ind-edu",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Менеджеры школы сливают продажи вежливостью",
+      "summary": "ИИ-разбор звонков школы дизайна нашел, что вежливые формулы связаны с падением конверсии на 40%.",
+      "pains": [
+        "Менеджеры школы сливают продажи вежливостью"
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "edu"
+      ],
+      "quotes": [
+        {
+          "text": "Менеджеры, которые часто используют фразы «Извините за беспокойство», имеют конверсию на 40% ниже.",
+          "who": "Антон Хаустов",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai-rop-shkola"
+      ]
+    },
+    {
+      "id": "pain-edu-hidden-03",
+      "parent": "ind-edu",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "В звонках теряются возражения за фразой «я подумаю»",
+      "summary": "Скрытые возражения не доходят до скрипта, школа не понимает причин отказов.",
+      "pains": [
+        "В звонках теряются возражения за фразой «я подумаю»"
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "edu"
+      ],
+      "quotes": [
+        {
+          "text": "В 60% случаев за фразой «Я подумаю» скрывались конкретные возражения, которые менеджер проигнорировал.",
+          "who": "Антон Хаустов",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-ai-rop-shkola"
+      ]
+    },
+    {
+      "id": "pain-ecom-descr-01",
+      "parent": "ind-ecom",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Сотни описаний карточек, всеми каналами не управиться",
+      "summary": "Продавцу нужно писать сотни описаний и отвечать на отзывы по нескольким каналам; ChatGPT-бот снимает это за минуты.",
+      "pains": [
+        "Сотни описаний карточек, всеми каналами не управиться"
+      ],
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "сложно успевать управлять всеми каналами продаж, составлять сотни описаний для карточек товаров",
+          "who": "Константин Канивец, CEO Точка Маркетплейсы",
+          "where": "vc.ru",
+          "url": "https://vc.ru/marketplace/765288-kak-ii-pomogaet-v-e-commerce-opyt-servisa-tochka-marketpleisy",
+          "date": "2023-07"
+        }
+      ],
+      "evidence": [
+        "ev-tochka-ecom"
+      ]
+    },
+    {
+      "id": "pain-ecom-template-02",
+      "parent": "ind-ecom",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "ИИ-карточки выходят шаблонными и роняют конверсию",
+      "summary": "Автоматизация карточек без редактуры дает безликие тексты.",
+      "pains": [
+        "ИИ-карточки выходят шаблонными и роняют конверсию"
+      ],
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "Контент, созданный ИИ, часто шаблонный и может снизить привлекательность карточек и конверсию.",
+          "who": "Yagla",
+          "where": "Yagla",
+          "url": "https://yagla.ru/blog/drugoe-o-marketinge/ai-kontent-dlya-kartochek-tovarov-gde-avtomatizaciya-pomogaet-a-gde-vredit--2510u114964/",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-yagla-kartochki"
+      ]
+    },
+    {
+      "id": "pain-ecom-marketplace-03",
+      "parent": "ind-ecom",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Площадка меняет карточки без согласия селлера",
+      "summary": "Селлеры месяцами делают визуал и SEO, а маркетплейс вмешивается без спроса.",
+      "pains": [
+        "Площадка меняет карточки без согласия селлера"
+      ],
+      "related": [
+        "ch-marketplace"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "Над визуалом и SEO-оптимизацией селлеры зачастую работают месяцами",
+          "who": "Алексей Н., Selsup",
+          "where": "Selsup",
+          "url": "https://selsup.ru/blog/yandeks-market-menyaet-kartochki-tovarov-bez-sprosa-sellery-v-shoke/",
+          "date": "2026-02"
+        }
+      ],
+      "evidence": [
+        "ev-selsup-yam"
+      ]
+    },
+    {
+      "id": "pain-ecom-bot-04",
+      "parent": "ind-ecom",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Бот в магазине снизил конверсию вместо роста",
+      "summary": "Магазин потратил 300 тыс на бота, а конверсия упала; помогла переделка сценария на меньшее число вариантов.",
+      "pains": [
+        "Бот в магазине снизил конверсию вместо роста"
+      ],
+      "related": [
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "Мы вложили в бота 300 тысяч, а конверсия упала на 15%",
+          "who": "Два Бота",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id4573136/1831556-pochemu-vash-bot-razdrazhaet-klientov-razbor-poletov-i-gotovye-resheniya",
+          "date": "2025-02"
+        }
+      ],
+      "evidence": [
+        "ev-vc-dva-bota"
+      ]
+    },
+    {
+      "id": "pain-mfg-cost-01",
+      "parent": "ind-manufacturing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Стоимость разработки и поддержки ИИ-решений для завода",
+      "summary": "Главный барьер для производства по оценке ТЕХНОНИКОЛЬ: высокая цена разработки, внедрения и обслуживания.",
+      "pains": [
+        "Стоимость разработки и поддержки ИИ-решений для завода"
+      ],
+      "related": [
+        "fail-cost"
+      ],
+      "tags": [
+        "ru",
+        "manufacturing"
+      ],
+      "quotes": [
+        {
+          "text": "Традиционно одним из главных барьеров является высокая стоимость разработки, внедрения и обслуживания таких решений",
+          "who": "Денис Гусев, ТЕХНОНИКОЛЬ",
+          "where": "Компьютерра",
+          "url": "https://www.computerra.ru/310637/rossijskaya-promyshlennost-i-ii-pochemu-realnost-daleka-ot-ambitsij/",
+          "date": "2025-03"
+        }
+      ],
+      "evidence": [
+        "ev-computerra-prom"
+      ]
+    },
+    {
+      "id": "pain-mfg-practice-02",
+      "parent": "ind-manufacturing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Понимание есть, инструментов и практики нет, и рисковать никто не готов",
+      "summary": "ФРИИ описывает разрыв между пониманием и практикой на промпредприятиях. Контрпример: Норникель заявляет 100+ агентов в 30 процессах, но это крупный холдинг.",
+      "pains": [
+        "Понимание есть, инструментов и практики нет, и рисковать никто не готов"
+      ],
+      "related": [
+        "fail-pilot"
+      ],
+      "tags": [
+        "ru",
+        "manufacturing"
+      ],
+      "quotes": [
+        {
+          "text": "Общее понимание 'как делать?' - оно есть. А вот инструментов и практики - ноль. И рисковать никто не готов",
+          "who": "Владимир Афанасьев, ФРИИ",
+          "where": "Компьютерра",
+          "url": "https://www.computerra.ru/310637/rossijskaya-promyshlennost-i-ii-pochemu-realnost-daleka-ot-ambitsij/",
+          "date": "2025-03"
+        },
+        {
+          "text": "Уже сейчас у нас развернуто более 100 ИИ-агентов, интегрированных в 30 бизнес-процессов",
+          "who": "Наталья Артамонова, Норникель",
+          "where": "Коммерсантъ",
+          "url": "https://www.kommersant.ru/doc/8671549",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-computerra-prom",
+        "ev-kommersant-prom"
+      ]
+    },
+    {
+      "id": "pain-mfg-human-03",
+      "parent": "ind-manufacturing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Полную автоматизацию с ИИ на заводе пока не исключить человека",
+      "summary": "НЭТЕР: человека пока сложно исключить, а закон об ИИ в промавтоматизации еще не сформирован.",
+      "pains": [
+        "Полную автоматизацию с ИИ на заводе пока не исключить человека"
+      ],
+      "related": [
+        "fail-pilot"
+      ],
+      "tags": [
+        "ru",
+        "manufacturing"
+      ],
+      "quotes": [
+        {
+          "text": "Полная автоматизация производства с помощью ИИ пока труднодостижима. Сложно полностью исключить человека",
+          "who": "Артем Акулин, НЭТЕР",
+          "where": "Компьютерра",
+          "url": "https://www.computerra.ru/310637/rossijskaya-promyshlennost-i-ii-pochemu-realnost-daleka-ot-ambitsij/",
+          "date": "2025-03"
+        },
+        {
+          "text": "Законодательство в области промышленной автоматизации и применения ИИ в России еще не полностью сформировано",
+          "who": "Компьютерра",
+          "where": "Компьютерра",
+          "url": "https://www.computerra.ru/310637/rossijskaya-promyshlennost-i-ii-pochemu-realnost-daleka-ot-ambitsij/",
+          "date": "2025-03"
+        }
+      ],
+      "evidence": [
+        "ev-computerra-prom"
+      ]
+    },
+    {
+      "id": "pain-log-calls-01",
+      "parent": "ind-logistics",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Диспетчеры тонут в звонках: 70 часов в сутки на парк из 700 машин",
+      "summary": "Ручное сопровождение рейсов упирается в человеко-часы.",
+      "pains": [
+        "Диспетчеры тонут в звонках: 70 часов в сутки на парк из 700 машин"
+      ],
+      "related": [
+        "svc-voice"
+      ],
+      "tags": [
+        "ru",
+        "logistics"
+      ],
+      "quotes": [
+        {
+          "text": "700 машин, 2 звонка по 3 минуты в день - это 70 рабочих часов ежедневно",
+          "who": "Dispatch42 School",
+          "where": "Dispatch42",
+          "url": "https://dispatch42.school/blog/ai-in-trucking",
+          "date": "2025"
+        }
+      ],
+      "evidence": [
+        "ev-dispatch42"
+      ]
+    },
+    {
+      "id": "pain-log-context-02",
+      "parent": "ind-logistics",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Диспетчер не успевает учесть пробки, загрузку и приоритеты сразу",
+      "summary": "Расчет маршрута вручную не поспевает за изменениями, по описанию интегратора КОРУС.",
+      "pains": [
+        "Диспетчер не успевает учесть пробки, загрузку и приоритеты сразу"
+      ],
+      "related": [
+        "svc-ops"
+      ],
+      "tags": [
+        "ru",
+        "logistics"
+      ],
+      "quotes": [
+        {
+          "text": "Диспетчер физически не способен одновременно учитывать пробки, время, загрузку транспорта",
+          "who": "КОРУС",
+          "where": "КОРУС",
+          "url": "https://korusconsulting.ru/blog/iskusstvennyy-intellekt/iskusstvennyy-intellekt-v-logistike-kak-tekhnologii-menyayut-upravlenie-dostavkoy-i-tsepochkami-post/",
+          "date": "2026-08"
+        }
+      ],
+      "evidence": [
+        "ev-korus-logistics"
+      ]
+    },
+    {
+      "id": "pain-log-human-03",
+      "parent": "ind-logistics",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "ИИ не заменяет переговоры и контекст сделки в логистике",
+      "summary": "Эксперт: ИИ берет рутину, но человек остается там, где нужно договариваться.",
+      "pains": [
+        "ИИ не заменяет переговоры и контекст сделки в логистике"
+      ],
+      "related": [
+        "fail-adoption"
+      ],
+      "tags": [
+        "ru",
+        "logistics"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ пока не способен полностью вытеснить человека, особенно в задачах, требующих понимания контекста и умения договариваться",
+          "who": "Михаил Белоусов",
+          "where": "Финансы Mail",
+          "url": "https://finance.mail.ru/article/ekspert-rasskazal-zamenyat-li-algoritmy-logistov-i-dispetcherov-69226308/",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-finance-mail-logistics"
+      ]
+    },
+    {
+      "id": "pain-horeca-miss-01",
+      "parent": "ind-horeca",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Админ не успевает ответить на брони, гости не доходят",
+      "summary": "Ресторан теряет брони из-за задержек в мессенджерах; данные кейса вендора ботов.",
+      "pains": [
+        "Админ не успевает ответить на брони, гости не доходят"
+      ],
+      "numbers": [
+        {
+          "label": "рост бронирований после бота",
+          "value": "18",
+          "unit": "%",
+          "evidence": "ev-bothelp-horeca"
+        }
+      ],
+      "risk": "Лендинг вендора, кейсы без названий.",
+      "related": [
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "horeca"
+      ],
+      "quotes": [
+        {
+          "text": "Гости звонили и писали в директ, чтобы забронировать столик, но администратор не всегда успевал отвечать",
+          "who": "BotHelp",
+          "where": "BotHelp",
+          "url": "https://bothelp.io/ru/dlya-restoranov",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-bothelp-horeca"
+      ]
+    },
+    {
+      "id": "pain-horeca-delay-02",
+      "parent": "ind-horeca",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Вопросы по меню и доставке получают ответ с задержкой",
+      "summary": "Часть клиентов не доходит до заказа из-за медленных ответов в директе.",
+      "pains": [
+        "Вопросы по меню и доставке получают ответ с задержкой"
+      ],
+      "risk": "Лендинг вендора.",
+      "related": [
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "horeca"
+      ],
+      "quotes": [
+        {
+          "text": "В директ писали уточнения по меню и доставке, но отвечали с задержкой, часть клиентов не доходила",
+          "who": "BotHelp",
+          "where": "BotHelp",
+          "url": "https://bothelp.io/ru/dlya-restoranov",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-bothelp-horeca"
+      ]
+    },
+    {
+      "id": "pain-horeca-lost-03",
+      "parent": "ind-horeca",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Часть обращений теряется или обрабатывается с задержкой",
+      "summary": "Нет единого входа для звонков, мессенджеров и соцсетей.",
+      "pains": [
+        "Часть обращений теряется или обрабатывается с задержкой"
+      ],
+      "risk": "Лендинг вендора.",
+      "related": [
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "horeca"
+      ],
+      "quotes": [
+        {
+          "text": "часть обращений терялась или обрабатывалась с задержкой",
+          "who": "BotHelp",
+          "where": "BotHelp",
+          "url": "https://bothelp.io/ru/dlya-restoranov",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-bothelp-horeca"
+      ]
+    },
+    {
+      "id": "pain-con-routine-01",
+      "parent": "ind-construction",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Менеджеры застройщика тонут в рутине",
+      "summary": "Менеджеры по продажам помнят правила ипотеки и налогов, но не справляются с рутиной.",
+      "pains": [
+        "Менеджеры застройщика тонут в рутине"
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "construction"
+      ],
+      "quotes": [
+        {
+          "text": "менеджеры по-прежнему тонут в рутине",
+          "who": "KTS",
+          "where": "KTS",
+          "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+          "date": "дата не указана"
+        },
+        {
+          "text": "держать в голове абсолютно все правила невозможно",
+          "who": "KTS",
+          "where": "KTS",
+          "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-kts-realestate"
+      ]
+    },
+    {
+      "id": "pain-con-leads-02",
+      "parent": "ind-construction",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Теплые лиды застройщика остаются без консультанта вне рабочих часов",
+      "summary": "Покупатель пишет вечером, ответ приходит утром, лид остывает.",
+      "pains": [
+        "Теплые лиды застройщика остаются без консультанта вне рабочих часов"
+      ],
+      "related": [
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "construction"
+      ],
+      "quotes": [
+        {
+          "text": "застройщик теряет теплые лиды",
+          "who": "KTS",
+          "where": "KTS",
+          "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-kts-realestate"
+      ]
+    },
+    {
+      "id": "pain-con-adoption-03",
+      "parent": "ind-construction",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "ИИ пользуются 45% девелоперов, но системно только 12%",
+      "summary": "Исследование Авито Недвижимости показывает разрыв между пробой и встраиванием в процессы.",
+      "pains": [
+        "ИИ пользуются 45% девелоперов, но системно только 12%"
+      ],
+      "numbers": [
+        {
+          "label": "девелоперов с ИИ на системном уровне",
+          "value": "12",
+          "unit": "%",
+          "evidence": "ev-avito-nedv-ii"
+        }
+      ],
+      "related": [
+        "fail-pilot"
+      ],
+      "tags": [
+        "ru",
+        "construction"
+      ],
+      "quotes": [
+        {
+          "text": "45% девелоперов регулярно используют ИИ, на системном уровне технология внедрена у 12% застройщиков",
+          "who": "Авито Недвижимость",
+          "where": "Движение.ру",
+          "url": "https://dvizhenie.ru/media/7370/chto-menyaet-ii-v-sfere-nedvizhimosti",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-avito-nedv-ii"
+      ]
+    },
+    {
+      "id": "pain-mkt-voice-01",
+      "parent": "ind-marketing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Агентство выдает контент «как у всех» и теряет различимость",
+      "summary": "Нейросетевые тексты усредняют голос клиентов агентства.",
+      "pains": [
+        "Агентство выдает контент «как у всех» и теряет различимость"
+      ],
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "Контент звучит «как все». Аудитория перестаёт отличать один бренд от другого",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-biz360-marketing"
+      ]
+    },
+    {
+      "id": "pain-mkt-fake-02",
+      "parent": "ind-marketing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "ИИ-эмоции в рекламных текстах считываются как фальшивые",
+      "summary": "Аудитория замечает механические «восторг» и «сопереживание».",
+      "pains": [
+        "ИИ-эмоции в рекламных текстах считываются как фальшивые"
+      ],
+      "related": [
+        "svc-content"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ не испытывает эмоций. Его «восторг» и «сопереживание» считываются как фальшивые",
+          "who": "Екатерина Ульянова",
+          "where": "Biz360",
+          "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-biz360-marketing"
+      ]
+    },
+    {
+      "id": "pain-mkt-measure-03",
+      "parent": "ind-marketing",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Нагенерить легко, а понять, что сработало, тяжелее",
+      "summary": "Рабочая нагрузка агентства смещается с производства на разбор результатов.",
+      "pains": [
+        "Нагенерить легко, а понять, что сработало, тяжелее"
+      ],
+      "related": [
+        "svc-analytics"
+      ],
+      "tags": [
+        "ru",
+        "marketing"
+      ],
+      "quotes": [
+        {
+          "text": "Нагенерить контента теперь легко. Разобраться, что из него сработало - отдельная работа",
+          "who": "Всеволод Устинов (канал)",
+          "where": "Telegram",
+          "url": "https://t.me/vsevolodustinovchannel/3139",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-tme-ustinov"
+      ]
+    },
+    {
+      "id": "pain-legal-halluc-01",
+      "parent": "ind-legal",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "ИИ уверенно выдает правдоподобный, но неверный юридический текст",
+      "summary": "Для юрфирмы это прямой риск ответственности перед клиентом.",
+      "pains": [
+        "ИИ уверенно выдает правдоподобный, но неверный юридический текст"
+      ],
+      "related": [
+        "fail-hallucination"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "ИИ уверенно выдает правдоподобный, но неверный текст. В юридическом контексте это угроза.",
+          "who": "Софья Смирнова",
+          "where": "СберБизнес Live",
+          "url": "https://sberbusiness.live/publications/ii-napisal-dokument-za-chas-i-eto-chut-ne-stoilo-kompanii-300-tisyach-rublei",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-sber-ii-legal"
+      ]
+    },
+    {
+      "id": "pain-legal-nda-02",
+      "parent": "ind-legal",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Клиентские документы в публичной модели нарушают NDA",
+      "summary": "Юристы вынуждены искать закрытый контур, а не публичный ChatGPT.",
+      "pains": [
+        "Клиентские документы в публичной модели нарушают NDA"
+      ],
+      "related": [
+        "adj-dlp"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Загрузить клиентский документ в публичную модель - это потенциальное нарушение NDA",
+          "who": "Софья Смирнова",
+          "where": "СберБизнес Live",
+          "url": "https://sberbusiness.live/publications/ii-napisal-dokument-za-chas-i-eto-chut-ne-stoilo-kompanii-300-tisyach-rublei",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-sber-ii-legal"
+      ]
+    },
+    {
+      "id": "pain-legal-overrate-03",
+      "parent": "ind-legal",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Готовые ИИ-инструменты проверки договоров переоценены",
+      "summary": "Старший эксперт Doczilla констатирует, что компании ждут от инструментов больше, чем те дают.",
+      "pains": [
+        "Готовые ИИ-инструменты проверки договоров переоценены"
+      ],
+      "related": [
+        "adj-legal-ai"
+      ],
+      "tags": [
+        "ru",
+        "legal"
+      ],
+      "quotes": [
+        {
+          "text": "Компании часто переоценивают возможности готовых ИИ-инструментов при проверке договоров.",
+          "who": "Дарья Торопова, Doczilla",
+          "where": "Право.ру",
+          "url": "https://pravo.ru/story/265994/",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-pravo-vtoroy-pilot"
+      ]
+    },
+    {
+      "id": "pain-fin-error-01",
+      "parent": "ind-fin",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Модель путает период, норму и реквизит в бухгалтерии",
+      "summary": "Для бухгалтера ошибка в проводке юридически значима.",
+      "pains": [
+        "Модель путает период, норму и реквизит в бухгалтерии"
+      ],
+      "related": [
+        "adj-ai-accounting",
+        "fail-hallucination"
+      ],
+      "tags": [
+        "ru",
+        "fin"
+      ],
+      "quotes": [
+        {
+          "text": "Генеративная модель способна ошибиться в трактовке нормы, перепутать период, неверно прочитать реквизит",
+          "who": "vc.ru",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/3162000-neyroset-dlya-buhgaltera",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-vc-neyroset-buhgalter"
+      ]
+    },
+    {
+      "id": "pain-fin-scan-02",
+      "parent": "ind-fin",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Плохой скан и печать поверх печати ломают распознавание первички",
+      "summary": "Реальная первичка в РФ грязная, и ИИ-распознавание ошибается на ней.",
+      "pains": [
+        "Плохой скан и печать поверх печати ломают распознавание первички"
+      ],
+      "related": [
+        "svc-docs",
+        "adj-ai-accounting"
+      ],
+      "tags": [
+        "ru",
+        "fin"
+      ],
+      "quotes": [
+        {
+          "text": "Плохой скан, печать поверх печати, нестандартный шаблон способны привести к ошибке",
+          "who": "vc.ru",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/3162000-neyroset-dlya-buhgaltera",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-vc-neyroset-buhgalter"
+      ]
+    },
+    {
+      "id": "pain-fin-context-03",
+      "parent": "ind-fin",
+      "layer": "demand",
+      "kind": "pain",
+      "title": "Нейросеть не знает, что случилось в компании после загрузки данных",
+      "summary": "Чем ближе задача к юридически значимому решению, тем больше ручной проверки.",
+      "pains": [
+        "Нейросеть не знает, что случилось в компании после загрузки данных"
+      ],
+      "related": [
+        "fail-stale",
+        "adj-ai-accounting"
+      ],
+      "tags": [
+        "ru",
+        "fin"
+      ],
+      "quotes": [
+        {
+          "text": "Нейросеть не знает, что произошло в организации после момента загрузки данных",
+          "who": "vc.ru",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/3162000-neyroset-dlya-buhgaltera",
+          "date": "2026-09"
+        },
+        {
+          "text": "Чем ближе задача к юридически значимому решению, тем больше роль ручной проверки",
+          "who": "vc.ru",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/3162000-neyroset-dlya-buhgaltera",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-vc-neyroset-buhgalter"
+      ]
+    },
+    {
+      "id": "price-dare-basic",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Дарэ: ИИ-агент под ключ, базовая поставка от 49 990 ₽",
+      "summary": "Агентство Дарэ продает ИИ-менеджера продаж под ключ: бриф, сценарий, интеграции, тестирование на реальных диалогах, передача доступов.",
+      "priceRu": "от 49 990 ₽",
+      "time": "14-21 день",
+      "whoSells": [
+        "Дарэ"
+      ],
+      "facts": [
+        "Подключение каналов (сайт, Telegram, WhatsApp), CRM, тест на реальных диалогах, передача проекта",
+        "Сопровождение от 15 000 ₽ в месяц (06.09.2026)"
+      ],
+      "numbers": [
+        {
+          "label": "базовая поставка",
+          "value": "49 990",
+          "unit": "руб",
+          "evidence": "ev-dare-ii-agent"
+        },
+        {
+          "label": "сопровождение",
+          "value": "15 000",
+          "unit": "руб/мес",
+          "evidence": "ev-dare-ii-agent"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators",
+        "adj-ai-sales"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "агент - это ваша база знаний, ваши сценарии продаж и ваши интеграции, собранные вокруг языковой модели",
+          "who": "Дарэ",
+          "where": "Дарэ",
+          "url": "https://dareai.ru/blog/kupit-ii-agenta",
+          "date": "2026-09"
+        }
+      ],
+      "evidence": [
+        "ev-dare-ii-agent"
+      ]
+    },
+    {
+      "id": "price-dare-complex",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Дарэ: сложные проекты ИИ-агента 80 000 - 250 000 ₽",
+      "summary": "Для нестандартных интеграций агентство называет вилку 80-250 тыс руб, тариф Бизнес от 99 990 руб указан в сниппете поиска (страницу тарифов не открывал).",
+      "priceRu": "80 000 - 250 000 ₽",
+      "time": "по проекту",
+      "whoSells": [
+        "Дарэ"
+      ],
+      "numbers": [
+        {
+          "label": "сложный проект",
+          "value": "80 000 - 250 000",
+          "unit": "руб",
+          "evidence": "ev-dare-ii-agent"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "risk": "Тариф Бизнес 99 990 руб - только по сниппету поиска.",
+      "quotes": [],
+      "evidence": [
+        "ev-dare-ii-agent",
+        "ev-dare-main"
+      ]
+    },
+    {
+      "id": "price-justai-khub",
+      "parent": "svc-knowledge",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Just AI Jay Knowledge Hub: подписка 1 990 - 49 900 ₽ в месяц",
+      "summary": "Вендор Just AI продает базу знаний с ИИ по подписке и единой валютой J-токенов, общей с Agent Platform; бесплатно при регистрации 500 токенов.",
+      "priceRu": "0 - 49 900 ₽/мес",
+      "time": "подключение сразу",
+      "whoSells": [
+        "Just AI"
+      ],
+      "facts": [
+        "Start 1 990, Solo 4 990, Team 9 990, Department 24 490, Business 49 900 руб/мес"
+      ],
+      "numbers": [
+        {
+          "label": "тариф Business",
+          "value": "49 900",
+          "unit": "руб/мес",
+          "evidence": "ev-just-ai-khub-pricing"
+        },
+        {
+          "label": "тариф Start",
+          "value": "1 990",
+          "unit": "руб/мес",
+          "evidence": "ev-just-ai-khub-pricing"
+        }
+      ],
+      "related": [
+        "sup-ru-vendors",
+        "sup-platforms"
+      ],
+      "tags": [
+        "ru",
+        "platform"
+      ],
+      "quotes": [
+        {
+          "text": "При регистрации вы бесплатно получаете 500 J-токенов.",
+          "who": "Just AI",
+          "where": "Just AI",
+          "url": "https://khub.just-ai.com/docs/pricing/",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-just-ai-khub-pricing"
+      ]
+    },
+    {
+      "id": "price-justai-jay-license",
+      "parent": "svc-assistant",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Just AI Jay Copilot: лицензия от 44 550 ₽ на полгода",
+      "summary": "Лицензия ИИ-ассистента для маркетинга и работы с нейросетями у реселлера Allsoft; по сниппету поиска, страницу не открывал.",
+      "priceRu": "от 44 550 ₽ за 6 мес",
+      "time": "лицензия сразу",
+      "whoSells": [
+        "Just AI",
+        "Allsoft"
+      ],
+      "numbers": [
+        {
+          "label": "лицензия на 6 месяцев",
+          "value": "44 550",
+          "unit": "руб",
+          "evidence": "ev-allsoft-jay"
+        }
+      ],
+      "related": [
+        "sup-ru-vendors"
+      ],
+      "tags": [
+        "ru",
+        "platform"
+      ],
+      "risk": "Цена по сниппету поиска.",
+      "quotes": [],
+      "evidence": [
+        "ev-allsoft-jay"
+      ]
+    },
+    {
+      "id": "price-it-implant",
+      "parent": "svc-strategy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "IT-Implant: внедрение ИИ под ключ от 3 500 ₽ в час",
+      "summary": "Подрядчик указывает почасовую ставку и этапы: диагностика 7-14 дней, дизайн решения 10 дней, разработка и обучение 20-45 дней, интеграция 10 дней.",
+      "priceRu": "от 3 500 ₽/час",
+      "time": "около 2,5 - 3 месяцев по этапам",
+      "whoSells": [
+        "IT-Implant"
+      ],
+      "numbers": [
+        {
+          "label": "почасовая ставка",
+          "value": "3 500",
+          "unit": "руб/час",
+          "evidence": "ev-it-implant"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "Стоимость зависит от задач, сложности, объема данных, выбора технологий и масштаба проекта",
+          "who": "IT-Implant",
+          "where": "IT-Implant",
+          "url": "https://it-implant.ru/vnedrenie-ii-v-biznes/",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-it-implant"
+      ]
+    },
+    {
+      "id": "price-justltd",
+      "parent": "svc-strategy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Just Ltd: ИИ-услуги от 4 500 ₽ в час, проект 2-6 месяцев",
+      "summary": "Подрядчик обещает анализ процессов, архитектуру, внедрение с обучением, оценку эффекта и техподдержку 24/7.",
+      "priceRu": "от 4 500 ₽/час",
+      "time": "2-6 месяцев",
+      "whoSells": [
+        "Just Ltd"
+      ],
+      "numbers": [
+        {
+          "label": "почасовая ставка",
+          "value": "4 500",
+          "unit": "руб/час",
+          "evidence": "ev-justltd"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "Внедрение и обучение LLM/LMM на собственных данных бизнеса",
+          "who": "Just Ltd",
+          "where": "Just Ltd",
+          "url": "https://justltd.ru/razrabotkaii",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-justltd"
+      ]
+    },
+    {
+      "id": "price-titanium-pilot",
+      "parent": "svc-ops",
+      "layer": "prices",
+      "kind": "price",
+      "title": "RPA-пилот у интегратора: 150 000 - 350 000 ₽ за 2-4 недели",
+      "summary": "Интегратор Titanium Robotics называет пилотный проект роботизации; лицензии отдельно (PRIMO RPA от 300 000 руб/год, ROBIN от 180 000 руб/год).",
+      "priceRu": "150 000 - 350 000 ₽",
+      "time": "2-4 недели",
+      "whoSells": [
+        "Titanium Robotics"
+      ],
+      "numbers": [
+        {
+          "label": "пилот RPA",
+          "value": "150 000 - 350 000",
+          "unit": "руб",
+          "evidence": "ev-titanium-rpa"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "Диапазон большой - от 150 000 до нескольких миллионов рублей.",
+          "who": "Titanium Robotics",
+          "where": "Titanium Robotics",
+          "url": "https://titaniumrobotics.ru/blog/skolko-stoit-vnedrenie-rpa/",
+          "date": "2025-05"
+        }
+      ],
+      "evidence": [
+        "ev-titanium-rpa"
+      ]
+    },
+    {
+      "id": "price-titanium-dept",
+      "parent": "svc-ops",
+      "layer": "prices",
+      "kind": "price",
+      "title": "RPA на отдел: 400 000 - 900 000 ₽ за 2-3 месяца",
+      "summary": "Автоматизация целого отдела; корпоративная программа от 1 000 000 руб.",
+      "priceRu": "400 000 - 900 000 ₽",
+      "time": "2-3 месяца",
+      "whoSells": [
+        "Titanium Robotics"
+      ],
+      "numbers": [
+        {
+          "label": "RPA на отдел",
+          "value": "400 000 - 900 000",
+          "unit": "руб",
+          "evidence": "ev-titanium-rpa"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "Среднее значение по нашим проектам: 4-8 месяцев до полной окупаемости.",
+          "who": "Titanium Robotics",
+          "where": "Titanium Robotics",
+          "url": "https://titaniumrobotics.ru/blog/skolko-stoit-vnedrenie-rpa/",
+          "date": "2025-05"
+        }
+      ],
+      "evidence": [
+        "ev-titanium-rpa"
+      ]
+    },
+    {
+      "id": "price-sherpa",
+      "parent": "svc-ops",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Sherpa RPA: лицензии по запросу, цикл внедрения 3-6 месяцев",
+      "summary": "Каталог лицензий не публикует цены; эксперт vc.ru называет платформу дорогой для малого бизнеса.",
+      "priceRu": "по запросу",
+      "time": "3-6 месяцев",
+      "whoSells": [
+        "Sherpa RPA"
+      ],
+      "related": [
+        "sup-ru-vendors"
+      ],
+      "tags": [
+        "ru",
+        "enterprise"
+      ],
+      "risk": "Прайс закрыт, цены лицензий только по запросу.",
+      "quotes": [
+        {
+          "text": "Дорого. Цикл внедрения 3-6 месяцев",
+          "who": "Дмитрий Худогоб",
+          "where": "vc.ru",
+          "url": "https://vc.ru/services/2873629-top-kompaniy-po-ii-avtomatizatsii-v-rossii",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-rpa2-sherpa",
+        "ev-vc-top-ai-avtomatizatsii"
+      ]
+    },
+    {
+      "id": "price-automate-bot-simple",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Простой бот под ключ от 200 000 ₽, AI-бот от 700 000 ₽",
+      "summary": "Студия Automate-AI делит ботов на уровни: простой, средний с CRM и 1С (300-600 тыс), AI-чат-бот с генерацией ответов, корпоративный от 1 млн руб.",
+      "priceRu": "200 000 - 1 000 000+ ₽",
+      "time": "2-6 недель",
+      "whoSells": [
+        "Automate-AI"
+      ],
+      "numbers": [
+        {
+          "label": "AI-чат-бот",
+          "value": "от 700 000",
+          "unit": "руб",
+          "evidence": "ev-automate-ai-bot-2026"
+        },
+        {
+          "label": "простой бот",
+          "value": "от 200 000",
+          "unit": "руб",
+          "evidence": "ev-automate-ai-bot-2026"
+        }
+      ],
+      "related": [
+        "adj-tg-bots",
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Разработка под ключ - это создание готового цифрового помощника, который автоматически отвечает клиентам, собирает заявки, интегрируется с CRM.",
+          "who": "Automate-AI",
+          "where": "Automate-AI",
+          "url": "https://automate-ai.ru/blog/skolko-stoit-chat-bot-2026",
+          "date": "2026-01"
+        }
+      ],
+      "evidence": [
+        "ev-automate-ai-bot-2026"
+      ]
+    },
+    {
+      "id": "price-aibotmanager-faq",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Минимальный FAQ-бот 10 000 - 30 000 ₽, ИИ-менеджер 40 000 - 80 000 ₽",
+      "summary": "Студия AIBotManager дает ценовую лестницу от FAQ-бота на 20-50 вопросов до ИИ-отдела 200-500 тыс руб; окупаемость 1-2 месяца при замене менеджера (заявление студии).",
+      "priceRu": "10 000 - 80 000 ₽",
+      "time": "1-3 недели (оценка по структуре тарифа)",
+      "whoSells": [
+        "AIBotManager"
+      ],
+      "numbers": [
+        {
+          "label": "FAQ-бот разовая цена",
+          "value": "10 000 - 30 000",
+          "unit": "руб",
+          "evidence": "ev-aibotmanager-cost"
+        },
+        {
+          "label": "ИИ-менеджер",
+          "value": "40 000 - 80 000",
+          "unit": "руб",
+          "evidence": "ev-aibotmanager-cost"
+        }
+      ],
+      "related": [
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "risk": "Срок не указан на странице, поле time оценочное.",
+      "quotes": [],
+      "evidence": [
+        "ev-aibotmanager-cost"
+      ]
+    },
+    {
+      "id": "price-aibotmanager-agent",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "ИИ-агент под ключ 150 000 - 350 000 ₽ и ИИ-отдел 200 000 - 500 000 ₽",
+      "summary": "По тарифам студии: агент с интеграциями и логикой решений, ИИ-отдел из нескольких нейросотрудников; ежемесячно 2,5-5 тыс руб.",
+      "priceRu": "150 000 - 500 000 ₽",
+      "whoSells": [
+        "AIBotManager"
+      ],
+      "numbers": [
+        {
+          "label": "ИИ-агент",
+          "value": "150 000 - 350 000",
+          "unit": "руб",
+          "evidence": "ev-aibotmanager-cost"
+        },
+        {
+          "label": "ИИ-отдел",
+          "value": "200 000 - 500 000",
+          "unit": "руб",
+          "evidence": "ev-aibotmanager-cost"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-aibotmanager-cost"
+      ]
+    },
+    {
+      "id": "price-apex-mvp",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "AI-агент MVP 200 000 - 400 000 ₽ за 2-3 недели",
+      "summary": "Студия Apex Intellect советует начинать с MVP и закладывать поддержку 15-20% в год; инфраструктура 10-50 тыс руб в месяц, API 15-40 тыс.",
+      "priceRu": "200 000 - 400 000 ₽",
+      "time": "2-3 недели",
+      "whoSells": [
+        "Apex Intellect"
+      ],
+      "numbers": [
+        {
+          "label": "AI-агент MVP",
+          "value": "200 000 - 400 000",
+          "unit": "руб",
+          "evidence": "ev-apex-cost"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "MVP за 200-300 тысяч - это страховка от того, что вы потратите 2 миллиона на систему",
+          "who": "Apex Intellect",
+          "where": "Apex Intellect",
+          "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+          "date": "2026-03"
+        }
+      ],
+      "evidence": [
+        "ev-apex-cost"
+      ]
+    },
+    {
+      "id": "price-apex-rag",
+      "parent": "svc-knowledge",
+      "layer": "prices",
+      "kind": "price",
+      "title": "RAG-система 300 000 - 500 000 ₽, продвинутая до 1 200 000 ₽",
+      "summary": "Студия Apex Intellect оценивает RAG по базе знаний; корпоративная платформа от 2 млн руб за 3+ месяца.",
+      "priceRu": "300 000 - 1 200 000 ₽",
+      "time": "3-4 недели для простой",
+      "whoSells": [
+        "Apex Intellect"
+      ],
+      "numbers": [
+        {
+          "label": "RAG простая",
+          "value": "300 000 - 500 000",
+          "unit": "руб",
+          "evidence": "ev-apex-cost"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators",
+        "adj-evals"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [
+        {
+          "text": "Один процесс, самый болезненный. Автоматизируйте его за 3-4 недели",
+          "who": "Apex Intellect",
+          "where": "Apex Intellect",
+          "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+          "date": "2026-03"
+        }
+      ],
+      "evidence": [
+        "ev-apex-cost"
+      ]
+    },
+    {
+      "id": "price-swift-saas",
+      "parent": "svc-assistant",
+      "layer": "prices",
+      "kind": "price",
+      "title": "SaaS ИИ-чатбот 5 000 - 25 000 ₽ в месяц, запуск 3-21 день",
+      "summary": "Swift Agents: AI-чатбот 5-25 тыс в месяц, обработка заявок 15-40 тыс, AI-колл-центр 20-60 тыс в месяц плюс setup.",
+      "priceRu": "5 000 - 60 000 ₽/мес",
+      "time": "3-21 день",
+      "whoSells": [
+        "Swift Agents"
+      ],
+      "numbers": [
+        {
+          "label": "AI-чатбот",
+          "value": "5 000 - 25 000",
+          "unit": "руб/мес",
+          "evidence": "ev-swiftagents-cost"
+        }
+      ],
+      "related": [
+        "svc-voice"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-swiftagents-cost"
+      ]
+    },
+    {
+      "id": "price-swift-custom",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Кастомный ИИ-агент 250 000 - 500 000 ₽ плюс 20 000 - 30 000 ₽ в месяц",
+      "summary": "Swift Agents: срок запуска 4-10 недель, окупаемость кастома 6-12 месяцев, ROI 150-300% в первый год (заявление студии).",
+      "priceRu": "250 000 - 500 000 ₽",
+      "time": "4-10 недель",
+      "whoSells": [
+        "Swift Agents"
+      ],
+      "numbers": [
+        {
+          "label": "кастомный агент",
+          "value": "250 000 - 500 000",
+          "unit": "руб",
+          "evidence": "ev-swiftagents-cost"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "risk": "ROI 150-300% не проверен.",
+      "quotes": [],
+      "evidence": [
+        "ev-swiftagents-cost"
+      ]
+    },
+    {
+      "id": "price-kaizen-chatbot",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "ИИ-чатбот для поддержки 300 000 - 1 500 000 ₽",
+      "summary": "KaizenTeam: готовый AI-сервис от 50 тыс, маркетинг 100-500 тыс, eCommerce 0,5-3 млн, аналитика 1-5 млн, индивидуальная разработка от 3 млн руб.",
+      "priceRu": "300 000 - 1 500 000 ₽",
+      "time": "несколько недель",
+      "whoSells": [
+        "KaizenTeam"
+      ],
+      "numbers": [
+        {
+          "label": "ИИ-чатбот",
+          "value": "300 000 - 1 500 000",
+          "unit": "руб",
+          "evidence": "ev-kaizenteam-cost"
+        }
+      ],
+      "related": [
+        "adj-ai-support"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "AI-поддержка клиентов обычно окупается за 3-6 месяцев",
+          "who": "KaizenTeam",
+          "where": "KaizenTeam",
+          "url": "https://kaizenteam.xyz/blog/skolko-stoit-vnedrenie-iskusstvennogo-intellekta-dlya-biznesa-v-2026-godu",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-kaizenteam-cost"
+      ]
+    },
+    {
+      "id": "price-artean-ecom",
+      "parent": "svc-analytics",
+      "layer": "prices",
+      "kind": "price",
+      "title": "ИИ-рекомендации для интернет-магазина 350 000 - 600 000 ₽",
+      "summary": "Artean: магазин до 10 тыс товаров 350-600 тыс, средний магазин 0,7-1,5 млн, CRM-скоринг сделок 400-800 тыс, интеграция ИИ в приложение 300-900 тыс руб.",
+      "priceRu": "350 000 - 600 000 ₽",
+      "whoSells": [
+        "Artean"
+      ],
+      "numbers": [
+        {
+          "label": "магазин до 10 тыс товаров",
+          "value": "350 000 - 600 000",
+          "unit": "руб",
+          "evidence": "ev-artean-ii-cost"
+        },
+        {
+          "label": "CRM-скоринг сделок",
+          "value": "400 000 - 800 000",
+          "unit": "руб",
+          "evidence": "ev-artean-ii-cost"
+        }
+      ],
+      "related": [
+        "ind-ecom",
+        "adj-crm-ai"
+      ],
+      "tags": [
+        "ru",
+        "ecom"
+      ],
+      "quotes": [
+        {
+          "text": "небольшой магазин (до 10 тыс. товаров) - 350-600 тыс. ₽",
+          "who": "Artean",
+          "where": "Artean",
+          "url": "https://artean.ru/blog/ai/skolko-stoit-vnedrenie-ii-razbor-stoimosti-po-tipam-proektov/",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-artean-ii-cost"
+      ]
+    },
+    {
+      "id": "price-sostav-integration",
+      "parent": "svc-ops",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Работа команды интеграции от 80 000 - 150 000 ₽ за простой сценарий",
+      "summary": "Цитата из сниппета поиска Sostav: страницу открыть не удалось (анимация загрузки), ту же вилку повторяет Artean.",
+      "priceRu": "80 000 - 150 000 ₽",
+      "time": "1-2 месяца (по Artean)",
+      "whoSells": [
+        "интеграторы (обобщенно)"
+      ],
+      "numbers": [
+        {
+          "label": "простой сценарий",
+          "value": "80 000 - 150 000",
+          "unit": "руб",
+          "evidence": "ev-artean-ii-cost"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "risk": "По сниппету поиска.",
+      "quotes": [],
+      "evidence": [
+        "ev-sostav-small-business",
+        "ev-artean-ii-cost"
+      ]
+    },
+    {
+      "id": "price-vc-chatbot-15k",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Чат-бот 15 000 ₽, голосовой помощник 120 000 ₽, продажи 300 000 ₽",
+      "summary": "Таблица из vc.ru по 50 кейсам на YandexGPT и GigaChat: голосовой помощник 120 000 руб, аналитик отзывов 45 000, автоматизация продаж 300 000 + 50 000 в месяц.",
+      "priceRu": "15 000 - 300 000 ₽",
+      "time": "2 недели - 4 месяца",
+      "whoSells": [
+        "рынок (обобщение автора)"
+      ],
+      "numbers": [
+        {
+          "label": "простой чат-бот",
+          "value": "15 000",
+          "unit": "руб",
+          "evidence": "ev-vc-stoimost-50-keysov"
+        },
+        {
+          "label": "голосовой помощник",
+          "value": "120 000",
+          "unit": "руб",
+          "evidence": "ev-vc-stoimost-50-keysov"
+        },
+        {
+          "label": "автоматизация продаж",
+          "value": "300 000",
+          "unit": "руб",
+          "evidence": "ev-vc-stoimost-50-keysov"
+        }
+      ],
+      "related": [
+        "svc-voice",
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "smb"
+      ],
+      "risk": "Выборка 50 кейсов, методика не раскрыта.",
+      "quotes": [
+        {
+          "text": "Начните с одной конкретной задачи. Например, только автоматизация ответов на типовые вопросы",
+          "who": "Михаил",
+          "where": "vc.ru",
+          "url": "https://vc.ru/ai/2282231-stoimost-vnedreniya-ii-v-biznes",
+          "date": "2025-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-stoimost-50-keysov"
+      ]
+    },
+    {
+      "id": "price-habr-karcev",
+      "parent": "svc-agents",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Простой бот 50 000 - 200 000 ₽, рабочий агент 300 000 - 1 500 000 ₽",
+      "summary": "Интегратор CRM на Хабре: корпоративная система от 3 млн руб, поддержка 5-300 тыс руб в месяц, окупаемость 3-6 месяцев; цену задают класс системы, интеграции и состояние данных.",
+      "priceRu": "50 000 - 3 000 000+ ₽",
+      "time": "дни - месяцы по классу",
+      "whoSells": [
+        "интеграторы CRM"
+      ],
+      "numbers": [
+        {
+          "label": "корпоративная система",
+          "value": "от 3 000 000",
+          "unit": "руб",
+          "evidence": "ev-habr-stoimost-2026"
+        }
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "quotes": [
+        {
+          "text": "Цену обычно задают четыре фактора: класс системы, набор интеграций с CRM, состояние данных",
+          "who": "Антон Карцев",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/1067438/",
+          "date": "2026-08"
+        }
+      ],
+      "evidence": [
+        "ev-habr-stoimost-2026"
+      ]
+    },
+    {
+      "id": "price-cloudru-scale",
+      "parent": "svc-strategy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Корпоративные ИИ-агенты: 5-15 млн ₽ малым, 30-60 млн ₽ среднему бизнесу",
+      "summary": "Cloud.ru оценивает полный бюджет за три года, включая инфраструктуру; совокупная экономия 15-40% по отраслям.",
+      "priceRu": "5 - 60 млн ₽ за 3 года",
+      "time": "3 года",
+      "whoSells": [
+        "Cloud.ru"
+      ],
+      "numbers": [
+        {
+          "label": "средний бизнес за 3 года",
+          "value": "30-60",
+          "unit": "млн руб",
+          "evidence": "ev-cloud-ru-agents"
+        }
+      ],
+      "related": [
+        "sup-ru-vendors",
+        "seg-mid"
+      ],
+      "tags": [
+        "ru",
+        "mid"
+      ],
+      "risk": "Оценка провайдера облака, заинтересованного в инфраструктуре.",
+      "quotes": [
+        {
+          "text": "Совокупная экономия от внедрения агентных систем составляет 15-40% в зависимости от отрасли.",
+          "who": "Cloud.ru",
+          "where": "Cloud.ru",
+          "url": "https://cloud.ru/blog/kak-vnedrit-ii-v-biznes",
+          "date": "2026-06"
+        }
+      ],
+      "evidence": [
+        "ev-cloud-ru-agents"
+      ]
+    },
+    {
+      "id": "price-kwork-500",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Kwork: ИИ-чат-бот для бизнеса за 500 ₽",
+      "summary": "Предложение исполнителя nesterovila14: ИИ-бот для Telegram, сайта и WhatsApp за 500 руб; состав пакетов не открылся.",
+      "priceRu": "от 500 ₽",
+      "whoSells": [
+        "Kwork, nesterovila14"
+      ],
+      "related": [
+        "sup-ru-cheap",
+        "adj-tg-bots"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "Цена за базовый пакет, состав не открыт.",
+      "quotes": [
+        {
+          "text": "Сделаю ИИ-чат-бота для бизнеса - Telegram, сайт, WhatsApp за 500 руб.",
+          "who": "nesterovila14",
+          "where": "Kwork",
+          "url": "https://kwork.ru/script-programming/54170735/sdelayu-ii-chat-bota-dlya-biznesa-telegram-sayt-whatsapp",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-kwork-bot-500"
+      ]
+    },
+    {
+      "id": "price-kwork-1000",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Kwork: Telegram-бот для бизнеса с заявками и AI за 1 000 ₽",
+      "summary": "Предложение igand73 из выдачи поиска; страница при чтении отдала только шапку.",
+      "priceRu": "от 1 000 ₽",
+      "whoSells": [
+        "Kwork, igand73"
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "По заголовку из выдачи.",
+      "quotes": [
+        {
+          "text": "Telegram-бот для бизнеса: заявки, поддержка, AI за 1 000 руб.",
+          "who": "igand73",
+          "where": "Kwork",
+          "url": "https://kwork.ru/script-programming/53779762/telegram-bot-dlya-biznesa-zayavki-podderzhka-ai",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-kwork-bot-1000"
+      ]
+    },
+    {
+      "id": "price-kwork-3000",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Kwork: ботов для бизнеса на ChatGPT под ключ за 3 000 ₽",
+      "summary": "Предложение BalanceAI; при повторной загрузке страница вернула 404, цена из заголовка выдачи поиска.",
+      "priceRu": "от 3 000 ₽",
+      "whoSells": [
+        "Kwork, BalanceAI"
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "По сниппету поиска, страница не открылась.",
+      "quotes": [
+        {
+          "text": "Чат GPT: создаю ботов для бизнеса под ключ за 3 000 руб., исполнитель Евгений (BalanceAI)",
+          "who": "BalanceAI",
+          "where": "Kwork",
+          "url": "https://kwork.ru/script-programming/44694000/chat-gpt-sozdayu-botov-dlya-biznesa-pod-klyuch",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-kwork-bot-3000"
+      ]
+    },
+    {
+      "id": "price-kwork-15000",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Kwork: Telegram-бот на основе ИИ за 15 000 ₽",
+      "summary": "Предложение Whomever; страница при повторной загрузке вернула 404, цена из заголовка выдачи.",
+      "priceRu": "от 15 000 ₽",
+      "whoSells": [
+        "Kwork, Whomever"
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "По сниппету поиска, страница не открылась.",
+      "quotes": [
+        {
+          "text": "Создам телеграмм бота на основе ИИ за 15 000 руб., исполнитель Шохрух (Whomever)",
+          "who": "Whomever",
+          "where": "Kwork",
+          "url": "https://kwork.ru/script-programming/40919398/sozdam-telegramm-bota-na-osnove-ii",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-kwork-bot-15000"
+      ]
+    },
+    {
+      "id": "price-profi-bot",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Профи.ру: разработка чат-бота от 3 030 ₽, разработка ИИ от 1 500 ₽ в час",
+      "summary": "На витрине Профи.ру на дату чтения 1661 IT-фрилансер по теме разработки ИИ; цена бота по сниппету поиска (страница цен вернула 418).",
+      "priceRu": "от 600 ₽ за услугу, от 1 500 ₽/час",
+      "whoSells": [
+        "Профи.ру (маркетплейс)"
+      ],
+      "numbers": [
+        {
+          "label": "специалистов в разделе разработки ИИ",
+          "value": "1661",
+          "unit": "шт",
+          "evidence": "ev-profi-razrabotka-ii"
+        },
+        {
+          "label": "ставка разработки ИИ",
+          "value": "1 500",
+          "unit": "руб/час",
+          "evidence": "ev-profi-razrabotka-ii"
+        }
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "Цена бота по сниппету поиска.",
+      "quotes": [
+        {
+          "text": "Найдите частного фрилансера под вашу задачу и бюджет. Бесплатно.",
+          "who": "Профи.ру",
+          "where": "Профи.ру",
+          "url": "https://profi.ru/it_freelance/razrabotka-ii/",
+          "date": "дата не указана"
+        }
+      ],
+      "evidence": [
+        "ev-profi-razrabotka-ii",
+        "ev-profi-chatbots-price"
+      ]
+    },
+    {
+      "id": "price-botman-freelance",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Чат-бот у фрилансера: 999 - 50 000 ₽, у опытного от 3 000 ₽",
+      "summary": "Старая публикация BotMan на Cossa; цены не учитывают ИИ-ботов 2026 года.",
+      "priceRu": "999 - 50 000 ₽",
+      "whoSells": [
+        "фрилансеры"
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "Данные 2023 года.",
+      "quotes": [
+        {
+          "text": "Если заказать у разработчика, то стоимость будет варьироваться от 999 до 50 000 рублей.",
+          "who": "Анатолий Милов, BotMan",
+          "where": "Cossa",
+          "url": "https://www.cossa.ru/instahero/325993/",
+          "date": "2023-10"
+        }
+      ],
+      "evidence": [
+        "ev-botman-cossa"
+      ]
+    },
+    {
+      "id": "price-habr-freelance",
+      "parent": "sup-ru-freelance",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Хабр Фриланс: автоматизация и боты от 1 000 - 2 500 ₽ в час",
+      "summary": "Профили специалистов по автоматизации с почасовыми ставками; ставки по сниппету поиска, список не открывался.",
+      "priceRu": "от 1 000 - 2 500 ₽/час",
+      "whoSells": [
+        "фрилансеры Хабр Фриланс"
+      ],
+      "related": [
+        "sup-ru-cheap"
+      ],
+      "tags": [
+        "ru",
+        "freelance"
+      ],
+      "risk": "По сниппету поиска.",
+      "quotes": [],
+      "evidence": [
+        "ev-habr-freelance"
+      ]
+    },
+    {
+      "id": "price-gigachat-api",
+      "parent": "svc-infra",
+      "layer": "prices",
+      "kind": "price",
+      "title": "GigaChat API для бизнеса: пакеты токенов 19 500 - 650 000 ₽",
+      "summary": "Пакеты по линейкам Lite, Pro, Max; асинхронная обработка на 50% дешевле синхронной; постоплата от 600 руб в месяц.",
+      "priceRu": "19 500 - 650 000 ₽ за пакет",
+      "whoSells": [
+        "Сбер (GigaChat)"
+      ],
+      "numbers": [
+        {
+          "label": "постоплата от",
+          "value": "600",
+          "unit": "руб/мес",
+          "evidence": "ev-vc-provod-gigachat"
+        }
+      ],
+      "related": [
+        "sup-platforms",
+        "adj-local-llm"
+      ],
+      "tags": [
+        "ru",
+        "platform"
+      ],
+      "quotes": [
+        {
+          "text": "асинхронная обработка стоит на 50% дешевле синхронной",
+          "who": "provod.AI",
+          "where": "vc.ru",
+          "url": "https://vc.ru/provod/3036855-gigachat-api-dlya-biznesa",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-provod-gigachat"
+      ]
+    },
+    {
+      "id": "price-yandexgpt-api",
+      "parent": "svc-infra",
+      "layer": "prices",
+      "kind": "price",
+      "title": "YandexGPT API: 0,20 ₽ и 0,80 ₽ за 1000 токенов",
+      "summary": "Lite 0,20 руб, Pro 5.1 0,80 руб за 1000 токенов на 18.07.2026; единица тарификации округляется вверх.",
+      "priceRu": "0,20 - 0,80 ₽ за 1000 токенов",
+      "whoSells": [
+        "Яндекс (YandexGPT)"
+      ],
+      "numbers": [
+        {
+          "label": "Lite",
+          "value": "0,20",
+          "unit": "руб/1000 токенов",
+          "evidence": "ev-vc-provod-yandexgpt"
+        },
+        {
+          "label": "Pro 5.1",
+          "value": "0,80",
+          "unit": "руб/1000 токенов",
+          "evidence": "ev-vc-provod-yandexgpt"
+        }
+      ],
+      "related": [
+        "sup-platforms"
+      ],
+      "tags": [
+        "ru",
+        "platform"
+      ],
+      "quotes": [
+        {
+          "text": "Единица тарификации округляется вверх до целого биллингового юнита",
+          "who": "provod.AI",
+          "where": "vc.ru",
+          "url": "https://vc.ru/provod/3035416-yandexgpt-api-pervyj-zapros-i-raschet-stoimosti",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-provod-yandexgpt"
+      ]
+    },
+    {
+      "id": "price-korus-ai",
+      "parent": "svc-strategy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "КОРУС Консалтинг: ИИ-консалтинг, цена по проекту после аудита",
+      "summary": "Прайса нет; по сниппету поиска стоимость формируется индивидуально и начинается с аудита готовности данных.",
+      "priceRu": "по запросу",
+      "whoSells": [
+        "КОРУС Консалтинг"
+      ],
+      "related": [
+        "sup-ru-integrators"
+      ],
+      "tags": [
+        "ru",
+        "enterprise"
+      ],
+      "risk": "Без цены, по сниппету поиска.",
+      "quotes": [],
+      "evidence": [
+        "ev-korus-ai-consulting"
+      ]
+    },
+    {
+      "id": "price-vc-bot-tenge",
+      "parent": "svc-dev",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Свой бот на найме 1,2 млн тенге против готового от 26 000 тенге в месяц",
+      "summary": "Кейс из Казахстана на vc.ru; суммы в тенге, автор продает готовое решение.",
+      "priceRu": "26 000 тенге/мес (SaaS) против 1 200 000 тенге разово",
+      "time": "от 4 месяцев своя разработка",
+      "whoSells": [
+        "Марк об автоматизации"
+      ],
+      "related": [
+        "svc-dev"
+      ],
+      "tags": [
+        "kz",
+        "smb"
+      ],
+      "risk": "Тенге, не рубли.",
+      "quotes": [
+        {
+          "text": "От 26,000₸/мес. Всё включено (интеграции, поддержка, обновления)",
+          "who": "Марк об автоматизации",
+          "where": "vc.ru",
+          "url": "https://vc.ru/id5440536/2322972-kak-sozdat-chat-bot-dlya-biznesa",
+          "date": "2025-11"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bot-1-5mln"
+      ]
+    },
+    {
+      "id": "metric-hh-ai-engineer",
+      "parent": "seg-mid",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru: 986 вакансий по запросу «AI-инженер»",
+      "summary": "На 02.10.2026 поиск hh.ru по России дает 986 вакансий; в верху выдачи есть шум (QA, PHP), настоящих ИИ-ролей меньше.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу AI-инженер",
+          "value": "986",
+          "unit": "шт",
+          "evidence": "ev-hh-ai-inzhener"
+        }
+      ],
+      "facts": [
+        "Пример: LLM engineer / разработчик мультиагентных систем, SkillStaff, до 325 000 руб на руки, удаленка (https://hh.ru/vacancy/132916671)",
+        "Пример: AI Инженер (LLM, RAG, LangGraph), Дабл Ап, 150 000 - 200 000 руб (https://hh.ru/vacancy/131749512)"
+      ],
+      "risk": "Счетчик hh.ru включает нерелевантные совпадения по слову AI.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-hh-ai-inzhener",
+        "ev-hh-vac-skillstaff",
+        "ev-hh-vac-dabl-ap"
+      ]
+    },
+    {
+      "id": "metric-hh-llm",
+      "parent": "seg-mid",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru: 602 вакансии по запросу «LLM инженер»",
+      "summary": "На 02.10.2026 найдено 602 вакансии; в верхе выдачи QA и Junior AI Developer с вилкой 150 000 - 200 000 руб.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу LLM инженер",
+          "value": "602",
+          "unit": "шт",
+          "evidence": "ev-hh-llm"
+        }
+      ],
+      "risk": "Шум в выдаче.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-hh-llm",
+        "ev-hh-vnedrenie-ii"
+      ],
+      "facts": [
+        "Смежный запрос «внедрение ИИ» дает 1 313 вакансий, но в верху выдачи бухгалтеры и специалисты 1С (https://hh.ru/search/vacancy?text=внедрение+ИИ&area=113)"
+      ]
+    },
+    {
+      "id": "metric-hh-ml-llm",
+      "parent": "seg-enterprise",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru: 217 вакансий по запросу «ML engineer LLM»",
+      "summary": "На 02.10.2026 217 вакансий; в верхе выдачи AI-инженер по внедрению 150-250 тыс руб и AI Engineer 350-450 тыс руб на руки.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу ML engineer LLM",
+          "value": "217",
+          "unit": "шт",
+          "evidence": "ev-hh-ml-llm"
+        }
+      ],
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-hh-ml-llm"
+      ]
+    },
+    {
+      "id": "metric-hh-agents-n8n",
+      "parent": "seg-mid",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru: 51 вакансия по запросу «ИИ-агенты n8n»",
+      "summary": "На 02.10.2026 51 вакансия; верхняя - AI-инженер по внедрению ИИ и автоматизации бизнес-процессов, 150 000 - 250 000 руб на руки, опыт 3-6 лет.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу ИИ-агенты n8n",
+          "value": "51",
+          "unit": "шт",
+          "evidence": "ev-hh-n8n"
+        }
+      ],
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-hh-n8n"
+      ]
+    },
+    {
+      "id": "metric-hh-prompt",
+      "parent": "seg-mid",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru: промпт-инженер, 10 вакансий по точному запросу",
+      "summary": "На 02.10.2026 точный запрос дает 10 вакансий с вилками до 100 000 - 250 000 руб; блог-агрегатор называет 400+ вакансий по более широкому набору ролей на апрель 2026.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу промпт-инженер",
+          "value": "10",
+          "unit": "шт",
+          "evidence": "ev-hh-prompt"
+        }
+      ],
+      "facts": [
+        "Пример: Промпт-инженер, Nanimai, 70 000 - 150 000 руб на руки, проектная работа (https://hh.ru/vacancy/129510299)"
+      ],
+      "risk": "Разница 10 против 400+ объясняется шириной запроса.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [
+        {
+          "text": "На апрель 2026 года на HH.ru открыто более 400 вакансий с прямым упоминанием Prompt Engineer, AI Engineer и LLM Engineer",
+          "who": "AIBotManager",
+          "where": "AIBotManager",
+          "url": "https://aibotmanager.ru/prompt-engineer-vakansii/",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-hh-prompt",
+        "ev-aibotmanager-prompt",
+        "ev-hh-vac-nanimai"
+      ]
+    },
+    {
+      "id": "metric-hh-caio",
+      "parent": "seg-enterprise",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "Спрос на руководителей ИИ: CAIO в Группе Родина, Head of AI в Сбере",
+      "summary": "Крупный бизнес ищет руководителей ИИ с опытом 5-6+ лет и командой 5-10+ человек; вилки не публикуют, у Алмаз-Антей до 260 000 руб.",
+      "numbers": [
+        {
+          "label": "вакансий по запросу руководитель ИИ (шумный)",
+          "value": "3277",
+          "unit": "шт",
+          "evidence": "ev-hh-rukovoditel-ii"
+        }
+      ],
+      "facts": [
+        "CAIO, Группа Родина, опыт 5+ лет, команда от 5 человек, опубликована 08.09.2026 (https://hh.ru/vacancy/137124480)",
+        "Head of AI / AI Transformation Lead, Сбер Data Science, опыт 6+ лет, архив с 22.07.2026 (https://hh.ru/vacancy/134460002)",
+        "Руководитель проектов цифровой трансформации и ИИ, Алмаз-Антей, до 260 000 руб, архив с 29.05.2026 (https://hh.ru/vacancy/132628185)"
+      ],
+      "risk": "Счетчик 3277 шумный: в верхе выдачи HR-директор и ассистенты.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [],
+      "evidence": [
+        "ev-hh-vac-caio-rodina",
+        "ev-hh-vac-sber-head-ai",
+        "ev-hh-vac-almaz-antey",
+        "ev-hh-rukovoditel-ii"
+      ]
+    },
+    {
+      "id": "metric-salary-by-role",
+      "parent": "seg-enterprise",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "Вилки ИИ-ролей 2026: промпт-инженер 80-400 тыс, ML 150-600 тыс ₽",
+      "summary": "Свод блога-агрегатора по hh.ru, Хабр Карьере и AmazingHiring за апрель-май 2026 по Москве: рост зарплат ИИ +28% за год.",
+      "numbers": [
+        {
+          "label": "рост зарплат ИИ за год",
+          "value": "28",
+          "unit": "%",
+          "evidence": "ev-aibotmanager-salary"
+        },
+        {
+          "label": "AI Solutions Architect senior",
+          "value": "550 000 - 800 000",
+          "unit": "руб/мес",
+          "evidence": "ev-aibotmanager-salary"
+        }
+      ],
+      "risk": "Вторичный свод, методика размыта.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [
+        {
+          "text": "По данным HH.ru, в 2025-2026 году сфера ИИ демонстрирует самый быстрый рост зарплат среди всех IT-специализаций: +28% за год.",
+          "who": "AIBotManager",
+          "where": "AIBotManager",
+          "url": "https://aibotmanager.ru/zarplaty-ii-specialistov/",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-aibotmanager-salary"
+      ]
+    },
+    {
+      "id": "metric-hh-aug2026",
+      "parent": "seg-mid",
+      "layer": "demand",
+      "kind": "metric",
+      "title": "hh.ru, август 2026: из 457 вакансий 30 инженерных, медиана 150-250 тыс ₽",
+      "summary": "Автор репозитория просканировал 457 вакансий ИИ-автоматизации, оставил 30 инженерных; топ-навыки Python, LLM-агенты, RAG, n8n; 60% удаленка.",
+      "numbers": [
+        {
+          "label": "инженерных вакансий из 457",
+          "value": "30",
+          "unit": "шт",
+          "evidence": "ev-github-labor-market"
+        },
+        {
+          "label": "доля удаленки",
+          "value": "60",
+          "unit": "%",
+          "evidence": "ev-github-labor-market"
+        }
+      ],
+      "risk": "Маленькая выборка одного автора.",
+      "tags": [
+        "ru",
+        "hiring"
+      ],
+      "quotes": [
+        {
+          "text": "Медианная вилка (инженерные роли) - 150-250 тыс. ₽/мес",
+          "who": "antonBy77",
+          "where": "GitHub",
+          "url": "https://github.com/antonBy77/ai-labor-market-ru-2026-08",
+          "date": "2026-08"
+        }
+      ],
+      "evidence": [
+        "ev-github-labor-market"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-vc-biznes-ii-razocharovanie",
+      "label": "vc.ru: Бизнес и ИИ - от надежд к разочарованию (автор Бинарный)",
+      "url": "https://vc.ru/ai/2161657-biznes-i-ii-realnosti-vnedreniya-tekhnologiy-v-kompanii",
+      "date": "2025-08",
+      "kind": "proxy",
+      "metric": "Автор пишет, что более 85% проектов ИИ не оправдывают ожиданий",
+      "scope": "авторская статья на vc.ru, источник цифры не раскрыт, комментарии на странице не загрузились"
+    },
+    {
+      "id": "ev-vc-ai2business-oshibki",
+      "label": "vc.ru: Почему ИИ не помог бизнесу, разбор ошибок (AI2Business)",
+      "url": "https://vc.ru/ai/2249088-oshibki-vnedreniya-ii-v-biznese",
+      "date": "2025-10",
+      "kind": "proxy",
+      "metric": "Примеры: ожидали рост продаж доставки на 50%, получили 8%; завышенные закупки на 20%",
+      "scope": "авторская статья, кейсы без названий компаний"
+    },
+    {
+      "id": "ev-vc-stoimost-50-keysov",
+      "label": "vc.ru: Сколько реально стоит внедрить ИИ, 50 российских кейсов на YandexGPT и GigaChat",
+      "url": "https://vc.ru/ai/2282231-stoimost-vnedreniya-ii-v-biznes",
+      "date": "2025-10",
+      "kind": "proxy",
+      "metric": "Чат-бот 15 000 руб, голосовой помощник 120 000, автоматизация продаж 300 000 разово",
+      "scope": "таблица автора Михаил, выборка заявлена как 50 кейсов, методика не раскрыта"
+    },
+    {
+      "id": "ev-habr-stoimost-2026",
+      "label": "Хабр: Сколько стоит внедрение ИИ в 2026 году (Антон Карцев, интегратор CRM)",
+      "url": "https://habr.com/ru/articles/1067438/",
+      "date": "2026-08",
+      "kind": "proxy",
+      "metric": "Простой бот 50-200 тыс, агент 300 тыс - 1,5 млн, корпоративная система от 3 млн руб",
+      "scope": "статья интегратора, цены его собственные"
+    },
+    {
+      "id": "ev-vc-bot-1-5mln",
+      "label": "vc.ru: Потратил 1,5 млн на бота, потом нашел решение за 26К (Марк об автоматизации)",
+      "url": "https://vc.ru/id5440536/2322972-kak-sozdat-chat-bot-dlya-biznesa",
+      "date": "2025-11",
+      "kind": "proxy",
+      "metric": "Своя разработка 1 200 000 тенге + 200 000/мес против готового от 26 000 тенге/мес",
+      "scope": "суммы в казахстанских тенге, автор продает готовое решение"
+    },
+    {
+      "id": "ev-vc-chatboty-ne-rabotayut",
+      "label": "vc.ru: Чат-бот не справляется? Виноват не ИИ, а вы сами",
+      "url": "https://vc.ru/ai/2267582-pochemu-chat-boty-ne-rabotayut",
+      "date": "2025-10",
+      "kind": "proxy",
+      "metric": "Топ-20 запросов покрывают 80% обращений; ожидаемое снижение нагрузки контакт-центра 25%",
+      "scope": "статья без указания автора, цифры без методики"
+    },
+    {
+      "id": "ev-vc-ii-dengi-gde",
+      "label": "vc.ru: ИИ внедрили. Деньги где? (Иван из Дубая)",
+      "url": "https://vc.ru/ai/2947694-ekonomika-ii-gde-dengi-i-kak-schitat-effektivnost",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "Бюджет Uber на ИИ-инструменты сгорел к апрелю; тяжелые пользователи тратили 500-2000 долл в месяц",
+      "scope": "статья-обзор, цифры Uber взяты автором из публикаций, дата страницы по порядковому номеру"
+    },
+    {
+      "id": "ev-vc-money-ii-pribyl",
+      "label": "vc.ru: ИИ для бизнеса - где он окупается, а где сжигает бюджет",
+      "url": "https://vc.ru/money/3022664-ii-dlya-biznesa-gde-prinosit-pribyl",
+      "date": "2026-06",
+      "kind": "proxy",
+      "metric": "MIT: 95% организаций не получают отдачи на прибыль; Контур.Толк: 43% сократили время на рутину на 10-30%",
+      "scope": "статья-подборка цитат из MIT, Gartner, Klarna, Контура"
+    },
+    {
+      "id": "ev-vc-clinic-shelf",
+      "label": "vc.ru: Клиника купила ИИ и положила на полку (Светлана Смахтина)",
+      "url": "https://vc.ru/services/2991349-tsifrovizatsiya-meditsiny-pochemu-ii-ne-rabotayet-v-klinikakh",
+      "date": "2026-06",
+      "kind": "proxy",
+      "metric": "Врачи и администраторы вели параллельно тетрадку при купленной системе",
+      "scope": "авторская статья консультанта, без выборки"
+    },
+    {
+      "id": "ev-vc-ai-rop-shkola",
+      "label": "vc.ru: Менеджеры сливали продажи вежливостью. AI-РОП в школе дизайна (Антон Хаустов)",
+      "url": "https://vc.ru/marketing/2712855-kak-ai-rop-pomog-shkole-dizayna-uvelichit-prodazhi",
+      "date": "2026-01",
+      "kind": "company",
+      "metric": "Конверсия в продажу выросла с 13% до 22% за два месяца, +3 млн руб выручки в месяц",
+      "scope": "кейс вендора, один клиент, без независимой проверки"
+    },
+    {
+      "id": "ev-aspro-ai-rop",
+      "label": "Аспро.Cloud: Внедрение ИИ в отдел продаж (РОП Алина Шкурко)",
+      "url": "https://aspro.cloud/blog/kontrol-otdela-prodazh-cherez-ii-agenta/",
+      "date": "2025-11",
+      "kind": "company",
+      "metric": "+28% выручки за месяц, освободилось более 50% рабочего времени РОПа",
+      "scope": "кейс вендора, команда из 3 менеджеров"
+    },
+    {
+      "id": "ev-computerra-prom",
+      "label": "Компьютерра: Российская промышленность и ИИ - почему реальность далека от амбиций",
+      "url": "https://www.computerra.ru/310637/rossijskaya-promyshlennost-i-ii-pochemu-realnost-daleka-ot-ambitsij/",
+      "date": "2025-03",
+      "kind": "proxy",
+      "metric": "Барьеры: стоимость, нехватка практики, нормативка (ТЕХНОНИКОЛЬ, НЭТЕР, ФРИИ)",
+      "scope": "цитаты экспертов в обзоре 13.03.2025"
+    },
+    {
+      "id": "ev-sber-ii-legal",
+      "label": "СберБизнес Live: ИИ написал документ за час, и это чуть не стоило компании 300 тысяч рублей",
+      "url": "https://sberbusiness.live/publications/ii-napisal-dokument-za-chas-i-eto-chut-ne-stoilo-kompanii-300-tisyach-rublei",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "Риски ИИ в юрработе: правдоподобные неверные тексты, нарушение NDA",
+      "scope": "авторская статья Софьи Смирновой, 26.05.2026"
+    },
+    {
+      "id": "ev-pravo-vtoroy-pilot",
+      "label": "Право.ру: Второй пилот для юриста",
+      "url": "https://pravo.ru/story/265994/",
+      "date": "2026-09",
+      "kind": "proxy",
+      "metric": "Юристы MWS AI, Doczilla, Авито о внедрении ИИ в юрфункцию",
+      "scope": "материал с цитатами юристов, 29.09.2026"
+    },
+    {
+      "id": "ev-vc-neyroset-buhgalter",
+      "label": "vc.ru: Нейросеть для бухгалтера",
+      "url": "https://vc.ru/services/3162000-neyroset-dlya-buhgaltera",
+      "date": "2026-09",
+      "kind": "proxy",
+      "metric": "Риски: перепутанный период, неверный реквизит, плохой скан",
+      "scope": "обзорная статья раздела Сервисы, автор не указан"
+    },
+    {
+      "id": "ev-yagla-kartochki",
+      "label": "Yagla: Как использовать AI для карточек товаров и не потерять конверсию",
+      "url": "https://yagla.ru/blog/drugoe-o-marketinge/ai-kontent-dlya-kartochek-tovarov-gde-avtomatizaciya-pomogaet-a-gde-vredit--2510u114964/",
+      "date": "2025-10",
+      "kind": "company",
+      "metric": "ИИ-контент шаблонный и может снижать конверсию карточек",
+      "scope": "блог вендора CRO-сервиса, без числа"
+    },
+    {
+      "id": "ev-selsup-yam",
+      "label": "Selsup: Яндекс Маркет меняет карточки товаров без спроса, селлеры в шоке",
+      "url": "https://selsup.ru/blog/yandeks-market-menyaet-kartochki-tovarov-bez-sprosa-sellery-v-shoke/",
+      "date": "2026-02",
+      "kind": "proxy",
+      "metric": "Площадка правит карточки без согласия селлеров",
+      "scope": "статья Алексея Н., ссылается на Telegram-канал Marketplace_biz"
+    },
+    {
+      "id": "ev-dispatch42",
+      "label": "Dispatch42 School: ИИ в диспетчинге",
+      "url": "https://dispatch42.school/blog/ai-in-trucking",
+      "date": "2025",
+      "kind": "company",
+      "metric": "700 машин и 2 звонка по 3 минуты в день дают 70 рабочих часов",
+      "scope": "блог школы диспетчеров, кейс Kinetics"
+    },
+    {
+      "id": "ev-whiteedtech-kuratory",
+      "label": "WhiteEdTech: Почему выгорают кураторы онлайн-школ",
+      "url": "https://blog.whiteedtech.ru/blog/pochemu-kuratory-lomayutsya/",
+      "date": "2024-01",
+      "kind": "proxy",
+      "metric": "Нагрузка кураторов растет вместе с набором, выгорание",
+      "scope": "статья Ирины Перевезенцевой, 21.01.2024"
+    },
+    {
+      "id": "ev-pikabu-ii-boty",
+      "label": "Пикабу: Про ИИ-боты или как НЕ надо их использовать бизнесу",
+      "url": "https://pikabu.ru/story/pro_iibotyi_ili_kak_ne_nado_ikh_ispolzovat_biznesu_12565711",
+      "date": "2025-04",
+      "kind": "proxy",
+      "metric": "Пост клиента: ИИ-боты в поддержке создают видимость решения",
+      "scope": "пост Progressor.gsp и комментарий DRAGON88, 03.04.2025"
+    },
+    {
+      "id": "ev-habr-152fz",
+      "label": "Хабр: Вставил договор в ChatGPT - что нарушил, разбор по 152-ФЗ (Chronitel)",
+      "url": "https://habr.com/ru/articles/1082750/",
+      "date": "2026-09",
+      "kind": "proxy",
+      "metric": "С 01.01.2025 по август 2026: 52 расследования, 40 протоколов, штрафы 2,6 млн руб суммарно",
+      "scope": "разбор с отсылкой на Коммерсант и Роскомнадзор, 16.09.2026"
+    },
+    {
+      "id": "ev-habr-rag-prod",
+      "label": "Хабр: Из песочницы в Production, масштабирование RAG-системы для эксперта по охране труда",
+      "url": "https://habr.com/ru/articles/1000424/",
+      "date": "2026-02",
+      "kind": "proxy",
+      "metric": "Реранкер добавил 5-10 секунд на запрос; наивный RAG разваливается на больших данных",
+      "scope": "технический кейс автора asuleykin, 17.02.2026"
+    },
+    {
+      "id": "ev-habr-x5-llm",
+      "label": "Хабр: Интеграция LLM в корпоративные чат-боты (X5 Tech, команда AI-Run)",
+      "url": "https://habr.com/ru/companies/X5Tech/articles/834832/",
+      "date": "2024-08",
+      "kind": "company",
+      "metric": "Ограничения LLM: контекст, хостинг на своих серверах, русский язык, галлюцинации",
+      "scope": "статья инженера X5 Tech Дарьи Андреевой, 09.08.2024"
+    },
+    {
+      "id": "ev-nordclan",
+      "label": "NordClan: AI-агенты для бизнеса - как выбрать подрядчика и не потерять бюджет",
+      "url": "https://nordclan.com/blog/ai-agenty-dlya-biznesa-chto-vazhno-proverit-u-podryadchika",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "Чек-лист из 20 пунктов проверки подрядчика",
+      "scope": "блог подрядчика, цен нет, 30.07.2026"
+    },
+    {
+      "id": "ev-habr-roi-otus",
+      "label": "Хабр (OTUS): Как посчитать ROI AI-проекта, а не нарисовать его",
+      "url": "https://habr.com/ru/companies/otus/articles/1029724/",
+      "date": "2025-05",
+      "kind": "analyst",
+      "metric": "Time-to-value типичного AI-проекта 9-18 месяцев; ROI 340% в презентации превращается в 40%",
+      "scope": "статья badcasedaily1, цифры автора без раскрытой выборки"
+    },
+    {
+      "id": "ev-habr-alp-msb",
+      "label": "Хабр (ALP ITSM): ИИ для бизнеса, как внедрить в МСБ и не слить бюджет",
+      "url": "https://habr.com/ru/companies/alp_itsm/articles/1060048/",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "Время ответа поддержки 15-20 минут до 1-2 минут; ссылка на MIT NANDA: 95% без отдачи",
+      "scope": "статья Максима Голубова, 17.07.2026"
+    },
+    {
+      "id": "ev-habr-studyai-small",
+      "label": "Хабр (StudyAI): Как малый бизнес экономит на сотрудниках с помощью ИИ",
+      "url": "https://habr.com/ru/companies/studyai/articles/1021040/",
+      "date": "2026-04",
+      "kind": "proxy",
+      "metric": "Сотрудник с окладом 40 000 стоит работодателю 55-60 тыс; интернет-магазин: 30-60 тыс на старте",
+      "scope": "статья TehnoBlog, 08.04.2026, расчеты автора"
+    },
+    {
+      "id": "ev-habr-siberian-945648",
+      "label": "Хабр: Внедрение ИИ в бизнесе. Что внедрять, как и зачем (Влад Кармаков, Siberian.pro)",
+      "url": "https://habr.com/ru/articles/945648/",
+      "date": "2025-09",
+      "kind": "company",
+      "metric": "ИИ подходит компаниям с повторяющимися процессами и большими объемами данных",
+      "scope": "статья CEO интегратора, 11.09.2025, комментарии не загрузились"
+    },
+    {
+      "id": "ev-vc-guryev-2274596",
+      "label": "vc.ru: Почему НЕ СТОИТ внедрять ИИ в бизнес? (Гурьев)",
+      "url": "https://vc.ru/ai/2274596-pochemu-ne-stoit-vnedryat-ii-v-biznes",
+      "date": "2025-10",
+      "kind": "proxy",
+      "metric": "Более 80% ИИ-проектов терпят неудачу (RAND, по статье); 29% работников в РФ опасаются потерять работу",
+      "scope": "статья 14.10.2025, цифры вторичные"
+    },
+    {
+      "id": "ev-vc-rechka-12-oshibok",
+      "label": "vc.ru (Rechka.Ai): Искусственный интеллект для бизнеса - 12 ошибок",
+      "url": "https://vc.ru/life/2299849-oshibki-vnedreniya-ii-v-biznese",
+      "date": "2025-10",
+      "kind": "company",
+      "metric": "Типовая компания теряет 1,2-2,5 млн руб в месяц на потерянных лидах (расчет вендора)",
+      "scope": "блог вендора, 27.10.2025, расчеты без методики"
+    },
+    {
+      "id": "ev-vc-shiryaeva",
+      "label": "vc.ru: Почему ИИ не приживается в компании, три управленческие ошибки (Инна Ширяева)",
+      "url": "https://vc.ru/id5669387/2982340-oshibki-vnedreniya-ii-v-kompanii",
+      "date": "2026-06",
+      "kind": "proxy",
+      "metric": "Сопротивление команды как защита роли и статуса",
+      "scope": "авторская статья, 17.06.2026"
+    },
+    {
+      "id": "ev-vc-dva-bota",
+      "label": "vc.ru (Два Бота): Почему ваш бот раздражает клиентов",
+      "url": "https://vc.ru/id4573136/1831556-pochemu-vash-bot-razdrazhaet-klientov-razbor-poletov-i-gotovye-resheniya",
+      "date": "2025-02",
+      "kind": "company",
+      "metric": "Конверсия диалога в покупку интернет-магазина электроники выросла с 6% до 14,5% после правок",
+      "scope": "блог вендора ботов, 24.02.2025"
+    },
+    {
+      "id": "ev-habr-speshu",
+      "label": "Хабр: 5 проблем при внедрении ИИ в бизнесе",
+      "url": "https://habr.com/ru/companies/speshu_ai/articles/1088408/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "У 74% нет стратегии ИИ (MWS); 57% отмечают проблемы интеграции (Ассоциация менеджеров); 55% отказались от сценариев из-за данных (Deloitte)",
+      "scope": "обзор чужих опросов, комментариев нет"
+    },
+    {
+      "id": "ev-dare-ii-agent",
+      "label": "Дарэ: Купить ИИ-агента под ключ - цены и что входит",
+      "url": "https://dareai.ru/blog/kupit-ii-agenta",
+      "date": "2026-09",
+      "kind": "company",
+      "metric": "От 49 990 руб за 14-21 день; сложные проекты 80-250 тыс; сопровождение от 15 000 руб/мес",
+      "scope": "лендинг агентства Дарэ, 06.09.2026"
+    },
+    {
+      "id": "ev-automate-ai-bot-2026",
+      "label": "Automate-AI: Сколько стоит разработка чат-бота под ключ в 2026",
+      "url": "https://automate-ai.ru/blog/skolko-stoit-chat-bot-2026",
+      "date": "2026-01",
+      "kind": "company",
+      "metric": "Простой бот от 200 000, средний 300-600 тыс, AI-чат-бот от 700 000 руб",
+      "scope": "блог студии, 09.01.2026"
+    },
+    {
+      "id": "ev-aibotmanager-cost",
+      "label": "AIBotManager: Стоимость ИИ-бота 2026, полный расчет",
+      "url": "https://aibotmanager.ru/skolko-stoit-ii-bot/",
+      "date": "2026-09",
+      "kind": "company",
+      "metric": "FAQ-бот 10-30 тыс, ИИ-менеджер 40-80 тыс, ИИ-агент 150-350 тыс, ИИ-отдел 200-500 тыс руб",
+      "scope": "блог студии, 24.09.2026"
+    },
+    {
+      "id": "ev-artean-ii-cost",
+      "label": "Artean: Сколько стоит внедрение ИИ, разбор по типам проектов",
+      "url": "https://artean.ru/blog/ai/skolko-stoit-vnedrenie-ii-razbor-stoimosti-po-tipam-proektov/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Магазин до 10 тыс товаров 350-600 тыс; CRM-скоринг 400-800 тыс; интеграция ИИ в приложение 300-900 тыс руб",
+      "scope": "блог студии, дата на странице не указана"
+    },
+    {
+      "id": "ev-kaizenteam-cost",
+      "label": "KaizenTeam: Стоимость внедрения ИИ в бизнес в 2026",
+      "url": "https://kaizenteam.xyz/blog/skolko-stoit-vnedrenie-iskusstvennogo-intellekta-dlya-biznesa-v-2026-godu",
+      "date": "2026-06",
+      "kind": "company",
+      "metric": "ИИ для маркетинга 100-500 тыс, ИИ-чатбот 300 тыс - 1,5 млн, аналитика 1-5 млн руб",
+      "scope": "блог студии, 05.06.2026"
+    },
+    {
+      "id": "ev-swiftagents-cost",
+      "label": "Swift Agents: Сколько стоит внедрить ИИ в малый бизнес",
+      "url": "https://swiftagents.ru/blog/skolko-stoit-vnedrit-ii-v-malyy-biznes",
+      "date": "2026-05",
+      "kind": "company",
+      "metric": "SaaS 5-25 тыс/мес, кастомный агент 250-500 тыс разово + 20-30 тыс/мес",
+      "scope": "блог студии, 08.05.2026"
+    },
+    {
+      "id": "ev-apex-cost",
+      "label": "Apex Intellect: Сколько стоит внедрить AI в бизнес в 2026",
+      "url": "https://apex-intellect.ru/blog/skolko-stoit-vnedrit-ai/",
+      "date": "2026-03",
+      "kind": "company",
+      "metric": "AI-агент MVP 200-400 тыс за 2-3 недели; RAG 300-500 тыс; поддержка 15-20% в год",
+      "scope": "блог студии, 01.03.2026"
+    },
+    {
+      "id": "ev-just-ai-khub-pricing",
+      "label": "Just AI: Тарификация Jay Knowledge Hub",
+      "url": "https://khub.just-ai.com/docs/pricing/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Тарифы от 0 до 49 900 руб/мес, единый баланс J-токенов с Agent Platform",
+      "scope": "официальная страница тарифов вендора"
+    },
+    {
+      "id": "ev-it-implant",
+      "label": "IT-Implant: Внедрение ИИ в бизнес под ключ",
+      "url": "https://it-implant.ru/vnedrenie-ii-v-biznes/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Услуги от 3 500 руб/час; диагностика 7-14 дней, разработка 20-45 дней",
+      "scope": "лендинг подрядчика, дата не указана"
+    },
+    {
+      "id": "ev-justltd",
+      "label": "Just Ltd: Услуги AI, разработка и внедрение ИИ",
+      "url": "https://justltd.ru/razrabotkaii",
+      "date": "2026",
+      "kind": "company",
+      "metric": "От 4 500 руб/час, средний срок проекта 2-6 месяцев",
+      "scope": "лендинг подрядчика, дата не указана"
+    },
+    {
+      "id": "ev-titanium-rpa",
+      "label": "Titanium Robotics: Сколько стоит внедрение RPA",
+      "url": "https://titaniumrobotics.ru/blog/skolko-stoit-vnedrenie-rpa/",
+      "date": "2025-05",
+      "kind": "company",
+      "metric": "Пилот 150-350 тыс за 2-4 недели; автоматизация отдела 400-900 тыс за 2-3 месяца",
+      "scope": "блог интегратора RPA, 03.05.2025"
+    },
+    {
+      "id": "ev-cloud-ru-agents",
+      "label": "Cloud.ru: Внедрение ИИ-агентов в бизнес, пошагово",
+      "url": "https://cloud.ru/blog/kak-vnedrit-ii-v-biznes",
+      "date": "2026-06",
+      "kind": "company",
+      "metric": "Малые предприятия 5-15 млн руб, средний бизнес 30-60 млн за 3 года (оценка Cloud.ru)",
+      "scope": "блог провайдера, 04.06.2026"
+    },
+    {
+      "id": "ev-profi-razrabotka-ii",
+      "label": "Профи.ру: Разработка ИИ, IT-фрилансеры",
+      "url": "https://profi.ru/it_freelance/razrabotka-ii/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "От 1 500 руб/час и от 600 руб за услугу; 1661 фрилансер на странице",
+      "scope": "витрина маркетплейса, число на дату чтения"
+    },
+    {
+      "id": "ev-profi-chatbots-price",
+      "label": "Профи.ру: Стоимость услуг разработки чат-ботов",
+      "url": "https://profi.ru/it_freelance/razrabotka-chat-botov/price/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Цена разработки чат-бота начинается от 3 030 руб (по сниппету поиска, страница вернула 418)",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-botman-cossa",
+      "label": "Cossa (BotMan): Сколько стоит чат-бот для бизнеса",
+      "url": "https://www.cossa.ru/instahero/325993/",
+      "date": "2023-10",
+      "kind": "company",
+      "metric": "У фрилансера бот 999-50 000 руб, у опытного от 3 000 руб",
+      "scope": "статья Анатолия Милова, 22.10.2023, цены устарели"
+    },
+    {
+      "id": "ev-vc-provod-gigachat",
+      "label": "vc.ru (provod.AI): GigaChat API для бизнеса - тарифы",
+      "url": "https://vc.ru/provod/3036855-gigachat-api-dlya-biznesa",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "Пакеты Lite 19 500-65 000, Pro 25 000-500 000 руб; асинхронный режим на 50% дешевле",
+      "scope": "статья агрегатора API, 21 июля"
+    },
+    {
+      "id": "ev-vc-provod-yandexgpt",
+      "label": "vc.ru (provod.AI): YandexGPT API - первый запрос и расчет стоимости",
+      "url": "https://vc.ru/provod/3035416-yandexgpt-api-pervyj-zapros-i-raschet-stoimosti",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "Lite 0,20 руб, Pro 5.1 0,80 руб за 1000 токенов на 18.07.2026",
+      "scope": "статья агрегатора API, цены на дату проверки"
+    },
+    {
+      "id": "ev-vc-top-ai-avtomatizatsii",
+      "label": "vc.ru: Топ-10 компаний по ИИ-автоматизации в России (Дмитрий Худогоб)",
+      "url": "https://vc.ru/services/2873629-top-kompaniy-po-ii-avtomatizatsii-v-rossii",
+      "date": "2026",
+      "kind": "analyst",
+      "metric": "Sherpa RPA оценен как дорогой, цикл внедрения 3-6 месяцев",
+      "scope": "авторский обзор, цены в тексте не раскрыты"
+    },
+    {
+      "id": "ev-rpa2-sherpa",
+      "label": "Портал RPA 2.0: Лицензии Sherpa RPA",
+      "url": "https://rpa2.ru/rpa_marketplace/sherpa_rpa/litsenzii_sherpa_rpa/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Все лицензии Sherpa (Robot, Orchestrator on-premises) с ценой по запросу; Designer и облачный Orchestrator бесплатны",
+      "scope": "каталог интегратора RPA"
+    },
+    {
+      "id": "ev-kwork-bot-3000",
+      "label": "Kwork: Чат GPT, создаю ботов для бизнеса под ключ за 3 000 руб (BalanceAI)",
+      "url": "https://kwork.ru/script-programming/44694000/chat-gpt-sozdayu-botov-dlya-biznesa-pod-klyuch",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Кворк от 3 000 руб (по заголовку из выдачи поиска, страница при повторной загрузке вернула 404)",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-kwork-bot-15000",
+      "label": "Kwork: Создам телеграмм бота на основе ИИ за 15 000 руб (Whomever)",
+      "url": "https://kwork.ru/script-programming/40919398/sozdam-telegramm-bota-na-osnove-ii",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Кворк от 15 000 руб (по заголовку из выдачи поиска, страница при повторной загрузке вернула 404)",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-kwork-bot-1000",
+      "label": "Kwork: Telegram-бот для бизнеса, заявки, поддержка, AI за 1 000 руб (igand73)",
+      "url": "https://kwork.ru/script-programming/53779762/telegram-bot-dlya-biznesa-zayavki-podderzhka-ai",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Кворк от 1 000 руб (по заголовку из выдачи поиска)",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-kwork-bot-500",
+      "label": "Kwork: Сделаю ИИ-чат-бота для бизнеса, Telegram, сайт, WhatsApp за 500 руб (nesterovila14)",
+      "url": "https://kwork.ru/script-programming/54170735/sdelayu-ii-chat-bota-dlya-biznesa-telegram-sayt-whatsapp",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Кворк от 500 руб (заголовок страницы, детали пакетов не загрузились)",
+      "scope": "по заголовку страницы"
+    },
+    {
+      "id": "ev-habr-freelance",
+      "label": "Хабр Фриланс: список фрилансеров, автоматизация и боты",
+      "url": "https://freelance.habr.com/freelancers?page=16",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Ставки от 1 000 руб/час и от 2 500 руб/час у специалистов по автоматизации (по сниппету поиска)",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-korus-ai-consulting",
+      "label": "КОРУС Консалтинг: ИИ-Консалтинг для бизнеса",
+      "url": "https://korusconsulting.ru/services/it-consulting/ai-consulting/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Стоимость формируется индивидуально, начинается с аудита готовности данных (по сниппету поиска)",
+      "scope": "по сниппету поиска, прайса нет"
+    },
+    {
+      "id": "ev-dare-main",
+      "label": "Дарэ: ИИ-агенты для бизнеса, ИИ-менеджер продаж",
+      "url": "https://dareai.ru/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Тарифы: Базовый от 49 990 руб, Бизнес от 99 990 руб (по сниппету поиска)",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-allsoft-jay",
+      "label": "Allsoft: Jay Copilot, лицензия",
+      "url": "https://allsoft.ru/software/vendors/just-ai/jay-copilot/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Лицензия Jay Copilot от 44 550 руб на 6 месяцев (по сниппету поиска)",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-hh-ai-inzhener",
+      "label": "hh.ru: поиск Вакансии AI-инженер (Россия)",
+      "url": "https://hh.ru/search/vacancy?text=AI-инженер&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "986 вакансий найдено по запросу",
+      "scope": "счетчик поисковой выдачи hh.ru, 02.10.2026, включает нерелевантные совпадения"
+    },
+    {
+      "id": "ev-hh-llm",
+      "label": "hh.ru: поиск Вакансии LLM инженер",
+      "url": "https://hh.ru/search/vacancy?text=LLM+инженер&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "602 вакансии найдено по запросу",
+      "scope": "счетчик выдачи, 02.10.2026, есть шум (QA, Python)"
+    },
+    {
+      "id": "ev-hh-ml-llm",
+      "label": "hh.ru: поиск ML engineer LLM",
+      "url": "https://hh.ru/search/vacancy?text=ML+engineer+LLM&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "217 вакансий найдено по запросу",
+      "scope": "счетчик выдачи, 02.10.2026"
+    },
+    {
+      "id": "ev-hh-n8n",
+      "label": "hh.ru: поиск ИИ-агенты n8n",
+      "url": "https://hh.ru/search/vacancy?text=ИИ-агенты+n8n&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "51 вакансия найдена по запросу",
+      "scope": "счетчик выдачи, 02.10.2026"
+    },
+    {
+      "id": "ev-hh-prompt",
+      "label": "hh.ru: поиск промпт-инженер",
+      "url": "https://hh.ru/search/vacancy?text=промпт-инженер&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "10 вакансий найдено по запросу",
+      "scope": "счетчик выдачи, 02.10.2026; точная фраза, мало совпадений"
+    },
+    {
+      "id": "ev-hh-vnedrenie-ii",
+      "label": "hh.ru: поиск внедрение ИИ",
+      "url": "https://hh.ru/search/vacancy?text=внедрение+ИИ&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "1 313 вакансий найдено по запросу",
+      "scope": "счетчик выдачи, 02.10.2026; в верхе выдачи нерелевантные (бухгалтер, 1С)"
+    },
+    {
+      "id": "ev-hh-rukovoditel-ii",
+      "label": "hh.ru: поиск руководитель ИИ",
+      "url": "https://hh.ru/search/vacancy?text=руководитель+ИИ&area=113",
+      "date": "2026-10",
+      "kind": "official",
+      "metric": "3 277 вакансий найдено по запросу (шумный запрос)",
+      "scope": "счетчик выдачи, 02.10.2026; в верхе HR и ассистенты"
+    },
+    {
+      "id": "ev-hh-vac-caio-rodina",
+      "label": "hh.ru: Директор по искусственному интеллекту (CAIO), Группа Родина",
+      "url": "https://hh.ru/vacancy/137124480",
+      "date": "2026-09",
+      "kind": "official",
+      "metric": "Вакансия CAIO без вилки, требуется опыт 5+ лет и команда от 5 человек",
+      "scope": "вакансия от 08.09.2026"
+    },
+    {
+      "id": "ev-hh-vac-sber-head-ai",
+      "label": "hh.ru: Руководитель направления AI-трансформации Global Markets, Сбер",
+      "url": "https://hh.ru/vacancy/134460002",
+      "date": "2026-07",
+      "kind": "official",
+      "metric": "Вакансия Head of AI без вилки, опыт 6+ лет, команда 10+",
+      "scope": "в архиве на 22.07.2026"
+    },
+    {
+      "id": "ev-hh-vac-almaz-antey",
+      "label": "hh.ru: Руководитель проектов цифровой трансформации и ИИ, Алмаз-Антей",
+      "url": "https://hh.ru/vacancy/132628185",
+      "date": "2026-05",
+      "kind": "official",
+      "metric": "Зарплата до 260 000 руб в месяц, опыт 3-6 лет",
+      "scope": "в архиве с 29.05.2026, данные по сниппету поиска"
+    },
+    {
+      "id": "ev-hh-vac-skillstaff",
+      "label": "hh.ru: LLM engineer, разработчик мультиагентных систем, SkillStaff",
+      "url": "https://hh.ru/vacancy/132916671",
+      "date": "2026-06",
+      "kind": "official",
+      "metric": "Зарплата до 325 000 руб на руки, опыт 3-6 лет, удаленка",
+      "scope": "в архиве на 07.06.2026"
+    },
+    {
+      "id": "ev-hh-vac-nanimai",
+      "label": "hh.ru: Промпт-инженер, Nanimai",
+      "url": "https://hh.ru/vacancy/129510299",
+      "date": "2026-02",
+      "kind": "official",
+      "metric": "70 000 - 150 000 руб на руки, проектная работа",
+      "scope": "в архиве с 15.02.2026"
+    },
+    {
+      "id": "ev-hh-vac-dabl-ap",
+      "label": "hh.ru: AI Инженер (LLM, RAG, LangGraph), Дабл Ап",
+      "url": "https://hh.ru/vacancy/131749512",
+      "date": "2026-04",
+      "kind": "official",
+      "metric": "150 000 - 200 000 руб в месяц",
+      "scope": "в архиве с 13.04.2026, по сниппету поиска"
+    },
+    {
+      "id": "ev-aibotmanager-salary",
+      "label": "AIBotManager: Зарплата ИИ-специалиста 2026, 12 ролей",
+      "url": "https://aibotmanager.ru/zarplaty-ii-specialistov/",
+      "date": "2026-05",
+      "kind": "analyst",
+      "metric": "Prompt Engineer 80-400 тыс, ML Engineer 150-600 тыс, AI Solutions Architect 400 тыс - 1,2 млн руб",
+      "scope": "свод по hh.ru, Хабр Карьере, AmazingHiring, апрель-май 2026, более 1500 вакансий, Москва"
+    },
+    {
+      "id": "ev-aibotmanager-prompt",
+      "label": "AIBotManager: Вакансии Prompt Engineer 2026",
+      "url": "https://aibotmanager.ru/prompt-engineer-vakansii/",
+      "date": "2026-04",
+      "kind": "analyst",
+      "metric": "Более 400 вакансий с Prompt/AI/LLM Engineer на hh.ru на апрель 2026",
+      "scope": "блог-свод, методика подсчета не раскрыта"
+    },
+    {
+      "id": "ev-github-labor-market",
+      "label": "GitHub: ai-labor-market-ru-2026-08, рынок труда ИИ-автоматизации (hh.ru, август 2026)",
+      "url": "https://github.com/antonBy77/ai-labor-market-ru-2026-08",
+      "date": "2026-08",
+      "kind": "proxy",
+      "metric": "457 вакансий просканировано, 30 инженерных, медиана 150-250 тыс руб, 60% удаленка",
+      "scope": "репозиторий одного автора, выборка маленькая"
+    },
+    {
+      "id": "ev-potok-hr",
+      "label": "Поток: ИИ в HR, как соискатели реагируют на нейросети",
+      "url": "https://potok.io/blog/hr-trends/ii-v-hr-kak-soiskateli-reagiruyut-na-nejroseti/",
+      "date": "2025-08",
+      "kind": "company",
+      "metric": "38% считают общение с ИИ признаком неуважения; 28% не понимают, как ИИ решает",
+      "scope": "блог HR-вендора, ссылки на опросы без методики"
+    },
+    {
+      "id": "ev-unisender-hr",
+      "label": "Unisender: Как рекрутеры используют ИИ в найме",
+      "url": "https://www.unisender.com/ru/blog/ii-v-najme-avtootkliki-protiv-avtootkazov/",
+      "date": "2026-05",
+      "kind": "company",
+      "metric": "На разбор 1500-2000 откликов уходило несколько дней; ИИ-скрининг сокращает затраты времени на 73%",
+      "scope": "статья 15.05.2026 с цитатами HR-экспертов"
+    },
+    {
+      "id": "ev-nanohire-hr",
+      "label": "NanoHire: AI-рекрутер 2026, как кандидаты обходят фильтры",
+      "url": "https://nanohire.ru/blog/kak-kandidaty-obkhodyat-ai-filtry-v-2026-chto-delat-hr",
+      "date": "2026-04",
+      "kind": "company",
+      "metric": "До 40% откликов с манипуляцией ключевыми словами; фильтры отклоняют более 10% сильных кандидатов",
+      "scope": "блог вендора, 17.04.2026, методика не раскрыта"
+    },
+    {
+      "id": "ev-pravo-otvetstvennost",
+      "label": "Право.ру: Ответственность за ошибку ИИ - кто заплатит, если нейросеть навредила",
+      "url": "https://pravo.ru/story/263324/",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "Юристы: риск принимает оператор, использующий нейросеть",
+      "scope": "материал с цитатами четырех юристов"
+    },
+    {
+      "id": "ev-vfs-dogovor",
+      "label": "VFS Consulting: Договор на разработку нейросети, SLA, веса моделей и IP",
+      "url": "https://vfs.consulting/ai/dogovor-na-razrabotku-nejroseti/",
+      "date": "2026-01",
+      "kind": "company",
+      "metric": "Юридическая поддержка договора от 3 500 руб",
+      "scope": "блог юрфирмы, 16.01.2026"
+    },
+    {
+      "id": "ev-kommersant-prom",
+      "label": "Коммерсантъ: Российская промышленность внедряет ИИ-агентов, опыт и метрики",
+      "url": "https://www.kommersant.ru/doc/8671549",
+      "date": "2026-05",
+      "kind": "official",
+      "metric": "Норникель: более 100 ИИ-агентов в 30 процессах; Еврохим: более 60 проектов",
+      "scope": "материал 19.05.2026, спикеры крупных компаний"
+    },
+    {
+      "id": "ev-tme-ktsdaily",
+      "label": "Telegram: Программисты делают бизнес (KTS)",
+      "url": "https://t.me/s/ktsdaily",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Посты о RAG-ассистентах: точность ответов выше 90%, конверсия в лид с 38% до 55%",
+      "scope": "веб-зеркало канала, даты постов не показаны"
+    },
+    {
+      "id": "ev-tme-um-ai-dohod",
+      "label": "Telegram: Ум + AI = Доход",
+      "url": "https://t.me/s/um_ai_dohod",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "Посты о заработке на ИИ-услугах: 40 000 руб/мес за 5 заказов в неделю",
+      "scope": "веб-зеркало канала, заявления авторов постов без проверки"
+    },
+    {
+      "id": "ev-tme-shishkin",
+      "label": "Telegram: Андрей Шишкин про B2B лидген",
+      "url": "https://t.me/s/andrew_shishkin",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "Посты: отклик на лид в 5-30 минут; $0,25 за ЛПР с почтой",
+      "scope": "веб-зеркало канала, август 2026"
+    },
+    {
+      "id": "ev-tme-ustinov",
+      "label": "Telegram: Всеволод Устинов (ai, стартапы)",
+      "url": "https://t.me/s/vsevolodustinovchannel",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "Пост про контент ИИ-маркетинга: нагенерить легко, отделить сработавшее сложно",
+      "scope": "веб-зеркало канала"
+    },
+    {
+      "id": "ev-avito-nedv-ii",
+      "label": "Движение.ру: Что меняет ИИ в сфере недвижимости (Авито Недвижимость)",
+      "url": "https://dvizhenie.ru/media/7370/chto-menyaet-ii-v-sfere-nedvizhimosti",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "45% девелоперов регулярно используют ИИ, на системном уровне у 12% застройщиков",
+      "scope": "исследование Авито Недвижимости, июнь 2026, материал 02.07.2026"
+    },
+    {
+      "id": "ev-kts-realestate",
+      "label": "KTS: Искусственный интеллект в недвижимости, 6 AI-решений для застройщика",
+      "url": "https://kts.tech/posts/iskusstvennyj-intellekt-v-nedvizhimosti",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Описание болей застройщика: рутина менеджеров, теплые лиды вне рабочих часов",
+      "scope": "блог интегратора, дата не указана"
+    },
+    {
+      "id": "ev-bothelp-horeca",
+      "label": "BotHelp: Чат-боты для кафе и ресторанов",
+      "url": "https://bothelp.io/ru/dlya-restoranov",
+      "date": "2026",
+      "kind": "company",
+      "metric": "+18% бронирований, +17-20% заказов через свои каналы после внедрения",
+      "scope": "лендинг вендора, кейсы без названий"
+    },
+    {
+      "id": "ev-korus-logistics",
+      "label": "КОРУС: Искусственный интеллект в логистике",
+      "url": "https://korusconsulting.ru/blog/iskusstvennyy-intellekt/iskusstvennyy-intellekt-v-logistike-kak-tekhnologii-menyayut-upravlenie-dostavkoy-i-tsepochkami-post/",
+      "date": "2026-08",
+      "kind": "company",
+      "metric": "45% логистических компаний РФ планируют внедрить ИИ в 2-3 года (по статье)",
+      "scope": "блог интегратора, 13.08.2026"
+    },
+    {
+      "id": "ev-finance-mail-logistics",
+      "label": "Финансы Mail: Эксперт рассказал, заменят ли алгоритмы логистов и диспетчеров (Михаил Белоусов)",
+      "url": "https://finance.mail.ru/article/ekspert-rasskazal-zamenyat-li-algoritmy-logistov-i-dispetcherov-69226308/",
+      "date": "2026-09",
+      "kind": "proxy",
+      "metric": "ИИ берет рутину диспетчера, но не контекст и переговоры",
+      "scope": "интервью-материал, 06.09.2026"
+    },
+    {
+      "id": "ev-1ps-chatboty",
+      "label": "1PS: Частые ошибки чат-ботов",
+      "url": "https://1ps.ru/blog/ctr/2021/pochemu-chat-botyi-ne-rabotayut-razbor-strukturnyix-i-texnicheskix-oshibok-botov/",
+      "date": "2021-10",
+      "kind": "company",
+      "metric": "Разбор причин провала чат-ботов",
+      "scope": "блог агентства, 27.10.2021, возраст статьи больше 4 лет"
+    },
+    {
+      "id": "ev-tochka-ecom",
+      "label": "vc.ru: Как ИИ помогает в e-commerce, опыт Точка Маркетплейсы (Константин Канивец)",
+      "url": "https://vc.ru/marketplace/765288-kak-ii-pomogaet-v-e-commerce-opyt-servisa-tochka-marketpleisy",
+      "date": "2023-07",
+      "kind": "company",
+      "metric": "Бот пишет описание товара за минуту, ответ на отзыв за 30 секунд",
+      "scope": "статья CEO сервиса, 20.07.2023"
+    },
+    {
+      "id": "ev-biz360-marketing",
+      "label": "Biz360: ИИ в маркетинге, как использовать нейросети и не раздражать аудиторию (Екатерина Ульянова)",
+      "url": "https://biz360.ru/materials/ii-v-marketinge-kak-ispolzovat-neyroseti-i-ne-razdrazhat-auditoriyu/",
+      "date": "2026-01",
+      "kind": "proxy",
+      "metric": "ИИ-контент звучит как все, эмоции считываются как фальшивые",
+      "scope": "статья 27.01.2026"
+    },
+    {
+      "id": "ev-sostav-small-business",
+      "label": "Sostav: Сколько стоит внедрить ИИ в малый бизнес",
+      "url": "https://www.sostav.ru/blogs/281569/86687",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Страница не открылась (анимация загрузки), в сниппете поиска: работа команды интеграции от 80-150 тыс руб за простой сценарий",
+      "scope": "по сниппету поиска"
+    },
+    {
+      "id": "ev-sostav-geo-rating",
+      "label": "Sostav: ТОП-10 агентств для продвижения в ИИ (рейтинг 2026)",
+      "url": "https://www.sostav.ru/blogs/286072/82723",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "В выдаче есть рейтинги агентств для продвижения в нейросетях (по сниппету поиска)",
+      "scope": "по сниппету поиска, страницу не читал"
+    },
+    {
+      "id": "ev-salesai-rop",
+      "label": "SalesAI: AI в отдел продаж за 90 дней, руководство РОПа",
+      "url": "https://salesai.ru/rop/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "Пилот 90 дней, заявлено +15-25% конверсии, 200+ кейсов (данные вендора)",
+      "scope": "маркетинговая страница вендора, без независимых данных"
+    }
+  ]
+}
