@@ -51,7 +51,7 @@ const TOP_STATS: {
     label: 'без измеримого эффекта на P&L',
     note: 'при вложениях 30-40 млрд долларов, MIT NANDA',
     kind: 'analyst',
-    source: /nanda/i
+    source: /nanda.*genai divide/i
   },
   {
     num: '89',
@@ -64,9 +64,9 @@ const TOP_STATS: {
     num: '73',
     unit: '% внедрений',
     label: 'проваливаются за первый год',
-    note: 'причина в обслуживании базы, а не в модели: минус 20% точности проходит бесшумно',
+    note: 'цифра из блога ragaboutit.com, исследование там не названо; причина в обслуживании базы, а не в модели',
     kind: 'proxy',
-    source: /rag/i
+    source: /ragaboutit/i
   },
   {
     num: fmtMln(AI_NATIVE_FAILED_COST),
