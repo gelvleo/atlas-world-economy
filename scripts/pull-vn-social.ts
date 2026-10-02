@@ -130,7 +130,7 @@ async function main() {
     const sorted = [...g.items].sort((a, b) => b.p.posted_at.localeCompare(a.p.posted_at));
     const quotes = sorted.slice(0, 8).map(({ p, s }) => ({
       text: clip(p.text),
-      who: s.title.slice(0, 60),
+      who: s.title.replace(EMOJI, '').replace(/\s+/g, ' ').trim().slice(0, 60),
       where: s.platform === 'telegram' ? 'Telegram' : s.platform === 'youtube' ? 'YouTube' : s.platform,
       url: p.url!,
       date: p.posted_at.slice(0, 10)
