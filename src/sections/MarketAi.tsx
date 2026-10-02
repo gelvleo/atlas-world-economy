@@ -3,8 +3,9 @@ import type { EvidenceKind, SectionId } from '../types';
 import { NODE_MAP } from '../data/nodes';
 import { EvidenceTag, NodeEvidenceTag, evidenceKind } from './Overview';
 import Val from '../ui/num';
-import AiMarketExplorer from './AiMarketExplorer';
-import { AI_MARKET_EVIDENCE } from '../data/ai-market';
+import MarketTreeExplorer from './MarketTreeExplorer';
+import { AI_MARKET_EVIDENCE, AI_MARKET_TREE } from '../data/ai-market';
+import { AI_MARKET_LAYERS } from '../data/ai-market.types';
 import {
   AI_NATIVE_CHAINS,
   AI_NATIVE_EPOCHS,
@@ -159,7 +160,14 @@ export default function MarketAi({ openNode, goTo }: Props) {
 
       <div className="hair" />
 
-      <AiMarketExplorer openNode={openNode} />
+      <MarketTreeExplorer
+        openNode={openNode}
+        tree={AI_MARKET_TREE}
+        layers={AI_MARKET_LAYERS}
+        domain="ai"
+        anchor="aim"
+        placeholder="Найти: клиника, 1С, сколько стоит, галлюцинации, Kwork…"
+      />
 
       <div className="hair" />
 

@@ -1,5 +1,6 @@
 // Валидатор карты рынка ИИ-внедрений: data/ai-market/*.json.
-// Запуск: npx tsx scripts/validate-ai-market.ts (входит в npm run check).
+// Запуск: npx tsx scripts/validate-ai-market.ts [папка] (входит в npm run check).
+// Без аргумента проверяет data/ai-market; для Вьетнама: data/vn-market.
 //
 // Красный, если: дубли id, родитель не найден, related ведёт в пустоту, число без
 // источника, источник без url, цитата без url или длиннее 20 слов, длинное тире.
@@ -11,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import type { AiMarketFile, AiMarketNode } from '../src/data/ai-market.types';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dir = resolve(here, '../data/ai-market');
+const dir = resolve(here, '..', process.argv[2] ?? 'data/ai-market');
 const files = readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 
 const nodes: (AiMarketNode & { _file: string })[] = [];
@@ -77,7 +78,7 @@ for (const n of nodes) byLayer[n.layer] = (byLayer[n.layer] ?? 0) + 1;
 const quotes = nodes.reduce((s, n) => s + (n.quotes?.length ?? 0), 0);
 const numbers = nodes.reduce((s, n) => s + (n.numbers?.length ?? 0), 0);
 
-console.log(`Карта рынка ИИ: файлов ${files.length}, узлов ${nodes.length}, источников ${evidence.size}, цитат ${quotes}, чисел ${numbers}`);
+console.log(`Карта ${dir.split('/').pop()}: файлов ${files.length}, узлов ${nodes.length}, источников ${evidence.size}, цитат ${quotes}, чисел ${numbers}`);
 console.log(Object.entries(byLayer).map(([k, v]) => `${k} ${v}`).join(' · '));
 if (problems.length) {
   console.error(`\nОшибок: ${problems.length}`);

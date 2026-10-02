@@ -21,11 +21,15 @@ import {
 import VietnamDb from './VietnamDb';
 import VietnamGraph from './VietnamGraph';
 import VietnamTimeline from './VietnamTimeline';
+import MarketTreeExplorer from './MarketTreeExplorer';
+import { VN_MARKET_LAYERS, VN_MARKET_TREE } from '../data/vn-market';
 
-type WorkspaceTab = 'overview' | 'hypotheses' | 'regions' | 'connections' | 'calendar' | 'data';
+type WorkspaceTab = 'overview' | 'map' | 'hypotheses' | 'regions' | 'connections' | 'calendar' | 'data';
 
 const TABS: { id: WorkspaceTab; label: string }[] = [
   { id: 'overview', label: 'Картина рынка' },
+  // Карта Вьетнама: дерево от первооснов до слов людей, данные в data/vn-market.
+  { id: 'map', label: 'Карта' },
   { id: 'hypotheses', label: 'Гипотезы' },
   { id: 'regions', label: 'Регионы' },
   { id: 'connections', label: 'Связи' },
@@ -261,6 +265,10 @@ function Connections({ route }: { route: AtlasRoute | null }) {
   return <div className="vn-screen"><div className="section-head"><h1 className="section-title">Связи рынка</h1></div><VietnamGraph routeSlug={routeSlug} regionName={(slug) => names.get(slug) ?? slug} regionLevel={(slug) => levels.get(slug) ?? null} /></div>;
 }
 
+function MapScreen({ openNode }: { openNode: (id: string) => void }) {
+  return <div className="vn-screen"><div className="section-head"><div className="kicker">Карта Вьетнама</div><h1 className="section-title">От первооснов до слов людей</h1><p className="section-lead">Почему сюда идут деньги и люди, кто едет и что растёт, что нужно иностранцу, где ломается, кто продаёт и почём, что из этого следует для нас. Каждая строка раскрывается, у каждой цифры источник, у цитат ссылка на пост.</p></div><MarketTreeExplorer openNode={openNode} tree={VN_MARKET_TREE} layers={VN_MARKET_LAYERS} domain="vn" anchor="vnm" placeholder="Найти: виза, аренда Нячанг, дуриан, школа, вывести рубли…" /></div>;
+}
+
 function Calendar() { return <div className="vn-screen"><div className="section-head"><h1 className="section-title">Календарь спроса</h1></div><VietnamTimeline events={GEN_EVENTS} mobility={[]} mobilityRegion="" /></div>; }
 
 function DataCatalog({ route }: { route: AtlasRoute | null }) {
@@ -270,10 +278,10 @@ function DataCatalog({ route }: { route: AtlasRoute | null }) {
 
 export default function VietnamWorkspace({ route, goTo, openNode }: Props) {
   const aliases: Record<string, WorkspaceTab> = { search: 'data', calendar: 'calendar', regions: 'regions', employment: 'data', markets: 'data', national: 'data', opportunity: 'hypotheses', entities: 'connections', sweeps: 'data', mobility: 'calendar' };
-  const requested = route?.domain === 'vietnam' && route.kind === 'section' ? aliases[route.a] ?? route.a as WorkspaceTab : route?.kind === 'entity' ? 'connections' : route?.kind === 'region' || route?.kind === 'market' ? 'data' : 'overview';
+  const requested = route?.domain === 'vn' ? 'map' : route?.domain === 'vietnam' && route.kind === 'section' ? aliases[route.a] ?? route.a as WorkspaceTab : route?.kind === 'entity' ? 'connections' : route?.kind === 'region' || route?.kind === 'market' ? 'data' : 'overview';
   const active = TABS.some((tab) => tab.id === requested) ? requested : 'overview';
   const changeTab = (tab: WorkspaceTab) => { window.location.hash = `#/vietnam/section/${tab}`; };
-  return <div className="vn-workspace"><WorkspaceNav active={active} onChange={changeTab} /><div className="vn-screen-wrap">{active === 'overview' && <Overview goTo={goTo} openNode={openNode} />}{active === 'hypotheses' && <Hypotheses />}{active === 'regions' && <Regions />}{active === 'connections' && <Connections route={route} />}{active === 'calendar' && <Calendar />}{active === 'data' && <DataCatalog route={route} />}</div></div>;
+  return <div className="vn-workspace"><WorkspaceNav active={active} onChange={changeTab} /><div className="vn-screen-wrap">{active === 'overview' && <Overview goTo={goTo} openNode={openNode} />}{active === 'map' && <MapScreen openNode={openNode} />}{active === 'hypotheses' && <Hypotheses />}{active === 'regions' && <Regions />}{active === 'connections' && <Connections route={route} />}{active === 'calendar' && <Calendar />}{active === 'data' && <DataCatalog route={route} />}</div></div>;
 }
 
 export { HYPOTHESES };

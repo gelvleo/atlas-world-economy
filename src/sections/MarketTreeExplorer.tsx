@@ -2,34 +2,43 @@ import { useEffect, useMemo, useState } from 'react';
 import type { EvidenceKind } from '../types';
 import { EvidenceTag } from './Overview';
 import Val from '../ui/num';
-import {
-  AI_MARKET_BACKLINKS,
-  AI_MARKET_CHILDREN,
-  AI_MARKET_EVIDENCE,
-  AI_MARKET_MAP,
-  AI_MARKET_NODES,
-  AI_MARKET_ROOTS,
-  AI_MARKET_STATS,
-  aiMarketDescendants,
-  aiMarketTrail
-} from '../data/ai-market';
-import { AI_MARKET_KIND_LABEL, AI_MARKET_LAYERS } from '../data/ai-market.types';
+import { AI_MARKET_KIND_LABEL } from '../data/ai-market.types';
 import type { AiMarketKind, AiMarketLayer, AiMarketNode } from '../data/ai-market.types';
+import type { MarketTree } from '../data/market-tree';
 import { useHashRoute } from '../ui/hashRoute';
+import { createContext, useContext } from 'react';
 import './ai-market.css';
 
-// Проводник по карте рынка. Адрес узла живёт в хэше (#/ai/node/<id>, #/ai/layer/<id>),
-// поэтому любая строка карты это ссылка, которую можно отдать человеку.
+// Проводник по дереву карты. Адрес узла живёт в хэше (#/<домен>/node/<id>,
+// #/<домен>/layer/<id>), поэтому любая строка карты это ссылка, которую можно отдать
+// человеку. Один проводник на два домена: рынок ИИ-внедрений (ai) и Вьетнам (vn).
+
+export interface MarketLayerMeta {
+  id: AiMarketLayer;
+  label: string;
+  lead: string;
+}
 
 interface Props {
   openNode: (id: string) => void;
+  tree: MarketTree;
+  layers: MarketLayerMeta[];
+  domain: string;
+  placeholder: string;
+  /** Якорь блока: по нему экран прокручивается к проводнику при переходе по узлу. */
+  anchor: string;
 }
 
-const goLayer = (layer: AiMarketLayer) => {
-  window.location.hash = `#/ai/layer/${layer}`;
+// Дерево и домен раздаём через контекст: строки и карточки вложены глубоко, а
+// прокидывать пять пропсов через каждую не нужно.
+const Ctx = createContext<{ tree: MarketTree; layers: MarketLayerMeta[]; domain: string }>(null!);
+const useTree = () => useContext(Ctx);
+
+const goLayer = (domain: string, layer: AiMarketLayer) => {
+  window.location.hash = `#/${domain}/layer/${layer}`;
 };
-const goNode = (id: string) => {
-  window.location.hash = `#/ai/node/${id}`;
+const goNode = (domain: string, id: string) => {
+  window.location.hash = `#/${domain}/node/${id}`;
 };
 
 // Порядок групп детей внутри узла: сначала структура, потом слова людей.
@@ -38,9 +47,9 @@ const KIND_ORDER: AiMarketKind[] = [
   'player', 'price', 'channel', 'failure', 'metric', 'pain', 'question', 'insight'
 ];
 
-function evidenceKindOf(n: AiMarketNode): EvidenceKind | null {
+function evidenceKindOf(n: AiMarketNode, evidence: MarketTree['evidence']): EvidenceKind | null {
   const ids = [...(n.evidence ?? []), ...(n.numbers ?? []).map((x) => x.evidence)];
-  const kinds = ids.map((id) => AI_MARKET_EVIDENCE[id]?.kind).filter(Boolean) as EvidenceKind[];
+  const kinds = ids.map((id) => evidence[id]?.kind).filter(Boolean) as EvidenceKind[];
   const rank: EvidenceKind[] = ['official', 'company', 'analyst', 'forecast', 'proxy'];
   const best = rank.find((k) => kinds.includes(k));
   if (best) return best;
@@ -49,11 +58,12 @@ function evidenceKindOf(n: AiMarketNode): EvidenceKind | null {
 }
 
 function Row({ n, showTrail }: { n: AiMarketNode; showTrail?: boolean }) {
-  const kids = AI_MARKET_CHILDREN[n.id]?.length ?? 0;
-  const deep = kids ? aiMarketDescendants(n.id).length : 0;
-  const trail = showTrail ? aiMarketTrail(n.id).slice(0, -1) : [];
+  const { tree, domain } = useTree();
+  const kids = tree.children[n.id]?.length ?? 0;
+  const deep = kids ? tree.descendants(n.id).length : 0;
+  const trail = showTrail ? tree.trail(n.id).slice(0, -1) : [];
   return (
-    <button className="list-row" onClick={() => goNode(n.id)}>
+    <button className="list-row" onClick={() => goNode(domain, n.id)}>
       <span className="aim-row">
         <span className="aim-row-title">
           {n.title}
@@ -93,13 +103,14 @@ function Group({ kind, items }: { kind: AiMarketKind; items: AiMarketNode[] }) {
 }
 
 function Children({ id }: { id: string }) {
-  const kids = AI_MARKET_CHILDREN[id] ?? [];
+  const { tree } = useTree();
+  const kids = tree.children[id] ?? [];
   if (!kids.length) return null;
   const groups = KIND_ORDER.map((k) => [k, kids.filter((c) => c.kind === k)] as const).filter(([, v]) => v.length);
   return (
     <div className="aim-block">
       <div className="kicker">
-        Внутри · <span className="num">{aiMarketDescendants(id).length}</span>
+        Внутри · <span className="num">{tree.descendants(id).length}</span>
       </div>
       {groups.map(([k, items]) => (
         <Group key={k} kind={k} items={items} />
@@ -109,14 +120,15 @@ function Children({ id }: { id: string }) {
 }
 
 function Chips({ title, ids }: { title: string; ids: string[] }) {
-  const items = ids.map((id) => AI_MARKET_MAP[id]).filter(Boolean);
+  const { tree, domain } = useTree();
+  const items = ids.map((id) => tree.map[id]).filter(Boolean);
   if (!items.length) return null;
   return (
     <div className="aim-block">
       <div className="kicker">{title}</div>
       <div className="aim-chips">
         {items.map((r) => (
-          <button key={r.id} className="btn btn--ghost aim-chip" onClick={() => goNode(r.id)}>
+          <button key={r.id} className="btn btn--ghost aim-chip" onClick={() => goNode(domain, r.id)}>
             {r.title}
           </button>
         ))}
@@ -126,22 +138,23 @@ function Chips({ title, ids }: { title: string; ids: string[] }) {
 }
 
 function Detail({ n, openNode }: { n: AiMarketNode; openNode: (id: string) => void }) {
-  const trail = aiMarketTrail(n.id);
-  const layer = AI_MARKET_LAYERS.find((l) => l.id === n.layer)!;
+  const { tree, layers, domain } = useTree();
+  const trail = tree.trail(n.id);
+  const layer = layers.find((l) => l.id === n.layer)!;
   const evidenceIds = Array.from(
     new Set([...(n.evidence ?? []), ...(n.numbers ?? []).map((x) => x.evidence)])
   );
-  const backlinks = (AI_MARKET_BACKLINKS[n.id] ?? []).filter((b) => !(n.related ?? []).includes(b.id)).map((b) => b.id);
+  const backlinks = (tree.backlinks[n.id] ?? []).filter((b) => !(n.related ?? []).includes(b.id)).map((b) => b.id);
   return (
     <div className="aim-detail">
       <div className="aim-crumbs">
-        <button className="link" onClick={() => goLayer(n.layer)}>
+        <button className="link" onClick={() => goLayer(domain, n.layer)}>
           {layer.label}
         </button>
         {trail.slice(0, -1).map((t) => (
           <span key={t.id}>
             <span className="sep">/</span>{' '}
-            <button className="link" onClick={() => goNode(t.id)}>
+            <button className="link" onClick={() => goNode(domain, t.id)}>
               {t.title}
             </button>
           </span>
@@ -151,7 +164,7 @@ function Detail({ n, openNode }: { n: AiMarketNode; openNode: (id: string) => vo
       <div className="aim-detail-head">
         <div className="row row--wrap">
           <span className="tag">{AI_MARKET_KIND_LABEL[n.kind]}</span>
-          <EvidenceTag kind={evidenceKindOf(n)} />
+          <EvidenceTag kind={evidenceKindOf(n, tree.evidence)} />
           {(n.tags ?? []).map((t) => (
             <span key={t} className="tag tag--muted">
               {t}
@@ -186,7 +199,7 @@ function Detail({ n, openNode }: { n: AiMarketNode; openNode: (id: string) => vo
           <div className="kicker">Цифры</div>
           <div className="aim-nums">
             {n.numbers.map((x, i) => {
-              const ev = AI_MARKET_EVIDENCE[x.evidence];
+              const ev = tree.evidence[x.evidence];
               return (
                 <div key={i} className="stat">
                   <span className="stat-num stat-num--m">
@@ -300,7 +313,7 @@ function Detail({ n, openNode }: { n: AiMarketNode; openNode: (id: string) => vo
           </div>
           <div className="aim-src">
             {evidenceIds.map((id) => {
-              const ev = AI_MARKET_EVIDENCE[id];
+              const ev = tree.evidence[id];
               if (!ev) return null;
               return (
                 <div key={id}>
@@ -336,8 +349,9 @@ function Detail({ n, openNode }: { n: AiMarketNode; openNode: (id: string) => vo
 }
 
 function LayerView({ layer }: { layer: AiMarketLayer }) {
-  const meta = AI_MARKET_LAYERS.find((l) => l.id === layer)!;
-  const roots = AI_MARKET_ROOTS[layer] ?? [];
+  const { tree, layers } = useTree();
+  const meta = layers.find((l) => l.id === layer)!;
+  const roots = tree.roots[layer] ?? [];
   // Слой «вопросы» и «спрос» делим по виду корней, чтобы отрасли не смешивались с сегментами.
   const groups = KIND_ORDER.map((k) => [k, roots.filter((r) => r.kind === k)] as const).filter(([, v]) => v.length);
   return (
@@ -361,7 +375,7 @@ function LayerView({ layer }: { layer: AiMarketLayer }) {
 
 const norm = (s: string) => s.toLowerCase().replace(/ё/g, 'е');
 
-function search(q: string): AiMarketNode[] {
+function search(tree: MarketTree, q: string): AiMarketNode[] {
   const needle = norm(q);
   const score = (n: AiMarketNode) => {
     let s = 0;
@@ -374,51 +388,52 @@ function search(q: string): AiMarketNode[] {
     if ((n.whoSells ?? []).some((x) => norm(x).includes(needle))) s += 3;
     return s;
   };
-  return AI_MARKET_NODES.map((n) => [n, score(n)] as const)
+  return tree.nodes.map((n) => [n, score(n)] as const)
     .filter(([, s]) => s > 0)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 40)
     .map(([n]) => n);
 }
 
-export default function AiMarketExplorer({ openNode }: Props) {
+export default function MarketTreeExplorer({ openNode, tree, layers, domain, placeholder, anchor }: Props) {
   const route = useHashRoute();
   const [q, setQ] = useState('');
 
-  const selected = route?.domain === 'ai' && route.kind === 'node' ? AI_MARKET_MAP[route.a] : undefined;
+  const selected = route?.domain === domain && route.kind === 'node' ? tree.map[route.a] : undefined;
   const layer: AiMarketLayer =
     selected?.layer ??
-    (route?.domain === 'ai' && route.kind === 'layer' && AI_MARKET_LAYERS.some((l) => l.id === route.a)
+    (route?.domain === domain && route.kind === 'layer' && layers.some((l) => l.id === route.a)
       ? (route.a as AiMarketLayer)
       : 'principles');
 
   // Переход по узлу: экран к началу проводника, чтобы карточка не открывалась ниже сгиба.
   useEffect(() => {
-    if (!route || route.domain !== 'ai') return;
-    document.getElementById('aim')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-  }, [route?.kind, route?.a]);
+    if (!route || route.domain !== domain) return;
+    document.getElementById(anchor)?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }, [route?.kind, route?.a, domain, anchor]);
 
-  const hits = useMemo(() => (q.trim().length >= 2 ? search(q.trim()) : []), [q]);
+  const hits = useMemo(() => (q.trim().length >= 2 ? search(tree, q.trim()) : []), [q, tree]);
   const counts = useMemo(() => {
     const m = {} as Record<AiMarketLayer, number>;
-    for (const n of AI_MARKET_NODES) m[n.layer] = (m[n.layer] ?? 0) + 1;
+    for (const n of tree.nodes) m[n.layer] = (m[n.layer] ?? 0) + 1;
     return m;
-  }, []);
+  }, [tree]);
 
   return (
-    <div id="aim" className="stack stack--loose">
+    <Ctx.Provider value={{ tree, layers, domain }}>
+    <div id={anchor} className="stack stack--loose">
       <div className="aim-stamp">
         <span>
-          узлов <b>{AI_MARKET_STATS.nodes}</b>
+          узлов <b>{tree.stats.nodes}</b>
         </span>
         <span>
-          вопросов людей <b>{AI_MARKET_STATS.questions}</b>
+          вопросов людей <b>{tree.stats.questions}</b>
         </span>
         <span>
-          цитат дословно <b>{AI_MARKET_STATS.quotes}</b>
+          цитат дословно <b>{tree.stats.quotes}</b>
         </span>
         <span>
-          источников с ссылкой <b>{AI_MARKET_STATS.withUrl}</b>
+          источников с ссылкой <b>{tree.stats.withUrl}</b>
         </span>
       </div>
 
@@ -427,7 +442,7 @@ export default function AiMarketExplorer({ openNode }: Props) {
           className="field"
           type="search"
           aria-label="Поиск по карте рынка"
-          placeholder="Найти: клиника, 1С, сколько стоит, галлюцинации, Kwork…"
+          placeholder={placeholder}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
@@ -466,12 +481,12 @@ export default function AiMarketExplorer({ openNode }: Props) {
         </div>
 
         <nav className="aim-layers" aria-label="Слои карты">
-          {AI_MARKET_LAYERS.map((l) => (
+          {layers.map((l) => (
             <button
               key={l.id}
               className="aim-layer"
               aria-current={l.id === layer && !hits.length ? 'true' : undefined}
-              onClick={() => goLayer(l.id)}
+              onClick={() => goLayer(domain, l.id)}
             >
               <span>{l.label}</span>
               <span className="num">{counts[l.id] ?? 0}</span>
@@ -480,5 +495,6 @@ export default function AiMarketExplorer({ openNode }: Props) {
         </nav>
       </div>
     </div>
+    </Ctx.Provider>
   );
 }

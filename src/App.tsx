@@ -46,7 +46,7 @@ export default function App() {
   const initialRoute = parseHash(window.location.hash);
   const sectionFromRoute = (route: ReturnType<typeof parseHash>): SectionId => {
     if (!route) return 'vietnam';
-    if (route.domain === 'vietnam') return 'vietnam';
+    if (route.domain === 'vietnam' || route.domain === 'vn') return 'vietnam';
     // Карта рынка ИИ-внедрений адресует свои узлы сама: #/ai/node/<id>.
     if (route.domain === 'ai') return 'market-ai';
     if (route.domain === 'atlas' && route.kind === 'section' && SECTIONS.some((item) => item.id === route.a)) {
