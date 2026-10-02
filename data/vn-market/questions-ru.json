@@ -1,0 +1,6578 @@
+{
+  "nodes": [
+    {
+      "id": "q-tourist-01",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит отдых в Нячанге и можно ли уложиться в 30-60 долларов в сутки",
+      "summary": "Туристы пишут про отель 4-5 звёзд за $30-60 в сутки и еду по $2-6 за блюдо. Такси по городу 50-90 тыс. донгов.",
+      "facts": [
+        "Автобус по городу 8000 донгов, такси по городу 50-90 тыс. донгов (отзыв, февраль 2026)",
+        "Еда на двоих около $17 в день за месяц отдыха (отзыв)"
+      ],
+      "numbers": [
+        {
+          "label": "отель 4-5 звёзд в сутки",
+          "value": "30-60",
+          "unit": "$",
+          "evidence": "ev-maketrip"
+        },
+        {
+          "label": "еда на двоих в день",
+          "value": "17",
+          "unit": "$",
+          "evidence": "ev-maketrip"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "в Нячанге можно отдыхать неподалеку от моря в отличном отеле 4* и 5* всего за 30-60$ в сутки",
+          "who": "турист",
+          "where": "Make-trip",
+          "url": "https://make-trip.ru/vietnam/otdykh-v-nyachange-otzyvy-turistov-tseny-ekskursii",
+          "date": "2026-02"
+        }
+      ],
+      "questions": [
+        "Сколько нужно денег на неделю в Нячанге?",
+        "Где дешевле жить: у моря или в глубине?"
+      ],
+      "evidence": [
+        "ev-maketrip"
+      ],
+      "related": [
+        "price-transport",
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "q-tourist-02",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Когда в Нячанге можно купаться и не мешают ли волны",
+      "summary": "С октября по февраль волны и мусор в воде мешают плавать, по отзыву туриста. Сезон выбирают отдельно от виз и цен.",
+      "quotes": [
+        {
+          "text": "с октября по февраль плавать мешают большие волны и мусор в воде",
+          "who": "турист",
+          "where": "Make-trip",
+          "url": "https://make-trip.ru/vietnam/otdykh-v-nyachange-otzyvy-turistov-tseny-ekskursii",
+          "date": "2026-02"
+        }
+      ],
+      "questions": [
+        "Какой месяц лучше для моря в Нячанге?"
+      ],
+      "evidence": [
+        "ev-maketrip"
+      ],
+      "related": [
+        "risk-climate"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "q-tourist-03",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Стоит ли ехать в Дананг в октябре-ноябре",
+      "summary": "В отзывах за 2025-2026 осень называют сезоном дождей и штормов, пляжный отпуск превращается в сидение у окна.",
+      "quotes": [
+        {
+          "text": "Октябрь-ноябрь легко превращают пляжный отпуск в сидение у окна",
+          "who": "авторы сводки отзывов",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/da-nang-reviews",
+          "date": "2026"
+        },
+        {
+          "text": "Стройки - жалоба номер один в отзывах за 2025-2026",
+          "who": "авторы сводки отзывов",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/da-nang-reviews",
+          "date": "2026"
+        }
+      ],
+      "questions": [
+        "Не зальёт ли Дананг осенью?",
+        "Много ли строек рядом с пляжем?"
+      ],
+      "evidence": [
+        "ev-vs-danang"
+      ],
+      "related": [
+        "risk-climate"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "danang"
+      ]
+    },
+    {
+      "id": "q-tourist-04",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужна ли виза россиянину на отпуск и как оформить e-visa",
+      "summary": "Россиянам дают 45 дней безвиза. Для более долгой поездки e-visa на 90 дней стоит $25 разовая и $50 многократная, срок до 7 рабочих дней.",
+      "numbers": [
+        {
+          "label": "безвиз для россиян",
+          "value": "45",
+          "unit": "дней",
+          "evidence": "ev-vc-visa"
+        },
+        {
+          "label": "e-visa разовая",
+          "value": "25",
+          "unit": "$",
+          "evidence": "ev-vc-visa"
+        },
+        {
+          "label": "e-visa многократная",
+          "value": "50",
+          "unit": "$",
+          "evidence": "ev-vc-visa"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "вьетнамскую визу оформляют только на человека, который физически находится за пределами Вьетнама",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3030022-viza-vo-vetnam-i-vizaran",
+          "date": "2026-07"
+        }
+      ],
+      "questions": [
+        "Можно ли заказать e-visa уже во Вьетнаме?"
+      ],
+      "evidence": [
+        "ev-vc-visa"
+      ],
+      "related": [
+        "svc-visa",
+        "price-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "visa"
+      ]
+    },
+    {
+      "id": "q-tourist-05",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Работает ли карта Мир в магазинах и такси",
+      "summary": "Мир принимают только банкоматы банка VRB, в магазинах, отелях и такси нет. Visa и Mastercard из РФ не работают с марта 2022.",
+      "numbers": [
+        {
+          "label": "банкоматов VRB на страну",
+          "value": "18-21",
+          "unit": "шт",
+          "evidence": "ev-vc-mir"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "В магазинах, кафе, отелях и приложениях такси Мир не принимается вообще",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        }
+      ],
+      "questions": [
+        "Сколько наличных брать с собой?"
+      ],
+      "evidence": [
+        "ev-vc-mir"
+      ],
+      "related": [
+        "risk-cash-ruble",
+        "svc-banking"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "money"
+      ]
+    },
+    {
+      "id": "q-tourist-06",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужны ли права, чтобы взять байк напрокат",
+      "summary": "До 50 куб.см прав не нужно. На более мощный байк нужен международный формат вместе с российскими правами или вьетнамские права.",
+      "quotes": [
+        {
+          "text": "Легально ездить на мотобайке мощнее 50 куб.см во Вьетнаме можно двумя способами.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3012764-prava-na-bajk-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "questions": [
+        "Что будет, если остановит полиция без прав?"
+      ],
+      "evidence": [
+        "ev-vc-bikerights",
+        "ev-vc-bikefines"
+      ],
+      "related": [
+        "risk-traffic",
+        "price-transport"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "bike"
+      ]
+    },
+    {
+      "id": "q-tourist-07",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит байк в аренду и что оставлять в залог",
+      "summary": "Honda Wave в Нячанге 100-150 тыс. VND в день, автомат Vision 150-200 тыс. Залог 1-3 млн донгов или паспорт.",
+      "numbers": [
+        {
+          "label": "Honda Wave в Нячанге",
+          "value": "100-150",
+          "unit": "тыс. VND в день",
+          "evidence": "ev-vc-bikerent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Залог: 1-3 млн донгов или паспорт",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bikerent"
+      ],
+      "related": [
+        "price-transport",
+        "risk-traffic"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "bike"
+      ]
+    },
+    {
+      "id": "q-tourist-08",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как не попасть на развод с такси и ценами в 2-3 раза выше",
+      "summary": "Классические схемы: такси без счётчика и цены для иностранцев в 2-3 раза выше. Источник 2018 года, давность оговорена.",
+      "quotes": [
+        {
+          "text": "Вьетнамцы вам могут называть цены в 2-3 раза выше реальных.",
+          "who": "автор обзора",
+          "where": "Room-number",
+          "url": "https://room-number.ru/vietnam/razvod/",
+          "date": "2018-08"
+        },
+        {
+          "text": "Договариваешься на одну цену, по окончании поездки цена вырастает в 10 раз.",
+          "who": "автор обзора",
+          "where": "Room-number",
+          "url": "https://room-number.ru/vietnam/razvod/",
+          "date": "2018-08"
+        }
+      ],
+      "evidence": [
+        "ev-razvod"
+      ],
+      "related": [
+        "risk-scam-rent",
+        "risk-language"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "scam"
+      ]
+    },
+    {
+      "id": "q-tourist-09",
+      "parent": "q-tourist",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что с деньгами: сколько наличных брать и как менять",
+      "summary": "На первое время советуют $200-300 наличными на человека. Меняют в банках и у проверенных обменников, не на улице.",
+      "quotes": [
+        {
+          "text": "На первое время возьмите $200-300 наличными на человека",
+          "who": "автор гайда",
+          "where": "top-vietnam.ru",
+          "url": "https://top-vietnam.ru/turizm/85-prakticheskie-sovety-vo-vetname/427-kak-platit-vo-vetname-unionpay-karta-mir-mestnye-karty-nalichnye-i-perevody-dlya-rossiyan.html",
+          "date": "2026"
+        }
+      ],
+      "evidence": [
+        "ev-topvn"
+      ],
+      "related": [
+        "risk-cash-ruble"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "turist",
+        "money"
+      ]
+    },
+    {
+      "id": "q-relocant-01",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит жить в Дананге в месяц одному",
+      "summary": "Релокант называет $600-800 в Дананге и Нячанге, $800-1100 в Хошимине. Комфорт по Numbeo $1400-1800.",
+      "numbers": [
+        {
+          "label": "жизнь одного в Дананге",
+          "value": "600-800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-cost"
+        },
+        {
+          "label": "комфорт в Дананге по Numbeo",
+          "value": "1400-1800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg-budget"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Релоканту во Вьетнаме реально жить на $600-800 в месяц в Дананге или Нячанге и $800-1100 в Хошимине",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2949526-stoimost-zhizni-vo-vetname-danang-hoshimin-nyachang",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-cost",
+        "ev-vtg-budget"
+      ],
+      "related": [
+        "price-living",
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "danang"
+      ]
+    },
+    {
+      "id": "q-relocant-02",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какую визу брать на долгий срок и можно ли продлить на месте",
+      "summary": "Безвиз 45 дней, e-visa до 90 дней. Продление турвизы через агентство на 30 дней стоит $150-185, e-visa на практике не продлевают.",
+      "numbers": [
+        {
+          "label": "продление турвизы на 30 дней",
+          "value": "150-185",
+          "unit": "$",
+          "evidence": "ev-vs-visaext"
+        },
+        {
+          "label": "срок продления через агента",
+          "value": "5-7",
+          "unit": "рабочих дней",
+          "evidence": "ev-vs-visaext"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Именно на визе я вижу больше всего сорванных планов",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-visaext",
+        "ev-vc-3y"
+      ],
+      "related": [
+        "svc-visa",
+        "risk-visa",
+        "price-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "visa"
+      ]
+    },
+    {
+      "id": "q-relocant-03",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Платить ли налоги во Вьетнаме, если живу там 183 дня",
+      "summary": "Резидентство начинается с 183 дней в календарном году. Дальше прогрессивный НДФЛ по шкале 5-35%, вычет 15.5 млн VND в месяц.",
+      "numbers": [
+        {
+          "label": "порог резидентства",
+          "value": "183",
+          "unit": "дня",
+          "evidence": "ev-vs-tax"
+        },
+        {
+          "label": "личный вычет",
+          "value": "15.5",
+          "unit": "млн VND в месяц",
+          "evidence": "ev-vs-tax"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "провёл во Вьетнаме 183 дня и больше в течение календарного года",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-freelance-taxes",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-tax"
+      ],
+      "related": [
+        "svc-tax-accounting"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "tax"
+      ]
+    },
+    {
+      "id": "q-relocant-04",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли получить ВНЖ или ПМЖ и сколько это занимает",
+      "summary": "ПМЖ в российском смысле доступен трём категориям. Путь от туриста до резидента 18-30 месяцев, TRC выдают на 1-10 лет.",
+      "quotes": [
+        {
+          "text": "Базовый маршрут от туриста до резидента занимает 18-30 месяцев",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2900540-pereezd-vo-vetnam-na-pmz-vizy-vnzh-rabota",
+          "date": "2026-05"
+        },
+        {
+          "text": "Temporary Residence Card (TRC) - это ВНЖ, который выдают сроком от 1 до 10 лет",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2900540-pereezd-vo-vetnam-na-pmz-vizy-vnzh-rabota",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-pmzh"
+      ],
+      "related": [
+        "svc-visa",
+        "svc-company"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "vnzh"
+      ]
+    },
+    {
+      "id": "q-relocant-05",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как получать деньги из России, если карты не работают",
+      "summary": "Visa и Mastercard из РФ не работают с 2022. Остаются банкоматы VRB для Мир, UnionPay, USDT через P2P, СБП-обменники и переводы.",
+      "numbers": [
+        {
+          "label": "потеря на USDT при $1000",
+          "value": "2-4",
+          "unit": "%",
+          "evidence": "ev-vs-transfer"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Российские Visa и Mastercard во Вьетнаме не работают вообще с марта 2022 года",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        },
+        {
+          "text": "$10 000 наличными на человека это не порог декларации, а жёсткий потолок",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-money-transfer",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-transfer",
+        "ev-vc-mir"
+      ],
+      "related": [
+        "risk-cash-ruble",
+        "svc-banking"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "money"
+      ]
+    },
+    {
+      "id": "q-relocant-06",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что оказывается не так после переезда: честно после трёх лет в Дананге",
+      "summary": "Автор называет визу главной причиной сорванных планов, электричество до $60 летом, денге в сезон дождей и первые месяцы трафика.",
+      "quotes": [
+        {
+          "text": "электричество летом с кондиционером может улететь до 60 долларов",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        },
+        {
+          "text": "В сезон дождей реальный риск - лихорадка денге",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-3y"
+      ],
+      "related": [
+        "risk-climate",
+        "risk-health",
+        "risk-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "danang"
+      ]
+    },
+    {
+      "id": "q-relocant-07",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли устроиться на местную работу русскому",
+      "summary": "Автор пишет, что рабочих виз мало, а большинство вакансий в местных компаниях закрыто для не-вьетнамцев по закону. Учитель английского $1000-2000.",
+      "numbers": [
+        {
+          "label": "зарплата учителя английского",
+          "value": "1000-2000",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-move-med"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "большинство вакансий в местных компаниях по закону закрыто для не-вьетнамцев",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-move-med",
+        "ev-vc-3y"
+      ],
+      "related": [
+        "svc-staffing",
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "work"
+      ]
+    },
+    {
+      "id": "q-relocant-08",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какой город выбрать: Дананг, Нячанг, Хошимин или Далат",
+      "summary": "Numbeo июнь 2026: 1BR в центре Дананг $545, Нячанг $416, Хошимин $612. Далат дороже Сайгона по форуму, но климат без жары.",
+      "numbers": [
+        {
+          "label": "1BR в центре Нячанга",
+          "value": "416",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        },
+        {
+          "label": "1BR в центре Хошимина",
+          "value": "612",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Однокомнатная квартира в центре - около $545 в месяц",
+          "who": "автор сводки, Дананг",
+          "where": "Vietnam Tour Guide",
+          "url": "https://vietnam-tour-guide.ru/blog/luchshie-goroda-vietnam-expats-2026/",
+          "date": "2026-06"
+        },
+        {
+          "text": "Климат комфортный круглый год, не нужен ни кондей, ни обогреватель",
+          "who": "Yuri_Ch",
+          "where": "Форум Винского",
+          "url": "https://forum.awd.ru/viewtopic.php?t=259895",
+          "date": "2016-07"
+        }
+      ],
+      "evidence": [
+        "ev-vtg",
+        "ev-awd-dalat"
+      ],
+      "related": [
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "cities"
+      ]
+    },
+    {
+      "id": "q-relocant-09",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что с правами и байком, когда живу, а не отдыхаю",
+      "summary": "Обмен иностранных прав на вьетнамские требует легального резидентства, не менее 3 месяцев и ВНЖ. Госсбор 135 000 донгов.",
+      "numbers": [
+        {
+          "label": "госсбор за обмен прав",
+          "value": "135000",
+          "unit": "VND",
+          "evidence": "ev-vc-bikerights"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Обмен требует легального резидентства: нужно прожить во Вьетнаме минимум 3 месяца и иметь ВНЖ.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3012764-prava-na-bajk-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bikerights"
+      ],
+      "related": [
+        "risk-traffic",
+        "svc-translation-legal"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "bike"
+      ]
+    },
+    {
+      "id": "q-relocant-10",
+      "parent": "q-relocant",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужна ли страховка, если виза её не требует",
+      "summary": "Ни одна виза юридически страховку не требует, но серьёзная госпитализация в частной клинике легко превышает $10 000.",
+      "quotes": [
+        {
+          "text": "Ни один тип вьетнамской визы юридически не требует страховки",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3010433-medstrahovka-vo-vetname-dlya-ekspatov",
+          "date": "2026-07"
+        },
+        {
+          "text": "Серьёзная госпитализация в частной клинике легко переваливает за $10 000",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3010433-medstrahovka-vo-vetname-dlya-ekspatov",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-medins"
+      ],
+      "related": [
+        "svc-health-insurance",
+        "price-health"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "relocant",
+        "health"
+      ]
+    },
+    {
+      "id": "q-investor-01",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Может ли иностранец купить квартиру во Вьетнаме и на какой срок",
+      "summary": "Да, в многоквартирных домах до 30% квартир в доме, срок владения 50 лет с продлением. Один объект на иностранца.",
+      "facts": [
+        "Продление на 50 лет носит заявительный характер, не автоматическое (по сниппету поиска, Vitvet)"
+      ],
+      "numbers": [
+        {
+          "label": "квота иностранцев в доме",
+          "value": "30",
+          "unit": "%",
+          "evidence": "ev-vc-inv-vn"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Владение квартирой или апартаментами ограничено сроком 50 лет с возможностью продления",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1492517-kupit-nedvizhimost-vo-vetname-obzor-i-osobennosti-pokupki-luchshie-agentstva-nedvizhimosti-dlya-priobreteniya-zhilya",
+          "date": "2024-09"
+        }
+      ],
+      "evidence": [
+        "ev-snip-land2",
+        "ev-vc-inv-vn"
+      ],
+      "related": [
+        "risk-land-ownership",
+        "svc-housing"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "law"
+      ]
+    },
+    {
+      "id": "q-investor-02",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли купить землю",
+      "summary": "Нет. Иностранцы получают только право пользования через компанию, СП или долгосрочную аренду.",
+      "quotes": [
+        {
+          "text": "На землю иностранцы права не имеют",
+          "who": "автор статьи",
+          "where": "Fasttur",
+          "url": "https://fasttur.ru/nedvizhimost_vietnam",
+          "date": "2025-01"
+        }
+      ],
+      "evidence": [
+        "ev-snip-land",
+        "ev-fasttur"
+      ],
+      "related": [
+        "risk-land-ownership",
+        "price-land"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "land"
+      ]
+    },
+    {
+      "id": "q-investor-03",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит квадратный метр в Дананге и Нячанге",
+      "summary": "Дананг $1500-3000 за кв.м, Нячанг около $2000, у моря $1800-3000. Данные 2024-2025, свежее замера нет.",
+      "numbers": [
+        {
+          "label": "Дананг за кв.м",
+          "value": "1500-3000",
+          "unit": "$",
+          "evidence": "ev-vc-inv-dn"
+        },
+        {
+          "label": "Нячанг за кв.м",
+          "value": "2000",
+          "unit": "$",
+          "evidence": "ev-vc-inv-nt"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Средняя стоимость квартиры в Дананге составляет от $1,500 до $3,000 за квадратный метр",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1600892-kupit-kvartiru-v-danange-obzor-nedvizhimosti-i-reiting-luchshih-agentstv-dlya-pokupki-zhilya",
+          "date": "2024-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-inv-dn",
+        "ev-vc-inv-nt"
+      ],
+      "related": [
+        "price-buy"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "prices"
+      ]
+    },
+    {
+      "id": "q-investor-04",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какие налоги и комиссии платит покупатель",
+      "summary": "Налог около 0.5% от стоимости, агентство обычно 1-2% от сделки.",
+      "numbers": [
+        {
+          "label": "налог на покупку",
+          "value": "0.5",
+          "unit": "%",
+          "evidence": "ev-vc-inv-dn"
+        },
+        {
+          "label": "комиссия агентства",
+          "value": "1-2",
+          "unit": "%",
+          "evidence": "ev-vc-inv-dn"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Услуги агентства - обычно варьируются от 1% до 2% от стоимости сделки",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1600892-kupit-kvartiru-v-danange-obzor-nedvizhimosti-i-reiting-luchshih-agentstv-dlya-pokupki-zhilya",
+          "date": "2024-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-inv-dn"
+      ],
+      "related": [
+        "price-buy",
+        "sup-agents-ru"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "fees"
+      ]
+    },
+    {
+      "id": "q-investor-05",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Окупится ли аренда: какая доходность у квартиры",
+      "summary": "Студия около $100000 против аренды $300-450 в месяц в Нячанге-подобных рынках даёт валовую доходность около 3.6-5.4% годовых (оценка по двум источникам).",
+      "facts": [
+        "Расчёт (оценка): $300-450 x 12 / $100000 = 3.6-5.4% валовых, без простоя и расходов"
+      ],
+      "numbers": [
+        {
+          "label": "студия 30 кв.м в Ханое-Сайгоне",
+          "value": "100000",
+          "unit": "$",
+          "evidence": "ev-fasttur"
+        },
+        {
+          "label": "студия в Нячанге аренда",
+          "value": "300-450",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-nt-rent"
+        }
+      ],
+      "evidence": [
+        "ev-fasttur",
+        "ev-vc-nt-rent"
+      ],
+      "related": [
+        "risk-bubble",
+        "price-buy",
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "yield"
+      ]
+    },
+    {
+      "id": "q-investor-06",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Стоит ли брать на этапе котлована, правда ли цена вырастет в 2-3 раза",
+      "summary": "Продавцы обещают рост в 2-3 раза за стройку. Прогноз общего роста цен 6-8% в год. Оба числа из рекламных обзоров.",
+      "numbers": [
+        {
+          "label": "прогноз роста цен",
+          "value": "6-8",
+          "unit": "% в год",
+          "evidence": "ev-vc-inv-vn"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "с момента начала строительства до завершения цена вырастет в 2-3 раза",
+          "who": "автор справочной статьи",
+          "where": "Fasttur",
+          "url": "https://fasttur.ru/nedvizhimost_vietnam",
+          "date": "2025-01"
+        }
+      ],
+      "evidence": [
+        "ev-vc-inv-vn",
+        "ev-fasttur"
+      ],
+      "related": [
+        "risk-bubble"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "offplan"
+      ]
+    },
+    {
+      "id": "q-investor-07",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужен ли юрист и как проверить документы продавца",
+      "summary": "Обзоры советуют проверять документы и консультироваться с юристами и риелторами. Тип документа: розовая книга.",
+      "quotes": [
+        {
+          "text": "Важно тщательно проверять все документы, консультироваться с юристами и риэлторами, чтобы избежать юридических рисков",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1492517-kupit-nedvizhimost-vo-vetname-obzor-i-osobennosti-pokupki-luchshie-agentstva-nedvizhimosti-dlya-priobreteniya-zhilya",
+          "date": "2024-09"
+        }
+      ],
+      "evidence": [
+        "ev-vc-inv-vn"
+      ],
+      "related": [
+        "svc-translation-legal",
+        "svc-housing"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "legal"
+      ]
+    },
+    {
+      "id": "q-investor-08",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как перевести деньги на покупку и сколько можно вывезти наличными",
+      "summary": "Потолок вывоза наличными $10000 на человека. USDT-путь теряет 2-4%.",
+      "numbers": [
+        {
+          "label": "потеря на USDT",
+          "value": "2-4",
+          "unit": "%",
+          "evidence": "ev-vs-transfer"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "$10 000 наличными на человека это не порог декларации, а жёсткий потолок",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-money-transfer",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-transfer"
+      ],
+      "related": [
+        "svc-banking",
+        "risk-cash-ruble"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "money"
+      ]
+    },
+    {
+      "id": "q-investor-09",
+      "parent": "q-investor",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит земля под застройку и можно ли получить права через компанию",
+      "summary": "Участки под застройку от $150 за кв.м, средние $1500 за кв.м. Права пользования через компанию, СП или аренду. По сниппетам поиска.",
+      "facts": [
+        "Земля во Вьетнаме собственность государства, иностранец получает право пользования (по сниппету поиска)"
+      ],
+      "numbers": [
+        {
+          "label": "земля под застройку от",
+          "value": "150",
+          "unit": "$ за кв.м",
+          "evidence": "ev-snip-landprice"
+        }
+      ],
+      "evidence": [
+        "ev-snip-land",
+        "ev-snip-landprice"
+      ],
+      "related": [
+        "price-land",
+        "svc-company"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "investor",
+        "land"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-01",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит открыть компанию иностранцу",
+      "summary": "Госпошлина около 50 000 донгов. Реальный чек от $800, стандартный пакет под ключ $2000-5000.",
+      "numbers": [
+        {
+          "label": "пакет под ключ",
+          "value": "2000-5000",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "реальный чек за открытие компании иностранцем стартует от 800 долларов",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        },
+        {
+          "text": "Стандартный пакет под ключ - 2000-5000 долларов",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "related": [
+        "svc-company",
+        "price-business"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "company"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-02",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужен ли уставный капитал и сколько",
+      "summary": "Для сервисной компании советуют $10000-20000, чтобы IRC одобрили. Юридического минимума нет, на практике около $10000.",
+      "numbers": [
+        {
+          "label": "капитал для IRC",
+          "value": "10000-20000",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "для сервисной компании нужно 10 000-20 000 долларов, чтобы IRC одобрили",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-ybcase",
+        "ev-vc-company"
+      ],
+      "related": [
+        "price-business"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "capital"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-03",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужен ли местный номинальный директор",
+      "summary": "Автор пишет, что нанимать местного представителя приходится за $200-500 в месяц. Резидентный директор нужен по требованиям.",
+      "numbers": [
+        {
+          "label": "номинальный представитель",
+          "value": "200-500",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "приходится нанимать местного номинального представителя за 200-500 долларов в месяц",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "related": [
+        "svc-company",
+        "svc-staffing"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "company"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-04",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит открыть кафе",
+      "summary": "Начальные вложения в бюджетное заведение 50 кв.м около $18000, операционные расходы около $5500 в месяц, аренда от $15 за кв.м.",
+      "numbers": [
+        {
+          "label": "старт кафе 50 кв.м",
+          "value": "18000",
+          "unit": "$",
+          "evidence": "ev-duan"
+        },
+        {
+          "label": "операционные расходы",
+          "value": "5500",
+          "unit": "$ в месяц",
+          "evidence": "ev-duan"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Начальные вложения для открытия самого бюджетного заведения площадью 50 кв.м. составляют около 18.000 USD",
+          "who": "автор расчёта",
+          "where": "Duan.asia",
+          "url": "https://duan.asia/ru/art/restaurant-cafe-bar-1",
+          "date": "2025-12"
+        }
+      ],
+      "evidence": [
+        "ev-duan"
+      ],
+      "related": [
+        "price-business",
+        "svc-company"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "cafe"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-05",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какие разрешения нужны для кафе и алкоголя и сколько это занимает",
+      "summary": "Согласования и разрешения занимают до трёх месяцев, нужна лицензия на алкоголь, аренда нотариально от 3 лет.",
+      "quotes": [
+        {
+          "text": "Процесс согласования, заверения, получения всех разрешений занимает до трех месяцев",
+          "who": "автор расчёта",
+          "where": "Duan.asia",
+          "url": "https://duan.asia/ru/art/restaurant-cafe-bar-1",
+          "date": "2025-12"
+        },
+        {
+          "text": "Договор на аренду заведений общественного питания заключают нотариально, на срок не менее 3 лет",
+          "who": "автор расчёта",
+          "where": "Duan.asia",
+          "url": "https://duan.asia/ru/art/restaurant-cafe-bar-1",
+          "date": "2025-12"
+        }
+      ],
+      "time": "до 3 месяцев",
+      "evidence": [
+        "ev-duan"
+      ],
+      "related": [
+        "svc-translation-legal"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "license"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-06",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли нанять иностранца, сколько стоит work permit",
+      "summary": "Полный пакет work permit с проверками и легализацией документов $600-1000.",
+      "numbers": [
+        {
+          "label": "work permit пакет",
+          "value": "600-1000",
+          "unit": "$",
+          "evidence": "ev-vc-company-wp"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "полный пакет с проверками и легализацией документов обычно укладывается в 600-1000 долларов",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-company-wp",
+        "ev-vc-company"
+      ],
+      "related": [
+        "svc-staffing",
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "workpermit"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-07",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Нужна ли бухгалтерия при нулевой выручке",
+      "summary": "Да, бухгалтерия обязательна даже без выручки, $100-300 в месяц. Годовой налог на лицензию отменён с 1 января 2026.",
+      "numbers": [
+        {
+          "label": "бухгалтер",
+          "value": "100-300",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Бухгалтерия обязательна даже при нулевой выручке и стоит 100-300 долларов в месяц",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        },
+        {
+          "text": "С 1 января 2026 года ежегодный налог на бизнес-лицензию отменён полностью",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "related": [
+        "svc-tax-accounting"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "tax"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-08",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какую форму компании выбрать и какие налоги",
+      "summary": "Иностранцы чаще берут LLC с ограниченной ответственностью. Налог на прибыль 20%, НДС 10% по данным YB Case.",
+      "numbers": [
+        {
+          "label": "налог на прибыль",
+          "value": "20",
+          "unit": "%",
+          "evidence": "ev-ybcase"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Иностранные предприниматели обычно отдают предпочтение компаниям, ответственность акционеров в которых ограничивается их вкладом",
+          "who": "сайт YB Case",
+          "where": "YB Case",
+          "url": "https://ybcase.com/countries/vietnam",
+          "date": "2026-10"
+        }
+      ],
+      "evidence": [
+        "ev-ybcase"
+      ],
+      "related": [
+        "svc-company",
+        "svc-tax-accounting"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "llc"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-09",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Выгодно ли открывать фирму с вьетнамским партнёром",
+      "summary": "Автор статьи считает, что в паре с вьетнамцем россиянин проигрывает. Источник агентский, сроки и цифры неоднородны.",
+      "quotes": [
+        {
+          "text": "Открывая фирму совместно с вьетнамцем, россиянин оказывается в проигрыше.",
+          "who": "автор статьи",
+          "where": "Visasam",
+          "url": "https://visasam.ru/emigration/svoedelo/biznes-vo-vietname.html",
+          "date": "2026-05"
+        }
+      ],
+      "risk": "партнёр владеет бизнесом де-юре",
+      "evidence": [
+        "ev-visasam"
+      ],
+      "related": [
+        "risk-land-ownership"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "partner"
+      ]
+    },
+    {
+      "id": "q-entrepreneur-10",
+      "parent": "q-entrepreneur",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Как привлекать клиентов во Вьетнаме: Zalo, Facebook или сайт",
+      "summary": "Zalo и Facebook заменяют сайт и поддержку, по сниппету поиска. SEO стартует от 80 000 руб в месяц. Статью открыть не удалось.",
+      "facts": [
+        "Продвижение во Вьетнаме от 80 000 руб в месяц, конкурентная ниша от 150 000 руб (по сниппету поиска)"
+      ],
+      "evidence": [
+        "ev-snip-seo"
+      ],
+      "related": [
+        "svc-marketing-local"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "entrepreneur",
+        "marketing"
+      ]
+    },
+    {
+      "id": "q-family-01",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Где жить во Вьетнаме с детьми: Дананг, Нячанг или Хошимин",
+      "summary": "Дананг: 3-комнатная $600-900, школа $6000-14000 в год. Хошимин: $1200-2000 и $12000-25000. Нячанг: от $500 и $2000-4000 за билингвальную.",
+      "numbers": [
+        {
+          "label": "школа в Дананге",
+          "value": "6000-14000",
+          "unit": "$ в год",
+          "evidence": "ev-vc-kids-school"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "3-комнатная квартира здесь стоит $600-900/месяц",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2892509-gde-zhit-vo-vetname-s-detmi",
+          "date": "2026-04"
+        },
+        {
+          "text": "Октябрь-декабрь - сезон дождей, бывают тайфуны",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2892509-gde-zhit-vo-vetname-s-detmi",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-kids-rent",
+        "ev-vc-kids-school"
+      ],
+      "related": [
+        "price-school",
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "cities"
+      ]
+    },
+    {
+      "id": "q-family-02",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит международная школа",
+      "summary": "Международная школа $15000-38000 в год за ребёнка, реалистичный бюджет $25000-30000 с учётом всего. В Дананге $1500-2500 в месяц.",
+      "numbers": [
+        {
+          "label": "международная школа",
+          "value": "15000-38000",
+          "unit": "$ в год",
+          "evidence": "ev-vc-schools"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Международная школа во Вьетнаме обходится семье в $15 000-$38 000 в год за ребёнка",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+          "date": "2026-05"
+        },
+        {
+          "text": "Application fee $1 000-$4 000 - единоразово, невозвратно",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-schools"
+      ],
+      "related": [
+        "price-school",
+        "svc-school"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "school"
+      ]
+    },
+    {
+      "id": "q-family-03",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Есть ли русская школа во Вьетнаме",
+      "summary": "Школа при Посольстве РФ только в Ханое. Частные: The First Academy и Горизонт в Нячанге, Горизонт в Дананге, Муйне. В Хошимине, Дананге и Фукуоке своих нет у других.",
+      "quotes": [
+        {
+          "text": "Школа при Посольстве РФ есть только в Ханое",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vchschools",
+        "ev-gorizont",
+        "ev-vc-schools"
+      ],
+      "related": [
+        "price-school",
+        "sup-agents-ru"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "russian-school"
+      ]
+    },
+    {
+      "id": "q-family-04",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что такое билингвальная школа и подойдёт ли она",
+      "summary": "Это вьетнамская школа с английским довеском. В Дананге $500-800 в месяц, в Хошимине $750-1200.",
+      "numbers": [
+        {
+          "label": "билингвальная в Дананге",
+          "value": "500-800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-schools-city"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Билингвальная - это вьетнамская школа с английским довеском",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-schools-city",
+        "ev-vc-schools"
+      ],
+      "related": [
+        "price-school"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "school"
+      ]
+    },
+    {
+      "id": "q-family-05",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "За сколько месяцев подавать документы в школу",
+      "summary": "От первого письма до первого учебного дня автор советует закладывать 2-3 месяца.",
+      "quotes": [
+        {
+          "text": "От первого письма до первого учебного дня закладывайте 2-3 месяца",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+          "date": "2026-05"
+        }
+      ],
+      "time": "2-3 месяца",
+      "evidence": [
+        "ev-vc-schools"
+      ],
+      "related": [
+        "svc-school"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "school"
+      ]
+    },
+    {
+      "id": "q-family-06",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какая медицина для детей и чем болеют",
+      "summary": "Жители хвалят медицину Дананга. Автор после трёх лет называет денге реальным риском в сезон дождей. Приём в международной клинике $100-150.",
+      "quotes": [
+        {
+          "text": "Медицина в Дананге, очень не плохая",
+          "who": "Konstantin Vasilets",
+          "where": "TravelAsk",
+          "url": "https://travelask.ru/questions/310360-pereezd-v-danange",
+          "date": "2019"
+        },
+        {
+          "text": "Приём в международной клинике...стоит 100-150 долларов",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-travelask",
+        "ev-vc-3y"
+      ],
+      "related": [
+        "risk-health",
+        "price-health"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "health"
+      ]
+    },
+    {
+      "id": "q-family-07",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Можно ли жить на российскую пенсию",
+      "summary": "Экономный бюджет $500-700 в месяц, однушка $250-400. Отдельной пенсионной визы нет.",
+      "numbers": [
+        {
+          "label": "однушка",
+          "value": "250-400",
+          "unit": "$ в месяц",
+          "evidence": "ev-vv-pens"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Отдельной пенсионной визы во Вьетнаме нет и не предвидится",
+          "who": "автор гайда",
+          "where": "Vietnam Visa",
+          "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+          "date": "2026-07"
+        },
+        {
+          "text": "Экономный бюджет - $500-700 в месяц",
+          "who": "автор гайда",
+          "where": "Vietnam Visa",
+          "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vv-pens"
+      ],
+      "related": [
+        "price-living",
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "pension"
+      ]
+    },
+    {
+      "id": "q-family-08",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какая виза у пенсионера и как не потерять статус",
+      "summary": "Три схемы: e-visa с визараном, бизнес-виза DN через агентство, инвесторская. Подготовка минимум 6 месяцев.",
+      "facts": [
+        "DN через агентство $300-1000 и больше в год (по сниппету поиска)"
+      ],
+      "quotes": [
+        {
+          "text": "Переезд пенсионера сюда - это не оформление одной бумаги, а подготовка минимум за 6 месяцев",
+          "who": "автор гайда",
+          "where": "Vietnam Visa",
+          "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-snip-dn",
+        "ev-vv-pens"
+      ],
+      "related": [
+        "svc-visa",
+        "price-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "visa"
+      ]
+    },
+    {
+      "id": "q-family-09",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что делать с питанием: привычных продуктов нет",
+      "summary": "Семья из Дананга пишет про большие напряги с едой. Ярославцы: настоящую сметану найти почти невозможно.",
+      "quotes": [
+        {
+          "text": "С едой тут тоже очень большие напряги",
+          "who": "Konstantin Vasilets",
+          "where": "TravelAsk",
+          "url": "https://travelask.ru/questions/310360-pereezd-v-danange",
+          "date": "2019"
+        },
+        {
+          "text": "Найти зефир, пастилу или настоящую сметану практически невозможно",
+          "who": "ярославцы в Нячанге",
+          "where": "74.ru",
+          "url": "https://74.ru/text/world/2025/08/18/75835723/",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-travelask",
+        "ev-74ru"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "food"
+      ]
+    },
+    {
+      "id": "q-family-10",
+      "parent": "q-family",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Есть ли детский сад для иностранцев в Дананге",
+      "summary": "Государственный источник пишет о детском саде международного уровня. По сниппету поиска он один, обучение на английском.",
+      "facts": [
+        "Один детский сад для иностранцев в Дананге, английский язык (по сниппету поиска)"
+      ],
+      "evidence": [
+        "ev-snip-dnkid"
+      ],
+      "related": [
+        "price-school"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "family",
+        "kindergarten"
+      ]
+    },
+    {
+      "id": "q-nomad-01",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Есть ли виза цифрового кочевника",
+      "summary": "Нет, используют e-visa $50 на 90 дней и визаран. Годовая стоимость $800-2200.",
+      "numbers": [
+        {
+          "label": "визаран каждые 90 дней",
+          "value": "800-2200",
+          "unit": "$ в год",
+          "evidence": "ev-vs-nomad"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Специальной визы цифрового кочевника во Вьетнаме нет",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-digital-nomad-visa",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-nomad"
+      ],
+      "related": [
+        "svc-visa",
+        "price-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "visa"
+      ]
+    },
+    {
+      "id": "q-nomad-02",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько стоит коворкинг в Дананге",
+      "summary": "Enouvo Space $90-130, Toong $80-120, Hi4 Workspace $80-110 в месяц.",
+      "numbers": [
+        {
+          "label": "коворкинг Дананг",
+          "value": "80-130",
+          "unit": "$ в месяц",
+          "evidence": "ev-vs-nomad"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Топ-коворкинги в Дананге: Enouvo Space $90-130/мес, Toong Da Nang $80-120/мес, Hi4 Workspace $80-110/мес.",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-digital-nomad-visa",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-nomad"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "cowork"
+      ]
+    },
+    {
+      "id": "q-nomad-03",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько денег и времени уходит на визаран",
+      "summary": "Автор тратил $40-130 на визаран каждые 45-90 дней. Из Дананга в Лаос $87-200 по ценам компаний.",
+      "numbers": [
+        {
+          "label": "визаран из Дананга",
+          "value": "87-200",
+          "unit": "$",
+          "evidence": "ev-vc-visarun"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "На визараны каждые 45-90 дней, тратил на это 40-130 $",
+          "who": "автор Т-Ж",
+          "where": "Т-Ж",
+          "url": "https://t-j.ru/cost-of-living-danang/",
+          "date": "2025-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-visarun",
+        "ev-tj"
+      ],
+      "related": [
+        "svc-visa",
+        "risk-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "visarun"
+      ]
+    },
+    {
+      "id": "q-nomad-04",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Попадаю ли я в налоговую ловушку на 183 дня",
+      "summary": "Да: 183 дня и ты налоговый резидент с мировым доходом по шкале 5-35%. Нерезидент платит 20% с дохода внутри страны.",
+      "numbers": [
+        {
+          "label": "ставка нерезидента",
+          "value": "20",
+          "unit": "%",
+          "evidence": "ev-vs-tax"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Налоговая ловушка: 183 дня в стране - и ты налоговый резидент с мировым доходом по шкале 5-35%.",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-digital-nomad-visa",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-tax",
+        "ev-vs-nomad"
+      ],
+      "related": [
+        "svc-tax-accounting"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "tax"
+      ]
+    },
+    {
+      "id": "q-nomad-05",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Что с интернетом и кафе для работы",
+      "summary": "Домашний оптоволокно $10-15 в месяц, в 80% кофеен хороший интернет, по опыту автора из Ханоя.",
+      "numbers": [
+        {
+          "label": "оптоволокно",
+          "value": "10-15",
+          "unit": "$ в месяц",
+          "evidence": "ev-habr-hanoi"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "домашний оптоволоконный интернет стоит ~10-15 USD",
+          "who": "автор статьи",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/979420/",
+          "date": "2025-12"
+        },
+        {
+          "text": "практически 80% кофеен и кафе обладают хорошим интернетом",
+          "who": "автор статьи",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/979420/",
+          "date": "2025-12"
+        }
+      ],
+      "evidence": [
+        "ev-habr-hanoi"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "internet"
+      ]
+    },
+    {
+      "id": "q-nomad-06",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какой бюджет на Ханой для одного",
+      "summary": "Комфортный бюджет $800-1200, аренда $300-600, коворкинг $50-150.",
+      "numbers": [
+        {
+          "label": "аренда в Ханое",
+          "value": "300-600",
+          "unit": "$ в месяц",
+          "evidence": "ev-habr-hanoi"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Комфортный бюджет для одного человека: 800-1200 USD - без излишеств",
+          "who": "автор статьи",
+          "where": "Хабр",
+          "url": "https://habr.com/ru/articles/979420/",
+          "date": "2025-12"
+        }
+      ],
+      "evidence": [
+        "ev-habr-hanoi"
+      ],
+      "related": [
+        "price-living",
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "hanoi"
+      ]
+    },
+    {
+      "id": "q-nomad-07",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Какую страховку брать кочевнику",
+      "summary": "SafetyWing около $49 в месяц для 10-39 лет. Автор Т-Ж платил $65 в месяц за страховку для кочевников.",
+      "numbers": [
+        {
+          "label": "SafetyWing",
+          "value": "49",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-medins"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "SafetyWing: около $49 в месяц для возраста 10-39",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3010433-medstrahovka-vo-vetname-dlya-ekspatov",
+          "date": "2026-07"
+        },
+        {
+          "text": "оформил страховку для цифровых кочевников за 65 $ в месяц",
+          "who": "автор Т-Ж",
+          "where": "Т-Ж",
+          "url": "https://t-j.ru/cost-of-living-danang/",
+          "date": "2025-06"
+        }
+      ],
+      "evidence": [
+        "ev-vc-medins",
+        "ev-tj"
+      ],
+      "related": [
+        "svc-health-insurance"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "insurance"
+      ]
+    },
+    {
+      "id": "q-nomad-08",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Не вызовут ли вопросы на границе после нескольких визаранов",
+      "summary": "После 3-4 визаранов подряд офицер может задать вопросы о цели и источнике дохода.",
+      "quotes": [
+        {
+          "text": "После 3-4 визаранов подряд офицер на границе может задать вопросы о цели пребывания и источнике дохода.",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-digital-nomad-visa",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-nomad"
+      ],
+      "related": [
+        "risk-visa"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "border"
+      ]
+    },
+    {
+      "id": "q-nomad-09",
+      "parent": "q-nomad",
+      "layer": "questions",
+      "kind": "question",
+      "title": "Сколько тратит пара в Дананге и сколько откладывает",
+      "summary": "Автор Т-Ж: $1800 в месяц на двоих, откладывает $1000, аренда 6.5 млн VND, еда $300-600.",
+      "numbers": [
+        {
+          "label": "траты пары в Дананге",
+          "value": "1800",
+          "unit": "$ в месяц",
+          "evidence": "ev-tj"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "на двоих в месяц я трачу 1800 $. Еще 200 $ уходит на ипотеку в России",
+          "who": "автор Т-Ж",
+          "where": "Т-Ж",
+          "url": "https://t-j.ru/cost-of-living-danang/",
+          "date": "2025-06"
+        }
+      ],
+      "evidence": [
+        "ev-tj"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "ru",
+        "nomad",
+        "danang"
+      ]
+    },
+    {
+      "id": "pain-visa-01",
+      "parent": "risk-visa",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Просрочил визу на день и получил штраф до 40 млн донгов",
+      "summary": "Максимальный штраф по декрету 282/2025 до 40 млн VND. От 16 дней просрочки возможны депортация и запрет въезда.",
+      "numbers": [
+        {
+          "label": "максимальный штраф",
+          "value": "40000000",
+          "unit": "VND",
+          "evidence": "ev-vs-visaext"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "При просрочке от 16 дней возможны депортация и запрет на въезд",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-visa-extension",
+          "date": "2026-10"
+        }
+      ],
+      "pains": [
+        "страх просрочки",
+        "неизвестные правила e-visa"
+      ],
+      "evidence": [
+        "ev-vs-visaext"
+      ],
+      "related": [
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "visa"
+      ]
+    },
+    {
+      "id": "pain-visa-02",
+      "parent": "risk-visa",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Развернули на границе из-за неверного пункта въезда",
+      "summary": "В e-visa указывается пункт въезда. Если он не совпал, пограничники разворачивают.",
+      "quotes": [
+        {
+          "text": "Неправильный пункт въезда в визе - разворот на границе.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2882042-vizaran-iz-dananga-v-laos",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-visarun"
+      ],
+      "related": [
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "border"
+      ]
+    },
+    {
+      "id": "pain-visa-03",
+      "parent": "risk-visa",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Пограничник просит 50 тысяч донгов на чай",
+      "summary": "Описан неофициальный платёж около 50 тыс. донгов на границе при визаране через Лао Бао.",
+      "quotes": [
+        {
+          "text": "пограничник может настойчиво просить ~50 тыс. донгов «на чай» - это неофициально",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3030022-viza-vo-vetnam-i-vizaran",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-visa-border",
+        "ev-vc-visa"
+      ],
+      "related": [
+        "svc-visa"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "border"
+      ]
+    },
+    {
+      "id": "pain-visa-04",
+      "parent": "risk-visa",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Визовый агент пропал после предоплаты или сорвал сроки",
+      "summary": "Источники указывают срок продления 5-7 рабочих дней и подачу заранее за 7-10 дней. Отдельного дословного отзыва о пропавшем агенте не найдено.",
+      "quotes": [
+        {
+          "text": "Подавай заявку за 7-10 дней до истечения визы",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-visa-extension",
+          "date": "2026-10"
+        }
+      ],
+      "evidence": [
+        "ev-vs-visaext"
+      ],
+      "related": [
+        "svc-visa",
+        "price-visa"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "agent"
+      ]
+    },
+    {
+      "id": "pain-scam-01",
+      "parent": "risk-scam-rent",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Перевёл $150-200 за квартиру из телеграм-группы, а квартиры нет",
+      "summary": "Типичная схема в Нячанге: бронь через чат с предоплатой, по приезде квартира не существует или уже сдана.",
+      "numbers": [
+        {
+          "label": "типичная предоплата",
+          "value": "150-200",
+          "unit": "$",
+          "evidence": "ev-vc-nt-scam"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "человек переводит $150-200 \"чтобы забронировать\", а по приезде оказывается, что квартиры либо не существует",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3029331-arenda-kvartiry-v-nyachange",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-nt-scam",
+        "ev-vc-nt-rent"
+      ],
+      "related": [
+        "svc-housing",
+        "sup-communities"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "scam"
+      ]
+    },
+    {
+      "id": "pain-scam-02",
+      "parent": "risk-scam-rent",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Хозяин не вернул депозит",
+      "summary": "Совет рынка: депозит не больше месяца, после осмотра, не до. Обычно просят $100-200. Конкретной жалобы человека с цитатой не нашли.",
+      "numbers": [
+        {
+          "label": "типичный депозит",
+          "value": "100-200",
+          "unit": "$",
+          "evidence": "ev-vc-nt-rent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Депозит - не больше одного месяца, платится после осмотра, а не до него",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3029331-arenda-kvartiry-v-nyachange",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-nt-rent"
+      ],
+      "related": [
+        "price-rent"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "deposit"
+      ]
+    },
+    {
+      "id": "pain-scam-03",
+      "parent": "risk-scam-rent",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Блокируют после перевода по объявлению в чате",
+      "summary": "По сниппету поиска: после предоплаты по объявлению в чате блокируют и удаляют чат. Статью целиком не открывали.",
+      "facts": [
+        "Бронировать советуют на известных площадках на 2-3 ночи, а жильё выбирать на месте (по сниппету поиска)"
+      ],
+      "evidence": [
+        "ev-snip-rentscam"
+      ],
+      "related": [
+        "sup-communities"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "scam"
+      ]
+    },
+    {
+      "id": "pain-scam-04",
+      "parent": "risk-scam-rent",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Такси просит 380 000 донгов вместо 17 долларов за 5 минут",
+      "summary": "Схемы развода туристов: такси, велорикши, завышенные цены. Источник 2018 года.",
+      "quotes": [
+        {
+          "text": "За поездку в 5 минут таксист потребовал с нас 380.000 донгов (17$).",
+          "who": "турист",
+          "where": "Room-number",
+          "url": "https://room-number.ru/vietnam/razvod/",
+          "date": "2018-08"
+        }
+      ],
+      "evidence": [
+        "ev-razvod"
+      ],
+      "related": [
+        "price-transport"
+      ],
+      "tags": [
+        "vn",
+        "scam",
+        "taxi"
+      ]
+    },
+    {
+      "id": "pain-land-01",
+      "parent": "risk-land-ownership",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Хотел купить землю, а иностранцу это запрещено",
+      "summary": "Землю купить нельзя, только право пользования через компанию, СП или аренду.",
+      "quotes": [
+        {
+          "text": "На землю иностранцы права не имеют",
+          "who": "автор статьи",
+          "where": "Fasttur",
+          "url": "https://fasttur.ru/nedvizhimost_vietnam",
+          "date": "2025-01"
+        }
+      ],
+      "evidence": [
+        "ev-snip-land",
+        "ev-fasttur"
+      ],
+      "related": [
+        "q-investor-02"
+      ],
+      "tags": [
+        "vn",
+        "land"
+      ]
+    },
+    {
+      "id": "pain-land-02",
+      "parent": "risk-land-ownership",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Квартира только на 50 лет и продление не автоматическое",
+      "summary": "Срок владения 50 лет, продление по заявлению. Один объект на иностранца (по сниппету поиска).",
+      "quotes": [
+        {
+          "text": "Владение квартирой или апартаментами ограничено сроком 50 лет с возможностью продления",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1492517-kupit-nedvizhimost-vo-vetname-obzor-i-osobennosti-pokupki-luchshie-agentstva-nedvizhimosti-dlya-priobreteniya-zhilya",
+          "date": "2024-09"
+        }
+      ],
+      "evidence": [
+        "ev-snip-land2",
+        "ev-vc-inv-vn"
+      ],
+      "related": [
+        "q-investor-01"
+      ],
+      "tags": [
+        "vn",
+        "land",
+        "term"
+      ]
+    },
+    {
+      "id": "pain-land-03",
+      "parent": "risk-land-ownership",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Не получить розовую книгу: квота 30% в доме уже выбрана",
+      "summary": "Иностранцам доступно не более 30% квартир в доме. Квоту покупают у застройщика или у другого иностранца.",
+      "numbers": [
+        {
+          "label": "квота иностранцев",
+          "value": "30",
+          "unit": "%",
+          "evidence": "ev-vc-inv-nt"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Иностранные покупатели должны соблюдать местные законы, которые позволяют владеть не более 30%",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1589758-kupit-kvartiru-v-nyachange-obzor-variantov-zhilya-i-reiting-luchshih-agentstv-dlya-pokupki",
+          "date": "2024-10"
+        }
+      ],
+      "evidence": [
+        "ev-vc-inv-nt"
+      ],
+      "related": [
+        "q-investor-01"
+      ],
+      "tags": [
+        "vn",
+        "land",
+        "quota"
+      ]
+    },
+    {
+      "id": "pain-cash-01",
+      "parent": "risk-cash-ruble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Карты Visa и Mastercard из России не работают с 2022 года",
+      "summary": "Основная боль релоканта: нет безналичного канала. Остаются Мир в банкоматах VRB, UnionPay, USDT.",
+      "quotes": [
+        {
+          "text": "Российские Visa и Mastercard во Вьетнаме не работают вообще с марта 2022 года",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-mir"
+      ],
+      "related": [
+        "svc-banking"
+      ],
+      "tags": [
+        "vn",
+        "money"
+      ]
+    },
+    {
+      "id": "pain-cash-02",
+      "parent": "risk-cash-ruble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Снятие по Мир стоит 8-12% в нестандартных ситуациях",
+      "summary": "Комиссия VRB может быть около 3%, но доходит до 8-12%. Курс эмитента на 3-5% хуже биржевого. Другой источник называет 0.5-1%, источники расходятся.",
+      "numbers": [
+        {
+          "label": "комиссия снятия",
+          "value": "8-12",
+          "unit": "%",
+          "evidence": "ev-vc-mir"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "комиссии за снятие достигают 8-12%",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        },
+        {
+          "text": "Конвертация курса банком-эмитентом часто на 3-5% хуже биржевого",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-mir"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "money",
+        "fees"
+      ]
+    },
+    {
+      "id": "pain-cash-03",
+      "parent": "risk-cash-ruble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Банкоматов VRB всего 18-21 на всю страну",
+      "summary": "Карта Мир работает только в небольшой сети банкоматов VRB. В магазинах и такси нет.",
+      "numbers": [
+        {
+          "label": "банкоматов VRB",
+          "value": "18-21",
+          "unit": "шт",
+          "evidence": "ev-vc-mir"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "около 18-21 банкомата на всю страну",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-mir"
+      ],
+      "related": [
+        "svc-banking"
+      ],
+      "tags": [
+        "vn",
+        "money",
+        "atm"
+      ]
+    },
+    {
+      "id": "pain-cash-04",
+      "parent": "risk-cash-ruble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Лимит $10 000 наличными и потери на USDT 2-4%",
+      "summary": "Вывоз наличных ограничен, обход через USDT стоит $20-40 с каждой $1000.",
+      "numbers": [
+        {
+          "label": "потеря на $1000",
+          "value": "20-40",
+          "unit": "$",
+          "evidence": "ev-vs-transfer"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Итого потеря на $1 000 около $20-40 то есть 2-4%",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-money-transfer",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vs-transfer"
+      ],
+      "related": [
+        "svc-banking"
+      ],
+      "tags": [
+        "vn",
+        "money",
+        "usdt"
+      ]
+    },
+    {
+      "id": "pain-health-01",
+      "parent": "risk-health",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Операция и 5 дней в больнице без страховки пришлось платить из кармана",
+      "summary": "Автор Т-Ж платил за анализы, операцию и пять дней сам. Потом оформил страховку для кочевников за $65 в месяц.",
+      "quotes": [
+        {
+          "text": "У меня не было страховки, поэтому пришлось из своего кармана заплатить за анализы, операцию и пять дней",
+          "who": "автор Т-Ж",
+          "where": "Т-Ж",
+          "url": "https://t-j.ru/cost-of-living-danang/",
+          "date": "2025-06"
+        }
+      ],
+      "evidence": [
+        "ev-tj"
+      ],
+      "related": [
+        "svc-health-insurance"
+      ],
+      "tags": [
+        "vn",
+        "health"
+      ]
+    },
+    {
+      "id": "pain-health-02",
+      "parent": "risk-health",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Госпитализация в частной клинике от $10 000",
+      "summary": "Серьёзная госпитализация легко превышает $10 000, а государственная страховка BHYT покрывает только государственные клиники.",
+      "numbers": [
+        {
+          "label": "порог серьёзной госпитализации",
+          "value": "10000",
+          "unit": "$",
+          "evidence": "ev-vc-medins"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Государственная BHYT покрывает лишь государственные клиники",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3010433-medstrahovka-vo-vetname-dlya-ekspatov",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-medins"
+      ],
+      "related": [
+        "price-health"
+      ],
+      "tags": [
+        "vn",
+        "health"
+      ]
+    },
+    {
+      "id": "pain-health-03",
+      "parent": "risk-health",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Лихорадка денге в сезон дождей",
+      "summary": "Автор после трёх лет в Дананге называет денге реальным риском в сезон дождей.",
+      "quotes": [
+        {
+          "text": "В сезон дождей реальный риск - лихорадка денге",
+          "who": "автор, 3 года в Дананге",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+          "date": "2026-07"
+        }
+      ],
+      "evidence": [
+        "ev-vc-3y"
+      ],
+      "related": [
+        "risk-climate"
+      ],
+      "tags": [
+        "vn",
+        "health",
+        "dengue"
+      ]
+    },
+    {
+      "id": "pain-health-04",
+      "parent": "risk-health",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Антисанитария в уличных кафе и водопроводная вода",
+      "summary": "Семья пишет про редкое мытьё рук персоналом и опасную даже после фильтрации воду.",
+      "quotes": [
+        {
+          "text": "Воду из-под крана здесь пить нельзя: даже после фильтрации в ней могут остаться опасные бактерии",
+          "who": "ярославцы",
+          "where": "74.ru",
+          "url": "https://74.ru/text/world/2025/08/18/75835723/",
+          "date": "2025-08"
+        }
+      ],
+      "evidence": [
+        "ev-74ru"
+      ],
+      "related": [
+        "q-family-09"
+      ],
+      "tags": [
+        "vn",
+        "health",
+        "hygiene"
+      ]
+    },
+    {
+      "id": "pain-traffic-01",
+      "parent": "risk-traffic",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Штраф 6 млн донгов за красный свет",
+      "summary": "С 2025 штрафы выросли в 3-6 раз. Красный свет 6 млн (~$230), езда без прав до 8 млн (~$310).",
+      "numbers": [
+        {
+          "label": "красный свет",
+          "value": "6000000",
+          "unit": "VND",
+          "evidence": "ev-vc-bikefines"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Проезд на красный свет - 6 000 000 донгов (~$230). Раньше было 1 000 000.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2826590-shtrafy-na-baykakh-vo-vyetname",
+          "date": "2026-03"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bikefines"
+      ],
+      "related": [
+        "price-transport"
+      ],
+      "tags": [
+        "vn",
+        "traffic",
+        "fines"
+      ]
+    },
+    {
+      "id": "pain-traffic-02",
+      "parent": "risk-traffic",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Без прав при ДТП ты нарушитель и страховая откажет",
+      "summary": "При ДТП без прав вина падает на иностранца, страховая отказывает. Скорая 115.",
+      "quotes": [
+        {
+          "text": "Без прав при ДТП ты уже нарушитель",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-pdd",
+          "date": "2026-10"
+        },
+        {
+          "text": "Страховая откажет в выплате",
+          "who": "автор обзора",
+          "where": "VietnamSpot",
+          "url": "https://vietnamspot.ru/blog/vietnam-pdd",
+          "date": "2026-10"
+        }
+      ],
+      "evidence": [
+        "ev-vs-pdd"
+      ],
+      "related": [
+        "svc-health-insurance"
+      ],
+      "tags": [
+        "vn",
+        "traffic",
+        "dtp"
+      ]
+    },
+    {
+      "id": "pain-traffic-03",
+      "parent": "risk-traffic",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Страховка не покрывает травмы на байке, а перелом стоит 30-80 млн",
+      "summary": "Тревел-страховки почти никогда не покрывают езду на байке. Перелом руки или ноги 30-80 млн VND.",
+      "numbers": [
+        {
+          "label": "перелом",
+          "value": "30-80",
+          "unit": "млн VND",
+          "evidence": "ev-vc-bikerent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Травмы при езде на байке/мотоцикле - практически никогда",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+          "date": "2026-04"
+        },
+        {
+          "text": "Перелом руки/ноги: 30-80 млн VND",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bikerent"
+      ],
+      "related": [
+        "svc-health-insurance"
+      ],
+      "tags": [
+        "vn",
+        "traffic",
+        "insurance"
+      ]
+    },
+    {
+      "id": "pain-traffic-04",
+      "parent": "risk-traffic",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Оставил паспорт в залог за байк и потерял его",
+      "summary": "Автор предупреждает: если потеряют паспорт, большие проблемы, без паспорта не выехать.",
+      "quotes": [
+        {
+          "text": "Залог: 1-3 млн донгов или паспорт",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-bikerent"
+      ],
+      "related": [
+        "price-transport"
+      ],
+      "tags": [
+        "vn",
+        "traffic",
+        "passport"
+      ]
+    },
+    {
+      "id": "pain-climate-01",
+      "parent": "risk-climate",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Осенью в Дананге тайфуны и дожди",
+      "summary": "Октябрь-декабрь сезон дождей, бывают тайфуны. Туристы называют октябрь-ноябрь сидением у окна.",
+      "quotes": [
+        {
+          "text": "Октябрь-декабрь - сезон дождей, бывают тайфуны",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2892509-gde-zhit-vo-vetname-s-detmi",
+          "date": "2026-04"
+        }
+      ],
+      "evidence": [
+        "ev-vc-kids-school",
+        "ev-vs-danang",
+        "ev-vc-kids-rent"
+      ],
+      "related": [
+        "q-tourist-03"
+      ],
+      "tags": [
+        "vn",
+        "climate"
+      ]
+    },
+    {
+      "id": "pain-climate-02",
+      "parent": "risk-climate",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Кондиционер съедает до $60 электричества в месяц",
+      "summary": "Электричество летом с кондиционером до $60, зимой около $30.",
+      "numbers": [
+        {
+          "label": "электричество летом",
+          "value": "50-60",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-cost"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Коммуналка летом, когда кондиционер не выключается сутками, доходит до $50, зимой падает до $30",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2949526-stoimost-zhizni-vo-vetname-danang-hoshimin-nyachang",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-vc-cost"
+      ],
+      "related": [
+        "price-living"
+      ],
+      "tags": [
+        "vn",
+        "climate",
+        "electricity"
+      ]
+    },
+    {
+      "id": "pain-climate-03",
+      "parent": "risk-climate",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "В Далате в октябре и ноябре очень дождливо",
+      "summary": "Форум: климат Далата комфортный круглый год, но осенью дожди. Плесень в квартирах в найденных источниках не описана.",
+      "quotes": [
+        {
+          "text": "В октябре-ноябре очень дождливо, вино дешевое и вкусное",
+          "who": "Yuri_Ch",
+          "where": "Форум Винского",
+          "url": "https://forum.awd.ru/viewtopic.php?t=259895",
+          "date": "2016-07"
+        }
+      ],
+      "risk": "данные о плесени не подтверждены",
+      "evidence": [
+        "ev-awd-dalat"
+      ],
+      "related": [
+        "q-relocant-08"
+      ],
+      "tags": [
+        "vn",
+        "climate",
+        "dalat"
+      ]
+    },
+    {
+      "id": "pain-lang-01",
+      "parent": "risk-language",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Цены для иностранца в 2-3 раза выше без языка",
+      "summary": "Продавцы называют иностранцу цены в 2-3 раза выше, на рынке торг. Источник 2018 года.",
+      "quotes": [
+        {
+          "text": "Цены могут отличаться в 2-3 раза. Для торга можно показывать купюры.",
+          "who": "автор обзора",
+          "where": "Room-number",
+          "url": "https://room-number.ru/vietnam/razvod/",
+          "date": "2018-08"
+        }
+      ],
+      "evidence": [
+        "ev-razvod"
+      ],
+      "related": [
+        "q-tourist-08"
+      ],
+      "tags": [
+        "vn",
+        "language",
+        "prices"
+      ]
+    },
+    {
+      "id": "pain-lang-02",
+      "parent": "risk-language",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Персонал для бизнеса только из местных",
+      "summary": "Автор статьи пишет, что по закону персонал подбирают только из местных жителей. Работа для иностранцев ограничена.",
+      "quotes": [
+        {
+          "text": "Согласно вьетнамскому законодательству, подбирать персонал можно только из местных жителей.",
+          "who": "автор статьи",
+          "where": "Visasam",
+          "url": "https://visasam.ru/emigration/svoedelo/biznes-vo-vietname.html",
+          "date": "2026-05"
+        }
+      ],
+      "evidence": [
+        "ev-visasam"
+      ],
+      "related": [
+        "svc-staffing"
+      ],
+      "tags": [
+        "vn",
+        "language",
+        "staff"
+      ]
+    },
+    {
+      "id": "pain-lang-03",
+      "parent": "risk-language",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "В Дананге нет русской школы и русскоязычного сада",
+      "summary": "Русских школ в Дананге нет у государственных, частные только Горизонт. Дети идут онлайн или в международную.",
+      "facts": [
+        "Школа Горизонт работает в Дананге с 1 по 8 класс (сайт школы)"
+      ],
+      "evidence": [
+        "ev-gorizont",
+        "ev-snip-dnkid"
+      ],
+      "related": [
+        "q-family-03"
+      ],
+      "tags": [
+        "vn",
+        "language",
+        "school"
+      ]
+    },
+    {
+      "id": "pain-bubble-01",
+      "parent": "risk-bubble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Цена за квартиру в 2-3 раза за стройку: обещание продавца",
+      "summary": "Рост цен 2-3 раза за строительство заявляет справочная статья. Подтверждения замером нет.",
+      "quotes": [
+        {
+          "text": "с момента начала строительства до завершения цена вырастет в 2-3 раза",
+          "who": "автор справочной статьи",
+          "where": "Fasttur",
+          "url": "https://fasttur.ru/nedvizhimost_vietnam",
+          "date": "2025-01"
+        }
+      ],
+      "risk": "рекламное обещание без замера",
+      "evidence": [
+        "ev-fasttur"
+      ],
+      "related": [
+        "q-investor-06"
+      ],
+      "tags": [
+        "vn",
+        "bubble"
+      ]
+    },
+    {
+      "id": "pain-bubble-02",
+      "parent": "risk-bubble",
+      "layer": "failures",
+      "kind": "pain",
+      "title": "Низкая доходность аренды при высокой цене входа",
+      "summary": "Студия $100000 даёт валовую доходность около 3.6-5.4% (оценка). Пузырь по найденным источникам не подтверждён, рынок описан как восстанавливающийся.",
+      "facts": [
+        "Рынок Вьетнама в 2026 восстанавливается на фоне роста цен, Дананг первичка $2200-2300 за кв.м (по сниппету поиска)"
+      ],
+      "numbers": [
+        {
+          "label": "цена студии",
+          "value": "100000",
+          "unit": "$",
+          "evidence": "ev-fasttur"
+        }
+      ],
+      "evidence": [
+        "ev-snip-open4",
+        "ev-fasttur"
+      ],
+      "related": [
+        "q-investor-05"
+      ],
+      "tags": [
+        "vn",
+        "bubble",
+        "yield"
+      ]
+    },
+    {
+      "id": "price-living-01",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Месяц жизни одного релоканта в Дананге и Нячанге",
+      "summary": "$600-800 по опыту релоканта, апартаменты $450, коммуналка $40, продукты $250, байк $70 около $900 типичный месяц.",
+      "numbers": [
+        {
+          "label": "жизнь одного",
+          "value": "600-800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-cost"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Мой типичный месяц: апартаменты $450, коммуналка $40, продукты $250, байк $70, выходит около $900",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2949526-stoimost-zhizni-vo-vetname-danang-hoshimin-nyachang",
+          "date": "2026-05"
+        }
+      ],
+      "priceRu": "48 000 - 64 000 ₽ при 80 ₽/$ (оценка)",
+      "priceEn": "$600 - 800 в месяц (Дананг, Нячанг), 2026-05",
+      "evidence": [
+        "ev-vc-cost"
+      ],
+      "related": [
+        "q-relocant-01"
+      ],
+      "tags": [
+        "vn",
+        "danang",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "price-living-02",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Месяц пары в Дананге",
+      "summary": "$1800 на двоих (Т-Ж), питание $300-600, визаран $40-130.",
+      "numbers": [
+        {
+          "label": "пара в Дананге",
+          "value": "1800",
+          "unit": "$ в месяц",
+          "evidence": "ev-tj"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Удается откладывать 1 000 $",
+          "who": "автор Т-Ж",
+          "where": "Т-Ж",
+          "url": "https://t-j.ru/cost-of-living-danang/",
+          "date": "2025-06"
+        }
+      ],
+      "priceEn": "$1800 в месяц на двоих, 2025-06",
+      "evidence": [
+        "ev-tj"
+      ],
+      "related": [
+        "q-nomad-09"
+      ],
+      "tags": [
+        "vn",
+        "danang",
+        "couple"
+      ]
+    },
+    {
+      "id": "price-living-03",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Комфортный месяц по городам по Numbeo",
+      "summary": "Дананг и Нячанг $1400-1800, Хошимин $1600-2200, Ханой $1500-2000 (июнь 2026).",
+      "numbers": [
+        {
+          "label": "Дананг комфорт",
+          "value": "1400-1800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg-budget"
+        },
+        {
+          "label": "Хошимин комфорт",
+          "value": "1600-2200",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg-budget"
+        }
+      ],
+      "priceEn": "$1400 - 2200 в месяц",
+      "evidence": [
+        "ev-vtg-budget"
+      ],
+      "related": [
+        "q-relocant-08"
+      ],
+      "tags": [
+        "vn",
+        "numbeo"
+      ]
+    },
+    {
+      "id": "price-living-04",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Месяц семьи в Дананге",
+      "summary": "Соло бюджет $700-1100, семья $1500-2500 по гайду без раскрытия источника цифр.",
+      "numbers": [
+        {
+          "label": "семья в Дананге",
+          "value": "1500-2500",
+          "unit": "$ в месяц",
+          "evidence": "ev-privet"
+        }
+      ],
+      "priceEn": "$1500 - 2500 в месяц",
+      "risk": "источник цифр не раскрыт",
+      "evidence": [
+        "ev-privet"
+      ],
+      "related": [
+        "q-family-01"
+      ],
+      "tags": [
+        "vn",
+        "danang",
+        "family"
+      ]
+    },
+    {
+      "id": "price-living-05",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Бюджет пенсионера",
+      "summary": "Экономный $500-700 в месяц, комфорт выше. Аренда студии $150-250, коммуналка $40-80.",
+      "numbers": [
+        {
+          "label": "экономный бюджет",
+          "value": "500-700",
+          "unit": "$ в месяц",
+          "evidence": "ev-vv-pens"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Экономный бюджет - $500-700 в месяц",
+          "who": "автор гайда",
+          "where": "Vietnam Visa",
+          "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+          "date": "2026-07"
+        }
+      ],
+      "priceEn": "$500 - 700 в месяц",
+      "evidence": [
+        "ev-vv-pens"
+      ],
+      "related": [
+        "q-family-07"
+      ],
+      "tags": [
+        "vn",
+        "pension"
+      ]
+    },
+    {
+      "id": "price-living-06",
+      "parent": "price-living",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Одиночка-кочевник в Ханое и Дананге",
+      "summary": "Ханой $800-1200, Дананг $1000-1300 комфорт для одного.",
+      "numbers": [
+        {
+          "label": "Дананг комфорт одного",
+          "value": "1000-1300",
+          "unit": "$ в месяц",
+          "evidence": "ev-vs-nomad"
+        },
+        {
+          "label": "Ханой комфорт",
+          "value": "800-1200",
+          "unit": "$ в месяц",
+          "evidence": "ev-habr-hanoi"
+        }
+      ],
+      "priceEn": "$800 - 1300 в месяц",
+      "evidence": [
+        "ev-vs-nomad",
+        "ev-habr-hanoi"
+      ],
+      "related": [
+        "q-nomad-06"
+      ],
+      "tags": [
+        "vn",
+        "nomad"
+      ]
+    },
+    {
+      "id": "price-rent-01",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда 1BR в Дананге",
+      "summary": "1BR в центре около $545, в Bac My An и An Thuong $300-450 (Numbeo, июнь 2026). Студия $200-500.",
+      "numbers": [
+        {
+          "label": "1BR в центре",
+          "value": "545",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "в районах Бак Ми Ан и Ан Тыонг - $300-450",
+          "who": "автор сводки",
+          "where": "Vietnam Tour Guide",
+          "url": "https://vietnam-tour-guide.ru/blog/luchshie-goroda-vietnam-expats-2026/",
+          "date": "2026-06"
+        }
+      ],
+      "priceEn": "$300 - 545 в месяц, Дананг, 2026-06",
+      "evidence": [
+        "ev-vtg"
+      ],
+      "related": [
+        "svc-housing"
+      ],
+      "tags": [
+        "vn",
+        "danang"
+      ]
+    },
+    {
+      "id": "price-rent-02",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда в Нячанге: студия и кондо",
+      "summary": "Студия без бассейна $300-450, с бассейном $450-700, первая линия от $900. Электричество отдельно $30-80.",
+      "numbers": [
+        {
+          "label": "студия",
+          "value": "300-450",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-nt-rent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "студия без бассейна - $300-450 в месяц, студия или однушка в кондо с бассейном - $450-700",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3029331-arenda-kvartiry-v-nyachange",
+          "date": "2026-07"
+        }
+      ],
+      "priceEn": "$300 - 900 в месяц, Нячанг, 2026-07",
+      "evidence": [
+        "ev-vc-nt-rent"
+      ],
+      "related": [
+        "svc-housing"
+      ],
+      "tags": [
+        "vn",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "price-rent-03",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда 2BR в Нячанге в телеграм-канале",
+      "summary": "2BR 19 этаж $905 в месяц, апартаменты с частичным видом на море $690 (пост на дату просмотра).",
+      "quotes": [
+        {
+          "text": "905$ в месяц",
+          "who": "пост канала",
+          "where": "Telegram",
+          "url": "https://t.me/s/Arenda_Nyachang_Zhilye",
+          "date": "2026-10"
+        },
+        {
+          "text": "690$ в месяц",
+          "who": "пост канала",
+          "where": "Telegram",
+          "url": "https://t.me/s/Arenda_Nyachang_Zhilye",
+          "date": "2026-10"
+        }
+      ],
+      "priceEn": "$690 - 905 в месяц, Нячанг, 2026-10",
+      "evidence": [
+        "ev-tel-nt"
+      ],
+      "related": [
+        "sup-communities"
+      ],
+      "tags": [
+        "vn",
+        "nyachang",
+        "telegram"
+      ]
+    },
+    {
+      "id": "price-rent-04",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда в Хошимине",
+      "summary": "1BR в центре около $612. В районах 7 и 9 нормальная новая квартира $800-1200. В Thao Dien 3-комнатная $1200-2000.",
+      "numbers": [
+        {
+          "label": "1BR в центре",
+          "value": "612",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "в Районах 7 и 9 - $800-1 200 за нормальную современную квартиру",
+          "who": "автор сводки",
+          "where": "Vietnam Tour Guide",
+          "url": "https://vietnam-tour-guide.ru/blog/luchshie-goroda-vietnam-expats-2026/",
+          "date": "2026-06"
+        }
+      ],
+      "priceEn": "$612 - 1200 в месяц, Хошимин, 2026-06",
+      "evidence": [
+        "ev-vtg"
+      ],
+      "related": [
+        "q-relocant-08"
+      ],
+      "tags": [
+        "vn",
+        "hcmc"
+      ]
+    },
+    {
+      "id": "price-rent-05",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда в Далате",
+      "summary": "1BR с ремонтом и мебелью $420 в месяц. В рублях по агрегатору 1 комн. в центре 21.95 тыс. руб. Источник цен не раскрыт.",
+      "numbers": [
+        {
+          "label": "1BR с ремонтом",
+          "value": "420",
+          "unit": "$ в месяц",
+          "evidence": "ev-reloc-dalat"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Снять здесь однокомнатные апартаменты с современным ремонтом и мебелью можно за 420$ в месяц.",
+          "who": "автор страницы",
+          "where": "Relocatefrom",
+          "url": "https://relocatefrom.ru/vietnam/da-lat",
+          "date": "2026"
+        }
+      ],
+      "priceEn": "$420 в месяц, Далат",
+      "risk": "агрегатор без дат замера",
+      "evidence": [
+        "ev-reloc-dalat"
+      ],
+      "related": [
+        "q-relocant-08"
+      ],
+      "tags": [
+        "vn",
+        "dalat"
+      ]
+    },
+    {
+      "id": "price-rent-06",
+      "parent": "price-rent",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Аренда в Ханое и в Нячанге по Numbeo",
+      "summary": "Ханой 1BR в центре около $449, Нячанг около $416, вне центра $289.",
+      "numbers": [
+        {
+          "label": "Ханой 1BR",
+          "value": "449",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        },
+        {
+          "label": "Нячанг 1BR",
+          "value": "416",
+          "unit": "$ в месяц",
+          "evidence": "ev-vtg"
+        }
+      ],
+      "priceEn": "$289 - 449 в месяц",
+      "evidence": [
+        "ev-vtg"
+      ],
+      "tags": [
+        "vn",
+        "hanoi",
+        "numbeo"
+      ]
+    },
+    {
+      "id": "price-buy-01",
+      "parent": "price-buy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Квартира в Дананге за кв.м",
+      "summary": "$1500-3000 за кв.м (2024-10), побережье от $2800, по другому обзору $1500-2500.",
+      "numbers": [
+        {
+          "label": "Дананг",
+          "value": "1500-3000",
+          "unit": "$ за кв.м",
+          "evidence": "ev-vc-inv-dn"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Новые проекты на побережье - от 2 800 USD/кв.м",
+          "who": "автор обзора",
+          "where": "VisitAsean",
+          "url": "https://visitasean.ru/vietnam/real-estate/prices",
+          "date": "2025"
+        }
+      ],
+      "priceEn": "$1500 - 3000 за кв.м, Дананг, 2024-10",
+      "evidence": [
+        "ev-vc-inv-dn",
+        "ev-visitasean"
+      ],
+      "tags": [
+        "vn",
+        "danang"
+      ]
+    },
+    {
+      "id": "price-buy-02",
+      "parent": "price-buy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Квартира в Нячанге",
+      "summary": "У моря $1800-3000 за кв.м, студии в комплексах от $1200, первая линия от $110000, вторичка $60000-100000.",
+      "numbers": [
+        {
+          "label": "первая линия от",
+          "value": "110000",
+          "unit": "$",
+          "evidence": "ev-vc-inv-nt"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Квартиры во вторичке в Нячанге стоят от $60,000 до $100,000 в зависимости от местоположения",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1589758-kupit-kvartiru-v-nyachange-obzor-variantov-zhilya-i-reiting-luchshih-agentstv-dlya-pokupki",
+          "date": "2024-10"
+        }
+      ],
+      "priceEn": "$60000 - 110000+, Нячанг, 2024-10",
+      "evidence": [
+        "ev-vc-inv-nt"
+      ],
+      "tags": [
+        "vn",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "price-buy-03",
+      "parent": "price-buy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Студия и 1BR в мегаполисах",
+      "summary": "Студия 30 кв.м около $100000, 1-комн 50 кв.м $150000, 2-комн 60 кв.м $180000 (Ханой, Сайгон, 2025-01).",
+      "numbers": [
+        {
+          "label": "1-комн 50 кв.м",
+          "value": "150000",
+          "unit": "$",
+          "evidence": "ev-fasttur"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Студия (30 кв.м) - $100,000",
+          "who": "автор справочной статьи",
+          "where": "Fasttur",
+          "url": "https://fasttur.ru/nedvizhimost_vietnam",
+          "date": "2025-01"
+        }
+      ],
+      "priceEn": "$100000 - 180000",
+      "evidence": [
+        "ev-fasttur"
+      ],
+      "tags": [
+        "vn",
+        "hanoi",
+        "hcmc"
+      ]
+    },
+    {
+      "id": "price-buy-04",
+      "parent": "price-buy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Студия у моря в Нячанге и 1BR в Дананге по обзору 2026",
+      "summary": "Студия в Нячанге у моря $40000-80000, 1BR в Дананге $60000-150000 (vc.ru, май 2026).",
+      "numbers": [
+        {
+          "label": "1BR в Дананге",
+          "value": "60000-150000",
+          "unit": "$",
+          "evidence": "ev-vc-move-rent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Студия в Нячанге у моря - $40 000-80 000, 1BR в Дананге - $60 000-150 000",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2930088-pereezd-vo-vyetname-dlya-rossiyan",
+          "date": "2026-05"
+        }
+      ],
+      "priceEn": "$40000 - 150000, 2026-05",
+      "evidence": [
+        "ev-vc-move-rent",
+        "ev-vc-move"
+      ],
+      "tags": [
+        "vn",
+        "nyachang",
+        "danang"
+      ]
+    },
+    {
+      "id": "price-buy-05",
+      "parent": "price-buy",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Налог и комиссия при покупке",
+      "summary": "Налог около 0.5% от стоимости, агентство 1-2% от сделки.",
+      "numbers": [
+        {
+          "label": "налог",
+          "value": "0.5",
+          "unit": "%",
+          "evidence": "ev-vc-inv-dn"
+        },
+        {
+          "label": "агентство",
+          "value": "1-2",
+          "unit": "%",
+          "evidence": "ev-vc-inv-dn"
+        }
+      ],
+      "priceEn": "0.5% + 1-2%",
+      "evidence": [
+        "ev-vc-inv-dn"
+      ],
+      "tags": [
+        "vn",
+        "fees"
+      ]
+    },
+    {
+      "id": "price-land-01",
+      "parent": "price-land",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Земля под застройку от $150 за кв.м",
+      "summary": "По сниппетам поиска участки под застройку от $150 за кв.м, средняя около $1500 за кв.м, на Фукуоке от $150 за кв.м.",
+      "numbers": [
+        {
+          "label": "земля на Фукуоке от",
+          "value": "150",
+          "unit": "$ за кв.м",
+          "evidence": "ev-visitasean"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Земельные участки под застройку - от 150 USD/кв.м",
+          "who": "автор обзора",
+          "where": "VisitAsean",
+          "url": "https://visitasean.ru/vietnam/real-estate/prices",
+          "date": "2025"
+        }
+      ],
+      "priceEn": "от $150 за кв.м",
+      "evidence": [
+        "ev-snip-landprice",
+        "ev-visitasean"
+      ],
+      "tags": [
+        "vn",
+        "phuquoc"
+      ]
+    },
+    {
+      "id": "price-land-02",
+      "parent": "price-land",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Земля в премиальных локациях по сниппету",
+      "summary": "В центральных зонах и премиальных местах земля 150-400 млн VND за кв.м (около $6000-16000). Данные только по сниппету поиска.",
+      "facts": [
+        "Прибрежные зоны Дананг, Нячанг, Фукуок 50-150 млн VND за кв.м, около $2000-6000 (по сниппету поиска)"
+      ],
+      "priceEn": "$2000 - 16000+ за кв.м (по сниппету)",
+      "risk": "нет первичного источника",
+      "evidence": [
+        "ev-snip-landprice"
+      ],
+      "tags": [
+        "vn",
+        "premium"
+      ]
+    },
+    {
+      "id": "price-land-03",
+      "parent": "price-land",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Права пользования землёй для иностранца: через компанию или аренду",
+      "summary": "Прямой покупки нет. Пользование через компанию, СП или долгосрочную аренду. Цену правоотношения в источниках не нашли.",
+      "priceEn": "нет данных",
+      "risk": "нет прозрачной цены",
+      "evidence": [
+        "ev-snip-land"
+      ],
+      "related": [
+        "svc-company"
+      ],
+      "tags": [
+        "vn",
+        "land"
+      ]
+    },
+    {
+      "id": "price-business-01",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Регистрация компании иностранцем",
+      "summary": "Базовый пакет $800-1500, под ключ $2000-5000, у YB Case от $1800 за 25 дней.",
+      "numbers": [
+        {
+          "label": "пакет под ключ",
+          "value": "2000-5000",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        },
+        {
+          "label": "YB Case",
+          "value": "1800",
+          "unit": "$",
+          "evidence": "ev-ybcase"
+        }
+      ],
+      "priceEn": "$800 - 5000, 2026-07",
+      "time": "25 дней у YB Case",
+      "evidence": [
+        "ev-vc-company",
+        "ev-ybcase"
+      ],
+      "tags": [
+        "vn",
+        "company"
+      ]
+    },
+    {
+      "id": "price-business-02",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Капитал и постоянные расходы компании",
+      "summary": "Капитал для IRC $10000-20000, номинальный директор $200-500 в месяц, бухгалтерия $100-300 в месяц.",
+      "numbers": [
+        {
+          "label": "капитал",
+          "value": "10000-20000",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        },
+        {
+          "label": "бухгалтерия",
+          "value": "100-300",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "priceEn": "$10000 - 20000 + $300 - 800 в месяц",
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "tags": [
+        "vn",
+        "company",
+        "capital"
+      ]
+    },
+    {
+      "id": "price-business-03",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Кафе: вложения и расходы",
+      "summary": "$18000 на старт 50 кв.м, $5500 в месяц расходы, аренда от $15 за кв.м, окупаемость 1-3 года.",
+      "numbers": [
+        {
+          "label": "старт",
+          "value": "18000",
+          "unit": "$",
+          "evidence": "ev-duan"
+        },
+        {
+          "label": "расходы в месяц",
+          "value": "5500",
+          "unit": "$",
+          "evidence": "ev-duan"
+        }
+      ],
+      "priceEn": "$18000 + $5500 в месяц",
+      "evidence": [
+        "ev-duan"
+      ],
+      "tags": [
+        "vn",
+        "cafe"
+      ]
+    },
+    {
+      "id": "price-business-04",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Зарплаты персонала кафе",
+      "summary": "Официант $250, повар $300, шеф $700, уборщик $200 в месяц.",
+      "numbers": [
+        {
+          "label": "шеф-повар",
+          "value": "700",
+          "unit": "$ в месяц",
+          "evidence": "ev-duan-staff"
+        },
+        {
+          "label": "официант",
+          "value": "250",
+          "unit": "$ в месяц",
+          "evidence": "ev-duan-staff"
+        }
+      ],
+      "priceEn": "$200 - 700 в месяц",
+      "evidence": [
+        "ev-duan-staff"
+      ],
+      "tags": [
+        "vn",
+        "staff"
+      ]
+    },
+    {
+      "id": "price-business-05",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Work permit с легализацией",
+      "summary": "$600-1000 за полный пакет.",
+      "numbers": [
+        {
+          "label": "work permit",
+          "value": "600-1000",
+          "unit": "$",
+          "evidence": "ev-vc-company-wp"
+        }
+      ],
+      "priceEn": "$600 - 1000",
+      "evidence": [
+        "ev-vc-company-wp"
+      ],
+      "tags": [
+        "vn",
+        "workpermit"
+      ]
+    },
+    {
+      "id": "price-business-06",
+      "parent": "price-business",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Продвижение: SEO и SMM",
+      "summary": "SEO во Вьетнаме от 80 000 руб в месяц, конкурентные ниши от 150 000 руб. По сниппету поиска.",
+      "priceRu": "80 000 - 150 000 ₽ в месяц",
+      "evidence": [
+        "ev-snip-seo"
+      ],
+      "tags": [
+        "vn",
+        "marketing"
+      ]
+    },
+    {
+      "id": "price-visa-01",
+      "parent": "price-visa",
+      "layer": "prices",
+      "kind": "price",
+      "title": "E-visa на 90 дней",
+      "summary": "$25 разовая, $50 многократная, срок до 7 рабочих дней по госсайту evisa.gov.vn. Через посредника $55-120.",
+      "numbers": [
+        {
+          "label": "разовая e-visa",
+          "value": "25",
+          "unit": "$",
+          "evidence": "ev-vc-visa"
+        },
+        {
+          "label": "многократная",
+          "value": "50",
+          "unit": "$",
+          "evidence": "ev-vc-visa"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Госсбор - 25 долларов за однократную визу, 50 за многократную",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3030022-viza-vo-vetnam-i-vizaran",
+          "date": "2026-07"
+        }
+      ],
+      "priceEn": "$25 - 120",
+      "time": "1-7 рабочих дней",
+      "evidence": [
+        "ev-vc-visa"
+      ],
+      "tags": [
+        "vn",
+        "evisa"
+      ]
+    },
+    {
+      "id": "price-visa-02",
+      "parent": "price-visa",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Визаран из Дананга в Лаос",
+      "summary": "$87-200 всего, транспорт от 800 000 VND, лаосская виза $40-50 наличными.",
+      "numbers": [
+        {
+          "label": "визаран",
+          "value": "87-200",
+          "unit": "$",
+          "evidence": "ev-vc-visarun"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Визаран из Дананга в Лаос обойдётся от $87 до $200.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2882042-vizaran-iz-dananga-v-laos",
+          "date": "2026-04"
+        }
+      ],
+      "priceEn": "$87 - 200",
+      "time": "1 день",
+      "evidence": [
+        "ev-vc-visarun"
+      ],
+      "tags": [
+        "vn",
+        "visarun"
+      ]
+    },
+    {
+      "id": "price-visa-03",
+      "parent": "price-visa",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Продление турвизы на 30 дней",
+      "summary": "$150-185 через агентство, 5-7 рабочих дней. E-visa на практике не продлевают.",
+      "numbers": [
+        {
+          "label": "продление",
+          "value": "150-185",
+          "unit": "$",
+          "evidence": "ev-vs-visaext"
+        }
+      ],
+      "priceEn": "$150 - 185",
+      "time": "5-7 рабочих дней",
+      "evidence": [
+        "ev-vs-visaext"
+      ],
+      "tags": [
+        "vn",
+        "extension"
+      ]
+    },
+    {
+      "id": "price-visa-04",
+      "parent": "price-visa",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Бизнес-виза DN через агентство",
+      "summary": "$300-1000 и больше в год за оформление через агентство-спонсора. По сниппету поиска.",
+      "priceEn": "$300 - 1000+ в год",
+      "evidence": [
+        "ev-snip-dn"
+      ],
+      "tags": [
+        "vn",
+        "dn"
+      ]
+    },
+    {
+      "id": "price-visa-05",
+      "parent": "price-visa",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Штрафы за просрочку визы",
+      "summary": "От 500 000 до 2 000 000 VND за день, максимум 40 млн VND (~122 300 руб).",
+      "numbers": [
+        {
+          "label": "максимальный штраф",
+          "value": "40000000",
+          "unit": "VND",
+          "evidence": "ev-vs-visaext"
+        }
+      ],
+      "priceEn": "500 000 - 40 000 000 VND",
+      "evidence": [
+        "ev-vs-visaext"
+      ],
+      "tags": [
+        "vn",
+        "fine"
+      ]
+    },
+    {
+      "id": "price-school-01",
+      "parent": "price-school",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Международная школа",
+      "summary": "$15000-38000 в год. В Дананге $1500-2500 в месяц, Хошимин $2250-3750.",
+      "numbers": [
+        {
+          "label": "международная",
+          "value": "15000-38000",
+          "unit": "$ в год",
+          "evidence": "ev-vc-schools"
+        },
+        {
+          "label": "Дананг",
+          "value": "1500-2500",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-schools-city"
+        }
+      ],
+      "priceEn": "$15000 - 38000 в год",
+      "evidence": [
+        "ev-vc-schools",
+        "ev-vc-schools-city"
+      ],
+      "tags": [
+        "vn",
+        "international"
+      ]
+    },
+    {
+      "id": "price-school-02",
+      "parent": "price-school",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Билингвальная школа",
+      "summary": "Дананг $500-800 в месяц, Хошимин $750-1200. Нячанг Vinschool, TH School $2000-4000 в год.",
+      "numbers": [
+        {
+          "label": "Дананг билингвальная",
+          "value": "500-800",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-schools-city"
+        },
+        {
+          "label": "Нячанг билингвальная",
+          "value": "2000-4000",
+          "unit": "$ в год",
+          "evidence": "ev-vc-kids-school"
+        }
+      ],
+      "priceEn": "$500 - 1200 в месяц",
+      "evidence": [
+        "ev-vc-schools-city",
+        "ev-vc-kids-school"
+      ],
+      "tags": [
+        "vn",
+        "bilingual"
+      ]
+    },
+    {
+      "id": "price-school-03",
+      "parent": "price-school",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Русская школа Горизонт",
+      "summary": "Нячанг 1-4 классы 9 млн VND, 5-11 классы 10 млн за 4 недели, Дананг 1-8 классы 11.25 млн VND, вступительный взнос 5 млн VND.",
+      "numbers": [
+        {
+          "label": "Дананг 1-8 классы",
+          "value": "11250000",
+          "unit": "VND",
+          "evidence": "ev-gorizont"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Русская школа \"Горизонт\" во Вьетнаме",
+          "who": "сайт школы",
+          "where": "Горизонт",
+          "url": "https://gorizontkids.ru/school",
+          "date": "2026-10"
+        }
+      ],
+      "priceRu": "9 000 000 - 15 000 000 VND",
+      "priceEn": "$350 - 580 (оценка по курсу)",
+      "evidence": [
+        "ev-gorizont"
+      ],
+      "tags": [
+        "vn",
+        "russian",
+        "gorizont"
+      ]
+    },
+    {
+      "id": "price-school-04",
+      "parent": "price-school",
+      "layer": "prices",
+      "kind": "price",
+      "title": "The First Academy Нячанг и школа Муйне",
+      "summary": "The First Academy 12-18 млн VND (~$450-650) в месяц, класс до 12 учеников. Муйне $150-220.",
+      "numbers": [
+        {
+          "label": "First Academy",
+          "value": "12-18",
+          "unit": "млн VND в месяц",
+          "evidence": "ev-vchschools"
+        }
+      ],
+      "priceEn": "$150 - 650 в месяц",
+      "evidence": [
+        "ev-vchschools"
+      ],
+      "tags": [
+        "vn",
+        "russian",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "price-school-05",
+      "parent": "price-school",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Онлайн русская школа и частный сад",
+      "summary": "Русская онлайн-школа $200-400 в месяц в Дананге по таблице обзора.",
+      "numbers": [
+        {
+          "label": "онлайн-русская",
+          "value": "200-400",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-schools-city"
+        }
+      ],
+      "priceEn": "$200 - 400 в месяц",
+      "evidence": [
+        "ev-vc-schools-city"
+      ],
+      "tags": [
+        "vn",
+        "online"
+      ]
+    },
+    {
+      "id": "price-health-01",
+      "parent": "price-health",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Приём в международной клинике",
+      "summary": "$100-150 по опыту трёх лет в Дананге, терапевт $30-80 по другому обзору.",
+      "numbers": [
+        {
+          "label": "приём в международной клинике",
+          "value": "100-150",
+          "unit": "$",
+          "evidence": "ev-vc-3y"
+        },
+        {
+          "label": "терапевт",
+          "value": "30-80",
+          "unit": "$",
+          "evidence": "ev-vc-move-med"
+        }
+      ],
+      "priceEn": "$30 - 150",
+      "evidence": [
+        "ev-vc-3y",
+        "ev-vc-move-med"
+      ],
+      "tags": [
+        "vn",
+        "clinic"
+      ]
+    },
+    {
+      "id": "price-health-02",
+      "parent": "price-health",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Госпитализация и операция",
+      "summary": "Ночь в Vinmec Nha Trang от 19000 руб, аппендицит в Хошимине от 395000 руб, серьёзная госпитализация от $10000.",
+      "numbers": [
+        {
+          "label": "ночь в Vinmec",
+          "value": "19000",
+          "unit": "руб",
+          "evidence": "ev-vs-ins"
+        },
+        {
+          "label": "аппендицит",
+          "value": "395000",
+          "unit": "руб",
+          "evidence": "ev-vs-ins"
+        }
+      ],
+      "priceRu": "19 000 - 395 000 ₽",
+      "evidence": [
+        "ev-vs-ins"
+      ],
+      "tags": [
+        "vn",
+        "hospital"
+      ]
+    },
+    {
+      "id": "price-health-03",
+      "parent": "price-health",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Местные полисы и международные планы",
+      "summary": "Bao Viet InterCare $200-600 в год, Cigna Global $5500, Allianz Care около $3200, SafetyWing $49 в месяц.",
+      "numbers": [
+        {
+          "label": "Bao Viet",
+          "value": "200-600",
+          "unit": "$ в год",
+          "evidence": "ev-vc-medins"
+        },
+        {
+          "label": "Cigna",
+          "value": "5500",
+          "unit": "$ в год",
+          "evidence": "ev-vc-medins"
+        }
+      ],
+      "priceEn": "$49 в месяц - $5500 в год",
+      "evidence": [
+        "ev-vc-medins"
+      ],
+      "tags": [
+        "vn",
+        "insurance"
+      ]
+    },
+    {
+      "id": "price-health-04",
+      "parent": "price-health",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Туристический полис на месяц",
+      "summary": "2500-4000 руб на месяц, покрытие $30000 от 785 до 2000 руб.",
+      "numbers": [
+        {
+          "label": "полис на месяц",
+          "value": "2500-4000",
+          "unit": "руб",
+          "evidence": "ev-vs-ins"
+        }
+      ],
+      "priceRu": "2 500 - 4 000 ₽ за месяц",
+      "evidence": [
+        "ev-vs-ins"
+      ],
+      "tags": [
+        "vn",
+        "travel-insurance"
+      ]
+    },
+    {
+      "id": "price-health-05",
+      "parent": "price-health",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Русскоязычные врачи в Нячанге",
+      "summary": "VK Hospital терапевт около 100 000 VND, гинеколог 700 000 VND первичный, повторный 500 000 VND (по сниппетам).",
+      "numbers": [
+        {
+          "label": "гинеколог первичный",
+          "value": "700000",
+          "unit": "VND",
+          "evidence": "ev-snip-ant"
+        },
+        {
+          "label": "терапевт VK Hospital",
+          "value": "100000",
+          "unit": "VND",
+          "evidence": "ev-snip-vk"
+        }
+      ],
+      "priceRu": "100 000 - 700 000 VND",
+      "evidence": [
+        "ev-snip-ant",
+        "ev-snip-vk"
+      ],
+      "tags": [
+        "vn",
+        "russian-speaking"
+      ]
+    },
+    {
+      "id": "price-transport-01",
+      "parent": "price-transport",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Байк в аренду в сутки и месяц",
+      "summary": "Нячанг Wave 100-150 тыс. VND в день, Vision 150-200, Дананг месяц 1.5-2.8 млн VND, Хошимин Wave 130-180 тыс.",
+      "numbers": [
+        {
+          "label": "месяц в Дананге",
+          "value": "1500000-2800000",
+          "unit": "VND",
+          "evidence": "ev-vc-bikerent"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "На месяц: 1 500 000-2 800 000 VND",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+          "date": "2026-04"
+        }
+      ],
+      "priceRu": "1 500 000 - 2 800 000 VND в месяц",
+      "evidence": [
+        "ev-vc-bikerent"
+      ],
+      "tags": [
+        "vn",
+        "bike"
+      ]
+    },
+    {
+      "id": "price-transport-02",
+      "parent": "price-transport",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Такси и автобус в Нячанге",
+      "summary": "Такси по городу 50-90 тыс. донгов, автобус 8000 донгов, в аэропорт 200-300 тыс.",
+      "numbers": [
+        {
+          "label": "такси по городу",
+          "value": "50000-90000",
+          "unit": "VND",
+          "evidence": "ev-maketrip"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "билет на городской автобус стоит всего 8000 донгов, а такси по городу 50-90 тысяч",
+          "who": "турист",
+          "where": "Make-trip",
+          "url": "https://make-trip.ru/vietnam/otdykh-v-nyachange-otzyvy-turistov-tseny-ekskursii",
+          "date": "2026-02"
+        }
+      ],
+      "priceRu": "50 000 - 90 000 VND",
+      "evidence": [
+        "ev-maketrip"
+      ],
+      "tags": [
+        "vn",
+        "taxi"
+      ]
+    },
+    {
+      "id": "price-transport-03",
+      "parent": "price-transport",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Трансфер из аэропорта Камрань",
+      "summary": "4 места 435 000 VND (около $17), 6 мест 525 000 VND (около $20) по каналам Нячанга.",
+      "quotes": [
+        {
+          "text": "4 места 435 000 ₫ ≈ 17$",
+          "who": "пост канала",
+          "where": "Telegram",
+          "url": "https://t.me/s/Arenda_Nyachang_Zhilye",
+          "date": "2026-10"
+        }
+      ],
+      "priceRu": "435 000 - 525 000 VND",
+      "evidence": [
+        "ev-tel-nt"
+      ],
+      "tags": [
+        "vn",
+        "transfer"
+      ]
+    },
+    {
+      "id": "price-transport-04",
+      "parent": "price-transport",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Страховка байка и обмен прав",
+      "summary": "Обязательная страховка байка 66 000 VND в год, обмен прав 135 000 VND, 5-8 рабочих дней.",
+      "numbers": [
+        {
+          "label": "страховка байка",
+          "value": "66000",
+          "unit": "VND в год",
+          "evidence": "ev-vc-bikerights"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Обязательная страховка гражданской ответственности мотобайка во Вьетнаме стоит около 66 000 донгов в год.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/3012764-prava-na-bajk-vo-vetname",
+          "date": "2026-07"
+        }
+      ],
+      "priceRu": "66 000 - 135 000 VND",
+      "evidence": [
+        "ev-vc-bikerights"
+      ],
+      "tags": [
+        "vn",
+        "insurance"
+      ]
+    },
+    {
+      "id": "price-transport-05",
+      "parent": "price-transport",
+      "layer": "prices",
+      "kind": "price",
+      "title": "Штрафы на байке",
+      "summary": "Красный свет 6 млн VND, без прав до 8 млн VND, остановка полицией 2-5 млн.",
+      "numbers": [
+        {
+          "label": "красный свет",
+          "value": "6000000",
+          "unit": "VND",
+          "evidence": "ev-vc-bikefines"
+        }
+      ],
+      "priceRu": "2 000 000 - 8 000 000 VND",
+      "evidence": [
+        "ev-vc-bikefines"
+      ],
+      "tags": [
+        "vn",
+        "fine"
+      ]
+    },
+    {
+      "id": "pl-ru-dda",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "DDA Real Estate",
+      "summary": "Агентство, работает с иностранцами в Дананге и Нячанге, с 2010 года по обзору. Обзор рекламный.",
+      "quotes": [
+        {
+          "text": "DDA Real Estate - одно из крупнейших агентств в Дананге. Компания работает с 2010 года",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1600892-kupit-kvartiru-v-danange-obzor-nedvizhimosti-i-reiting-luchshih-agentstv-dlya-pokupki-zhilya",
+          "date": "2024-10"
+        }
+      ],
+      "priceRu": "комиссия 1-2% (по обзору)",
+      "whoSells": [
+        "DDA Real Estate"
+      ],
+      "evidence": [
+        "ev-vc-inv-dn"
+      ],
+      "tags": [
+        "vn",
+        "agency",
+        "danang"
+      ]
+    },
+    {
+      "id": "pl-ru-tranio",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Tranio",
+      "summary": "Международное агентство, по тексту обзора продаёт квартиры и дома в Нячанге и Дананге. Квартиры в Дананге от 116 000 (валюта не указана по сниппету).",
+      "whoSells": [
+        "Tranio"
+      ],
+      "evidence": [
+        "ev-vc-inv-nt",
+        "ev-snip-tranio"
+      ],
+      "tags": [
+        "vn",
+        "agency"
+      ]
+    },
+    {
+      "id": "pl-ru-metropolitan",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Metropolitan",
+      "summary": "Международное агентство, помогает иностранцам купить квартиру в Нячанге по обзору.",
+      "quotes": [
+        {
+          "text": "Metropolitan помогает иностранцам купить квартиру в Нячанге с минимальными рисками",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1589758-kupit-kvartiru-v-nyachange-obzor-variantov-zhilya-i-reiting-luchshih-agentstv-dlya-pokupki",
+          "date": "2024-10"
+        }
+      ],
+      "whoSells": [
+        "Metropolitan"
+      ],
+      "evidence": [
+        "ev-vc-inv-nt"
+      ],
+      "tags": [
+        "vn",
+        "agency",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "pl-ru-mvp",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "MVP Vietnam",
+      "summary": "Сертифицированные риелторы в Дананге и Хойане, более 300 проверенных объявлений по сниппету.",
+      "facts": [
+        "Более 300 проверенных объявлений (по сниппету поиска)"
+      ],
+      "whoSells": [
+        "MVP Vietnam"
+      ],
+      "evidence": [
+        "ev-snip-mvp"
+      ],
+      "tags": [
+        "vn",
+        "agency",
+        "danang"
+      ]
+    },
+    {
+      "id": "pl-ru-rusinfo",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Русский Информационный Центр, Нячанг",
+      "summary": "Помогает с арендой, держит четыре собственных дома, лицензия 56-115/2019. Цен на странице нет.",
+      "whoSells": [
+        "Русский Информационный Центр"
+      ],
+      "evidence": [
+        "ev-rusinfo"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "pl-ru-bestbus",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "BestBus Vietnam, визаран из Дананга",
+      "summary": "Визаран на слипер-басе 850 000 VND, комбо транспорт плюс виза 3.8-3.9 млн VND, e-visa за 3 часа $120. Заявляют 4200 клиентов.",
+      "numbers": [
+        {
+          "label": "комбо транспорт плюс виза",
+          "value": "3.8-3.9",
+          "unit": "млн VND",
+          "evidence": "ev-bestbus"
+        }
+      ],
+      "priceRu": "850 000 - 3 900 000 VND",
+      "whoSells": [
+        "BestBus Vietnam"
+      ],
+      "risk": "числа клиентов самозаявленные",
+      "evidence": [
+        "ev-bestbus"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "danang"
+      ]
+    },
+    {
+      "id": "pl-ru-ybcase",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "YB Case, регистрация компании в Нячанге",
+      "summary": "Регистрация от $1800, 25 дней, офис в Нячанге.",
+      "numbers": [
+        {
+          "label": "регистрация от",
+          "value": "1800",
+          "unit": "$",
+          "evidence": "ev-ybcase"
+        }
+      ],
+      "priceEn": "от $1800",
+      "time": "25 дней",
+      "whoSells": [
+        "YB Case"
+      ],
+      "evidence": [
+        "ev-ybcase"
+      ],
+      "tags": [
+        "vn",
+        "company",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "pl-ru-gorizont",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Русская школа Горизонт",
+      "summary": "Нячанг и Дананг, 1-11 классы, очно и онлайн, классы по 4-6 учеников.",
+      "numbers": [
+        {
+          "label": "Дананг 1-8 классы",
+          "value": "11250000",
+          "unit": "VND",
+          "evidence": "ev-gorizont"
+        }
+      ],
+      "priceRu": "9 000 000 - 15 000 000 VND",
+      "whoSells": [
+        "Горизонт"
+      ],
+      "evidence": [
+        "ev-gorizont"
+      ],
+      "tags": [
+        "vn",
+        "school"
+      ]
+    },
+    {
+      "id": "pl-ru-firstacademy",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "The First Academy Nha Trang",
+      "summary": "Очное обучение, педагоги из РФ, класс до 12 учеников, 12-18 млн VND в месяц.",
+      "numbers": [
+        {
+          "label": "в месяц",
+          "value": "12-18",
+          "unit": "млн VND",
+          "evidence": "ev-vchschools"
+        }
+      ],
+      "priceRu": "12 000 000 - 18 000 000 VND",
+      "whoSells": [
+        "The First Academy"
+      ],
+      "evidence": [
+        "ev-vchschools"
+      ],
+      "tags": [
+        "vn",
+        "school"
+      ]
+    },
+    {
+      "id": "pl-ru-vkhospital",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "VK Hospital, Нячанг",
+      "summary": "Госпиталь с переводчиками на ресепшене и русской навигацией, терапевт около 100 000 VND. По сниппету поиска.",
+      "priceRu": "около 100 000 VND",
+      "whoSells": [
+        "VK Hospital"
+      ],
+      "evidence": [
+        "ev-snip-vk"
+      ],
+      "tags": [
+        "vn",
+        "clinic"
+      ]
+    },
+    {
+      "id": "pl-ru-antipova",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Юлия Антипова, гинеколог в Нячанге",
+      "summary": "Русскоязычный гинеколог: первичная консультация 700 000 VND, повторная 500 000 VND по сниппету.",
+      "priceRu": "500 000 - 700 000 VND",
+      "whoSells": [
+        "Юлия Антипова"
+      ],
+      "evidence": [
+        "ev-snip-ant"
+      ],
+      "tags": [
+        "vn",
+        "clinic"
+      ]
+    },
+    {
+      "id": "pl-ru-comoon",
+      "parent": "sup-agents-ru",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Comoon, релокация для IT",
+      "summary": "Гайд и чат релокации во Вьетнам для IT, расходы €1500-3500 в месяц. Цен пакетов на странице нет.",
+      "whoSells": [
+        "Comoon"
+      ],
+      "evidence": [
+        "ev-comoon"
+      ],
+      "tags": [
+        "vn",
+        "relocation"
+      ]
+    },
+    {
+      "id": "pl-comm-vietnam-ru",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "ВЬЕТНАМ ЧАТЫ (@vietnam_ru)",
+      "summary": "Крупный чат про Нячанг, Дананг, Фукуок, Муйне, Хошимин, Ханой. Проект Эмигранты 360.",
+      "facts": [
+        "2063 поста по счётчику Telemetr, 2026-10"
+      ],
+      "numbers": [
+        {
+          "label": "подписчиков",
+          "value": "11952",
+          "unit": "чел.",
+          "evidence": "ev-telemetr"
+        }
+      ],
+      "evidence": [
+        "ev-tel-vn",
+        "ev-telemetr"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "general"
+      ]
+    },
+    {
+      "id": "pl-comm-danang-forum",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Дананг чат (@danang_forum)",
+      "summary": "Форум Дананга: темы жизни, опыт, встречи. По сниппету каталога около 12 261 участника.",
+      "numbers": [
+        {
+          "label": "участников",
+          "value": "12261",
+          "unit": "чел.",
+          "evidence": "ev-snip-dgdn"
+        }
+      ],
+      "risk": "число по сниппету",
+      "evidence": [
+        "ev-snip-dgdn"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "danang"
+      ]
+    },
+    {
+      "id": "pl-comm-nt-arenda",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Нячанг аренда квартир / Обмен валюты / трансфер (@Arenda_Nyachang_Zhilye)",
+      "summary": "Канал аренды в Нячанге: 2BR $905, трансфер Камрань 435 000 VND, SIM 280 000 VND.",
+      "numbers": [
+        {
+          "label": "подписчиков",
+          "value": "5250",
+          "unit": "чел.",
+          "evidence": "ev-tel-nt"
+        }
+      ],
+      "evidence": [
+        "ev-tel-nt"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "nyachang",
+        "rent"
+      ]
+    },
+    {
+      "id": "pl-comm-diaspora",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "DIASPORA, русские во Вьетнаме (@forum_vietnam_rus)",
+      "summary": "Чат русскоязычного сообщества во Вьетнаме, 3861 участник по сниппету поиска.",
+      "facts": [
+        "3861 участник (по сниппету поиска, дата не указана)"
+      ],
+      "risk": "число по сниппету",
+      "evidence": [
+        "ev-vietrynok"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "general"
+      ]
+    },
+    {
+      "id": "pl-comm-fb-nt",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Facebook: Nha Trang Announcements",
+      "summary": "Группа с 50k+ участников, по путеводителю Vietrynok. Там же Russians in Da Nang и Russians in Saigon.",
+      "numbers": [
+        {
+          "label": "участников",
+          "value": "50000+",
+          "unit": "чел.",
+          "evidence": "ev-vietrynok"
+        }
+      ],
+      "evidence": [
+        "ev-vietrynok"
+      ],
+      "tags": [
+        "vn",
+        "facebook",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "pl-comm-danang-city",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Дананг: @danang_ru, @danang_arenda, @danang_freelance",
+      "summary": "Основной чат Дананга, аренда и фрилансеры. Число участников в источнике не названо.",
+      "evidence": [
+        "ev-vietrynok"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "danang"
+      ]
+    },
+    {
+      "id": "pl-comm-hcmc",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Хошимин: @russian_hcmc, @hcm_arenda, @russian_biz_vietnam",
+      "summary": "Основной чат, аренда и бизнес-чат по Хошимину, число участников в источнике не названо.",
+      "evidence": [
+        "ev-vietrynok"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "hcmc"
+      ]
+    },
+    {
+      "id": "pl-comm-nt-set",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Нячанг: @nyachang_obyavleniya, @RussianNhaTrang, @RussianMoms_NhaTrang",
+      "summary": "Объявления, общий чат, мамы с детьми и визовая тема. Число участников в источнике не названо.",
+      "evidence": [
+        "ev-vietrynok"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "pl-comm-catalog",
+      "parent": "sup-communities",
+      "layer": "supply",
+      "kind": "player",
+      "title": "Каталог Telegram: 105 чатов и 26 каналов о Вьетнаме",
+      "summary": "Каталог Telegid включает Нячанг, Дананг, Фукуок, визу, медицину, Хошимин.",
+      "numbers": [
+        {
+          "label": "чатов в каталоге",
+          "value": "105",
+          "unit": "шт",
+          "evidence": "ev-telegid"
+        },
+        {
+          "label": "каналов в каталоге",
+          "value": "26",
+          "unit": "шт",
+          "evidence": "ev-telegid"
+        }
+      ],
+      "evidence": [
+        "ev-telegid"
+      ],
+      "tags": [
+        "vn",
+        "telegram",
+        "catalog"
+      ]
+    },
+    {
+      "id": "sub-visa-01",
+      "parent": "svc-visa",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "E-visa самостоятельно через госсайт",
+      "summary": "Оформление за $25-50 на evisa.gov.vn без агентства.",
+      "numbers": [
+        {
+          "label": "разовая",
+          "value": "25",
+          "unit": "$",
+          "evidence": "ev-vc-visa"
+        }
+      ],
+      "quotes": [
+        {
+          "text": "Неправильный пункт въезда в визе - разворот на границе.",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/travel/2882042-vizaran-iz-dananga-v-laos",
+          "date": "2026-04"
+        }
+      ],
+      "priceRu": "$25 разовая, $50 многократная",
+      "priceEn": "$25 - 50",
+      "time": "до 7 рабочих дней",
+      "acceptance": "виза в PDF, пункт въезда совпадает с паспортом",
+      "whoSells": [
+        "evisa.gov.vn (госсайт)"
+      ],
+      "risk": "ошибка в пункте въезда, разворот на границе",
+      "evidence": [
+        "ev-vc-visa",
+        "ev-vc-visarun"
+      ],
+      "tags": [
+        "vn",
+        "visa"
+      ]
+    },
+    {
+      "id": "sub-visa-02",
+      "parent": "svc-visa",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Визаран с транспортом и e-visa комбо",
+      "summary": "Пакет: автобус в Лаос и обратно плюс виза с гарантией.",
+      "numbers": [
+        {
+          "label": "визаран Дананг-Лаос",
+          "value": "87-200",
+          "unit": "$",
+          "evidence": "ev-vc-visarun"
+        }
+      ],
+      "priceRu": "3 800 000 - 3 900 000 VND",
+      "priceEn": "$87 - 200",
+      "time": "1 день",
+      "acceptance": "штамп 45 дней или активированная e-visa",
+      "whoSells": [
+        "BestBus Vietnam",
+        "Best Bus Премиум"
+      ],
+      "risk": "пересадка и граница при самостоятельном визаране",
+      "evidence": [
+        "ev-vc-visarun"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "visarun"
+      ]
+    },
+    {
+      "id": "sub-visa-03",
+      "parent": "svc-visa",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Продление турвизы на 30 дней через агента",
+      "summary": "Продление в стране через агентство, срок 5-7 рабочих дней.",
+      "numbers": [
+        {
+          "label": "продление",
+          "value": "150-185",
+          "unit": "$",
+          "evidence": "ev-vs-visaext"
+        }
+      ],
+      "priceRu": "$150 - 185",
+      "priceEn": "$150 - 185",
+      "time": "5-7 рабочих дней",
+      "acceptance": "штамп продления в паспорте",
+      "whoSells": [
+        "визовые агентства"
+      ],
+      "risk": "e-visa на практике не продлевают, просрочка до 40 млн VND",
+      "evidence": [
+        "ev-vs-visaext"
+      ],
+      "tags": [
+        "vn",
+        "visa"
+      ]
+    },
+    {
+      "id": "sub-visa-04",
+      "parent": "svc-visa",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Бизнес-виза DN и work permit",
+      "summary": "DN до 12 месяцев через компанию-спонсора, LD до 24 месяцев с work permit.",
+      "quotes": [
+        {
+          "text": "DN - Business visa - до 12 месяцев, через приглашение от вьетнамской компании",
+          "who": "автор статьи",
+          "where": "vc.ru",
+          "url": "https://vc.ru/migration/2900540-pereezd-vo-vetnam-na-pmz-vizy-vnzh-rabota",
+          "date": "2026-05"
+        }
+      ],
+      "priceRu": "$300 - 1000 за год оформления (по сниппету)",
+      "time": "недели-месяцы",
+      "acceptance": "виза DN или карта TRC",
+      "whoSells": [
+        "агентства-спонсоры"
+      ],
+      "risk": "фиктивный спонсор, потеря статуса",
+      "evidence": [
+        "ev-snip-dn",
+        "ev-vc-pmzh"
+      ],
+      "tags": [
+        "vn",
+        "visa",
+        "dn"
+      ]
+    },
+    {
+      "id": "sub-housing-01",
+      "parent": "svc-housing",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Подбор аренды через русского агента в Нячанге",
+      "summary": "Агентство ведёт аренду, держит свои дома, подбирает жильё.",
+      "priceRu": "не указана на странице",
+      "acceptance": "договор и акт приёма с описью",
+      "whoSells": [
+        "Русский Информационный Центр"
+      ],
+      "risk": "предоплата через чат, депозит не вернули",
+      "evidence": [
+        "ev-rusinfo"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "nyachang"
+      ]
+    },
+    {
+      "id": "sub-housing-02",
+      "parent": "svc-housing",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Аренда через Telegram-канал с трансфером и SIM",
+      "summary": "Канал выкладывает 2BR и апартаменты, трансфер и SIM.",
+      "numbers": [
+        {
+          "label": "2BR 19 этаж",
+          "value": "905",
+          "unit": "$ в месяц",
+          "evidence": "ev-tel-nt"
+        }
+      ],
+      "priceRu": "$690 - 905 в месяц",
+      "time": "за 1-2 дня",
+      "acceptance": "осмотр до оплаты, депозит не более месяца",
+      "whoSells": [
+        "@Arenda_Nyachang_Zhilye"
+      ],
+      "risk": "переводы до осмотра",
+      "evidence": [
+        "ev-tel-nt"
+      ],
+      "tags": [
+        "vn",
+        "rent",
+        "telegram"
+      ]
+    },
+    {
+      "id": "sub-housing-03",
+      "parent": "svc-housing",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Покупка квартиры через агентство",
+      "summary": "Сопровождение сделки покупки у застройщика с квотой 30%.",
+      "numbers": [
+        {
+          "label": "комиссия",
+          "value": "1-2",
+          "unit": "%",
+          "evidence": "ev-vc-inv-dn"
+        }
+      ],
+      "priceRu": "1-2% от сделки",
+      "time": "недели-месяцы",
+      "acceptance": "розовая книга на имя покупателя",
+      "whoSells": [
+        "DDA Real Estate",
+        "Tranio",
+        "Metropolitan"
+      ],
+      "risk": "квота выбрана, документы не проверены",
+      "evidence": [
+        "ev-vc-inv-dn"
+      ],
+      "tags": [
+        "vn",
+        "buy"
+      ]
+    },
+    {
+      "id": "sub-company-01",
+      "parent": "svc-company",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Регистрация компании под ключ",
+      "summary": "Регистрация, печать, налоговый учёт.",
+      "numbers": [
+        {
+          "label": "под ключ",
+          "value": "2000-5000",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "priceRu": "$2000 - 5000 (YB Case от $1800)",
+      "time": "25 дней (YB Case)",
+      "acceptance": "IRC и ERC выданы, налоговый номер",
+      "whoSells": [
+        "YB Case",
+        "юрфирмы"
+      ],
+      "risk": "капитал $10000-20000 и номинальный директор",
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "tags": [
+        "vn",
+        "company"
+      ]
+    },
+    {
+      "id": "sub-company-02",
+      "parent": "svc-company",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Номинальный представитель и виртуальный офис",
+      "summary": "Местный директор и адрес за ежемесячную плату.",
+      "numbers": [
+        {
+          "label": "номинальный директор",
+          "value": "200-500",
+          "unit": "$ в месяц",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "priceRu": "$200 - 500 в месяц",
+      "acceptance": "договор представительства",
+      "whoSells": [
+        "юрфирмы"
+      ],
+      "risk": "зависимость от номинала",
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "tags": [
+        "vn",
+        "company"
+      ]
+    },
+    {
+      "id": "sub-banking-01",
+      "parent": "svc-banking",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Снятие по карте Мир в банкоматах VRB",
+      "summary": "18-21 банкомат на страну, лимиты по эмитенту.",
+      "numbers": [
+        {
+          "label": "банкоматов VRB",
+          "value": "18-21",
+          "unit": "шт",
+          "evidence": "ev-vc-mir"
+        }
+      ],
+      "priceRu": "комиссия около 3%, до 8-12% в сбоях",
+      "acceptance": "наличные VND на руки",
+      "whoSells": [
+        "VRB"
+      ],
+      "risk": "комиссия до 12% и лимит эмитента",
+      "evidence": [
+        "ev-vc-mir"
+      ],
+      "tags": [
+        "vn",
+        "money"
+      ]
+    },
+    {
+      "id": "sub-banking-02",
+      "parent": "svc-banking",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Перевод через USDT и P2P-биржи",
+      "summary": "Продать USDT на P2P и получить VND на вьетнамский счёт.",
+      "numbers": [
+        {
+          "label": "потеря",
+          "value": "2-4",
+          "unit": "%",
+          "evidence": "ev-vs-transfer"
+        }
+      ],
+      "priceRu": "2-4% потерь",
+      "time": "минуты-часы",
+      "acceptance": "донги на счёте",
+      "whoSells": [
+        "P2P-биржи с эскроу"
+      ],
+      "risk": "мошенник-агент, санкционный риск",
+      "evidence": [
+        "ev-vs-transfer"
+      ],
+      "tags": [
+        "vn",
+        "money",
+        "usdt"
+      ]
+    },
+    {
+      "id": "sub-banking-03",
+      "parent": "svc-banking",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "UnionPay от РСХБ",
+      "summary": "Безнал для россиян через UnionPay, комиссии 3-5% плюс комиссия эмитента.",
+      "quotes": [
+        {
+          "text": "Банк Вьетнама берёт 3-5% + ваш российский банк берёт $5-10 за операцию",
+          "who": "автор гайда",
+          "where": "top-vietnam.ru",
+          "url": "https://top-vietnam.ru/turizm/85-prakticheskie-sovety-vo-vetname/427-kak-platit-vo-vetname-unionpay-karta-mir-mestnye-karty-nalichnye-i-perevody-dlya-rossiyan.html",
+          "date": "2026"
+        }
+      ],
+      "priceRu": "3-5% + $5-10 за операцию",
+      "acceptance": "снятие 2-3 млн VND за раз",
+      "whoSells": [
+        "РСХБ"
+      ],
+      "risk": "лимиты и комиссии",
+      "evidence": [
+        "ev-topvn"
+      ],
+      "tags": [
+        "vn",
+        "money"
+      ]
+    },
+    {
+      "id": "sub-transport-01",
+      "parent": "svc-transport",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Аренда байка помесячно",
+      "summary": "Honda Wave и Vision, залог 1-3 млн или паспорт.",
+      "numbers": [
+        {
+          "label": "месяц Дананг",
+          "value": "1500000-2800000",
+          "unit": "VND",
+          "evidence": "ev-vc-bikerent"
+        }
+      ],
+      "priceRu": "1 500 000 - 2 800 000 VND в месяц",
+      "acceptance": "байк с техосмотром и шлемом, договор",
+      "whoSells": [
+        "местные прокаты"
+      ],
+      "risk": "залог паспорта, развод на повреждения, штрафы",
+      "evidence": [
+        "ev-vc-bikerent"
+      ],
+      "tags": [
+        "vn",
+        "bike"
+      ]
+    },
+    {
+      "id": "sub-transport-02",
+      "parent": "svc-transport",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Трансфер из аэропорта Камрань",
+      "summary": "Фиксированная цена за машину 4 или 6 мест.",
+      "numbers": [
+        {
+          "label": "4 места",
+          "value": "435000",
+          "unit": "VND",
+          "evidence": "ev-tel-nt"
+        }
+      ],
+      "priceRu": "435 000 - 525 000 VND",
+      "acceptance": "машина по подтверждению",
+      "whoSells": [
+        "канал аренды Нячанга"
+      ],
+      "risk": "без договорённости цена растёт",
+      "evidence": [
+        "ev-tel-nt"
+      ],
+      "tags": [
+        "vn",
+        "transfer"
+      ]
+    },
+    {
+      "id": "sub-health-01",
+      "parent": "svc-health-insurance",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Местный полис Bao Viet InterCare",
+      "summary": "Тариф по Вьетнаму $200-600 в год.",
+      "numbers": [
+        {
+          "label": "тариф",
+          "value": "200-600",
+          "unit": "$ в год",
+          "evidence": "ev-vc-medins"
+        }
+      ],
+      "priceRu": "$200 - 600 в год",
+      "acceptance": "полис с покрытием в частных клиниках по сети",
+      "whoSells": [
+        "Bao Viet"
+      ],
+      "risk": "покрытие только по списку клиник",
+      "evidence": [
+        "ev-vc-medins"
+      ],
+      "tags": [
+        "vn",
+        "insurance"
+      ]
+    },
+    {
+      "id": "sub-health-02",
+      "parent": "svc-health-insurance",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Международный план Cigna, Allianz, SafetyWing",
+      "summary": "Cigna Global $5500, Allianz Care около $3200 в год, SafetyWing $49 в месяц.",
+      "numbers": [
+        {
+          "label": "Cigna",
+          "value": "5500",
+          "unit": "$ в год",
+          "evidence": "ev-vc-medins"
+        }
+      ],
+      "priceRu": "$49 в месяц - $5500 в год",
+      "acceptance": "письмо покрытия и прямой расчёт с госпиталем",
+      "whoSells": [
+        "Cigna",
+        "Allianz Care",
+        "SafetyWing"
+      ],
+      "risk": "не покрывают байк",
+      "evidence": [
+        "ev-vc-medins"
+      ],
+      "tags": [
+        "vn",
+        "insurance"
+      ]
+    },
+    {
+      "id": "sub-school-01",
+      "parent": "svc-school",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Русская очная школа Горизонт",
+      "summary": "Очное и онлайн-обучение 1-11 классы, Нячанг и Дананг.",
+      "numbers": [
+        {
+          "label": "Дананг 1-8 классы",
+          "value": "11250000",
+          "unit": "VND",
+          "evidence": "ev-gorizont"
+        }
+      ],
+      "priceRu": "9 000 000 - 15 000 000 VND за 4 недели",
+      "acceptance": "приём в классе 4-6 учеников",
+      "whoSells": [
+        "Горизонт"
+      ],
+      "risk": "вступительный взнос 5 млн невозвратный",
+      "evidence": [
+        "ev-gorizont"
+      ],
+      "tags": [
+        "vn",
+        "school"
+      ]
+    },
+    {
+      "id": "sub-school-02",
+      "parent": "svc-school",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Международная школа с IB или British",
+      "summary": "Класс 12-18 человек, западные педагоги.",
+      "numbers": [
+        {
+          "label": "в год",
+          "value": "15000-38000",
+          "unit": "$",
+          "evidence": "ev-vc-schools"
+        }
+      ],
+      "priceRu": "$15000 - 38000 в год",
+      "time": "2-3 месяца на приём",
+      "acceptance": "зачисление и приём по аттестации",
+      "whoSells": [
+        "Singapore International School Danang",
+        "ISHCMC"
+      ],
+      "risk": "невозвратный взнос $1000-4000",
+      "evidence": [
+        "ev-vc-schools"
+      ],
+      "tags": [
+        "vn",
+        "school"
+      ]
+    },
+    {
+      "id": "sub-legal-01",
+      "parent": "svc-translation-legal",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Легализация и перевод документов для work permit",
+      "summary": "Проверки и легализация документов в пакете work permit.",
+      "numbers": [
+        {
+          "label": "пакет",
+          "value": "600-1000",
+          "unit": "$",
+          "evidence": "ev-vc-company-wp"
+        }
+      ],
+      "priceRu": "$600 - 1000 за пакет",
+      "acceptance": "work permit выдан",
+      "whoSells": [
+        "юрфирмы"
+      ],
+      "risk": "неверная легализация, отказ",
+      "evidence": [
+        "ev-vc-company-wp"
+      ],
+      "tags": [
+        "vn",
+        "legal"
+      ]
+    },
+    {
+      "id": "sub-legal-02",
+      "parent": "svc-translation-legal",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Юридическая проверка документов продавца",
+      "summary": "Проверка розовой книги и договора перед покупкой.",
+      "quotes": [
+        {
+          "text": "Важно тщательно проверять все документы, консультироваться с юристами и риэлторами, чтобы избежать юридических рисков",
+          "who": "автор обзора",
+          "where": "vc.ru",
+          "url": "https://vc.ru/invest/1492517-kupit-nedvizhimost-vo-vetname-obzor-i-osobennosti-pokupki-luchshie-agentstva-nedvizhimosti-dlya-priobreteniya-zhilya",
+          "date": "2024-09"
+        }
+      ],
+      "priceRu": "не указана в источниках",
+      "acceptance": "заключение по документам",
+      "whoSells": [
+        "юристы и агентства"
+      ],
+      "risk": "нет проверки, спор о владении",
+      "evidence": [
+        "ev-vc-inv-vn"
+      ],
+      "tags": [
+        "vn",
+        "legal"
+      ]
+    },
+    {
+      "id": "sub-reloc-01",
+      "parent": "svc-relocation",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Комьюнити-релокация для IT (Comoon)",
+      "summary": "Гайд и чат с теми, кто уже переехал.",
+      "priceRu": "не указана на странице",
+      "acceptance": "доступ в чат",
+      "whoSells": [
+        "Comoon"
+      ],
+      "risk": "нет цен и гарантий",
+      "evidence": [
+        "ev-comoon"
+      ],
+      "tags": [
+        "vn",
+        "relocation"
+      ]
+    },
+    {
+      "id": "sub-reloc-02",
+      "parent": "svc-relocation",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Стартовый бюджет на 90 дней как услуга планирования",
+      "summary": "Рынок называет $3000-5000 на семью на первые 90 дней без работы (по сниппету).",
+      "priceRu": "$3000 - 5000 на семью за 90 дней",
+      "time": "90 дней",
+      "whoSells": [
+        "Relocateeasy"
+      ],
+      "risk": "оценка консультантов",
+      "evidence": [
+        "ev-snip-reloc"
+      ],
+      "tags": [
+        "vn",
+        "relocation"
+      ]
+    },
+    {
+      "id": "sub-mkt-01",
+      "parent": "svc-marketing-local",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "SEO и продвижение сайта во Вьетнаме",
+      "summary": "Адаптация сайта, локальный контент, ссылки.",
+      "priceRu": "80 000 - 150 000 ₽ в месяц",
+      "acceptance": "позиции в локальном поиске",
+      "whoSells": [
+        "SEO-агентства"
+      ],
+      "risk": "во Вьетнаме Zalo и Facebook заменяют сайт, по сниппету",
+      "evidence": [
+        "ev-snip-seo"
+      ],
+      "tags": [
+        "vn",
+        "marketing"
+      ]
+    },
+    {
+      "id": "sub-mkt-02",
+      "parent": "svc-marketing-local",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Ведение Zalo и Facebook для местного бизнеса",
+      "summary": "Соцсети работают и как каталог, и как поддержка. Статью открыть не удалось.",
+      "facts": [
+        "Zalo используют все, он выполняет роль маркетинговой системы (по сниппету поиска vc.ru)"
+      ],
+      "priceRu": "нет данных",
+      "whoSells": [
+        "агентства по вьетнамскому рынку"
+      ],
+      "risk": "нет первичных цен",
+      "evidence": [
+        "ev-snip-seo"
+      ],
+      "tags": [
+        "vn",
+        "marketing"
+      ]
+    },
+    {
+      "id": "sub-staff-01",
+      "parent": "svc-staffing",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Подбор местного персонала для кафе",
+      "summary": "Зарплаты: официант $250, повар $300, шеф $700 в месяц.",
+      "numbers": [
+        {
+          "label": "шеф-повар",
+          "value": "700",
+          "unit": "$ в месяц",
+          "evidence": "ev-duan-staff"
+        }
+      ],
+      "priceRu": "$200 - 700 в месяц на человека",
+      "acceptance": "персонал вышел по контракту",
+      "whoSells": [
+        "сам собственник"
+      ],
+      "risk": "только местные по закону",
+      "evidence": [
+        "ev-duan-staff"
+      ],
+      "tags": [
+        "vn",
+        "staff"
+      ]
+    },
+    {
+      "id": "sub-staff-02",
+      "parent": "svc-staffing",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Work permit для иностранного сотрудника",
+      "summary": "Пакет с проверками и легализацией.",
+      "numbers": [
+        {
+          "label": "пакет",
+          "value": "600-1000",
+          "unit": "$",
+          "evidence": "ev-vc-company-wp"
+        }
+      ],
+      "priceRu": "$600 - 1000",
+      "acceptance": "work permit на руках",
+      "whoSells": [
+        "юрфирмы"
+      ],
+      "risk": "мало разрешений для иностранцев",
+      "evidence": [
+        "ev-vc-company-wp"
+      ],
+      "tags": [
+        "vn",
+        "staff"
+      ]
+    },
+    {
+      "id": "sub-tax-01",
+      "parent": "svc-tax-accounting",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Бухгалтерия компании",
+      "summary": "Обязательна даже при нулевой выручке.",
+      "numbers": [
+        {
+          "label": "в месяц",
+          "value": "100-300",
+          "unit": "$",
+          "evidence": "ev-vc-company"
+        }
+      ],
+      "priceRu": "$100 - 300 в месяц",
+      "acceptance": "отчёты поданы вовремя",
+      "whoSells": [
+        "бухгалтерские фирмы"
+      ],
+      "risk": "штрафы за просрочку, один кейс 3 млн VND",
+      "evidence": [
+        "ev-vc-company"
+      ],
+      "tags": [
+        "vn",
+        "tax"
+      ]
+    },
+    {
+      "id": "sub-tax-02",
+      "parent": "svc-tax-accounting",
+      "layer": "services",
+      "kind": "subservice",
+      "title": "Консультация по налоговому резидентству",
+      "summary": "Порог 183 дня, вычет 15.5 млн VND, нерезидент 20%.",
+      "numbers": [
+        {
+          "label": "порог",
+          "value": "183",
+          "unit": "дня",
+          "evidence": "ev-vs-tax"
+        }
+      ],
+      "priceRu": "нет данных",
+      "acceptance": "письменное заключение",
+      "whoSells": [
+        "налоговые консультанты"
+      ],
+      "risk": "мировой доход по шкале 5-35%",
+      "evidence": [
+        "ev-vs-tax"
+      ],
+      "tags": [
+        "vn",
+        "tax"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-vc-kids-rent",
+      "label": "vc.ru Миграция, Где жить во Вьетнаме с детьми: аренда 3-комнатных",
+      "url": "https://vc.ru/migration/2892509-gde-zhit-vo-vetname-s-detmi",
+      "date": "2026-04",
+      "kind": "proxy",
+      "metric": "3-комнатная в Дананге $600-900, Хошимин (Thao Dien) $1200-2000, Нячанг от $500 в месяц",
+      "scope": "статья-обзор, без выборки объявлений"
+    },
+    {
+      "id": "ev-vc-kids-school",
+      "label": "vc.ru Миграция, Где жить во Вьетнаме с детьми: школы",
+      "url": "https://vc.ru/migration/2892509-gde-zhit-vo-vetname-s-detmi",
+      "date": "2026-04",
+      "kind": "proxy",
+      "metric": "школа Дананг $6000-14000 в год, Хошимин $12000-25000, Нячанг билингвальные $2000-4000",
+      "scope": "статья-обзор"
+    },
+    {
+      "id": "ev-vc-nt-rent",
+      "label": "vc.ru Путешествия, Аренда квартиры в Нячанге в 2026",
+      "url": "https://vc.ru/travel/3029331-arenda-kvartiry-v-nyachange",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "студия $300-450, кондо с бассейном $450-700, первая линия от $900, депозит $100-200",
+      "scope": "статья-обзор по Нячангу"
+    },
+    {
+      "id": "ev-vc-nt-scam",
+      "label": "vc.ru Путешествия, Аренда в Нячанге: депозит-разводка",
+      "url": "https://vc.ru/travel/3029331-arenda-kvartiry-v-nyachange",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "предоплата $150-200 через телеграм-группы, квартиры не существует",
+      "scope": "описание схемы в статье"
+    },
+    {
+      "id": "ev-vc-visa",
+      "label": "vc.ru Путешествия, Виза во Вьетнам и визаран 2026",
+      "url": "https://vc.ru/travel/3030022-viza-vo-vetnam-i-vizaran",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "безвиз 45 дней, e-visa $25 разовая и $50 мульти, срок 7 рабочих дней",
+      "scope": "обзор правил, цены с госсайта по статье"
+    },
+    {
+      "id": "ev-vc-visa-border",
+      "label": "vc.ru Путешествия, Виза во Вьетнам: визаран через Лаос",
+      "url": "https://vc.ru/travel/3030022-viza-vo-vetnam-i-vizaran",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "пограничник просит около 50 тыс. донгов, Лао Бао 250 км от Дананга",
+      "scope": "описание опыта в статье"
+    },
+    {
+      "id": "ev-vc-schools",
+      "label": "vc.ru Миграция, Школы для детей экспатов во Вьетнаме 2026",
+      "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "международная школа $15000-38000 в год, application fee $1000-4000",
+      "scope": "обзор рынка школ"
+    },
+    {
+      "id": "ev-vc-schools-city",
+      "label": "vc.ru Миграция, Школы для детей экспатов: таблица по городам",
+      "url": "https://vc.ru/migration/2917237-shkoly-dlya-detej-eksportov-v-vetname",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "Дананг международная $1500-2500 в месяц, билингвальная $500-800, онлайн-русская $200-400",
+      "scope": "таблица в статье по трём городам"
+    },
+    {
+      "id": "ev-vc-move",
+      "label": "vc.ru Путешествия, Переезд во Вьетнам для россиян 2026",
+      "url": "https://vc.ru/travel/2930088-pereezd-vo-vyetname-dlya-rossiyan",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "расходы Дананг и Нячанг $400-600 на человека, Хошимин $700-1200",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-move-rent",
+      "label": "vc.ru Путешествия, Переезд во Вьетнам: аренда и недвижимость",
+      "url": "https://vc.ru/travel/2930088-pereezd-vo-vyetname-dlya-rossiyan",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "студия в Нячанге $200-400, 1BR $450-650, студия купить у моря $40000-80000",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-move-med",
+      "label": "vc.ru Путешествия, Переезд во Вьетнам: медицина",
+      "url": "https://vc.ru/travel/2930088-pereezd-vo-vyetname-dlya-rossiyan",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "терапевт $30-80, имплант зуба $400-800, учитель английского $1000-2000",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-mir",
+      "label": "vc.ru Путешествия, Карта Мир во Вьетнаме 2026",
+      "url": "https://vc.ru/travel/2920144-karta-mir-vo-vetname-kak-rabotayet-i-gde-obmenyat-dongi",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "18-21 банкомат VRB, комиссия 8-12% в нестандартных ситуациях, обычно около 3%",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-medins",
+      "label": "vc.ru Путешествия, Медстраховка во Вьетнаме для экспатов 2026",
+      "url": "https://vc.ru/travel/3010433-medstrahovka-vo-vetname-dlya-ekspatov",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "госпитализация в частной клинике от $10000, Bao Viet $200-600 в год, Cigna $5500, SafetyWing $49 в месяц",
+      "scope": "обзор тарифов"
+    },
+    {
+      "id": "ev-vc-company",
+      "label": "vc.ru Путешествия, Стоимость регистрации компании во Вьетнаме 2026",
+      "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "пакет $2000-5000, капитал $10000-20000, номинальный директор $200-500 в месяц, бухгалтер $100-300",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-company-wp",
+      "label": "vc.ru Путешествия, Стоимость регистрации: work permit",
+      "url": "https://vc.ru/travel/3013626-stoimost-registratsii-kompanii-vo-vetname",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "work permit с легализацией $600-1000",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-bikefines",
+      "label": "vc.ru Путешествия, Штрафы на байке выросли в 6 раз",
+      "url": "https://vc.ru/travel/2826590-shtrafy-na-baykakh-vo-vyetname",
+      "date": "2026-03",
+      "kind": "proxy",
+      "metric": "красный свет 6 млн донгов (~$230), без прав до 8 млн (~$310)",
+      "scope": "пересказ декрета в статье"
+    },
+    {
+      "id": "ev-vc-bikerights",
+      "label": "vc.ru Путешествия, Права и аренда байка 2026",
+      "url": "https://vc.ru/travel/3012764-prava-na-bajk-vo-vetname",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "обмен прав 135 000 донгов, страховка байка 66 000 донгов в год, без прав 2-4 млн",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-pmzh",
+      "label": "vc.ru Миграция, Как уехать во Вьетнам на ПМЖ 2026",
+      "url": "https://vc.ru/migration/2900540-pereezd-vo-vetnam-na-pmz-vizy-vnzh-rabota",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "путь от туриста до резидента 18-30 месяцев, LD до 24 мес, DN до 12 мес",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-3y",
+      "label": "vc.ru Путешествия, Что не так после трёх лет в Дананге",
+      "url": "https://vc.ru/travel/3015283-vietnam-pereezd-v-danang-i-chto-uchest-pri-zhizni",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "1BR $450-700, электричество до $60, приём в международной клинике $100-150",
+      "scope": "личный опыт автора статьи"
+    },
+    {
+      "id": "ev-vc-cost",
+      "label": "vc.ru Миграция, Стоимость жизни релоканта: Дананг, Хошимин, Нячанг",
+      "url": "https://vc.ru/migration/2949526-stoimost-zhizni-vo-vetname-danang-hoshimin-nyachang",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "жизнь $600-800 в Дананге и Нячанге, $800-1100 в Хошимине, студия $250-300",
+      "scope": "личный опыт и обзор"
+    },
+    {
+      "id": "ev-vc-visarun",
+      "label": "vc.ru Путешествия, Визаран из Дананга в Лаос 2026",
+      "url": "https://vc.ru/travel/2882042-vizaran-iz-dananga-v-laos",
+      "date": "2026-04",
+      "kind": "proxy",
+      "metric": "визаран из Дананга $87-200, транспорт от 800 000 VND",
+      "scope": "обзор цен компаний"
+    },
+    {
+      "id": "ev-vc-bikerent",
+      "label": "vc.ru Путешествия, Аренда байка во Вьетнаме 2026",
+      "url": "https://vc.ru/travel/2886070-arenda-bajka-vo-vetname",
+      "date": "2026-04",
+      "kind": "proxy",
+      "metric": "Honda Wave Нячанг 100-150 тыс. VND в день, Дананг в месяц 1.5-2.8 млн VND",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vc-inv-vn",
+      "label": "vc.ru Инвестиции, Купить недвижимость во Вьетнаме: обзор",
+      "url": "https://vc.ru/invest/1492517-kupit-nedvizhimost-vo-vetname-obzor-i-osobennosti-pokupki-luchshie-agentstva-nedvizhimosti-dlya-priobreteniya-zhilya",
+      "date": "2024-09",
+      "kind": "proxy",
+      "metric": "квота иностранцев 30%, срок 50 лет, рост цен 6-8% в год (прогноз)",
+      "scope": "обзор агентств, рекламный характер"
+    },
+    {
+      "id": "ev-vc-inv-dn",
+      "label": "vc.ru Инвестиции, Купить квартиру в Дананге",
+      "url": "https://vc.ru/invest/1600892-kupit-kvartiru-v-danange-obzor-nedvizhimosti-i-reiting-luchshih-agentstv-dlya-pokupki-zhilya",
+      "date": "2024-10",
+      "kind": "proxy",
+      "metric": "Дананг $1500-3000 за кв.м, агентство 1-2%, налог 0.5%",
+      "scope": "обзор агентств, рекламный характер"
+    },
+    {
+      "id": "ev-vc-inv-nt",
+      "label": "vc.ru Инвестиции, Купить квартиру в Нячанге",
+      "url": "https://vc.ru/invest/1589758-kupit-kvartiru-v-nyachange-obzor-variantov-zhilya-i-reiting-luchshih-agentstv-dlya-pokupki",
+      "date": "2024-10",
+      "kind": "proxy",
+      "metric": "Нячанг около $2000 за кв.м, первая линия от $110000, вторичка $60000-100000",
+      "scope": "обзор агентств, рекламный характер"
+    },
+    {
+      "id": "ev-fasttur",
+      "label": "Fasttur, Недвижимость во Вьетнаме: цены, законы, личный опыт",
+      "url": "https://fasttur.ru/nedvizhimost_vietnam",
+      "date": "2025-01",
+      "kind": "proxy",
+      "metric": "студия 30 кв.м около $100000, 1-комн 50 кв.м $150000, земля иностранцам недоступна",
+      "scope": "справочная статья"
+    },
+    {
+      "id": "ev-vs-ins",
+      "label": "VietnamSpot, Медицинская страховка для Вьетнама 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-health-insurance",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "ночь в Vinmec Nha Trang от 19000 руб, аппендицит от 395000 руб, полис на месяц 2500-4000 руб",
+      "scope": "обзор страховок"
+    },
+    {
+      "id": "ev-vtg",
+      "label": "Vietnam Tour Guide, Лучшие города для жизни 2026 (Numbeo, IQAir)",
+      "url": "https://vietnam-tour-guide.ru/blog/luchshie-goroda-vietnam-expats-2026/",
+      "date": "2026-06",
+      "kind": "proxy",
+      "metric": "1BR Дананг центр около $545, Нячанг около $416, Хошимин около $612, Ханой около $449",
+      "scope": "сводка Numbeo на июнь 2026"
+    },
+    {
+      "id": "ev-vtg-budget",
+      "label": "Vietnam Tour Guide, Бюджет на месяц по городам 2026",
+      "url": "https://vietnam-tour-guide.ru/blog/luchshie-goroda-vietnam-expats-2026/",
+      "date": "2026-06",
+      "kind": "proxy",
+      "metric": "комфорт: Дананг и Нячанг $1400-1800, Хошимин $1600-2200, Ханой $1500-2000",
+      "scope": "сводка Numbeo на июнь 2026"
+    },
+    {
+      "id": "ev-travelask",
+      "label": "TravelAsk, Переезд в Дананг: отзыв",
+      "url": "https://travelask.ru/questions/310360-pereezd-v-danange",
+      "date": "2019",
+      "kind": "proxy",
+      "metric": "отзыв жителя, год в Дананге до этого 7 лет в Сиануквиле",
+      "scope": "один отзыв на странице, давность около 7 лет"
+    },
+    {
+      "id": "ev-vietrynok",
+      "label": "Vietrynok, Сообщества русских во Вьетнаме",
+      "url": "https://vietrynok.com/guide/soobshchestva-russkih-vo-vyetname/",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "Facebook Nha Trang Announcements 50k+, 600+ русских на длительном пребывании в Нячанге",
+      "scope": "путеводитель, обновление 2026-05-23"
+    },
+    {
+      "id": "ev-tel-nt",
+      "label": "Telegram @Arenda_Nyachang_Zhilye, публичный просмотр",
+      "url": "https://t.me/s/Arenda_Nyachang_Zhilye",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "5.25K подписчиков, 2BR 19 этаж 905 долл в месяц, трансфер Камрань 435 000 VND",
+      "scope": "просмотр t.me/s на дату проверки"
+    },
+    {
+      "id": "ev-tel-vn",
+      "label": "Telegram @vietnam_ru ВЬЕТНАМ ЧАТЫ, публичный просмотр",
+      "url": "https://t.me/s/vietnam_ru",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "около 12 000 подписчиков",
+      "scope": "просмотр t.me/s на дату проверки"
+    },
+    {
+      "id": "ev-telemetr",
+      "label": "Telemetr, канал ВЬЕТНАМ ЧАТЫ",
+      "url": "https://telemetr.me/content/vietnam_ru",
+      "date": "2026-10",
+      "kind": "analyst",
+      "metric": "11 952 подписчика, 2063 поста",
+      "scope": "сторонний счётчик Telegram"
+    },
+    {
+      "id": "ev-telegid",
+      "label": "Telegid, каталог чатов Вьетнама",
+      "url": "https://telegid.me/catalog/vetnam",
+      "date": "2026-10",
+      "kind": "analyst",
+      "metric": "105 чатов и 26 каналов о Вьетнаме в каталоге",
+      "scope": "каталог без числа участников у каждого"
+    },
+    {
+      "id": "ev-tj",
+      "label": "Т-Ж, Как я живу в Дананге и трачу 1800 $ в месяц на двоих",
+      "url": "https://t-j.ru/cost-of-living-danang/",
+      "date": "2025-06",
+      "kind": "proxy",
+      "metric": "1800 $ в месяц на двоих, аренда 6 500 000 VND, визаран 40-130 $",
+      "scope": "личный опыт одного автора"
+    },
+    {
+      "id": "ev-habr-hanoi",
+      "label": "Хабр, Ханой для цифрового номада",
+      "url": "https://habr.com/ru/articles/979420/",
+      "date": "2025-12",
+      "kind": "proxy",
+      "metric": "бюджет $800-1200, интернет $10-15, коворкинг $50-150, аренда $300-600",
+      "scope": "личный опыт автора за 8 месяцев"
+    },
+    {
+      "id": "ev-habr-gm",
+      "label": "Хабр getmatch, Жизнь и удалённая работа во Вьетнаме",
+      "url": "https://habr.com/ru/companies/getmatch/articles/579934/",
+      "date": "2021-09",
+      "kind": "proxy",
+      "metric": "квартира с видом на море в Вунгтау около 30 000 руб, электричество дорогое",
+      "scope": "личный опыт, давность 5 лет"
+    },
+    {
+      "id": "ev-74ru",
+      "label": "74.ru, Ярославцы о жизни во Вьетнаме",
+      "url": "https://74.ru/text/world/2025/08/18/75835723/",
+      "date": "2025-08",
+      "kind": "proxy",
+      "metric": "70% участников движения мотоциклисты, водопроводную воду пить нельзя",
+      "scope": "интервью с семьёй переехавших"
+    },
+    {
+      "id": "ev-razvod",
+      "label": "Room-number, 10 способов развода туристов во Вьетнаме",
+      "url": "https://room-number.ru/vietnam/razvod/",
+      "date": "2018-08",
+      "kind": "proxy",
+      "metric": "такси 380 000 донгов вместо 17 долларов, цены в 2-3 раза выше",
+      "scope": "обзор 2018 года, давность"
+    },
+    {
+      "id": "ev-visasam",
+      "label": "Visasam, Бизнес во Вьетнаме для русских 2026",
+      "url": "https://visasam.ru/emigration/svoedelo/biznes-vo-vietname.html",
+      "date": "2026-05",
+      "kind": "proxy",
+      "metric": "регистрация фирмы с иностранным капиталом до 6 месяцев",
+      "scope": "обзор агента, часть цифр в статье неразборчива"
+    },
+    {
+      "id": "ev-duan",
+      "label": "Duan.asia, Как открыть ресторан, кафе, бар во Вьетнаме",
+      "url": "https://duan.asia/ru/art/restaurant-cafe-bar-1",
+      "date": "2025-12",
+      "kind": "company",
+      "metric": "старт кафе 50 кв.м около 18000 USD, расходы 5500 USD в месяц, аренда от 15 USD за кв.м",
+      "scope": "расчёт юридической компании"
+    },
+    {
+      "id": "ev-duan-staff",
+      "label": "Duan.asia, зарплаты персонала кафе",
+      "url": "https://duan.asia/ru/art/restaurant-cafe-bar-1",
+      "date": "2025-12",
+      "kind": "company",
+      "metric": "официант 250 USD, повар 300 USD, шеф 700 USD, уборщик 200 USD в месяц",
+      "scope": "расчёт юридической компании"
+    },
+    {
+      "id": "ev-vv-pens",
+      "label": "Vietnam Visa, Переезд пенсионера во Вьетнам 2026",
+      "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "бюджет $500-700, однушка $250-400, страховка $50-100 в месяц",
+      "scope": "гайд визового сервиса"
+    },
+    {
+      "id": "ev-vslife",
+      "label": "VietnamSpot, Жизнь во Вьетнаме для русских 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-life-for-russians",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "комфорт $800-1200, студия Дананг $200-500, залог 1-2 месяца, безвиз 45 дней до 14 марта 2028",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-awd-dalat",
+      "label": "Форум Винского, Как жить в Далате",
+      "url": "https://forum.awd.ru/viewtopic.php?t=259895",
+      "date": "2015-2019",
+      "kind": "proxy",
+      "metric": "посты 2015-2019, Далат дороже Сайгона, русскоговорящих почти нет",
+      "scope": "форум, давность до 11 лет"
+    },
+    {
+      "id": "ev-maketrip",
+      "label": "Make-trip, Отдых в Нячанге 2026: отзыв",
+      "url": "https://make-trip.ru/vietnam/otdykh-v-nyachange-otzyvy-turistov-tseny-ekskursii",
+      "date": "2026-02",
+      "kind": "proxy",
+      "metric": "отель 4-5 звёзд $30-60 в сутки, еда $17 в день на двоих, такси 50-90 тыс. донгов",
+      "scope": "отзыв туриста"
+    },
+    {
+      "id": "ev-vchschools",
+      "label": "Vietnamchik, Русские школы и коммьюнити во Вьетнаме",
+      "url": "https://vietnamchik.com/novosti/russian-schools-in-vietnam",
+      "date": "2026-08",
+      "kind": "proxy",
+      "metric": "The First Academy Нячанг 12-18 млн VND в месяц, Муйне $150-220",
+      "scope": "справочник"
+    },
+    {
+      "id": "ev-gorizont",
+      "label": "Школа Горизонт, цены",
+      "url": "https://gorizontkids.ru/school",
+      "date": "2026-10",
+      "kind": "company",
+      "metric": "Нячанг 1-4 классы 9 млн VND, Дананг 1-8 классы 11.25 млн VND, вступительный взнос 5 млн VND",
+      "scope": "сайт школы"
+    },
+    {
+      "id": "ev-vs-visaext",
+      "label": "VietnamSpot, Продление визы во Вьетнаме 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-visa-extension",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "продление на 30 дней $150-185, штраф до 40 000 000 VND",
+      "scope": "обзор, ссылка на декрет 282/2025"
+    },
+    {
+      "id": "ev-vs-tax",
+      "label": "VietnamSpot, Налоги фрилансера во Вьетнаме 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-freelance-taxes",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "резидентство 183 дня, вычет 15.5 млн VND в месяц, нерезидент 20%",
+      "scope": "обзор, ссылки на закон 109/2025/QH15"
+    },
+    {
+      "id": "ev-vs-transfer",
+      "label": "VietnamSpot, Перевод денег из России во Вьетнам 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-money-transfer",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "USDT потеря 2-4%, вывоз наличных $10000 на человека",
+      "scope": "обзор способов"
+    },
+    {
+      "id": "ev-vs-pdd",
+      "label": "VietnamSpot, ПДД во Вьетнаме 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-pdd",
+      "date": "2026-10",
+      "kind": "proxy",
+      "metric": "без прав при ДТП нарушитель, страховая откажет, скорая 115",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-vs-danang",
+      "label": "VietnamSpot, Дананг: отзывы туристов",
+      "url": "https://vietnamspot.ru/blog/da-nang-reviews",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "стройки жалоба номер один, октябрь-ноябрь дожди",
+      "scope": "сводка отзывов"
+    },
+    {
+      "id": "ev-vs-nomad",
+      "label": "VietnamSpot, Цифровой кочевник во Вьетнаме 2026",
+      "url": "https://vietnamspot.ru/blog/vietnam-digital-nomad-visa",
+      "date": "2026-07",
+      "kind": "proxy",
+      "metric": "визы кочевника нет, e-visa $50, визаран $800-2200 в год, коворкинг $80-130",
+      "scope": "обзор"
+    },
+    {
+      "id": "ev-bestbus",
+      "label": "BestBus Vietnam, сайт",
+      "url": "https://vietnam-visa.ru/",
+      "date": "2026-10",
+      "kind": "company",
+      "metric": "визаран на слипер-басе 850 000 VND, комбо 3.8-3.9 млн VND, 4200 клиентов (заявлено)",
+      "scope": "сайт компании, числа клиентов самозаявленные"
+    },
+    {
+      "id": "ev-rusinfo",
+      "label": "Русский Информационный Центр Нячанг",
+      "url": "https://rusinfocenter.com/services/property/",
+      "date": "2026-10",
+      "kind": "company",
+      "metric": "четыре собственных дома для аренды, лицензия 56-115/2019",
+      "scope": "сайт компании, цен нет"
+    },
+    {
+      "id": "ev-ybcase",
+      "label": "YB Case, Регистрация компании во Вьетнаме",
+      "url": "https://ybcase.com/countries/vietnam",
+      "date": "2026-10",
+      "kind": "company",
+      "metric": "регистрация от $1800, 25 дней, капитал на практике $10000",
+      "scope": "сайт компании"
+    },
+    {
+      "id": "ev-topvn",
+      "label": "Top-vietnam, Как платить во Вьетнаме",
+      "url": "https://top-vietnam.ru/turizm/85-prakticheskie-sovety-vo-vetname/427-kak-platit-vo-vetname-unionpay-karta-mir-mestnye-karty-nalichnye-i-perevody-dlya-rossiyan.html",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "UnionPay комиссия 3-5%, снятие 2-3 млн VND за раз, наличные $200-300 на первое время",
+      "scope": "гайд"
+    },
+    {
+      "id": "ev-privet",
+      "label": "Privet Asia, Дананг 2026",
+      "url": "https://privetasia.com/vietnam/cities/danang/",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "1BR $250-500, соло бюджет $700-1100, семья $1500-2500, An Thuong $300-600",
+      "scope": "гайд, источник цифр не раскрыт"
+    },
+    {
+      "id": "ev-comoon",
+      "label": "Comoon, Релокация во Вьетнам для IT",
+      "url": "https://comoon.io/relocation/vietnam",
+      "date": "2026",
+      "kind": "company",
+      "metric": "расходы €1500-3500 в месяц, чат релокации",
+      "scope": "страница сервиса, цен пакетов нет"
+    },
+    {
+      "id": "ev-visitasean",
+      "label": "VisitAsean, Сколько стоит недвижимость во Вьетнаме",
+      "url": "https://visitasean.ru/vietnam/real-estate/prices",
+      "date": "2025",
+      "kind": "proxy",
+      "metric": "Нячанг у моря $1800-3000 за кв.м, Дананг $1500-2500, Фукуок земля от $150 за кв.м",
+      "scope": "обзор, дата в тексте не указана"
+    },
+    {
+      "id": "ev-reloc-dalat",
+      "label": "Relocatefrom, Стоимость жизни в Далате",
+      "url": "https://relocatefrom.ru/vietnam/da-lat",
+      "date": "2026",
+      "kind": "analyst",
+      "metric": "1BR с ремонтом $420, 3-комн в центре 38.08 тыс. руб",
+      "scope": "агрегатор цен, источник цен не раскрыт"
+    },
+    {
+      "id": "ev-snip-land",
+      "label": "YB Case, Покупка земли под застройку (сниппет поиска)",
+      "url": "https://ybcase.com/company-services/real-estate/pokupka-zemli-pod-zastrojku-vo-vetname",
+      "date": "2026",
+      "kind": "company",
+      "metric": "иностранец получает право пользования землёй через компанию, СП или аренду",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-land2",
+      "label": "Vitvet, Недвижимость во Вьетнаме для иностранцев (сниппет поиска)",
+      "url": "https://vitvet.com/articles/strany/vietnam/vietnam-nedvizhimost/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "продление права на 50 лет носит заявительный характер, один объект на иностранца",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-landprice",
+      "label": "Зима в тепле, Земля под отель или виллу (сниппет поиска)",
+      "url": "https://zimavteple.ru/catalog/kupit-zemlyu-pod-stroitelstvo-otelya-ili-villy-vo-vetname",
+      "date": "2026",
+      "kind": "company",
+      "metric": "участки под застройку от $150 за кв.м, средняя $1500 за кв.м",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-dnkid",
+      "label": "VOV World, Детский сад международного уровня в Дананге (сниппет поиска)",
+      "url": "https://vovworld.vn/ru-RU/gorodskaya-zhizn/detskiy-sad-mezhdunarodnogo-urovnya-dlya-detey-rabochikh-v-danange-1574494.vov5",
+      "date": "2026",
+      "kind": "official",
+      "metric": "один детский сад для иностранцев в Дананге с английским языком",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-vk",
+      "label": "Dv-tours, Медицина в Нячанге (сниппет поиска)",
+      "url": "https://dv-tours.com/medicina-v-nhatrang/",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "VK Hospital: переводчики на ресепшене, терапевт около 100 000 VND",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-ant",
+      "label": "drantipova.ru, гинеколог в Нячанге (сниппет поиска)",
+      "url": "https://www.drantipova.ru/vietnam",
+      "date": "2026",
+      "kind": "company",
+      "metric": "первичная консультация 700 000 VND, повторная 500 000 VND",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-rentscam",
+      "label": "Room-number, Аренда в Нячанге (сниппет поиска)",
+      "url": "https://room-number.ru/vietnam/snyat-kvartiru-v-nyachange/",
+      "date": "2026",
+      "kind": "proxy",
+      "metric": "после предоплаты по объявлению в чате блокируют и удаляют чат",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-seo",
+      "label": "O-ES, SEO во Вьетнаме (сниппет поиска)",
+      "url": "https://o-es.ru/seo/asia/vietnam/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "продвижение от 80 000 руб в месяц, конкурентная ниша от 150 000 руб",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-dn",
+      "label": "Vietnam Visa, DN через агентство (сниппет поиска)",
+      "url": "https://vietnam-visa.ru/blog/pereezd-pensionera-vietnam-2026-guide/",
+      "date": "2026-07",
+      "kind": "company",
+      "metric": "бизнес-виза DN через агентство $300-1000 и больше в год",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-reloc",
+      "label": "Relocateeasy, Переезд во Вьетнам (сниппет поиска)",
+      "url": "https://relocateeasy.org/choice/asia/vietnam",
+      "date": "2026",
+      "kind": "company",
+      "metric": "старт без работы $3000-5000 на семью на 90 дней",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-open4",
+      "label": "Ukraine open for business, Рынок недвижимости Вьетнама 2026 (сниппет поиска)",
+      "url": "https://open4business.com.ua/ru/rynok-nedvizhimosti-vetnama-v-2026-godu-vosstanavlivaetsya-na-fone-rosta-czen/",
+      "date": "2026",
+      "kind": "analyst",
+      "metric": "рынок восстанавливается на фоне роста цен, Дананг первичка $2200-2300 за кв.м в 1П 2025",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-tranio",
+      "label": "Tranio, Недвижимость в Дананге (сниппет поиска)",
+      "url": "https://tranio.com/vietnam/da_nang/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "квартиры в Дананге от 116 000 (валюта по сниппету не указана)",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-mvp",
+      "label": "MVP Vietnam, сайт (сниппет поиска)",
+      "url": "https://www.mvpvietnam.com/",
+      "date": "2026",
+      "kind": "company",
+      "metric": "более 300 проверенных объявлений в Дананге и Хойане",
+      "scope": "по сниппету поиска, страница не открывалась"
+    },
+    {
+      "id": "ev-snip-dgdn",
+      "label": "Telegram-каталог Tgland, Дананг чат (сниппет поиска)",
+      "url": "https://tgland.ru/telegram/catalog/group/guz-danang-cat-vetnam",
+      "date": "2026",
+      "kind": "analyst",
+      "metric": "@danang_forum около 12 261 участника",
+      "scope": "по сниппету поиска, страница не открывалась"
+    }
+  ]
+}
