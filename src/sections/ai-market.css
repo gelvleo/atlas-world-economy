@@ -35,7 +35,7 @@
 .aim-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s1) var(--s3); align-items: baseline; }
 .aim-row-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); font: var(--t-body); color: var(--ink); font-weight: 500; }
 .aim-row-sum { grid-column: 1 / -1; font: var(--t-meta); color: var(--ink-2); max-width: 68ch; }
-.aim-row-side { display: flex; align-items: baseline; gap: var(--s2); white-space: nowrap; font: var(--t-meta); color: var(--ink-3); }
+.aim-row-side { display: flex; align-items: baseline; gap: var(--s2); white-space: nowrap; font: var(--t-meta); color: var(--ink-3); max-width: 42%; overflow: hidden; text-overflow: ellipsis; }
 .aim-row-side .num { font-size: 12.5px; }
 @media (max-width: 767px) { .aim-row { grid-template-columns: minmax(0, 1fr); } .aim-row-side { white-space: normal; } }
 

@@ -60,7 +60,8 @@ function Row({ n, showTrail }: { n: AiMarketNode; showTrail?: boolean }) {
           <span className="tag tag--muted">{AI_MARKET_KIND_LABEL[n.kind]}</span>
         </span>
         <span className="aim-row-side">
-          {n.priceRu && <Val className="num" value={n.priceRu} />}
+          {/* Длинная вилка в строке списка отжимает заголовок: показываем только короткую, полная в карточке. */}
+          {n.priceRu && n.priceRu.length <= 28 && <Val className="num" value={n.priceRu} />}
           {deep > 0 && (
             <span>
               внутри <span className="num">{deep}</span>
